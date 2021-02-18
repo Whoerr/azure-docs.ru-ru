@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 46be3349490f04660d4fc8b69e4cdc295d8ecc1c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d85aa1b66170acb25bd88435b83b1d28cda954f0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945803"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093598"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Настройка кластеров Azure HDInsight с помощью действий сценариев
 
@@ -68,7 +68,7 @@ Azure HDInsight предоставляет метод настройки, наз
 Дополнительные сведения об управлении доступом:
 
 - [Начало работы с управлением доступом на портале Azure](../role-based-access-control/overview.md)
-- [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md)
+- [Назначение ролей Azure для управления доступом к ресурсам подписки Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="methods-for-using-script-actions"></a>Методы для использования действий скрипта
 
@@ -125,7 +125,7 @@ Status            : Succeeded
 
 В HDInsight доступны скрипты для установки следующих компонентов в кластерах HDInsight.
 
-| ИМЯ | Сценарий |
+| Имя | Скрипт |
 | --- | --- |
 | добавление учетной записи хранения Azure; |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Ознакомьтесь со статьей [Добавление дополнительных учетных записей хранения в HDInsight](hdinsight-hadoop-add-storage.md). |
 | установка Hue; |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Ознакомьтесь со статьей [Установка и использование Hue на кластерах HDInsight Hadoop](hdinsight-hadoop-hue-linux.md). |
@@ -150,7 +150,7 @@ Status            : Succeeded
     | Свойство | Значение |
     | --- | --- |
     | Выберите скрипт | Чтобы использовать собственный скрипт, выберите __Настраиваемый__. В противном случае выберите один из предоставленных скриптов. |
-    | ИМЯ |Укажите имя для действия сценария. |
+    | Имя |Укажите имя для действия сценария. |
     | URI bash-скрипта |Укажите URI сценария. |
     | Головной/рабочий/ZooKeeper |Укажите узлы, на которых выполняется скрипт: **head**, **Worker** или **ZooKeeper**. |
     | Параметры |Укажите параметры, если они требуются для сценария. |
@@ -223,7 +223,7 @@ Status            : Succeeded
     | Свойство | Значение |
     | --- | --- |
     | Выберите скрипт | Чтобы использовать собственный скрипт, выберите __Пользовательский__. В противном случае выберите предоставленный скрипт. |
-    | ИМЯ |Укажите имя для действия сценария. |
+    | Имя |Укажите имя для действия сценария. |
     | URI bash-скрипта |Укажите URI сценария. |
     | Головной, рабочий или Zookeeper |Укажите узлы, на которых выполняется скрипт: **head**, **Worker** или **ZooKeeper**. |
     | Параметры |Укажите параметры, если они требуются для сценария. |
@@ -279,7 +279,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ## <a name="view-history-and-promote-and-demote-script-actions"></a>Представление журнала, повышение уровня и изменение типа действий сценариев
 
-### <a name="the-azure-portal"></a>портал Azure;
+### <a name="the-azure-portal"></a>Портал Azure
 
 1. Войдите в [портал Azure](https://portal.azure.com) и нахождение своего кластера.
 
@@ -299,7 +299,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-| командлет | Функция |
+| командлет | Компонент |
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |Получение сведений о действиях сохраняемого сценария Этот командлет не отменяет действия, выполняемые сценарием, он удаляет только флаг PERSISTED.|
 | `Get-AzHDInsightScriptActionHistory` |Получение журнала действий сценариев, применяемых в кластере, или сведений о конкретном сценарии. |
@@ -312,7 +312,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="azure-cli"></a>Azure CLI
 
-| Команда | Описание |
+| Get-Help | Описание |
 | --- | --- |
 | [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |Удаляет указанное действие сохраненного скрипта в кластере. Эта команда не отменяет действия, выполненные сценарием, но удаляет только флаг PERSISTED.|
 |[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|Для выполнения действий скриптов в указанном кластере HDInsight.|
@@ -328,7 +328,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 > [!NOTE]  
 > В этом примере также показано, как установить приложение HDInsight с помощью пакета SDK для .NET.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * [Разработка действий сценариев с помощью HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Добавление дополнительных учетных записей хранения Azure в HDInsight](hdinsight-hadoop-add-storage.md)

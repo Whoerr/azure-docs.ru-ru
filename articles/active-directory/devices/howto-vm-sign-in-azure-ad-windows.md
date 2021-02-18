@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 66958e275a6dee13244f0f283b1ee1dbb5d40470
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761005"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093448"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Вход в виртуальную машину Windows в Azure с помощью проверки подлинности Azure Active Directory (Предварительная версия)
 
@@ -32,7 +32,7 @@ ms.locfileid: "98761005"
 - Больше не требуется управлять учетными записями локального администратора.
 - Azure RBAC позволяет предоставлять соответствующий доступ к виртуальным машинам в зависимости от необходимости и удалять его, если он больше не нужен.
 - Перед предоставлением доступа к виртуальной машине условный доступ Azure AD может применять дополнительные требования, например: 
-   - Многофакторная Идентификация
+   - многофакторную идентификацию;
    - Проверка риска при входе
 - Автоматизируйте и масштабируйте присоединение Azure AD к виртуальным машинам Windows Azure, которые являются частью развертывания VDI.
 
@@ -194,9 +194,9 @@ az role assignment create \
 
 Дополнительные сведения об использовании Azure RBAC для управления доступом к ресурсам подписки Azure см. в следующих статьях:
 
-- [Добавление и удаление назначений ролей Azure с помощью Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Добавление и удаление назначений ролей Azure с помощью портала Azure](../../role-based-access-control/role-assignments-portal.md)
-- [Добавление или удаление назначений ролей Azure с помощью Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+- [Назначение ролей Azure с помощью Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Назначение ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Назначение ролей Azure с помощью Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Использование условного доступа
 
@@ -373,6 +373,6 @@ az role assignment create \
 
 Поделитесь своими отзывами об этой предварительной версии функции или сообщите о проблемах с ее помощью на [форуме обратной связи Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Дополнительные сведения об Azure Active Directory см. в статье [Что такое Azure Active Directory](../fundamentals/active-directory-whatis.md).

@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f144c1f09f87e0b915daf86ba0391c2934e60095
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c028dcf6649da9abd196997d077b58386a5e6dd9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932682"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092794"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Ссылка на REST API Azure Active Directory авторизации
 
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Управление назначениями ролей
 
-Вы можете управлять назначениями ролей с помощью [процедур RBAC](../role-based-access-control/overview.md) , которые являются стандартными для всех служб Azure. Это можно сделать с помощью Azure CLI, PowerShell и портал Azure. Дополнительные сведения см. [в статье Добавление и удаление назначений ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md).
+Вы можете управлять назначениями ролей с помощью [процедур Azure RBAC](../role-based-access-control/overview.md) , которые являются стандартными для всех служб Azure. Это можно сделать с помощью Azure CLI, PowerShell и портал Azure. Дополнительные сведения см. [в статье назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md).

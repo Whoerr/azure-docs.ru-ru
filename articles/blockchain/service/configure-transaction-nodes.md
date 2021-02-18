@@ -4,12 +4,12 @@ description: Настройка узлов транзакций службы Azu
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150880"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091269"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Настройка узлов транзакций службы Azure Блокчейн
 
@@ -69,13 +69,13 @@ ms.locfileid: "92150880"
 
     | Параметр | Действие |
     |---------|-------------|
-    | Роль | Выберите **владелец**, **участник**или **читатель**.
+    | Роль | Выберите **владелец**, **участник** или **читатель**.
     | Назначение доступа для | Выберите **пользователя Azure AD, группу или субъект-службу**.
     | Выберите пункт | Найдите пользователя, группу или субъект-службу, которые нужно добавить.
 
 1. Нажмите кнопку **сохранить** , чтобы добавить назначение ролей.
 
-Дополнительные сведения об управлении доступом Azure AD см. [в статье Добавление и удаление назначений ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md)
+Дополнительные сведения об управлении доступом Azure AD см. [в статье назначение ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md)
 
 Дополнительные сведения о подключении с использованием проверки подлинности Azure AD см. в статье [Подключение к узлу с помощью проверки подлинности AAD](configure-aad.md).
 

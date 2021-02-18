@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0396415593f2d0f41abc55433bb8f19c4913ac26
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a40ce1fd7b3d9d946641c91f5876d8c73755b005
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954146"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092259"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Создание задания с несколькими выходами преобразования
 
@@ -68,6 +68,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
     return transform;
 }
 ```
+
 ## <a name="submit-a-job"></a>Отправка задания
 
 Создайте задание с входными URL-адресами HTTPS и двумя выходными данными задания.
@@ -136,6 +137,6 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 См. статью о [кодах ошибок](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 [Примеры для служб мультимедиа Azure v3 с использованием .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 

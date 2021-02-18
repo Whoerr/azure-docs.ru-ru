@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: c49ee2778d3198cc7109c34bceb1591756d82b1c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 502f93df8d9948a6d6682b14ea13b59e324833cb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653454"
+ms.locfileid: "101091472"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Поддержка языков и голосов в службе "Речь"
 
@@ -191,6 +191,7 @@ REST API и пакет SDK службы "Речь" (Майкрософт) по�
 | Финский (Финляндия) | `fi-FI` | Жен. | `fi-FI-SelmaNeural` <sup>Создать</sup> | Общие сведения |
 | Финский (Финляндия) | `fi-FI` | Муж. | `fi-FI-HarriNeural` <sup>Создать</sup> | Общие сведения |
 | Французский (Канада) | `fr-CA` | Жен. | `fr-CA-SylvieNeural` | Общие сведения |
+| Французский (Канада) | `fr-CA` | Муж. | `fr-CA-AntoineNeural` <sup>Создать</sup> | Общие сведения |
 | Французский (Канада) | `fr-CA` | Муж. | `fr-CA-JeanNeural` | Общие сведения |
 | Французский (Франция) | `fr-FR` | Жен. | `fr-FR-DeniseNeural` | Общие сведения |
 | Французский (Франция) | `fr-FR` | Муж. | `fr-FR-HenriNeural` | Общие сведения |

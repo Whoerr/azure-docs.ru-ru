@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055082"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095455"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Управление сообщениями электронной почты, контактами и календарями в Office 365 Outlook с помощью Azure Logic Apps
 
@@ -98,7 +98,7 @@ ms.locfileid: "99055082"
 
   1. В меню группы ресурсов приложения логики выберите **Управление доступом (IAM)**. Настройте другую учетную запись с ролью **участника** . 
   
-     Дополнительные сведения см. в статье о [добавлении и удалении назначений ролей Azure с помощью портала Azure](../role-based-access-control/role-assignments-portal.md).
+     Дополнительные сведения см. [в статье назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md).
 
   1. После настройки этой роли Войдите в портал Azure с учетной записью, у которой теперь есть разрешения участника. Теперь эту учетную запись можно использовать для создания подключения к Outlook.
 

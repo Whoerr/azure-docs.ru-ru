@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547168"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094554"
 ---
 # <a name="secure-azure-digital-twins"></a>Защита цифровых двойников Azure
 
@@ -55,7 +55,7 @@ Azure предоставляет **две встроенные роли Azure** 
 | Модуль чтения данных Azure Digital двойников | Предоставляет доступ только для чтения к ресурсам Azure Digital двойников | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 Назначить роли можно двумя способами.
-* с помощью панели управления доступом (IAM) для Azure Digital двойников в портал Azure (см. статью [*Добавление и удаление назначений ролей Azure с помощью портал Azure*](../role-based-access-control/role-assignments-portal.md)).
+* с помощью панели управления доступом (IAM) для Azure Digital двойников в портал Azure (см. раздел [*назначение ролей Azure с помощью портал Azure*](../role-based-access-control/role-assignments-portal.md)).
 * Добавление или удаление роли с помощью команд интерфейса командной строки
 
 Дополнительные сведения о том, как это сделать, см. в учебнике по цифровым двойников Azure [*: подключение комплексного решения*](tutorial-end-to-end.md).
@@ -155,7 +155,7 @@ Azure Digital двойников сейчас не поддерживает **о
 * Удалить Заголовок CORS `Access-Control-Allow-Origin` из сообщения. Этот заголовок указывает, можно ли предоставить общий доступ к ответу. 
 * Кроме того, можно создать прокси-сервер CORS и сделать REST API Azure Digital двойников. 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Следующие шаги
 
 * Сведения об этих концепциях см. в разделе [*как настроить экземпляр и проверку подлинности*](how-to-set-up-instance-portal.md).
 

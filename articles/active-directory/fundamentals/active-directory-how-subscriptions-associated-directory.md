@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a39340f44e2c6eeae5b5f1a8e687bc73b3b0fe
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028416"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094284"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Связывание или добавление подписки Azure в клиент Azure Active Directory
 
@@ -37,7 +37,7 @@ ms.locfileid: "97028416"
 >
 > Перемещение кластера Azure Kubernetes Service (AKS) в другую подписку или перемещение владения кластером в новый клиент приводит к потере функциональности кластера из-за потери назначений ролей и прав субъекта-службы. Дополнительные сведения о AKS см. в статье [Azure Kubernetes Service (AKS)](../../aks/index.yml).
 
-## <a name="before-you-begin"></a>Перед началом
+## <a name="before-you-begin"></a>Подготовка к работе
 
 Прежде чем можно будет связать или добавить подписку, выполните следующие действия.
 
@@ -52,7 +52,7 @@ ms.locfileid: "97028416"
 
 - Войдите, используя учетную запись, которая:
 
-  - Имеет назначение роли [владельца](../../role-based-access-control/built-in-roles.md#owner) для подписки. Сведения о назначении роли владельца см. [в разделе Добавление или удаление назначений ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md).
+  - Имеет назначение роли [владельца](../../role-based-access-control/built-in-roles.md#owner) для подписки. Сведения о назначении роли владельца см. [в статье назначение ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md).
   - Существует и в текущем каталоге, и в новом каталоге. Текущий каталог связан с подпиской. Вы свяжете новый каталог с подпиской. Дополнительные сведения о получении доступа к другому каталогу см. [в разделе добавление Azure Active Directory пользователей службы совместной работы B2B в портал Azure](../external-identities/add-users-administrator.md).
 
 - Убедитесь, что не используете следующие подписки: поставщики облачных служб Azure (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), внутренняя подписка Майкрософт (MS-AZR-0015P) или Microsoft Imagine (MS-AZR-0144P).
@@ -93,7 +93,7 @@ ms.locfileid: "97028416"
 
 - Дополнительные сведения см. в статье [Перенос подписки Azure в другой каталог Azure AD](../../role-based-access-control/transfer-subscription.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 - Сведения о создании нового клиента Azure AD см. [в разделе Краткое руководство. Создание нового клиента в Azure Active Directory](active-directory-access-create-new-tenant.md).
 

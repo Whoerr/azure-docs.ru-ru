@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c8c9f1deb1b776a818269909b3feb19f00a2c356
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954282"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092292"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Кодирование с помощью пользовательского преобразования — .NET
 
@@ -32,7 +32,7 @@ ms.locfileid: "98954282"
 * Все значения высоты и ширины в содержимом AVC должны быть кратными 4.
 * В службах мультимедиа Azure v3 все скорости кодирования находятся в битах в секунду. Это отличается от предустановок с помощью API v2, которые использовались в килобитах в секунду в качестве единицы измерения. Например, если скорость в v2 была указана как 128 (килобит в секунду), то в v3 будет установлено значение 128000 (бит/сек).
 
-## <a name="prerequisites"></a>Предварительные требования 
+## <a name="prerequisites"></a>Предварительные требования
 
 [Создание учетной записи Служб мультимедиа](./create-account-howto.md)
 
@@ -46,7 +46,7 @@ ms.locfileid: "98954282"
  
 Пример настраиваемой предустановки находится в папке [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/).
 
-## <a name="create-a-transform-with-a-custom-preset"></a>Создание преобразования с помощью настраиваемой предустановки 
+## <a name="create-a-transform-with-a-custom-preset"></a>Создание преобразования с помощью настраиваемой предустановки
 
 При создании [преобразования](/rest/api/media/transforms) необходимо указать, что требуется создать в качестве выходных данных. Обязательный параметр — это объект [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), как показано в приведенном ниже примере кода. Каждый объект **TransformOutput** содержит **предустановку** (Preset). Эта **Предустановка** описывает пошаговые инструкции по обработке видео и (или) аудио-обработки, которые используются для создания нужных **трансформаутпут**. Следующая предустановка **TransformOutput** создает настраиваемый кодек и параметры слоя вывода.
 
@@ -58,6 +58,6 @@ ms.locfileid: "98954282"
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 [Файлы потоковой передачи](stream-files-tutorial-with-api.md) 

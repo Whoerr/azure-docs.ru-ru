@@ -15,12 +15,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 9074fdbf31cdd8516b8d42f7cc13b4bc16f6634a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740318"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095732"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Делегирование администрирования в Azure Active Directory
 
@@ -38,7 +38,7 @@ ms.locfileid: "98740318"
 
 На портале Azure AD вы можете [просмотреть всех участников любой роли](manage-roles-portal.md), быстро оценить ситуацию в развертывании и делегировать полномочия.
 
-Если вы заинтересованы в делегировании доступа к ресурсам Azure, а не административному доступу в Azure AD, см. статью [назначение роли Azure](../../role-based-access-control/role-assignments-portal.md).
+Если вы заинтересованы в делегировании доступа к ресурсам Azure, а не административному доступу в Azure AD, см. статью [назначение ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="delegation-planning"></a>Планирование делегирования
 

@@ -3,12 +3,12 @@ title: Создание панелей мониторинга Azure програ
 description: Используйте панель мониторинга в портал Azure в качестве шаблона для программного создания панелей мониторинга Azure. Включает Справочник по JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745814"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095171"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Создание панелей мониторинга Azure программными средствами
 
@@ -46,7 +46,7 @@ ms.locfileid: "96745814"
 
 ![Совместное использование панели мониторинга](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-При выборе команды **поделиться** предлагается выбрать подписку и группу ресурсов для публикации. Необходимо иметь доступ на запись к выбранной подписке и группе ресурсов. Дополнительные сведения см. в статье о [добавлении и удалении назначений ролей Azure с помощью портала Azure](../role-based-access-control/role-assignments-portal.md).
+При выборе команды **поделиться** предлагается выбрать подписку и группу ресурсов для публикации. Необходимо иметь доступ на запись к выбранной подписке и группе ресурсов. Дополнительные сведения см. [в статье назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![внесение изменений в общий доступ и доступ](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -665,7 +665,7 @@ az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Обновить панель мониторинга можно с помощью команды [AZ Portal панель обновления](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) .
+Панель мониторинга можно обновить с помощью команды [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update).
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -678,20 +678,20 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-Чтобы просмотреть все панели мониторинга для текущей подписки, используйте команду [AZ Portal Dashboard List](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Чтобы просмотреть все панели мониторинга для текущей подписки, используйте [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list).
 
 ```azurecli
 az portal dashboard list
 ```
 
-Вы также можете просмотреть все панели мониторинга для группы ресурсов:
+Вы также можете просмотреть все панели мониторинга для группы ресурсов.
 
 ```azurecli
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Дополнительные сведения о настольных компьютерах см. в разделе [Управление параметрами и](set-preferences.md)настройками портал Azure.
 
-Дополнительные сведения о поддержке Azure CLI для панелей мониторинга см. в статье [AZ Portal панель мониторинга](/cli/azure/ext/portal/portal/dashboard).
+Дополнительные сведения о поддержке Azure CLI для панелей мониторинга см. в описании команды [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).

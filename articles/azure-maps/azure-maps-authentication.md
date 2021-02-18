@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905321"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094089"
 ---
 # <a name="authentication-with-azure-maps"></a>Аутентификация в Azure Maps
 
@@ -84,13 +84,13 @@ Azure Maps поддерживает доступ ко всем типам уча
 
 В следующих разделах обсуждаются основные понятия и компоненты интеграции Azure Maps с Azure RBAC. В рамках процесса настройки учетной записи Azure Maps каталог Azure AD связывается с подпиской Azure, в которой находится учетная запись Azure Maps. 
 
-При настройке Azure RBAC вы выбираете субъект безопасности и применяете его к назначению роли. Дополнительные сведения о добавлении назначений ролей в портал Azure см. в статье [Добавление и удаление назначений ролей Azure](../role-based-access-control/role-assignments-portal.md).
+При настройке Azure RBAC вы выбираете субъект безопасности и применяете его к назначению роли. Дополнительные сведения о добавлении назначений ролей в портал Azure см. в статье [назначение ролей Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Выбор определения роли
 
 Для поддержки сценариев приложений существуют следующие типы определений ролей.
 
-| Определение роли Azure       | Описание:                                                                                              |
+| Определение роли Azure       | Описание                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Читатель данных Azure Maps      | Предоставляет доступ к неизменяемым Azure Maps API-интерфейсам RESTFUL.                                                       |
 | Участник данных Azure Maps | Предоставляет доступ к изменяемым Azure Maps API-интерфейсам RESTFUL. Изменяемость определяется действиями: Write и DELETE. |
@@ -129,7 +129,7 @@ Azure Maps поддерживает доступ ко всем типам уча
 > [!TIP]
 > Общей рекомендацией корпорации Майкрософт является назначение доступа к области учетной записи Azure Maps, так как она предотвращает **непреднамеренное обращение к другим учетным записям Azure Maps** , существующим в той же подписке Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Дополнительные сведения об Azure RBAC см. в разделе
 > [!div class="nextstepaction"]

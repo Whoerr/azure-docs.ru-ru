@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693164"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094002"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Механизм безопасности. Авторизация | Устранение рисков 
 | Продукт или служба | Статья |
@@ -237,7 +237,7 @@ WHERE userID=:id < - session var
 | **Этап SDL**               | Сборка |  
 | **Применимые технологии** | Универсальный шаблон |
 | **Атрибуты**              | Недоступно  |
-| **Справочные материалы**              | [Добавление или удаление назначений ролей Azure для управления доступом к ресурсам подписки Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Справочные материалы**              | [Назначение ролей Azure для управления доступом к ресурсам подписки Azure](../../role-based-access-control/role-assignments-portal.md)  |
 | **Шаги** | Управление доступом на основе ролей в Azure (Azure RBAC) обеспечивает детальное управление доступом для Azure. С помощью Azure RBAC можно предоставить пользователям доступ только для выполнения своих заданий.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Ограничение доступа клиента к операциям кластера с помощью Service Fabric RBAC

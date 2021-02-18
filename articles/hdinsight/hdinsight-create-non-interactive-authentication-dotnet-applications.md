@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
-ms.openlocfilehash: 121c5850ef47999f54d206b95b69e10775d3e5c9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0fffe763f77fffcec6010d43deb92ffea9ece15d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946091"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094916"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Создание приложения .NET HDInsight с неинтерактивной проверкой подлинности
 
@@ -28,11 +28,11 @@ ms.locfileid: "98946091"
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Назначение роли приложению Azure AD
 
-Назначьте приложению Azure AD определенную [роль](../role-based-access-control/built-in-roles.md), чтобы предоставить ему разрешения на выполнение действий. Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуют более низкие уровни области действия. Например, Добавление приложения в роль читатель для группы ресурсов означает, что приложение может считывать группу ресурсов и все ресурсы в ней. В этой статье вы настроите область на уровне группы ресурсов. Дополнительные сведения см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md).
+Назначьте приложению Azure AD определенную [роль](../role-based-access-control/built-in-roles.md), чтобы предоставить ему разрешения на выполнение действий. Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуют более низкие уровни области действия. Например, Добавление приложения в роль читатель для группы ресурсов означает, что приложение может считывать группу ресурсов и все ресурсы в ней. В этой статье вы настроите область на уровне группы ресурсов. Дополнительные сведения см. в статье [назначение ролей Azure для управления доступом к ресурсам подписки Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Добавление роли владельца в приложение Azure AD**
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
 1. Перейдите к группе ресурсов с кластером HDInsight, в которой будет выполняться запрос Hive далее в этой статье. Если у вас много групп ресурсов, для поиска нужной можно использовать фильтр.
 1. В меню группы ресурсов щелкните **Управление доступом (IAM)**.
 1. Выберите вкладку **Назначения ролей**, чтобы просмотреть текущие назначения ролей.
@@ -116,7 +116,7 @@ ms.locfileid: "98946091"
     }
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 * [Создание приложения Azure Active Directory и субъекта-службы на портале Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 * Узнайте, как [выполнять проверку подлинности субъекта-службы в Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).

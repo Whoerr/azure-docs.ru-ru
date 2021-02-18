@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565931"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095521"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Автоматическое резервное копирование хранилищ конфигурации приложений
 
@@ -39,7 +39,7 @@ ms.locfileid: "94565931"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-## <a name="prerequisites"></a>Предварительные условия 
+## <a name="prerequisites"></a>Предварительные требования 
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) с рабочей нагрузкой разработки Azure.
 
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Для выполнения требуемого создания ресурсов и управления ролями учетной записи требуются `Owner` разрешения в соответствующей области (ваша подписка или группа ресурсов). Если вам нужна помощь с назначением ролей, Узнайте, [как добавлять или удалять назначения ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md).
+> Для выполнения требуемого создания ресурсов и управления ролями учетной записи требуются `Owner` разрешения в соответствующей области (ваша подписка или группа ресурсов). Если вам нужна помощь с назначением ролей, Узнайте, [как назначать роли Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md).
 
 Используйте следующие команды или [портал Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) , чтобы предоставить управляемому удостоверению приложения функции доступ к хранилищам конфигурации приложения. Используйте следующие роли:
 - Назначьте `App Configuration Data Reader` роль в основном хранилище конфигураций приложений.
@@ -240,7 +240,7 @@ az appconfig kv show --name $secondaryAppConfigName --key Foo
 }
 ```
 
-## <a name="troubleshooting"></a>Диагностика
+## <a name="troubleshooting"></a>Устранение неполадок
 
 Если вы не видите новый параметр в дополнительном хранилище:
 
@@ -258,7 +258,7 @@ az appconfig kv show --name $secondaryAppConfigName --key Foo
 az group delete --name $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Теперь, когда вы узнали, как настроить автоматическую архивацию значений ключей, Узнайте больше о том, как можно повысить геоустойчивость приложения.
 

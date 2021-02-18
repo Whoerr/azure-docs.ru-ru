@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576588"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095715"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Устранение неполадок приложения в Cлужбе приложений Azure с помощью Visual Studio
 ## <a name="overview"></a>Обзор
@@ -49,7 +49,7 @@ Visual Studio обеспечивает доступ к сокращенному 
    >
    >
 
-    Дополнительные сведения о подключении к ресурсам Azure из Visual Studio см. в разделе [Управление учетными записями, подписками и административными ролями](../role-based-access-control/role-assignments-portal.md).
+    Дополнительные сведения о подключении к ресурсам Azure из Visual Studio см. [в статье назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md).
 2. В **обозревателе сервера** разверните узел **Azure**, а затем — узел **Служба приложений**.
 3. Разверните группу ресурсов, которая содержит [приложение ASP.NET, созданное в Службе приложений Azure](quickstart-dotnet-framework.md), а затем щелкните узел этого приложения правой кнопкой мыши и выберите **Просмотреть параметры**.
 

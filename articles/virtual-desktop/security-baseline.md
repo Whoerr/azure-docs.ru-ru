@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 01cd79afe3e718a32663544a76a2a43353bc082e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42795e2dda6df24e656c9c06f6a9424bd9e4b5cb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575387"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092975"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Базовый план безопасности Azure для виртуальных рабочих столов Windows
 
@@ -328,7 +328,7 @@ Azure AD поддерживает внешние удостоверения, к�
 
 - [Что такое управление доступом на основе ролей в Azure (Azure RBAC)](../role-based-access-control/overview.md) 
 
-- [Настройка RBAC в Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Настройка Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [Использование проверок доступа для идентификации Azure AD](../active-directory/governance/access-reviews-overview.md)
 

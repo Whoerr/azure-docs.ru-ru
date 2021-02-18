@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aabaad54dce52d57aaa4689f591351e290b0f9a3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371258"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093689"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Управление группами ресурсов Azure Resource Manager с помощью портала Azure.
 
@@ -32,7 +32,7 @@ ms.locfileid: "91371258"
 
 ## <a name="create-resource-groups"></a>Создание группы ресурсов
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
 2. Выбор **групп ресурсов**
 
     ![добавление группы ресурсов](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
@@ -52,7 +52,7 @@ ms.locfileid: "91371258"
 
 ## <a name="list-resource-groups"></a>Перечислить группы ресурсов
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
 2. Чтобы вывести список групп ресурсов, выберите **группы ресурсов** .
 
     ![просмотр групп ресурсов](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
@@ -61,8 +61,8 @@ ms.locfileid: "91371258"
 
 ## <a name="open-resource-groups"></a>Открытие групп ресурсов
 
-1. Войдите на [портал Azure](https://portal.azure.com).
-2. Выберите **группы ресурсов**.
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
+2. Выберите элемент **Группы ресурсов**.
 3. Выберите группу ресурсов, которую необходимо открыть.
 
 ## <a name="delete-resource-groups"></a>Удаление групп ресурсов
@@ -89,11 +89,11 @@ ms.locfileid: "91371258"
 1. Откройте группу ресурсов, которую требуется заблокировать.  См. раздел [Открытие групп ресурсов](#open-resource-groups).
 2. В левой области выберите **блокировки**.
 3. Чтобы добавить блокировку в группу ресурсов, нажмите кнопку **Добавить**.
-4. Введите **Имя блокировки**, **тип блокировки**и **Примечания**. Типы блокировки включают **только чтение**и **Удаление**.
+4. Введите **Имя блокировки**, **тип блокировки** и **Примечания**. Типы блокировки включают **только чтение** и **Удаление**.
 
     ![Блокировка группы ресурсов Azure](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
-Дополнительные сведения см. [в разделе Блокировка ресурсов для предотвращения непредвиденных изменений](lock-resources.md).
+Дополнительные сведения см. в статье [Блокировка ресурсов для предотвращения непредвиденных изменений](lock-resources.md).
 
 ## <a name="tag-resource-groups"></a>Теги для групп ресурсов
 
@@ -105,9 +105,9 @@ ms.locfileid: "91371258"
 
 ## <a name="manage-access-to-resource-groups"></a>Управление доступом к группам ресурсов
 
-Управление [доступом на основе ролей в Azure (Azure RBAC)](../../role-based-access-control/overview.md) — это способ управления доступом к ресурсам в Azure. Дополнительные сведения см. в статье о [добавлении и удалении назначений ролей Azure с помощью портала Azure](../../role-based-access-control/role-assignments-portal.md).
+Управление [доступом на основе ролей в Azure (Azure RBAC)](../../role-based-access-control/overview.md) — это способ управления доступом к ресурсам в Azure. Дополнительные сведения см. [в статье назначение ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Следующие шаги
 
 - Сведения о Azure Resource Manager см. в разделе [Общие сведения о Azure Resource Manager](overview.md).
 - Сведения о синтаксисе шаблона диспетчер ресурсов см. в разделе [Общие сведения о структуре и синтаксисе шаблонов Azure Resource Manager](../templates/template-syntax.md).

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370060"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093385"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Развертывание примера средства создания меток
 
@@ -69,19 +69,8 @@ ms.locfileid: "100370060"
    > ![Выбор DOCKER](./media/quickstarts/select-docker.png)
 
 6. Теперь настроим контейнер DOCKER. Все поля являются обязательными, если не указано иное.
-
-    # <a name="v20"></a>[Версия 2.0](#tab/v2-0)
-
-* Параметры — выберите **один контейнер**
-* Источник образа — выберите **частный реестр** 
-* URL-адрес сервера — установите значение `https://mcr.microsoft.com`
-* Username (необязательно) — создайте имя пользователя. 
-* Пароль (необязательно). Создайте защищенный пароль, который вы помните.
-* Изображение и тег. Задайте для этого свойства значение `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* Непрерывное развертывание — задайте значение **On** , если вы хотите получить автоматические обновления, когда команда разработчиков вносит изменения в пример средства создания меток.
-* Команда запуска — задает значение `./run.sh eula=accept`
-
-    # <a name="v21-preview"></a>[Предварительная версия 2.1](#tab/v2-1) 
+<!-- markdownlint-disable MD025 -->
+# <a name="v21-preview"></a>[Предварительная версия 2.1](#tab/v2-1)
 
 * Параметры — выберите **один контейнер**
 * Источник образа — выберите **частный реестр** 
@@ -92,7 +81,18 @@ ms.locfileid: "100370060"
 * Непрерывное развертывание — задайте значение **On** , если вы хотите получить автоматические обновления, когда команда разработчиков вносит изменения в пример средства создания меток.
 * Команда запуска — задает значение `./run.sh eula=accept`
 
-    ---
+# <a name="v20"></a>[Версия 2.0](#tab/v2-0)  
+
+* Параметры — выберите **один контейнер**
+* Источник образа — выберите **частный реестр** 
+* URL-адрес сервера — установите значение `https://mcr.microsoft.com`
+* Username (необязательно) — создайте имя пользователя. 
+* Пароль (необязательно). Создайте защищенный пароль, который вы помните.
+* Изображение и тег. Задайте для этого свойства значение `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Непрерывное развертывание — задайте значение **On** , если вы хотите получить автоматические обновления, когда команда разработчиков вносит изменения в пример средства создания меток.
+* Команда запуска — задает значение `./run.sh eula=accept`
+
+ ---
 
    > [!div class="mx-imgBorder"]
    > ![Настройка Docker](./media/quickstarts/configure-docker.png)
@@ -104,7 +104,7 @@ ms.locfileid: "100370060"
 
 > [!IMPORTANT]
 > Может потребоваться включить TLS для веб-приложения, чтобы просмотреть его по `https` адресу. Следуйте инструкциям в разделе [Включение конечной точки TLS](../../container-instances/container-instances-container-group-ssl.md) для настройки контейнера расширения, чем включение TLS/SSL для веб-приложения.
-
+<!-- markdownlint-disable MD001 -->
 ### <a name="azure-cli"></a>Azure CLI
 
 В качестве альтернативы использованию портал Azure можно создать ресурс с помощью Azure CLI. Прежде чем продолжить, необходимо установить [Azure CLI](/cli/azure/install-azure-cli). Этот шаг можно пропустить, если вы уже работаете с Azure CLI. 
@@ -113,12 +113,32 @@ ms.locfileid: "100370060"
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` Создает случайное DNS-имя. 
 * В этом примере предполагается, что у вас есть группа ресурсов, которую можно использовать для создания ресурса. Замените `<resource_group_name>` допустимой группой ресурсов, связанной с вашей подпиской. 
-* Необходимо указать, где вы хотите создать ресурс. Замените на `<region name>` нужный регион для веб-приложения. 
+* Необходимо указать, где вы хотите создать ресурс. Замените на `<region name>` нужный регион для веб-приложения.
 * Эта команда автоматически принимает условия лицензионного соглашения.
 
 В Azure CLI выполните следующую команду, чтобы создать ресурс веб-приложения для примера средства создания меток.
 
+<!-- markdownlint-disable MD024 -->
+# <a name="v21-preview"></a>[Предварительная версия 2.1](#tab/v2-1)
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
+
+```
+
 # <a name="v20"></a>[Версия 2.0](#tab/v2-0)
+
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -133,24 +153,8 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-`
+``` 
 
-# [v2.1 preview](#tab/v2-1) 
-   
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
 
 ---
 

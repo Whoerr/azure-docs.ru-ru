@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b71c5426b6fba6f232b5a7aa42347f6b25d46299
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099954"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094953"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Устранение распространенных проблем с агентом виртуальных рабочих столов Windows
 
@@ -269,6 +269,7 @@ Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostp
 - Вы не видите виртуальные машины в списке узлов сеансов
 - **Загрузчик агента удаленный рабочий стол** не отображается в окне "службы"
 - Компонент **рдажентбутлоадер** не отображается в диспетчере задач.
+- Вы получаете **посредник подключений, не смог проверить ошибку параметров** на виртуальных машинах пользовательских образов
 - Инструкции в этой статье не помогли решить проблему
 
 ### <a name="step-1-uninstall-all-agent-boot-loader-and-stack-component-programs"></a>Шаг 1. Удаление всех программ, запускающих агент, загрузчик и компоненты стека
@@ -343,7 +344,7 @@ Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostp
    > [!div class="mx-imgBorder"]
    > ![Снимок экрана с доступным узлом сеансов](media/hostpool-portal.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Если проблема состоится, создайте обращение в службу поддержки и включите в него подробные сведения о возникшей проблеме и действиях, которые вы предоставили, чтобы попробовать ее устранить. В следующем списке содержатся другие ресурсы, которые можно использовать для устранения неполадок, связанных с развертыванием виртуальных рабочих столов Windows.
 

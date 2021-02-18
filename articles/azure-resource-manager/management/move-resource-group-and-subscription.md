@@ -4,12 +4,12 @@ description: Перемещайте ресурсы в новую группу р
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319560"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093632"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Перемещение ресурсов в новую группу ресурсов или подписку
 
@@ -37,7 +37,7 @@ ms.locfileid: "91319560"
 
 1. При перемещении ресурса с ролью Azure, назначенной непосредственно ресурсу (или дочернему ресурсу), назначение роли не перемещается и становится потерянным. После перемещения необходимо повторно создать назначение ролей. В конечном итоге назначение потерянной роли будет автоматически удалено, но рекомендуется удалить назначение ролей перед перемещением ресурса.
 
-    Сведения об управлении назначениями ролей см. в разделе [список назначений ролей Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) и [Добавление или удаление назначений ролей Azure](../../role-based-access-control/role-assignments-portal.md).
+    Сведения об управлении назначениями ролей см. в разделе [список назначений ролей Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) и [назначение ролей Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Исходная и целевая подписки должны быть активными. Если у вас возникла проблема при включении учетной записи, которая была отключена, [создайте запрос на поддержку Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Выберите тип проблемы **Управление подпиской**.
 
@@ -178,11 +178,11 @@ Authorization: Bearer <access-token>
 
 Чтобы включить параметр переместить, выберите ресурсы, которые требуется переместить. Чтобы выбрать все ресурсы, установите флажок в верхней части списка. Или выберите ресурсы по отдельности. После выбора ресурсов параметр перемещение становится доступным.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="параметр MOVE отключен":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Выбор ресурсов":::
 
 Нажмите кнопку **переместить** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="параметр MOVE отключен":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="Параметры перемещения":::
 
 Эта кнопка предоставляет три варианта:
 
@@ -194,17 +194,17 @@ Authorization: Bearer <access-token>
 
 Выберите целевую группу ресурсов. Подтвердите обновление сценариев для этих ресурсов и нажмите кнопку **ОК**. Если выбрано перемещение в новую подписку, необходимо также выбрать целевую подписку.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="параметр MOVE отключен":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Выбор назначения":::
 
 После проверки возможности перемещения ресурсов вы увидите уведомление о том, что операция перемещения выполняется.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="параметр MOVE отключен":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="уведомлений":::
 
 После ее завершения отобразится уведомление о результате.
 
 Если возникает ошибка, см. статью [Устранение неполадок при перемещении ресурсов Azure в новую группу ресурсов или подписку](troubleshoot-move.md).
 
-## <a name="use-azure-powershell"></a>Использование Azure PowerShell
+## <a name="use-azure-powershell"></a>Использование Azure Powershell
 
 Чтобы переместить существующие ресурсы в другую группу ресурсов или подписку, используйте команду [Move-AzResource](/powershell/module/az.resources/move-azresource). В следующем примере показано, как переместить несколько ресурсов в новую группу ресурсов.
 
@@ -297,6 +297,6 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 Сейчас не все ресурсы в службе поддержки Azure перемещаются. Список ресурсов, поддерживающих перемещение, см. в разделе [Поддержка операций перемещения для ресурсов](move-support-resources.md).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Следующие шаги
 
 Список ресурсов, которые поддерживают перемещение, см. в разделе [Поддержка операций перемещения для ресурсов](move-support-resources.md).

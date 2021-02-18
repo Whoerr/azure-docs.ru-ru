@@ -4,12 +4,12 @@ description: Сведения о защите модулей Pod с помощь
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 34f2bfe346d7163a254e2ccecd1d7ef63ddb4194
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348531"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092629"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Защита групп pod с помощью Политики Azure
 
@@ -60,7 +60,7 @@ ms.locfileid: "93348531"
 Следующие ограничения применяются только к надстройке политики Azure для AKS:
 
 - Невозможно включить [политику безопасности AKS Pod (Предварительная версия)](use-pod-security-policies.md) и надстройку политики Azure для AKS. 
-- Пространства имен, автоматически исключаемые надстройкой политики Azure для оценки: _KUBE-System_ , _привратник-System_ и _AKS-Periscope_.
+- Пространства имен, автоматически исключаемые надстройкой политики Azure для оценки: _KUBE-System_, _привратник-System_ и _AKS-Periscope_. Если вы используете Калико сетевую политику с Kubernetes версии 1,20 и выше, два других пространства имен автоматически исключаются, т. е. _Калико-System_ и _Tiger оператор_.
 
 ### <a name="recommendations"></a>Рекомендации
 
@@ -151,9 +151,9 @@ If the built-in initiatives to address pod security do not match your requiremen
 
 AKS требует, чтобы системные модули запускались в кластере для обеспечения важных служб, таких как разрешение DNS. Политики, ограничивающие функциональность Pod, могут повлиять на стабильность системной Pod. Таким образом, следующие пространства имен **исключаются из оценки политики во время запросов на допускы во время создания, обновления и аудита политики**. Это приведет к тому, что новые развертывания для этих пространств имен будут исключены из политик Azure.
 
-1. KUBE — система
+1. kube-system
 1. Привратник — система
-1. Azure — дуга
+1. azure-arc
 1. AKS — Periscope
 
 Дополнительные пользовательские пространства имен можно исключить из оценки во время создания, обновления и аудита. Эти исключения следует использовать при наличии специализированных модулей Pod, которые выполняются в санкционированном пространстве имен и не вызывают срабатывание нарушений аудита.
@@ -252,7 +252,7 @@ spec:
 kubectl apply -f nginx-unprivileged.yaml
 ```
 
-Модуль POD успешно запланирован. При проверке состояния Pod с помощью команды [kubectl Get][kubectl-get] Pod *выполняется* :
+Модуль POD успешно запланирован. При проверке состояния Pod с помощью команды [kubectl Get][kubectl-get] Pod *выполняется*:
 
 ```console
 $ kubectl get pods
@@ -314,7 +314,7 @@ az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group
 | [Политика безопасности Pod "Стандартный" — "базовый"/"по умолчанию"](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | Пользователь устанавливает базовый ресурс политики безопасности Pod. | Политика Azure предоставляет [встроенную базовую инициативу](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) , которая сопоставляется с базовой политикой безопасности Pod.
 | [Политика безопасности Pod — ограничена по стандарту](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | Пользователь устанавливает ресурс с ограничением политики безопасности Pod. | Политика Azure предоставляет [встроенную ограниченную инициативу](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) , которая сопоставляется с ограниченной политикой безопасности Pod.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 В этой статье показано, как применить политику Azure, которая запрещает развертывание привилегированных модулей Pod, чтобы предотвратить использование привилегированного доступа. Существует множество политик, которые можно применять, например политики, ограничивающие использование томов. Дополнительные сведения о доступных параметрах см. в [справочнике по политикам Azure для Kubernetes][kubernetes-policy-reference].
 
