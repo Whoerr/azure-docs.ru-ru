@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 184d5c98b2b434c87e112c569ff4e8ab347344c5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621642"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091190"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Управление доступом к данным журнала и рабочим областям в Azure Monitor
 
@@ -120,7 +120,7 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 
 ## <a name="manage-access-using-azure-permissions"></a>Управление доступом с помощью разрешений Azure
 
-Чтобы предоставить доступ к рабочей области Log Analytics с помощью разрешений Azure, следуйте указаниям в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../../role-based-access-control/role-assignments-portal.md). Примеры пользовательских ролей см. в разделе [примеры пользовательских ролей](#custom-role-examples) .
+Чтобы предоставить доступ к рабочей области Log Analytics с помощью разрешений Azure, выполните действия, описанные в статье [назначение ролей Azure для управления доступом к ресурсам подписки Azure](../../role-based-access-control/role-assignments-portal.md). Примеры пользовательских ролей см. в разделе [примеры пользовательских ролей](#custom-role-examples) .
 
 В Azure доступны две встроенные роли пользователя для рабочих областей Log Analytics:
 
@@ -134,7 +134,7 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 
 Роль читателя Log Analytics включает следующие действия Azure:
 
-| Type    | Разрешение | Описание |
+| Тип    | Разрешение | Описание |
 | ------- | ---------- | ----------- |
 | Действие | `*/read`   | Возможность просматривать все ресурсы Azure и их конфигурацию. Включает просмотр следующих данных: <br> состояние расширения виртуальной машины; <br> конфигурация диагностики Azure на ресурсах; <br> Все свойства и параметры всех ресурсов. <br> Для рабочих областей это позволяет иметь полные неограниченные разрешения на чтение параметров рабочей области и выполнение запросов к данным. Ознакомьтесь с более детализированными параметрами выше. |
 | Действие | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Не рекомендуется, назначать их пользователям не требуется. |
@@ -308,7 +308,7 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 * Владельцы рабочих областей рассматриваются как другие пользователи для управления доступом на основе таблиц.
 * Рекомендуется назначать роли группам безопасности, а не отдельным пользователям, чтобы сократить количество назначений. Это также позволит использовать существующие средства управления группами для настройки и проверки доступа.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Следующие шаги
 
 * Сведения о сборе данных с компьютеров в центре обработки данных или в другой облачной среде см в статье об [агенте Log Analytics](../agents/log-analytics-agent.md).
 

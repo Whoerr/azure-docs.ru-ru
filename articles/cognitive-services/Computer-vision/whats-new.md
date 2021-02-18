@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007403"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390408"
 ---
 # <a name="whats-new-in-computer-vision"></a>Новые возможности Компьютерного зрения
 
@@ -26,7 +26,7 @@ ms.locfileid: "100007403"
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>В API чтения версии 3.2 (общедоступная предварительная версия) включена функция OCR для 73 языков
 Общедоступная предварительная версия API чтения Компьютерного зрения версии 3.2, доступная в качестве облачной службы и контейнера Docker, включает следующие обновления:
 * [OCR для 73 языков](./language-support.md#optical-character-recognition-ocr), включая упрощенный и традиционный китайский, японский, корейский и латинский языки;
-* естественный порядок чтения для выходных данных строки текста;
+* естественный порядок чтения для выходных данных строки текста (только для латинских языков);
 * классификация стилей рукописного ввода для строк текста и оценка достоверности (только для латинских языков);
 * извлечение текста только для выбранных страниц многостраничного документа;
 * доступность в качестве [бездистрибутивного контейнера](./computer-vision-how-to-install-containers.md?tabs=version-3-2) для локального развертывания.

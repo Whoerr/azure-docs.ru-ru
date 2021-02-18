@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e44515c8ca71d115ced65c9123e2b1ae3bdf23a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ba497094a28e056d5984f1e58e2f15c9d21eae2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578237"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094450"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Базовый план безопасности Azure для Azure Resource Manager
 
@@ -241,7 +241,7 @@ ms.locfileid: "100578237"
 
 **Руководство**. Использование RBAC для Azure AD для управления доступом к данным и ресурсам. в противном случае используйте специфические для службы методы управления доступом.
 
-- [Настройка RBAC в Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Настройка Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 **Мониторинг Центра безопасности Azure**: Неприменимо
 

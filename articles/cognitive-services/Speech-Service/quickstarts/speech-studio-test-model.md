@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/12/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 93a0c171497faa9e87457a03da0b78003feaa533
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485082"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362273"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Тестирование модели с использованием звукового файла в Speech Studio
 
@@ -23,7 +23,7 @@ ms.locfileid: "96485082"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Перед тем как использовать Speech Portal, [следуйте этим инструкциям, чтобы создать Azure и подписаться на службу Speech](../custom-speech-overview.md#set-up-your-azure-account). Эта единая подписка предоставляет доступ к преобразованию речи в текст, преобразованию текста в речь, переводу речи и порталу "Пользовательское распознавание речи".
+Перед тем как использовать Speech Studio, [следуйте этим инструкциям, чтобы создать Azure и подписаться на службу Speech](../custom-speech-overview.md#set-up-your-azure-account). Эта единая подписка предоставляет доступ к преобразованию речи в текст, преобразованию текста в речь, переводу речи и Speech Studio.
 
 ## <a name="download-an-audio-file"></a>Загрузка звукового файла
 
@@ -32,7 +32,7 @@ ms.locfileid: "96485082"
 1. Загрузите **[пример файла WAV по ссылке](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav)** , щелкнув правой кнопкой мыши ссылку и выбрав **Сохранить объект как**. Щелкните **Сохранить**, чтобы загрузить `whatstheweatherlike.wav` файл.
 2. Используя проводник или окно терминала с помощью средства ZIP, создайте ZIP-файл `whatstheweatherlike.zip`, содержащий скачанный файл `whatstheweatherlike.wav`. В Windows можно открыть проводник, перейти к папке `Downloads`, щелкнуть правой кнопкой мыши `whatstheweatherliike.wav`, выбрать пункт **Отправить в**, щелкнуть **Сжатая ZIP-папка** и нажать клавишу ВВОД, чтобы использовать имя файла по умолчанию.
 
-## <a name="create-a-project-in-the-custom-speech-portal"></a>Создание проекта на портале "Пользовательское распознавание речи"
+## <a name="create-a-project-in-the-speech-studio"></a>Создание проекта в Speech Studio
 
 Выполните следующие действия, чтобы создать проект, содержащий ZIP-файл одного звукового файла.
 

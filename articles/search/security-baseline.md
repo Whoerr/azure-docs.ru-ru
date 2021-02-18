@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8c32d06247516611fc79bd6f77b60fec6b73044d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0618e4445629893fbe623df4bc937698bd307c7c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591815"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096568"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Базовый план безопасности Azure для Azure Когнитивный поиск
 
@@ -495,7 +495,7 @@ ms.locfileid: "100591815"
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6. Использование Azure RBAC для управления доступом к ресурсам
 
 **Руководство**. для администрирования служб используйте управление доступом на основе ролей Azure (Azure RBAC) для управления доступом к ключам и конфигурации. Для операций с содержимым, таких как индексирование и запросы, Когнитивный поиск использует ключи вместо модели управления доступом на основе удостоверений. Используйте Azure RBAC для управления доступом к ключам.
-- [Настройка RBAC в Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Настройка Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Использование ролей для административного доступа к Когнитивный поиск](./search-security-rbac.md)

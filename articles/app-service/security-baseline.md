@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d7753de473d90c45fecb20403352a594ef52dafe
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f21c819f82051572e8a3dd01664053ade9196484
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586308"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095039"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Базовый план безопасности Azure для службы приложений
 
@@ -347,7 +347,7 @@ ms.locfileid: "100586308"
 
 - [Использование управляемых удостоверений в Службе приложений и Функциях Azure](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
-- [Добавление и удаление назначений ролей Azure с помощью портала Azure](../role-based-access-control/role-assignments-portal.md)
+- [Назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Мониторинг Центра безопасности Azure**: Да
 
@@ -612,9 +612,9 @@ ms.locfileid: "100586308"
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6. Использование управления доступом на основе ролей для управления доступом к ресурсам
 
-**Руководство**. Использование управления доступом на основе ролей (Azure RBAC) в Azure Active Directory (Azure AD) для управления доступом к плоскости управления службами приложений на портал Azure.
+**Руководство**. Использование управления доступом на основе ролей Azure (Azure RBAC) в Azure Active Directory (Azure AD) для управления доступом к плоскости управления службами приложений на портал Azure.
 
-- [Настройка RBAC в Azure](../role-based-access-control/role-assignments-portal.md)
+- [Настройка Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
 

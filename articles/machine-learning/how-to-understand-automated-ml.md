@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a07b2fc70a21dd192f74eb5260f3444e09cdca0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388215"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092912"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Оценка результатов автоматического эксперимента машинного обучения
 
@@ -192,7 +192,7 @@ explained_variance|Описанная дисперсия измеряет сте
 mean_absolute_error|Средняя абсолютная ошибка — это ожидаемое значение абсолютного значения разности между целевым объектом и прогнозом.<br><br> **Цель:** Ближе к 0 лучше <br> **Диапазон:** [0, INF-файл) <br><br> Типов <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`mean_absolute_error, деленную на диапазон данных. | [Вычисление](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|Среднее значение абсолютной ошибки в процентах (MAPE) — это мера среднего различия между прогнозируемым значением и фактическим значением.<br><br> **Цель:** Ближе к 0 лучше <br> **Диапазон:** [0, INF-файл) ||
 median_absolute_error|Медиана абсолютной погрешности — это медиана всех абсолютных отклонений между целевым и прогнозируемым значениями. Такая потеря устойчива к выбросам.<br><br> **Цель:** Ближе к 0 лучше <br> **Диапазон:** [0, INF-файл)<br><br>Типов <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error, деленную на диапазон данных. |[Вычисление](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score;|R ^ 2 является коэффициентом определения или процентным уменьшением в квадратных ошибках по сравнению с базовой моделью, выводит среднее значение. <br> <br> **Цель:** Ближе к 1 лучше <br> **Диапазон:** [-1, 1] <br><br> Примечание. R ^ 2 часто имеет диапазон (-INF, 1], но автоматизированный ML обрезает отрицательные значения для очень плохих моделей в-1.|[Вычисление](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score;|R<sup>2</sup> (коэффициент определения) измеряет пропорциональное уменьшение в среднем квадрате ошибок (MSE) относительно общей дисперсии наблюдаемых данных. <br> <br> **Цель:** Ближе к 1 лучше <br> **Диапазон:** [-1, 1]<br><br>Примечание. R<sup>2</sup> часто имеет диапазон (-INF, 1]. Размер MSE может быть больше наблюдаемой дисперсии, поэтому R<sup>2</sup> может иметь произвольно большие отрицательные значения в зависимости от данных и прогнозов модели. Автоматический фрагмент машинного обучения сообщил о показателях R<sup>2</sup> в значении-1, поэтому значение-1 для R<sup>2</sup> , скорее всего, означает, что значение true, если показатель r<sup>2</sup> меньше-1. Рассмотрите другие значения метрик и свойства данных при интерпретации отрицательной оценки R<sup>2</sup> .|[Вычисление](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Средняя квадратная ошибка (корень СРЕДНЕКВАДРАТИЧНОЙ ПОГРЕШНОСТИ) — это квадратный корень ожидаемого квадратного различия между целевым объектом и прогнозом. Для несмещенной оценки корень СРЕДНЕКВАДРАТИЧНОЙ ПОГРЕШНОСТИ равно стандартному отклонению.<br> <br> **Цель:** Ближе к 0 лучше <br> **Диапазон:** [0, INF-файл)<br><br>Типов<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error, деленную на диапазон данных. |[Вычисление](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Корень среднего значения ошибки журнала — квадратный корень ожидаемой квадратной логарифмической ошибки.<br><br>**Цель:** Ближе к 0 лучше <br> **Диапазон:** [0, INF-файл) <br> <br>Типов <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: root_mean_squared_log_error, деленную на диапазон данных.  |[Вычисление](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation;| Корреляция Спирмена — это непараметрическая мера монотонности связи между двумя наборами данных. В отличие от корреляции Пирсона, для корреляции Спирмена не предполагается, что оба набора данных используют нормальное распределение. Как и другие коэффициенты корреляции, Спеарман может иметь значение от-1 до 1, и 0 не подразумевает корреляцию. Для корреляций-1 или 1 подразумевается Точная монотонная связь. <br><br> Спеарман — это метрика корреляции порядка ранжирования, которая означает, что изменения в прогнозируемых или фактических значениях не будут приводить к изменению результата Спеарман, если они не меняют порядок ранжирования или фактических значений.<br> <br> **Цель:** Ближе к 1 лучше <br> **Диапазон:** [-1, 1]|[Вычисление](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

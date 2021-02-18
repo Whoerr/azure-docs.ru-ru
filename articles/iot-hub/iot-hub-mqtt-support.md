@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: df706a83c4892c15140e5d5c827a248156b66069
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027804"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095675"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Взаимодействие с Центром Интернета вещей с помощью протокола MQTT
 
@@ -55,9 +55,9 @@ ms.locfileid: "97027804"
 | Язык | Параметр протокола MQTT | Параметр протокола MQTT через веб-сокеты
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable&preserve-view=true).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | Если происходит сбой MQTT, для TransportType.Mqtt используется MQTT через веб-сокеты. Если нужно задать только протокол MQTT через веб-сокеты, используйте TransportType.Mqtt_WebSocket_Only. |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet&preserve-view=true).Mqtt | Если происходит сбой MQTT, для TransportType.Mqtt используется MQTT через веб-сокеты. Если нужно задать только протокол MQTT через веб-сокеты, используйте TransportType.Mqtt_WebSocket_Only. |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Поддерживает MQTT по умолчанию | Добавьте `websockets=True` в вызов, чтобы создать клиент. |
 
 В следующем фрагменте кода показано, как указать протокол MQTT через веб-сокеты при использовании пакета SDK Node.js для Azure IoT:
@@ -111,6 +111,8 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 В этих примерах для отправки сообщений в брокер MQTT, реализованный в центре Интернета вещей, используется библиотека Eclipse Москуитто.
 
+Сведения о том, как адаптировать примеры для использования соглашений [Azure iot Самонастраивающийся](../iot-pnp/overview-iot-plug-and-play.md) , см. в разделе [учебник. Использование MQTT для разработки клиента центра Интернета вещей Самонастраивающийся](../iot-pnp/tutorial-use-mqtt.md).
+
 Этот репозиторий включает следующее содержимое.
 
 **Для Windows.**
@@ -121,7 +123,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * DeviceTwinMQTTWin32: содержит код для запроса событий двойника устройства в центре Интернета вещей на компьютере Windows и подписки на них.
 
-* PnPMQTTWin32: содержит код для отправки сообщения телеметрии с помощью возможностей устройств IoT Plug and Play в центр Интернета вещей Azure, которые создаются и запускаются на компьютере Windows. Дополнительные сведения см. в статье [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)
+* PnPMQTTWin32: содержит код для отправки сообщения телеметрии с помощью возможностей устройств IoT самонастраивающийся в центр Интернета вещей Azure, которые создаются и запускаются на компьютере Windows. Дополнительные сведения см. в статье [IoT Самонастраивающийся](../iot-pnp/overview-iot-plug-and-play.md)
 
 **Для Linux.**
 
@@ -158,7 +160,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
   Дополнительные сведения о способах создания маркеров SAS см. в соответствующем разделе статьи [Управление доступом к Центру Интернета вещей](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  При тестировании можно также использовать кросс-платформенные [инструменты Azure IOT для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) или команду расширения CLI [AZ-SAS-Token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) , чтобы быстро создать маркер SAS, который можно скопировать и вставить в свой собственный код.
+  При тестировании можно также использовать кросс-платформенные [инструменты Azure IOT для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) или команду расширения CLI [AZ-SAS-Token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token&preserve-view=true) , чтобы быстро создать маркер SAS, который можно скопировать и вставить в свой собственный код.
 
 ### <a name="for-azure-iot-tools"></a>Инструкции для Azure IoT Tools
 

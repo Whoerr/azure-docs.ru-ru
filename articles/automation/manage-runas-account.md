@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9e99318c526bb935d0e035fdbf59874249390da
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050945"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096462"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Управление учетной записью запуска от имени службы автоматизации Azure
 
@@ -57,17 +57,17 @@ ms.locfileid: "99050945"
 
 Перед предоставлением разрешений учетной записи запуска от имени необходимо сначала заметку отображаемого имени субъекта-службы для назначения.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
 1. В учетной записи службы автоматизации в разделе **Параметры учетной записи** выберите **Учетные записи запуска от имени**.
 1. Выберите **Azure Run As Account** (Учетная запись запуска от имени Azure).
 1. Скопируйте или запишите значение для **отображаемого имени** на странице **учетной записи запуска от имени Azure** .
 
 Чтобы получить подробные инструкции по добавлению назначений ролей, ознакомьтесь со следующими статьями в зависимости от того, какой метод вы хотите использовать.
 
-* [Добавление назначения роли Azure из портал Azure](../role-based-access-control/role-assignments-portal.md)
-* [Добавление назначения роли Azure с помощью Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Добавление назначения роли Azure с помощью Azure CLI](../role-based-access-control/role-assignments-cli.md)
-* [Добавление назначения роли Azure с помощью REST API](..//role-based-access-control/role-assignments-rest.md)
+* [Назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md)
+* [Назначение ролей Azure с помощью Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Назначение ролей Azure с помощью Azure CLI](../role-based-access-control/role-assignments-cli.md)
+* [Назначение ролей Azure с помощью REST API](..//role-based-access-control/role-assignments-rest.md)
 
 После назначения роли учетной записи запуска от имени в модуле Runbook укажите, `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` чтобы задать используемый контекст подписки. Дополнительные сведения см. в разделе [Set-азконтекст](/powershell/module/az.accounts/set-azcontext).
 
@@ -88,7 +88,7 @@ $roleDefinition | Set-AzRoleDefinition
 
 Вы можете определить, назначена ли субъект-служба, используемая вашей учетной записью запуска от имени, роли **участника** или пользователя.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
 1. Перейдите к учетной записи службы автоматизации и выберите **Учетные записи запуска от имени** в разделе параметров учетной записи.
 1. Выберите **Azure Run As Account** (Учетная запись запуска от имени Azure).
 1. Выберите **Роль**, чтобы указать используемое определение роли.

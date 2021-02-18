@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954907"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092441"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Проектирование системы для защиты содержимого с несколькими подсистемами DRM и управлением доступом
 
@@ -66,8 +66,8 @@ ms.locfileid: "98954907"
 * Widevine изначально реализована на каждом устройстве Android, Chrome и некоторых других устройствах. Widevine также поддерживается в браузерах Firefox и Opera через DASH.
 * Технология FairPlay доступна на iOS, macOS и tvOS.
 
-
 ## <a name="a-reference-design"></a>Справочное проектирование
+
 В этом разделе мы представим справочную структуру, не зависящую от технологий, используемых для ее реализации.
 
 Подсистема DRM может содержать следующие компоненты:
@@ -137,7 +137,7 @@ ms.locfileid: "98954907"
 | --- | --- |
 | **Игрок** |[Проигрыватель мультимедиа Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Поставщик удостоверений (IDP)** |Azure Active Directory (Azure AD) |
-| **Служба маркеров безопасности (STS)** |Azure AD |
+| **Служба маркеров безопасности (STS)** |Azure AD |
 | **Рабочий процесс защиты DRM** |Динамическая защита служб мультимедиа Azure |
 | **Доставка лицензий DRM** |* Доставка лицензий Служб мультимедиа (PlayReady, Widevine, FairPlay) <br/>* Сервер лицензирования Axinom <br/>* Пользовательский сервер лицензирования PlayReady |
 | **Исходный домен** |Конечная точка потоковой передачи Служб мультимедиа Azure |

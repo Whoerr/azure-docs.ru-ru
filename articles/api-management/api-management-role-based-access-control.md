@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc41d2904d5a6676f1e9e1e2d178985bef0a9aa3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015295"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095544"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Как использовать управление доступом на основе ролей в службе управления API Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "87015295"
 
 Сейчас служба управления API предоставляет три встроенные роли, к которым скоро будут добавлены еще две. Эти роли можно назначать в разных областях, включая подписку, группу ресурсов и отдельный экземпляр службы управления API. Например, если пользователю назначена роль "читатель службы управления API" на уровне группы ресурсов, то он будет иметь доступ для чтения ко всем экземплярам управления API внутри группы ресурсов. 
 
-В таблице ниже содержатся краткие описания встроенных ролей. Эти роли можно назначать с помощью портала Azure или других инструментов, включая Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) и [REST API](../role-based-access-control/role-assignments-rest.md). Дополнительные сведения о том, как назначать встроенные роли, см. в разделе [Начало работы с управлением доступом на портале Azure](../role-based-access-control/role-assignments-portal.md).
+В таблице ниже содержатся краткие описания встроенных ролей. Эти роли можно назначать с помощью портала Azure или других инструментов, включая Azure [PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) и [REST API](../role-based-access-control/role-assignments-rest.md). Дополнительные сведения о назначении встроенных ролей см. в статье [назначение ролей Azure для управления доступом к ресурсам подписки Azure](../role-based-access-control/role-assignments-portal.md).
 
 | Роль          | Доступ на чтение<sup>[1]</sup> | Доступ на запись<sup>[2]</sup> | Создание, удаление и масштабирование служб, настройка VPN и личных доменов | Доступ к устаревшему порталу издателя | Описание
 | ------------- | ---- | ---- | ---- | ---- | ---- 
@@ -81,6 +81,6 @@ New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionNa
 
 Чтобы узнать больше об управлении доступом на основе ролей в Azure, см. следующие статьи:
   * [Начало работы с управлением доступом на портале Azure](../role-based-access-control/overview.md)
-  * [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../role-based-access-control/role-assignments-portal.md)
+  * [Назначение ролей Azure для управления доступом к ресурсам подписки Azure](../role-based-access-control/role-assignments-portal.md)
   * [Пользовательские роли в Azure RBAC](../role-based-access-control/custom-roles.md)
   * [Операции поставщика ресурсов Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

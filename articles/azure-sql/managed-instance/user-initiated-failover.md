@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/17/2021
+ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806093"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096524"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Инициированный пользователем переход на другой ресурс вручную на Управляемом экземпляре SQL
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 В этой статье объясняется, как вручную отработка отказа основного узла на уровнях служб SQL Управляемый экземпляр общего назначения (GP) и критически важный для бизнеса (BC) и как вручную отработка отказа вторичного узла реплики только для чтения на уровне службы BC.
 
@@ -46,7 +47,7 @@ ms.locfileid: "98806093"
 - Пользовательская роль со следующим разрешением:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Регистрация с помощью PowerShell
+### <a name="using-powershell"></a>Использование PowerShell
 
 Минимальная версия AZ. SQL должна быть [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Рассмотрите возможность использования [Azure Cloud Shell](../../cloud-shell/overview.md) из портал Azure, где всегда доступна последняя версия PowerShell. 
 
@@ -151,7 +152,7 @@ SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_in
 > - Для экземпляров BC невозможно указать, на какой вторичной реплике для запуска отработки отказа будет выполняться операция.
 > - Отработка отказа не будет разрешена, пока не завершится первая полная резервная копия для новой базы данных с помощью автоматизированных систем резервного копирования.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 - Узнайте больше о высокой доступности управляемого экземпляра [Высокая доступность для управляемый экземпляр Azure SQL](../database/high-availability-sla.md).
 - Общие сведения см. в статье [что такое Azure SQL управляемый экземпляр?](sql-managed-instance-paas-overview.md).
