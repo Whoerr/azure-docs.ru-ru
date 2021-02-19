@@ -36,6 +36,8 @@
       href: front-door-quickstart-template-samples.md
 - name: Основные понятия
   items:
+    - name: SKU категории "Стандартный" или "Премиум"
+      href: standard-premium/overview.md
     - name: Безопасность
       items:
         - name: Базовые средства безопасности

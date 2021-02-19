@@ -86,6 +86,22 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Соответствие нормативным требованиям
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+- name: Перевод документов
+  items:
+    - name: Обзор
+      items:
+        - name: Что такое перевод документов?
+          href: document-translation/overview.md
+    - name: Практические руководства
+      items:
+        - name: Начало работы с функцией перевода документов
+          href: document-translation/get-started-with-document-translation.md
+        - name: Создание маркеров SAS
+          href: document-translation/create-sas-tokens.md
+    - name: Справочник
+      items:
+        - name: Справочник по API перевода документов
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/translator/translation'
 - name: Пользовательский переводчик
   items:
     - name: Обзор

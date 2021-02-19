@@ -38,7 +38,7 @@
     - name: Вычислительные ресурсы контейнера
       expanded: true
       items:
-        - name: Конфиденциальные контейнеры (lift-and-shift)
+        - name: Конфиденциальные контейнеры
           items:
             - name: Начало работы
               href: confidential-containers.md

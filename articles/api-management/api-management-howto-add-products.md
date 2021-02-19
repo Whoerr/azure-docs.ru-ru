@@ -4,14 +4,14 @@ description: В этом учебнике мы покажем, как созда
 author: mikebudzynski
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993556"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545162"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Руководство по создавать и публиковать продукт;  
 
@@ -34,6 +34,8 @@ ms.locfileid: "95993556"
 
 ## <a name="create-and-publish-a-product"></a>создавать и публиковать продукт;
 
+### <a name="portal"></a>[Портал](#tab/azure-portal)
+
 1. Войдите на портал Azure и перейдите к своему экземпляру службы управления API.
 1. На панели навигации слева выберите **Продукты** >  **+ Добавить**.
 1.  В окне **Добавить продукт** введите значения, описанные в следующей таблице, чтобы создать продукт.
@@ -53,10 +55,53 @@ ms.locfileid: "95993556"
 
 3. Нажмите **Создать**, чтобы создать продукт.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Чтобы начать работу с Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Чтобы создать продукт, выполните команду [az apim product create](/cli/azure/apim/product#az_apim_product_create).
+
+```azurecli
+az apim product create --resource-group apim-hello-word-resource-group \
+    --product-name "Contoso product" --product-id contoso-product \
+    --service-name apim-hello-world --subscription-required true \
+    --state published --description "This is a test."
+```
+
+Вы можете указать разные значения для этого продукта:
+
+   | Параметр | Описание |
+   |-----------|-------------|
+   | `--product-name` | Имя, которое будет отображаться на [портале разработчика](api-management-howto-developer-portal.md). |
+   | `--description`  | Укажите подробные сведения о продукте, например его назначение, интерфейсы API, к которым он предоставляет доступ, и другую информацию. |
+   | `--state`        | Щелкните **Опубликовано**, чтобы опубликовать продукт. Прежде чем можно будет вызывать интерфейсы API в продукте, сам продукт должен быть опубликован. По умолчанию новые продукты не опубликованы и видны только группе **Администраторы**. |
+   | `--subscription-required` | Укажите, требуется ли оформлять подписку на продукт для его использования. |
+   | `--approval-required` | Укажите, требуется ли, чтобы администратор рассматривал и принимал или отклонял попытки подписаться на этот продукт. Если флажок не установлен, попытки подписаться будут утверждаться автоматически. |
+   | `--subscriptions-limit` | При необходимости ограничьте число одновременных подписок.|
+   | `--legal-terms`         | Можно указать условия использования продукта, которые должны принимать подписчики, если они хотят использовать этот продукт. |
+
+Чтобы просмотреть текущие продукты, выполните команду [az apim product list](/cli/azure/apim/product#az_apim_product_list).
+
+```azurecli
+az apim product list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Чтобы удалить продукт, выполните команду [az apim product delete](/cli/azure/apim/product#az_apim_product_delete):
+
+```azurecli
+az apim product delete --product-id contoso-product \
+    --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --delete-subscriptions true
+```
+
+---
+
 ### <a name="add-more-configurations"></a>Добавление дополнительных конфигураций
 
 Продолжайте настройку продукта после его сохранения. В экземпляре управления API выберите продукт в окне **Продукты**. Добавление или обновление:
-
 
 |Элемент   |Описание  |
 |---------|---------|
@@ -74,6 +119,7 @@ ms.locfileid: "95993556"
 
 ### <a name="add-an-api-to-an-existing-product"></a>Добавление API к существующему продукту
 
+### <a name="portal"></a>[Портал](#tab/azure-portal)
 
 1. В области навигации экземпляра управления API слева выберите **Продукты**.
 1. Выберите продукт, а затем выберите **API**.
@@ -81,6 +127,40 @@ ms.locfileid: "95993556"
 1. Выберите один или несколько API, а затем нажмите **Выбрать**.
 
 :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Добавление API к существующему продукту":::
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. Чтобы просмотреть управляемые API, выполните команду [az apim api list](/cli/azure/apim/api#az_apim_api_list):
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+1. Чтобы добавить API в продукт, выполните команду [az apim product api add](/cli/azure/apim/product/api#az_apim_product_api_add):
+
+   ```azurecli
+   az apim product api add --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --product-id contoso-product \
+       --service-name apim-hello-world
+   ```
+
+1. Чтобы проверить добавление, выполните команду [az apim product api list](/cli/azure/apim/product/api#az_apim_product_api_list):
+
+   ```azurecli
+   az apim product api list --resource-group apim-hello-word-resource-group \
+       --product-id contoso-product --service-name apim-hello-world --output table
+   ```
+
+Чтобы удалить API из продукта, выполните команду [az apim product api delete](/cli/azure/apim/product/api#az_apim_product_api_delete) :
+
+```azurecli
+az apim product api delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --product-id contoso-product \
+    --service-name apim-hello-world
+```
+
+---
 
 > [!TIP]
 > Подписку пользователя на продукт с индивидуальными ключами подписки можно создать или обновить с помощью [REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) или команды PowerShell.

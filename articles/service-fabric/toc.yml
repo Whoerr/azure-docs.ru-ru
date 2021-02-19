@@ -406,6 +406,54 @@
           href: service-fabric-get-started-mac.md
         - name: Настройка интерфейса командной строки Service Fabric
           href: service-fabric-cli.md
+        - name: Работа в IDE
+          items:
+            - name: Работа в среде разработки Windows или Visual Studio
+              items:
+                - name: Управление приложениями в Visual Studio
+                  href: service-fabric-manage-application-in-visual-studio.md
+                - name: Настройка безопасных соединений в Visual Studio
+                  href: service-fabric-visualstudio-configure-secure-connections.md
+                - name: Отладка службы .NET в Visual Studio
+                  href: service-fabric-debugging-your-application.md
+                - name: Отладка контейнеров Windows с помощью Service Fabric и VS
+                  href: service-fabric-how-to-debug-windows-containers.md
+                - name: Распространенные ошибки и исключения
+                  href: service-fabric-errors-and-exceptions.md
+                - name: Локальные мониторинг и диагностика
+                  href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
+                - name: Настройка кластера Linux в Windows
+                  href: service-fabric-local-linux-cluster-windows.md
+                - name: Развертывание приложения .NET Core в удаленном кластере Linux из Visual Studio
+                  href: service-fabric-how-to-publish-linux-app-vs.md
+            - name: Работа в среде разработки Linux или Eclipse
+              items:
+                - name: Начало работы с подключаемым модулем Eclipse для разработки приложений Java
+                  href: service-fabric-get-started-eclipse.md
+                - name: Отладка службы на Java в Eclipse
+                  href: service-fabric-debugging-your-application-java.md
+                - name: Локальные мониторинг и диагностика
+                  href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+            - name: Работа в среде VS Code
+              items:
+                - name: Начало работы с VS Code
+                  href: service-fabric-get-started-vs-code.md
+                - name: Разработка приложений Service Fabric на C# с помощью VS Code
+                  href: service-fabric-develop-csharp-applications-with-vs-code.md
+                - name: Разработка приложений Service Fabric на Java с помощью VS Code
+                  href: service-fabric-develop-java-applications-with-vs-code.md
+    - name: Использование управляемых кластеров Service Fabric
+      items:
+        - name: Добавление расширения масштабируемого набора виртуальных машин в тип узла управляемого кластера
+          href: how-to-managed-cluster-vmss-extension.md
+        - name: Настройка управляемого кластера
+          href: how-to-managed-cluster-configuration.md
+        - name: Развертывание управляемых кластерных приложений с помощью шаблона ARM
+          href: how-to-managed-cluster-app-deployment-template.md
+        - name: Настройка управляемого кластера с использованием управляемого удостоверения
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+        - name: Включение шифрования дисков для узлов управляемого кластера
+          href: how-to-enable-managed-cluster-disk-encryption.md
     - name: Планирование и подготовка
       items:
         - name: Планирование емкости кластера
@@ -416,6 +464,142 @@
           href: service-fabric-disaster-recovery.md
         - name: Планирование емкости приложения
           href: service-fabric-capacity-planning.md
+    - name: Создание кластеров и управление ими
+      items:
+        - name: Кластеры в Azure
+          items:
+            - name: Создание
+              items:
+                - name: Планирование развертывания кластера
+                  href: service-fabric-cluster-azure-deployment-preparation.md
+                - name: Создание на портале Azure
+                  href: service-fabric-cluster-creation-via-portal.md
+                - name: Развертывание кластера Azure Service Fabric в зонах доступности
+                  href: service-fabric-cross-availability-zones.md
+                - name: Развертывание кластера Azure Service Fabric с типами узлов без отслеживания состояния
+                  href: service-fabric-stateless-node-types.md
+                - name: Настройка проверки подлинности Azure Active Directory
+                  href: service-fabric-cluster-creation-setup-aad.md
+                - name: Создание настраиваемого шаблона кластера
+                  href: service-fabric-cluster-creation-create-template.md
+                - name: Создание с помощью Resource Manager
+                  href: service-fabric-cluster-creation-via-arm.md
+                - name: Создание с помощью общего имени сертификата
+                  href: service-fabric-create-cluster-using-cert-cn.md
+                - name: Создание кластера Linux
+                  href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+            - name: Масштабирование
+              items:
+                - name: Горизонтальное увеличение масштаба вручную
+                  href: service-fabric-cluster-scale-in-out.md
+                - name: Горизонтальное увеличение масштаба программными средствами
+                  href: service-fabric-cluster-programmatic-scaling.md
+                - name: Масштабирование типа первичного узла
+                  href: service-fabric-scale-up-primary-node-type.md
+                - name: Добавление типа узла
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
+                - name: Удаление типа узла
+                  href: service-fabric-how-to-remove-node-type.md
+            - name: Обновление
+              items:
+                - name: Обновление версии Service Fabric
+                  href: service-fabric-cluster-upgrade-version-azure.md
+                - name: Обновление конфигурации кластера
+                  href: service-fabric-cluster-config-upgrade-azure.md
+                - name: Установка исправлений для узлов кластера (Windows)
+                  href: service-fabric-patch-orchestration-application.md
+                - name: Включение шифрования дисков (Windows)
+                  href: service-fabric-enable-azure-disk-encryption-windows.md
+                - name: Включение шифрования дисков (Linux)
+                  href: service-fabric-enable-azure-disk-encryption-linux.md
+                - name: Настройка управления доступом
+                  href: service-fabric-cluster-security-roles.md
+                - name: Открытие порта в подсистеме балансировки нагрузки
+                  href: create-load-balancer-rule.md
+                - name: Изменение сертификата кластера на общее имя
+                  href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+                - name: Изменение сертификатов кластера вручную
+                  href: service-fabric-cluster-rollover-cert-cn.md
+                - name: Управление сертификатами кластера
+                  href: service-fabric-cluster-security-update-certs-azure.md
+                - name: Удаленное подключение к виртуальной машине узла кластера
+                  href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        - name: Изолированные кластеры
+          items:
+            - name: Создание
+              items:
+                - name: Создание локальной среды
+                  href: service-fabric-cluster-creation-for-windows-server.md
+                - name: Безопасное использование сертификатов
+                  href: service-fabric-windows-cluster-x509-security.md
+                - name: Защита кластера с помощью системы безопасности Windows
+                  href: service-fabric-windows-cluster-windows-security.md
+                - name: Содержимое изолированного пакета
+                  href: service-fabric-cluster-standalone-package-contents.md
+            - name: Масштабирование
+              href: service-fabric-cluster-windows-server-add-remove-nodes.md
+            - name: Обновление
+              items:
+                - name: Обновление версии Service Fabric
+                  href: service-fabric-cluster-upgrade-windows-server.md
+                - name: Обновление конфигурации кластера
+                  href: service-fabric-cluster-config-upgrade-windows-server.md
+                - name: Параметры конфигурации
+                  href: service-fabric-cluster-manifest.md
+                - name: Настройка управления доступом
+                  href: service-fabric-cluster-security-roles.md
+                - name: Установка исправлений для узлов кластера (Windows)
+                  href: service-fabric-patch-orchestration-application.md
+        - name: Визуализация с помощью Service Fabric Explorer
+          href: service-fabric-visualizing-your-cluster.md
+        - name: Безопасное подключение к кластеру
+          href: service-fabric-connect-to-secure-cluster.md
+    - name: Мониторинг и диагностика
+      items:
+        - name: Диагностика распространенных сценариев
+          href: service-fabric-diagnostics-common-scenarios.md
+        - name: Диагностика ошибок пакета кода
+          href: service-fabric-diagnostics-code-package-errors.md
+        - name: Мониторинг приложений
+          items:
+            - name: Добавление функции ведения журнала в приложение
+              href: service-fabric-how-to-diagnostics-log.md
+            - name: Анализ с помощью Application Insights
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: Агрегация журналов с помощью EventFlow
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
+            - name: Мониторинг контейнеров
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Мониторинг кластеров
+          items:
+            - name: Настройка журналов Azure Monitor для сбора событий кластера
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: Мониторинг кластера с помощью журналов Azure Monitor
+              href: service-fabric-diagnostics-event-analysis-oms.md
+            - name: Запрос к API EventStore
+              href: service-fabric-diagnostics-eventstore-query.md
+            - name: Диагностика кластера Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Диагностика кластера Linux
+              href: service-fabric-diagnostics-oms-syslog.md
+        - name: Мониторинг инфраструктуры
+          items:
+            - name: Сбор данных счетчиков производительности с помощью агента Log Analytics
+              href: service-fabric-diagnostics-oms-agent.md
+            - name: Сбор данных счетчиков производительности с помощью WAD
+              href: service-fabric-diagnostics-perf-wad.md
+        - name: Мониторинг работоспособности
+          items:
+            - name: Отчеты и проверка работоспособности
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: Просмотр отчетов о работоспособности
+              href: service-fabric-view-entities-aggregated-health.md
+        - name: Диагностика событий обратного прокси-сервера
+          href: service-fabric-reverse-proxy-diagnostics.md
+        - name: Устранение неполадок локального кластера
+          href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Создайте первое...
       items:
         - name: Приложение-контейнер Windows
@@ -434,7 +618,7 @@
           href: service-fabric-create-your-first-linux-application-with-java.md
         - name: Гостевое исполняемое приложение в Windows
           href: quickstart-guest-app.md
-    - name: Создание приложения
+    - name: Сборка приложений
       items:
         - name: Создание гостевой исполняемой службы
           items:
@@ -547,52 +731,6 @@
           href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: Перенос старого приложения Java для поддержки Maven
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
-    - name: Работа в IDE
-      items:
-        - name: Работа в среде разработки Windows или Visual Studio
-          items:
-            - name: Управление приложениями в Visual Studio
-              href: service-fabric-manage-application-in-visual-studio.md
-            - name: Настройка безопасных соединений в Visual Studio
-              href: service-fabric-visualstudio-configure-secure-connections.md
-            - name: Отладка службы .NET в Visual Studio
-              href: service-fabric-debugging-your-application.md
-            - name: Отладка контейнеров Windows с помощью Service Fabric и VS
-              href: service-fabric-how-to-debug-windows-containers.md
-            - name: Распространенные ошибки и исключения
-              href: service-fabric-errors-and-exceptions.md
-            - name: Локальные мониторинг и диагностика
-              href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
-            - name: Настройка кластера Linux в Windows
-              href: service-fabric-local-linux-cluster-windows.md
-            - name: Развертывание приложения .NET Core в удаленном кластере Linux из Visual Studio
-              href: service-fabric-how-to-publish-linux-app-vs.md
-        - name: Работа в среде разработки Linux или Eclipse
-          items:
-            - name: Начало работы с подключаемым модулем Eclipse для разработки приложений Java
-              href: service-fabric-get-started-eclipse.md
-            - name: Отладка службы на Java в Eclipse
-              href: service-fabric-debugging-your-application-java.md
-            - name: Локальные мониторинг и диагностика
-              href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
-        - name: Работа в среде VS Code
-          items:
-            - name: Начало работы с VS Code
-              href: service-fabric-get-started-vs-code.md
-            - name: Разработка приложений Service Fabric на C# с помощью VS Code
-              href: service-fabric-develop-csharp-applications-with-vs-code.md
-            - name: Разработка приложений Service Fabric на Java с помощью VS Code
-              href: service-fabric-develop-java-applications-with-vs-code.md
-    - name: Миграция из Облачных служб
-      items:
-        - name: Сравнение облачных служб и Service Fabric
-          href: service-fabric-cloud-services-migration-differences.md
-        - name: Переход к использованию Service Fabric
-          href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
-        - name: Рекомендации
-          href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Модернизация приложений
-          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Управление жизненным циклом приложения
       items:
         - name: Создание пакета приложения
@@ -651,144 +789,6 @@
           href: service-fabric-reverseproxy-setup.md
         - name: Настройка обратного прокси-сервера для безопасного подключения
           href: service-fabric-reverseproxy-configure-secure-communication.md
-    - name: Создание кластеров и управление ими
-      items:
-        - name: Кластеры в Azure
-          items:
-            - name: Создание
-              items:
-                - name: Планирование развертывания кластера
-                  href: service-fabric-cluster-azure-deployment-preparation.md
-                - name: Создание на портале Azure
-                  href: service-fabric-cluster-creation-via-portal.md
-                - name: Развертывание кластера Azure Service Fabric в зонах доступности
-                  href: service-fabric-cross-availability-zones.md
-                - name: Развертывание кластера Azure Service Fabric с типами узлов без отслеживания состояния
-                  href: service-fabric-stateless-node-types.md
-                - name: Настройка проверки подлинности Azure Active Directory
-                  href: service-fabric-cluster-creation-setup-aad.md
-                - name: Создание настраиваемого шаблона кластера
-                  href: service-fabric-cluster-creation-create-template.md
-                - name: Создание с помощью Resource Manager
-                  href: service-fabric-cluster-creation-via-arm.md
-                - name: Создание с помощью общего имени сертификата
-                  href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Создание кластера Linux
-                  href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
-            - name: Масштабирование
-              items:
-                - name: Горизонтальное увеличение масштаба вручную
-                  href: service-fabric-cluster-scale-in-out.md
-                - name: Горизонтальное увеличение масштаба программными средствами
-                  href: service-fabric-cluster-programmatic-scaling.md
-                - name: Масштабирование типа первичного узла
-                  href: service-fabric-scale-up-primary-node-type.md
-                - name: Добавление типа узла
-                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
-                - name: Удаление типа узла
-                  href: service-fabric-how-to-remove-node-type.md
-            - name: Обновление
-              items:
-                - name: Добавление расширения масштабируемого набора виртуальных машин в тип узла управляемого кластера
-                  href: how-to-managed-cluster-vmss-extension.md
-                - name: Обновление версии Service Fabric
-                  href: service-fabric-cluster-upgrade-version-azure.md
-                - name: Обновление конфигурации кластера
-                  href: service-fabric-cluster-config-upgrade-azure.md
-                - name: Установка исправлений для узлов кластера (Windows)
-                  href: service-fabric-patch-orchestration-application.md
-                - name: Включение шифрования дисков (Windows)
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: Включение шифрования дисков (Linux)
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
-                - name: Настройка управления доступом
-                  href: service-fabric-cluster-security-roles.md
-                - name: Открытие порта в подсистеме балансировки нагрузки
-                  href: create-load-balancer-rule.md
-                - name: Изменение сертификата кластера на общее имя
-                  href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
-                - name: Изменение сертификатов кластера вручную
-                  href: service-fabric-cluster-rollover-cert-cn.md
-                - name: Управление сертификатами кластера
-                  href: service-fabric-cluster-security-update-certs-azure.md
-                - name: Удаленное подключение к виртуальной машине узла кластера
-                  href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-        - name: Изолированные кластеры
-          items:
-            - name: Создание
-              items:
-                - name: Создание локальной среды
-                  href: service-fabric-cluster-creation-for-windows-server.md
-                - name: Безопасное использование сертификатов
-                  href: service-fabric-windows-cluster-x509-security.md
-                - name: Защита кластера с помощью системы безопасности Windows
-                  href: service-fabric-windows-cluster-windows-security.md
-                - name: Содержимое изолированного пакета
-                  href: service-fabric-cluster-standalone-package-contents.md
-            - name: Масштабирование
-              href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Обновление
-              items:
-                - name: Обновление версии Service Fabric
-                  href: service-fabric-cluster-upgrade-windows-server.md
-                - name: Обновление конфигурации кластера
-                  href: service-fabric-cluster-config-upgrade-windows-server.md
-                - name: Параметры конфигурации
-                  href: service-fabric-cluster-manifest.md
-                - name: Настройка управления доступом
-                  href: service-fabric-cluster-security-roles.md
-                - name: Установка исправлений для узлов кластера (Windows)
-                  href: service-fabric-patch-orchestration-application.md
-        - name: Визуализация с помощью Service Fabric Explorer
-          href: service-fabric-visualizing-your-cluster.md
-        - name: Безопасное подключение к кластеру
-          href: service-fabric-connect-to-secure-cluster.md
-    - name: Мониторинг и диагностика
-      items:
-        - name: Диагностика распространенных сценариев
-          href: service-fabric-diagnostics-common-scenarios.md
-        - name: Диагностика ошибок пакета кода
-          href: service-fabric-diagnostics-code-package-errors.md
-        - name: Мониторинг приложений
-          items:
-            - name: Добавление функции ведения журнала в приложение
-              href: service-fabric-how-to-diagnostics-log.md
-            - name: Анализ с помощью Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Агрегация журналов с помощью EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Мониторинг контейнеров
-              href: service-fabric-diagnostics-oms-containers.md
-        - name: Мониторинг кластеров
-          items:
-            - name: Настройка журналов Azure Monitor для сбора событий кластера
-              href: service-fabric-diagnostics-oms-setup.md
-            - name: Мониторинг кластера с помощью журналов Azure Monitor
-              href: service-fabric-diagnostics-event-analysis-oms.md
-            - name: Запрос к API EventStore
-              href: service-fabric-diagnostics-eventstore-query.md
-            - name: Диагностика кластера Windows
-              href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Диагностика кластера Linux
-              href: service-fabric-diagnostics-oms-syslog.md
-        - name: Мониторинг инфраструктуры
-          items:
-            - name: Сбор данных счетчиков производительности с помощью агента Log Analytics
-              href: service-fabric-diagnostics-oms-agent.md
-            - name: Сбор данных счетчиков производительности с помощью WAD
-              href: service-fabric-diagnostics-perf-wad.md
-        - name: Мониторинг работоспособности
-          items:
-            - name: Отчеты и проверка работоспособности
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Поиск и устранение неполадок с помощью отчетов о работоспособности системы
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Просмотр отчетов о работоспособности
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: Диагностика событий обратного прокси-сервера
-          href: service-fabric-reverse-proxy-diagnostics.md
-        - name: Устранение неполадок локального кластера
-          href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Использование управляемого удостоверения для приложений Service Fabric
       items:
         - name: Настройка кластера
@@ -797,8 +797,6 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: Настройка нового кластера Azure Service Fabric с использованием управляемого удостоверения
               href: configure-new-azure-service-fabric-enable-managed-identity.md
-            - name: Настройка управляемого кластера Service Fabric для использования управляемого удостоверения
-              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Настройка приложения
           items:
             - name: Как развернуть приложение с использованием управляемого удостоверения
@@ -811,12 +809,22 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: Предоставление доступа другим ресурсам Azure
           href: how-to-grant-access-other-resources.md
+    - name: Миграция из Облачных служб
+      items:
+        - name: Сравнение облачных служб и Service Fabric
+          href: service-fabric-cloud-services-migration-differences.md
+        - name: Переход к использованию Service Fabric
+          href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
+        - name: Рекомендации
+          href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Модернизация приложений
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
 - name: Справочник
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/
     - name: PowerShell
-      href: /powershell/module/ServiceFabric/New-ServiceFabricService?view=azureservicefabricps
+      href: /powershell/module/servicefabric/?view=azureservicefabricps
     - name: Azure CLI (az sf)
       href: /cli/azure/sf
     - name: Интерфейс командной строки Service Fabric (sfctl)

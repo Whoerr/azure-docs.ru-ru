@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: seo-azure-migrate
-  ms.openlocfilehash: c2461fa9eb2c326141d244fbc576355226f891dd
-  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+  ms.openlocfilehash: 2703c34dc56303103c682bed740a34991a6471f6
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94962711"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101092161"
 landingContent:
 - title: Сведения о Azure Database Migration Service
   linkLists:
@@ -57,29 +57,27 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Миграция в отдельную базу данных Базы данных SQL в режиме подключения к сети
-      url: tutorial-sql-server-azure-sql-online.md
-    - text: Миграция в отдельную базу данных Базы данных SQL в автономном режиме
+    - text: Миграция в Базу данных SQL Azure
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Миграция в управляемый экземпляр Базы данных SQL в режиме подключения к сети
+    - text: Миграция в Управляемый экземпляр SQL Azure (режим подключения к сети)
       url: tutorial-sql-server-managed-instance-online.md
-    - text: Миграция в управляемый экземпляр Базы данных SQL в автономном режиме
+    - text: Миграция в Управляемый экземпляр SQL (автономный режим)
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Миграция из RDS SQL Server в отдельную базу данных или управляемый экземпляр Базы данных SQL в режиме подключения к сети
+    - text: Миграция с сервера RDS SQL Server в Azure SQL
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - linkListType: reference
     links:
-    - text: Известные проблемы с миграцией в отдельную базу данных Базы данных SQL в режиме подключения к сети
+    - text: Известные проблемы с миграцией в Базу данных SQL в режиме подключения к сети
       url: known-issues-azure-sql-online.md
-    - text: Известные проблемы с миграцией в управляемый экземпляр Базы данных SQL в режиме подключения к сети
+    - text: Известные проблемы с миграцией в Управляемый экземпляр SQL в режиме подключения к сети
       url: known-issues-azure-sql-db-managed-instance-online.md
-    - text: Сетевые топологии для миграции в управляемый экземпляр Базы данных SQL
+    - text: Сетевые топологии для миграции в Управляемый экземпляр SQL
       url: resource-network-topologies.md
-    - text: Пользовательские роли для миграции из SQL Server в управляемый экземпляр Базы данных SQL в режиме подключения к сети
+    - text: Пользовательские роли для миграции из SQL Server в Управляемый экземпляр SQL в режиме подключения к сети
       url: resource-custom-roles-sql-db-managed-instance.md
   - linkListType: video
     links:
-    - text: Миграция из SQL Server 2008 в управляемый экземпляр Базы данных SQL
+    - text: Миграция из SQL Server 2008 в Управляемый экземпляр SQL
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
 - title: Перенос баз данных с открытым кодом в Azure
   linkLists:

@@ -212,6 +212,8 @@
       items:
         - name: Создание индексатора
           href: search-howto-create-indexers.md
+        - name: Выполнение или сброс индексаторов
+          href: search-howto-run-reset-indexers.md
         - name: Планирование индексатора
           href: search-howto-schedule-indexers.md
         - name: Определение сопоставлений полей
@@ -530,6 +532,8 @@
   items:
     - name: Поддержка сообщества Azure
       href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Полезные данные о партнере
+      href: resource-partners-knowledge-mining.md
     - name: Обновления Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Форум для обратной связи (UserVoice)
@@ -554,8 +558,6 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Курс для разработчиков (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: Решения партнеров
-      href: resource-partners-knowledge-mining.md
     - name: ВОПРОСЫ И ОТВЕТЫ
       href: search-faq-frequently-asked-questions.md
     - name: Цены

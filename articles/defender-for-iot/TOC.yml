@@ -66,12 +66,12 @@
         - name: Статистическая обработка событий (предварительная версия)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
-        - name: Оповещения безопасности
+        - name: Встроенные оповещения для Центра Интернета вещей
           displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
           href: concept-security-alerts.md
-        - name: Пользовательские оповещения системы безопасности
+        - name: Настраиваемые оповещения системы безопасности для Центра Интернета вещей
           href: concept-customizable-security-alerts.md
-        - name: Рекомендации по обеспечению безопасности
+        - name: Рекомендации по обеспечению безопасности для Центра Интернета вещей
           href: concept-recommendations.md
         - name: Классическая
           items:
@@ -94,6 +94,12 @@
             - name: Классическое агрегирование событий модуля безопасности
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
+            - name: Оповещения системы безопасности на основе агента
+              href: agent-based-security-alerts.md
+            - name: Настраиваемые оповещения системы безопасности на основе агента
+              href: agent-based-security-custom-alerts.md
+            - name: Рекомендации на основе агента
+              href: agent-based-recommendations.md
 - name: Практические руководства
   items:
     - name: Безагентное решение для организаций
@@ -343,5 +349,5 @@
           href: 'https://azure.microsoft.com/regions/services/'
         - name: Цены
           href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
-        - name: Видео
+        - name: Видеоролики
           href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

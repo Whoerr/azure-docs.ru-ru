@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Документация по разработке приложений и устройств Интернета вещей
+summary: Изучите документацию по использованию Интернета вещей Azure для разработки встраиваемых устройств и создания облачных приложений с поддержкой устройств.
+metadata:
+  title: Разработка приложений и устройств Интернета вещей
+  description: Узнайте, как использовать Интернет вещей Azure для разработки встраиваемых устройств и создания облачных приложений с поддержкой устройств.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100656281"
+landingContent:
+- title: Общие сведения о разработке приложений и устройств Интернета вещей
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Что такое разработка приложений и устройств Интернета вещей Azure?
+      url: about-iot-develop.md
+    - text: Какой пакет SDK следует использовать?
+      url: about-iot-sdks.md
+- title: Начало разработки приложений для устройств
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Отправка телеметрии устройства в IoT Central
+      url: quickstart-send-telemetry-python.md
+    - text: Отправка телеметрии устройства в Центр Интернета вещей
+      url: quickstart-send-telemetry-cli-python.md
+- title: Начало разработки встраиваемых устройств
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Начало разработки встраиваемых устройств
+      url: quickstart-device-development.md

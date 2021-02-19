@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 64a9bc3cf00af66c65b06b9edbed4621668b05bc
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: 917508f1fee4e4a53083a29e2459a442f7fddccd
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100365027"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100650241"
 landingContent:
 - title: Сведения о службе "Конфигурация приложений Azure"
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: overview.md
     - text: Часто задаваемые вопросы
       url: faq.yml
+    - text: Рекомендации
+      url: howto-best-practices.md
   - linkListType: video
     links:
     - text: Начало работы со службой "Конфигурация приложений Azure"
@@ -52,15 +54,15 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Написание кода приложения ASP.NET Core
+      url: quickstart-aspnet-core-app.md
     - text: Создание приложения .NET Core
       url: quickstart-dotnet-core-app.md
     - text: Создание приложения .NET Framework
       url: quickstart-dotnet-app.md
-    - text: Написание кода приложения ASP.NET Core
-      url: quickstart-aspnet-core-app.md
     - text: Написание кода приложения службы "Функции Azure" на C#
       url: quickstart-azure-functions-csharp.md
-    - text: Создание кода приложения Spring Boot
+    - text: Написание кода приложения Java Spring
       url: quickstart-java-spring-app.md
     - text: Создание приложения Python
       url: quickstart-python.md
@@ -78,6 +80,8 @@ landingContent:
       url: enable-dynamic-configuration-azure-functions-csharp.md
     - text: Использование динамической конфигурации в Spring Boot
       url: enable-dynamic-configuration-java-spring-app.md
+    - text: Интеграция динамической конфигурации с помощью модели принудительной отправки
+      url: enable-dynamic-configuration-dotnet-core-push-refresh.md
   - linkListType: tutorial
     links:
     - text: Интеграция с конвейером CI/CD
@@ -102,10 +106,10 @@ landingContent:
       url: concept-feature-management.md
   - linkListType: quickstart
     links:
-    - text: Приложение .NET Core
-      url: use-feature-flags-dotnet-core.md
     - text: Приложение ASP.NET Core
       url: quickstart-feature-flag-aspnet-core.md
+    - text: Приложение .NET Core
+      url: use-feature-flags-dotnet-core.md
     - text: Приложение .NET Framework
       url: quickstart-feature-flag-dotnet.md
     - text: Приложение Spring Boot
@@ -114,6 +118,12 @@ landingContent:
     links:
     - text: Управление флагами компонентов
       url: manage-feature-flags.md
+    - text: Использование флагов функций в ASP.NET Core
+      url: use-feature-flags-dotnet-core.md
+    - text: Использование флагов функций в Spring Boot
+      url: use-feature-flags-spring-boot.md
+    - text: Включение функции для указанных пользователей или групп
+      url: howto-targetingfilter-aspnet-core.md
   - linkListType: reference
     links:
     - text: Библиотека .NET Core

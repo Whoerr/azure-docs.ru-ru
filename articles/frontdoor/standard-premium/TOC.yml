@@ -1,0 +1,91 @@
+- name: Документация по Front Door категории "Стандартный" или "Премиум" (предварительная версия)
+  href: index.yml
+- name: Обзор
+  items:
+    - name: Что собой представляет Azure Front Door категории "Стандартный" или "Премиум" (предварительная версия)?
+      href: overview.md
+    - name: Сравнение уровней
+      href: tier-comparison.md
+- name: Краткие руководства
+  expanded: true
+  items:
+    - name: Создание экземпляра Front Door категории "Стандартный" или "Премиум" на портале
+      href: create-front-door-portal.md
+- name: Основные понятия
+  items:
+    - name: Часто задаваемые вопросы о службе Front Door
+      href: faq.md
+    - name: Endpoint Manager
+      href: concept-endpoint-manager.md
+    - name: Исходный домен
+      href: concept-origin.md
+    - name: Маршрут
+      href: concept-route.md
+    - name: Набор правил
+      href: concept-rule-set.md
+    - name: Условия соответствия набора правил
+      href: concept-rule-set-match-conditions.md
+    - name: Действия набора правил
+      href: concept-rule-set-actions.md
+    - name: Перенаправление и переопределение URL-адресов
+      href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: Пробы работоспособности
+      href: concept-health-probes.md
+    - name: Приватный канал
+      href: concept-private-link.md
+    - name: Caching
+      href: concept-caching.md
+    - name: DDoS
+      href: concept-ddos.md
+- name: Практические руководства
+  items:
+    - name: Настройка Endpoint Manager
+      href: how-to-configure-endpoint-manager.md
+    - name: Настройка групп источников
+      href: how-to-create-origin.md
+    - name: Добавление личного домена
+      href: how-to-add-custom-domain.md
+    - name: Включение HTTPS для личного домена
+      href: how-to-configure-https-custom-domain.md
+    - name: Связь маршрутов
+      href: how-to-configure-route.md
+    - name: Настройка заголовков безопасности с использованием набора правил
+      href: how-to-add-security-headers.md
+    - name: Очистка кэша
+      href: how-to-cache-purge.md
+    - name: Сжатие
+      href: how-to-compression.md
+    - name: Включение Приватного канала
+      href: how-to-enable-private-link.md
+    - name: Ведение журнала
+      href: how-to-logs.md
+    - name: Мониторинг и оповещения
+      href: how-to-monitor-metrics.md
+    - name: Отчеты
+      href: how-to-reports.md
+    - name: Диагностика
+      items:
+        - name: Проблемы с маршрутизацией
+          href: troubleshoot-route-issues.md
+        - name: Разрешенные центры сертификации
+          href: troubleshoot-allowed-certificate-authority.md
+        - name: Сжатие
+          href: troubleshoot-compression.md
+        - name: Предоставление общего доступа к ресурсам независимо от источника
+          href: troubleshoot-cross-origin-resources.md
+- name: Справочник
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: REST API
+      href: /rest/api/cdn/
+- name: Ресурсы
+  items:
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Обновления службы
+      href: 'https://azure.microsoft.com/updates/?product=frontdoor'

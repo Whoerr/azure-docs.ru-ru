@@ -37,10 +37,8 @@
   items:
     - name: Миграция из SQL Server
       items:
-        - name: в Базу данных SQL Azure (автономный режим)
+        - name: в Базу данных SQL Azure
           href: tutorial-sql-server-to-azure-sql.md
-        - name: в Базу данных SQL Azure (подключенный режим)
-          href: tutorial-sql-server-azure-sql-online.md
         - name: в Управляемый экземпляр SQL Azure (автономный режим)
           href: tutorial-sql-server-to-managed-instance.md
         - name: в Управляемый экземпляр SQL Azure (подключенный режим)

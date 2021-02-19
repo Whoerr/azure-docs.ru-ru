@@ -10,12 +10,12 @@ metadata:
   author: JBCook
   ms.author: jencook
   ms.date: 09/22/2020
-  ms.openlocfilehash: 4e35449f5dd34d366d0d6095830002690940e6ae
-  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+  ms.openlocfilehash: d41addbcf1c7e5bf673ba0082e5eaa216b5f946d
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 02/08/2021
-  ms.locfileid: "99831473"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100652638"
 landingContent:
 - title: Сведения о конфиденциальных вычислениях Azure
   linkLists:
@@ -67,7 +67,7 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: Узлы конфиденциальных вычислений для Службы Azure Kubernetes (AKS) (предварительная версия)
+    - text: Узлы для конфиденциальных вычислений в AKS (Служба Kubernetes Azure)
       url: confidential-nodes-aks-overview.md
   - linkListType: concept
     links:

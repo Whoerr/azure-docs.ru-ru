@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 48d045fb89a4b04826ecb9fd0c7d0b2ac676d64a
-  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+  ms.openlocfilehash: 322be97658752fb1fd6c775ba25fc74f4e04e50d
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/28/2021
-  ms.locfileid: "98944977"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101093285"
 landingContent:
 - title: Об API Анализа текста
   linkLists:
@@ -114,6 +114,36 @@ landingContent:
     links:
     - text: Распознавание сущностей
       url: how-tos/text-analytics-how-to-entity-linking.md
+- title: Ответственное использование ИИ
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Примечание о прозрачности для Анализа текста
+      url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Примечание о прозрачности для Анализа текста для отрасли здравоохранения
+      url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Примечание о прозрачности для персональных данных
+      url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Примечание о прозрачности для анализа тональности
+      url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+  - linkListType: concept
+    links:
+    - text: Интеграция и ответственное использование
+      url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+- title: Использование контейнеров Docker
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Установка и запуск контейнеров API анализа текста
+      url: how-tos/text-analytics-how-to-install-containers.md
+    - text: Настройка контейнеров Анализа текста
+      url: text-analytics-resource-container-config.md
+    - text: Использование Анализа текста для контейнера (здравоохранение)
+      url: How-tos/text-analytics-for-health.md
+    - text: Развертывание экземпляра контейнера в Azure
+      url: ../containers/azure-container-instance-recipe.md
+    - text: Развертывание контейнера в Службе Azure Kubernetes
+      url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - title: Справочник
   linkLists:
   - linkListType: reference
@@ -134,20 +164,6 @@ landingContent:
       url: /powershell/module/az.cognitiveservices
     - text: Azure CLI
       url: /cli/azure/cognitiveservices?view=azure-cli-latest
-- title: Использование контейнеров Docker
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Установка и запуск контейнеров API анализа текста
-      url: how-tos/text-analytics-how-to-install-containers.md
-    - text: Настройка контейнеров Анализа текста
-      url: text-analytics-resource-container-config.md
-    - text: Использование Анализа текста для контейнера (здравоохранение)
-      url: How-tos/text-analytics-for-health.md
-    - text: Развертывание экземпляра контейнера в Azure
-      url: ../containers/azure-container-instance-recipe.md
-    - text: Развертывание контейнера в Службе Azure Kubernetes
-      url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - title: Справка и обратная связь
   linkLists:
   - linkListType: reference

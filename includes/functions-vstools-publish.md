@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e4231f5c4e947f29a72e581cf461ff737c1a0c82
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956485"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529675"
 ---
-1. Щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите пункт **Опубликовать**.
+1. В **Обозревателе решений** щелкните правой кнопкой мыши проект, выберите **Опубликовать**, для параметра **Целевой объект** выберите **Azure** и щелкните **Далее**.
 
-1. На вкладке **Целевой объект** выберите **Azure**. :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Выбор Azure в качестве целевого объекта":::
+1. Для параметра **Указанный целевой объект** выберите **Приложение-функция Azure (Windows)** , чтобы создать приложение, выполняемое в Windows.
 
-1. На вкладке **Указанный целевой объект** выберите **Приложение-функция Azure (Windows)** .
+1. На странице **Экземпляр Функций** выберите **Создать новую функцию Azure**. 
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Выбор приложения-функции Azure":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-new-resource.png" alt-text="Создание нового экземпляра приложения-функции":::
 
-1. На вкладке **Экземпляр Функций** выберите **Создать функцию Azure…** и используйте значения, указанные в следующей таблице.
+1. Создайте новый экземпляр, используя значения, указанные в следующей таблице.
 
     | Параметр      | Значение  | Описание                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,8 +36,9 @@ ms.locfileid: "97956485"
 
     ![Диалоговое окно "Создание службы приложений"](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-1. Нажмите кнопку **Создать**, чтобы создать приложение-функцию и связанные с ним ресурсы в Azure. 
-1. На вкладке **Экземпляр Функций** установите флажок **Run from package file** (Запустить из файла пакета). Приложение-функция развертывается с помощью [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) с включенным режимом [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) (Выполнение из пакета). Это рекомендуемый метод развертывания для проекта функций, так как он обеспечивает лучшую производительность. 
+1. Нажмите кнопку **Создать**, чтобы создать приложение-функцию и связанные с ним ресурсы в Azure. Состояние операции создания отображается в окне внизу слева. 
+
+1. На вкладке **Экземпляр Функций** установите флажок **Запустить из файла пакета**. Приложение-функция развертывается с помощью [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) с включенным режимом [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) (Выполнение из пакета). Это рекомендуемый метод развертывания для проекта функций, так как он обеспечивает лучшую производительность. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Завершение создания профиля":::
 

@@ -327,6 +327,8 @@
           href: how-to-create-transform.md
         - name: Создание базового преобразования звука с помощью REST
           href: how-to-create-basic-audio-transform.md
+        - name: Создание спрайтов эскизов
+          href: how-to-create-thumbnail-sprites.md
         - name: Создание преобразования copyAllBitrateNonInterleaved с использованием REST
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Копирование видео без кодирования с использованием REST
@@ -503,5 +505,3 @@
       href: azure-clouds-regions.md
     - name: Региональные кодовые имена и конечные точки
       href: azure-regions-code-names.md
-    - name: Обновления документации
-      href: docs-release-notes.md
