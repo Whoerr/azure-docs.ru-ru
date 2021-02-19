@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580136"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515049"
 ---
 ## <a name="download-and-install"></a>Загрузите и установите
 
@@ -39,6 +39,16 @@ ms.locfileid: "99580136"
 
 #### <a name="linux-install"></a>[Установка (Linux)](#tab/linuxinstall)
 
+Следующие дистрибутивы Linux поддерживаются для архитектур x64 с использованием CLI службы "Речь":
+
+* CentOS 7/8;
+* Debian 9 и 10; 
+* Red Hat Enterprise Linux (RHEL) 7/8;
+* Ubuntu 16.04/18.04/20.04.
+
+> [!NOTE]
+> Дополнительные архитектуры поддерживает пакет SDK службы "Речь" (не CLI службы "Речь"). См. дополнительные сведения о [пакете SDK службы "Речь"](../speech-sdk.md).
+
 Вот как установить интерфейс командной строки службы "Речь" в Linux (ЦП с архитектурой x64):
 
 1. Установите [.NET Core 3.1](/dotnet/core/install/linux).
@@ -49,7 +59,7 @@ ms.locfileid: "99580136"
 Введите `spx`, чтобы получить справку по интерфейсу командной строки службы "Речь".
 
 > [!NOTE]
-> В качестве альтернативы NuGet вы можете скачать двоичные файлы в [ZIP-архив](https://aka.ms/speech/spx-zips.zip), извлечь `spx-netcore-30-linux-x64` в новый каталог `~/spx`, ввести `sudo chmod +r+x spx` в двоичном файле и добавить путь `~/spx` в системную переменную PATH.
+> В качестве альтернативы NuGet вы можете скачать двоичные файлы в [ZIP-архив](https://aka.ms/speech/spx-zips.zip), извлечь `spx-netcore-30-linux-x64.zip` в новый каталог `~/spx`, ввести `sudo chmod +r+x spx` в двоичном файле и добавить путь `~/spx` в системную переменную PATH.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Установка Docker (Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +117,7 @@ sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 Например, в Windows эта команда задает ключ:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 Для более расширенного взаимодействия с программой командной строки можно запустить контейнер с интерактивной оболочкой bash, добавив параметр входной точки.
@@ -160,8 +170,8 @@ Follow these instructions to create a shortcut:
 Указав ключ подписки и идентификатор региона (например, `eastus` и `westus`), выполните следующие команды.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 Теперь проверку подлинности для подписки можно выполнять для будущих запросов SPX. Если необходимо удалить любое из этих сохраненных значений, выполните `spx config @region --clear` или `spx config @key --clear`.

@@ -4,16 +4,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/16/2020
+ms.date: 02/10/2021
 ms.author: tamram
-ms.openlocfilehash: 96d8100f2cffcfb001a693575128ce19e742225d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483f5853c321eee4ac6d10543f0e360a0a5e54b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534144"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373762"
 ---
-Прежде чем назначить роль Azure субъекту безопасности, определите для него область доступа. Рекомендуется всегда предоставлять максимально узкие области.
+Прежде чем назначить роль RBAC Azure субъекту безопасности, определите для него область доступа. Рекомендуется всегда предоставлять максимально узкие области. Роли RBAC Azure, определенные в более широкой области, наследуются охватываемыми ресурсами.
 
 В следующем списке описаны уровни, на которых можно ограничить доступ к ресурсам BLOB-объектов и очередей Azure, начиная с самой узкой области.
 
