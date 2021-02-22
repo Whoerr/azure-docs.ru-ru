@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.openlocfilehash: cb9a035217734028df325555cb0954dedd29ac30
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: d234227de98beeed6898697fb6ed8e0865546e16
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372295"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555854"
 ---
 # <a name="transfer-subscriptions-under-an-azure-plan-from-one-partner-to-another-preview"></a>Передача подписок Azure в рамках плана Azure между партнерами (предварительная версия)
 
@@ -22,7 +22,7 @@ ms.locfileid: "91372295"
 
 Переход не влияет на доступ для существующих пользователей, групп или субъектов-служб, которые были назначены с помощью управления доступом на основе ролей в Azure (Azure RBAC). [Azure RBAC](../../role-based-access-control/overview.md) позволяет управлять доступом пользователей к ресурсам Azure, включая настройку разрешений на выполнение операций с этими ресурсами и определением областей доступа. Новому партнеру не предоставляется доступ в рамках Azure RBAC к ресурсам с помощью перемещения подписки. Ваш предыдущий партнер сохраняет доступ в рамках Azure RBAC.
 
-Поэтому важно удалить доступ к Azure RBAC для старого партнера и предоставить доступ для нового. Дополнительные сведения о назначении доступа новому партнеру см. в статье [Что такое управление доступом на основе ролей в Azure (RBAC)?](../../role-based-access-control/overview.md) Дополнительные сведения об удалении доступа Azure RBAC предыдущего партнера см. в разделе [Удаление назначения ролей](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment).
+Поэтому важно удалить доступ к Azure RBAC для старого партнера и предоставить доступ для нового. Дополнительные сведения о назначении доступа новому партнеру см. в статье [Что такое управление доступом на основе ролей в Azure (RBAC)?](../../role-based-access-control/overview.md) Дополнительные сведения об удалении доступа Azure RBAC предыдущего партнера см. в разделе [Удаление назначения ролей](../../role-based-access-control/role-assignments-remove.md).
 
 Кроме того, ваш новый партнер автоматически не получает доступ [делегированного администратора (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) для ваших подписок. Чтобы управлять подписками Azure от вашего имени, вашему партнеру требуется предоставить доступ делегированного администратора. Дополнительные сведения о разрешениях Azure см. в статье [Получение разрешений для управления службой или подпиской клиента](/partner-center/customers-revoke-admin-privileges).
 

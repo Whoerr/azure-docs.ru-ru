@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 10c606ab86a577f22167197138e56a14d176b88a
-  ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+  ms.openlocfilehash: 65b2c25bde616f8a2bbc9abf6439871d288306b9
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 01/19/2021
-  ms.locfileid: "98570139"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100363038"
 landingContent:
 - title: Сведения о решении "Функции Azure"
   linkLists:
@@ -128,14 +128,22 @@ landingContent:
       url: functions-how-to-azure-devops.md
     - text: Развертывание с помощью подключаемого модуля Jenkins
       url: /azure/developer/jenkins/deploy-to-azure-functions
-- title: Производительность и мониторинг
+- title: Рекомендации по повышению производительности и мониторингу
   linkLists:
   - linkListType: concept
     links:
+    - text: Производительность и надежность
+      url: functions-best-practices.md
+    - text: Управление подключениями
+      url: manage-connections.md
+    - text: Рекомендации по работе с хранилищем
+      url: storage-considerations.md
+    - text: Обработка ошибок и повторные попытки функций
+      url: functions-bindings-error-pages.md
+    - text: Безопасность
+      url: security-concepts.md
     - text: Мониторинг функций
       url: functions-monitoring.md
-    - text: Оптимизация производительности
-      url: functions-best-practices.md
     - text: Рекомендации по работе с сетями
       url: functions-networking-options.md
   - linkListType: how-to-guide

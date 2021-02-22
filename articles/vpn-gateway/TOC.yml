@@ -14,7 +14,21 @@
 - name: Примеры
   items:
     - name: Azure PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Примеры сценариев
+          href: powershell-samples.md
+        - name: Создание VPN-шлюза
+          href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
+        - name: VPN-шлюз и RADIUS P2S
+          href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
+        - name: VPN-шлюз и проверка подлинности на основе сертификата в режиме P2S
+          href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
+        - name: "VPN-шлюз и подключение \"сеть\_— сеть\""
+          href: scripts/vpn-gateway-sample-site-to-site-powershell.md
+        - name: Подключение типа "виртуальная сеть — виртуальная сеть"
+          href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
+        - name: Скачивание шаблона VPN-устройства
+          href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
 - name: Основные понятия
   items:
     - name: Дистанционная работа
@@ -101,8 +115,6 @@
           href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: VPN через частный пиринг
           href: site-to-site-vpn-private-peering.md
-    - name: "Подключение \"сеть\_— сеть\" между Azure и AWS"
-      href: create-vpn-azure-aws-managed-solutions.md
     - name: "Подключения \"виртуальная сеть\_— виртуальная сеть\""
       items:
         - name: Настройка подключений между виртуальными сетями

@@ -151,6 +151,8 @@
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Использование APNS VOIP с помощью Центров уведомлений
       href: voip-apns.md
+    - name: Включение журналов диагностики для Центров уведомлений
+      href: notification-hubs-diagnostic-logs.md
 - name: Справочник
   items:
     - name: .NET

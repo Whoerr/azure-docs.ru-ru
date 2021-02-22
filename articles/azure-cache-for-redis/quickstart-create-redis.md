@@ -1,20 +1,20 @@
 ---
-title: Краткое руководство. Создание экземпляра кэша Azure для Redis
-description: В этом кратком руководстве показано, как создать экземпляр Кэша Azure для Redis.
+title: Краткое руководство. Создание Кэша Azure для Redis с открытым кодом
+description: В этом кратком руководстве показано, как создать экземпляр Кэша Azure для Redis уровня "Базовый", "Стандартный" или "Премиум".
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/12/2020
-ms.openlocfilehash: 829f954fede18da2dbf7b3f2d84f69452294a17a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 02/08/2021
+ms.openlocfilehash: 24de9e4eabfbc03e942868cce7560b5df093e1ad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83228266"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365129"
 ---
-# <a name="quickstart-create-an-azure-cache-for-redis-instance"></a>Краткое руководство. Создание экземпляра кэша Azure для Redis
+# <a name="quickstart-create-an-open-source-redis-cache"></a>Краткое руководство. Создание Кэша Azure для Redis с открытым кодом
 
 Кэш Azure для Redis предоставляет в Azure [полностью управляемую базу данных Redis с открытым кодом](https://redis.io/). Вы можете начать работу с экземпляром Кэша Azure для Redis любого уровня ("Базовый", "Стандартный" или "Премиум") и размера, а также масштабировать его в соответствии с требованиями к производительности приложения. В этом кратком руководстве показано, как создать экземпляр Кэш Azure для Redis с помощью портала Azure.
 
@@ -31,4 +31,3 @@ ms.locfileid: "83228266"
 
 > [!div class="nextstepaction"]
 > [Создание веб-приложения ASP.NET, в котором используется кэш Azure для Redis](./cache-web-app-howto.md)
-

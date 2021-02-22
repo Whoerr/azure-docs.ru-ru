@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962116"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363055"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Перенос подписок Azure между подписчиками и CSP
 
@@ -36,6 +36,7 @@ ms.locfileid: "94962116"
 
 Чтобы перенести любые другие подписки Azure партнеру CSP, подписчику необходимо переместить ресурсы из исходных подписок в подписки CSP. Используйте следующие рекомендации для перемещения ресурсов между подписками.
 
+1. Установите [связь торгового посредника](/partner-center/request-a-relationship-with-a-customer) с клиентом. Ознакомьтесь с [общими сведениями о региональной авторизации CSP](/partner-center/regional-authorization-overview) и убедитесь, что клиентский и партнерский арендаторы находятся в одном авторизованном регионе.
 1. Обратитесь к своему партнеру CSP, чтобы создать целевые подписки Azure CSP.
 1. Убедитесь, что исходная и целевая подписки CSP находятся в одном арендаторе Azure Active Directory (Azure AD).  
     Арендатор Azure AD для подписки Azure CSP изменить нельзя. Вместо этого необходимо добавить исходную подписку или связать ее с клиентом Azure AD CSP. Дополнительные сведения см. в статье [Связывание или добавление подписки Azure в клиент Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

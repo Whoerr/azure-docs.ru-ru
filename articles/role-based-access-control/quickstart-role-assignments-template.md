@@ -1,5 +1,5 @@
 ---
-title: Краткое руководство. Добавление назначения роли Azure с помощью шаблона Azure Resource Manager — Azure RBAC
+title: Краткое руководство. Назначение роли Azure с помощью шаблона Azure Resource Manager — Azure RBAC
 description: Узнайте, как предоставить доступ к ресурсам Azure пользователю в области группы ресурсов с помощью шаблона Azure Resource Manager и управления доступом на основе ролей Azure (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690448"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559263"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Краткое руководство. Добавление назначения роли Azure с помощью шаблона Azure Resource Manager
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Краткое руководство. Назначение роли Azure с помощью шаблона ARM
 
 [Управление доступом на основе ролей Azure (Azure RBAC)](overview.md) — это способ управления доступом к ресурсам в Azure. В этом кратком руководстве показано, как создать группу ресурсов и предоставить пользователю доступ для создания и администрирования виртуальных машин в группе ресурсов. В этом кратком руководстве показано, как создать общий запрос с помощью шаблона Azure Resource Manager (шаблона ARM).
 
@@ -29,7 +29,7 @@ ms.locfileid: "88690448"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Для добавления назначений ролей требуются следующие разрешения:
+Чтобы добавлять и удалять назначения ролей, требуется следующее:
 
 - Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 - `Microsoft.Authorization/roleAssignments/write` и `Microsoft.Authorization/roleAssignments/delete`, такие как [Администратор доступа пользователей](built-in-roles.md#user-access-administrator) или [Владелец](built-in-roles.md#owner).

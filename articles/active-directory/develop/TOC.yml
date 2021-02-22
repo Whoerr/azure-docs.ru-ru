@@ -475,6 +475,10 @@
           href: reference-third-party-cookies-spas.md
         - name: Обработка изменений свойства SameSite в файлах cookie в Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Поддержка проверки подлинности без пароля
+      items:
+        - name: Поддержка проверки подлинности FIDO2
+          href: support-fido2-authentication.md
     - name: Аутентификация приложений и служб
       items:
         - name: Создание субъекта-службы с помощью Azure PowerShell

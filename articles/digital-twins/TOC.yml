@@ -19,8 +19,18 @@
       href: tutorial-end-to-end.md
 - name: Основные понятия
   items:
-    - name: Настраиваемые модели
+    - name: Модели DTDL
       href: concepts-models.md
+    - name: Онтологии
+      items:
+        - name: Что такое онтология?
+          href: concepts-ontologies.md
+        - name: 'Внедрение онтологий, соответствующих отраслевым стандартам'
+          href: concepts-ontologies-adopt.md
+        - name: Преобразование онтологий
+          href: concepts-ontologies-convert.md
+        - name: Расширение онтологий
+          href: concepts-ontologies-extend.md
     - name: Цифровые двойники и граф двойника
       href: concepts-twins-graph.md
     - name: Язык запросов
@@ -65,10 +75,8 @@
           href: how-to-move-regions.md
     - name: Проектирование моделей
       items:
-        - name: Управление пользовательскими моделями
+        - name: Управление моделями DTDL
           href: how-to-manage-model.md
-        - name: Интеграция стандартных отраслевых моделей
-          href: how-to-integrate-models.md
         - name: Анализ и проверка моделей
           href: how-to-parse-models.md
         - name: Добавление тегов
@@ -249,6 +257,12 @@
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Проверяющий элемент управления DTDL (пример)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Средство отправки моделей (пример)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: Средство визуализации моделей (пример)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: Преобразователь OWL в DTDL
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: Пример интеграции DPS и Центра Интернета вещей
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Пример интеграции с SignalR

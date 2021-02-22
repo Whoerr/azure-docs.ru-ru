@@ -1,7 +1,7 @@
 ---
-title: Планирование решения для телефонии и SMS в Службах коммуникации Azure
+title: Типы телефонных номеров в Службах коммуникации Azure
 titleSuffix: An Azure Communication Services concept document
-description: Узнайте, как спланировать эффективное использование телефонных номеров и телефонии.
+description: Узнайте, как эффективно использовать разные типы телефонных номеров для SMS и телефонии.
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -10,26 +10,21 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 271d7ce38d50fd21975327eb1f21528aeacc485e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 97ac8a63740bb3a0df74a2a698cacecf842760e9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937242"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366472"
 ---
-# <a name="plan-your-telephony-and-sms-solution"></a>Планирование решения для телефонии и SMS
+# <a name="phone-number-types-in-azure-communication-services"></a>Типы телефонных номеров в Службах коммуникации Azure
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Службы коммуникации Azure позволяют использовать номера телефонов для голосовых звонков и отправки SMS-сообщений через телефонную сеть общего пользования (ТСОП). В этом документе мы рассмотрим типы телефонных номеров, параметры коммуникации и доступность по регионам для планирования решения по обеспечению телефонной связи и отправки SMS с помощью Служб коммуникации.
 
-
-
-
-
-## <a name="phone-number-types-in-azure-communication-services"></a>Типы телефонных номеров в Службах коммуникации Azure
- 
+## <a name="number-types-and-features"></a>Числовые типы и функции
 Службы коммуникации предлагают два типа телефонных номеров: **местные** и **бесплатные**. 
 
 ### <a name="local-numbers"></a>Местные номера
@@ -52,7 +47,7 @@ ms.locfileid: "96937242"
 | Бесплатный номер         | +1 (*код*, бесплатный в пределах региона) XXX XX XX | США                      | Вызов (исходящий), SMS (входящие или исходящие)| Назначение телефонных номеров системам интерактивного речевого ответа (ботам) и приложениям для работы с SMS                                        |
 
 
-## <a name="phone-number-features-in-azure-communication-services"></a>Функции телефонных номеров в Службах коммуникации Azure 
+### <a name="phone-number-features-in-azure-communication-services"></a>Функции телефонных номеров в Службах коммуникации Azure 
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -92,5 +87,6 @@ ms.locfileid: "96937242"
 ### <a name="conceptual-documentation"></a>Основная документация
 
 - [Основные понятия о голосовой связи и видеосвязи](../voice-video-calling/about-call-types.md)
+- [Основные понятия телефонии](./telephony-concept.md)
 - [Потоки вызовов](../call-flows.md)
 - [Цены](../pricing.md)

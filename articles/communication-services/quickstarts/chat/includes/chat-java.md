@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: edf48bc75817b3510264d852eb9cc717ed022f33
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6a075ae721d767faf25e4774dd545d36eedfaef4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915315"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379688"
 ---
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -56,7 +56,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
 ```
 
@@ -66,9 +66,8 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
-
 ```
 
 ## <a name="object-model"></a>Объектная модель
@@ -83,7 +82,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 | ChatThreadAsyncClient | Этот класс требуется для реализации всех асинхронных функций потоков чата. Вы получаете экземпляр с помощью ChatAsyncClient и используете его для отправки/получения/обновления/удаления сообщений, добавления/удаления/получения пользователей и отправки уведомлений о вводе и уведомления о прочтении. |
 
 ## <a name="create-a-chat-client"></a>Создание клиента чата
-Чтобы создать клиент чата, вы будете использовать конечную точку Служб коммуникации и маркер доступа, который был создан на шаге предварительных требований. Маркеры доступа пользователей позволяют создавать клиентские приложения, которые напрямую проходят проверку подлинности в Службах коммуникации Azure. После создания этих маркеров на сервере передайте их обратно клиентскому устройству. Для передачи маркера клиенту чата необходимо использовать класс CommunicationUserCredential из общей клиентской библиотеки. 
+Чтобы создать клиент чата, вы будете использовать конечную точку Служб коммуникации и маркер доступа, который был создан на шаге предварительных требований. Маркеры доступа пользователей позволяют создавать клиентские приложения, которые напрямую проходят проверку подлинности в Службах коммуникации Azure. После создания этих маркеров на сервере передайте их обратно клиентскому устройству. Для передачи маркера клиенту чата необходимо использовать класс CommunicationTokenCredential из общей клиентской библиотеки. 
 
 При добавлении операторов импорта обязательно добавляйте только импорты из пространств имен com.azure.communication.chat и com.azure.communication.chat.models, а не из com.azure.communication.chat.implementation. В файле App.java, созданном с помощью Maven, можно использовать следующий код:
 
@@ -112,8 +111,8 @@ public class App
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
 
-        // Create a CommunicationUserCredential with the given access token, which is only valid until the token is valid
-        CommunicationUserCredential userCredential = new CommunicationUserCredential(userAccessToken);
+        // Create a CommunicationTokenCredential with the given access token, which is only valid until the token is valid
+        CommunicationTokenCredential userCredential = new CommunicationTokenCredential(userAccessToken);
 
         // Initialize the chat client
         final ChatClientBuilder builder = new ChatClientBuilder();
@@ -132,27 +131,27 @@ public class App
 `createChatThreadOptions` используется для описания запроса потока.
 
 - Для указания раздела в этом чате используйте `topic`. Раздел можно обновить после создания потока чата с помощью функции `UpdateThread`.
-- Используйте `members`, чтобы получить список участников потока, добавляемых в поток. `ChatThreadMember` принимает пользователя, которого вы создали при изучении краткого руководства о [маркере доступа пользователя](../../access-tokens.md).
+- Используйте `participants`, чтобы получить список участников потока, добавляемых в поток. `ChatParticipant` принимает пользователя, которого вы создали при изучении краткого руководства о [маркере доступа пользователя](../../access-tokens.md).
 
 Ответ `chatThreadClient`, который используется для выполнения операций с созданным потоком чата для добавления участников в поток, отправки, удаления сообщения и т. д. Он содержит свойство `chatThreadId`, которое является уникальным идентификатором потока чата. Свойство доступно для общедоступного метода .getChatThreadId().
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(firstUser)
-    .setDisplayName("Member Display Name 1");
+    .setDisplayName("Participant Display Name 1");
     
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(secondUser)
-    .setDisplayName("Member Display Name 2");
+    .setDisplayName("Participant Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
     .setTopic("Topic")
-    .setMembers(members);
+    .setParticipants(participants);
 ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
 String chatThreadId = chatThreadClient.getChatThreadId();
 ```
@@ -163,7 +162,7 @@ String chatThreadId = chatThreadClient.getChatThreadId();
 `sendChatMessageOptions` используется для описания запроса сообщения чата.
 
 - Используйте `content`, чтобы указать содержимое сообщения в чате.
-- Используйте `priority`, чтобы указать уровень приоритета сообщения чата, например "нормальный" или "высокий". Это свойство можно использовать для отображения в приложении индикатора пользовательского интерфейса, чтобы привлечь внимание к сообщению или выполнить пользовательскую бизнес-логику.
+- Используйте `type` для указания типа содержимого сообщения в чате, текста или HTML.
 - Используйте `senderDisplayName`, чтобы указать отображаемое имя отправителя.
 
 `sendChatMessageResult` ответа содержит `id`, который является уникальным идентификатором сообщения.
@@ -171,7 +170,7 @@ String chatThreadId = chatThreadClient.getChatThreadId();
 ```Java
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
     .setContent("Message content")
-    .setPriority(ChatMessagePriority.NORMAL)
+    .setType(ChatMessageType.TEXT)
     .setSenderDisplayName("Sender Display Name");
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
@@ -181,7 +180,7 @@ String chatMessageId = sendChatMessageResult.getId();
 
 ## <a name="get-a-chat-thread-client"></a>Получение клиента потока чата
 
-Метод `getChatThreadClient` возвращает клиент потока для имеющегося потока. Его можно использовать для выполнения операций в созданном потоке: добавления участников, отправки сообщения и т. д. `chatThreadId` — уникальный идентификатор имеющегося потока чата.
+Метод `getChatThreadClient` возвращает клиент потока для имеющегося потока. Его можно использовать для выполнения операций в созданном потоке: добавления участников, отправки сообщения и т. д. `chatThreadId` — это уникальный идентификатор существующего потока чата.
 
 ```Java
 String chatThreadId = "Id";
@@ -206,7 +205,7 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` возвращает различные типы сообщений, которые могут быть идентифицированы с помощью `chatMessage.getType()`. Это следующие типы:
 
-- `Text`: обычное сообщение чата, отправляемое участником потока.
+- `Text`. Обычное сообщение чата, отправленное участником потока.
 
 - `ThreadActivity/TopicUpdate`: системное сообщение, указывающее на изменение темы.
 
@@ -216,44 +215,44 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 Дополнительные сведения см. в разделе о [типах сообщений](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="add-a-user-as-member-to-the-chat-thread"></a>Добавление пользователя в качестве участника в поток чата
+## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Добавление пользователя в качестве участника в поток чата
 
-После создания потока чата можно добавлять и удалять пользователей. Добавляя пользователей, вы предоставляете им доступ для отправки сообщений в поток чата, а также добавления или удаления других участников. Необходимо начать с получения нового маркера доступа и удостоверения для этого пользователя. Перед вызовом метода addMembers убедитесь, что вы получили новый маркер доступа и удостоверение для этого пользователя. Пользователю потребуется маркер доступа для инициализации своего клиента чата.
+После создания потока чата можно добавлять и удалять пользователей. Добавляя пользователей, вы предоставляете им доступ для отправки сообщений в поток чата, а также добавления или удаления других участников. Необходимо начать с получения нового маркера доступа и удостоверения для этого пользователя. Прежде чем вызывать метод addParticipants, убедитесь, что вы получили новый маркер доступа и удостоверение для этого пользователя. Пользователю потребуется маркер доступа для инициализации своего клиента чата.
 
-Используйте метод `addMembers`, чтобы добавить участников потока в определяемый threadId поток.
+Используйте метод `addParticipants`, чтобы добавить участников в определяемый threadId поток.
 
-- Используйте `members`, чтобы получить список участников, добавляемых в поток чата.
-- `user` (обязательно) — это CommunicationUser, созданный вами с помощью CommunicationIdentityClient при изучении краткого руководства о [маркере доступа пользователя](../../access-tokens.md).
-- Свойство `display_name` (необязательное) — это отображаемое имя для участника потока.
-- Свойство `share_history_time` (необязательное) — это время, в течение которого участнику предоставляется доступ к журналу чата. Чтобы предоставить общий доступ к журналу с момента запуска потока чата, установите для этого свойства любую дату, равную или меньше времени создания потока. Чтобы не использовать журнал до момента добавления участника, задайте для него текущую дату. Чтобы предоставить общий доступ к части журнала, задайте для него требуемую дату.
+- Используйте `listParticipants`, чтобы получить список участников, добавляемых в поток чата.
+- `user` (обязательно) — это идентификатор CommunicationUserIdentifier, созданный вами с помощью CommunicationIdentityClient при изучении краткого руководства по [работе с пользовательским маркером доступа](../../access-tokens.md).
+- `display_name` (необязательно) — это отображаемое имя для участника потока.
+- `share_history_time` (необязательно) — это время, в течение которого участнику предоставляется доступ к журналу чата. Чтобы предоставить общий доступ к журналу с момента запуска потока чата, установите для этого свойства любую дату, равную или меньше времени создания потока. Чтобы в журнале отображались только записи с момента добавления участника, задайте для свойства текущую дату. Чтобы предоставить общий доступ к части журнала, задайте для него требуемую дату.
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(user1)
     .setDisplayName("Display Name 1");
 
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(user2)
     .setDisplayName("Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
-AddChatThreadMembersOptions addChatThreadMembersOptions = new AddChatThreadMembersOptions()
-    .setMembers(members);
-chatThreadClient.addMembers(addChatThreadMembersOptions);
+AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
+    .setParticipants(participants);
+chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
 ## <a name="remove-user-from-a-chat-thread"></a>Удаление пользователя из потока чата
 
 Подобно добавлению пользователя в поток, можно удалить его из потока чата. Для этого необходимо отслеживание удостоверений пользователей добавленных участников.
 
-Используйте `removeMember`, где `user` — это созданный вами CommunicationUser.
+Используйте `removeParticipant`, где `user` — это созданный идентификатор CommunicationUserIdentifier.
 
 ```Java
-chatThreadClient.removeMember(user);
+chatThreadClient.removeParticipant(user);
 ```
 
 ## <a name="run-the-code"></a>Выполнение кода

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104609"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590556"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Новые возможности в Когнитивном поиске Azure
 
@@ -24,7 +24,8 @@ ms.locfileid: "100104609"
 |Функция&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Описание | Доступность  |
 |------------------------------|---------------|---------------|
 | [Сброс документов (предварительная версия)](search-howto-run-reset-indexers.md) |  Повторно обрабатывает отдельные выбранные документы поиска в рабочих нагрузках индексатора. | [REST API службы "Поиск" версии 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
-| [Зоны доступности](search-performance-optimization.md#availability-zones)| Службы поиска с двумя или более репликами в определенных регионах, как описано в [этой статье](search-performance-optimization.md#availability-zones), обеспечивают устойчивость, размещая реплики в двух или более разных физических расположениях.  | Регион и дата создания службы "Поиск" определяют уровень доступности. Дополнительные сведения см. в документе по настройке производительности. |
+| [Зоны доступности](search-performance-optimization.md#availability-zones)| Службы поиска с двумя или более репликами в определенных регионах, как описано в статье [Масштабирование для производительности в Когнитивном поиске Azure](search-performance-optimization.md#availability-zones), обеспечивают устойчивость, размещая реплики в двух или более разных физических расположениях.  | Регион и дата создания службы "Поиск" определяют уровень доступности. Дополнительные сведения см. в статье "Масштабирование для производительности в Когнитивном поиске Azure". |
+| [Azure CLI](/cli/azure/search) </br>[Azure PowerShell](/powershell/module/az.search/) | Теперь новые редакции обеспечивают полный диапазон операций в REST API управления 2020-08-01, включая поддержку правил брандмауэра для IP-адресов и закрытых конечных точек. | Общедоступная версия. |
 
 ## <a name="january-2021"></a>Январь 2021 г.
 
@@ -77,7 +78,7 @@ ms.locfileid: "100104609"
 |Ноябрь | [Навык перевода текста](cognitive-search-skill-text-translation.md) | Когнитивный навык, используемый во время индексирования, который оценивает и переводит текст. Общедоступная версия.|
 |Ноябрь | [Шаблоны Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Шаблон для визуализации содержимого в хранилище знаний. |
 |Ноябрь | [Azure Data Lake Storage 2-го поколения (предварительная версия)](search-howto-index-azure-data-lake-storage.md), [API Cosmos DB Gremlin (предварительная версия)](search-howto-index-cosmosdb.md) и [API Cosmos DB Cassandra (предварительная версия)](search-howto-index-cosmosdb.md) | Новые источники данных индексаторов в общедоступной предварительной версии. |
-|Июль | [Поддержка облака Azure для государственных организаций](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Общедоступная версия.|
+|Июль | [Поддержка облака Azure для государственных организаций](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Общедоступная версия.|
 
 <a name="new-service-name"></a>
 

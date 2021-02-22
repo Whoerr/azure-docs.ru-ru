@@ -1,20 +1,20 @@
 ---
-title: Краткое руководство. Создание кэша уровня Enterprise
-description: Из этого краткого руководства вы узнаете, как создать экземпляр Кэша Azure для Redis уровня Enterprise.
+title: Краткое руководство. Создание Кэша Azure для Redis уровня "Корпоративный"
+description: В этом кратком руководстве показано, как создать экземпляр Кэша Azure для Redis уровня "Корпоративный".
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/28/2020
-ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 02/08/2021
+ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795671"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365010"
 ---
-# <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Краткое руководство. Создание кэша уровня Enterprise (предварительная версия)
+# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Краткое руководство. Создание Кэша Azure для Redis уровня "Корпоративный" (предварительная версия)
 
 Кэш Azure для Redis уровня Enterprise предоставляет полностью интегрированные и управляемые экземпляры [Redis Enterprise](https://redislabs.com/redis-enterprise/) в Azure. Эти экземпляры в настоящее время доступны в предварительной версии. В этой версии реализованы два новых уровня.
 * Enterprise использует для хранения данных энергозависимую память (DRAM) на виртуальной машине.
@@ -22,7 +22,7 @@ ms.locfileid: "95795671"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Прежде всего для работы вам понадобится подписка Azure. Если ее нет, создайте [учетную запись](https://azure.microsoft.com/). Дополнительные сведения см. в разделе [Требования к уровню "Корпоративный"](cache-overview.md#enterprise-tier-requirements).
+Прежде всего для работы вам понадобится подписка Azure. Если ее нет, создайте [учетную запись](https://azure.microsoft.com/). Дополнительные сведения см. в разделе [Требования к уровню "Корпоративный"](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
 
 ## <a name="create-a-cache"></a>Создание кэша
 1. Чтобы создать кэш, войдите на портал Azure по ссылке из приглашения к участию в предварительной версии и щелкните **Создать ресурс**.

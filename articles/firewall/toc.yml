@@ -32,6 +32,12 @@
   items:
     - name: Функции службы "Брандмауэр Azure"
       href: features.md
+    - name: Функции Брандмауэра Azure уровня "Премиум"
+      href: premium-features.md
+    - name: Брандмауэр Azure уровня "Премиум" на портале
+      href: premium-portal.md
+    - name: Сертификаты Брандмауэра Azure уровня "Премиум"
+      href: premium-certificates.md
     - name: Теги FQDN
       href: fqdn-tags.md
     - name: FQDN инфраструктуры
@@ -91,6 +97,10 @@
       displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Книга Брандмауэра Azure
       href: firewall-workbook.md
+    - name: Развертывание и настройка Брандмауэра уровня "Премиум"
+      href: premium-deploy.md
+    - name: Переход на Брандмауэр Azure уровня "Премиум"
+      href: premium-migrate.md
 - name: Справочник
   items:
     - name: Azure CLI

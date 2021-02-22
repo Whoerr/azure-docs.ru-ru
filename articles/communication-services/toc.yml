@@ -12,6 +12,8 @@
       href: quickstarts/create-communication-resource.md
     - name: Создание маркеров доступа и управление ими
       href: quickstarts/access-tokens.md
+    - name: Использование управляемых удостоверений (.NET)
+      href: quickstarts/managed-identity.md
     - name: Чат
       items:
         - name: Добавление чата в приложение
@@ -58,8 +60,6 @@
 - name: Основные понятия
   expanded: false
   items:
-    - name: Взаимодействие с Teams
-      href: concepts/teams-interop.md
     - name: Чат
       items:
         - name: Общие сведения о клиентской библиотеке для чата
@@ -72,8 +72,12 @@
           href: concepts/telephony-sms/sdk-features.md
         - name: Основные понятия обмена SMS
           href: concepts/telephony-sms/concepts.md
-        - name: Планирование решения для телефонии и SMS
+        - name: Основные понятия телефонии
+          href: concepts/telephony-sms/telephony-concept.md
+        - name: Типы телефонных номеров в Службах коммуникации Azure
           href: concepts/telephony-sms/plan-solution.md
+        - name: Требования к инфраструктуре интерфейса SIP
+          href: concepts/telephony-sms/sip-interface-infrastructure.md
     - name: Голосовая и видеосвязь
       items:
         - name: Общие сведения о клиентской библиотеке для вызовов
@@ -86,6 +90,8 @@
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Возможности платформы пользовательского интерфейса
           href: concepts/ui-framework/ui-sdk-features.md
+    - name: Взаимодействие с Teams
+      href: concepts/teams-interop.md
     - name: Клиентская и серверная архитектура
       href: concepts/client-and-server-architecture.md
     - name: Потоки вызовов

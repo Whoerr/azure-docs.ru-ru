@@ -143,8 +143,10 @@
       items:
         - name: Запрос на увеличение квоты
           href: database/quota-increase-request.md
-        - name: Автоматизация заданий
+        - name: Автоматизация заданий с помощью Заданий обработки эластичных баз данных
           href: database/job-automation-overview.md
+        - name: Автоматизация заданий с помощью Агента SQL
+          href: database/job-automation-managed-instances.md
         - name: Непрерывность бизнес-процессов
           items:
             - name: Настройка группы отработки отказа

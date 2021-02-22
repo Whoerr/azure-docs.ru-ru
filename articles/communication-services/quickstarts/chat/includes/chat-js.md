@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4d3781c7a3894429cb5daccb334655543e3eea01
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377576"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551723"
 ---
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы нужно сделать следующее:
@@ -23,7 +23,7 @@ ms.locfileid: "91377576"
 - Создайте учетную запись Azure с активной подпиской. Дополнительные сведения см. на странице [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Установите [Node.js](https://nodejs.org/en/download/), активную версию LTS и версию Maintenance LTS (рекомендуются версии 8.11.1 и 10.14.1).
 - Создайте ресурс Служб коммуникации Azure. Дополнительные сведения см. в статье [Краткое руководство по созданию ресурсов Служб коммуникации и управлению ими](../../create-communication-resource.md). Для работы с этим кратким руководством необходимо записать **конечную точку**.
-- [Маркер доступа пользователя](../../access-tokens.md). Обязательно задайте для области значение chat и запишите строку маркера, а также строку userId.
+- Создайте *трех* пользователей ACS и выдайте им маркер доступа пользователя (подробнее о [маркере доступа пользователя](../../access-tokens.md)). Обязательно задайте для области значение **chat** и **запишите строку маркера, а также строку userId**. Полная демонстрация создает поток с двумя начальными участниками, а затем добавляет третьего участника в поток.
 
 ## <a name="setting-up"></a>Настройка
 
@@ -40,8 +40,6 @@ mkdir chat-quickstart && cd chat-quickstart
 ```console
 npm init -y
 ```
-
-Используйте текстовый редактор, чтобы создать файл с именем **start-chat.js** в корневом каталоге проекта. В следующих разделах показано, как добавить в этот файл весь исходный код для примера из этого краткого руководства.
 
 ### <a name="install-the-packages"></a>Установка пакетов
 
@@ -70,8 +68,6 @@ npm install webpack webpack-cli webpack-dev-server --save-dev
 
 Создайте файл **index.html** в корневом каталоге проекта. Мы будем использовать этот файл в качестве шаблона для добавления возможностей чата с помощью клиентской библиотеки чата Служб коммуникации Azure для JavaScript.
 
-Ниже приведен код:
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -85,32 +81,53 @@ npm install webpack webpack-cli webpack-dev-server --save-dev
   </body>
 </html>
 ```
-Создайте файл в корневом каталоге проекта с именем **client.js**, чтобы включить логику приложения для этого краткого руководства. 
+
+Создайте файл в корневом каталоге проекта с именем **client.js**, чтобы включить логику приложения для этого краткого руководства.
 
 ### <a name="create-a-chat-client"></a>Создание клиента чата
 
-Чтобы создать клиент чата в веб-приложении, вы будете использовать конечную точку службы связи и маркер доступа, который был создан в рамках предварительных требований. Маркеры доступа пользователей позволяют создавать клиентские приложения, которые напрямую проходят проверку подлинности в Службах коммуникации Azure. После создания этих маркеров на сервере передайте их обратно клиентскому устройству. Для передачи маркера клиенту чата необходимо использовать класс `AzureCommunicationUserCredential` из `Common client library`.
+Чтобы создать клиент чата в веб-приложении, вы будете использовать **конечную точку** Служб коммуникации и **маркер доступа**, который был создан в рамках подготовки к работе. 
 
-Создайте файл **client.js** в корневом каталоге проекта. Мы будем использовать этот файл для добавления возможностей чата с помощью клиентской библиотеки чата Служб коммуникации Azure для JavaScript.
+Маркеры доступа пользователей позволяют создавать клиентские приложения, которые напрямую проходят проверку подлинности в Службах коммуникации Azure.
+
+##### <a name="server-vs-client-side"></a>Серверная и клиентская стороны
+
+Мы рекомендуем создавать маркеры доступа с помощью серверного компонента, который передает их клиентскому приложению. В этом сценарии серверная часть отвечает за создание пользователей и управление ими, а также выдачу их маркеров. Клиентская сторона может получать маркеры доступа от службы и использовать их для аутентификации клиентских библиотек Служб коммуникации Azure.
+
+Маркеры также могут выдаваться на стороне клиента с помощью библиотеки администрирования Служб коммуникации Azure для JavaScript. В этом сценарии сторона клиента должна быть проинформирована о пользователях для выдачи им маркеров.
+
+Дополнительные сведения о клиентско-серверной архитектуре см. [в этой документации](../../../concepts/client-and-server-architecture.md)
+
+На схеме ниже приложение на стороне клиента получает маркер доступа от доверенного уровня служб. Затем приложение использует маркер для аутентификации библиотек Служб коммуникации. После аутентификации приложение теперь может использовать библиотеки Служб коммуникации на стороне клиента для выполнения таких операций, как общение с другими пользователями через чат.
+
+:::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Схема, демонстрирующая архитектуру маркера доступа пользователя.":::
+
+##### <a name="instructions"></a>Инструкции
+Эта демонстрация не описывает создание уровня служб для приложения чата. 
+
+Если вы не создали пользователей и их маркеры, выполните для этого следующие инструкции: [Маркер доступа пользователя.](../../access-tokens.md) Не забудьте задать для области значение "chat", а не "voip".
+
+В файле **client.js** укажите конечную точку и маркер доступа из приведенного ниже кода, чтобы добавить возможности чата с помощью клиентской библиотеки чата Служб коммуникации Azure для JavaScript.
 
 ```JavaScript
 
 import { ChatClient } from '@azure/communication-chat';
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 // Your unique Azure Communication service endpoint
 let endpointUrl = 'https://<RESOURCE_NAME>.communication.azure.com';
+// The user access token generated as part of the pre-requisites
 let userAccessToken = '<USER_ACCESS_TOKEN>';
 
-let chatClient = new ChatClient(endpointUrl, new AzureCommunicationUserCredential(userAccessToken));
+let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-Замените значение **ENDPOINT** на значение конечной точки, созданной ранее в рамках работы со статьей [Краткое руководство по созданию ресурсов Служб коммуникации и управлению ими](../../create-communication-resource.md).
-Замените значение **USER_ACCESS_TOKEN** маркером, созданным при работе со статьей о [маркере доступа пользователя](../../access-tokens.md).
-Добавьте этот код в файл **client.js**.
+- Замените **endpointUrl** конечной точкой ресурса Служб коммуникации (если вы еще этого не сделали, см. статью [Создание ресурса Служб коммуникации Azure](../../create-communication-resource.md)).
+- Замените **userAccessToken** выданным маркером.
 
 
 ### <a name="run-the-code"></a>Выполнение кода
+
 Чтобы создать и запустить приложение, используйте `webpack-dev-server`. Выполните следующую команду, чтобы создать пакет узла приложения на локальном веб-сервере:
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -138,55 +155,54 @@ Azure Communication Chat client created!
 `createThreadRequest` используется для описания запроса потока:
 
 - Для указания раздела в этом чате используйте `topic`. Раздел можно обновить после создания потока чата с помощью функции `UpdateThread`. 
-- Используйте `members`, чтобы получить список участников, добавляемых в поток чата.
+- Используйте `participants`, чтобы получить список участников, добавляемых в поток чата.
 
-При разрешении метод `createChatThread` возвращает `threadId`, который используется для выполнения операций с только что созданным потоком чата, например для добавления участников в поток, отправки, удаления сообщения и т. д.
+При разрешении метода `createChatThread` возвращается `CreateChatThreadResponse`. Эта модель содержит свойство `chatThread`, в котором можно получить доступ к `id` только что созданного потока. Затем вы можете использовать `id`, чтобы получить экземпляр `ChatThreadClient`. Затем можно использовать `ChatThreadClient` для выполнения операции в потоке, например при отправке сообщений или выводе списка участников.
 
-```Javascript
+```JavaScript
 async function createChatThread() {
-   let createThreadRequest = {
-       topic: 'Preparation for London conference',
-       members: [{
-                   user: { communicationUserId: '<USER_ID_FOR_JACK>' },
-                   displayName: 'Jack'
-               }, {
-                   user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
-                   displayName: 'Geeta'
-               }]
-   };
-   let chatThreadClient= await chatClient.createChatThread(createThreadRequest);
-   let threadId = chatThreadClient.threadId;
-   return threadId;
-}
+    let createThreadRequest = {
+        topic: 'Preparation for London conference',
+        participants: [{
+                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    displayName: 'Jack'
+                }, {
+                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    displayName: 'Geeta'
+                }]
+    };
+    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createThreadResponse.chatThread.id;
+    return threadId;
+    }
 
 createChatThread().then(async threadId => {
-   console.log(`Thread created:${threadId}`);
-   // PLACEHOLDERS
-   // <CREATE CHAT THREAD CLIENT>
-   // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
-   // <SEND MESSAGE TO A CHAT THREAD>
-   // <LIST MESSAGES IN A CHAT THREAD>
-   // <ADD NEW MEMBER TO THREAD>
-   // <LIST MEMBERS IN A THREAD>
-   // <REMOVE MEMBER FROM THREAD>
-});
+    console.log(`Thread created:${threadId}`);
+    // PLACEHOLDERS
+    // <CREATE CHAT THREAD CLIENT>
+    // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
+    // <SEND MESSAGE TO A CHAT THREAD>
+    // <LIST MESSAGES IN A CHAT THREAD>
+    // <ADD NEW PARTICIPANT TO THREAD>
+    // <LIST PARTICIPANTS IN A THREAD>
+    // <REMOVE PARTICIPANT FROM THREAD>
+    });
 ```
 
-Замените значения **USER_ID_FOR_JACK** и **USER_ID_FOR_GEETA** идентификаторами пользователей, полученными на предыдущем шаге (Создание пользователей и выдача [маркеров доступа пользователей](../../access-tokens.md)).
+Замените значения **USER_ID_FOR_JACK** и **USER_ID_FOR_GEETA** идентификаторами пользователей, полученными при создании пользователей и маркеров (см. подробнее о [маркерах доступа пользователей](../../access-tokens.md)).
 
-При обновлении вкладки браузера в консоли должны отобразиться следующие сведения.
+При обновлении вкладки браузера в консоли должны отобразиться следующие сведения:
 ```console
-Thread created: <threadId>
+Thread created: <thread_id>
 ```
 
 ## <a name="get-a-chat-thread-client"></a>Получение клиента потока чата
 
-Метод `getChatThreadClient` возвращает `chatThreadClient` для потока, который уже существует. Его можно использовать для выполнения операций в созданном потоке: добавления участников, отправки сообщения и т. д. thread_id — уникальный идентификатор имеющегося потока чата.
+Метод `getChatThreadClient` возвращает `chatThreadClient` для потока, который уже существует. Его можно использовать для выполнения операций в созданном потоке: добавления участников, отправки сообщения и т. д. Идентификатор thread_id — это уникальный идентификатор имеющегося потока чата.
 
 ```JavaScript
-
 let chatThreadClient = await chatClient.getChatThreadClient(threadId);
-console.log(`Chat Thread client for threadId:${chatThreadClient.threadId}`);
+console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
 Добавьте этот код вместо комментария `<CREATE CHAT THREAD CLIENT>` в файл **client.js**, обновите вкладку браузера и проверьте консоль, вы увидите:
@@ -207,7 +223,7 @@ Chat Thread client for threadId: <threadId>
 - Используйте `priority`, чтобы указать уровень приоритета сообщения чата, например "нормальный" или "высокий". Это свойство можно использовать для отображения в приложении индикатора пользовательского интерфейса, чтобы привлечь внимание к сообщению или выполнить пользовательскую бизнес-логику.   
 - Используйте `senderDisplayName`, чтобы указать отображаемое имя отправителя.
 
-`sendChatMessageResult` ответа содержит идентификатор, который является уникальным идентификатором сообщения.
+Ответ `sendChatMessageResult` содержит уникальный идентификатор сообщения.
 
 ```JavaScript
 
@@ -253,16 +269,16 @@ chatClient.on("chatMessageReceived", (e) => {
 
 let pagedAsyncIterableIterator = await chatThreadClient.listMessages();
 let nextMessage = await pagedAsyncIterableIterator.next();
- while (!nextMessage.done) {
-     let chatMessage = nextMessage.value;
-     console.log(`Message :${chatMessage.content}`);
-     // your code here
-     nextMessage = await pagedAsyncIterableIterator.next();
- }
+    while (!nextMessage.done) {
+        let chatMessage = nextMessage.value;
+        console.log(`Message :${chatMessage.content}`);
+        // your code here
+        nextMessage = await pagedAsyncIterableIterator.next();
+    }
 
 ```
 Добавьте этот код вместо комментария `<LIST MESSAGES IN A CHAT THREAD>` в файл **client.js**.
-Обновите вкладку. В консоли необходимо найти список сообщений, отправленных в этом потоке чата.
+Обновите вкладку. В консоли вы должны увидеть список сообщений, отправленных в этом потоке чата.
 
 
 `listMessages` возвращает последнюю версию сообщения, включая все изменения или удаления, произошедшие с сообщением, с помощью `updateMessage` и `deleteMessage`.
@@ -270,46 +286,48 @@ let nextMessage = await pagedAsyncIterableIterator.next();
 
 `listMessages` возвращает различные типы сообщений, которые могут быть идентифицированы с помощью `chatMessage.type`. Это следующие типы:
 
-- `Text`: обычное сообщение чата, отправляемое участником потока.
+- `Text`. Обычное сообщение чата, отправленное участником потока.
 
 - `ThreadActivity/TopicUpdate`: системное сообщение, указывающее на изменение темы.
 
-- `ThreadActivity/AddMember`: системное сообщение о том, что один или несколько участников были добавлены в цепочку чата.
+- `ThreadActivity/AddParticipant`. Системное сообщение о том, что один или несколько участников были добавлены в поток чата.
 
-- `ThreadActivity/RemoveMember`: системное сообщение о том, что участник был удален из цепочки чата.
+- `ThreadActivity/RemoveParticipant`. Системное сообщение о том, что участник был удален из потока чата.
 
 Дополнительные сведения см. в разделе о [типах сообщений](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="add-a-user-as-member-to-the-chat-thread"></a>Добавление пользователя в качестве участника в поток чата
+## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Добавление пользователя в качестве участника в поток чата
 
-После создания потока чата можно добавлять и удалять пользователей. Добавляя пользователей, вы предоставляете им доступ для отправки сообщений в поток чата, а также добавления или удаления других участников. Перед вызовом метода `addMembers` убедитесь, что вы получили новый маркер доступа и удостоверение для этого пользователя. Пользователю потребуется маркер доступа для инициализации своего клиента чата.
+После создания потока чата можно добавлять и удалять пользователей. Добавляя пользователей, вы предоставляете им доступ для отправки сообщений в поток чата, а также добавления или удаления других участников.
 
-`addMembersRequest` описывает объект запроса, а в `members` перечислены элементы, добавляемые в поток чата.
+Перед вызовом метода `addParticipants` убедитесь, что вы получили новый маркер доступа и удостоверение для этого пользователя. Пользователю потребуется маркер доступа для инициализации своего клиента чата.
+
+`addParticipantsRequest` описывает объект запроса, а в `participants` приведены участники, добавляемые в поток чата.
 - Свойство `user` (обязательное) — это пользователь, который должен быть добавлен в поток чата.
-- Свойство `displayName` (необязательное) — это отображаемое имя для участника потока.
-- Свойство `shareHistoryTime` (необязательное) — это время, в течение которого участнику предоставляется доступ к журналу чата. Чтобы предоставить общий доступ к журналу с момента запуска потока чата, установите для этого свойства любую дату, равную или меньше времени создания потока. Чтобы не использовать журнал до момента добавления участника, задайте для него текущую дату. Чтобы предоставить общий доступ к части журнала, задайте для него дату по своему усмотрению.
+- `displayName` (необязательно) — это отображаемое имя для участника потока.
+- `shareHistoryTime` (необязательно) — это время, в течение которого участнику предоставляется доступ к журналу чата. Чтобы предоставить общий доступ к журналу с момента запуска потока чата, установите для этого свойства любую дату, равную или меньше времени создания потока. Чтобы в журнале отображались только записи с момента добавления участника, задайте для свойства текущую дату. Чтобы предоставить общий доступ к части журнала, задайте для него дату по своему усмотрению.
 
 ```JavaScript
 
-let addMembersRequest =
+let addParticipantsRequest =
 {
-    members: [
+    participants: [
         {
-            user: { communicationUserId: '<NEW_MEMBER_USER_ID>' },
+            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]
 };
 
-await chatThreadClient.addMembers(addMembersRequest);
+await chatThreadClient.addParticipants(addParticipantsRequest);
 
 ```
-Замените **NEW_MEMBER_USER_ID** [новым идентификатором пользователя](../../access-tokens.md) и добавьте этот код вместо комментария `<ADD NEW MEMBER TO THREAD>` в файл **client.js**.
+Замените **NEW_PARTICIPANT_USER_ID** [новым идентификатором пользователя](../../access-tokens.md) и добавьте этот код вместо комментария `<ADD NEW PARTICIPANT TO THREAD>` в файл **client.js**.
 
 ## <a name="list-users-in-a-chat-thread"></a>Вывод списка пользователей в потоке чата
 ```JavaScript
-async function listThreadMembers() {
-   let pagedAsyncIterableIterator = await chatThreadClient.listMembers();
+async function listParticipants() {
+   let pagedAsyncIterableIterator = await chatThreadClient.listParticipants();
    let next = await pagedAsyncIterableIterator.next();
    while (!next.done) {
       let user = next.value;
@@ -317,20 +335,20 @@ async function listThreadMembers() {
       next = await pagedAsyncIterableIterator.next();
    }
 }
-await listThreadMembers();
+await listParticipants();
 ```
-Добавьте этот код вместо комментария `<LIST MEMBERS IN A THREAD>` в файл **client.js**, обновите вкладку браузера и проверьте консоль. Вы увидите сведения о пользователях чата:
+Добавьте этот код вместо комментария `<LIST PARTICIPANTS IN A THREAD>` в файл **client.js**, обновите вкладку браузера и проверьте консоль. Вы увидите сведения о пользователях чата:
 
 ## <a name="remove-user-from-a-chat-thread"></a>Удаление пользователя из потока чата
 
-Подобно добавлению участника, можно удалить элементы из потока чата. Для удаления необходимо отслеживать идентификаторы добавленных участников.
+Аналогично тому, как выполняется добавление участников, вы можете удалять их из потока чата. Чтобы удалить участника, отследите идентификаторы добавленных участников.
 
-Используйте метод `removeMember`, где `member` — это пользователь, удаляемый из потока.
+Используйте метод `removeParticipant`, где `participant` — это пользователь, удаляемый из потока.
 
 ```JavaScript
 
-await chatThreadClient.removeMember({ communicationUserId: <MEMBER_ID> });
-await listThreadMembers();
+await chatThreadClient.removeParticipant({ communicationUserId: <PARTICIPANT_ID> });
+await listParticipants();
 ```
-Замените значение **MEMBER_ID** идентификатором пользователя, который использовался на предыдущем шаге (<NEW_MEMBER_USER_ID>).
-Добавьте этот код вместо комментария `<REMOVE MEMBER FROM THREAD>` в файл **client.js**.
+Замените значение **PARTICIPANT_ID** идентификатором пользователя, который использовался на предыдущем шаге (<NEW_PARTICIPANT_USER_ID>).
+Добавьте этот код вместо комментария `<REMOVE PARTICIPANT FROM THREAD>` в файл **client.js**.

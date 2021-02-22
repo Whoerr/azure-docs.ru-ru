@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 0b43f30c25767a135b98b756d61ed2535e1fbd22
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: daab07a72f61cfdf4f39cae03a1c61bd18f37a8f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092206"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557427"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Роли классического администратора подписки, роли Azure и роли Azure AD
 
@@ -91,7 +91,7 @@ RBAC Azure — это система авторизации на основе [
 
 ![Встроенные роли на портале Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-Дополнительные сведения см. в статье о [добавлении и удалении назначений ролей Azure с помощью портала Azure](role-assignments-portal.md).
+Дополнительные сведения см. в статье [Назначение ролей Azure с помощью портала Azure](role-assignments-portal.md).
 
 ## <a name="azure-ad-roles"></a>Роли Azure AD
 

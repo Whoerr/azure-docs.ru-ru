@@ -25,6 +25,8 @@
   items:
     - name: Безопасность
       items:
+        - name: Защита Microsoft 365 от локальных атак
+          href: protect-m365-from-on-premises-attacks.md
         - name: Безопасное внешнее взаимодействие
           items:
             - name: Обзор безопасного внешнего доступа
@@ -47,8 +49,20 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9. Безопасный доступ к Teams, SharePoint и OneDrive'
               href: 9-secure-access-teams-sharepoint.md
-        - name: Защита Microsoft 365 от локальных атак
-          href: protect-m365-from-on-premises-attacks.md
+        - name: Защита учетных записей службы
+          items:
+            - name: Вводные сведения о локальных учетных записях служб
+              href: service-accounts-on-premises.md
+            - name: Защита групповых MSA
+              href: service-accounts-group-managed.md
+            - name: Защита отдельных MSA
+              href: service-accounts-standalone-managed.md
+            - name: Защита учетных записей компьютеров
+              href: service-accounts-computer.md
+            - name: Защита учетных записей служб на основе пользователей
+              href: service-accounts-user-on-premises.md
+            - name: Управление локальными учетными записями служб
+              href: service-accounts-govern-on-premises.md
         - name: Включение MFA
           href: concept-fundamentals-mfa-get-started.md
         - name: Параметры безопасности по умолчанию
@@ -143,6 +157,8 @@
                   href: resilience-client-app.md
                 - name: Управляющие программы
                   href: resilience-daemon-app.md
+            - name: Мониторинг работоспособности приложений для обеспечения устойчивости
+              href: monitor-sign-in-health-for-resilience.md
         - name: 'Центры сертификации, используемые в Azure'
           href: certificate-authorities.md
     - name: Руководство по развертыванию

@@ -96,10 +96,12 @@
               href: assign-access-policy-powershell.md
             - name: Портал
               href: assign-access-policy-portal.md
-        - name: 'Использование Azure RBAC для управления доступом к ключам, секретам и сертификатам (предварительная версия)'
-          href: rbac-guide.md
-        - name: Руководство по миграции с политик доступа к хранилищу на Azure RBAC
-          href: rbac-migration.md
+        - name: Модель разрешений Azure RBAC
+          items:
+            - name: 'Использование Azure RBAC для управления доступом к ключам, секретам и сертификатам'
+              href: rbac-guide.md
+            - name: Руководство по миграции с политик доступа к хранилищу на Azure RBAC
+              href: rbac-migration.md
         - name: Устранение неполадок с доступом
           href: troubleshooting-access-issues.md
     - name: Разработка

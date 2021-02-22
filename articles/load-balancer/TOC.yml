@@ -33,8 +33,12 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Настройка перенаправления портов в Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
-    - name: Создание подсистемы балансировки нагрузки между регионами (портал)
-      href: tutorial-cross-region-portal.md
+    - name: Подсистема балансировки нагрузки между регионами
+      items:
+        - name: Создание подсистемы балансировки нагрузки между регионами (портал)
+          href: tutorial-cross-region-portal.md
+        - name: Создание подсистемы балансировки нагрузки между регионами (PowerShell)
+          href: tutorial-cross-region-powershell.md
 - name: Примеры
   items:
     - name: Azure CLI
@@ -89,6 +93,8 @@
       href: backend-pool-management.md
     - name: Load Balancer ценовой категории "Стандартный" и Масштабируемые наборы виртуальных машин
       href: load-balancer-standard-virtual-machine-scale-sets.md
+    - name: Получение сведений с использованием Службы метаданных экземпляров Azure
+      href: instance-metadata-service-load-balancer.md
 - name: Практическое руководство
   items:
     - name: Параметры портала
@@ -144,6 +150,8 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Конфигурация подсистемы балансировки нагрузки только для исходящего трафика
       href: egress-only.md
+    - name: Получение метаданных с использованием IMDS Azure
+      href: howto-load-balancer-imds.md
     - name: Диагностика
       items:
         - name: Устранение неполадок Azure Load Balancer
@@ -181,6 +189,8 @@
     - name: Шаблон Resource Manager
       href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
+    - name: Распространенные коды ошибок для Службы метаданных экземпляров (IMDS) Azure
+      href: troubleshoot-load-balancer-imds.md
 - name: Ресурсы
   items:
     - name: Развитие навыков с помощью Microsoft Learn

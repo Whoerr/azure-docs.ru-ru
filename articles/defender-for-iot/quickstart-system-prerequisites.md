@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8ee3afcae69ca6c082452e590eb8370bcc122af4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7b609fec2a47dc0685b30dac12f43263127f70ef
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844467"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523216"
 ---
 # <a name="system-prerequisites"></a>Требования к системе
 В этой статье перечислены требования к системе, необходимые для использования Azure Defender для Интернета вещей.
@@ -31,7 +31,7 @@ Defender для Интернета вещей направляет весь тр
 
 См. дополнительные сведения о [поддерживаемых в Центре Интернета вещей регионах](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## <a name="see-also"></a>См. также раздел
+## <a name="next-steps"></a>Дальнейшие шаги
 
-- [Определение необходимых устройств](how-to-identify-required-appliances.md)
-- [Настройка сети с Azure Defender для Интернета вещей](how-to-set-up-your-network.md)
+[Определение требуемых устройств](how-to-identify-required-appliances.md)
+[Сведения о настройке сети Azure Defender для Интернета вещей](how-to-set-up-your-network.md)

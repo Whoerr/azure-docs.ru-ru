@@ -59,6 +59,8 @@
           href: managed-identity-authentication.md
         - name: Управление агентом
           href: manage-agent.md
+        - name: Перенос компьютера между регионами
+          href: manage-howto-migrate.md
     - name: Сценарии
       items:
         - name: Подключение к Azure Sentinel

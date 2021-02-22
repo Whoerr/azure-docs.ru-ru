@@ -1,20 +1,20 @@
 ---
 title: Общие сведения о пользовательском интерфейсе Azure IoT Central | Документация Майкрософт
 description: Ознакомьтесь с ключевыми областями пользовательского интерфейса Azure IoT Central, с помощью которого можно создавать решения Интернета вещей, использовать их и управлять ими.
-author: lmasieri
-ms.author: lmasieri
-ms.date: 12/09/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/09/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c07d247358d980152648fdf7f702c8efcb72bab9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 569a1365e73acbc2fdaf351f2e2cff21181241e1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90020079"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523487"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Общие сведения о пользовательском интерфейсе Azure IoT Central
 
@@ -37,14 +37,13 @@ ms.locfileid: "90020079"
 
 На [домашней странице IoT Central](https://aka.ms/iotcentral-get-started) вы можете просмотреть последние новости и узнать о новых функциях, доступных в IoT Central. Кроме того, здесь можно создавать приложения, а также просматривать и запускать имеющиеся приложения.
 
-> [!div class="mx-imgBorder"]
-> ![Домашняя страница IoT Central](media/overview-iot-central-tour/iot-central-homepage-pnp.png)
+:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="Домашняя страница IoT Central":::
 
 ### <a name="create-an-application"></a>Создание приложения
 
 В разделе "Сборка" приведен список шаблонов IoT Central, соответствующих отраслям, которые позволяют быстро приступить к работе. Вы также можете начать с нуля с помощью шаблона пользовательского приложения.  
-> [!div class="mx-imgBorder"]
-> ![Страница "Сборка" в IoT Central](media/overview-iot-central-tour/iot-central-build-pnp.png)
+
+:::image type="content" source="media/overview-iot-central-tour/iot-central-build.png" alt-text="Страница &quot;Сборка&quot; в IoT Central":::
 
 Дополнительные сведения см. в кратком руководстве [Создание приложения Azure IoT Central (предварительная версия функции)](quick-deploy-iot-central.md).
 
@@ -52,8 +51,7 @@ ms.locfileid: "90020079"
 
 Чтобы запустить приложение IoT Central, перейдите по URL-адресу, который вы или разработчик решений выбрали при создании приложения. Список всех приложений, к которым вы имеете доступ, также можно просмотреть в [диспетчере приложений IoT Central](https://aka.ms/iotcentral-apps).
 
-> [!div class="mx-imgBorder"]
-> ![Диспетчер приложений IoT Central](media/overview-iot-central-tour/app-manager-pnp.png)
+:::image type="content" source="media/overview-iot-central-tour/app-manager.png" alt-text="Диспетчер приложений IoT Central":::
 
 ## <a name="navigate-your-application"></a>Навигация по приложению
 
@@ -64,8 +62,8 @@ ms.locfileid: "90020079"
 
 :::row:::
   :::column span="":::
-      > [!div class="mx-imgBorder"]
-      > ![Область слева](media/overview-iot-central-tour/navigationbar-pnp.png)
+      :::image type="content" source="media/overview-iot-central-tour/navigation-bar.png" alt-text="Область слева":::
+
   :::column-end:::
   :::column span="2":::
      **Панель мониторинга** — отображается панель мониторинга приложения. Как *разработчик решений* вы можете настроить глобальную панель мониторинга для операторов. В зависимости от их роли операторы также могут создавать персональные панели мониторинга.
@@ -95,25 +93,23 @@ ms.locfileid: "90020079"
 
 На каждой странице сверху отображается меню.
 
-> [!div class="mx-imgBorder"]
-> ![Панель инструментов](media/overview-iot-central-tour/toolbar-pnp.png)
+:::image type="content" source="media/overview-iot-central-tour/toolbar.png" alt-text="Панель инструментов IoT Central":::
 
 * Чтобы найти устройства и шаблоны устройств, введите значение в **Поиск**.
 * Чтобы изменить язык пользовательского интерфейса или тему, щелкните значок **Параметры**. Дополнительные сведения об управлении параметрами приложения см. [здесь](howto-manage-preferences.md).
-* Чтобы выйти из приложения, щелкните значок **Учетная запись**.
 * Чтобы получить справку и поддержку, выберите раскрывающийся список **Справка** с перечнем ресурсов. Вы можете [получить сведения о приложении](./howto-get-app-info.md), перейдя по ссылке **О приложении**. В приложении с бесплатным тарифным планом ресурсы поддержки включают в себя доступ к [чату в реальном времени](howto-show-hide-chat.md).
+* Чтобы выйти из приложения, щелкните значок **Учетная запись**.
 
 Вы можете выбирать между светлой или темной темой пользовательского интерфейса.
 
 > [!NOTE]
 > Возможность выбора между светлой и темной темами будет недоступен, если администратор настроил пользовательскую тему для приложения.
 
-> [!div class="mx-imgBorder"]
-> ![Выбор темы пользовательского интерфейса](media/overview-iot-central-tour/themes-pnp.png)
+:::image type="content" source="media/overview-iot-central-tour/themes.png" alt-text="Снимок экрана: выбор темы в IoT Central.":::
 
 ### <a name="dashboard"></a>Панель мониторинга
-> [!div class="mx-imgBorder"]
-> ![Панель мониторинга](media/overview-iot-central-tour/dashboard-pnp.png)
+
+:::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Снимок экрана: панель мониторинга в IoT Central.":::
 
 * Панель мониторинга — это первая страница, отображаемая при входе в приложение Azure IoT Central. Как *разработчик решений* вы можете создавать и настраивать несколько глобальных панелей мониторинга приложений для других пользователей. Дополнительные сведения о добавлении плиток на панель мониторинга см. [здесь](howto-add-tiles-to-your-dashboard.md).
 
@@ -121,8 +117,7 @@ ms.locfileid: "90020079"
 
 ### <a name="devices"></a>Устройства
 
-> [!div class="mx-imgBorder"]
-> ![Страница "Устройства"](media/overview-iot-central-tour/devices-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/devices.png" alt-text="Снимок экрана: страница устройств.":::
 
 На странице обозревателя отображаются _устройства_ в приложении Azure IoT Central, сгруппированные по _шаблону устройства_. 
 
@@ -133,35 +128,30 @@ ms.locfileid: "90020079"
 
 ### <a name="device-groups"></a>Группы устройств
 
-> [!div class="mx-imgBorder"]
-> ![Страница "Группы устройств"](media/overview-iot-central-tour/device-groups-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/device-groups.png" alt-text="Страницы группы устройств":::
 
 Группа устройств — это коллекция связанных устройств.Группа устройств — это коллекция связанных устройств. *Разработчик решений* определяет запрос для идентификации устройств, входящих в группу. С помощью групп устройств можно выполнять массовые операции в приложении. Дополнительные сведения см. в статье [Use device groups in your Azure IoT Central application (preview features)](tutorial-use-device-groups.md) (Использование групп устройств в приложении Azure IoT Central (предварительные версии функций)).
 
 ### <a name="rules"></a>Правила
-> [!div class="mx-imgBorder"]
-> ![Страница "Правила"](media/overview-iot-central-tour/rules-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/rules.png" alt-text="Снимок экрана: страница правил.":::
 
 На станице "Правила" можно определить правила на основе телеметрии, состояния или событий устройства. При срабатывании правила может активироваться одно или несколько действий, например отправка сообщения электронной почты, отправка оповещений веб-перехватчика внешней системе и т. д. Дополнительные сведения см. в руководстве по [настройке правил](tutorial-create-telemetry-rules.md). 
 
 ### <a name="analytics"></a>Analytics
 
-> [!div class="mx-imgBorder"]
-> ![Страница "Аналитика"](media/overview-iot-central-tour/analytics-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Снимок экрана: страница аналитики":::
 
 На странице "Аналитика" вы можете создавать настраиваемые представления на основе данных устройства для получения аналитических сведений из приложения. Дополнительные сведения см. в статье [How to use analytics to analyze device data](howto-create-analytics.md) (Анализ данных устройства с помощью аналитики).
 
 ### <a name="jobs"></a>Задания
 
-> [!div class="mx-imgBorder"]
-> ![Страница "Задания"](media/overview-iot-central-tour/jobs-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Страница заданий":::
 
 На странице "Задания" можно выполнять массовые операции управления устройствами. Вы можете обновлять свойства и параметры, а также выполнить команды для групп устройств. Чтобы узнать больше, ознакомьтесь со статьей [Создание и запуск заданий в приложении Azure IoT Central](howto-run-a-job.md).
 
 ### <a name="device-templates"></a>Шаблоны устройств
 
-> [!div class="mx-imgBorder"]
-> ![Страница "Шаблоны устройств"](media/overview-iot-central-tour/templates-pnp.png)
+:::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Снимок экрана: шаблоны устройств":::
 
 На странице шаблонов устройств построитель создает шаблоны устройств в приложении и управляет ими. Шаблоны устройств определяют характеристики устройства, в том числе:
 
@@ -175,14 +165,14 @@ ms.locfileid: "90020079"
 Дополнительные сведения см. в статье [Define a new device type in your Azure IoT Central application](howto-set-up-template.md) (Определение типа нового устройства в приложении Azure IoT Central). 
 
 ### <a name="data-export"></a>Экспорт данных
-> [!div class="mx-imgBorder"]
-> ![Страница "Экспорт данных"](media/overview-iot-central-tour/export-pnp.png)
+
+:::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Экспорт данных":::
 
 На странице "Экспорт данных" вы можете настраивать потоки данных, например данных телеметрии, из приложения во внешние системы. Дополнительные сведения см. в статье [Экспорт данных в Azure IoT Central](./howto-export-data.md).
 
 ### <a name="administration"></a>Администрирование
-> [!div class="mx-imgBorder"]
-> ![Страница "Администрирование"](media/overview-iot-central-tour/administration-pnp.png)
+
+:::image type="content" source="media/overview-iot-central-tour/administration.png" alt-text="Снимок экрана: администрирование Интернета вещей.":::
 
 На странице "Администрирование" вы можете настраивать приложение IoT Central. Здесь можно изменить имя приложения, URL-адрес, тему, управлять пользователями и ролями, создавать маркеры API и экспортировать приложение. Дополнительные сведения см. в статье [How to administer your application](howto-administer.md) (Как управлять приложением).
 

@@ -3,14 +3,14 @@ title: Использование очередей служебной шины A
 description: В этом руководстве показано, как использовать Java для отправки и получения сообщений через очередь Служебной шины Azure. Вы используете новый пакет azure-messaging-servicebus.
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 02/13/2021
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a910f61389183b77af1f73f8d3553f6c5bbc8452
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bfe7835bea4415085279fb77eb85d67ed3f5f0f3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881590"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518612"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Отправка сообщений в очереди Служебной шины и получение сообщений из них (Java)
 В этом кратком руководстве описывается создание приложения Java для отправки сообщений в очередь служебной шины Azure и получения сообщений из нее. 
@@ -32,14 +32,41 @@ ms.locfileid: "98881590"
 Создайте проект Java с помощью Eclipse или инструмента по своему усмотрению. 
 
 ### <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
-Добавьте ссылку на библиотеку служебной шины Azure. Клиентская библиотека Java для служебной шины доступна в [Центральном репозитории Maven](https://search.maven.org/search?q=a:azure-messaging-servicebus). Чтобы сослаться на эту библиотеку, используйте следующее объявление зависимостей в файле проекта Maven:
+Добавьте ссылку на библиотеки Azure Core и Служебной шины Azure. 
+
+Если вы используете Eclipse и создали консольное приложение Java, преобразуйте проект Java в Maven. Для этого щелкните правой кнопкой мыши проект в окне **обозревателя пакетов** и выберите **Настроить** -> **Преобразовать в проект Maven**. Затем добавьте зависимости в эти две библиотеки, как показано в следующем примере.
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0</version>
-</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.myorg.sbusquickstarts</groupId>
+    <artifactId>sbustopicqs</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>15</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-servicebus</artifactId>
+            <version>7.0.2</version>
+        </dependency>
+    </dependencies>
+</project>
 ```
 
 ### <a name="add-code-to-send-messages-to-the-queue"></a>Добавление кода для отправки сообщений в очередь
@@ -47,9 +74,9 @@ ms.locfileid: "98881590"
 
     ```java
     import com.azure.messaging.servicebus.*;
-    import com.azure.messaging.servicebus.models.*;
+    
+    import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
-    import java.util.function.Consumer;
     import java.util.Arrays;
     import java.util.List;
     ```    
@@ -94,7 +121,7 @@ ms.locfileid: "98881590"
     ```
 1. Добавьте метод с именем `sendMessageBatch` для отправки сообщений в созданную вами очередь. Этот метод создает `ServiceBusSenderClient` для очереди, вызывает метод `createMessages` для получения списка сообщений, подготавливает один или несколько пакетов и отправляет пакеты в очередь. 
 
-```java
+    ```java
     static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the queue 
@@ -139,39 +166,29 @@ ms.locfileid: "98881590"
         //close the client
         senderClient.close();
     }
-```
+    ```
 
 ## <a name="receive-messages-from-a-queue"></a>Получение сообщений из очереди
 В рамках этого раздела вы добавите код для получения сообщений из очереди. 
 
 1. Добавьте метод с именем `receiveMessages` для получения сообщений из очереди. Этот метод создает `ServiceBusProcessorClient` для очереди, указывая один обработчик для обработки сообщений и другой — для обработки ошибок. Затем он запускает процессор, ждет несколько секунд, выводит полученные сообщения, а затем останавливает и закрывает процессор.
 
+    > [!IMPORTANT]
+    > Замените `QueueTest` в `QueueTest::processMessage` в коде именем класса. 
+
     ```java
     // handles received messages
     static void receiveMessages() throws InterruptedException
     {
-        // consumer that processes a single message received from Service Bus
-        Consumer<ServiceBusReceivedMessageContext> messageProcessor = context -> {
-            ServiceBusReceivedMessage message = context.getMessage();
-            System.out.println("Received message: " + message.getBody().toString());
-        };
+        CountDownLatch countdownLatch = new CountDownLatch(1);
 
-        // handles any errors that occur when receiving messages
-        Consumer<Throwable> errorHandler = throwable -> {
-            System.out.println("Error when receiving messages: " + throwable.getMessage());
-            if (throwable instanceof ServiceBusReceiverException) {
-                ServiceBusReceiverException serviceBusReceiverException = (ServiceBusReceiverException) throwable;
-                System.out.println("Error source: " + serviceBusReceiverException.getErrorSource());
-            }
-        };
-
-        // create an instance of the processor through the ServiceBusClientBuilder
+        // Create an instance of the processor through the ServiceBusClientBuilder
         ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
             .connectionString(connectionString)
             .processor()
             .queueName(queueName)
-            .processMessage(messageProcessor)
-            .processError(errorHandler)
+            .processMessage(QueueTest::processMessage)
+            .processError(context -> processError(context, countdownLatch))
             .buildProcessorClient();
 
         System.out.println("Starting the processor");
@@ -180,7 +197,53 @@ ms.locfileid: "98881590"
         TimeUnit.SECONDS.sleep(10);
         System.out.println("Stopping and closing the processor");
         processorClient.close();        
+    }   
+    ```
+2. Добавьте метод `processMessage` для обработки сообщения, полученного от подписки Служебной шины. 
+
+    ```java
+    private static void processMessage(ServiceBusReceivedMessageContext context) {
+        ServiceBusReceivedMessage message = context.getMessage();
+        System.out.printf("Processing message. Session: %s, Sequence #: %s. Contents: %s%n", message.getMessageId(),
+            message.getSequenceNumber(), message.getBody());
     }    
+    ```
+3. Добавьте метод `processError` для обработки сообщений об ошибках.
+
+    ```java
+    private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
+        System.out.printf("Error when receiving messages from namespace: '%s'. Entity: '%s'%n",
+            context.getFullyQualifiedNamespace(), context.getEntityPath());
+
+        if (!(context.getException() instanceof ServiceBusException)) {
+            System.out.printf("Non-ServiceBusException occurred: %s%n", context.getException());
+            return;
+        }
+
+        ServiceBusException exception = (ServiceBusException) context.getException();
+        ServiceBusFailureReason reason = exception.getReason();
+
+        if (reason == ServiceBusFailureReason.MESSAGING_ENTITY_DISABLED
+            || reason == ServiceBusFailureReason.MESSAGING_ENTITY_NOT_FOUND
+            || reason == ServiceBusFailureReason.UNAUTHORIZED) {
+            System.out.printf("An unrecoverable error occurred. Stopping processing with reason %s: %s%n",
+                reason, exception.getMessage());
+
+            countdownLatch.countDown();
+        } else if (reason == ServiceBusFailureReason.MESSAGE_LOCK_LOST) {
+            System.out.printf("Message lock lost for message: %s%n", context.getException());
+        } else if (reason == ServiceBusFailureReason.SERVICE_BUSY) {
+            try {
+                // Choosing an arbitrary amount of time to wait until trying again.
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.err.println("Unable to sleep for period of time");
+            }
+        } else {
+            System.out.printf("Error source %s, reason %s, message: %s%n", context.getErrorSource(),
+                reason, context.getException());
+        }
+    }  
     ```
 2. Обновите метод `main`, чтобы вызвать методы `sendMessage`, `sendMessageBatch` и `receiveMessages` и вызвать `InterruptedException`.     
 
@@ -199,10 +262,10 @@ ms.locfileid: "98881590"
 Sent a single message to the queue: myqueue
 Sent a batch of messages to the queue: myqueue
 Starting the processor
-Received message: Hello, World!
-Received message: First message in the batch
-Received message: Second message in the batch
-Received message: Three message in the batch
+Processing message. Session: 88d961dd801f449e9c3e0f8a5393a527, Sequence #: 1. Contents: Hello, World!
+Processing message. Session: e90c8d9039ce403bbe1d0ec7038033a0, Sequence #: 2. Contents: First message
+Processing message. Session: 311a216a560c47d184f9831984e6ac1d, Sequence #: 3. Contents: Second message
+Processing message. Session: f9a871be07414baf9505f2c3d466c4ab, Sequence #: 4. Contents: Third message
 Stopping and closing the processor
 ```
 

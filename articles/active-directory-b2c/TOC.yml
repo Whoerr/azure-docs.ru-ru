@@ -26,11 +26,7 @@
       href: tutorial-register-applications.md
     - name: "3.\_Создание потоков пользователей"
       href: tutorial-create-user-flows.md
-    - name: Добавление поставщиков удостоверений
-      href: tutorial-add-identity-providers.md
-    - name: Настройка пользовательского интерфейса
-      href: tutorial-customize-ui.md
-    - name: Аутентификация пользователей
+    - name: "4.\_Аутентификация пользователей"
       items:
         - name: ASP.NET
           href: tutorial-web-app-dotnet.md
@@ -41,7 +37,7 @@
         - name: Python
           href: tutorial-web-app-python.md
           displayName: flask
-    - name: Предоставление доступа через API
+    - name: "5.\_Предоставление доступа через API"
       items:
         - name: ASP.NET
           href: tutorial-web-api-dotnet.md
@@ -434,20 +430,20 @@
     - name: Защита API Управления API
       href: secure-api-management.md
       displayName: 'apim, api management, migrate, b2clogin.com'
-    - name: Безопасное выполнение MFA с использованием телефона
-      href: phone-based-mfa.md
-      displayName: 'multi-factor authentication, Azure Monitor, Log Analytics'
     - name: Журналы и мониторинг
       items:
         - name: Журналы аудита
           href: view-audit-logs.md
-          displayName: 'log, logs, logging, usage, events'
+          displayName: 'log, logs, logging, usage, events, reports, reporting'
         - name: Azure Monitor
           href: azure-monitor.md
-          displayName: 'log, logs, logging, usage, events'
+          displayName: 'log, logs, logging, usage, events, reports, reporting, dashboard'
         - name: Аналитика использования
           href: analytics-with-application-insights.md
-          displayName: 'application insights, app insights'
+          displayName: 'application insights, app insights, reports, reporting'
+        - name: Безопасное выполнение MFA с использованием телефона
+          href: phone-based-mfa.md
+          displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
     - name: Соответствие нормативным требованиям
       items:
         - name: Доступ пользователей

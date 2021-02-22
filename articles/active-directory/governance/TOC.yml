@@ -14,8 +14,10 @@
 - name: Учебники
   expanded: true
   items:
-    - name: Создание первого пакета для доступа
+    - name: 'Управление доступом к ресурсам, портал Azure'
       href: entitlement-management-access-package-first.md
+    - name: 'Управление доступом к ресурсам, Microsoft Graph'
+      href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Основные понятия
   expanded: true
   items:

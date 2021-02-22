@@ -138,6 +138,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Основные понятия
   items:
+    - name: Рекомендации
+      items:
+        - name: Производительность и надежность
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Управление подключениями
+          href: manage-connections.md
+          displayName: best practices
+        - name: Рекомендации по работе с хранилищем
+          href: storage-considerations.md
+          displayName: 'encryption, keys, mount, files'
+        - name: Обработка ошибок и повторные попытки функций
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Безопасность
+          href: security-concepts.md
+          displayName: best practices
     - name: Сравнение версий среды выполнения
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
@@ -212,12 +229,7 @@
       href: functions-diagnostics.md
     - name: Стоимость плана потребления
       href: functions-consumption-costs.md
-    - name: Вопросы производительности
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Рекомендации по работе с хранилищем
-      href: storage-considerations.md
-      displayName: 'encryption, keys, mount, files'
     - name: Прокси функций
       href: functions-proxies.md
     - name: Сетевые параметры
@@ -457,7 +469,7 @@
             - name: Входные данные
               displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
-            - name: Выходные данные
+            - name: Вывод
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB

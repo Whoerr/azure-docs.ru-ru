@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 029157f5f651e150fa89ea22173c08bbf21682df
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9e02cb23188b552b1779d184a2384835f4195762
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355092"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365384"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Что представляет собой гостевой доступ в службе совместной работы Azure Active Directory B2B?
 
@@ -25,7 +25,7 @@ ms.locfileid: "97355092"
 
 > [!IMPORTANT]
 > - **Начиная с 4 января 2021 г.** компания Google [прекращает поддержку входа через веб-представление](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Если вы используете федерацию Google или самостоятельную регистрацию с помощью Gmail, вам нужно [проверить нативные бизнес-приложения на совместимость](google-federation.md#deprecation-of-webview-sign-in-support).
-> - **Начиная с 31 марта 2021 г.** корпорация Майкрософт не будет поддерживать активацию через приглашение при создании неуправляемых учетных записей и арендаторов Azure AD для сценариев совместной работы B2B. В ходе подготовки мы советуем клиентам перейти на [проверку подлинности с использованием одноразового секретного кода](one-time-passcode.md). Мы будем рады вашим отзывам об этой функции, предоставляемой в общедоступной предварительной версии, и с радостью создадим другие способы для совместной работы.
+> - **Начиная с октября 2021 г.** корпорация Майкрософт прекратит поддержку активации через приглашение при создании неуправляемых учетных записей и арендаторов Azure AD для сценариев совместной работы B2B. В ходе подготовки мы советуем клиентам перейти на [проверку подлинности с использованием одноразового секретного кода](one-time-passcode.md). Мы будем рады вашим отзывам об этой функции, предоставляемой в общедоступной предварительной версии, и с радостью создадим другие способы для совместной работы.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Совместная работа с любым партнером с помощью его удостоверений
 

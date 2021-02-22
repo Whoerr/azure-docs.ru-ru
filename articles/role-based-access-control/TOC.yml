@@ -55,13 +55,13 @@
           href: role-assignments-list-cli.md
         - name: REST API
           href: role-assignments-list-rest.md
-    - name: Добавление или удаление назначений ролей
+    - name: Назначение ролей
       items:
-        - name: Шаги для добавления назначения роли
+        - name: Инструкции по назначению роли
           href: role-assignments-steps.md
         - name: Портал
           items:
-            - name: Добавление или удаление назначений ролей
+            - name: Назначение ролей
               href: role-assignments-portal.md
             - name: Администратор подписки
               href: role-assignments-portal-subscription-admin.md
@@ -78,6 +78,8 @@
         - name: Шаблон ARM
           displayName: Resource Manager
           href: role-assignments-template.md
+    - name: Удаление назначений роли
+      href: role-assignments-remove.md
     - name: Отображение списка запрещенных назначений
       items:
         - name: Обзор

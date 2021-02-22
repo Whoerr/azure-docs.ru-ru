@@ -1,18 +1,18 @@
 ---
 title: Использование очередей служебной шины Azure в JavaScript
-description: Узнайте, как написать программу JavaScript, которая использует последнюю предварительную версию пакета @azure/service-bus для отправки сообщений в очередь служебной шины и получения сообщений из нее.
+description: Узнайте, как написать программу JavaScript, которая использует последнюю версию пакета @azure/service-bus для отправки сообщений в очередь служебной шины и получения сообщений из нее.
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: ac24d84176f27170648545bc8044c5dcbc77781a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 27ffbafb92dd3269e38092b64e2b74f17ff9f09f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180019"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373085"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Отправка сообщений в очереди Служебной шины и получение сообщений из них (JavaScript)
 Из этого учебника вы узнаете, как использовать пакет [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) в программе JavaScript для отправки и получения сообщений для очереди Служебной шины.
@@ -205,6 +205,7 @@ npm install @azure/service-bus
 ## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь со следующими примерами и документацией: 
 
-- [Клиентская библиотека Служебной шины Azure для JS](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Примеры.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples) В папке **javascript** можно найти примеры для JavaScript, а в папке **typescript** — для TypeScript. 
-- [Справочная документация по использованию пакета azure-servicebus](/javascript/api/overview/azure/service-bus)
+- [Клиентская библиотека Служебной шины Azure для JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [Примеры JavaScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Примеры TypeScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Справочная документация по API](/javascript/api/overview/azure/service-bus)

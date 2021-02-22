@@ -210,6 +210,8 @@
                       href: connect-zscaler.md
                 - name: Шаг 3. Проверка подключения
                   href: connect-cef-verify.md
+        - name: Создание настраиваемых соединителей
+          href: create-custom-connector.md
         - name: Подключение анализа угроз
           href: connect-threat-intelligence.md
         - name: Подключение виртуальных машин Azure Stack
@@ -255,8 +257,6 @@
           href: hunting-with-rest-api.md
         - name: Управление списками видео к просмотру с помощью REST API
           href: watchlist-with-rest-api.md
-    - name: Справочник по данным Azure Monitor
-      href: /azure/azure-monitor/reference/
     - name: "Соединитель Logic Apps для Azure\_Sentinel"
       href: /connectors/azuresentinel/
     - name: Схема нормализации сети
@@ -275,8 +275,6 @@
   items:
     - name: Полезные ресурсы
       href: resources.md
-    - name: Стратегия развития Azure
-      href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Блог по безопасности, конфиденциальности и соответствию нормам Azure'
       href: /archive/blogs/azuresecurity/
     - name: Доступность по регионам

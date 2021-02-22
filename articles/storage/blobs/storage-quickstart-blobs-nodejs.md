@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ed3a88dbca1788a5c5a265fe91bdd5e88ae1fe36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2884df3a9b5cb3954c1c5e57d923eff97809a745
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012771"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382180"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Краткое руководство. Управление большими двоичными объектами с помощью пакета SDK для JavaScript версии 12 в Node.js
 
@@ -276,7 +276,7 @@ console.log("Container was deleted successfully. requestId: ", deleteContainerRe
 
 Это приложение создает текстовую строку и передает ее в хранилище BLOB-объектов. Затем пример выводит список больших двоичных объектов в контейнере, скачивает большой двоичный объект и отображает скачанные данные.
 
-В окне консоли перейдите в каталог, содержащий файл *blob-quickstart-v12.py*, а затем выполните указанную команду `node`, чтобы запустить приложение.
+В окне консоли перейдите в каталог, содержащий файл *blob-quickstart-v12.js*, а затем выполните следующую команду `node`, чтобы запустить приложение.
 
 ```console
 node blob-quickstart-v12.js

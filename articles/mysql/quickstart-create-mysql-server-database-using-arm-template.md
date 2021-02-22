@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 983bda94af9b8595bfb3ce24b7437a35db70efe8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3da3b1694a16507203d7f1f1f6cb5df58dd54423
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098560"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366183"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Краткое руководство. Создание сервера базы данных Azure для MySQL с помощью шаблона Resource Manager
 
@@ -187,15 +187,24 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 - [Экспорт из группы ресурсов или ресурса.](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource) В этом варианте создается новый шаблон из существующих ресурсов. Экспортированный шаблон — это "моментальный снимок" текущего состояния группы ресурсов. Вы можете экспортировать всю группу ресурсов или определенные ресурсы в ней.
 - [Экспорт до развертывания или из журнала.](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment) В этом варианте выполняется получение точной копии шаблона, используемой для развертывания.
 
-При экспорте шаблона в разделе ```"parameters":{ }``` шаблона вы увидите, что ```administratorLogin``` и ```administratorLoginPassword``` не включены по соображениям безопасности. **ОБЯЗАТЕЛЬНО** добавьте эти параметры в свой шаблон, прежде чем развертывать его. В противном случае возникнет ошибка шаблона.
+При экспорте шаблона в разделе ```"properties":{ }``` шаблона сервера MySQL вы увидите, что ```administratorLogin``` и ```administratorLoginPassword``` не включены из соображений безопасности. **ОБЯЗАТЕЛЬНО** добавьте эти параметры в свой шаблон, прежде чем развертывать его. В противном случае возникнет ошибка шаблона.
 
-```json
-"administratorLogin": {
-      "type": "String"
-    },
-"administratorLoginPassword": {
-      "type": "SecureString"
-    },  
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforMySQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
 ```
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов

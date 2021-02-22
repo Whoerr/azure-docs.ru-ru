@@ -101,20 +101,12 @@
       href: ./workloads/oracle/oracle-database-quick-create.md
     - name: Elasticsearch
       href: ./linux/tutorial-elasticsearch.md
-    - name: Фильтр пакетов в FreeBSD
-      href: ./linux/freebsd-pf-nat.md
     - name: Повторное размещение мейнфреймов
       href: ./workloads/mainframe-rehosting/overview.md
-    - name: Базы данных
-      items:
-        - name: MongoDB
-        - name: MS SQL в Linux
-          href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: SQL на виртуальных машинах
+      href: 'https://docs.microsoft.com/azure/azure-sql/virtual-machines/'
     - name: Высокопроизводительные вычисления (HPC)
       href: /azure/architecture/topics/high-performance-computing/
-    - name: Контейнеры
-    - name: Visual Studio
-      href: ./windows/using-visual-studio-vm.md
 - name: Экземпляры
   items:
     - name: Размеры
@@ -218,6 +210,12 @@
                   href: ./windows/n-series-driver-setup.md
             - name: Настройка драйверов GPU AMD
               href: ./windows/n-series-amd-driver-setup.md
+        - name: 'ППВМ: ускорение вычислений'
+          items:
+            - name: Обзор
+              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+            - name: "Серия\_NP"
+              href: np-series.md
         - name: Для высокопроизводительных вычислений
           displayName: H-series
           items:
@@ -329,7 +327,8 @@
           href: ./linux/tutorial-build-deploy-azure-pipelines.md
         - name: Создание стека LAMP
           href: ./linux/tutorial-lamp-stack.md
-        - name: Secure a web server with SSL certificates on a Linux virtual machine in Azure (Защита веб-сервера на виртуальной машине Linux в облаке Azure с помощью SSL-сертификата)
+        - name: Защита веб-сервера с помощью TLS\SSL
+          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
@@ -592,6 +591,8 @@
               href: ./linux/flatcar-create-upload-vhd.md
             - name: FreeBSD
               href: ./linux/freebsd-intro-on-azure.md
+            - name: Фильтр пакетов в FreeBSD
+              href: ./linux/freebsd-pf-nat.md
             - name: Oracle Linux
               href: ./linux/oracle-create-upload-vhd.md
             - name: OpenBSD
@@ -636,6 +637,8 @@
           href: ./windows/capture-image-resource.md
         - name: Создание виртуальной машины из управляемого образа
           href: ./windows/create-vm-generalized-managed.md
+        - name: Visual Studio
+          href: ./windows/using-visual-studio-vm.md
     - name: Общая коллекция образов
       items:
         - name: Обзор
@@ -987,7 +990,7 @@
       href: ephemeral-os-disks.md
     - name: Миграция и преобразование
       items:
-        - name: Переход между хранилищами ценовых категорий "Стандартный" и "Премиум" для дисков
+        - name: Преобразование диска в диск другого типа
           items:
             - name: CLI
               href: ./linux/convert-disk-storage.md
@@ -1225,6 +1228,8 @@
       href: maintenance-and-updates.md
     - name: Автоматизация исправлений гостевой системы виртуальной машины (предварительная версия)
       href: ./windows/automatic-vm-guest-patching.md
+    - name: Автоматическое обновление расширений (предвапрительная версия)
+      href: ./automatic-extension-upgrade.md
     - name: Управление обслуживанием
       items:
         - name: Уведомления об обслуживании
@@ -1326,7 +1331,7 @@
                   href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
                 - name: Пользовательские поля
                   href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
-        - name: Диагностика
+        - name: Устранение неполадок
           items:
             - name: Расширение службы анализа журналов для виртуальной машины
               href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context

@@ -157,6 +157,10 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Architecture
+  items:
+    - name: Эталонная архитектура
+      href: spring-cloud-reference-architecture.md
 - name: Развертывание DevOps
   items:
     - name: CI/CD и Azure DevOps

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379042"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634266"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Новые возможности в Центре безопасности Azure
 
@@ -35,11 +35,29 @@ ms.locfileid: "100379042"
 
 В феврале добавлены следующие изменения:
 
+- [Общедоступная версия новой страницы оповещений системы безопасности на портале Azure](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [выпущена общедоступная версия рекомендаций по защите рабочих нагрузок Kubernetes;](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [прямая ссылка на политику на странице сведений о рекомендации;](#direct-link-to-policy-from-recommendation-details-page)
 - [Рекомендация по классификации данных SQL больше не влияет на оценку безопасности.](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Автоматизацию рабочих процессов можно активировать путем изменения оценки соответствия нормативным требованиям (предварительная версия)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 - [усовершенствования страницы "Инвентаризация активов"](#asset-inventory-page-enhancements).
+
+
+### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Общедоступная версия новой страницы оповещений системы безопасности на портале Azure
+
+Страница оповещений системы безопасности в Центре безопасности Azure изменена для предоставления следующих возможностей:
+
+- **Улучшен интерфейс для рассмотрения оповещений.** Список включает настраиваемые фильтры и параметры группирования, которые помогают скрыть избыточные оповещения и сосредоточиться на наиболее важных угрозах.
+- **В списки оповещений добавлена дополнительная информация**, например сведения о тактиках из базы знаний MITRE ATT&ACK.
+- **Кнопка для создания примеров оповещений.** Чтобы оценить возможности Azure Defender и протестировать конфигурацию оповещений (для интеграции SIEM, уведомлений по электронной почте и автоматизации рабочих процессов), можно создать примеры оповещений практически во всех планах Azure Defender.
+- **Согласованность с функциями для инцидентов в Azure Sentinel.** Клиентам, использующим оба продукта, стало удобнее переключаться между ними, а также стал проще обмен данными между этими продуктами.
+- **Улучшена производительность** при работе с большими списками оповещений.
+- **Добавлена навигация** по списку оповещений с помощью клавиатуры.
+- **Оповещения из Azure Resource Graph**. Вы можете запросить оповещения из Azure Resource Graph (работающий по принципу Kusto API) для всех ваших ресурсов. Это также удобно, если вы создаете собственные панели мониторинга для оповещений. [Узнайте больше об Azure Resource Graph.](../governance/resource-graph/index.yml)
+- [Функция создания примеров оповещений.](security-center-alert-validation.md#generate-sample-azure-defender-alerts) Сведения о том, как создать примеры оповещений в новом интерфейсе, см. в разделе **Создание примеров оповещений Azure Defender**.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Список оповещений системы безопасности в Центре безопасности Azure":::
+
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Выпущена общедоступная версия рекомендаций по защите рабочих нагрузок Kubernetes
 

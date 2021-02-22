@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832136"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390476"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Руководство по Развертывание и использование шаблона приложения микроцентра исполнения заказов
 
-В этом учебнике вы используете шаблон приложения микроцентра исполнения заказов Azure IoT Central, чтобы создать решение для розничной торговли. Вы узнаете, как развернуть шаблон, который входит в его состав, и что можно будет сделать дальше.
+В этом учебнике вы используете шаблон приложения микроцентра исполнения заказов Azure IoT Central, чтобы создать решение для розничной торговли.
+
+Из этого руководства вы узнаете:
+
+> [!div class="checklist"]
+> * Развертывание шаблона приложения
+> * Использование шаблона приложения
 
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с этими сериями учебников вам потребуется подписка Azure. При необходимости можно использовать бесплатную пробную версию в течение семи дней. Если у вас еще нет подписки, создайте ее на [странице регистрации в Azure](https://aka.ms/createazuresubscription);

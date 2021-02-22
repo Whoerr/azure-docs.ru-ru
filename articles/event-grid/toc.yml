@@ -54,8 +54,12 @@
       href: ensure-tags-exists-on-new-virtual-machines.md
     - name: 'Сообщение электронной почты, отправляемое при отключении устройства Центра Интернета вещей'
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Ответ на события службы "Служебная шина"
-      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Обработка событий службы "Служебная шина" с помощью службы "Сетка событий"
+      items:
+        - name: Azure Logic Apps
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        - name: "Функции\_Azure"
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Потоковая передача данных из Центров событий
       href: event-grid-event-hubs-integration.md
     - name: События маршрутизации Служб мультимедиа
@@ -262,14 +266,18 @@
       items:
         - name: Безопасная публикация событий через приватный канал
           href: configure-private-endpoints.md
+        - name: Поставка событий с использованием управляемого удостоверения
+          href: managed-service-identity.md
+        - name: Безопасная поставка событий через приватный канал
+          href: consume-private-endpoints.md
         - name: Настройка брандмауэра IP-адресов
           href: configure-firewall.md
         - name: Защита веб-перехватчика с помощью Azure Active Directory
           href: secure-webhook-delivery.md
-        - name: 'Доставка событий, управляемое удостоверение и приватный канал'
-          href: managed-service-identity.md
-    - name: Диагностика
+    - name: Устранение неполадок
       items:
+        - name: Устранение проблем с Сеткой событий
+          href: troubleshoot-issues.md
         - name: Включение журналов диагностики
           href: enable-diagnostic-logs-topic.md
         - name: Устранение неполадок

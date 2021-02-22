@@ -113,6 +113,8 @@
                   href: ./security/workspace-data-exfiltration-protection.md
                 - name: Рабочая область Synapse с центрами приватных каналов
                   href: ./security/synapse-private-link-hubs.md
+                - name: Подключение к защищенной учетной записи хранения
+                  href: ./security/connect-to-a-secure-storage-account.md
             - name: Сквозная проверка подлинности
               items:
                 - name: Azure Active Directory
@@ -571,7 +573,11 @@
         - name: Работа с Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: Управление библиотеками
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
+          items:
+            - name: Добавление библиотек и управление ими
+              href: ./spark/apache-spark-azure-portal-add-libraries.md
+            - name: Устранение ошибок установки библиотек
+              href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Использование записных книжек и средств IDE
           items:
             - name: Управление записными книжками

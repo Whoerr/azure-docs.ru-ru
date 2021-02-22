@@ -8,12 +8,12 @@
       href: whats-new.md
 - name: Краткие руководства
   items:
-    - name: Создание базы знаний на портале QnA Maker
+    - name: Создание базы знаний и отправка запросов к ней на портале QnA Maker
       href: Quickstarts/create-publish-knowledge-base.md
+    - name: "Создание базы знаний и отправка запросов к ней с помощью клиентских библиотек или REST\_API"
+      href: Quickstarts/quickstart-sdk.md
     - name: Выполнение запроса к базе знаний с помощью REST API
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - name: "Использование клиентских библиотек или REST\_API"
-      href: Quickstarts/quickstart-sdk.md
 - name: Учебники
   items:
     - name: Интеграция с Power Virtual Agents
@@ -50,15 +50,6 @@
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
     - name: Управление ресурсами QnA Maker
       href: How-To/manage-qna-maker-app.md
-    - name: Настройка активного обучения для улучшения базы знаний
-      items:
-        - name: Включение активного обучения
-          href: How-To/use-active-learning.md
-        - name: Получение предлагаемых альтернативных вопросов
-          href: How-to/improve-knowledge-base.md
-          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
-    - name: Включение активного обучения
-      href: How-To/use-active-learning.md
     - name: Управление базой знаний
       items:
         - name: Создание базы знаний
@@ -79,12 +70,18 @@
         - name: Добавление запросов для дальнейших действий
           href: How-To/multiturn-conversation.md
           displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
-        - name: Получение предлагаемых альтернативных вопросов
-          href: How-to/improve-knowledge-base.md
-          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
+        - name: Изменение ответа по умолчанию
+          href: How-To/change-default-answer.md
     - name: Обращение к базе знаний
       href: How-To/metadata-generateanswer-usage.md
       displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+    - name: Настройка активного обучения для улучшения базы знаний
+      items:
+        - name: Включение активного обучения
+          href: How-To/use-active-learning.md
+        - name: Получение предлагаемых альтернативных вопросов
+          href: How-to/improve-knowledge-base.md
+          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Аналитика и телеметрия
       href: How-To/get-analytics-knowledge-base.md
 - name: Справочник
@@ -100,8 +97,6 @@
     - name: Добавление защищенных файлов SharePoint
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-    - name: Изменение ответа по умолчанию
-      href: How-To/change-default-answer.md
     - name: Конфигурация службы
       href: reference-app-service.md
     - name: Рекомендации по формату содержимого

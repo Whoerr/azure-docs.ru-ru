@@ -1,21 +1,17 @@
 ---
 title: Сравнение Фабрики данных Azure c Фабрикой данных версии 1
 description: В этой статье сравниваются возможности Фабрики данных Azure с возможностями Фабрики данных версии 1.
-services: data-factory
-documentationcenter: ''
 author: kromerm
-manager: anandsub
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: makromer
-ms.openlocfilehash: c6a46f6c8a57b681f66bb98fced17bf0e2464fcd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dc5a4c92ee4ac0acd4a69ef94fec0981e328d829
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638250"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393723"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Сравнение Фабрики данных Azure c Фабрикой данных версии 1
 
@@ -69,7 +65,7 @@ ms.locfileid: "92638250"
 [Действие выполнения конвейера](control-flow-execute-pipeline-activity.md) позволяет конвейеру фабрики данных вызвать другой конвейер.
 
 ### <a name="delta-flows"></a>Разностные потоки:
-Возможность использования ключа в шаблонах извлечения, преобразования и загрузки представлена разностной загрузкой — загрузкой только тех данных, которые изменялись с момента последней итерации конвейера. Новые функции в текущей версии, такие как [действие поиска](control-flow-lookup-activity.md), гибкое планирование и поток управления, поддерживают эту возможность естественным образом. Дополнительные сведения см. в статье [Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure](tutorial-incremental-copy-powershell.md).
+Возможность использования ключа в шаблонах извлечения, преобразования и загрузки представлена разностной загрузкой, когда загружаются только те е, которые изменялись с момента последней итерации конвейера. Новые функции в текущей версии, такие как [действие поиска](control-flow-lookup-activity.md), гибкое планирование и поток управления, поддерживают эту возможность естественным образом. Дополнительные сведения см. в статье [Пошаговая загрузка данных из базы данных SQL Azure в хранилище BLOB-объектов Azure](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Другие действия потока управления
 Ниже представлены другие действия потока управления, которые поддерживаются Фабрикой данных текущей версии. 
@@ -118,9 +114,9 @@ ms.locfileid: "92638250"
 ## <a name="sdks"></a>Пакеты SDK
  В текущей версии Фабрики данных доступны разные пакеты SDK, которые можно использовать для создания, администрирования и мониторинга конвейеров.
 
-- **Пакет SDK для .NET** : Пакет SDK для .NET обновлен в текущей версии.
+- **Пакет SDK для .NET**: Пакет SDK для .NET обновлен в текущей версии.
 
-- **PowerShell** : Командлеты PowerShell обновлены в текущей версии. Командлеты текущей версии содержат в имени **DataFactoryV2** . Например, Get-AzDataFactoryV2. 
+- **PowerShell**: Командлеты PowerShell обновлены в текущей версии. Командлеты текущей версии содержат в имени **DataFactoryV2**. Например, Get-AzDataFactoryV2. 
 
 - **Пакет SDK для Python.** Этот пакет SDK не использовался до текущей версии.
 

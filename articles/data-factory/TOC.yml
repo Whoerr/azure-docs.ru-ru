@@ -105,6 +105,8 @@
       items:
         - name: Преобразование данных с помощью сопоставления потоков данных
           items:
+            - name: Преобразование данных в озеро с помощью Delta Lake
+              href: tutorial-data-flow-delta-lake.md
             - name: Преобразование данных с помощью сопоставления потоков данных
               href: tutorial-data-flow.md
             - name: Видеоматериалы по потоку данных для сопоставления
@@ -556,6 +558,8 @@
           href: data-flow-lookup.md
         - name: Новая ветвь
           href: data-flow-new-branch.md
+        - name: Синтаксический анализ
+          href: data-flow-parse.md
         - name: Сведение
           href: data-flow-pivot.md
         - name: Ранг
@@ -732,6 +736,8 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: Дедупликация и проверка значений NULL с помощью фрагментов кода
               href: how-to-data-flow-dedupe-nulls-snippets.md
+            - name: Обработка данных из моделей AML с использованием потока данных
+              href: scenario-dataflow-process-data-aml-models.md
         - name: Перенос рабочих нагрузок SSIS из локальных систем
           items:
             - name: Обзор переноса рабочих нагрузок SSIS
@@ -806,6 +812,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Встроенные компоненты Политики Azure
+      href: policy-reference.md
 - name: Ресурсы
   items:
     - name: Технические документы

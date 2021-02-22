@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f48935edd5746b0f3f3440e249024cbe2901317b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576487"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374377"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Функции Apache Cassandra, поддерживаемые API Cassandra для Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -238,7 +238,7 @@ API Cassandra для Azure Cosmos DB — это платформа управл�
 
 ## <a name="hosted-cql-shell-preview"></a>Размещенная оболочка CQL (предварительная версия)
 
-Вы можете открыть размещенную собственную оболочку Cassandra (CQLSH версии 5.0.1) непосредственно из обозревателя данных на [портале Azure](data-explorer.md) или [Обозревателя Azure Cosmos DB](https://cosmos.azure.com/). Перед включением оболочки CQL необходимо включить в учетной записи компонент [Записные книжки](enable-notebooks.md) (если он еще не включен, при щелчке `Open Cassandra Shell` появится запрос). Поддерживаемые регионы Azure перечислены в выделенной заметке в разделе [включить записные книжки для учетных записей Azure Cosmos DB](enable-notebooks.md).
+Вы можете открыть размещенную собственную оболочку Cassandra (CQLSH версии 5.0.1) непосредственно из обозревателя данных на [портале Azure](data-explorer.md) или [Обозревателя Azure Cosmos DB](https://cosmos.azure.com/). Перед включением оболочки CQL необходимо включить в учетной записи компонент [Записные книжки](enable-notebooks.md) (если он еще не включен, при щелчке `Open Cassandra Shell` появится запрос). Дополнительные сведения см. в статье [Включение записных книжек для учетных записей Azure Cosmos DB](enable-notebooks.md#supported-regions).
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Открытие CQLSH":::
 

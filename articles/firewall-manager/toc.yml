@@ -10,6 +10,9 @@
     - name: "Безопасный виртуальный концентратор\_— шаблон ARM"
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
+    - name: 'Развертывание брандмауэра с использованием политики: шаблон ARM'
+      displayName: Resource Manager
+      href: quick-firewall-policy.md
 - name: Учебники
   items:
     - name: Защита виртуального концентратора с помощью портала

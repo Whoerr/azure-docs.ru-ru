@@ -349,5 +349,7 @@
           href: 'https://azure.microsoft.com/regions/services/'
         - name: Цены
           href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
+        - name: Политики поддержки для Azure Defender для Интернета вещей
+          href: support-policies.md
         - name: Видеоролики
           href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

@@ -172,6 +172,11 @@
         - name: Создание пула без общедоступных IP-адресов
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: Использование расширений с пулами
+          href: create-pool-extensions.md
+        - name: Настройка управляемых удостоверений
+          displayName: user-assigned
+          href: managed-identity-pools.md
         - name: Подключение виртуальной файловой системы
           href: virtual-file-mount.md
         - name: Подключение файлового ресурса Azure

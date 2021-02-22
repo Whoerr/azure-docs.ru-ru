@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593643"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559445"
 ---
-# <a name="call-flows"></a>Потоки вызовов
+# <a name="call-flow-basics"></a>Основы потока вызовов
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -76,6 +76,14 @@ ms.locfileid: "99593643"
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Схема потока передачи мультимедиа через TCP в Службах коммуникации.":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Случай 5. Использование клиентской библиотеки Служб коммуникации и Microsoft Teams на запланированной конференции Teams
+
+Передача сигналов через сигнальный контроллер. Передача мультимедиа через обработчик мультимедиа. Контроллер сигнализации и обработчик мультимедиа совместно используются Службами коммуникации и Microsoft Teams. 
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Схема: использование клиентской библиотеки Служб коммуникации и клиента Teams на запланированной конференции Teams.":::
+
+
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
@@ -85,3 +93,4 @@ ms.locfileid: "99593643"
 
 - Дополнительные сведения о [типах вызовов](../concepts/voice-video-calling/about-call-types.md).
 - Сведения об [архитектуре "клиент — сервер"](./client-and-server-architecture.md)
+- См. дополнительные сведения о [топологиях потока вызовов](./detailed-call-flows.md).

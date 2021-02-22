@@ -144,6 +144,10 @@
           href: ./security-controls-policy.md
         - name: Безопасность сети
           href: network-security.md
+    - name: Интеграция с другими службами
+      items:
+        - name: Интеграция служебной шины Azure с Сеткой событий Azure
+          href: service-bus-to-event-grid-integration-concept.md
 - name: Практические руководства
   items:
     - name: Перемещение между регионами
@@ -168,8 +172,6 @@
               href: message-sequencing.md
             - name: Срок действия сообщения (срок жизни)
               href: message-expiration.md
-            - name: Обработка сообщений с помощью службы "Сетка событий Azure"
-              href: service-bus-to-event-grid-integration-concept.md
         - name: Фильтры и действия разделов
           href: topic-filters.md
         - name: Миграция из пространства имен ценовой категории "Стандартный" в пространство имен категории "Премиум"
