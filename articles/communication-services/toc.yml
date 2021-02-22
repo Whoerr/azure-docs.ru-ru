@@ -74,7 +74,7 @@
           href: concepts/telephony-sms/concepts.md
         - name: Основные понятия телефонии
           href: concepts/telephony-sms/telephony-concept.md
-        - name: Типы телефонных номеров в Службах коммуникации Azure
+        - name: Типы номеров телефона
           href: concepts/telephony-sms/plan-solution.md
         - name: Требования к инфраструктуре интерфейса SIP
           href: concepts/telephony-sms/sip-interface-infrastructure.md

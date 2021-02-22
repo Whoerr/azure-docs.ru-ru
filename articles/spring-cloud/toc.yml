@@ -59,7 +59,7 @@
   items:
     - name: Разработка
       items:
-        - name: Подготовка приложения Java Spring к развертыванию
+        - name: Подготовка приложения к развертыванию
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Настройка сервера конфигурации
           href: spring-cloud-tutorial-config-server.md
