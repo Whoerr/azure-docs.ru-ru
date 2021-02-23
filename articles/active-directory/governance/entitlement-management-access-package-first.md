@@ -1,6 +1,6 @@
 ---
-title: Руководство. Создание пакета для доступа в управлении правами Azure AD
-description: Пошаговое руководство по созданию пакета для доступа в управлении правами Azure Active Directory.
+title: Учебник. Управление доступом к ресурсам в управлении правами Azure AD
+description: Пошаговое руководство по созданию пакета для доступа в управлении правами Azure Active Directory с помощью портала Azure.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,14 +16,14 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937897"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547406"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Руководство по созданию пакета для доступа в управлении правами Azure AD
+# <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Руководство по Управление доступом к ресурсам в управлении правами Azure AD
 
 Управление доступом ко всем ресурсам, которые требуются сотрудникам, таким как группы, приложения и сайты, является важной функцией для организаций. Вам нужна возможность предоставлять сотрудникам нужный уровень доступа, который требуется им для продуктивной работы, и удалять права доступа, когда они больше не нужны.
 
@@ -41,8 +41,6 @@ ms.locfileid: "98937897"
 Пошаговую демонстрацию процесса развертывания функции управления правами Azure Active Directory и создания пакета для доступа см. в следующем видео.
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-Вы также можете создать пакет для доступа программным образом с помощью Microsoft Graph. Учебник, в котором описывается, как создать пакет для доступа программным способом, приведен в статье [Создание пакета для доступа с помощью API-интерфейсов Microsoft Graph](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Предварительные требования
 

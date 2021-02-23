@@ -1,16 +1,16 @@
 ---
 title: Начало работы с разделами и подписками служебной шины Azure | Документация Майкрософт
 description: Написание консольного приложения C# .NET Core, которое использует обмен сообщениями служебной шины для разделов и подписок.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85eb8e6cdaa8636215c5df9d81dbecdca97a2501
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
-ms.translationtype: MT
+ms.openlocfilehash: 28e94cdb0df0a18b41f4c8a0ded362b50df6dcac
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819314"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652978"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Начало работы с разделами служебной шины
 В этом руководстве рассматриваются следующие действия:
@@ -19,16 +19,16 @@ ms.locfileid: "95819314"
 2. Написание консольного приложения .NET Core для получения этих сообщений из подписки.
 
 > [!WARNING]
-> В этом кратком руководстве используется старый пакет Microsoft. Azure. ServiceBus. Краткое руководство, в котором используется последний пакет Azure. Messaging. ServiceBus, см. в статье [Отправка и получение сообщений с помощью пакета Azure. Messaging. servicebus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Чтобы переместить приложение из старой библиотеки в новую, ознакомьтесь с [руководством по миграции из Microsoft. Azure. servicebus в Azure. Messaging. servicebus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
+> Для работы с этим кратким руководством используются пакеты Microsoft.Azure.ServiceBus прежних версий. Сведения об использовании последнего пакета см. в кратком руководстве по [отправке и получению сообщений с помощью пакета Azure.Messaging.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions.md). Чтобы начать использовать в приложении новый пакет вместо старого, ознакомьтесь с руководством по [переходу с Microsoft.Azure.ServiceBus на Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 1. Подписка Azure. Для работы с этим учебником требуется учетная запись Azure. Вы можете активировать [преимущества подписчика Visual Studio или MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) или зарегистрироваться для получения [бесплатной учетной записи](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Выполните действия, описанные в [кратком руководстве: использование портал Azure для создания раздела служебной шины и подписок на раздел](service-bus-quickstart-topics-subscriptions-portal.md) для выполнения следующих задач.
+2. Выполните шаги из [краткого руководства по Создание раздела служебной шины и подписок на него с помощью портала Azure](service-bus-quickstart-topics-subscriptions-portal.md). Так вы сделаете следующее:
     1. Создайте **пространство имен** Служебной шины.
     2. Получите **строку подключения**.
     3. Создайте **раздел** в пространстве имен.
-    4. Создайте **одну подписку** на раздел в пространстве имен.
+    4. Создайте **одну подписку** в разделе пространства имен.
 3. [Visual Studio 2017 с обновлением 3 (версия 15.3, 26730.01)](https://www.visualstudio.com/vs) или более новая версия.
 4. [Пакет SDK для .NET Core](https://www.microsoft.com/net/download/windows) версии 2.0 или более новой.
  
@@ -66,7 +66,7 @@ ms.locfileid: "95819314"
     static ITopicClient topicClient;
     ``` 
 
-3. Замените `Main()` метод следующим **асинхронным** `Main` методом, который асинхронно отправляет сообщения с помощью метода сендмессажесасинк, который будет добавлен на следующем шаге. 
+3. Замените метод `Main()` следующим **асинхронным** методом `Main`, который асинхронно отправляет сообщения с помощью метода SendMessagesAsync (его вы добавите на следующем шаге). 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -179,7 +179,7 @@ ms.locfileid: "95819314"
 
 ## <a name="receive-messages-from-the-subscription"></a>Получение сообщений из подписки
 
-Чтобы получить отправленные сообщения, создайте другое консольное приложение .NET Core и установите пакет NuGet **Microsoft. Azure. servicebus** , аналогичный предыдущему приложению отправителя.
+Чтобы получить отправленные сообщения, создайте другое консольное приложение .NET Core и установите пакет NuGet **Microsoft.Azure.ServiceBus**, как для предыдущего приложения отправителя.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Написание кода для получения сообщений из подписки
 
@@ -201,7 +201,7 @@ ms.locfileid: "95819314"
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Замените `Main()` метод следующим **асинхронным** `Main` методом. Он вызывает `RegisterOnMessageHandlerAndReceiveMessages()` метод, который будет добавлен на следующем шаге. 
+3. Замените метод `Main()` приведенным ниже **асинхронным** методом `Main`. Он вызывает метод `RegisterOnMessageHandlerAndReceiveMessages()`, который вы добавите на следующем шаге. 
 
     ```csharp
     public static async Task Main(string[] args)

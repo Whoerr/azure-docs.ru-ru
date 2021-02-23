@@ -1,18 +1,18 @@
 ---
-title: Руководство. Развертывание кластера vSphere в Azure
-description: Сведения о том, как развернуть кластер vSphere в Azure с помощью Решения Azure VMware.
+title: Учебник. Создание и развертывание частного облака Решения Azure VMware
+description: Сведения о том, как создать и развернуть частное облако Решения Azure VMware.
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8383e987e13e43ea9bc9ba5be196538a259aa8c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093953"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653143"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Руководство по Развертывание частного облака Решения Azure VMware в Azure
+# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Руководство. Создание частного облака Решения Azure VMware
 
-Решение Azure VMware позволяет развернуть в Azure кластер vSphere. Минимальное первоначальное развертывание должно включать три узла. Далее можно по одному добавлять дополнительные узлы, но не более 16 узлов на кластер. 
+В этом учебнике описывается, как создать и развернуть частное облако Решения Azure VMware. Первоначальное развертывание должно включать не менее трех узлов. Далее можно по одному добавлять дополнительные узлы, но не более 16 узлов на кластер. 
 
 Так как Решение Azure VMware не позволяет при запуске управлять частным облаком из локального экземпляра vCenter, нужно выполнить дополнительную настройку. Такие процедуры и соответствующие требования описаны в этом учебнике.
 
@@ -25,13 +25,10 @@ ms.locfileid: "100093953"
 ## <a name="prerequisites"></a>Предварительные требования
 
 - Учетная запись Azure с активной подпиской. [Создайте учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) бесплатно.
-- Соответствующие права администратора и разрешение на создание частного облака.
+- Соответствующие права администратора и разрешение на создание частного облака. У вас должны быть разрешения уровня "Участник" или выше для подписки.
+- Используйте сведения, которые вы собрали при изучении статьи по [планированию](production-ready-deployment-steps.md) для развертывания Решения Azure VMware.
 - Убедитесь, что настроены необходимые сетевые подключения, как описано в статье [Руководство. Контрольный список для сети](tutorial-network-checklist.md).
-
-## <a name="register-the-resource-provider"></a>Регистрация поставщика ресурсов
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
-
+- Узлы были подготовлены, а поставщик ресурсов Microsoft.AVS зарегистрирован, как описано в статье [Запрос квоты узлов и включение Решения Azure VMware](enable-azure-vmware-solution.md).
 
 ## <a name="create-a-private-cloud"></a>Создание частного облака
 

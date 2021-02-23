@@ -1,22 +1,18 @@
 ---
 title: Запуск записной книжки Databricks с помощью действия
 description: Сведения об использовании действия Databricks Notebook в фабрике данных Azure для выполнения записной книжки Databricks в кластере заданий Databricks.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
-ms.openlocfilehash: 27425717f6d96953326edde621966530d240c015
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 20253954035798187f28c18c8207c114d27bc9c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632368"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374088"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Запуск записной книжки Databricks с помощью действия Databricks Notebook в фабрике данных Azure
 
@@ -48,7 +44,7 @@ ms.locfileid: "92632368"
 
 1.  Запустите веб-браузер **Microsoft Edge** или **Google Chrome**. Сейчас только эти браузеры поддерживают пользовательский интерфейс фабрики данных.
 
-1.  В меню слева выберите **Создать ресурс** , **Аналитика** , **Фабрика данных**.
+1.  В меню слева выберите **Создать ресурс**, **Аналитика**, **Фабрика данных**.
 
     ![Создание фабрики данных](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
@@ -72,7 +68,7 @@ ms.locfileid: "92632368"
 
 1.  В поле **Расположение** выберите расположение фабрики данных.
 
-    Чтобы получить список регионов Azure, в которых сейчас доступна Фабрика данных, выберите интересующие вас регионы на следующей странице, а затем разверните раздел **Аналитика** , чтобы найти пункт **Фабрика данных** : [Доступность продуктов по регионам](https://azure.microsoft.com/global-infrastructure/services/). Хранилища данных (такие как служба хранилища Azure и база данных SQL Azure) и вычислительные среды (например, HDInsight), используемые фабрикой данных, могут находиться в других регионах.
+    Чтобы получить список регионов Azure, в которых сейчас доступна Фабрика данных, выберите интересующие вас регионы на следующей странице, а затем разверните раздел **Аналитика**, чтобы найти пункт **Фабрика данных**: [Доступность продуктов по регионам](https://azure.microsoft.com/global-infrastructure/services/). Хранилища данных (такие как служба хранилища Azure и база данных SQL Azure) и вычислительные среды (например, HDInsight), используемые фабрикой данных, могут находиться в других регионах.
 1.  Нажмите кнопку **создания**.
 
 
@@ -90,19 +86,19 @@ ms.locfileid: "92632368"
 
     ![Изменение новой связанной службы](media/transform-data-using-databricks-notebook/get-started-page.png)
 
-1.  В нижней части окна выберите **Подключения** , а затем **+ Создать**.
+1.  В нижней части окна выберите **Подключения**, а затем **+ Создать**.
     
     ![Создание подключения](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  В окне **New Linked Service** (Новая связанная служба) выберите **Вычисления**  \> **Azure Databricks** и щелкните **Продолжить**.
+1.  В окне **New Linked Service** (Новая связанная служба) выберите **Вычисления** \> **Azure Databricks** и щелкните **Продолжить**.
     
     ![Указание связанной службы Databricks](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
 1.  В окне **New Linked Service** (Новая связанная служба) сделайте следующее:
     
-    1.  В качестве **имени** введите * *_AzureDatabricks\_LinkedService_* _
+    1.  В качестве **имени** введите **_AzureDatabricks\_LinkedService_**.
     
-    1.  Выберите соответствующую _ *рабочую область Databricks* *, которая будет выполняться в записной книжке.
+    1.  Выберите соответствующую **рабочую область Databricks**, которая выполняться в записной книжке.
 
     1.  В поле **Выберите кластер** выберите **Новый кластер заданий**.
     
@@ -126,7 +122,7 @@ ms.locfileid: "92632368"
 
     ![Кнопки для создания конвейера](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-1.  Создайте **параметр** для использования в **конвейере**. Позже вы передадите этот параметр в действие Databricks Notebook. В пустом конвейере щелкните вкладку **Параметры** , а затем — **Создать** и присвойте параметру имя **name**.
+1.  Создайте **параметр** для использования в **конвейере**. Позже вы передадите этот параметр в действие Databricks Notebook. В пустом конвейере щелкните вкладку **Параметры**, а затем — **Создать** и присвойте параметру имя **name**.
 
     ![Создание параметра](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
@@ -152,7 +148,7 @@ ms.locfileid: "92632368"
 
           ![Создание папки](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Создайте записную книжку](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) с именем **mynotebook** в папке **adftutorial** , выбрав команду **Создать**.
+       1. [Создайте записную книжку](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) с именем **mynotebook** в папке **adftutorial**, выбрав команду **Создать**.
 
           ![Создание записной книжки](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -205,7 +201,7 @@ ms.locfileid: "92632368"
 
     ![Мониторинг конвейера](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
-1.  Периодически нажимайте **Обновить** , чтобы контролировать состояние выполнения конвейера.
+1.  Периодически нажимайте **Обновить**, чтобы контролировать состояние выполнения конвейера.
 
 1.  Чтобы увидеть выполнение действий, связанных с выполнением конвейера, выберите **View Activity Runs** (Просмотр выполнения действий) в столбце **Действия**.
 
@@ -215,11 +211,11 @@ ms.locfileid: "92632368"
 
 ## <a name="verify-the-output"></a>Проверка выходных данных
 
-Войдите в **рабочую область Azure Databricks** , перейдите в раздел **Кластеры** , и вы увидите одно из таких состояний **задания** : *в ожидании, выполняется или завершено*.
+Войдите в **рабочую область Azure Databricks**, перейдите в раздел **Кластеры**, и вы увидите одно из таких состояний **задания**: *в ожидании, выполняется или завершено*.
 
 ![Просмотр кластера заданий и задания](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
 
-Щелкнув **имя задания** , можно перейти к дополнительным сведениям. При успешном запуске можно проверить переданные параметры и выходные данные записной книжки Python.
+Щелкнув **имя задания**, можно перейти к дополнительным сведениям. При успешном запуске можно проверить переданные параметры и выходные данные записной книжки Python.
 
 ![Просмотр сведений о выполнении и выходных данных](media/transform-data-using-databricks-notebook/databricks-output.png)
 

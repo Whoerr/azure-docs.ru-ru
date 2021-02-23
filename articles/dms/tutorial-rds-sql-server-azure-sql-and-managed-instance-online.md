@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 249667dfa8c0491027f0244d4aa5e49d19399ab0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 484598c7543e146618b6d2ab1f12bdf13710946b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955044"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091358"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Руководство по миграции из SQL Server RDS в Базу данных SQL Azure или Управляемый экземпляр Базы данных SQL Azure по сети с помощью DMS
 
@@ -61,7 +61,7 @@ ms.locfileid: "94955044"
     >
     > Эта настройка необходима, потому что у Azure Database Migration Service нет подключения к Интернету. 
 
-* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют следующие входящие порты для Azure Database Migration Service: 443, 53, 9354, 445, 12000. См. дополнительные сведения о [фильтрации трафика, предназначенного для виртуальной сети, с помощью групп безопасности сети](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют исходящий порт 443 ServiceTag для Служебной шины, службы хранилища и Azure Monitor. См. дополнительные сведения о [фильтрации трафика, предназначенного для виртуальной сети, с помощью групп безопасности сети](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Настройте [брандмауэр Windows для доступа к ядру СУБД](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Откройте брандмауэр Windows, чтобы предоставить Azure Database Migration Service доступ к исходному серверу SQL Server. По умолчанию это TCP-порт 1433.
 * Для Базы данных SQL создайте [правило брандмауэра](../azure-sql/database/firewall-configure.md) на уровне сервера, чтобы предоставить службе Azure Database Migration Service доступ к целевой базе данных. Задайте диапазон подсети в виртуальной сети, которая используется для Azure Database Migration Service.

@@ -1,14 +1,14 @@
 ---
-title: Развертывание Решения Azure VMware
-description: Шаги по развертыванию Решения Azure VMware с помощью портала Azure.
+title: Создание частного облака Решения Azure VMware
+description: Сведения о том, как создать частное облако для Решения Azure VMware с помощью портала Azure.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 4d0881721cd8c13d1b6c9fb3a29e4cdb6d6a753f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578327"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653150"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -40,4 +40,4 @@ ms.locfileid: "91578327"
 
 1. Проверьте успешность развертывания. Перейдите к созданной группе ресурсов и выберите частное облако.  После завершения развертывания отобразится состояние **Выполнено**. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="На вкладке &quot;Основные сведения&quot; введите значения для полей." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Проверьте успешность развертывания." border="true":::

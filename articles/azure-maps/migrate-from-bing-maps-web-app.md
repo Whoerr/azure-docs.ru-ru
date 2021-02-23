@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684830"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389116"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Руководство по Перенос веб-приложения из Карт Bing
 
@@ -33,9 +33,9 @@ ms.locfileid: "98684830"
 
 При переносе имеющегося веб-приложения проверьте, использует ли оно библиотеку элементов управления картой с открытым кодом, например Cesium, Leaflet или OpenLayers. Если это так, и вы предпочитаете использовать эту библиотеку в дальнейшем, можно подключить ее к службе фрагментов карт Azure Maps ([фрагменты дорожных карт](/rest/api/maps/render/getmaptile) \| [фрагменты спутниковых карт](/rest/api/maps/render/getmapimagerytile)). По ссылкам ниже приведены сведения об использовании Azure Maps в некоторых часто используемых библиотеках элементов управления картой с открытым кодом.
 
-* Cesium — элемент управления трехмерными картами для Интернета. [Пример кода](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [документация](https://cesiumjs.org/)
-* Leaflet — упрощенный элемент управления двухмерными картами для Интернета. [Пример кода](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [документация](https://leafletjs.com/)
-* OpenLayers — элемент управления двухмерными картами для Интернета, который поддерживает проекции. [Пример кода](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [документация](https://openlayers.org/)
+* [Cesium](https://cesiumjs.org/) — элемент управления трехмерными картами для Интернета. [Примеры кода](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Репозиторий подключаемого модуля]()
+* [Leaflet](https://leafletjs.com/) — упрощенный элемент управления двухмерными картами для Интернета. [Примеры кода](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Репозиторий подключаемого модуля]()
+* [OpenLayers](https://openlayers.org/) — элемент управления двухмерными картами для Интернета, который поддерживает проекции. [Примеры кода](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Репозиторий подключаемого модуля]()
 
 Для разработки с использованием платформы JavaScript может оказаться полезным один из следующих проектов с открытым исходным кодом:
 
@@ -64,7 +64,7 @@ ms.locfileid: "98684830"
 | Слои фрагментов              | ✓                                                                                      |
 | Слой KML                | ✓                                                                                      |
 | Слой контура            | [Примеры](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| Слой группирования данных       | [Примеры](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| Слой группирования данных       | Включается в [модуль источника данных с координатной привязкой](https://github.com/Azure-Samples/azure-maps-gridded-data-source) Azure Maps с открытым исходным кодом       |
 | Анимированный слой фрагмента      | Включен в [модуль анимации](https://github.com/Azure-Samples/azure-maps-animations) Azure Maps с открытым исходным кодом |
 | Инструменты для рисования            | ✓                                                                                      |
 | Служба геокодирования         | ✓                                                                                      |
@@ -72,10 +72,10 @@ ms.locfileid: "98684830"
 | Служба матрицы расстояний  | ✓                                                                                      |
 | Служба пространственных данных     | Недоступно                                                                                    |
 | Спутниковые изображения или аэроснимки | ✓                                                                                      |
-| Изображение с высоты птичьего полета         | Запланировано                                                                                |
-| Изображение Streetside       | Запланировано                                                                                |
+| Изображение с высоты птичьего полета         | Н/Д                                                                                |
+| Изображение Streetside       | Н/Д                                                                                |
 | Поддержка GeoJSON          | ✓                                                                                      |
-| Поддержка GeoXML           | ✓                                                                                      |
+| Поддержка GeoXML           | ✓ [Модуль ввода-вывода пространственных данных](how-to-use-spatial-io-module.md)                                                                                     |
 | Поддержка формата Well-Known Text  | ✓                                                                                      |
 | Настраиваемые стили карт        | Partial                                                                                |
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e1af60cccb48195db38e420dfe3df01f404669c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622800"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378011"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Руководство по использованию собственных данных (часть 4 из 4)
 
@@ -82,21 +82,8 @@ optimizer = optim.SGD(
 
 Теперь ваш скрипт принимает _путь к данным_ в качестве аргумента. Для начала протестируйте его локально. Добавьте в структуру каталогов учебника папку с именем `data`. Структура каталогов должна выглядеть следующим образом:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Структура каталогов с отображением подкаталогов .azureml, data, and src":::
+
 
 Если вы не выполнили `train.py` локально в предыдущем учебнике, у вас не будет каталога `data/`. В этом случае запустите метод `torchvision.datasets.CIFAR10` локально, используя `download=True` в скрипте `train.py`.
 

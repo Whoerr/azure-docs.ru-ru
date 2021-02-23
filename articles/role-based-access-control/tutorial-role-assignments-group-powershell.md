@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9b1a2f87498d7869b21e6a8ab44fc1f9660456ad
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e25db6213c99afaa46732831534956b01adba0b4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648324"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555229"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Руководство по Предоставление доступа группам к ресурсам Azure с помощью Azure PowerShell
 
@@ -294,4 +294,4 @@ ms.locfileid: "94648324"
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Добавление и удаление назначений ролей Azure с помощью Azure PowerShell](role-assignments-powershell.md)
+> [Назначение ролей Azure с помощью Azure PowerShell](role-assignments-powershell.md)

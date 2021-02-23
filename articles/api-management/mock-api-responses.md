@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930719"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547279"
 ---
 # <a name="tutorial-mock-api-responses"></a>Руководство по Макетирование ответов API
 
@@ -53,11 +53,13 @@ ms.locfileid: "91930719"
 1. В разделе **Шлюзы** выберите **Управляемые**.
 1. Нажмите кнопку **создания**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Имитированный ответ API":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Создание пустого API":::
 
 ## <a name="add-an-operation-to-the-test-api"></a>добавление операции в тестовый API;
 
 API предоставляет одну или несколько операций. В этом разделе добавьте операцию к созданному пустому API. Вызов операции после завершения действий в этом разделе вызовет ошибку. Если завершить все действия из раздела [Включение макетирования ответа](#enable-response-mocking) позже, ошибки не возникнут.
+
+### <a name="portal"></a>[Портал](#tab/azure-portal)
 
 1. Выберите API, созданный на предыдущем шаге.
 1. Щелкните **+ Add Operation** (+ Добавить операцию).
@@ -77,7 +79,7 @@ API предоставляет одну или несколько операци
 1. В текстовом поле **Образец** введите `{ "sampleField" : "test" }`.
 1. Щелкните **Сохранить**.
 
-:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Имитированный ответ API" border="false":::
+:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Добавление операции API" border="false":::
 
 Хотя в данном примере это не требуется, дополнительные параметры для операции API можно настроить на других вкладках, в том числе:
 
@@ -87,6 +89,39 @@ API предоставляет одну или несколько операци
 |**Запрос**     |  Добавьте параметры запроса. Помимо имени и описания можно указать значения, привязанные к данному параметру запроса. Одно из значений может быть отмечено как значение по умолчанию (необязательно).        |
 |**Запрос**     |  Задайте типы содержимого, примеры и схемы запросов.       |
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Чтобы начать работу с Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Чтобы добавить операцию в API тестирования, выполните команду [az apim api operation create](/cli/azure/apim/api/operation#az_apim_api_operation_create):
+
+```azurecli
+az apim api operation create --resource-group apim-hello-word-resource-group \
+    --display-name "Test call" --api-id test-api --method GET \
+    --url-template /test --service-name apim-hello-world 
+```
+
+Чтобы просмотреть все операции для API, выполните команду [az apim api operation list](/cli/azure/apim/api/operation#az_apim_api_operation_list):
+
+```azurecli
+az apim api operation list --resource-group apim-hello-word-resource-group \
+    --api-id test-api --service-name apim-hello-world --output table
+```
+
+Чтобы удалить операцию, воспользуйтесь командой [az apim api operation delete](/cli/azure/apim/api/operation#az_apim_api_operation_delete). Получите идентификатор операции из предыдущей команды.
+
+```azurecli
+az apim api operation delete --resource-group apim-hello-word-resource-group \
+    --api-id test-api --operation-id 00000000000000000000000000000000 \
+    --service-name apim-hello-world
+```
+
+Сохраните эту операцию для последующего использования при работе с этой статьей.
+
+---
+
 ## <a name="enable-response-mocking"></a>включение макетирования ответа;
 
 1. Выберите API, созданный на этапе [Создание тестового API](#create-a-test-api).
@@ -94,15 +129,15 @@ API предоставляет одну или несколько операци
 1. В окне справа убедитесь, что выбрана вкладка **Конструктор**.
 1. Нажмите **+ Добавить политику** в окне **Обработка входящих запросов**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Имитированный ответ API" border="false":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Добавление политики обработки" border="false":::
 
 1. Выберите **Имитировать ответы** из коллекции.
 
-    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Имитированный ответ API" border="false":::
+    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Плитка политики макетирования ответов" border="false":::
 
 1. В текстовом поле **API Management response** (Ответ службы управления API) введите **200 OK, application/json**. Этот параметр указывает, что API должен возвращать пример ответа, определенный в предыдущем разделе.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Имитированный ответ API":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Задание имитации ответа":::
 
 1. Щелкните **Сохранить**.
 
@@ -115,11 +150,11 @@ API предоставляет одну или несколько операци
 1. Откройте вкладку **Тест**.
 1. Убедитесь, что выбран API **пробного вызова**. Чтобы сделать пробный вызов, выберите **Отправка**.
 
-   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Имитированный ответ API":::
+   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="тестирование макетирования API.":::
 
 1. В качестве образца в первом разделе руководства отображается **HTTP-ответ** JSON.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Имитированный ответ API":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Имитация HTTP-ответа":::
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

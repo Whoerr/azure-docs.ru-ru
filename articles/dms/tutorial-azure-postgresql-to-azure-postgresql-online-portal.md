@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 545359cd68c18fea8bf1369a57226d024489f293
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258937"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091298"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Руководство по миграции и переходу с одной базы данных Azure для PostgreSQL (Отдельный сервер) на другую (более новую) по сети с помощью Database Migration Service и портала Azure.
 
@@ -54,7 +54,7 @@ Azure Database Migration Service позволяет с минимальным п
 * Создайте [сервер Базы данных Azure для PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) или [сервер базы данных Azure для PostgreSQL (Гипермасштабирование (Citus))](../postgresql/quickstart-create-hyperscale-portal.md), на который будете переносить данные.
 * Создайте виртуальную сеть Azure для Azure Database Migration Service, используя модель развертывания с помощью Azure Resource Manager. Дополнительные сведения см. в статье [Документация по виртуальной сети](../virtual-network/index.yml), где особое внимание стоит уделить кратким руководствам с пошаговыми инструкциями.
 
-* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют следующие исходящие порты для Azure Database Migration Service: 443, 53, 9354, 445, 12000. См. дополнительные сведения о [фильтрации трафика, предназначенного для виртуальной сети, с помощью групп безопасности сети](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют исходящий порт 443 ServiceTag для Служебной шины, службы хранилища и Azure Monitor. См. дополнительные сведения о [фильтрации трафика, предназначенного для виртуальной сети, с помощью групп безопасности сети](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Создайте [правило брандмауэра](../azure-sql/database/firewall-configure.md) уровня сервера для исходной Базы данных Azure для PostgreSQL, чтобы предоставить Azure Database Migration Service доступ к исходным базам данных. Задайте диапазон подсети в виртуальной сети, которая используется для Azure Database Migration Service.
 * Создайте [правило брандмауэра](../azure-sql/database/firewall-configure.md) уровня сервера для Базы данных Azure для PostgreSQL, чтобы предоставить службе Azure Database Migration Service доступ к целевым базам данных. Задайте диапазон подсети в виртуальной сети, которая используется для Azure Database Migration Service.
 * [Включите логическую репликацию](../postgresql/concepts-logical.md) в исходном экземпляре Базы данных Azure для PostgreSQL. 

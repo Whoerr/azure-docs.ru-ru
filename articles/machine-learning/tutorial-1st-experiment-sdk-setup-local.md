@@ -9,14 +9,15 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+adobe-target: true
+ms.openlocfilehash: 5d61f330c823aff755a25e637bb58c132aa58100
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250695"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369149"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Руководство по началу работы с Машинным обучением Azure в среде разработки (часть 1 из 4)
 
@@ -78,20 +79,29 @@ pip install azureml-core
 
 Для работы с этим руководством рекомендуется настроить следующую простую структуру каталогов:
 
-```markdown
-tutorial
-└──.azureml
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-1.png" alt-text="Структура каталога: верхний уровень для учебника с подкаталогом .azureml":::
+
 
 - `tutorial`: каталог верхнего уровня проекта.
 - `.azureml`: скрытый подкаталог для хранения файлов конфигурации Машинного обучения Azure.
 
+Например, чтобы создать их в окне bash:
+
+```bash
+mkdir tutorial
+cd tutorial
+mkdir .azureml
+```
+
 > [!TIP]
-> Вы можете создать скрытый подкаталог .azureml в окне терминала.  Или сделайте следующее:
+> Чтобы создать или просмотреть структуру в окне с графическим представлением, сначала включите возможность просмотра и создания скрытых файлов и папок:
 >
-> * В окне поиска компьютера Mac используйте клавиши **CMD+SHIFT+.** для переключения возможности просмотра и создания каталогов, начинающихся с точки.  
+> * В окне поиска компьютера Mac используйте клавиши **CMD+SHIFT+.** для переключения отображения скрытых файлов и папок.  
 > * В проводнике Windows 10 [включите просмотр скрытых файлов и папок](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * В графическом интерфейсе Linux используйте **CTRL+H** или меню **Представление** и установите флажок **Show hidden files** (Показать скрытые файлы).
+
+
+
 
 > [!div class="nextstepaction"]
 > [Мной создан каталог](?success=create-dir#workspace) [Возникла проблема](https://www.research.net/r/7C8Z3DN?issue=create-dir)
@@ -138,12 +148,7 @@ python ./01-create-workspace.py
 
 После успешного запуска *01-create-workspace.py* структура папок будет примерно такой:
 
-```markdown
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-2.png" alt-text="Файл config.json появляется в подкаталоге .azureml после запуска 01-create-workspace.py":::
 
 Файл `.azureml/config.json` содержит метаданные, необходимые для подключения к рабочей области Машинного обучения Azure. А именно, он содержит идентификатор подписки, группу ресурсов и имя рабочей области. 
 
@@ -196,13 +201,7 @@ python ./02-create-compute.py
 
 Теперь структура папок будет выглядеть следующим образом:
 
-```bash
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-3.png" alt-text="Добавление 02-create-compute.py в каталог для учебника":::
 
 > [!div class="nextstepaction"]
 > [Мной создан вычислительный кластер](?success=create-compute-cluster#next-steps) [Возникла проблема](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)

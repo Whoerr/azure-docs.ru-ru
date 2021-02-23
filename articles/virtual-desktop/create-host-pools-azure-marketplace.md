@@ -3,15 +3,16 @@ title: Пул узлов Виртуального рабочего стола Wi
 description: Сведения о том, как создать пул узлов Виртуального рабочего стола Windows с помощью портала Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735186"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651465"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Руководство по Создание пула узлов на портале Azure
 
@@ -67,6 +68,9 @@ ms.locfileid: "98735186"
 
      > [!div class="mx-imgBorder"]
      > ![Снимок экрана на портале Azure, где отмечено поле "Расположение" с выбранным значением "Восточная часть США". Рядом с этим полем отображается текст "Метаданные будут храниться в восточной части США".](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Если вы хотите создать пул узлов в [поддерживаемом регионе](data-locations.md) за пределами США, вам потребуется повторно зарегистрировать поставщик ресурсов. После повторной регистрации вы должны увидеть другие регионы в раскрывающемся списке для выбора расположения. Узнайте, как выполнить повторную регистрацию, из статьи об устранении неполадок при [создании пула узлов](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects).
 
 8. В разделе "Тип пула узлов" выберите **Личный** или **Общий**.
 

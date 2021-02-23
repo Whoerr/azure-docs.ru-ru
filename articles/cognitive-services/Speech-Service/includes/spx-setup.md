@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515049"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645560"
 ---
 ## <a name="download-and-install"></a>Загрузите и установите
 
@@ -19,11 +19,12 @@ ms.locfileid: "100515049"
 Вот как установить интерфейс командной строки службы "Речь" в Windows:
 
 1. В Windows для вашей платформы необходим [распространяемый компонент Microsoft Visual C++ для Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads). При первой установке может потребоваться перезагрузка.
-1. Установите [.NET Core 3.1](/dotnet/core/install/linux).
+1. Установите [пакет SDK для .NET Core 3.1](/dotnet/core/install/linux).
 2. Установите CLI службы "Речь" с использованием NuGet. Для этого введите следующую команду:
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
-
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   ```
 Введите `spx`, чтобы получить справку по интерфейсу командной строки службы "Речь".
 
 > [!NOTE]

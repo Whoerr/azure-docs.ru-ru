@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 1d3ab2df51e80b44dce6057b02975fe210ebaa24
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 326f52b807aee8f52e69af48dec9b174278728e5
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254331"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094882"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Руководство. Перенос MySQL в Базу данных Azure для MySQL по сети с помощью DMS
 
@@ -62,8 +62,8 @@ Azure Database Migration Service можно использовать для пе
     >
     > Такая конфигурация вызвана тем, что у Azure Database Migration Service нет подключения к Интернету.
 
-* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют следующие исходящие порты для Azure Database Migration Service: 443, 53, 9354, 445, 12000. См. дополнительные сведения о [фильтрации трафика, предназначенного для виртуальной сети, с помощью групп безопасности сети](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Настройте [брандмауэр Windows для доступа к ядру СУБД](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules).
+* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют исходящий порт 443 ServiceTag для Служебной шины, службы хранилища и Azure Monitor. См. дополнительные сведения о [фильтрации трафика, предназначенного для виртуальной сети, с помощью групп безопасности сети](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Настройте [брандмауэр Windows для доступа к ядру СУБД](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Откройте брандмауэр Windows, чтобы предоставить Azure Database Migration Service доступ к исходному серверу MySQL Server. По умолчанию это TCP-порт 3306.
 * Если перед исходными базами данных развернуто устройство брандмауэра, вам может понадобиться добавить правила брандмауэра, чтобы позволить службе Azure Database Migration Service обращаться к исходным базам данных для выполнения миграции.
 * Создайте [правило брандмауэра](../azure-sql/database/firewall-configure.md) уровня сервера для Базы данных Azure для MySQL, чтобы предоставить службе Azure Database Migration Service доступ к целевым базам данных. Задайте диапазон подсети в виртуальной сети, которая используется для Azure Database Migration Service.

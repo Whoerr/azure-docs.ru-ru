@@ -1,21 +1,17 @@
 ---
 title: 'Преобразование данных с помощью Spark в службе "Фабрика данных Azure" '
 description: В этом руководстве представлены пошаговые инструкции по преобразованию данных с использованием действия Spark в фабрике данных Azure.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf425ecb1a8aebf594828bfba50e9aba8ca9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409087"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377624"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Преобразование данных в облаке с помощью действия Spark в фабрике данных Azure
 
@@ -182,7 +178,7 @@ ms.locfileid: "81409087"
 
 
 ## <a name="create-a-data-factory"></a>Создание фабрики данных 
-Вы создали связанную службу и определения конвейера в файлах JSON. Теперь нужно создать фабрику данных и развернуть связанную службу и конвейер файлов JSON с помощью командлетов PowerShell. Последовательно выполните следующие команды PowerShell: 
+Вы создали связанную службу и определения конвейера в файлах JSON. Теперь нужно создать фабрику данных и развернуть связанную службу и файлы JSON конвейера с помощью командлетов PowerShell. Последовательно выполните следующие команды PowerShell: 
 
 1. По очереди задайте переменные.
 

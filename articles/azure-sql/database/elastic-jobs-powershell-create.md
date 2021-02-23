@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131939"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368835"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Создание агента заданий обработки эластичных баз данных с помощью PowerShell (предварительная версия)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Задания обработки эластичных баз данных (предварительная версия)](job-automation-overview.md#elastic-database-jobs-preview) позволяют выполнять скрипты Transact-SQL (T-SQL) в нескольких базах данных одновременно.
+[Задания обработки эластичных баз данных (предварительная версия)](job-automation-overview.md) позволяют выполнять скрипты Transact-SQL (T-SQL) в нескольких базах данных одновременно.
 
 В рамках этого учебника вы узнаете о задачах, необходимых для выполнения запроса в нескольких базах данных:
 
@@ -63,7 +63,7 @@ Get-Module Az.Sql
 
 ## <a name="create-required-resources"></a>Создание необходимых ресурсов
 
-Для создания агента заданий обработки эластичных баз данных требуется база данных (S0 или более поздней версии). Она будет использоваться в качестве [базы данных заданий](job-automation-overview.md#job-database).
+Для создания агента заданий обработки эластичных баз данных требуется база данных (S0 или более поздней версии). Она будет использоваться в качестве [базы данных заданий](job-automation-overview.md#elastic-job-database).
 
 Следующий скрипт позволяет создать группу ресурсов, сервер и базу данных, которые можно использовать в базе данных заданий. Второй скрипт также создает второй сервер с двумя пустыми базами данных для выполнения заданий.
 

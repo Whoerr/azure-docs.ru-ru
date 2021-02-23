@@ -8,14 +8,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 3804bfb2a269c431b1a00947f5c7613566a78f49
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377511"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546641"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Руководство по безопасному внесению некритических изменений в API с помощью редакций
 Когда готовый к работе API начинают использовать разработчики, следует осторожно вносить изменения в этот API, чтобы не нарушить работу вызывающих его сторон. Полезно также сообщать разработчикам о внесенных изменениях. 
@@ -78,6 +78,8 @@ ms.locfileid: "93377511"
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Назначение редакции текущей и добавление записи журнала изменений
 
+### <a name="portal"></a>[Портал](#tab/azure-portal)
+
 1. Выберите вкладку **Исправления** в меню в верхней части страницы.
 1. Откройте контекстное меню (**…**) для редакции **Revision 2**.
 1. Выберите **Сделать текущей**.
@@ -86,6 +88,61 @@ ms.locfileid: "93377511"
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Меню редакции в соответствующем окне":::
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Чтобы начать работу с Azure CLI, выполните следующие действия:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Используйте указанную ниже процедуру для создания и обновления выпуска.
+
+1. Чтобы просмотреть идентификаторы API, выполните команду [az apim api list](/cli/azure/apim/api#az_apim_api_list):
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+   Идентификатор API, используемый в следующей команде, имеет значение `Name`. Версия API находится в столбце `ApiRevision`.
+
+1. Чтобы создать выпуск с заметкой о выпуске, выполните команду [az apim api release create](/cli/azure/apim/api/release#az_apim_api_release_create):
+
+   ```azurecli
+   az apim api release create --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --notes 'Testing revisions. Added new "test" operation.'
+   ```
+
+   Выпущенная версия станет текущей версией.
+
+1. Чтобы просмотреть выпуски, выполните команду [az apim api release list](/cli/azure/apim/api/release#az_apim_api_release_list):
+
+   ```azurecli
+   az apim api release list --resource-group apim-hello-word-resource-group \
+       --api-id echo-api --service-name apim-hello-world --output table
+   ```
+
+   Заметки, которые вы укажете, отобразятся в журнале изменений. Вы увидите их в выходных данных предыдущей команды.
+
+1. При создании выпуска параметр `--notes` является необязательным. Вы можете добавить или изменить заметки позже с помощью команды [az apim api release update](/cli/azure/apim/api/release#az_apim_api_release_update):
+
+   ```azurecli
+   az apim api release update --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --service-name apim-hello-world --notes "Revised notes."
+   ```
+
+   Используйте значение в столбце `Name` для идентификатора выпуска.
+
+Вы можете удалить любой выпуск с помощью команды [az apim api release delete](/cli/azure/apim/api/release#az_apim_api_release_delete):
+
+```azurecli
+az apim api release delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --service-name apim-hello-world
+```
+
+---
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Обзор портала разработчика для просмотра изменений и журнала изменений
 

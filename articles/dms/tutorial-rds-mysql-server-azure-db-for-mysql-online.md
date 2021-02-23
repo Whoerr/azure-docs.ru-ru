@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 3f2efd4051b427a4d7cef0e609f733095c6b020f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 377341cc76e1a37d493d66790a1d6d05d010dd5c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259191"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096184"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Руководство. Миграция из MySQL RDS в Базу данных Azure для MySQL через Интернет
 
@@ -56,9 +56,9 @@ ms.locfileid: "99259191"
 
 * Скачайте и установите пример базы данных [MySQL **Сотрудники**](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Создайте экземпляр [Базы данных Azure для MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md).
-* Создайте виртуальную сеть Microsoft Azure для Azure Database Migration Service с помощью модели развертывания Azure Resource Manager, которая обеспечивает подключение "сеть — сеть" к локальным исходным серверам с помощью [ExpressRoute](../expressroute/expressroute-introduction.md) или [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Дополнительные сведения см. в статье [Документация по виртуальной сети](../virtual-network/index.yml), где особое внимание стоит уделить кратким руководствам с пошаговыми инструкциями.
-* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют следующие исходящие порты для Azure Database Migration Service: 443, 53, 9354, 445 и 12000. Дополнительные сведения о фильтрации трафика, предназначенного для виртуальной сети, с помощью NSG см. в статье [Планирование виртуальных сетей](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Настройте [брандмауэр Windows](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules) (или Linux) для доступа к ядру СУБД. Для сервера MySQL разрешите подключение через порт 3306.
+* Создайте виртуальную сеть Microsoft Azure для Azure Database Migration Service с помощью модели развертывания Azure Resource Manager, которая обеспечивает подключение "сеть — сеть" к локальным исходным серверам с помощью [ExpressRoute](../expressroute/expressroute-introduction.md) или [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Дополнительные сведения о создании виртуальной сети приведены в [документации по виртуальным сетям](../virtual-network/index.yml). В частности, уделите внимание кратким руководствам с пошаговыми инструкциями.
+* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют исходящий порт 443 ServiceTag для Служебной шины, службы хранилища и Azure Monitor. Дополнительные сведения о фильтрации трафика, предназначенного для виртуальной сети, с помощью NSG см. в статье [Планирование виртуальных сетей](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Настройте [брандмауэр Windows](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (или Linux) для доступа к ядру СУБД. Для сервера MySQL разрешите подключение через порт 3306.
 
 > [!NOTE]
 > База данных Azure для MySQL поддерживает только таблицы InnoDB. Чтобы преобразовать таблицы MyISAM в InnoDB, ознакомьтесь со сведениями на странице о [преобразовании таблиц](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html).

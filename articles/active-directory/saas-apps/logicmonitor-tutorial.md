@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: ab2aa1df0719b685800529f32e36674bf85e57ee
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c330ce9b9eec693d7dabda55ad65d297ca78ca01
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625319"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Руководство. Интеграция Azure Active Directory с LogicMonitor
 
@@ -80,7 +80,9 @@ ms.locfileid: "98625319"
     а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.logicmonitor.com`.
 
     b. В текстовом поле **Идентификатор (сущности)** введите URL-адрес в следующем формате: `https://<companyname>.logicmonitor.com`.
-
+    
+    c. В текстовое поле **URL-адреса ответа (URL-адрес службы обработчика утверждений)** введите URL-адрес в следующем формате: `https://companyname.logicmonitor.com/santaba/saml/SSO/` 
+  
     > [!NOTE]
     > Эти значения приведены для примера. Необходимо обновить эти значения действующим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов LogicMonitor](https://www.logicmonitor.com/contact/). Можно также посмотреть шаблоны в разделе **Базовая конфигурация SAML** на портале Azure.
 

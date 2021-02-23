@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: beb58922172a045242f4f9bcaf647b3cfc8b5551
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339503"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380803"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Руководство по Создание записной книжки в Azure Cosmos DB для анализа и визуализации данных
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "93339503"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* [Включение поддержки записных книжек при создании учетной записи Azure Cosmos](enable-notebooks.md)
+* [Включенные записные книжки для учетной записи Azure Cosmos.](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Создание ресурсов и импорт данных
  
@@ -30,7 +30,7 @@ ms.locfileid: "93339503"
 
 1. Перейдите к своей учетной записи Azure Cosmos и откройте меню **Data Explorer**.
 
-1. Перейдите на вкладку **Записная книжка** , выберите `…` рядом с **Мои записные книжки** и создайте **Новую записную книжку**. Выберите **Python 3** в качестве ядра по умолчанию.
+1. Перейдите на вкладку **Записная книжка**, выберите `…` рядом с **Мои записные книжки** и создайте **Новую записную книжку**. Выберите **Python 3** в качестве ядра по умолчанию.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Создание записной книжки":::
 

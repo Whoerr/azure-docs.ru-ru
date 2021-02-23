@@ -1,35 +1,27 @@
 ---
 title: Развертывание и настройка Решения Azure VMware
-description: Узнайте, как использовать собранную на этапе планирования информацию для развертывания частного облака Решения Azure VMware.
+description: Сведения о том, как использовать собранную на этапе планирования информацию для развертывания и настройки частного облака Решения Azure VMware.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760889"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652740"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Развертывание и настройка Решения Azure VMware
 
-Выполняя шаги, представленные в этой статье, вы будете использовать для развертывания Решения Azure VMware сведения из [раздела о планировании](production-ready-deployment-steps.md). 
+Выполняя шаги, представленные в этой статье, вы будете использовать для развертывания и настройки Решения Azure VMware сведения из [раздела о планировании](production-ready-deployment-steps.md). 
 
 >[!IMPORTANT]
 >Если вы еще не определили эти сведения, вернитесь к [разделу планирования](production-ready-deployment-steps.md), прежде чем продолжить работу.
 
-## <a name="register-the-resource-provider"></a>Регистрация поставщика ресурсов
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Создание частного облака Решения Azure VMware
 
-
-## <a name="deploy-azure-vmware-solution"></a>Развертывание Решения Azure VMware
-
-Используйте сведения, которые вы собрали согласно инструкциям в статье [Планирование развертывания Решения Azure VMware](production-ready-deployment-steps.md).
-
->[!NOTE]
->Чтобы развернуть Решение Azure VMware, у вас должны быть разрешения уровня "Участник" или выше для подписки.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Выполните предварительные требования и действия, описанные в учебнике [Развертывание частного облака Решения Azure VMware в Azure](tutorial-create-private-cloud.md). Вы можете создать частное облако Решения Azure VMware с помощью [портала Azure](tutorial-create-private-cloud.md#azure-portal) или [Azure CLI](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >Полный обзор этого шага см. в видео [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) (Решение Azure VMware: развертывание).
@@ -60,7 +52,7 @@ ms.locfileid: "98760889"
 
 Переходная среда размещена в виртуальной сети, в которой Решение Azure VMware подключается через канал ExpressRoute.  Перейдите к сетевому интерфейсу переходной среды в Azure и [проверьте фактические маршруты](../virtual-network/manage-route-table.md#view-effective-routes).
 
-В списке фактических маршрутов должны быть сети, созданные при развертывании Решения Azure VMware. Вы увидите несколько сетей, которые являются производными от [`/22`сети, указанной](production-ready-deployment-steps.md#ip-address-segment) [на шаге развертывания](#deploy-azure-vmware-solution), описанном ранее в этой статье.
+В списке фактических маршрутов должны быть сети, созданные при развертывании Решения Azure VMware. Вы увидите несколько сетей, которые являются производными от определенной вами [сети `/22`](production-ready-deployment-steps.md#ip-address-segment), указанной при [создании частного облака](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Проверка сетевых маршрутов, объявляемых Решением Azure VMware виртуальной сети Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
@@ -68,13 +60,13 @@ ms.locfileid: "98760889"
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>Подключение и вход в vCenter и NSX-T
 
-Войдите в переходную среду, созданную на предыдущем шаге. После входа откройте веб-браузер, перейдите к консоли администрирования vCenter и NSX-T и выполните вход.  
+Войдите в переходную среду, созданную на предыдущем шаге. После входа откройте веб-браузер, перейдите к vCenter и NSX-T Manager и выполните в них вход.  
 
-IP-адреса и учетные данные консоли администрирования vCenter и NSX-T можно найти на портале Azure.  Выберите частное облако, а затем в представлении **Обзор** щелкните **Удостоверение > По умолчанию**. 
+IP-адреса и учетные данные консоли vCenter и NSX-T Manager можно найти на портале Azure.  Выберите частное облако, а затем в представлении **Обзор** щелкните **Удостоверение > По умолчанию**. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Создание сегмента сети в Решении Azure VMware
 
-Среда NSX-T используется для создания сегментов сети в среде Решения Azure VMware.  Сети, которые нужно создать, вы определили при прохождении [раздела планирования](production-ready-deployment-steps.md).  Если вы их не определили, вернитесь в [раздел планирования](production-ready-deployment-steps.md), прежде чем продолжить.
+NSX-T Manager используется для создания сегментов сети в среде Решения Azure VMware.  Сети, которые нужно создать, вы определили при прохождении [раздела планирования](production-ready-deployment-steps.md).  Если вы их не определили, вернитесь в [раздел планирования](production-ready-deployment-steps.md), прежде чем продолжить.
 
 >[!IMPORTANT]
 >Убедитесь, что указанный блок сетевых адресов CIDR не перекрывается с другими адресами в Azure или локальных средах.  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362026"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559312"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Руководство по Предоставление доступа пользователям к ресурсам Azure с помощью портала Azure
 
@@ -58,7 +58,7 @@ ms.locfileid: "85362026"
 
 ## <a name="grant-access"></a>Предоставление доступа
 
-При использовании Azure RBAC для предоставления доступа нужно создать назначение ролей.
+Чтобы предоставить доступ в Azure RBAC, нужно назначить роль Azure.
 
 1. В списке **Группы ресурсов** щелкните новую группу ресурсов **rbac-resource-group**.
 
@@ -82,7 +82,7 @@ ms.locfileid: "85362026"
 
 1. В списке **Выбор** выберите себя или другого пользователя.
 
-1. Чтобы создать назначение роли, нажмите **Сохранить**.
+1. Чтобы присвоить роль, щелкните **Сохранить**.
 
    Через несколько секунд пользователю будет назначена роль "Участник виртуальной машины" в пределах группы ресурсов rbac-resource-group.
 

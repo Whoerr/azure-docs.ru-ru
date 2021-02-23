@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624044"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386855"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Руководство по Миграция веб-службы из Google Карт
 
@@ -54,7 +54,7 @@ ms.locfileid: "98624044"
 
 Приведенные ниже API службы в настоящее время недоступны в Azure Maps.
 
-- Географическое положение
+- Геолокация. В Azure Maps есть служба под названием "Геолокация". Она предоставляет IP-адрес в качестве сведений о местоположении, но в настоящее время не поддерживает триангуляцию базовой станции или Wi-Fi.
 - Информация о местах и их фотографии. Номера телефонов и URL-адреса веб-сайтов, доступных в API поиска Azure Maps.
 - URL-адреса карт
 - Ближайшие дороги. Эти данные можно получить с помощью веб-пакета SDK, как показано [здесь](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), но сейчас возможность недоступна в качестве службы.

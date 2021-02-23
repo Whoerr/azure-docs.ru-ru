@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f86b2a50040704aac2827c463a362a04f78ba34f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881827"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548783"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Развертывание облачной службы (расширенная поддержка) с использованием шаблонов ARM
 
@@ -134,7 +134,7 @@ ms.locfileid: "98881827"
     ```
  
 
-4. Добавьте ссылку на хранилище ключей в раздел  `OsProfile` шаблона ARM. Хранилище ключей используется для хранения сертификатов, связанных с Облачными службами (расширенная поддержка). Добавьте сертификаты в хранилище ключей, а затем добавьте ссылки на отпечатки сертификатов в CSCFG-файл конфигурации службы. Также для хранилища ключей необходимо включить соответствующие разрешения, позволяющие ресурсу Облачных служб (расширенная поддержка) получить из хранилища ключей сертификат, хранимый в виде секрета. Дополнительные сведения см. в статье [Использование сертификатов с Облачными службами (расширенная поддержка)](certificates-and-key-vault.md).
+4. Добавьте ссылку на хранилище ключей в раздел  `OsProfile` шаблона ARM. Хранилище ключей используется для хранения сертификатов, связанных с Облачными службами (расширенная поддержка). Добавьте сертификаты в хранилище ключей, а затем добавьте ссылки на отпечатки сертификатов в CSCFG-файл конфигурации службы. Также для хранилища ключей необходимо включить соответствующие разрешения, позволяющие ресурсу Облачных служб (расширенная поддержка) получить из хранилища ключей сертификат, хранимый в виде секрета. Key Vault должен находиться в тех же регионе и подписке, что и облачная служба, и иметь уникальное имя. Дополнительные сведения см. в статье [Использование сертификатов с Облачными службами (расширенная поддержка)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -441,17 +441,18 @@ ms.locfileid: "98881827"
             ]
           }
         }
-      }
+       }
+      ]
     }
     ```
  
-8. Разверните этот шаблон и создайте развертывание облачной службы (расширенная поддержка). 
+8. Разверните шаблон и файл параметров (определяющий параметры в файле шаблона), чтобы создать развертывание облачной службы (расширенная поддержка). При необходимости воспользуйтесь [этими примерами шаблонов](https://github.com/Azure-Samples/cloud-services-extended-support).
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg -TemplateFile "file path to your template file”  
+    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
     ```
  
 ## <a name="next-steps"></a>Дальнейшие действия 
-- Просмотрите [часто задаваемые вопросы](faq.md) об Облачных службах (расширенная поддержка)
-- Разверните облачную службу (расширенная поддержка) с помощью [портала Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), [шаблона](deploy-template.md) или [Visual Studio](deploy-visual-studio.md).
+- Ознакомьтесь с [часто задаваемыми вопросами об Облачных службах (расширенная поддержка)](faq.md).
+- Разверните Облачную службу (расширенная поддержка) с помощью [портала Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), [шаблона](deploy-template.md) или [Visual Studio](deploy-visual-studio.md).
 - Перейдите в [репозиторий примеров для Облачных служб (расширенная поддержка) ](https://github.com/Azure-Samples/cloud-services-extended-support)

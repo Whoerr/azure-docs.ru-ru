@@ -36,7 +36,7 @@
           href: quickstart-v2-aspnet-core-webapp.md
         - name: ASP.NET Core (вызов Microsoft Graph)
           href: quickstart-v2-aspnet-core-webapp-calls-graph.md
-        - name: "Node.js\_— MSAL (предварительная версия)"
+        - name: "Node.js\_— MSAL"
           href: quickstart-v2-nodejs-webapp-msal.md
         - name: "Node.js\_— Passport.js."
           displayName: 'OIDC, express'
@@ -62,12 +62,16 @@
           href: quickstart-v2-uwp.md
         - name: Платформа .NET для классических приложений Windows
           href: quickstart-v2-windows-desktop.md
+        - name: "Node.js\_— Electron"
+          href: quickstart-v2-nodejs-desktop.md
     - name: Серверная служба управляющей программы
       items:
         - name: "Консоль .NET\_Core (управляющая программа)"
           href: quickstart-v2-netcore-daemon.md
         - name: Управляющая программа консоли Python
           href: quickstart-v2-python-daemon.md
+        - name: Управляющая программа консоли Node.js
+          href: quickstart-v2-nodejs-console.md
         - name: Управляющая программа консоли Java
           href: quickstart-v2-java-daemon.md
 - name: Учебники
@@ -88,6 +92,8 @@
           href: tutorial-v2-asp-webapp.md
         - name: Blazor Server
           href: tutorial-blazor-server.md
+        - name: Руководство по созданию веб-приложения Node.js
+          href: tutorial-v2-nodejs-webapp-msal.md
     - name: Мобильные и классические приложения
       items:
         - name: Android
@@ -101,10 +107,14 @@
           href: tutorial-v2-windows-desktop.md
         - name: Использование режима совместной работы с устройством в приложении Android
           href: tutorial-v2-shared-device-mode.md
+        - name: Классическое приложение Electron
+          href: tutorial-v2-nodejs-desktop.md
     - name: Серверная служба управляющей программы
       items:
         - name: Веб-приложение управляющей программы ASP.NET
           href: tutorial-v2-aspnet-daemon-web-app.md
+        - name: Управляющая программа консоли Node.js
+          href: tutorial-v2-nodejs-console.md
 - name: Примеры
   href: sample-v2-code.md
 - name: Основные понятия

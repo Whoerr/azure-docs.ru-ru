@@ -7,7 +7,7 @@
     - name: Сравнение служб обмена сообщениями
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: Использование Служебной шины со службой сообщений Java (JMS) версии 2.0 (предварительная версия)
+    - name: Использование Служебной шины со службой сообщений Java (JMS) версии 2.0
       href: how-to-use-java-message-service-20.md
 - name: Краткие руководства
   items:
@@ -90,6 +90,10 @@
       href: service-bus-samples.md
 - name: Основные понятия
   items:
+    - name: 'Очереди, разделы и подписки'
+      href: service-bus-queues-topics-subscriptions.md
+    - name: Фильтры и действия разделов
+      href: topic-filters.md
     - name: 'Обмен сообщениями: уровень "Премиум"'
       href: service-bus-premium-messaging.md
     - name: Сравнение очередей Azure и очередей служебной шины
@@ -158,12 +162,16 @@
       href: service-bus-create-namespace-portal.md
     - name: Разработка
       items:
+        - name: Настройка фильтров и действий подписки
+          href: service-bus-filter-examples.md
         - name: Обработка сообщений
           items:
             - name: 'Очереди, разделы и подписки'
               href: service-bus-queues-topics-subscriptions.md
-            - name: Сущности в службе сообщений Java (JMS) версии 2.0 (предварительная версия)
+            - name: "Сущности в службе сообщений Java (JMS) версии\_2.0"
               href: java-message-service-20-entities.md
+            - name: Руководство разработчика службы сообщений Java (JMS)
+              href: jms-developer-guide.md
             - name: 'Сообщения, полезные данные и сериализация'
               href: service-bus-messages-payloads.md
             - name: 'Передача, блокировка и согласование сообщений'
@@ -172,8 +180,6 @@
               href: message-sequencing.md
             - name: Срок действия сообщения (срок жизни)
               href: message-expiration.md
-        - name: Фильтры и действия разделов
-          href: topic-filters.md
         - name: Миграция из пространства имен ценовой категории "Стандартный" в пространство имен категории "Премиум"
           href: service-bus-migrate-standard-premium.md
         - name: Секционированные очереди и разделы

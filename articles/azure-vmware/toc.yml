@@ -52,7 +52,7 @@
       href: concepts-upgrades.md
 - name: Практические руководства
   items:
-    - name: Включение Решения Azure VMware
+    - name: Запрос квоты узла и включение Решения Azure VMware
       href: enable-azure-vmware-solution.md
     - name: Экономия за счет приобретения зарезервированного экземпляра
       href: reserved-instance.md

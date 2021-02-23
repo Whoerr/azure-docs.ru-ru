@@ -1,20 +1,20 @@
 ---
-title: Создание службы частной связи Azure с помощью Azure CLI
-description: Узнайте, как создать службу частной связи Azure с помощью Azure CLI
+title: Создание службы "Приватный канал Azure" с помощью Azure CLI
+description: Сведения о создании службы "Приватный канал Azure" с помощью Azure CLI.
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 567ed736c52e8b3cbb03edeb19b3c0e2364e4112
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
-ms.translationtype: MT
+ms.openlocfilehash: 27ce0b2646b6c380e86b377d3dba287f7791794e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757363"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653736"
 ---
-# <a name="create-a-private-link-service-using-azure-cli"></a>Создание службы частной связи с помощью Azure CLI
+# <a name="create-a-private-link-service-using-azure-cli"></a>Создание службы "Приватный канал" с помощью Azure CLI
 
 Приступите к созданию службы приватного канала, которая ссылается на вашу службу.  Предоставьте Приватному каналу доступ к службе или ресурсу, которые развернуты за Azure Load Balancer (цен. категория "Стандартный").  Пользователи службы имеют закрытый доступ из своей виртуальной сети.
 
@@ -30,7 +30,7 @@ ms.locfileid: "98757363"
 
 Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#az_group_create):
 
-* С именем **креатепривлинксервице-RG**. 
+* с именем **CreatePrivLinkService-rg**; 
 * в расположении **eastus**.
 
 ```azurecli-interactive
@@ -52,11 +52,11 @@ ms.locfileid: "98757363"
 
 * с именем **myVNet**;
 * с префиксом подсети **10.1.0.0/16**;
-* Подсеть с именем **mySubnet**.
+* с именем подсети **mySubnet**;
 * с префиксом подсети **10.1.0.0/24**;
-* В группе ресурсов **креатепривлинксервице-RG** .
-* Расположение **eastus2**.
-* Отключите сетевую политику для службы частной связи в подсети.
+* в группе ресурсов **CreatePrivLinkService-rg**;
+* в расположении **eastus2**;
+* с отключенными сетевыми политиками для службы "Приватный канал" в подсети.
 
 ```azurecli-interactive
   az network vnet create \
@@ -69,7 +69,7 @@ ms.locfileid: "98757363"
 
 ```
 
-Чтобы обновить подсеть для отключения сетевых политик службы частной связи, используйте команду [AZ Network vnet подсеть Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Чтобы изменить настройки подсети для отключения сетевых политик службы "Приватный канал", используйте команду [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -96,7 +96,7 @@ az network vnet subnet update \
 * пулом переднего плана **myFrontEnd**
 * и серверным пулом **myBackEndPool**,
 * связанную с виртуальной сетью **myVNet**
-* Связан с внутренней подсетью **mySubnet**.
+* с внутренней подсетью **mySubnet**.
 
 ```azurecli-interactive
   az network lb create \
@@ -166,14 +166,14 @@ az network vnet subnet update \
 
 ## <a name="create-a-private-link-service"></a>Создание службы "Приватный канал"
 
-В этом разделе вы создадите службу частной связи, которая использует Azure Load Balancer, созданную на предыдущем шаге.
+В этом разделе описано, как создать службу "Приватный канал", которая использует созданный на предыдущем шаге Azure Load Balancer.
 
-Создайте службу частной связи, используя конфигурацию интерфейсного IP-адреса стандартной подсистемы балансировки нагрузки с помощью команды [AZ Network Private-Link-Service Create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
+Создайте службу "Приватный канал", используя интерфейсную IP-конфигурацию Load Balancer (цен. категория "Стандартный") с помощью команды [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
 
-* С именем **мипривателинксервице**.
+* с именем **myPrivateLinkService**;
 * виртуальная сеть **myVNet**;
-* Связан с **myLoadBalancer** балансировкой нагрузки "Стандартный" и **myFrontEnd**"интерфейсная конфигурация".
-* В расположении **eastus2** .
+* связанную с Load Balancer (цен. категория "Стандартный") **myLoadBalancer** и интерфейсной конфигурацией **myFrontEnd**;
+* в расположении **eastus2**.
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -186,23 +186,23 @@ az network private-link-service create \
     --location eastus2
 ```
 
-Служба частной связи создается и может принимать трафик. Если вы хотите просмотреть потоки трафика, настройте приложение для своей стандартной подсистемы балансировки нагрузки.
+Ваша служба приватного канала создана и может принимать трафик. Если вы хотите просмотреть потоки трафика, настройте приложение за подсистемой Load Balancer ценовой категории "Стандартный".
 
 
 ## <a name="create-private-endpoint"></a>Создание частной конечной точки
 
-В этом разделе вы будете сопоставлять службу закрытых ссылок с частной конечной точкой. Виртуальная сеть содержит закрытую конечную точку для службы закрытых ссылок. Эта виртуальная сеть содержит ресурсы, которые будут обращаться к службе частной связи.
+В этом разделе вы сопоставите службу приватного канала с частной конечной точкой. Виртуальная сеть содержит частную конечную точку для службы приватного канала. Эта виртуальная сеть содержит ресурсы, которые будут обращаться к службе приватного канала.
 
-### <a name="create-private-endpoint-virtual-network"></a>Создание виртуальной сети частной конечной точки
+### <a name="create-private-endpoint-virtual-network"></a>Создание виртуальной сети с частной конечной точкой
 
 Создайте виртуальную сеть с помощью команды [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
 
-* С именем **мивнетпе**.
-* Префикс адреса **11.1.0.0/16**.
-* Подсеть с именем **мисубнетпе**.
-* Префикс подсети **11.1.0.0/24**.
-* В группе ресурсов **креатепривлинксервице-RG** .
-* Расположение **eastus2**.
+* с именем **myVNetPE**;
+* с префиксом адреса **11.1.0.0/16**;
+* с именем подсети **mySubnetPE**;
+* с префиксом подсети **11.1.0.0/24**;
+* в группе ресурсов **CreatePrivLinkService-rg**;
+* в расположении **eastus2**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -214,7 +214,7 @@ az network private-link-service create \
     --subnet-prefixes 11.1.0.0/24
 ```
 
-Чтобы обновить подсеть для отключения политик сети частной конечной точки, используйте команду [AZ Network vnet подсеть Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Чтобы изменить настройки подсети для отключения сетевых политик частной конечной точки, используйте команду [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -226,15 +226,15 @@ az network vnet subnet update \
 
 ### <a name="create-endpoint-and-connection"></a>Создание конечной точки и подключения
 
-* Чтобы получить идентификатор ресурса для службы частной ссылки, выполните команду [AZ Network Private-Link-Service](/cli/azure/network/private-link-service#az_network_private_link_service_show) . Команда помещает идентификатор ресурса в переменную для последующего использования.
+* Чтобы получить ИД ресурса для службы "Приватный канал", выполните команду [az network private-link-service show](/cli/azure/network/private-link-service#az_network_private_link_service_show). Команда помещает ИД ресурса в переменную для последующего использования.
 
-* Чтобы создать частную конечную точку в созданной ранее виртуальной сети, выполните команду [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) .
+* Создайте частную конечную точку в созданной ранее виртуальной сети с помощью команды [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create):
 
-* С именем **миприватиндпоинт**.
-* В группе ресурсов **креатепривлинксервице-RG** .
-* Имя подключения **мипеконнектионтоплс**.
-* Расположение **eastus2**.
-* В **мивнетпе** виртуальной сети и подсети **мисубнетпе**.
+* с именем **MyPrivateEndpoint**;
+* в группе ресурсов **CreatePrivLinkService-rg**;
+* с именем подключения **myPEconnectiontoPLS**;
+* в расположении **eastus2**;
+* в виртуальной сети **myVNetPE** и подсети **mySubnetPE**.
 
 ```azurecli-interactive
   export resourceid=$(az network private-link-service show \
@@ -256,7 +256,7 @@ az network vnet subnet update \
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Если она больше не нужна, используйте команду [AZ Group Delete](/cli/azure/group#az-group-delete) , чтобы удалить группу ресурсов, службу Private Link, подсистему балансировки нагрузки и все связанные с ней ресурсы.
+Вы можете удалить ненужную группу ресурсов, службу "Приватный канал", подсистему балансировки нагрузки и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
   az group delete \

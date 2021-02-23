@@ -1,21 +1,21 @@
 ---
-title: Отправка и получение событий из концентраторов событий Azure с помощью .NET (старый)
-description: В этой статье представлено пошаговое руководство по созданию приложения .NET Core, которое отправляет и получает события в концентраторы событий Azure, используя старый пакет Microsoft. Azure. EventHubs.
-ms.topic: conceptual
+title: Отправка и получение событий через Центры событий Azure с помощью .NET (старая версия)
+description: В этой статье описано, как создать приложение .NET Core, которое отправляет события или получает их через службу "Центры событий Azure" с помощью пакета Microsoft.Azure.EventHubs старой версии.
+ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8819a95364bf41c6f9837c3db31a9800968d096c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
-ms.translationtype: MT
+ms.openlocfilehash: 7092c3a4c32fe2ad46b71c5a796ac811e4253dbb
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332167"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653097"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Отправка событий или получение событий из концентраторов событий Azure с помощью .NET Core (Microsoft. Azure. EventHubs)
-В этом кратком руководстве показано, как отправлять события и получать события из концентратора событий с помощью библиотеки **Microsoft. Azure. EventHubs** .NET Core.
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Отправка и получение событий с помощью .NET Core в Центрах событий Azure (Microsoft.Azure.EventHubs)
+В этом кратком руководстве показано, как отправлять события в концентратор событий и получать события из него с помощью библиотеки .NET Core **Microsoft.Azure.EventHubs**.
 
 > [!WARNING]
-> В этом кратком руководстве используется старый пакет **Microsoft. Azure. EventHubs** . Краткое руководство, в котором используется последняя библиотека  **Azure. Messaging. EventHubs** , см. в статье [Отправка и получение событий с помощью библиотеки Azure. Messaging. EventHubs](event-hubs-dotnet-standard-getstarted-send.md). Чтобы переместить приложение из старой библиотеки в новую, ознакомьтесь с [руководством по миграции из Microsoft. Azure. EventHubs в Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+> Для работы с этим кратким руководством используется пакет **Microsoft.Azure.EventHubs** старой версии. Краткое руководство, в рамках которого используется библиотека **Azure.Messaging.EventHubs** последней версии, см. в статье об [отправке и получении событий с помощью библиотеки Azure.Messaging.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). Чтобы начать использовать в приложении библиотеку новой версии вместо старой, ознакомьтесь с руководством по [переходу с Microsoft.Azure.EventHubs на Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Если вы впервые используете Центры событий Azure, ознакомьтесь с общими сведениями в [этой статье](event-hubs-about.md), прежде чем приступить к работе с этим руководством. 
@@ -42,7 +42,7 @@ ms.locfileid: "92332167"
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Добавление пакета NuGet для Центров событий
 
-Добавьте в [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) проект пакет NuGet библиотеки .NET Core, выполнив следующие действия. 
+Добавьте пакет NuGet библиотеки .NET Core [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) в проект, сделав следующее: 
 
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
 2. Откройте вкладку **Обзор**, а затем выполните поиск по фразе Microsoft.Azure.EventHubs и выберите пакет **Microsoft.Azure.EventHubs**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
@@ -190,9 +190,9 @@ ms.locfileid: "92332167"
 6. Запустите программу и убедитесь в отсутствии ошибок.
 
 ## <a name="receive-events"></a>Получение событий
-В этом разделе показано, как создать консольное приложение .NET Core, которое получает сообщения из концентратора событий с помощью [узла обработчика событий](event-hubs-event-processor-host.md). [Узел обработчика событий](event-hubs-event-processor-host.md) представляет собой класс .NET, который упрощает прием событий из концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий. С помощью класса EventProcessorHost можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать EventProcessorHost для одного получателя.
+В этом разделе показано, как создать консольное приложение .NET Core для получения сообщений из концентратора событий с помощью [узла обработчика событий](event-hubs-event-processor-host.md). [Узел обработчика событий](event-hubs-event-processor-host.md) представляет собой класс .NET, который упрощает прием событий из концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий. С помощью класса EventProcessorHost можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать EventProcessorHost для одного получателя.
 > [!NOTE]
-> Вы можете скачать это краткое руководство в виде примера из [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), заменить `EventHubConnectionString` `EventHubName` строки и, `StorageAccountName` , `StorageAccountKey` и `StorageContainerName` со значениями концентратора событий и запустить его. Или следуйте инструкциям из этого руководства, чтобы создать собственное решение.
+> Вы можете скачать это краткое руководство в качестве примера с сайта [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), заменить строки `EventHubConnectionString`, а также `EventHubName`, `StorageAccountName`, `StorageAccountKey` и `StorageContainerName` значениями для своего концентратора событий и выполнить этот пример. Или следуйте инструкциям из этого руководства, чтобы создать собственное решение.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -362,9 +362,9 @@ ms.locfileid: "92332167"
 ## <a name="next-steps"></a>Дальнейшие действия
 Ознакомьтесь со следующими статьями:
 
-- [Примеры управления доступом на основе ролей Azure (Azure RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+- [Примеры управления доступом на основе ролей в Azure (Azure RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    В этих примерах используется старая библиотека **Microsoft. Azure. EventHubs** , но вы можете легко обновить ее, используя последнюю библиотеку **Azure. Messaging. EventHubs** . Чтобы переместить пример из старой библиотеки в новую, ознакомьтесь с [руководством по миграции из Microsoft. Azure. EventHubs в Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    В этих примерах используется библиотека **Microsoft.Azure.EventHubs** старой версии, но вы можете легко обновить ее до библиотеки **Azure.Messaging.EventHubs** последней версии. Чтобы начать использовать в примере библиотеку новой версии вместо старой, ознакомьтесь с руководством по [переходу с Microsoft.Azure.EventHubs на Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Функции и терминология в Центрах событий Azure](event-hubs-features.md)
 - [Часто задаваемые вопросы о Центрах событий](event-hubs-faq.md)

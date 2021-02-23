@@ -1,89 +1,86 @@
 ---
-title: Пример скрипта Azure PowerShell. Настройка VPN-подключения "сеть — сеть" | Документы Microsoft
+title: Пример скрипта Azure PowerShell для настройки VPN типа "сеть — сеть"
 description: С помощью PowerShell вы можете создать VPN-шлюз на основе маршрутов и настроить свое VPN-устройство на добавление подключений между сайтами.
 services: vpn-gateway
-documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 04/30/2018
-ms.author: alzam
-ms.openlocfilehash: e37fbcc0a37219c1630e887ac33d003810b15130
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.date: 02/09/2021
+ms.author: cherylmc
+ms.openlocfilehash: 9778942dc24a81c839e14e095a755a280a17d9c9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658304"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379137"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Создание VPN-шлюза и добавление подключения типа "сеть — сеть" с помощью PowerShell
 
 Этот скрипт создает VPN-шлюз на основе маршрутов и добавляется конфигурация "точка — сеть". Для создания подключения, необходимо также настроить устройство VPN. См. дополнительные сведения об [VPN-устройствах и параметрах IPsec/IKE для подключений "сеть — сеть" через VPN-шлюз](../vpn-gateway-about-vpn-devices.md).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ```azurepowershell-interactive
 # Declare variables
   $VNetName  = "VNet1"
+  $RG = "TestRG1"
+  $Location = "East US"
   $FESubName = "FrontEnd"
-  $BESubName = "Backend"
+  $BESubName = "BackEnd"
   $GWSubName = "GatewaySubnet"
-  $VNetPrefix1 = "10.0.0.0/16"
+  $VNetPrefix1 = "10.1.0.0/16"
   $FESubPrefix = "10.1.0.0/24"
   $BESubPrefix = "10.1.1.0/24"
   $GWSubPrefix = "10.1.255.0/27"
   $VPNClientAddressPool = "192.168.0.0/24"
-  $RG = "TestRG1"
-  $Location = "East US"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWIP"
   $GWIPconfName = "gwipconf"
+  $LNGName = "Site1"
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location $Location
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
-  -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -ResourceGroupName $RG `
+  -Location $Location `
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
-$subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-$gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $GWSubName -VirtualNetwork $vnet
+$gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
- -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+ -Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1
 # Create the local network gateway
-New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
- -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
+New-AzLocalNetworkGateway -Name $LNGName -ResourceGroupName $RG `
+ -Location $Location -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
 # Configure your on-premises VPN device
 # Create the VPN connection
-$gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-$local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
- -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
- -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+$gateway1 = Get-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+$local = Get-AzLocalNetworkGateway -Name $LNGName -ResourceGroupName $RG
+New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName $RG `
+-Location $Location -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+-ConnectionType IPsec -ConnectionProtocol IKEv2 -RoutingWeight 10 -SharedKey 'abc123'
 ```
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Когда созданные ресурсы станут не нужны, удалите группу ресурсов с помощью командлета [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). При этом будет удалена группа ресурсов и все содержащиеся в ней ресурсы.
+Когда созданные ресурсы станут не нужны, удалите группу ресурсов с помощью командлета [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). При этом будет удалена группа ресурсов и все содержащиеся в ней ресурсы. 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name TestRG1
@@ -96,7 +93,7 @@ Remove-AzResourceGroup -Name TestRG1
 | Get-Help | Примечания |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Добавление конфигурации подсети. Эта конфигурация используется в процессе создания виртуальной сети. |
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Получение сведений о виртуальной сети. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Получает сведения о виртуальной сети. |
 | [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Получение сведений о шлюзе виртуальной сети. |
 | [Get-AzLocalNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Получение сведений о шлюзе локальной сети. |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Получение сведений о конфигурации подсети в виртуальной сети. |

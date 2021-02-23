@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: df789161bb9db8d49f069992600b5fcb4f78dd03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ab280bbab71926a6ffb70605fdbf463164469623
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006548"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096341"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Руководство по Сетевой перенос Oracle в Базу данных Azure для PostgreSQL с помощью DMS (предварительная версия)
 
@@ -63,7 +63,7 @@ ms.locfileid: "96006548"
   >
   > Такая конфигурация вызвана тем, что у Azure Database Migration Service нет подключения к Интернету.
 
-* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют следующие входящие порты для Azure Database Migration Service: 443, 53, 9354, 445, 12000. Дополнительные сведения о фильтрации трафика, предназначенного для виртуальной сети, с помощью NSG см. в статье [Планирование виртуальных сетей](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Убедитесь, что правила группы безопасности сети для виртуальной сети не блокируют исходящий порт 443 ServiceTag для Служебной шины, службы хранилища и Azure Monitor. См. дополнительные сведения о [фильтрации трафика, предназначенного для виртуальной сети, с помощью групп безопасности сети](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Настройте [брандмауэр Windows для доступа к ядру СУБД](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Откройте брандмауэр Windows, чтобы предоставить Azure Database Migration Service доступ к исходному серверу Oracle. По умолчанию это TCP-порт 1521.
 * Если перед исходными базами данных развернуто устройство брандмауэра, вам может понадобиться добавить правила брандмауэра, чтобы позволить службе Azure Database Migration Service обращаться к исходным базам данных для выполнения миграции.

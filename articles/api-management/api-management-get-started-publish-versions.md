@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: f6ea02c32ec7fcb694d63f29c63c3880a7cfff9e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679098"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546658"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Руководство по Публикация нескольких версий API 
 
@@ -87,6 +87,32 @@ ms.locfileid: "97679098"
 1. Нажмите кнопку **Выбрать**.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Добавление версии в продукт":::
+
+## <a name="use-version-sets"></a>Использование наборов версий
+
+При создании нескольких версий портал Azure создает *набор версий*, который представляет собой набор версий для одного логического API. Выберите имя API с несколькими версиями. Портал Azure отобразит его **набор версий**. Вы можете задать **имя** и **описание** виртуального набора.
+
+Вы можете напрямую взаимодействовать с набором версий с помощью Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Чтобы просмотреть все наборы версий, выполните команду [az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list):
+
+```azurecli
+az apim api versionset list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Когда портал Azure создает набор версий, ему присваивается буквенно-цифровое имя, которое отображается в столбце **Имя** списка. Это имя можно использовать в других командах Azure CLI.
+
+Чтобы просмотреть сведения о наборе версий, выполните команду [az apim api versionset show](/api/versionset#az_apim_api_versionset_show):
+
+```azurecli
+az apim api versionset show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --version-set-id 00000000000000000000000
+```
+
+Дополнительные сведения о наборах версий см. в разделе [Версии в Управлении API Azure](api-management-versions.md#how-versions-are-represented).
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Обзор портала разработчика для просмотра версии
 

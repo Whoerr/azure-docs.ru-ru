@@ -1,46 +1,46 @@
 ---
 title: Развертывание и создание прогнозов с помощью ONNX
 titleSuffix: SQL machine learning
-description: Узнайте, как обучить модель, преобразовать ее в ONNX, развернуть в Azure SQL или Azure SQL Управляемый экземпляр (Предварительная версия), а затем запустить машинный прогноз на основе данных с помощью переданной модели ONNX.
+description: Узнайте, как обучить модель, преобразовать ее в ONNX, развернуть в SQL Azure для пограничных вычислений или Управляемом экземпляре SQL Azure (предварительная версия), а затем выполнить собственную функцию прогноза (PREDICT) с данными с помощью переданной модели ONNX.
 keywords: Развертывание SQL для пограничных вычислений
 ms.prod: sql
 ms.technology: machine-learning
-ms.topic: conceptual
+ms.topic: quickstart
 author: dphansen
 ms.author: davidph
 ms.date: 10/13/2020
-ms.openlocfilehash: 6dd7715292470d186806443d0a0b05bdbb084a43
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: MT
+ms.openlocfilehash: 755111b2fc48ec119c30d09f2e51b9db6c333848
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392186"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653216"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Развертывание и создание прогнозов с помощью модели ONNX и машинного обучения SQL
 
-В этом кратком руководстве вы узнаете, как обучить модель, преобразовать ее в ONNX, развернуть в [Azure SQL](onnx-overview.md) или [Azure SQL управляемый экземпляр (Предварительная версия)](../azure-sql/managed-instance/machine-learning-services-overview.md), а затем запустить машинный прогноз на основе данных с помощью переданной модели ONNX.
+Из этого руководства вы узнаете, как обучить модель, преобразовать ее в ONNX, развернуть в [SQL Azure для пограничных вычислений](onnx-overview.md) или [Управляемом экземпляре SQL Azure (предварительная версия)](../azure-sql/managed-instance/machine-learning-services-overview.md), а затем выполнить собственную функцию прогноза (PREDICT) с данными с помощью переданной модели ONNX.
 
 Это краткое руководство основано на библиотеке машинного обучения **scikit-learn** и в нем используется [набор данных о жилье в Бостоне](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Перед началом
 
-* Если вы используете Azure SQL Server и вы еще не развернули модуль Azure SQL, выполните действия, описанные в разделе [развертывание SQL Server с помощью портал Azure](deploy-portal.md).
+* Если вы используете SQL Azure для пограничных вычислений или еще не развернули модуль SQL Azure для пограничных вычислений, выполните действия по [развертыванию SQL Azure для пограничных вычислений (предварительная версия) с помощью портала Azure](deploy-portal.md).
 
 * Установите [Azure Data Studio](/sql/azure-data-studio/download).
 
 * Установите пакеты Python, необходимые для этого краткого руководства:
 
   1. Откройте [новую записную книжку](/sql/azure-data-studio/sql-notebooks), подключенную к ядру Python 3. 
-  1. Щелкните **Управление пакетами** .
-  1. На вкладке **установленные** найдите следующие пакеты Python в списке установленных пакетов. Если какой либо из этих пакетов не установлен, выберите вкладку **Добавить новую** , найдите пакет и нажмите кнопку **установить**.
-     - **scikit-learn** ;
-     - **NumPy**
-     - **оннксмлтулс**
-     - **оннксрунтиме**
+  1. Щелкните **Управление пакетами**.
+  1. На вкладке **Установлено** найдите следующие пакеты Python в списке установленных пакетов. Если какой-либо из этих пакетов не установлен, выберите вкладку **Добавить новую**, найдите пакет и нажмите кнопку **Установить**.
+     - **scikit-learn**;
+     - **numpy**
+     - **onnxmltools**
+     - **onnxruntime**
      - **pyodbc**
      - **setuptools**
      - **skl2onnx**
-     - **склалчеми**
+     - **sqlalchemy**
 
 * Каждый фрагмент приведенного ниже скрипта введите в ячейку в записной книжке Azure Data Studio и выполните код в ячейке.
 
@@ -72,14 +72,14 @@ y_train = pd.DataFrame(df.iloc[:,df.columns.tolist().index(target_column)])
 print("\n*** Training dataset x\n")
 print(x_train.head())
 
-print("\n**_ Training dataset y\n")
+print("\n*** Training dataset y\n")
 print(y_train.head())
 ```
 
-_ * Выходные данные * *:
+**Выходные данные**:
 
 ```text
-**_ Training dataset x
+*** Training dataset x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
 0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0
@@ -95,7 +95,7 @@ _ * Выходные данные * *:
 3     18.7  394.63   2.94  
 4     18.7  396.90   5.33  
 
-_*_ Training dataset y
+*** Training dataset y
 
 0    24.0
 1    21.6
@@ -137,15 +137,15 @@ from sklearn.metrics import r2_score, mean_squared_error
 y_pred = model.predict(x_train)
 sklearn_r2_score = r2_score(y_train, y_pred)
 sklearn_mse = mean_squared_error(y_train, y_pred)
-print('_*_ Scikit-learn r2 score: {}'.format(sklearn_r2_score))
-print('_*_ Scikit-learn MSE: {}'.format(sklearn_mse))
+print('*** Scikit-learn r2 score: {}'.format(sklearn_r2_score))
+print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-_ * Выходные данные * *:
+**Выходные данные**:
 
 ```text
-**_ Scikit-learn r2 score: 0.7406426641094094
-_*_ Scikit-learn MSE: 21.894831181729206
+*** Scikit-learn r2 score: 0.7406426641094094
+*** Scikit-learn MSE: 21.894831181729206
 ```
 
 ## <a name="convert-the-model-to-onnx"></a>Преобразование модели в ONNX
@@ -208,18 +208,18 @@ onnx_r2_score = r2_score(y_train, y_pred)
 onnx_mse = mean_squared_error(y_train, y_pred)
 
 print()
-print('_*_ Onnx r2 score: {}'.format(onnx_r2_score))
-print('_*_ Onnx MSE: {}\n'.format(onnx_mse))
+print('*** Onnx r2 score: {}'.format(onnx_r2_score))
+print('*** Onnx MSE: {}\n'.format(onnx_mse))
 print('R2 Scores are equal' if sklearn_r2_score == onnx_r2_score else 'Difference in R2 scores: {}'.format(abs(sklearn_r2_score - onnx_r2_score)))
 print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores: {}'.format(abs(sklearn_mse - onnx_mse)))
 print()
 ```
 
-_ * Выходные данные * *:
+**Выходные данные**:
 
 ```text
-**_ Onnx r2 score: 0.7406426691136831
-_*_ Onnx MSE: 21.894830759270633
+*** Onnx r2 score: 0.7406426691136831
+*** Onnx MSE: 21.894830759270633
 
 R2 Scores are equal
 MSE are equal
@@ -227,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>Вставка модели ONNX
 
-Сохраните модель в Azure SQL или Azure SQL Управляемый экземпляр в `models` таблице в базе данных `onnx` . В строке подключения укажите _ * адрес сервера * *, **имя пользователя** и **пароль**.
+Сохраните модель в SQL Azure для пограничных вычислений или в Управляемом экземпляре SQL Azure в таблице `models` базы данных `onnx`. В строке подключения укажите **адрес сервера**, **имя пользователя** и **пароль**.
 
 ```python
 import pyodbc
@@ -285,7 +285,7 @@ conn.commit()
 
 ## <a name="load-the-data"></a>Загрузка данных
 
-Загрузка данных в SQL.
+Загрузите данные в SQL.
 
 Сначала создайте две таблицы, **features** (для признаков) и **target** (целевое значение), чтобы сохранить в них подмножества набора данных о жилье в Бостоне.
 
@@ -358,7 +358,7 @@ y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 
 ## <a name="run-predict-using-the-onnx-model"></a>Выполнение функции PREDICT с помощью модели ONNX
 
-При использовании модели в SQL выполните машинный прогноз на основе данных с помощью переданной модели ONNX.
+Когда модель будет подготовлена в SQL, выполните собственную функцию PREDICT с данными, используя переданную модель ONNX.
 
 > [!NOTE]
 > Измените ядро записной книжки на SQL, чтобы выполнить оставшуюся ячейку.
@@ -398,4 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>Next Steps
 
 * [Машинное обучение и ИИ с применением ONNX в SQL для пограничных вычислений](onnx-overview.md)
-* [Службы машинного обучения в Управляемый экземпляр SQL Azure (Предварительная версия)](../azure-sql/managed-instance/machine-learning-services-overview.md)
+* [Службы машинного обучения в Управляемом экземпляре SQL Azure (предварительная версия)](../azure-sql/managed-instance/machine-learning-services-overview.md)

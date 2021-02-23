@@ -3,12 +3,12 @@ title: Добавление сегмента сети NSX-T
 description: Инструкции по добавлению сегмента сети NSX-T в Решении Azure VMware.
 ms.topic: include
 ms.date: 11/09/2020
-ms.openlocfilehash: 5b97f0b280fa12eff39c9601bb73e439dba8e9fd
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 7db45650588d37c39e7d156fa189b3ff7da2239f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335057"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514979"
 ---
 <!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->
 

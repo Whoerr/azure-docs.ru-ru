@@ -1,6 +1,6 @@
 ---
-title: Руководство по интеграции единого входа Azure Active Directory с Kendis-Scaling Agile Platform | Документация Майкрософт
-description: Узнайте, как настроить единый вход между Azure Active Directory и Kendis-Scaling Agile Platform.
+title: Руководство по интеграции единого входа Azure Active Directory с Kendis — Azure AD Integration | Документация Майкрософт
+description: Сведения о том, как настроить единый вход между Azure Active Directory и Kendis — Azure AD Integration.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 02/12/2021
 ms.author: jeedes
-ms.openlocfilehash: e02ff4926897fafc72e1a5081366faad5d2f03ba
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 802ccc1989bf0930e8c0c9818227a49eb03fc1c8
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509620"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534844"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis-scaling-agile-platform"></a>Руководство по интеграции единого входа Azure Active Directory с Kendis-Scaling Agile Platform
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>Руководство по интеграции единого входа Azure Active Directory с Kendis — Azure AD Integration
 
-В этом руководстве описано, как интегрировать Kendis-Scaling Agile Platform с Azure Active Directory (AAD). Интеграция Kendis-Scaling Agile Platform с Azure AD обеспечивает следующие возможности.
+В этом руководстве объясняется, как интегрировать приложение Kendis — Azure AD Integration с Azure Active Directory (Azure AD). Интеграция Kendis — Azure AD Integration с Azure AD обеспечивает указанные ниже возможности:
 
-* С помощью Azure AD вы можете контролировать доступ к Kendis-Scaling Agile Platform.
-* Вы можете включить автоматический вход пользователей в Kendis-Scaling Agile Platform с учетными записями AAD.
+* контроль доступа к Kendis — Azure AD Integration в Azure AD;
+* автоматический вход пользователей в Kendis — Azure AD Integration с использованием учетных записей Azure AD.
 * Централизованное управление учетными записями через портал Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -31,46 +31,46 @@ ms.locfileid: "99509620"
 Чтобы приступить к работе, потребуется следующее.
 
 * Подписка Azure AD. Если у вас нет подписки, вы можете получить [бесплатную учетную запись](https://azure.microsoft.com/free/).
-* Подписка Kendis-Scaling Agile Platform с поддержкой единого входа.
+* Подписка Kendis — Azure AD Integration с поддержкой единого входа.
 
 ## <a name="scenario-description"></a>Описание сценария
 
 В рамках этого руководства вы настроите и проверите единый вход Azure AD в тестовой среде.
 
-* Приложение Kendis-Scaling Agile Platform поддерживает единый вход, инициированный **поставщиком службы и поставщиком удостоверений**.
-* Приложение Kendis-Scaling Agile Platform поддерживает **JIT**-подготовку пользователей.
+* Kendis — Azure AD Integration поддерживает единый вход, инициируемый **поставщиком службы и поставщиком удостоверений**.
+* Kendis — Azure AD Integration поддерживает **JIT**-подготовку пользователей.
 
 
-## <a name="adding-kendis-scaling-agile-platform-from-the-gallery"></a>Добавление Kendis-Scaling Agile Platform из коллекции
+## <a name="adding-kendis---azure-ad-integration-from-the-gallery"></a>Добавление Kendis — Azure AD Integration из коллекции
 
-Чтобы настроить интеграцию Kendis-Scaling Agile Platform с Azure AD, вам нужно добавить Kendis-Scaling Agile Platform из коллекции в список управляемых приложений SaaS.
+Чтобы настроить интеграцию Kendis — Azure AD Integration с Azure AD, необходимо добавить Kendis — Azure AD Integration из коллекции в список управляемых приложений SaaS.
 
 1. Войдите на портал Azure с помощью личной учетной записи Майкрософт либо рабочей или учебной учетной записи.
 1. В области навигации слева выберите службу **Azure Active Directory**.
 1. Перейдите в колонку **Корпоративные приложения** и выберите **Все приложения**.
 1. Чтобы добавить новое приложение, выберите **Новое приложение**.
-1. В разделе **Добавление из коллекции** в поле поиска введите **Kendis-Scaling Agile Platform**.
-1. Выберите **Kendis-Scaling Agile Platform** в области результатов и добавьте это приложение. Подождите несколько секунд, пока приложение не будет добавлено в ваш клиент.
+1. В разделе **Добавление из коллекции** в поле поиска введите **Kendis — Azure AD Integration**.
+1. Выберите **Kendis — Azure AD Integration** в области результатов, а затем добавьте это приложение. Подождите несколько секунд, пока приложение не будет добавлено в ваш клиент.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-kendis-scaling-agile-platform"></a>Настройка и проверка единого входа Azure AD для Kendis-Scaling Agile Platform
+## <a name="configure-and-test-azure-ad-sso-for-kendis---azure-ad-integration"></a>Настройка и проверка единого входа Azure AD для Kendis — Azure AD Integration
 
-Настройте и проверьте единый вход Azure AD в Kendis-Scaling Agile Platform с помощью тестового пользователя **B.Simon**. Чтобы обеспечить работу единого входа, нужно установить связь между пользователем Azure AD и соответствующим пользователем в Kendis-Scaling Agile Platform.
+Настройте и проверьте единый вход Azure AD в Kendis — Azure AD Integration, используя данные тестового пользователя **B.Simon**. Чтобы обеспечить работу единого входа, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Kendis — Azure AD Integration.
 
-Чтобы настроить и проверить единый вход Azure AD в Kendis-Scaling Agile Platform, выполните следующие действия:
+Чтобы настроить и проверить единый вход Azure AD в Kendis — Azure AD Integration, выполните следующие действия:
 
 1. **[Настройка единого входа Azure AD](#configure-azure-ad-sso)** необходима, чтобы пользователи могли использовать эту функцию.
     1. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD с помощью пользователя B.Simon.
     1. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить пользователю B.Simon использовать единый вход Azure AD.
-1. **[Настройка единого входа в Kendis-Scaling Agile Platform](#configure-kendis-scaling-agile-platform-sso)** необходима, чтобы настроить параметры единого входа на стороне приложения.
-    1. **[Создание тестового пользователя Kendis-Scaling Agile Platform](#create-kendis-scaling-agile-platform-test-user)** требуется для того, чтобы в Kendis-Scaling Agile Platform существовал пользователь B.Simon, связанный с представлением того же пользователя в AAD.
+1. **[Настройка единого входа в Kendis — Azure AD Integration](#configure-kendis-azure-ad-integration-sso)** необходима, чтобы настроить параметры единого входа на стороне приложения.
+    1. **[Создание тестового пользователя Kendis — Azure AD Integration](#create-kendis-azure-ad-integration-test-user)** требуется для того, чтобы в Kendis — Azure AD Integration существовал пользователь B.Simon, связанный с одноименным пользователем в Azure AD.
 1. **[Проверка единого входа](#test-sso)** позволяет убедиться в правильности конфигурации.
 
 ## <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
 
 Выполните следующие действия, чтобы включить единый вход Azure AD на портале Azure.
 
-1. На портале Azure на странице интеграции с приложением **Kendis-Scaling Agile Platform** найдите раздел **Управление** и выберите **Единый вход**.
+1. На портале Azure на странице интеграции с приложением **Kendis — Azure AD Integration** найдите раздел **Управление** и выберите элемент **Единый вход**.
 1. На странице **Выбрать метод единого входа** выберите **SAML**.
 1. На странице **Настройка единого входа с помощью SAML** щелкните значок карандаша, чтобы открыть диалоговое окно **Базовая конфигурация SAML** для изменения параметров.
 
@@ -87,13 +87,13 @@ ms.locfileid: "99509620"
     В текстовом поле **URL-адрес входа** введите URL-адрес в формате `https://<SUBDOMAIN>.kendis.io/login`.
 
     > [!NOTE]
-    > Эти значения приведены для примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь в [службу поддержки клиентов Kendis-Scaling Agile Platform](mailto:support@kendis.io). Можно также посмотреть шаблоны в разделе **Базовая конфигурация SAML** на портале Azure.
+    > Эти значения приведены для примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь в [службу технической поддержки клиентов Kendis — Azure AD Integration](mailto:support@kendis.io). Можно также посмотреть шаблоны в разделе **Базовая конфигурация SAML** на портале Azure.
 
 1. На странице **Настройка единого входа с помощью SAML** в разделе **Сертификат подписи SAML** найдите пункт **Сертификат (Base64)** и щелкните **Скачать**, чтобы скачать сертификат. Сохраните этот сертификат на компьютере.
 
     ![Ссылка для скачивания сертификата](common/certificatebase64.png)
 
-1. Скопируйте требуемый URL-адрес из раздела **Настройка Kendis-Scaling Agile Platform**.
+1. Требуемые URL-адреса можно скопировать из раздела **настройки Kendis — Azure AD Integration**.
 
     ![Копирование URL-адресов настройки](common/copy-configuration-urls.png)
 
@@ -111,19 +111,19 @@ ms.locfileid: "99509620"
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как предоставить пользователю B.Simon доступ к приложению Kendis-Scaling Agile Platform, чтобы он мог использовать единый вход Azure.
+В этом разделе объясняется, как включить единый вход Azure для пользователя B.Simon, предоставив этому пользователю доступ к Kendis — Azure AD Integration.
 
 1. На портале Azure выберите **Корпоративные приложения**, а затем — **Все приложения**.
-1. В списке приложений выберите **Kendis-Scaling Agile Platform**.
+1. В списке приложений выберите **Kendis — Azure AD Integration**.
 1. На странице "Обзор" приложения найдите раздел **Управление** и выберите **Пользователи и группы**.
 1. Выберите **Добавить пользователя**, а в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
 1. В диалоговом окне **Пользователи и группы** выберите **B.Simon** в списке пользователей, а затем в нижней части экрана нажмите кнопку **Выбрать**.
 1. Если пользователям необходимо назначить роль, вы можете выбрать ее из раскрывающегося списка **Выберите роль**. Если для этого приложения не настроена ни одна роль, будет выбрана роль "Доступ по умолчанию".
 1. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
 
-## <a name="configure-kendis-scaling-agile-platform-sso"></a>Настройка единого входа в Kendis-Scaling Agile Platform
+## <a name="configure-kendis-azure-ad-integration-sso"></a>Настройка единого входа в Kendis — Azure AD Integration
 
-1. В другом окне веб-браузера войдите на корпоративный сайт Kendis-Scaling Agile Platform с учетными данными администратора.
+1. В другом окне веб-браузера войдите на корпоративный сайт Kendis — Azure AD Integration с учетными данными администратора.
 
 1. Откройте раздел **Settings > SAML Configurations** (Параметры — Конфигурация SAML).
 
@@ -145,9 +145,9 @@ ms.locfileid: "99509620"
 
     е) Выберите команду **Сохранить**.
 
-### <a name="create-kendis-scaling-agile-platform-test-user"></a>Создание тестового пользователя Kendis-Scaling Agile Platform
+### <a name="create-kendis-azure-ad-integration-test-user"></a>Создание тестового пользователя Kendis — Azure AD Integration
 
-В этом разделе вы создадите в Kendis-Scaling Agile Platform пользователя с именем B.Simon. Kendis-Scaling Agile Platform поддерживает JIT-подготовку пользователей, которая включена по умолчанию. В этом разделе никакие действия с вашей стороны не требуются. Если пользователь еще не существует в Kendis-Scaling Agile Platform, он автоматически создается после проверки подлинности.
+При работе с этим разделом вы создадите в Kendis — Azure AD Integration пользователя с именем Britta Simon. Приложение Kendis — Azure AD Integration поддерживает JIT-подготовку пользователей, которая включена по умолчанию. В этом разделе никакие действия с вашей стороны не требуются. Если пользователь еще не существует в Kendis — Azure AD Integration, он создается после аутентификации.
 
 ## <a name="test-sso"></a>Проверка единого входа
 
@@ -155,19 +155,19 @@ ms.locfileid: "99509620"
 
 #### <a name="sp-initiated"></a>Инициация поставщиком услуг:
 
-* Выберите **Тестировать приложение** на портале Azure. Вы будете перенаправлены по URL-адресу для входа в Kendis-Scaling Agile Platform, где можно инициировать поток входа.  
+* Выберите **Тестировать приложение** на портале Azure. Вы будете перенаправлены по URL-адресу для входа в Kendis — Azure AD Integration, где можно инициировать поток входа.  
 
-* Вручную введите в браузер URL-адрес для входа в Kendis-Scaling Agile Platform и инициируйте поток входа.
+* Перейдите по URL-адресу для входа в Kendis — Azure AD Integration и инициируйте поток входа.
 
 #### <a name="idp-initiated"></a>Вход, инициированный поставщиком удостоверений
 
-* На портале Azure выберите **Тестировать приложение**, и вы автоматически войдете в приложение Kendis-Scaling Agile Platform, для которого настроен единый вход. 
+* На портале Azure выберите элемент **Тестировать приложение**, и вы автоматически войдете в приложение Kendis — Azure AD Integration, для которого настроен единый вход. 
 
-Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку Kendis-Scaling Agile Platform на портале "Мои приложения", вы попадете на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика услуг) или автоматически войдете в приложение Kendis-Scaling Agile Platform, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкните плитку Kendis — Azure AD Integration в разделе "Мои приложения". Вы перейдете на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика службы) или автоматически войдете в приложение Kendis — Azure AD Integration, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Kendis-Scaling Agile Platform вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Kendis — Azure AD Integration вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от кражи и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 

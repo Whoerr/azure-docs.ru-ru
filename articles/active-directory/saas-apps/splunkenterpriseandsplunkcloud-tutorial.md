@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 18d64e2b2ac359a9036ebd548ef886cb0efd3405
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3d99ed71e284ae2e986a93591a61c3c9011857eb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622202"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Руководство по Интеграция Azure Active Directory с приложением Splunk Enterprise and Splunk Cloud
 
@@ -28,10 +28,10 @@ ms.locfileid: "98622202"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Чтобы настроить интеграцию Azure AD с приложениями Splunk Enterprise и Splunk Cloud, вам потребуется следующее:
+Чтобы приступить к работе, потребуется следующее.
 
-* Подписка Azure AD. (если у вас нет среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/));
-* подписка Splunk Enterprise и Splunk Cloud с поддержкой единого входа.
+* Подписка Azure AD. Если у вас нет подписки, вы можете получить [бесплатную учетную запись](https://azure.microsoft.com/free/).
+* Подписка Splunk Enterprise и Splunk Cloud с поддержкой единого входа.
 
 ## <a name="scenario-description"></a>Описание сценария
 
@@ -63,7 +63,7 @@ ms.locfileid: "98622202"
     1. **[Создание тестового пользователя Splunk Enterprise и Splunk Cloud](#create-splunk-enterprise-and-splunk-cloud-test-user)** требуется для того, чтобы в Splunk Enterprise и Splunk Cloud существовал пользователь B. Simon, связанный с одноименным пользователем в Azure AD.
 1. **[Проверка единого входа](#test-sso)** позволяет убедиться в правильности конфигурации.
 
-### <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
+## <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
 
 Выполните следующие действия, чтобы включить единый вход Azure AD на портале Azure.
 
@@ -111,16 +111,15 @@ ms.locfileid: "98622202"
 1. Если пользователям необходимо назначить роль, вы можете выбрать ее из раскрывающегося списка **Выберите роль**. Если для этого приложения не настроена ни одна роль, будет выбрана роль "Доступ по умолчанию".
 1. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
 
-### <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Настройка единого входа в Splunk Enterprise и Splunk Cloud
+## <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Настройка единого входа в Splunk Enterprise и Splunk Cloud
 
   Для настройки единого входа на стороне **Splunk Enterprise and Splunk Cloud** необходимо отправить загруженный **XML метаданных федерации** и соответствующие URL-адреса, скопированные на портале Azure, [группе поддержки Splunk Enterprise and Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
-
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Создание тестового пользователя Splunk Enterprise and Splunk Cloud
 
 В этом разделе описано, как создать пользователя Britta Simon в Splunk Enterprise и Splunk Cloud. Чтобы добавить пользователей на платформу Splunk Enterprise and Splunk Cloud, обратитесь в [службу поддержки Splunk Enterprise and Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html). Перед использованием единого входа необходимо создать и активировать пользователей.
 
-### <a name="test-sso"></a>Проверка единого входа
+## <a name="test-sso"></a>Проверка единого входа
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью указанных ниже способов. 
 
@@ -132,4 +131,4 @@ ms.locfileid: "98622202"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Splunk Enterprise и Splunk Cloud вы можете применить функцию управления сеансом, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Splunk Enterprise и Splunk Cloud вы можете применить функцию управления сеансами, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

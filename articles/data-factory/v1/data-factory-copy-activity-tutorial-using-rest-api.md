@@ -1,24 +1,18 @@
 ---
 title: 'Руководство по Создание конвейера Фабрики данных Azure с помощью REST API '
 description: В этом руководстве вы будете использовать REST API, чтобы создать конвейер Фабрики данных Azure с действием копирования для копирования данных из Хранилища BLOB-объектов Azure в Базу данных SQL Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7488834252dcd4e231c2d91a1435838befe7b1d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053817"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377029"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Руководство по Создание конвейера Фабрики данных Azure для копирования данных с помощью REST API 
 > [!div class="op_single_selector"]

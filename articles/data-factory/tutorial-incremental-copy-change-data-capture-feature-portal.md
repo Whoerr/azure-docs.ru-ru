@@ -1,22 +1,17 @@
 ---
 title: Добавочное копирование данных с помощью решения "Отслеживание измененных данных"
 description: В этом руководстве вы создадите конвейер Фабрики данных Azure, который пошагово копирует разностные данные из таблицы в базе данных SQL Azure управляемого экземпляра в Хранилище Azure.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555922"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391275"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Добавочная загрузка данных из управляемого экземпляра SQL Azure в хранилище Azure с использованием технологии "Отслеживание измененных данных" (CDC)
 
@@ -90,10 +85,10 @@ ms.locfileid: "98555922"
 
     ```sql
      insert into customers 
-        (customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-        (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-        (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
     ```
 
@@ -113,7 +108,7 @@ ms.locfileid: "98555922"
 
    Имя фабрики данных Azure должно быть **глобально уникальным**. При возникновении указанной ниже ошибки измените имя фабрики данных (например, на ваше_имя_ADFTutorialDataFactory) и попробуйте создать фабрику данных снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](naming-rules.md), чтобы узнать правила именования для артефактов службы "Фабрика данных".
 
-    *Имя фабрики данных ADFTutorialDataFactory недоступно.*
+    *Имя фабрики данных "ADFTutorialDataFactory" недоступно.*
 3. Укажите **V2** при выборе **версии**.
 4. Выберите **подписку** Azure, в рамках которой вы хотите создать фабрику данных.
 5. Для **группы ресурсов** выполните одно из следующих действий.

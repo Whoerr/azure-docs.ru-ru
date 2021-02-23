@@ -4,14 +4,14 @@ description: Узнайте, как создать кластер Microsoft Azur
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: b690d3b3c29d2943e28a0992730d932b35c20734
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072241"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653046"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Руководство по созданию кластера Azure Red Hat OpenShift 4
 
@@ -26,6 +26,8 @@ ms.locfileid: "99072241"
 Если решено установить и использовать CLI локально, то для работы с этим учебником понадобится Azure CLI 2.6.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Для создания и запуска кластера OpenShift в Azure Red Hat OpenShift требуется не менее 40 ядер. Стандартная квота ресурсов Azure для новой подписки Azure не соответствует этому требованию. Чтобы запросить увеличение ограничений ресурсов, см. статью об [ увеличении ограничений для различных серий виртуальных машин](../azure-portal/supportability/per-vm-quota-requests.md).
+
+Секрет для извлечения ARO не изменяет цену лицензии RH OpenShift для ARO.
 
 ### <a name="verify-your-permissions"></a>Проверка разрешений
 

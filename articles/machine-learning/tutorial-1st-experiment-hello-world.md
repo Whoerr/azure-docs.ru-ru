@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 43a483f49a9e9004a4f487e82195198f2600a919
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 18f76480d1327d6ab41c475395a689f8024d7b25
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071159"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369036"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Руководство по выполнению скрипта "Hello world!" Сценарий Python (часть 2 из 4)
 
@@ -48,15 +48,7 @@ print("Hello world!")
 
 Теперь структура каталогов проекта будет выглядеть следующим образом:
 
-```Bash
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Структура каталогов с файлом hello.py в подкаталоге src":::
 
 
 ### <a name="test-your-script-locally"></a><a name="test"></a>Тестирование скрипта в локальной среде

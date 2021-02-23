@@ -1,20 +1,20 @@
 ---
-title: Краткое руководство. Создание службы частной связи Azure с помощью Azure PowerShell
-description: Узнайте, как создать службу частной связи Azure с помощью Azure PowerShell
+title: Краткое руководство. Создание службы "Приватный канал Azure" с помощью Azure PowerShell
+description: Сведения о том, как создать службу "Приватный канал Azure" с помощью Azure PowerShell.
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: d48903a05a4e9b530dcd3e83e0c14c37dcc74797
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
-ms.translationtype: MT
+ms.openlocfilehash: 4780bc573796581438b8d331b1d1d9421a65414f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757531"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653250"
 ---
-# <a name="create-a-private-link-service-using-azure-powershell"></a>Создание службы частной связи с помощью Azure PowerShell
+# <a name="create-a-private-link-service-using-azure-powershell"></a>Создание службы "Приватный канал" с помощью Azure PowerShell
 
 Приступите к созданию службы приватного канала, которая ссылается на вашу службу.  Предоставьте Приватному каналу доступ к службе или ресурсу, которые развернуты за Azure Load Balancer (цен. категория "Стандартный").  Пользователи службы имеют закрытый доступ из своей виртуальной сети.
 
@@ -137,11 +137,11 @@ New-AzLoadBalancer @loadbalancer
 
 ## <a name="create-a-private-link-service"></a>Создание службы "Приватный канал"
 
-В этом разделе вы создадите службу частной связи, которая использует стандартные Azure Load Balancer, созданные на предыдущем шаге.
+В этом разделе описывается, как создать службу "Приватный канал", которая использует созданный на предыдущем шаге Azure Load Balancer цен. категории "Стандартный.
 
-* Создайте IP-конфигурацию службы частной связи с помощью [New-азпривателинксервицеипконфиг](/powershell/module/az.network/new-azprivatelinkserviceipconfig).
+* Создайте IP-конфигурацию службы "Приватный канал" с помощью командлета [New-AzPrivateLinkServiceIpConfig](/powershell/module/az.network/new-azprivatelinkserviceipconfig).
 
-* Создайте службу частной связи с помощью [New-азпривателинксервице](/powershell/module/az.network/new-azprivatelinkservice).
+* Создайте службу "Приватный канал" с помощью командлета [New-AzPrivateLinkService](/powershell/module/az.network/new-azprivatelinkservice).
 
 ```azurepowershell
 ## Place the virtual network into a variable. ##
@@ -174,13 +174,13 @@ New-AzPrivateLinkService @privlinksettings
 
 ```
 
-Служба частной связи создается и может принимать трафик. Если вы хотите просмотреть потоки трафика, настройте приложение для своей стандартной подсистемы балансировки нагрузки.
+Ваша служба приватного канала создана и может принимать трафик. Если вы хотите просмотреть потоки трафика, настройте приложение за подсистемой Load Balancer ценовой категории "Стандартный".
 
 ## <a name="create-private-endpoint"></a>Создание частной конечной точки
 
-В этом разделе вы будете сопоставлять службу закрытых ссылок с частной конечной точкой. Виртуальная сеть содержит закрытую конечную точку для службы закрытых ссылок. Эта виртуальная сеть содержит ресурсы, которые будут обращаться к службе частной связи.
+В этом разделе вы сопоставите службу приватного канала с частной конечной точкой. Виртуальная сеть содержит частную конечную точку для службы приватного канала. Эта виртуальная сеть содержит ресурсы, которые будут обращаться к службе приватного канала.
 
-### <a name="create-private-endpoint-virtual-network"></a>Создание виртуальной сети частной конечной точки
+### <a name="create-private-endpoint-virtual-network"></a>Создание виртуальной сети с частной конечной точкой
 
 * Создайте виртуальную сеть с помощью командлета [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
@@ -207,11 +207,11 @@ $vnetpe = New-AzVirtualNetwork @net
 
 ### <a name="create-endpoint-and-connection"></a>Создание конечной точки и подключения
 
-* Используйте [Get-азпривателинксервице](/powershell/module/az.network/get-azprivatelinkservice) , чтобы поместить конфигурацию службы закрытых ссылок, созданную ранее в переменную для последующего использования.
+* С помощью командлета [Get-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) поместите конфигурацию службы "Приватный канал", созданной ранее, в переменную для последующего использования.
 
-* Чтобы создать конфигурацию подключения, используйте [New-азпривателинксервицеконнектион](/powershell/module/az.network/new-azprivatelinkserviceconnection) .
+* С помощью командлета [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) создайте конфигурацию подключения.
 
-* Чтобы создать конечную точку, используйте [New-азприватиндпоинт](/powershell/module/az.network/new-azprivateendpoint) .
+* С помощью командлета [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) создайте конечную точку.
 
 
 
@@ -248,11 +248,11 @@ $par4 = @{
 New-AzPrivateEndpoint @par4 -ByManualRequest
 ```
 
-### <a name="approve-the-private-endpoint-connection"></a>Утверждение подключения к частной конечной точке
+### <a name="approve-the-private-endpoint-connection"></a>Утверждение подключения частной конечной точки
 
-В этом разделе вы утвердите подключение, созданное на предыдущих шагах.
+В этом разделе описывается, как утвердить подключение, созданное на предыдущих шагах.
 
-* Чтобы утвердить подключение, используйте [утверждение-азприватиндпоинтконнектион](/powershell/module/az.network/approve-azprivateendpointconnection) .
+* С помощью командлета [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) выполните утверждение подключения.
 
 ```azurepowershell-interactive
 ## Place the private link service configuration into variable. ##
@@ -274,9 +274,9 @@ Approve-AzPrivateEndpointConnection @par2
 
 ### <a name="ip-address-of-private-endpoint"></a>IP-адрес частной конечной точки
 
-В этом разделе вы найдете IP-адрес частной конечной точки, которая соответствует подсистеме балансировки нагрузки и службе частной связи.
+В этом разделе вы найдете IP-адрес частной конечной точки, которая соответствует Load Balancer и службе приватного канала.
 
-* Чтобы получить IP-адрес, используйте [Get-азприватиндпоинт](/powershell/module/az.network/get-azprivateendpoint) .
+* С помощью командлета [Get-AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint) получите IP-адрес.
 
 ```azurepowershell-interactive
 ## Get private endpoint and the IP address and place in a variable for display. ##
@@ -313,5 +313,5 @@ Remove-AzResourceGroup -Name 'CreatePrivLinkService-rg'
 
 Чтобы узнать больше о частной конечной точке Azure, ознакомьтесь со следующей статьей:
 > [!div class="nextstepaction"]
-> [Краткое руководство. Создание частной конечной точки с помощью Azure PowerShell](create-private-endpoint-powershell.md)
+> [Краткое руководство. Создание частной конечной точки с помощью Azure Powershell](create-private-endpoint-powershell.md)
 

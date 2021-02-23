@@ -1,20 +1,20 @@
 ---
 title: Учебник. Развертывание связанного шаблона
 description: Узнайте как выполнять развертывание связанного шаблона
-ms.date: 01/12/2021
+ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 4ec49fad35e958f010461abf2ee0e3dab8077d55
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8f2bbd327adca6eef62d5e79f422f61d460ea7a5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134200"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589270"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Руководство по развертыванию связанного шаблона
 
-В [предыдущих учебниках](./deployment-tutorial-local-template.md) вы узнали, как развернуть шаблон, хранящийся на локальном компьютере. Для развертывания сложных решений вы можете разбить один шаблон на несколько и развернуть их с помощью основного шаблона. В этом учебнике вы узнаете, как развернуть основной шаблон, содержащий ссылку на связанный шаблон. При развертывании главного шаблона запускается развертывание связанного шаблона. Вы также узнаете, как сохранить и защитить связанный шаблон с помощью маркера SAS. Это занимает около **12 минут**.
+В [предыдущих учебниках](./deployment-tutorial-local-template.md) вы узнали, как развернуть шаблон, хранящийся на локальном компьютере. Для развертывания сложных решений вы можете разбить один шаблон на несколько и развернуть их с помощью основного шаблона. В этом учебнике вы узнаете, как развернуть основной шаблон, содержащий ссылку на связанный шаблон. При развертывании главного шаблона запускается развертывание связанного шаблона. Вы также узнаете, как сохранить и защитить шаблоны с помощью маркера SAS. Это занимает около **12 минут**.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -32,15 +32,18 @@ ms.locfileid: "98134200"
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-Следующий шаблон является основным. Выделенный объект `Microsoft.Resources/deployments` показывает, как вызвать связанный шаблон. Связанный шаблон нельзя сохранять в виде локального файла или файла, который доступен только в вашей локальной сети. Можно предоставить только URI, который включает в себя HTTP или HTTPS. Диспетчер ресурсов должен иметь доступ к шаблону. Один из вариантов — разместить связанный шаблон в учетной записи хранения и использовать универсальный код ресурса (URI) этого элемента. Универсальный код ресурса (URI) передается в шаблон с помощью параметра. См. определение выделенного параметра.
+Следующий шаблон является основным. Выделенный объект `Microsoft.Resources/deployments` показывает, как вызвать связанный шаблон. Связанный шаблон нельзя сохранять в виде локального файла или файла, который доступен только в вашей локальной сети. Вы можете указать значение универсального кода ресурса (URI) связанного шаблона, который содержит протокол HTTP или HTTPS, или использовать свойство _relativePath_ для развертывания удаленного связанного шаблона в расположении относительно родительского шаблона. Один из вариантов — разместить основной и связанный шаблон в учетной записи хранения.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
-
-Сохраните копию основного шаблона с расширением _JSON_, например _azuredeploy.json_, на локальном компьютере. Не нужно сохранять копию связанного шаблона. Связанный шаблон будет скопирован в учетную запись хранения из репозитория GitHub.
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="34-52":::
 
 ## <a name="store-the-linked-template"></a>Сохранение связанного шаблона
 
-Следующий сценарий PowerShell создает учетную запись хранения, создает контейнер и копирует связанный шаблон из репозитория GitHub в контейнер. Копия связанного шаблона хранится в [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
+Основной и связанный шаблон хранятся в репозитории GitHub:
+
+Указанный ниже сценарий PowerShell создает учетную запись хранения, контейнер и копирует два шаблона из репозитория GitHub в контейнер. Вот эти два шаблона:
+
+- Основной шаблон: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json.
+- Связанный шаблон: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json.
 
 Выберите **Попробовать** чтобы открыть Cloud Shell, выберите **Копировать**, чтобы скопировать скрипт PowerShell, и щелкните правой кнопкой мыши панель оболочки, чтобы вставить скрипт:
 
@@ -55,11 +58,15 @@ $resourceGroupName = $projectName + "rg"
 $storageAccountName = $projectName + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$mainTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json"
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json"
 
-# Download the template
-Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+$mainFileName = "azuredeploy.json" # A file name used for downloading and uploading the main template.Add-PSSnapin
+$linkedFileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the templates
+Invoke-WebRequest -Uri $mainTemplateURL -OutFile "$home/$mainFileName"
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$linkedFileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -76,11 +83,17 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the template
+# Upload the templates
 Set-AzStorageBlobContent `
     -Container $containerName `
-    -File "$home/$fileName" `
-    -Blob $fileName `
+    -File "$home/$mainFileName" `
+    -Blob $mainFileName `
+    -Context $context
+
+Set-AzStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$linkedFileName" `
+    -Blob $linkedFileName `
     -Context $context
 
 Write-Host "Press [ENTER] to continue ..."
@@ -88,7 +101,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="deploy-template"></a>Развертывание шаблона
 
-Чтобы развернуть частный шаблон в учетной записи хранения, создайте маркер SAS и добавьте его в универсальный код ресурса (URI) для шаблона. Задайте срок действия, достаточный для выполнения развертывания. Большой двоичный объект, содержащий шаблон, будет доступен только владельцу учетной записи. Тем не менее, если создать маркер SAS для этого большого двоичного объекта, то он будет доступен любому пользователю, обладающему этим универсальным кодом ресурса (URI). Если другой пользователь перехватит этот универсальный код ресурса (URI), то сможет получить доступ к шаблону. Маркер SAS — хороший способ ограничить доступ к своим шаблонам, но не следует указывать конфиденциальные данные, например пароли, непосредственно в шаблоне.
+Чтобы развернуть шаблоны в учетной записи хранения, создайте маркер SAS и задайте его в параметре _-QueryString_. Задайте срок действия, достаточный для выполнения развертывания. Большие двоичные объекты, содержащие шаблоны, будут доступны только владельцу учетной записи. Тем не менее, если создать маркер SAS для этого большого двоичного объекта, то он будет доступен любому пользователю, обладающему этим маркером SAS. Если другой пользователь перехватит универсальный код ресурса (URI) и маркер SAS, то сможет получить доступ к шаблону. Маркер SAS — хороший способ ограничить доступ к своим шаблонам, но не следует указывать конфиденциальные данные, например пароли, непосредственно в шаблоне.
 
 Если вы еще не создали группу ресурсов, см. [этот раздел](./deployment-tutorial-local-template.md#create-resource-group).
 
@@ -97,69 +110,66 @@ Write-Host "Press [ENTER] to continue ..."
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
-$projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
-$templateFile = Read-Host -Prompt "Enter the main template file and path"
+$projectName = Read-Host -Prompt "Enter the same project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 
 $resourceGroupName="${projectName}rg"
 $storageAccountName="${projectName}store"
 $containerName = "templates"
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 $key = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 $context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 
-# Generate a SAS token
-$linkedTemplateUri = New-AzStorageBlobSASToken `
+$mainTemplateUri = $context.BlobEndPoint + "$containerName/azuredeploy.json"
+$sasToken = New-AzStorageContainerSASToken `
     -Context $context `
     -Container $containerName `
-    -Blob $fileName `
     -Permission r `
-    -ExpiryTime (Get-Date).AddHours(2.0) `
-    -FullUri
+    -ExpiryTime (Get-Date).AddHours(2.0)
+$newSas = $sasToken.substring(1)
 
-# Deploy the template
+
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
   -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFile `
+  -TemplateUri $mainTemplateUri `
+  -QueryString $newSas `
   -projectName $projectName `
-  -linkedTemplateUri $linkedTemplateUri `
   -verbose
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
+echo "Enter a project name that is used to generate resource names:" &&
+read projectName &&
 
-echo "Enter a project name that is used to generate resource names:"
-read projectName
-echo "Enter the main template file:"
-read templateFile
+resourceGroupName="${projectName}rg" &&
+storageAccountName="${projectName}store" &&
+containerName="templates" &&
 
-resourceGroupName="${projectName}rg"
-storageAccountName="${projectName}store"
-containerName="templates"
-fileName="linkedStorageAccount.json"
+key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv) &&
 
-key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
-
-linkedTemplateUri=$(az storage blob generate-sas \
+sasToken=$(az storage container generate-sas \
   --account-name $storageAccountName \
   --account-key $key \
-  --container-name $containerName \
-  --name $fileName \
+  --name $containerName \
   --permissions r \
-  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
-  --full-uri)
+  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'`) &&
+sasToken=$(echo $sasToken | sed 's/"//g')&&
 
-linkedTemplateUri=$(echo $linkedTemplateUri | sed 's/"//g')
+blobUri=$(az storage account show -n $storageAccountName -g $resourceGroupName -o tsv --query primaryEndpoints.blob) &&
+templateUri="${blobUri}${containerName}/azuredeploy.json" &&
+
 az deployment group create \
   --name DeployLinkedTemplate \
   --resource-group $resourceGroupName \
-  --template-file $templateFile \
-  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --template-uri $templateUri \
+  --parameters projectName=$projectName \
+  --query-string $sasToken \
   --verbose
 ```
 

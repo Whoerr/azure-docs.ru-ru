@@ -24,9 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Отправка push-уведомлений всем зарегистрированным пользователям (пакет SDK версии 1.0.0-preview1)
+            - name: Отправка push-уведомлений всем зарегистрированным пользователям (пакет SDK текущей версии)
               href: android-sdk.md
-            - name: Отправка push-уведомлений всем зарегистрированным пользователям (пакет SDK версии 0.6)
+            - name: Отправка push-уведомлений всем зарегистрированным пользователям (устаревший пакет SDK)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Отправка push-уведомлений на определенные устройства
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
           items:
             - name: Предварительные требования для работы с руководствами по iOS
               href: ios-sdk-get-started.md
-            - name: "Objective-C (версия\_3.0.0-preview1)"
-              href: ios-sdk-300.md
-            - name: "Objective-C (версия\_2.0.4)"
-              href: ios-sdk-204.md
+            - name: Objective-C (пакет SDK текущей версии)
+              href: ios-sdk-current.md
+            - name: Objective-C (устаревший пакет SDK)
+              href: ios-sdk-legacy.md
         - name: Отправка push-уведомлений на определенные устройства
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Отправка push-уведомлений определенным пользователям

@@ -1,73 +1,69 @@
 ---
-title: Пример скрипта Azure PowerShell. Настройка подключения VPN типа "точка — сеть" с использованием собственной проверки подлинности Azure на основе сертификата | Документация Майкрософт
+title: Пример скрипта Azure PowerShell для настройки VPN типа "точка — сеть" с аутентификацией на основе сертификата
+titleSuffix: Azure VPN Gateway
 description: Настройка подключения VPN типа "точка — сеть" с помощью собственной проверки подлинности Azure на основе сертификата с использованием самозаверяющих сертификатов. В этой статье используется PowerShell.
 services: vpn-gateway
-documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 01/10/2020
+ms.date: 02/11/2021
 ms.author: alzam
-ms.openlocfilehash: b691e4621d50f8578ebe095ed184cbdb4397ce10
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 04d0fe2b322f6b70cb1cda8d61fbd49638ec214a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646429"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385835"
 ---
-# <a name="configure-a-point-to-site-vpn-using-native-azure-certificate-authentication"></a>Настройка VPN "точка — сеть" с помощью собственной аутентификации Azure на основе сертификата
+# <a name="configure-a-point-to-site-vpn---certificate-authentication---powershell-script-sample"></a>Настройка VPN типа "точка — сеть" с аутентификацией на основе сертификата — пример скрипта PowerShell
 
-С помощью этого скрипта создается VPN-шлюз на основе маршрутов и добавляется конфигурация "точка — сеть" с использованием собственной проверки подлинности Azure на основе сертификата
+С помощью этого скрипта создается VPN-шлюз на основе маршрутов и добавляется конфигурация "точка — сеть" с аутентификацией на основе собственного сертификата Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
   $VNetName  = "VNet1"
-  $FESubName = "FrontEnd"
-  $BESubName = "Backend"
-  $GWSubName = "GatewaySubnet"
-  $VNetPrefix1 = "10.0.0.0/16"
-  $FESubPrefix = "10.1.0.0/24"
-  $BESubPrefix = "10.1.1.0/24"
-  $GWSubPrefix = "10.1.255.0/27"
-  $VPNClientAddressPool = "192.168.0.0/24"
   $RG = "TestRG1"
   $Location = "East US"
+  $FESubName = "FrontEnd"
+  $VNetPrefix1 = "10.1.0.0/16"
+  $FESubPrefix = "10.1.0.0/24"
+  $GWSubPrefix = "10.1.255.0/27"
+  $VPNClientAddressPool = "192.168.0.0/24"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWIP"
-  $GWIPconfName = "gwipconf"
+
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location EastUS
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
+  -ResourceGroupName $RG `
   -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
- -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+ -Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Add the VPN client address pool
 $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -85,8 +81,8 @@ $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate
 $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
 $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName `
- -VirtualNetworkGatewayname "VNet1GW" `
- -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
+ -VirtualNetworkGatewayname $GWName `
+ -ResourceGroupName $RG -PublicCertData $CertBase64
 
 ```
 
@@ -106,7 +102,7 @@ Remove-AzResourceGroup -Name TestRG1
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Добавление конфигурации подсети. Эта конфигурация используется в процессе создания виртуальной сети. |
 | [Add-AzVpnClientRootCertificate](/powershell/module/az.network/add-azvpnclientrootcertificate) | Отправка сведений об открытом ключе корневого сертификата в VPN-шлюз.|
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Получение сведений о виртуальной сети. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Получает сведения о виртуальной сети. |
 | [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Получение сведений о шлюзе виртуальной сети. |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Получение сведений о конфигурации подсети в виртуальной сети. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Создает группу ресурсов, в которой хранятся все ресурсы. |
@@ -115,7 +111,7 @@ Remove-AzResourceGroup -Name TestRG1
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Создает общедоступный IP-адрес. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Создание конфигурации IP-адреса шлюза. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Создание VPN-шлюза. |
-| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps) | Создание самозаверяющего корневого сертификата. |
+| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) | Создание самозаверяющего корневого сертификата. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Удаляет группу ресурсов и все ресурсы, содержащиеся в ней. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Установка конфигурации подсети для виртуальной сети. |
 

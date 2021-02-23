@@ -1,24 +1,18 @@
 ---
 title: 'Руководство по Создание конвейера для переноса данных с помощью Azure PowerShell '
 description: В этом руководстве вы создадите конвейер фабрики данных Azure с действием копирования с помощью Azure PowerShell.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa97fd2ac12ca73d1a317fb09e03e49d0056ceb1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 54c296ed8013b9962de9487cfec3e2568c03e738
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608635"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377046"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Руководство по Создание конвейера фабрики данных для переноса данных с помощью Azure PowerShell
 > [!div class="op_single_selector"]
@@ -114,7 +108,7 @@ ms.locfileid: "97608635"
 * Имя фабрики данных Azure должно быть глобально уникальным. При возникновении следующей ошибки измените имя (например, на ваше_имя_ADFTutorialDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом руководстве. Ознакомьтесь с [правилами именования](data-factory-naming-rules.md) артефактов фабрики данных.
 
     ```
-    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    Data factory name "ADFTutorialDataFactoryPSH" is not available
     ```
 * Чтобы создавать экземпляры фабрики данных, вы должны быть участником или администратором подписки Azure.
 * В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.

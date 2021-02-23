@@ -991,6 +991,8 @@
           href: managed-instance/alerts-create.md
         - name: Запуск отработки отказа на управляемом экземпляре вручную
           href: managed-instance/user-initiated-failover.md
+        - name: Перенос базы данных с помощью службы воспроизведения журналов
+          href: managed-instance/log-replay-service-migrate.md
     - name: Примеры
       items:
         - name: Azure CLI
