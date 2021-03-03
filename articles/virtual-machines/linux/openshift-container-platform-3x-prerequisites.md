@@ -3,18 +3,19 @@ title: Платформа OpenShift Container 3,11 в предварительн
 description: Необходимые условия для развертывания OpenShift контейнера платформы 3,11 в Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 645402d6c6b1fe744938ef5597098f46bc80c78e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734736"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672367"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Общие предварительные требования для развертывания платформы контейнеров OpenShift 3,11 в Azure
 
@@ -163,7 +164,7 @@ az ad sp create-for-rbac --name openshiftsp \
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 В этой статье рассматриваются следующие темы:
 > [!div class="checklist"]

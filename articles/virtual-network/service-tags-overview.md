@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1186715003abef387343bb2b6cb71d56490c519d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389745"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667839"
 ---
 # <a name="virtual-network-service-tags"></a>Теги службы виртуальной сети
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ ms.locfileid: "100389745"
 | **AzureActiveDirectory** | Azure Active Directory; | Исходящие | Нет | Да |
 | **AzureActiveDirectoryDomainServices** | Трафик управления для развертываний, выделенных для доменных служб Azure Active Directory. | both | Нет | Да |
 | **AzureAdvancedThreatProtection** | Расширенная защита от угроз Azure | Исходящие | Нет | Нет |
+| **азуреапифорфхир** | API Azure для FHIR (ресурсы для взаимодействия с быстрым здравоохранение).<br/><br/> *Примечание. Сейчас этот тег нельзя настроить с помощью портала Azure.*| Исходящие | Нет | Нет |
 | **азуреарЦинфраструктуре** | Серверы с поддержкой Arc Azure, Kubernetes и трафик конфигурации гостя с поддержкой ARC.<br/><br/>*Примечание.* Этот тег зависит от тегов **AzureActiveDirectory**,**AzureTrafficManager** и **AzureResourceManager** . *Сейчас этот тег нельзя настроить с помощью портала Azure*.| Исходящие | Нет | Да |
 | **AzureBackup** |Azure Backup.<br/><br/>*Примечание.* Этот тег зависит от тегов **Storage** и **AzureActiveDirectory**. | Исходящие | Нет | Да |
 | **AzureBotService** | Служба Azure Bot. | Исходящие | Нет | Нет |

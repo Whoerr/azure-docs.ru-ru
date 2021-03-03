@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: a0f813253520d76731a9b49a89b0bcace7c2ef34
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a907bf61cb7ccb8b6d287840c12a00451cad782f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979170"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657865"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Устранение неполадок ParallelRunStep
 
@@ -119,7 +119,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `parallel_run_config`: Объект `ParallelRunConfig`, как определено ранее.
 - `inputs`: Один или несколько однотипных наборов данных Машинного обучения Azure, которые должны быть секционированы для параллельной обработки.
 - `side_inputs`: Один или несколько эталонных данных или наборов данных, используемых в качестве дополнительных входных данных без необходимости секционирования.
-- `output`: Объект `PipelineData`, который соответствует каталогу для выходных данных.
+- `output`: Объект `OutputDatasetConfig` или `PipelineData` , соответствующий выходному каталогу.
 - `arguments`: Список аргументов, переданных в пользовательский скрипт. Используйте unknown_args, чтобы получить их в начальном сценарии (необязательно).
 - `allow_reuse`: Указывает, должен ли шаг повторно использовать предыдущие результаты при запуске с теми же параметрами и входными данными. Если этот параметр имеет значение `False`, то во время выполнения конвейера для этого шага всегда будет создаваться новый запуск. (необязательный параметр; по умолчанию используется значение `True`.)
 

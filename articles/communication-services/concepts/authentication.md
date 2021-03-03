@@ -9,188 +9,31 @@ ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: e20c822c2e792c67ed655080385a3c90794d53fd
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1267fc53bd6dcbae504b01610267059545353dc5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545145"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655910"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Аутентификация в службах связи Azure
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+Все взаимодействия клиента со службами связи Azure должны пройти проверку подлинности. В типичной архитектуре см. раздел [архитектура клиента и сервера](./client-and-server-architecture.md), *ключи доступа* или *управляемое удостоверение* используется в доверенной службе доступа пользователей для создания пользователей и выпусков маркеров. И *маркер доступа пользователя* , выданный доверенной службой доступа пользователей, используется для клиентских приложений для доступа к другим службам связи, например для разговора или вызова службы.
 
-Эта статья содержит сведения о проверке подлинности клиентов в службах связи Azure с помощью *ключей доступа* и *маркеров доступа пользователей*. Все взаимодействия клиента со службами связи Azure должны пройти проверку подлинности.
-
-В следующей таблице описаны параметры проверки подлинности, поддерживаемые клиентскими библиотеками служб связи Azure.
-
-| Клиентская библиотека | Ключ доступа    | Маркеры доступа пользователей |
-| -------------- | ------------- | ------------------ |
-| Администрирование | Поддерживается     | Не поддерживается      |
-| SMS            | Поддерживается     | Не поддерживается      |
-| Чат           | Не поддерживается | Поддерживается          |
-| Вызов        | Не поддерживается | Поддерживается          |
+Служба SMS служб связи Azure также принимает *ключи доступа* или *управляемое удостоверение* для проверки подлинности. Обычно это происходит в приложении службы, работающем в среде доверенной службы.
 
 Каждый вариант авторизации кратко описан ниже.
 
-- Проверка подлинности **ключа доступа** для SMS и административных операций. Проверка подлинности с помощью ключа доступа подходит для приложений, работающих в среде доверенной службы. Для проверки подлинности с помощью ключа доступа клиент создает [код проверки подлинности сообщения на основе хэша (HMAC)](https://en.wikipedia.org/wiki/HMAC) и включает его в `Authorization` заголовок каждого HTTP-запроса. Дополнительные сведения см. в разделе [Проверка подлинности с помощью ключа доступа](#authenticate-with-an-access-key).
-- Проверка подлинности **маркера доступа пользователя** для разговора и вызова. Маркеры доступа пользователей позволяют клиентским приложениям проходить проверку подлинности непосредственно в службах связи Azure. Эти токены создаются в создаваемой службе подготовки маркеров на стороне сервера. Затем они предоставляются клиентским устройствам, которые используют маркер для инициализации разговора и вызова клиентских библиотек. Дополнительные сведения см. в разделе [Проверка подлинности с помощью маркера доступа пользователя](#authenticate-with-a-user-access-token).
+- Проверка подлинности **ключа доступа** для SMS и операций идентификации. Проверка подлинности с помощью ключа доступа подходит для приложений служб, работающих в среде доверенной службы. Ключ доступа можно найти на портале служб связи Azure. Для проверки подлинности с помощью ключа доступа приложение службы использует ключ доступа в качестве учетных данных для инициализации соответствующих клиентских библиотек SMS или Client Identity. см. раздел [Создание маркеров доступа и управление ими](../quickstarts/access-tokens.md). Так как ключ доступа является частью строки подключения ресурса, см. раздел [Создание ресурсов служб связи и управление ими](../quickstarts/create-communication-resource.md). Проверка подлинности с помощью строки подключения эквивалентна проверке подлинности с помощью ключа доступа.
+- Проверка подлинности **управляемого удостоверения** для SMS и операций идентификации. Управляемое удостоверение, см. в разделе [управляемое удостоверение](../quickstarts/managed-identity.md), подходит для приложений служб, работающих в среде доверенной службы. Для проверки подлинности с помощью управляемого удостоверения приложение службы создает учетные данные с идентификатором и секретом управляемого удостоверения, а затем инициализирует соответствующие библиотеки SMS или Client Identity. см. раздел [Создание маркеров доступа и управление ими](../quickstarts/access-tokens.md).
+- Проверка подлинности **маркера доступа пользователя** для разговора и вызова. Маркеры доступа пользователей позволяют клиентским приложениям проходить проверку подлинности в сеансе обмена данными Azure и вызове служб. Эти маркеры создаются в созданной службе доверенных прав доступа пользователей. Затем они предоставляются клиентским устройствам, которые используют маркер для инициализации разговора и вызова клиентских библиотек. Дополнительные сведения см. [в разделе Добавление разговора в приложение](../quickstarts/chat/get-started.md) , например.
 
-## <a name="authenticate-with-an-access-key"></a>Проверка подлинности с помощью ключа доступа
-
-Проверка подлинности ключа доступа использует общий секретный ключ для создания HMAC для каждого HTTP-запроса, вычисленного с помощью алгоритма SHA256, и отправляет его в `Authorization` заголовке с помощью `HMAC-SHA256` схемы.
-
-```
-Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
-```
-
-Клиентские библиотеки служб связи Azure, использующие проверку подлинности ключа доступа, должны инициализироваться со строкой подключения вашего ресурса. Если клиентская библиотека не используется, можно программно создавать HMAC с помощью ключа доступа ресурса. Дополнительные сведения о строках подключения см. в [кратком руководстве по подготовке ресурсов](../quickstarts/create-communication-resource.md).
-
-### <a name="sign-an-http-request"></a>Подписывание HTTP-запроса
-
-Если вы не используете клиентскую библиотеку для выполнения HTTP-запросов к интерфейсам API службы связи Azure, вам потребуется программно создавать HMAC для каждого HTTP-запроса. Ниже описано, как создать заголовок авторизации:
-
-1. Укажите отметку времени в формате UTC для запроса в `x-ms-date` заголовке или в стандартном `Date` заголовке HTTP. Служба проверяет это для защиты от определенных атак, в том числе атак с помощью воспроизведения.
-1. Выполните хэширование текста HTTP-запроса с помощью алгоритма SHA256, а затем передайте его с запросом через `x-ms-content-sha256` заголовок.
-1. Создайте строку для подписи путем сцепления глагола HTTP (например `GET` `PUT` , или), пути HTTP-запроса и значений `Date` `Host` `x-ms-content-sha256` HTTP-заголовков в следующем формате:
-    ```
-    VERB + "\n"
-    URLPathAndQuery + "\n"
-    DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
-    ```
-1. Создайте сигнатуру HMAC-256 для строки в кодировке UTF-8, созданной на предыдущем шаге. Затем закодировать результаты в Base64. Обратите внимание, что вам также потребуется декодировать ключ доступа в формате Base64. Используйте следующий формат (показан в виде псевдокода):
-    ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
-    ```
-1. Укажите заголовок Authorization следующим образом:
-    ```
-    Authorization="HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"  
-    ```
-    Где `<hmac-sha256-signature>` — это код HMAC, вычисленный на предыдущем шаге.
-
-## <a name="authenticate-with-a-user-access-token"></a>Проверка подлинности с помощью маркера доступа пользователя
-
-Маркеры доступа пользователей позволяют клиентским приложениям проходить проверку подлинности непосредственно в службах связи Azure. Для этого необходимо настроить надежную службу, которая проверяет подлинность пользователей приложения и выдает маркеры доступа пользователей с помощью клиентской библиотеки администрирования. См. общую документацию по [архитектуре клиента и сервера](./client-and-server-architecture.md) , чтобы узнать больше о наших архитектурных вопросах.
-
-`CommunicationTokenCredential`Класс содержит логику предоставления учетных данных маркера доступа пользователя для клиентских библиотек и управления жизненным циклом.
-
-### <a name="initialize-the-client-libraries"></a>Инициализация клиентских библиотек
-
-Чтобы инициализировать клиентские библиотеки служб связи Azure, требующие проверки подлинности маркера доступа пользователя, сначала необходимо создать экземпляр `CommunicationTokenCredential` класса, а затем использовать его для инициализации клиента API.
-
-В следующих фрагментах кода показано, как инициализировать клиентскую библиотеку чата с помощью маркера доступа пользователя:
-
-#### <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-// user access tokens should be created by a trusted service using the Administration client library
-var token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-var userCredential = new CommunicationTokenCredential(token);
-
-// initialize the chat client library with the credential
-var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
-```
-
-#### <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-// user access tokens should be created by a trusted service using the Administration client library
-const token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance with the AzureCommunicationTokenCredential class
-const userCredential = new AzureCommunicationTokenCredential(token);
-
-// initialize the chat client library with the credential
-let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
-```
-
-#### <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
-// user access tokens should be created by a trusted service using the Administration client library
-let token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-let userCredential = try CommunicationTokenCredential(token: token)
-
-// initialize the chat client library with the credential
-let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
-```
-
-#### <a name="java"></a>[Java](#tab/java)
-
-```java
-// user access tokens should be created by a trusted service using the Administration client library
-String token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
-
-// Initialize the chat client
-final ChatClientBuilder builder = new ChatClientBuilder();
-builder.endpoint(ENDPOINT_URL)
-    .credential(userCredential)
-    .httpClient(HTTP_CLIENT);
-ChatClient chatClient = builder.buildClient();
-```
-
----
-
-### <a name="refreshing-user-access-tokens"></a>Обновление маркеров доступа пользователей
-
-Маркеры доступа пользователей — это кратковременные учетные данные, которые необходимо повторно выдать, чтобы предотвратить сбои в работе служб. `CommunicationTokenCredential`Конструктор принимает функцию обратного вызова обновления, которая позволяет обновлять маркеры доступа пользователей до истечения срока их действия. Этот обратный вызов следует использовать для получения нового маркера доступа пользователя из доверенной службы.
-
-#### <a name="c"></a>[C#](#tab/csharp)
-
-```csharp
-var userCredential = new CommunicationTokenCredential(
-    initialToken: token,
-    refreshProactively: true,
-    tokenRefresher: cancellationToken => fetchNewTokenForCurrentUser(cancellationToken)
-);
-```
-
-#### <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-const userCredential = new AzureCommunicationTokenCredential({
-  tokenRefresher: async () => fetchNewTokenForCurrentUser(),
-  refreshProactively: true,
-  initialToken: token
-});
-```
-
-#### <a name="swift"></a>[Swift](#tab/swift)
-
-```swift
- let userCredential = try CommunicationTokenCredential(initialToken: token, refreshProactively: true) { |completionHandler|
-   let updatedToken = fetchTokenForCurrentUser()
-   completionHandler(updatedToken, nil)
- }
-```
-
-#### <a name="java"></a>[Java](#tab/java)
-
-```java
-TokenRefresher tokenRefresher = new TokenRefresher() {
-    @Override
-    Future<String> getFetchTokenFuture() {
-        return fetchNewTokenForCurrentUser();
-    }
-}
-
-CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, token, true);
-```
----
-
-`refreshProactively`Параметр позволяет выбрать способ управления жизненным циклом маркера. По умолчанию, когда маркер устарел, обратный вызов блокирует запросы API и пытается обновить его. Если для параметра задано значение `refreshProactively` `true` обратного вызова, оно планируется и выполняется асинхронно до истечения срока действия маркера.
-
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Создание маркеров доступа пользователей](../quickstarts/access-tokens.md)
+> [Создание ресурсов](../quickstarts/create-communication-resource.md) 
+>  служб связи и управление ими [Создание Azure Active Directory управляемого приложения удостоверений из Azure CLI](../quickstarts/managed-identity-from-cli.md) 
+>  [Создание маркеров доступа пользователей](../quickstarts/access-tokens.md)
 
 Дополнительные сведения см. в следующих статьях:
 - [Сведения об архитектуре клиент-сервер](../concepts/client-and-server-architecture.md)

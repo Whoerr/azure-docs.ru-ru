@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a919338789a02d50cbb6976ee50b214cb0d612
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417958"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650963"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>Защита автономных управляемых учетных записей служб
 
@@ -44,7 +44,7 @@ ms.locfileid: "100417958"
 
    * Изменилось DNS-имя главного компьютера.
 
-   * При добавлении или удалении дополнительных параметров SAM-AccountName или DNS-hostname с помощью [PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * При добавлении или удалении дополнительных параметров SAM-AccountName или DNS-hostname с помощью [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
 
 ## <a name="when-to-use-smsas"></a>Когда следует использовать Смсас
 
@@ -53,7 +53,7 @@ ms.locfileid: "100417958"
 > [!NOTE] 
 > Хотя Смсас можно использовать для нескольких служб, рекомендуется, чтобы каждая служба имела свое удостоверение для целей аудита. 
 
-Если создатель программного обеспечения не может сообщить вам, может ли он использовать MSA, необходимо протестировать приложение. Для этого создайте тестовую среду и убедитесь, что она может получить доступ ко всем необходимым ресурсам. Пошаговые инструкции см. [в статье Создание и установка sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) .
+Если создатель программного обеспечения не может сообщить вам, может ли он использовать MSA, необходимо протестировать приложение. Для этого создайте тестовую среду и убедитесь, что она может получить доступ ко всем необходимым ресурсам. Пошаговые инструкции см. [в статье Создание и установка sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) .
 
 ### <a name="assess-security-posture-of-smsas"></a>Оценка уровня безопасности Смсас
 
@@ -112,16 +112,16 @@ ms.locfileid: "100417958"
 
 ## <a name="move-to-smsas"></a>Переместить в Смсас
 
-Если служба приложений поддерживает sMSA, но не Gmsa, и в настоящее время использует учетную запись пользователя или учетную запись компьютера для контекста безопасности, [Создайте и установите](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) на сервере sMSA. 
+Если служба приложений поддерживает sMSA, но не Gmsa, и в настоящее время использует учетную запись пользователя или учетную запись компьютера для контекста безопасности, [Создайте и установите](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) на сервере sMSA. 
 
 В идеале следует перемещать ресурсы в Azure и использовать управляемые удостоверения или субъекты-службы Azure.
 
  
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 См. следующие статьи о защите учетных записей служб.
 
-* [Общие сведения о локальных учетных записях служб](service-accounts-on-premises.md)
+* [Вводные сведения о локальных учетных записях служб](service-accounts-on-premises.md)
 
 * [Безопасная групповая управляемая учетная запись службы](service-accounts-group-managed.md)
 
@@ -131,6 +131,5 @@ ms.locfileid: "100417958"
 
 * [Защита учетных записей пользователей](service-accounts-user-on-premises.md)
 
-* [Управление учетными записями локальной службы](service-accounts-govern-on-premises.md)
+* [Управление локальными учетными записями служб](service-accounts-govern-on-premises.md)
 
- 

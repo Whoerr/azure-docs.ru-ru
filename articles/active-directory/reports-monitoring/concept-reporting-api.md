@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2027f713baf2b8039187e933ffc7bb0b68b5cc5f
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b6ef122cd36c3d4e9135876647075f22158df0d1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631967"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653241"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Начало работы с API отчетов Azure Active Directory
 
@@ -51,7 +51,7 @@ API Microsoft Graph для отчетов Azure AD обеспечивает пр
 
 [API обнаружения угроз для защиты идентификации](/graph/api/resources/identityriskevent?view=graph-rest-beta) можно использовать для получения программного доступа к средствам обнаружения безопасности с помощью Microsoft Graph. Дополнительные сведения см. в статье [Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
-Для получения программного доступа к событиям подготовки в клиенте также можно использовать [API журналов подготовки](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) . 
+Для получения программного доступа к событиям подготовки в клиенте также можно использовать [API журналов подготовки](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) . 
 
 ## <a name="apis-with-microsoft-graph-explorer"></a>API с песочницей Microsoft Graph
 

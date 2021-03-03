@@ -10,22 +10,22 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4901d73235778a3194fe75b95df9cb81aeeb093b
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3839dd27d4ae380b268694a93e5910b323411847
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651686"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657287"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Устранение неполадок при удаленном развертывании моделей 
 
 Узнайте, как устранять неполадки и устранять распространенные ошибки, которые могут возникнуть при развертывании модели в службе "экземпляры контейнеров Azure" (ACI) и Azure Kubernetes Service (AKS) с помощью Машинное обучение Azure.
 
 > [!NOTE]
-> При развертывании модели в службе Kubernetes Azure (AKS) мы рекомендуем включить [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) для этого кластера. Это поможет понять общую работоспособность кластера и использование ресурсов. Вы также можете найти следующие полезные ресурсы:
+> При развертывании модели в службе Kubernetes Azure (AKS) мы рекомендуем включить [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) для этого кластера. Это поможет понять общую работоспособность кластера и использование ресурсов. Вы также можете найти следующие полезные ресурсы:
 >
-> * [Проверка событий Работоспособность ресурсов, влияющих на кластер AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Диагностика службы Kubernetes Azure](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [Проверка событий Работоспособность ресурсов, влияющих на кластер AKS](../aks/aks-resource-health.md)
+> * [Диагностика службы Kubernetes Azure](../aks/concepts-diagnostics.md)
 >
 > Если вы пытаетесь развернуть модель в неработоспособном или перегруженном кластере, то ожидается проблема. Если вам нужна помощь в устранении неполадок с кластером AKS, обратитесь в службу поддержки AKS.
 

@@ -5,14 +5,15 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
-ms.openlocfilehash: e3a7ea2cd696f54b032a3f17eceff466a6201436
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
+ms.openlocfilehash: fd30c2bf4e2c0bc04850704e412aad1db2b10143
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878686"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677238"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Предварительный просмотр: Создание образа Windows и его распространение в Общей коллекции образов 
 
@@ -30,8 +31,8 @@ ms.locfileid: "98878686"
 > Конструктор образов Azure сейчас находится на этапе общедоступной предварительной версии.
 > Эта предварительная версия предоставляется без соглашения об уровне обслуживания и не рекомендована для использования рабочей среде. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-features"></a>Регистрация компонентов
-Чтобы использовать Конструктор образов Azure на этапе предварительной версии, необходимо зарегистрировать новый компонент.
+## <a name="register-the-features"></a>Регистрация функций
+Чтобы использовать Конструктор образов Azure на этапе предварительной версии, необходимо зарегистрировать новую функцию.
 
 ```powershell
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
@@ -98,7 +99,7 @@ New-AzResourceGroup `
 
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Создание назначаемого пользователем удостоверения и задание разрешений для группы ресурсов
-Для вставки образа в Общую коллекцию образов Azure (SIG) Конструктор образов будет использовать предоставленное [удостоверение пользователя](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). В этом примере вы создадите определение роли Azure с детализированными действиями для распространения образа в SIG. Затем определение роли будет назначено удостоверению пользователя.
+Для вставки образа в Общую коллекцию образов Azure Конструктор образов будет использовать предоставленное [удостоверение пользователя](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). В этом примере вы создадите определение роли Azure с детализированными действиями для распространения образа в Общую коллекцию образов. Затем определение роли будет назначено удостоверению пользователя.
 
 ```powershell
 # setup role def names, these need to be unique
@@ -145,7 +146,7 @@ https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
 
 ## <a name="create-the-shared-image-gallery"></a>Создание Общей коллекции образов
 
-Чтобы использовать Конструктор образов с общей коллекцией изображений, необходимы существующая коллекция образов и определение образа. Конструктор образов не будет создавать коллекцию образов и определение образа.
+Чтобы использовать Конструктор образов с общей коллекцией изображений, необходимы существующая коллекция образов и определение образа. Конструктор образов не будет самостоятельно создавать коллекцию образов и определение образа.
 
 Если у вас еще нет коллекции и определения образа, начните с их создания. Сначала создайте коллекцию образов.
 

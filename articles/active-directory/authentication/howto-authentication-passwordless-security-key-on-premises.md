@@ -1,29 +1,26 @@
 ---
-title: Вход с защитой паролем в локальные ресурсы (Предварительная версия) — Azure Active Directory
-description: Узнайте, как включить вход с использованием безпарольного ключа безопасности в локальные ресурсы с помощью Azure Active Directory (Предварительная версия).
+title: Вход с защитой паролем в локальные ресурсы — Azure Active Directory
+description: Узнайте, как включить вход с использованием ключа безопасности без пароля для локальных ресурсов с помощью Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743485"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647478"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Включение входа в систему с помощью ключа безопасности без пароля для локальных ресурсов с Azure Active Directory (Предварительная версия)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Включение входа с помощью ключа безопасности без пароля для локальных ресурсов с Azure Active Directory 
 
 В этом документе рассматривается включение проверки подлинности без пароля для локальных ресурсов в средах с присоединенными к **Azure AD** и гибридными устройствами Windows 10, **присоединенными к Azure** AD. Эта функция обеспечивает простой единый вход (SSO) в локальные ресурсы с помощью совместимых с Майкрософт ключей безопасности.
-
-> [!NOTE]
-> Ключи безопасности FIDO2 — это общедоступная Предварительная версия функции Azure Active Directory. См. подробные сведения о [дополнительных условиях использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Единый вход в локальные ресурсы с помощью ключей FIDO2
 
@@ -42,7 +39,7 @@ Azure Active Directory (AD) может выдавать билеты Kerberos н
 
 ## <a name="requirements"></a>Требования
 
-Перед выполнением действий, описанных в этой статье, организации должны выполнить действия по [включению ключа безопасности без пароля для входа на устройства с Windows 10 (Предварительная версия)](howto-authentication-passwordless-security-key.md) .
+Перед выполнением действий, описанных в этой статье, организации должны выполнить действия по [включению ключа безопасности без пароля для входа на устройства с Windows 10](howto-authentication-passwordless-security-key.md) .
 
 Организации должны также отвечать следующим требованиям к программному обеспечению.
 
@@ -109,7 +106,7 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 Эта команда выводит свойства сервера Azure AD Kerberos. Можно проверить свойства, чтобы убедиться, что все находится в правильном порядке.
 
-| Свойство. | Описание |
+| Свойство | Описание |
 | --- | --- |
 | ID | Уникальный идентификатор объекта AD DS контроллера домена. Этот идентификатор иногда называют "слотом" или "ИДЕНТИФИКАТОРом ветви". |
 | DomainDnsName | Доменное имя DNS домен Active Directory. |
@@ -156,13 +153,13 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 ## <a name="troubleshooting-and-feedback"></a>Устранение неполадок и обратная связь
 
-Если вы хотите поделиться с отзывами или столкнуться с проблемами при предварительном просмотре этой функции, предоставьте общий доступ через приложение центра отзывов Windows, выполнив следующие действия:
+Если вы хотите поделиться отзывами или столкнуться с проблемами с этой функцией, предоставьте общий доступ через приложение центра отзывов Windows, выполнив следующие действия.
 
 1. Запустите **центр отзывов** и убедитесь, что вы вошли в него.
 1. Отправьте отзыв по следующей категории:
    - Категория: безопасность и конфиденциальность
    - Подкатегория: FIDO
-1. Для записи журналов используйте параметр, чтобы **повторно создать мою проблему**
+1. Для записи журналов используйте параметр, чтобы **повторно создать мою проблему**.
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 

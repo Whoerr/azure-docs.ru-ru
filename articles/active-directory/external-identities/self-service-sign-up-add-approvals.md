@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355245"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644873"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Добавление пользовательского рабочего процесса утверждения для самостоятельной регистрации
 
@@ -28,7 +28,7 @@ ms.locfileid: "97355245"
 - Активация проверки вручную. Если запрос утвержден, система утверждения использует Microsoft Graph для предоставления учетной записи пользователя. Система утверждения также может уведомлять пользователя о том, что учетная запись создана.
 
 > [!IMPORTANT]
->**Начиная с 4 января 2021** г. Компания Google не [WebView поддержку входа в систему](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Если вы используете Google Federation или самостоятельную регистрацию с помощью Gmail, необходимо [протестировать собственные бизнес-приложения для обеспечения совместимости](google-federation.md#deprecation-of-webview-sign-in-support).
+>**Начиная с 4 января 2021 г.** компания Google [прекращает поддержку входа через веб-представление](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Если вы используете федерацию Google или самостоятельную регистрацию с помощью Gmail, вам нужно [проверить нативные бизнес-приложения на совместимость](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Регистрация приложения для системы утверждения
 
@@ -81,7 +81,7 @@ ms.locfileid: "97355245"
 1. Войдите на [портал Azure](https://portal.azure.com/) с учетной записью администратора Azure AD.
 2. В разделе **Службы Azure** щелкните **Azure Active Directory**.
 3. В меню слева щелкните **Внешние удостоверения**.
-4. Выберите **потоки пользователей (Предварительная версия)**, а затем выберите поток пользователя, для которого требуется включить соединитель API.
+4. Выберите последовательности **пользователей**, а затем выберите пользовательский поток, для которого необходимо включить соединитель API.
 5. Выберите **соединители API**, а затем выберите конечные точки API, которые нужно вызвать, на следующих шагах в потоке пользователя:
 
    - **После входа с помощью поставщика удостоверений** выберите соединитель API состояния утверждения, например " _проверить состояние утверждения_".
@@ -357,8 +357,8 @@ POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
@@ -370,9 +370,9 @@ Content-type: application/json
 
 {
     ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
 }
 ```
 

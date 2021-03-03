@@ -2,18 +2,18 @@
 title: Эталонные архитектуры для баз данных Oracle в Azure | Документация Майкрософт
 description: Ссылается на архитектуры для запуска Oracle Database Enterprise Edition баз данных на Виртуальные машины Microsoft Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8257c58c4185172218b833c3d4988b4db661a97a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882303"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669901"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Эталонные архитектуры для Oracle Database Enterprise Edition в Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "98882303"
 
 Если вы хотите узнать больше о максимальном увеличении производительности базы данных Oracle, см. статью [проектирование Oracle DB](oracle-design.md).
 
-## <a name="assumptions"></a>Допущения
+## <a name="assumptions"></a>Предположения
 
 - Вы имеете представление о различных концепциях Azure, таких как [зоны доступности](../../../availability-zones/az-overview.md) .
 - Вы используете Oracle Database Enterprise Edition 12c или более поздней версии

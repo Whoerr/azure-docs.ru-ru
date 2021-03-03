@@ -4,23 +4,26 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 3b2fb1c4e7a08619a0321e188b54bb581f97fd6d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628930"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661553"
 ---
 ## <a name="prerequisites"></a>Предварительные требования
 
 - Учетная запись Azure с активной подпиской. [Создайте учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) бесплатно. 
 - Развернутый ресурс Служб коммуникации. [Создайте ресурс Служб коммуникации.](../../create-communication-resource.md)
 - `User Access Token` для включения клиента вызова. Дополнительные сведения о том, [как получить `User Access Token`](../../access-tokens.md)
-- Необязательно. Выполните инструкции из краткого руководства по [началу работы с добавлением вызова в приложение](../getting-started-with-calling.md) .
+- (Необязательно) Выполните инструкции из краткого руководства [Добавление функции голосового вызова в приложение](../getting-started-with-calling.md).
 
 ## <a name="setting-up"></a>Настройка
 
 ### <a name="install-the-package"></a>Установка пакета
+
+> [!NOTE]
+> В этом документе используется клиентская библиотека вызовов версии 1.0.0-beta.8.
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
 Выберите build.gradle на уровне проекта и добавьте `mavenCentral()` в список репозиториев в разделах `buildscript` и `allprojects`.
@@ -43,12 +46,12 @@ allprojects {
     }
 }
 ```
-Затем на уровне модуля выполните сборку. gradle добавьте следующие строки в раздел зависимостей.
+Затем добавьте в build.gradle на уровне модуля следующие строки в разделе dependencies:
 
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 
@@ -62,80 +65,81 @@ dependencies {
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| CallClient — это основная точка входа в клиентскую библиотеку для вызовов.|
 | CallAgent | CallAgent используется для инициирования вызовов и управления ими. |
-| CommunicationUserCredential | CommunicationUserCredential используется в качестве учетных данных маркера для создания экземпляра CallAgent.|
+| CommunicationTokenCredential | CommunicationTokenCredential используется в качестве учетных данных маркера для создания экземпляра CallAgent.|
+| CommunicationIdentifier | CommunicationIdentifier используется в качестве участника другого типа, который может быть частью вызова.|
 
-## <a name="initialize-the-callclient-create-a-callagent-and-access-the-devicemanager"></a>Инициализация Каллклиент, создание Каллажент и доступ к Девицеманажер
+## <a name="initialize-the-callclient-create-a-callagent-and-access-the-devicemanager"></a>Инициализация CallClient, создание CallAgent и получение доступа к DeviceManager
 
-Чтобы создать экземпляр, необходимо `CallAgent` вызвать `createCallAgent` метод для `CallClient` экземпляра. Это асинхронно возвращает `CallAgent` объект экземпляра.
-`createCallAgent`Метод принимает в `CommunicationUserCredential` качестве аргумента, который инкапсулирует [маркер доступа](../../access-tokens.md).
-Чтобы получить доступ к `DeviceManager` , необходимо сначала создать экземпляр каллажент, а затем использовать `CallClient.getDeviceManager` метод для получения девицеманажер.
+Чтобы создать экземпляр `CallAgent`, необходимо вызвать метод `createCallAgent` для экземпляра `CallClient`. Это действие асинхронно возвращает объект экземпляра `CallAgent`.
+Метод `createCallAgent` принимает `CommunicationUserCredential` в качестве аргумента, который инкапсулирует [маркер доступа](../../access-tokens.md).
+Чтобы получить доступ к `DeviceManager`, нужно сначала создать экземпляр CallAgent, а затем получить DeviceManager с помощью метода `CallClient.getDeviceManager`.
 
 ```java
 String userToken = '<user token>';
 CallClient callClient = new CallClient();
-CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(userToken);
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
-CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential).get();
-DeviceManage deviceManager = await callClient.getDeviceManager().get();
+CallAgent callAgent = callClient.createCallAgent((appContext, tokenCredential).get();
+DeviceManage deviceManager = callClient.getDeviceManager().get();
 ```
-Чтобы задать отображаемое имя вызывающего объекта, используйте этот альтернативный метод:
+Чтобы задать отображаемое имя для вызывающей стороны, используйте следующий альтернативный метод:
 
 ```java
 String userToken = '<user token>';
 CallClient callClient = new CallClient();
-CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(userToken);
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
 CallAgentOptions callAgentOptions = new CallAgentOptions();
 callAgentOptions.setDisplayName("Alice Bob");
-CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
-DeviceManage deviceManager = await callClient.getDeviceManager().get();
+CallAgent callAgent = callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
+DeviceManage deviceManager = callClient.getDeviceManager().get();
 ```
 
 
-## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Размещение исходящего вызова и присоединение к группе
+## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Создание исходящего вызова и присоединение к групповому вызову
 
-Чтобы создать и запустить вызов, необходимо вызвать `CallAgent.call()` метод и предоставить `Identifier` вызываемые объекты.
-Чтобы присоединиться к групповому вызову, необходимо вызвать `CallAgent.join()` метод и предоставить объект groupId. Идентификаторы групп должны быть в формате GUID или UUID.
+Чтобы создать и начать вызов, необходимо вызвать метод `CallAgent.startCall()` и предоставить `Identifier` вызываемой стороны.
+Чтобы присоединиться к групповому вызову, нужно вызвать метод `CallAgent.join()` и предоставить значение groupId. Идентификаторы групп должны иметь формат GUID или UUID.
 
-Создание и запуск вызываются синхронно. Экземпляр Call позволяет подписываться на все события в вызове.
+Операции создания и начала вызовов выполняются синхронно. Экземпляр вызова позволяет подписываться на все события в вызове.
 
-### <a name="place-a-11-call-to-a-user"></a>Размещение 1:1 вызова пользователю
-Чтобы поместить вызов другого пользователя служб Communication Services, вызовите `call` метод для `callAgent` и передайте объект с `communicationUserId` ключом.
+### <a name="place-a-11-call-to-a-user"></a>Осуществление персонального вызова к пользователю
+Чтобы осуществить вызов к другому пользователю Служб коммуникации, вызовите метод `call` для `callAgent` и передайте в нем объект с ключом `communicationUserId`.
 ```java
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-CommunicationUser acsUserId = new CommunicationUser(<USER_ID>);
-CommunicationUser participants[] = new CommunicationUser[]{ acsUserId };
-call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
+CommunicationUserIdentifier acsUserId = new CommunicationUserIdentifier(<USER_ID>);
+CommunicationUserIdentifier participants[] = new CommunicationUserIdentifier[]{ acsUserId };
+call oneToOneCall = callAgent.startCall(appContext, participants, startCallOptions);
 ```
 
-### <a name="place-a-1n-call-with-users-and-pstn"></a>Поместите вызов 1: n с помощью пользователей и PSTN
+### <a name="place-a-1n-call-with-users-and-pstn"></a>Осуществление группового вызова к пользователям и ТСОП
 > [!WARNING]
-> В настоящее время вызов PSTN недоступен
+> В настоящее время вызов ТСОП недоступен
 
-Чтобы разместить вызов 1: n для пользователя и номер PSTN, необходимо указать номер телефона вызываемого объекта.
-Ресурс служб связи должен быть настроен на разрешение вызова PSTN:
+Чтобы осуществить групповой вызов к пользователю и номеру ТСОП, необходимо указать номер телефона вызываемой стороны.
+Для осуществления вызовов к ТСОП необходимо настроить ресурс Служб коммуникации.
 ```java
-CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);
-PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
+CommunicationUserIdentifier acsUser1 = new CommunicationUserIdentifier(<USER_ID>);
+PhoneNumberIdentifier acsUser2 = new PhoneNumberIdentifier("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callAgent.call(participants, startCallOptions);
+Call groupCall = callAgent.startCall(participants, startCallOptions);
 ```
 
-### <a name="place-a-11-call-with-video-camera"></a>Размещение 1:1 звонка с помощью видеокамеры
+### <a name="place-a-11-call-with-video-camera"></a>Осуществление персонального вызова с использованием видеокамеры
 > [!WARNING]
-> Сейчас поддерживается только один исходящий поток видео для вызова с помощью видео. необходимо перечислить локальные камеры, используя `deviceManager` `getCameraList` API.
-После выбора нужной камеры используйте ее для создания `LocalVideoStream` экземпляра и передайте его в `videoOptions` качестве элемента `localVideoStream` массива в `call` метод.
-После того как вызов подключится, он автоматически начнет отправлять видеопоток от выбранной камеры другим участникам.
+> В настоящее время поддерживается только один исходящий локальный видеопоток. Чтобы осуществить вызов с поддержкой видео, необходимо перечислить локальные камеры через API `deviceManager` `getCameras`.
+После выбора нужной камеры создайте на ее основе экземпляр `LocalVideoStream` и передайте его в `videoOptions` в качестве элемента массива `localVideoStream` в метод `call`.
+Когда вызов будет осуществлен, автоматически начнется отправка видеопотока с выбранной камеры другим участникам вызова.
 
 > [!NOTE]
-> Из-за проблем с конфиденциальностью видео не будет совместно использоваться в вызове, если он не просматривается локально.
-Дополнительные сведения см. в разделе [Локальная Камера Preview](#local-camera-preview) .
+> Для защиты конфиденциальности видео не будет передаваться участникам вызова, если не просматривается локально.
+Дополнительные сведения см. в разделе [Предварительный просмотр изображения с локальной камеры](#local-camera-preview).
 ```java
 Context appContext = this.getApplicationContext();
-VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameras().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentVideoStream);
 
@@ -145,58 +149,52 @@ View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 
-CommunicationUser[] participants = new CommunicationUser[]{ new CommunicationUser("<acs user id>") };
+CommunicationUserIdentifier[] participants = new CommunicationUserIdentifier[]{ new CommunicationUserIdentifier("<acs user id>") };
 StartCallOptions startCallOptions = new StartCallOptions();
 startCallOptions.setVideoOptions(videoOptions);
-Call call = callAgent.call(context, participants, startCallOptions);
+Call call = callAgent.startCall(context, participants, startCallOptions);
 ```
 
 ### <a name="join-a-group-call"></a>Присоединение к групповому вызову
-Чтобы начать новый вызов группы или присоединиться к текущему вызову группы, необходимо вызвать метод "Join" и передать объект со `groupId` свойством. Значение должно быть идентификатором GUID.
+Чтобы начать новый групповой вызов или присоединиться к текущему групповому вызову, необходимо вызвать метод "join" и передать ему объект со свойством `groupId`. В качестве значения должен быть указан идентификатор GUID.
 ```java
 Context appContext = this.getApplicationContext();
-GroupCallContext groupCallContext = new groupCallContext("<GUID>");
+GroupCallLocator groupCallLocator = new GroupCallLocator("<GUID>");
 JoinCallOptions joinCallOptions = new JoinCallOptions();
 
-call = callAgent.join(context, groupCallContext, joinCallOptions);
+call = callAgent.join(context, groupCallLocator, joinCallOptions);
 ```
 
-### <a name="accept-a-call"></a>Принять вызов
-Чтобы принять вызов, вызовите метод Accept для объекта вызова.
+### <a name="accept-a-call"></a>Прием вызова
+Чтобы принять вызов, вызовите метод accept для объекта вызова.
 
 ```java
 Context appContext = this.getApplicationContext();
-Call incomingCall = retrieveIncomingCall();
-incomingCall.accept(context).get();
+IncomingCall incomingCall = retrieveIncomingCall();
+Call call = incomingCall.accept(context).get();
 ```
 
-Чтобы принять звонок с видеокамерой, сделайте следующее:
+Чтобы принять вызов с включенной видеокамерой, сделайте следующее:
 
 ```java
 Context appContext = this.getApplicationContext();
-Call incomingCall = retrieveIncomingCall();
+IncomingCall incomingCall = retrieveIncomingCall();
 AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
 VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
 acceptCallOptions.setVideoOptions(new VideoOptions(new LocalVideoStream(desiredCamera, appContext)));
-incomingCall.accept(context, acceptCallOptions).get();
+Call call = incomingCall.accept(context, acceptCallOptions).get();
 ```
 
-Входящий вызов можно получить, подписавшись на `CallsUpdated` событие в объекте и прожимая `callAgent` в цикле все добавленные вызовы:
+Чтобы получить входящий вызов, следует подписаться на событие `onIncomingCall` в объекте `callAgent`:
 
 ```java
 // Assuming "callAgent" is an instance property obtained by calling the 'createCallAgent' method on CallClient instance 
 public Call retrieveIncomingCall() {
-    Call incomingCall;
-    callAgent.addOnCallsUpdatedListener(new CallsUpdatedListener() {
-        void onCallsUpdated(CallsUpdatedEvent callsUpdatedEvent) {
+    IncomingCall incomingCall;
+    callAgent.addOnIncomingCallListener(new IncomingCallListener() {
+        void onIncomingCall(IncomingCall inboundCall) {
             // Look for incoming call
-            List<Call> calls = callsUpdatedEvent.getAddedCalls();
-            for (Call call : calls) {
-                if (call.getState() == CallState.Incoming) {
-                    incomingCall = call;
-                    break;
-                }
-            }
+            incomingCall = inboundCall;
         }
     });
     return incomingCall;
@@ -207,14 +205,14 @@ public Call retrieveIncomingCall() {
 ## <a name="push-notifications"></a>Push-уведомления
 
 ### <a name="overview"></a>Обзор
-Мобильные push-уведомления — это всплывающие уведомления, отображаемые на мобильных устройствах. Для вызова мы будем сосредоточиться на push-уведомлениях VoIP (голосовой через Интернет). Мы будем регистрироваться для получения push-уведомлений, обработайте push-уведомления, а затем отменяют регистрацию push-уведомлений.
+Мобильные push-уведомления — это всплывающие уведомления, которые отображаются на мобильных устройствах. Для вызовов мы будем использовать push-уведомления протокола VoIP (голосовые вызовы через IP). Мы изучим регистрацию для получения push-уведомлений, обработку push-уведомлений и отмену регистрации для получения push-уведомлений.
 
 ### <a name="prerequisites"></a>Предварительные требования
 
-Учетная запись Firebase, настроенная с включенной облачной службой обмена сообщениями (FCM), и с Firebase облачной службы обмена сообщениями, подключенной к экземпляру центра уведомлений Azure. Дополнительные сведения см. в разделе [уведомления служб связи](../../../concepts/notifications.md) .
-Кроме того, в учебнике предполагается, что вы используете Android Studio версии 3,6 или более поздней для создания приложения.
+Учетная запись Firebase, для которой включена облачная служба сообщений (FCM), и служба Firebase Cloud Messaging, подключенная к экземпляру центра уведомлений Azure. Дополнительные сведения см. в разделе [Уведомления в Службах коммуникации](../../../concepts/notifications.md).
+Кроме того, в этом руководстве предполагается, что для создания приложения вы используете Android Studio версии 3.6 или более поздней.
 
-Для приложения Android требуется набор разрешений, чтобы получать уведомления от Firebase Cloud Messaging. В `AndroidManifest.xml` файле добавьте следующий набор разрешений сразу после *манифеста<... >* или под *</application>* тегом.
+Чтобы получать уведомления от Firebase Cloud Messaging, приложению Android требуется определенный набор разрешений. В файле `AndroidManifest.xml` добавьте следующий набор разрешений сразу после тега *<manifest ...>* или под тегом *</application>* .
 
 ```XML
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -224,9 +222,9 @@ public Call retrieveIncomingCall() {
 
 ### <a name="register-for-push-notifications"></a>Регистрация для получения push-уведомлений
 
-Чтобы зарегистрироваться для получения push-уведомлений, приложению необходимо вызвать `registerPushNotification()` в экземпляре *каллажент* с маркером регистрации устройства.
+Чтобы зарегистрироваться для получения push-уведомлений, приложению необходимо вызвать `registerPushNotification()` для экземпляра *CallAgent* и передать маркер регистрации устройства.
 
-Чтобы получить маркер регистрации устройства, добавьте клиентскую библиотеку Firebase в файл *Build. gradle* модуля приложения, добавив следующие строки в `dependencies` раздел, если он еще не создан:
+Чтобы получить этот маркер регистрации устройства, добавьте клиентскую библиотеку Firebase в файл модуля приложения *build.gradle*, добавив в раздел `dependencies` следующие строки, если их там еще нет:
 
 ```
     // Add the client library for Firebase Cloud Messaging
@@ -234,19 +232,19 @@ public Call retrieveIncomingCall() {
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
 
-В файле *Build. gradle* на уровне проекта добавьте следующий фрагмент в `dependencies` раздел, если он еще не создан:
+В файле *build.gradle* на уровне проекта добавьте в раздел `dependencies` следующий фрагмент, если его там еще нет:
 
 ```
     classpath 'com.google.gms:google-services:4.3.3'
 ```
 
-Добавьте следующий подключаемый модуль в начало файла, если он еще не создан:
+Добавьте в начало файла следующий подключаемый модуль, если его там еще нет:
 
 ```
 apply plugin: 'com.google.gms.google-services'
 ```
 
-Выберите *Синхронизировать сейчас* на панели инструментов. Добавьте следующий фрагмент кода, чтобы получить маркер регистрации устройства, созданный клиентской библиотекой Firebase Cloud Messaging для экземпляра клиентского приложения, и добавьте приведенные ниже импортируемые элементы в заголовок главного действия для экземпляра. Они необходимы для получения маркера фрагмента:
+На панели инструментов щелкните *Синхронизировать сейчас*. Добавьте следующий фрагмент кода, чтобы получить маркер регистрации устройства, созданный клиентской библиотекой Firebase Cloud Messaging для экземпляра клиентского приложения. Обязательно добавьте приведенные ниже инструкции import в заголовок главного действия (Activity) для экземпляра. Они необходимы для того, чтобы фрагмент кода получил маркер:
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -255,7 +253,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 ```
 
-Добавьте следующий фрагмент для получения маркера:
+Для получения маркера добавьте следующий фрагмент кода:
 
 ```
         FirebaseInstanceId.getInstance().getInstanceId()
@@ -274,7 +272,7 @@ import com.google.firebase.iid.InstanceIdResult;
                     }
                 });
 ```
-Зарегистрируйте маркер регистрации устройства в клиентской библиотеке вызывающих служб для входящих push-уведомлений о вызовах:
+Зарегистрируйте маркер регистрации устройства в клиентской библиотеке служб вызовов для получения push-уведомлений о входящих вызовах:
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -288,9 +286,9 @@ catch(Exception e) {
 
 ### <a name="push-notification-handling"></a>Обработка push-уведомлений
 
-Чтобы получать входящие push-уведомления о вызовах, вызовите *хандлепушнотификатион ()* в экземпляре *каллажент* с полезной нагрузкой.
+Чтобы получать push-уведомления о входящих вызовах, вызовите *handlePushNotification()* для экземпляра *CallAgent*, передав полезные данные.
 
-Чтобы получить полезные данные из Firebase Cloud Messaging, начните с создания новой службы (файл > новая служба > Service > Service), которая расширяет класс клиентской библиотеки *фиребасемессагингсервице* Firebase и переопределяет `onMessageReceived` метод. Этот метод является обработчиком событий, который вызывается, когда Firebase Cloud Messaging доставляет push-уведомление в приложение.
+Чтобы получить полезные данные из Firebase Cloud Messaging, для начала создайте новую службу (Файл > Создать > Служба > Служба), которая расширяет класс клиентской библиотеки Firebase *FirebaseMessagingService* и переопределите метод `onMessageReceived`. Этот метод является обработчиком событий и вызывается, когда Firebase Cloud Messaging доставляет в приложение push-уведомление.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -308,7 +306,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 }
 ```
-Добавьте следующее определение службы в `AndroidManifest.xml` файл внутри <application> тега:
+Добавьте приведенное ниже определение службы внутри тега <application> в файле `AndroidManifest.xml`.
 
 ```
         <service
@@ -320,22 +318,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- После извлечения полезных данных их можно передать в клиентскую библиотеку *служб Communication Services* , вызвав метод *хандлепушнотификатион* в экземпляре *каллажент* . `CallAgent`Экземпляр создается путем вызова `createCallAgent(...)` метода для `CallClient` класса.
+- Полученные полезные данные можно передать в клиентскую библиотеку *Служб коммуникации*, где они будут преобразованы во внутренний объект *IncomingCallInformation*, для обработки которого вызывается метод *handlePushNotification* для экземпляра *CallAgent*. Экземпляр `CallAgent` создается путем вызова метода `createCallAgent(...)` для класса `CallClient`.
 
 ```java
 try {
-    callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
+    IncomingCallInformation notification = IncomingCallInformation.fromMap(pushNotificationMessageDataFromFCM);
+    Future handlePushNotificationFuture = callAgent.handlePushNotification(notification).get();
 }
 catch(Exception e) {
     System.out.println("Something went wrong while handling the Incoming Calls Push Notifications.");
 }
 ```
 
-Если обработка сообщения push-уведомления прошла успешно и все обработчики событий зарегистрированы должным образом, приложение будет звонить.
+Если обработка push-уведомления пройдет успешно и все обработчики событий будут правильно зарегистрированы, в приложении прозвучит сигнал вызова.
 
-### <a name="unregister-push-notifications"></a>Отмена регистрации push-уведомлений
+### <a name="unregister-push-notifications"></a>Отмена регистрации для получения push-уведомлений
 
-Приложения могут отменить регистрацию push-уведомлений в любое время. Вызовите `unregisterPushNotification()` метод для каллажент, чтобы отменить регистрацию.
+В приложениях можно в любое время отменить регистрацию для получения push-уведомлений. Чтобы отменить регистрацию, вызовите метод `unregisterPushNotification()` для CallAgent.
 
 ```java
 try {
@@ -347,47 +346,47 @@ catch(Exception e) {
 ```
 
 ## <a name="call-management"></a>Управление вызовами
-Вы можете получить доступ к свойствам вызова и выполнить различные операции во время вызова для управления параметрами, связанными с видео и аудио.
+Во время вызова вы можете получать доступ ко свойствам вызова и выполнять различные операции для управления параметрами, связанными с видео и аудио.
 
 ### <a name="call-properties"></a>Свойства вызова
 
-Получите уникальный идентификатор для этого вызова:
+Получите уникальный идентификатор для вызова:
 
 ```java
-String callId = call.getCallId();
+String callId = call.getId();
 ```
 
-Чтобы узнать о других участниках в коллекции проверки вызовов `remoteParticipant` на `call` экземпляре, выполните следующие действия.
+Чтобы получить данные о других участниках вызова, просмотрите коллекцию `remoteParticipant` для экземпляра `call`:
 
 ```java
 List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
 ```
 
-Удостоверение вызывающего объекта, если вызов является входящим:
+Для входящих вызовов это идентификатор вызывающей стороны:
 
 ```java
 CommunicationIdentifier callerId = call.getCallerId();
 ```
 
-Получить состояние вызова: 
+Получите состояние вызова: 
 
 ```java
 CallState callState = call.getState();
 ```
 
-Он возвращает строку, представляющую текущее состояние вызова:
-* "None" — состояние начального вызова
-* "Входящий" — указывает, что вызов является входящим, он должен быть либо принят, либо отклонен.
-* "Подключение" — начальное состояние перехода, когда вызов помещается или принимается
-* "Кольцо" — для исходящего вызова — указывает, что вызов вызывается для удаленных участников, это "входящая" сторона
-* "Еарлимедиа" — указывает состояние, в котором воспроизводится объявление перед подключением вызова
-* "Connected" — вызов подключен
-* "Удержание" — вызов помещается в удержание, медиа-файлы не передаются между локальной конечной точкой и удаленными участниками
-* "Идет отключение"-состояние перехода перед тем, как вызов переходит в состояние "disconnected"
-* "Disconnected" — окончательное состояние вызова
+Возвращается строка, которая представляет текущее состояние вызова:
+* None — исходное состояние любого вызова;
+* Connecting — исходное переходное состояние после осуществления или приема вызова;
+* Ringing — для исходящего вызова означает, что на стороне удаленных участников звучит сигнал вызова;
+* EarlyMedia — обозначает состояние, при котором перед вызовом воспроизводится объявление;
+* Connected — вызов осуществлен;
+* LocalHold — вызов переведен локальным участником в режим ожидания, и потоки мультимедиа не передаются между локальной конечной точкой и удаленными участниками;
+* RemoteHold — вызов переведен удаленным участником в режим ожидания, и потоки мультимедиа не передаются между локальной конечной точкой и удаленными участниками;
+* Disconnecting — переходное состояние перед тем, как вызов перейдет в состояние Disconnected;
+* Disconnected — завершающее состояние вызова.
 
 
-Чтобы узнать, почему вызов завершился, проверьте `callEndReason` свойство. Он содержит код/код: 
+Чтобы узнать, почему вызов завершился, проверьте свойство `callEndReason`. Оно содержит основной код и дополнительный код: 
 
 ```java
 CallEndReason callEndReason = call.getCallEndReason();
@@ -395,111 +394,121 @@ int code = callEndReason.getCode();
 int subCode = callEndReason.getSubCode();
 ```
 
-Чтобы узнать, является ли текущий вызов входящим вызовом, проверьте `isIncoming` свойство:
+Чтобы узнать, является ли текущий вызов входящим или исходящим, проверьте свойство `callDirection`:
 
 ```java
-boolean isIncoming = call.getIsIncoming();
+CallDirection callDirection = call.getCallDirection(); 
+// callDirection == CallDirection.Incoming for incoming call
+// callDirection == CallDirection.Outgoing for outgoing call
 ```
 
-Чтобы проверить, отключен ли текущий микрофон, проверьте `muted` свойство:
+Чтобы узнать, отключен ли выбранный микрофон, проверьте свойство `muted`:
 
 ```java
 boolean muted = call.getIsMicrophoneMuted();
 ```
 
-Чтобы проверить активные видеопотоки, проверьте `localVideoStreams` коллекцию:
+Чтобы узнать, записывается ли текущий вызов, проверьте свойство `isRecordingActive`:
+
+```java
+boolean recordinggActive = call.getIsRecordingActive();
+```
+
+Чтобы проверить активные видеопотоки, проверьте коллекцию `localVideoStreams`:
 
 ```java
 List<LocalVideoStream> localVideoStreams = call.getLocalVideoStreams();
 ```
 
-### <a name="mute-and-unmute"></a>Отключить и включить звук
+### <a name="mute-and-unmute"></a>Отключение и включение звука
 
-Чтобы отключить или включить выключение локальной конечной точки, можно использовать `mute` `unmute` асинхронные API и.
+Чтобы отключить или включить звук для локальной конечной точки, можно использовать асинхронные вызовы API `mute` и `unmute`:
 
 ```java
 call.mute().get();
 call.unmute().get();
 ```
 
-### <a name="start-and-stop-sending-local-video"></a>Запуск и отмена отправки локального видео
+### <a name="start-and-stop-sending-local-video"></a>Запуск и остановка отправки локального видео
 
-Чтобы запустить видео, необходимо перечислить камеры с помощью `getCameraList` API для `deviceManager` объекта. Затем создайте новый экземпляр `LocalVideoStream` , передающий нужную камеру, и передайте его в `startVideo` API в качестве аргумента:
+Чтобы запустить видео, нужно перечислить камеры с помощью API `getCameraList` для объекта `deviceManager`. Затем создайте новый экземпляр `LocalVideoStream`, передав ему данные о нужной камере, и передайте этот экземпляр в качестве аргумента в API `startVideo`:
 
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>;
 Context appContext = this.getApplicationContext();
-currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
-videoOptions = new VideoOptions(currentVideoStream);
-Future startVideoFuture = call.startVideo(currentVideoStream);
+LocalVideoStream currentLocalVideoStream = new LocalVideoStream(desiredCamera, appContext);
+VideoOptions videoOptions = new VideoOptions(currentLocalVideoStream);
+Future startVideoFuture = call.startVideo(currentLocalVideoStream);
 startVideoFuture.get();
 ```
 
-После успешного начала отправки видео `LocalVideoStream` экземпляр будет добавлен в `localVideoStreams` коллекцию в экземпляре вызова.
+После успешного запуска отправки видео экземпляр `LocalVideoStream` будет добавлен в коллекцию `localVideoStreams` в экземпляре вызова.
 
 ```java
-currentVideoStream == call.getLocalVideoStreams().get(0);
+currentLocalVideoStream == call.getLocalVideoStreams().get(0);
 ```
 
-Чтобы отключить локальное видео, передайте `localVideoStream` экземпляр, доступный в `localVideoStreams` коллекции:
+Чтобы остановить отправку локального видео, передайте экземпляр `LocalVideoStream`, доступный в коллекции `localVideoStreams`:
 
 ```java
-call.stopVideo(localVideoStream).get();
+call.stopVideo(currentLocalVideoStream).get();
 ```
 
-При отправке видео можно переключиться на другое устройство камеры, вызвав `switchSource` на `localVideoStream` экземпляре:
+Вы можете переключиться на другое устройство камеры, не прекращая передачу видео, вызвав `switchSource` для экземпляра `LocalVideoStream`:
 ```java
-localVideoStream.switchSource(source).get();
+currentLocalVideoStream.switchSource(source).get();
 ```
 
 ## <a name="remote-participants-management"></a>Управление удаленными участниками
 
-Все удаленные участники представлены по `RemoteParticipant` типу и доступны через `remoteParticipants` коллекцию в экземпляре вызова.
+Все удаленные участники представлены типом `RemoteParticipant` и доступны через коллекцию `remoteParticipants` в экземпляре вызова.
 
 ### <a name="list-participants-in-a-call"></a>Вывод списка участников в вызове
-`remoteParticipants`Коллекция возвращает список удаленных участников в данном вызове:
+Коллекция `remoteParticipants` возвращает список удаленных участников в указанном вызове:
 ```java
 List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants(); // [remoteParticipant, remoteParticipant....]
 ```
 
 ### <a name="remote-participant-properties"></a>Свойства удаленного участника
-С каждым указанным удаленным участником связан набор свойств и коллекций, связанных с ним:
+С каждым конкретным удаленным участником связан набор свойств и коллекций:
 
 * Получите идентификатор для этого удаленного участника.
-Identity является одним из типов "идентификатор"
+Идентификатор имеет один из типов Identifier.
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
+CommunicationIdentifier participantIdentifier = remoteParticipant.getIdentifier();
 ```
 
-* Получение состояния удаленного участника.
+* Получите состояние удаленного участника.
 ```java
 ParticipantState state = remoteParticipant.getState();
 ```
-Состояние может быть одним из
-* "Idle" — начальное состояние
-* "Connected" — состояние перехода во время подключения участника к вызову
-* "Connected" — участник подключен к вызову
-* "Удержание"-участник находится в удержании
-* "Еарлимедиа" — объявление воспроизводится до того, как участник подключен к вызову
-* "Disconnected" — конечное состояние — участник отключен от вызова
+Состояние может иметь одно из следующих значений:
+* Idle — исходное состояние;
+* EarlyMedia — перед подключением к вызову для участника воспроизводится объявление;
+* Ringing — для участника звучит сигнал вызова;
+* Connected — переходное состояние во время подключения участника к вызову;
+* Connected — участник подключен к вызову;
+* Hold — участник находится в режиме ожидания;
+* InLobby — участник ожидает допуска в "зале ожидания" (в настоящее время используется только в сценарии взаимодействия с Teams);
+* Disconnected — окончательное состояние, которое обозначает завершение вызова для участника.
 
 
-* Чтобы узнать, почему участник оставил вызов, проверьте `callEndReason` свойство:
+* Чтобы узнать, почему участник покинул вызов, проверьте свойство `callEndReason`:
 ```java
 CallEndReason callEndReason = remoteParticipant.getCallEndReason();
 ```
 
-* Чтобы проверить, не отключен ли удаленный участник, проверьте `isMuted` свойство:
+* Чтобы проверить, отключен ли звук для удаленного участника, проверьте свойство `isMuted`:
 ```java
 boolean isParticipantMuted = remoteParticipant.getIsMuted();
 ```
 
-* Чтобы проверить, говорит ли этот удаленный участник, проверьте `isSpeaking` свойство:
+* Чтобы проверить, говорит ли сейчас удаленный участник, проверьте свойство `isSpeaking`:
 ```java
 boolean isParticipantSpeaking = remoteParticipant.getIsSpeaking();
 ```
 
-* Чтобы проверить все потоки видео, отправляемые данным участником в этом вызове, проверьте `videoStreams` коллекцию:
+* Чтобы проверить все видеопотоки, отправляемые определенным участником в вызове, проверьте коллекцию `videoStreams`:
 ```java
 List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
 ```
@@ -507,38 +516,40 @@ List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [
 
 ### <a name="add-a-participant-to-a-call"></a>Добавление участника в вызов
 
-Чтобы добавить участника в вызов (либо пользователя, либо номер телефона), можно вызвать `addParticipant` . Это приведет к синхронному возврату экземпляра удаленного участника.
+Чтобы добавить в вызов участника (пользователя или номер телефона), можно вызвать `addParticipant`. Этот вызов в синхронном режиме возвращает экземпляр удаленного участника.
 
 ```java
-const acsUser = new CommunicationUser("<acs user id>");
-const acsPhone = new PhoneNumber("<phone number>");
+const acsUser = new CommunicationUserIdentifier("<acs user id>");
+const acsPhone = new PhoneNumberIdentifier("<phone number>");
 RemoteParticipant remoteParticipant1 = call.addParticipant(acsUser);
-RemoteParticipant remoteParticipant2 = call.addParticipant(acsPhone);
+AddPhoneNumberOptions addPhoneNumberOptions = new AddPhoneNumberOptions(new PhoneNumberIdentifier("<alternate phone number>"));
+RemoteParticipant remoteParticipant2 = call.addParticipant(acsPhone, addPhoneNumberOptions);
 ```
 
-### <a name="remove-participant-from-a-call"></a>Удалить участника из вызова
-Чтобы удалить участника из вызова (либо пользователя, либо номера телефона), можно вызвать `removeParticipant` .
-Это будет разрешаться асинхронно после удаления участника из вызова.
-Участник также будет удален из `remoteParticipants` коллекции.
+### <a name="remove-participant-from-a-call"></a>Удаление участника из вызова
+Чтобы удалить участника (пользователя или номер телефона) из вызова, можно вызвать `removeParticipant`.
+Это значение будет разрешаться асинхронно после удаления участника из вызова.
+Этот же участник будет удален из коллекции `remoteParticipants`.
 ```java
-RemoteParticipant remoteParticipant = call.getParticipants().get(0);
-call.removeParticipant(acsUser).get();
-call.removeParticipant(acsPhone).get();
+RemoteParticipant acsUserRemoteParticipant = call.getParticipants().get(0);
+RemoteParticipant acsPhoneRemoteParticipant = call.getParticipants().get(1);
+call.removeParticipant(acsUserRemoteParticipant).get();
+call.removeParticipant(acsPhoneRemoteParticipant).get();
 ```
 
-## <a name="render-remote-participant-video-streams"></a>Прорисовка потоков видео удаленных участников
-Чтобы получить список потоков видео и потоков, использующих удаленные участники, просмотрите `videoStreams` коллекции:
+## <a name="render-remote-participant-video-streams"></a>Отрисовка видеопотоков удаленных участников
+Чтобы получить список видеопотоков и потоков демонстрации экрана, получаемых от удаленных участников, проверьте коллекции `videoStreams`:
 ```java
 RemoteParticipant remoteParticipant = call.getRemoteParticipants().get(0);
 RemoteVideoStream remoteParticipantStream = remoteParticipant.getVideoStreams().get(0);
 MediaStreamType streamType = remoteParticipantStream.getType(); // of type MediaStreamType.Video or MediaStreamType.ScreenSharing
 ```
  
-Чтобы подготовиться к просмотру `RemoteVideoStream` из удаленного участника, необходимо подписываться на `OnVideoStreamsUpdated` событие.
+Чтобы реализовать отрисовку `RemoteVideoStream`, полученного от удаленного участника, нужно подписаться на событие `OnVideoStreamsUpdated`.
 
-В рамках события изменение `isAvailable` Свойства на true указывает на то, что удаленный участник в настоящий момент отправляет поток. После этого создайте новый экземпляр `Renderer` , а затем создайте новый `RendererView` с помощью асинхронного `createView` API и ПОДКЛЮЧИТЕСЬ `view.target` в пользовательском интерфейсе приложения.
+В этом событии изменение значения свойства `isAvailable` на true указывает на то, что удаленный участник в настоящий момент отправляет поток. Обнаружив такое изменение, создайте новый экземпляр `Renderer`, а затем создайте новое представление `RendererView` с помощью асинхронного API `createView` и подключите `view.target` к любому элементу пользовательского интерфейса в приложении.
 
-При каждом изменении доступности удаленного потока можно удалить весь модуль подготовки отчетов, конкретный `RendererView` или оставить его, но это приведет к отображению пустого кадра видео.
+При каждом изменении состояния доступности удаленного потока вы можете удалить отрисовщик или определенное представление `RendererView` либо оставить все как есть, но это приведет к отрисовке пустого видеокадра.
 
 ```java
 Renderer remoteVideoRenderer = new Renderer(remoteParticipantStream, appContext);
@@ -558,38 +569,38 @@ void onRemoteParticipantVideoStreamsUpdated(RemoteParticipant participant, Remot
 }
 ```
 
-### <a name="remote-video-stream-properties"></a>Свойства удаленного потока видео
-В удаленном видеопотоке есть несколько свойств
+### <a name="remote-video-stream-properties"></a>Свойства удаленного видеопотока
+Удаленный видеопоток имеет несколько свойств:
 
-* `Id` — Идентификатор удаленного потока видео.
+* `Id` — идентификатор удаленного видеопотока;
 ```java
 int id = remoteVideoStream.getId();
 ```
 
-* `MediaStreamType` -Может быть "Video" или "Скриншаринг"
+* `MediaStreamType` — принимает значения Video или ScreenSharing;
 ```java
 MediaStreamType type = remoteVideoStream.getType();
 ```
 
-* `isAvailable` — Указывает, является ли конечная точка удаленного участника активной отправкой потока
+* `isAvailable` — указывает на то, что конечная точка этого удаленного участника активно отправляет поток данных.
 ```java
 boolean availability = remoteVideoStream.getIsAvailable();
 ```
 
-### <a name="renderer-methods-and-properties"></a>Методы и свойства модуля подготовки отчетов
-Объект модуля подготовки отчетов следующие API
+### <a name="renderer-methods-and-properties"></a>Методы и свойства отрисовщика
+Объект отрисовщика имеет следующие API:
 
-* Создайте `RendererView` экземпляр, который позже можно будет присоединить в пользовательском интерфейсе приложения для отображения удаленного потока видео.
+* Создайте экземпляр `RendererView`, который позже можно будет подключить к пользовательскому интерфейсу приложения для отрисовке удаленного видеопотока.
 ```java
 // Create a view for a video stream
 renderer.createView()
 ```
-* Удалите модуль подготовки отчетов и все, `RendererView` связанные с этим модулем подготовки отчетов. Вызывается при удалении всех связанных представлений из пользовательского интерфейса.
+* Удалите отрисовщик и все `RendererView`, связанные с ним. Вызывается при удалении всех связанных представлений из пользовательского интерфейса.
 ```java
 renderer.dispose()
 ```
 
-* `StreamSize` — Размер (ширина и высота) удаленного видеопотока;
+* `StreamSize` — размер (ширина и высота) удаленного видеопотока;
 ```java
 StreamSize renderStreamSize = remoteVideoStream.getSize();
 int width = renderStreamSize.getWidth();
@@ -597,20 +608,20 @@ int height = renderStreamSize.getHeight();
 ```
 
 
-### <a name="rendererview-methods-and-properties"></a>Методы и свойства Рендерервиев
-При создании `RendererView` можно указать `scalingMode` `mirrored` Свойства и, которые будут применяться к этому представлению. режим масштабирования может быть либо "Stretch" | "Обрезать" | "Fit" Если `mirrored` задано значение `true` , отображаемый поток будет зеркально передаваться по вертикали.
+### <a name="rendererview-methods-and-properties"></a>Методы и свойства RendererView
+При создании `RendererView` можно указать свойства `scalingMode` и `mirrored`, которые будут применяться к этому представлению. Режим масштабирования может принимать значения Stretch, Crop или Fit. Если `mirrored` имеет значение `true`, поток будет перевернут по вертикали.
 
 ```java
 Renderer remoteVideoRenderer = new Renderer(remoteVideoStream, appContext);
 RendererView rendererView = remoteVideoRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 ```
 
-Созданный Рендерервиев можно затем подключить к пользовательскому интерфейсу приложения, используя следующий фрагмент кода:
+Созданный RendererView можно затем подключить к пользовательскому интерфейсу приложения, используя следующий фрагмент кода:
 ```java
 layout.addView(rendererView);
 ```
 
-Позже можно обновить режим масштабирования, вызвав `updateScalingMode` API для объекта рендерервиев с одним из скалингмоде. Stretch | Скалингмоде. обрезать | Скалингмоде. Fit в качестве аргумента.
+Вы можете позднее изменить режим масштабирования, вызвав API `updateScalingMode` для объекта RendererView с аргументом ScalingMode.Stretch, ScalingMode.Crop или ScalingMode.Fit.
 ```java
 // Update the scale mode for this view.
 rendererView.updateScalingMode(ScalingMode.Crop)
@@ -619,11 +630,11 @@ rendererView.updateScalingMode(ScalingMode.Crop)
 
 ## <a name="device-management"></a>Управление устройствами
 
-`DeviceManager` позволяет перечислить локальные устройства, которые можно использовать в вызове для передачи аудио-или видеопотоков. Он также позволяет запрашивать у пользователя разрешение на доступ к микрофону и камере с помощью собственного API браузера.
+`DeviceManager` позволяет получить список локальных устройств, которые можно использовать в вызове для передачи аудио- и видеопотоков. Вы также можете запрашивать у пользователя разрешение на доступ к его микрофону и камере через собственный API браузера.
 
-Доступ можно получить `deviceManager` , вызвав `callClient.getDeviceManager()` метод.
+Доступ к `deviceManager` осуществляется путем вызова метода `callClient.getDeviceManager()`.
 > [!WARNING]
-> Сейчас `callAgent` для получения доступа к девицеманажер необходимо сначала создать экземпляр объекта.
+> Сейчас для получения доступа к DeviceManager необходимо сначала создать экземпляр объекта `callAgent`.
 
 ```java
 DeviceManager deviceManager = callClient.getDeviceManager().get();
@@ -631,42 +642,42 @@ DeviceManager deviceManager = callClient.getDeviceManager().get();
 
 ### <a name="enumerate-local-devices"></a>Перечисление локальных устройств
 
-Для доступа к локальным устройствам можно использовать методы перечисления в диспетчер устройств. Перечисление является синхронным действием.
+Для доступа к локальным устройствам можно использовать методы перечисления из Диспетчера устройств. Действие перечисления выполняется асинхронно.
 
 ```java
 //  Get a list of available video devices for use.
-List<VideoDeviceInfo> localCameras = deviceManager.getCameraList(); // [VideoDeviceInfo, VideoDeviceInfo...]
+List<VideoDeviceInfo> localCameras = deviceManager.getCameras(); // [VideoDeviceInfo, VideoDeviceInfo...]
 
 // Get a list of available microphone devices for use.
-List<AudioDeviceInfo> localMicrophones = deviceManager.getMicrophoneList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+List<AudioDeviceInfo> localMicrophones = deviceManager.getMicrophones(); // [AudioDeviceInfo, AudioDeviceInfo...]
 
 // Get a list of available speaker devices for use.
-List<AudioDeviceInfo> localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+List<AudioDeviceInfo> localSpeakers = deviceManager.getSpeakers(); // [AudioDeviceInfo, AudioDeviceInfo...]
 ```
 
-### <a name="set-default-microphonespeaker"></a>Установка микрофона или динамика по умолчанию
+### <a name="set-default-microphonespeaker"></a>Назначение микрофона или динамика по умолчанию
 
-Диспетчер устройств позволяет задать устройство по умолчанию, которое будет использоваться при запуске вызова.
-Если значения по умолчанию для клиента не заданы, службы связи будут возвращаться к значениям по умолчанию для ОС.
+Диспетчер устройств позволяет задать устройство по умолчанию, которое будет использоваться при осуществлении вызова.
+Если значения по умолчанию для клиента не заданы, Службы коммуникации будут использовать значения по умолчанию для ОС.
 
 ```java
 
 // Get the microphone device that is being used.
-AudioDeviceInfo defaultMicrophone = deviceManager.getMicrophoneList().get(0);
+AudioDeviceInfo defaultMicrophone = deviceManager.getMicrophones().get(0);
 
 // Set the microphone device to use.
 deviceManager.setMicrophone(defaultMicrophone);
 
 // Get the speaker device that is being used.
-AudioDeviceInfo defaultSpeaker = deviceManager.getSpeakerList().get(0);
+AudioDeviceInfo defaultSpeaker = deviceManager.getSpeakers().get(0);
 
 // Set the speaker device to use.
 deviceManager.setSpeaker(defaultSpeaker);
 ```
 
-### <a name="local-camera-preview"></a>Предварительная версия локальной камеры
+### <a name="local-camera-preview"></a>Предварительный просмотр изображения с локальной камеры
 
-Вы можете использовать `DeviceManager` и, `Renderer` чтобы начать отрисовку потоков из локальной камеры. Этот поток не будет отправлен другим участникам; Это локальный канал предварительной версии. Это асинхронное действие.
+С помощью `DeviceManager` и `Renderer` вы можете реализовать отрисовку потоков из локальной камеры. Этот поток не отправляется другим участникам, а используется как локальный канал предварительного просмотра. Это действие выполняется асинхронно.
 
 ```java
 VideoDeviceInfo videoDevice = <get-video-device>;
@@ -682,10 +693,10 @@ layout.addView(uiView);
 ```
 
 ## <a name="eventing-model"></a>Модель событий
-Вы можете подписываться на большинство свойств и коллекций, чтобы получать уведомления при изменении значений.
+Вы можете подписываться на большинство свойств и коллекций, чтобы получать уведомления при изменении их значений.
 
 ### <a name="properties"></a>Свойства
-Чтобы подписываться на `property changed` события, выполните следующие действия.
+Чтобы подписаться на события `property changed`, выполните следующий код:
 
 ```java
 // subscribe
@@ -697,14 +708,14 @@ PropertyChangedListener callStateChangeListener = new PropertyChangedListener()
         Log.d("The call state has changed.");
     }
 }
-call.addOnCallStateChangedListener(callStateChangeListener);
+call.addOnStateChangedListener(callStateChangeListener);
 
 //unsubscribe
-call.removeOnCallStateChangedListener(callStateChangeListener);
+call.removeOnStateChangedListener(callStateChangeListener);
 ```
 
 ### <a name="collections"></a>Коллекции
-Чтобы подписываться на `collection updated` события, выполните следующие действия.
+Чтобы подписаться на события `collection updated`, выполните следующий код:
 
 ```java
 LocalVideoStreamsChangedListener localVideoStreamsChangedListener = new LocalVideoStreamsChangedListener()

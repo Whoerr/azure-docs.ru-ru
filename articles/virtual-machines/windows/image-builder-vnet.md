@@ -5,15 +5,16 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/29/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ms.reviewer: danis
-ms.openlocfilehash: f4f55e9a5d08b2c2cd14b1ca94efac15f84f1978
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8700a43ca026b45dbbf7a3db1ea580ba7b5a3dd9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879533"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669096"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Использование Azure Image Builder для виртуальных машин Windows, разрешающих доступ к существующей виртуальной сети Azure
 
@@ -90,7 +91,7 @@ $nsgName="aibdemoNsg"
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 ```
 
-## <a name="configure-networking"></a>Настройка сетевых подключений
+## <a name="configure-networking"></a>Настройка сети
 
 Если у вас нет существующего Внет\субнет\нсг, используйте следующий скрипт, чтобы создать его.
 

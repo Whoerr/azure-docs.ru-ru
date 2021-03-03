@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196543"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666517"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Сведения о классификации данных из Azure зрения
 
 В этом пошаговом руководство описывается, как получать доступ к данным, просматривать и фильтровать отчеты зрения Classification Insights.
 
-Поддерживаются следующие источники данных: хранилище BLOB-объектов Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure синапсе Analytics (ранее SQL DW), база данных SQL Azure, Управляемый экземпляр SQL Azure, SQL Server
+Поддерживаются следующие источники данных: хранилище BLOB-объектов Azure, Azure Data Lake Storage (ADLS), GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure синапсе Analytics (ранее — SQL DW), база данных SQL Azure, Управляемый экземпляр SQL Azure, SQL Server, контейнеры Amazon S3
 
 В этом пошаговом руководство вы узнаете, как:
 
@@ -33,7 +33,7 @@ ms.locfileid: "98196543"
 
 - Настройка ресурсов Azure и заполнение соответствующих учетных записей тестовыми данными
 
-- Настройка и завершение проверки тестовых данных в каждом источнике данных
+- Настройка и завершение проверки тестовых данных в каждом источнике данных. Дополнительные сведения см. [в статье Управление источниками данных в Azure зрения (Предварительная версия)](manage-data-sources.md) и [Создание набора правил проверки](create-a-scan-rule-set.md).
 
 - Выполнен вход в зрения с учетной записью с помощью [средства чтения данных или роли пленку данных](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
@@ -81,7 +81,7 @@ ms.locfileid: "98196543"
 - **Основные классификации для таблиц**
 - **Действие классификации > данные классификации**
 
-Пример:
+Пример.
 
 :::image type="content" source="media/insights/view-classifications-small.png" alt-text="Просмотреть все классификации" lightbox="media/insights/view-classifications.png":::
 

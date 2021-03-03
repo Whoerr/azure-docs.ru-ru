@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092672"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644737"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Часто задаваемые вопросы по Azure Active Directory Connect
 
@@ -201,7 +201,7 @@ ms.locfileid: "99092672"
 **Вопрос. Мне пришло сообщение электронной почты с уведомлением о том, что автоматическое обновление больше не работает и необходимо установить новую версию. Зачем это нужно?**  
 В прошлом году мы выпустили версию Azure AD Connect, которая при определенных условиях может отключить функцию автоматического обновления на сервере. Эта проблема устранена в Azure AD Connect версии 1.1.750.0. Если вы столкнулись с этой проблемой, можно устранить ее, запустив скрипт PowerShell для восстановления или выполнив ручное обновление до последней версии Azure AD Connect. 
 
-Чтобы запустить скрипт PowerShell, [скачайте его](https://aka.ms/repairaadconnect) и запустите на сервере Azure AD Connect в окне PowerShell с правами администратора. Чтобы узнать, как запустить скрипт, [просмотрите это короткое видео](https://aka.ms/repairaadcau).
+Чтобы запустить скрипт PowerShell, [скачайте его](/samples/browse/?redirectedfrom=TechNet-Gallery) и запустите на сервере Azure AD Connect в окне PowerShell с правами администратора. Чтобы узнать, как запустить скрипт, [просмотрите это короткое видео](https://aka.ms/repairaadcau).
 
 Для обновления вручную необходимо скачать и выполнить последнюю версию файла AADConnect.msi.
  

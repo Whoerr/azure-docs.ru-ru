@@ -6,20 +6,19 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b34a7665770308b45732711f5d8328eb1d0a785f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83bf6b6123cf7e0d57296f1f344a264c8a18ed77
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965074"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671056"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Настройка высокого уровня доступности в SUSE с помощью STONITH
 Этот документ содержит подробные пошаговые инструкции для настройки высокого уровня доступности в операционной системе SUSE с помощью устройства STONITH.
@@ -27,7 +26,7 @@ ms.locfileid: "94965074"
 **Заявление об отказе.** *это руководство является производным от проверки установки в среде крупных экземпляров Microsoft Hana, которая успешно работает. Поскольку Группа управления службами Майкрософт для крупных экземпляров HANA не поддерживает операционную систему, может потребоваться обратиться в SUSE для дальнейшего устранения неполадок или уточнений на уровне операционной системы. Группа управления службами Майкрософт настраивает устройство STONITH и полностью поддерживает и может использоваться для устранения неполадок, связанных с устройствами STONITH.*
 ## <a name="overview"></a>Обзор
 Для настройки высокого уровня доступности с помощью кластеризации SUSE необходимо выполнить следующие предварительные требования.
-### <a name="pre-requisites"></a>Предварительные условия
+### <a name="pre-requisites"></a>Предварительные требования
 - Крупные экземпляры HANA подготовлены.
 - Операционная система зарегистрирована.
 - Крупные экземпляры HANA подключены к серверу SMT для получения исправлений или пакетов.
@@ -375,7 +374,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Сценарий 2. yast2 не показывает графическое представление
 В этом документе для настройки высокодоступного кластера используется графический экран yast2. Если yast2 не открывается с помощью графического окна, как показано на рисунке, и выводит ошибку Qt, выполните следующие действия. Если он открывается с графическим окном, эти шаги можно пропустить.
 
-**Error**
+**Ошибка**
 
 ![Снимок экрана показывает часть окна консоли с сообщением об ошибке.](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 

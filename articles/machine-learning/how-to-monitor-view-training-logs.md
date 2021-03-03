@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756064"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661024"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Мониторинг и просмотр журналов и метрик выполнения машинного обучения
 
@@ -78,6 +78,17 @@ RunDetails(run).show()
 
 <a id="queryrunmetrics"></a>
 
+### <a name="logging-run-metrics"></a>Регистрация метрик запуска 
+
+Используйте следующие методы в API ведения журнала, чтобы повлиять на визуализации метрик. Обратите внимание на [ограничения службы](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) для этих зарегистрированных метрик. 
+
+|Значение в журнале|Пример кода| Формат на портале|
+|----|----|----|
+|Массив числовых значений| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|График для одной переменной|
+|Одно повторяющееся числовое значение с тем же именем метрики (например, в цикле for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| График для одной переменной|
+|Повторяющиеся строки с двумя числовыми столбцами|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Графики для двух переменных|
+|Таблица с двумя числовыми столбцами|`run.log_table(name='Sine Wave', value=sines)`|Графики для двух переменных|
+
 ## <a name="query-run-metrics"></a>Запрос метрик выполнения
 
 Метрики обученной модели можно просмотреть с помощью ```run.get_metrics()```. Например, с помощью приведенного выше примера можно определить наилучшую модель, выполнив поиск модели с наименьшим значением квадратной ошибки (MSE).
@@ -95,18 +106,6 @@ RunDetails(run).show()
 Можно также отредактировать таблицу список выполнения, чтобы выбрать несколько запусков и отобразить Последнее, минимальное или максимальное значение журнала для выполненных операций. Настройте диаграммы, чтобы сравнить зарегистрированные значения метрик и статистические выражения для нескольких запусков. 
 
 ![Сведения о запуске в студии Машинного обучения Azure](media/how-to-track-experiments/experimentation-tab.gif)
-
-### <a name="format-charts"></a>Форматирование диаграмм 
-
-Используйте следующие методы в API ведения журнала, чтобы повлиять на визуализации метрик.
-
-|Значение в журнале|Пример кода| Формат на портале|
-|----|----|----|
-|Массив числовых значений| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|График для одной переменной|
-|Одно повторяющееся числовое значение с тем же именем метрики (например, в цикле for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| График для одной переменной|
-|Повторяющиеся строки с двумя числовыми столбцами|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Графики для двух переменных|
-|Таблица с двумя числовыми столбцами|`run.log_table(name='Sine Wave', value=sines)`|Графики для двух переменных|
-
 
 ### <a name="view-log-files-for-a-run"></a>Просмотр файлов журнала для запуска 
 

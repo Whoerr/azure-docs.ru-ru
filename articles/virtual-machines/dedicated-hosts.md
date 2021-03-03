@@ -3,17 +3,18 @@ title: Общие сведения о выделенных узлах Azure дл
 description: Узнайте больше о том, как можно использовать выделенные узлы Azure для развертывания виртуальных машин.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 46de182c7acfaf75b2e65fa318717348dd1c4b73
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007897"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667341"
 ---
 # <a name="azure-dedicated-hosts"></a>Выделенные узлы Azure
 
@@ -171,7 +172,7 @@ Azure отслеживает состояние работоспособност
 | Узел освобожден  | Все виртуальные машины были удалены с узла. Вы больше не платите за этот узел, так как оборудование было вычислено из вращения.   |
 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Выделенный узел можно развернуть с помощью [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [портала](./dedicated-hosts-portal.md)и [Azure CLI](./linux/dedicated-hosts-cli.md).
 

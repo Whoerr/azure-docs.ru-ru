@@ -2,18 +2,18 @@
 title: Часто задаваемые вопросы о службе Arc Azure Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Эта статья содержит список часто задаваемых вопросов, связанных с включенной службой Arc Kubernetes.
 keywords: Kubernetes, Arc, Azure, контейнеры, конфигурация, Гитопс, вопросы и ответы
-ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dc12294b5d53372be5f2e1dd71436973fefbb194
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652502"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647869"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Часто задаваемые вопросы об Azure Arc Enabled Kubernetes
 
@@ -32,6 +32,8 @@ AKS — это управляемое предложение Kubernetes в Azure
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Следует ли подключить кластер AKS-ХЦИ и кластеры Kubernetes в центре Azure Stack, а Azure Stack ребра к службе "Дуга Azure"?
 
 Да, подключение кластера AKS-ХЦИ или кластеров Kubernetes на Azure Stack пограничном или Azure Stackном концентраторе к Azure Arc обеспечивает кластеры с представлением ресурсов в Azure Resource Manager. Это представление ресурсов расширяет такие возможности, как конфигурация кластера, Azure Monitor и политика Azure (привратник) для подключенных кластеров Kubernetes.
+
+Если кластер Kubernetes, включенный в дугу Azure, находится на Azure Stack пограничном, AKS на Azure Stack ХЦИ (>= апрель 2021 обновление) или AKS в Windows Server 2019 Datacenter (>= апрель 2021 обновление), то конфигурация Kubernetes будет включена бесплатно.
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>Как устранить срок действия ресурсов Kubernetes в службе "Дуга Azure" с истекшим периодом?
 
@@ -70,6 +72,6 @@ AKS — это управляемое предложение Kubernetes в Azure
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Подключение кластера к службе "Дуга Azure"](./connect-cluster.md)
+* [Подключение кластера к Azure Arc](./quickstart-connect-cluster.md)
 * [Создание конфигураций в кластере Kubernetes с включенной Arc](./use-gitops-connected-cluster.md)
 * [Использование политики Azure для применения конфигураций в масштабе](./use-azure-policy.md)

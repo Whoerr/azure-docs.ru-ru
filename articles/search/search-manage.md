@@ -9,18 +9,19 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 814a5afbde548891a30d941365cdd71d227b4767
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935047"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674399"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Администрирование служб для Azure Когнитивный поиск в портал Azure
 
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
+> * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [Пакет SDK для .NET](/dotnet/api/microsoft.azure.management.search)
 > * [Портал](search-manage.md)
@@ -139,7 +140,7 @@ Azure Когнитивный поиск использует [Azure Monitor](../
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Автоматизация с помощью [PowerShell](search-manage-powershell.md)
+* Автоматизация с помощью [PowerShell](search-manage-powershell.md) или [Azure CLI](search-manage-azure-cli.md)
 
 * Обзор методов [повышения производительности и оптимизации](search-performance-optimization.md)
 

@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 6090adffbab7c8c57837b62e190f90c8ffb18e3d
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: d02a5c6bc194009d459647721dab16be0dcade84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636430"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670482"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Задача DevOps службы Azure Image Builder
 
@@ -57,7 +58,7 @@ ms.locfileid: "100636430"
 
 Выбор **изменения конвейера выпуска**  >  
 
-В агенте пользователя выберите *+* Добавить, а затем найдите **Построитель образов**. Выберите **Добавить**.
+В агенте пользователя выберите *+* Добавить, а затем найдите **Построитель образов**. Нажмите **Добавить**.
 
 Задайте следующие свойства задачи:
 
@@ -245,7 +246,7 @@ ms.locfileid: "100636430"
 
 * [Размер виртуальной машины](image-builder-json.md#vmprofile) . размер виртуальной машины можно переопределить по умолчанию *Standard_D1_v2*. Вы можете переопределить, чтобы сократить общее время настройки или создать образы, зависящие от определенных размеров виртуальных машин, таких как GPU/HPC и т. д.
 
-## <a name="how-it-works"></a>Принцип работы
+## <a name="how-it-works"></a>Принципы работы
 
 При создании выпуска задача создает контейнер в учетной записи хранения с именем *имажебуилдер-встстаск*. Он zips и загружает артефакты сборки и создает маркер SAS для ZIP-файла.
 

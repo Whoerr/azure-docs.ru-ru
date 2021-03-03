@@ -7,20 +7,19 @@ author: msjuergent
 manager: juergent
 editor: ''
 keywords: ХЛИ, HANA, SKU, S896, S224, S448, S672, Оптане, SAP
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 886cd57b59bd4103ced9d496021e54ab0bdc99ad
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 25a11bf96ba680608e5bb22835becf80fadee4f3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723292"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668934"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Доступные номера SKU для крупных экземпляров HANA
 
@@ -52,7 +51,7 @@ BareMetal инфраструктура (сертифицированная дл�
 
 
 
-| SAP HANA сертификации | Модель | Общий объем памяти | Память DRAM | Оптане памяти | Память | Доступность |
+| SAP HANA сертификации | Моделирование | Общий объем памяти | Память DRAM | Оптане памяти | Память | Доступность |
 | --- | --- | --- | --- | --- | --- | --- |
 | YES <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | SAP HANA на виртуальных машинах Azure S96<br /> – 2 x Intel® Xeon® процессор E7-8890 v4 <br /> 48 ядер ЦП и 96 потоков ЦП |  768 ГБ | 768 ГБ | --- | 3 ТБ | Доступно |
 | YES <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | SAP HANA в Azure S224<br /> — 4 процессора Intel® Xeon® Platinum 8276 <br /> 112 ядер ЦП и 224 ЦП |  3 ТБ | 3 ТБ | --- | 6,3 ТБ | Доступно |

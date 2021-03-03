@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7a6213528f204ac31fbcf8a29625787fc73d5153
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368019"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656811"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Настройка частной ссылки Azure для Машинное обучение Azure рабочей области
 
@@ -64,7 +64,7 @@ ws = Workspace.create(name='myworkspace',
     show_output=True)
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [Расширение Azure CLI для машинного обучения](reference-azure-machine-learning-cli.md) предоставляет команду [AZ ML Workspace Create](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_create) . Следующие параметры этой команды можно использовать для создания рабочей области с частной сетью, но для нее требуется существующая виртуальная сеть.
 
@@ -114,7 +114,7 @@ ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approv
 
 Дополнительные сведения о классах и методах, используемых в этом примере, см. в разделе [приватиндпоинтконфиг](/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) and [Workspace.add_private_endpoint](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [Расширение Azure CLI для машинного обучения](reference-azure-machine-learning-cli.md) предоставляет команду [AZ ML Workspace Private-Endpoint Add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) .
 
@@ -151,7 +151,7 @@ _, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].
 ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [Расширение Azure CLI для машинного обучения](reference-azure-machine-learning-cli.md) предоставляет команду [AZ ML Workspace Private-Endpoint Delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) .
 
@@ -172,7 +172,12 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 ## <a name="enable-public-access"></a>Включить общий доступ
 
-После настройки рабочей области с помощью частной конечной точки можно дополнительно включить общий доступ к рабочей области. Это не приведет к удалению закрытой конечной точки. Он обеспечивает общий доступ в дополнение к закрытому доступу. Чтобы включить общий доступ к рабочей области с поддержкой закрытых ссылок, выполните следующие действия.
+В некоторых ситуациях может потребоваться разрешить кому-либо подключаться к защищенному рабочему пространству через общедоступную конечную точку, а не через виртуальную сеть. После настройки рабочей области с помощью частной конечной точки можно дополнительно включить общий доступ к рабочей области. Это не приведет к удалению закрытой конечной точки. Все связи между компонентами, расположенными за виртуальной сетью, остаются защищенными. Он обеспечивает общий доступ только к рабочей области, а также к частному доступу через виртуальную сеть.
+
+> [!WARNING]
+> При подключении через общедоступную конечную точку некоторые функции Studio не смогут получить доступ к данным. Эта проблема возникает, когда данные хранятся в службе, защищенной за пределы виртуальной сети. Например, учетная запись хранения Azure.
+
+Чтобы включить общий доступ к рабочей области с поддержкой закрытых ссылок, выполните следующие действия.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -185,7 +190,7 @@ ws = Workspace.from_config()
 ws.update(allow_public_access_when_behind_vnet=True)
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [Расширение Azure CLI для машинного обучения](reference-azure-machine-learning-cli.md) предоставляет команду [AZ ML Workspace Update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) . Чтобы включить общий доступ к рабочей области, добавьте параметр `--allow-public-access true` .
 
@@ -196,7 +201,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 ---
 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о защите рабочей области Машинное обучение Azure см. в статье [Общие сведения о изоляции и конфиденциальности виртуальной сети](how-to-network-security-overview.md) .
 

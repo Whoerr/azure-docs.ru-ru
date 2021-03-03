@@ -7,12 +7,12 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 8150a172c49b2b0e969ff35928976e5909b7daa8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626482"
+ms.locfileid: "100635482"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Краткое руководство. Отправка журнала действий Azure в рабочую область Log Analytics с помощью шаблона ARM
 
@@ -260,7 +260,7 @@ az deployment sub create --name CreateDiagnosticSetting --location eastus --temp
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
-New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName "Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 
@@ -285,11 +285,11 @@ az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-000
 
 ![Портал Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Выберите **Журналы** в меню **Azure Monitor**. Закройте страницу **Примеры запросов**. Если область не задана для созданной рабочей области, щелкните **Выбрать область** и найдите ее.
+Выберите **Журналы** в меню **Azure Monitor**. Закройте страницу **Примеры запросов**. Если для созданной рабочей области не задана область, щелкните **Выбрать область** и найдите ее.
 
 ![Область Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-В окне запроса введите `AzureActivity` и щелкните **Выполнить**. Это простой запрос. Он возвращает все записи в таблице *AzureActivity*, которая содержит все записи, отправленные из журнала действий.
+В окне запроса введите `AzureActivity` и щелкните **Выполнить**. Этот простой запрос возвращает все записи в таблице *AzureActivity*, где хранятся все записи, отправленные из журнала действий.
 
 ![Простой запрос](media/quick-collect-activity-log/query-01.png)
 
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Из этого краткого руководства вы узнали, как настроить отправку журнала действий в рабочую область Log Analytics. Теперь вы можете настраивать другие данные для сбора в рабочую область, где их можно анализировать с помощью [запросов к журналам](../log-query/log-query-overview.md) в Azure Monitor, и использовать такие возможности, как [оповещения журналов](../alerts/alerts-log-query.md) и [книги](../visualize/workbooks-overview.md). Затем вам нужно собрать [журналы ресурсов](../essentials/resource-logs.md) из ресурсов Azure, которые дополняют данные в журнале действий. Так вы сможете получить представление об операциях, выполненных в пределах каждого ресурса.
+Из этого краткого руководства вы узнали, как настроить отправку журнала действий в рабочую область Log Analytics. Теперь вы можете настроить сбор других данных в рабочую область, где их можно анализировать с помощью [запросов к журналам](../log-query/log-query-overview.md) в Azure Monitor, и применять другие возможности, например [оповещения журналов](../alerts/alerts-log-query.md) и [книги](../visualize/workbooks-overview.md). Затем вам нужно собрать [журналы ресурсов](../essentials/resource-logs.md) из ресурсов Azure, которые дополняют данные в журнале действий. Так вы сможете получить представление об операциях, выполненных в пределах каждого ресурса.
 
 > [!div class="nextstepaction"]
 > [Получение и анализ журналов ресурсов с помощью Azure Monitor](../essentials/tutorial-resource-logs.md)

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 41a63d7d0c5844e7837be44b359b6d04a9009eb4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095875"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651831"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Разрешения роли администратора в Azure Active Directory
 
@@ -99,7 +99,7 @@ ms.locfileid: "101095875"
 >* Пользователи без прав администратора, например руководители, юристы и сотрудники отдела кадров, у которых может быть доступ к конфиденциальным или частным сведениям.
 
 > [!IMPORTANT]
-> В настоящее время эта роль не может управлять многопользовательским MFA на портале управления MFA прежних версий. Те же функции можно выполнить с помощью модуля Azure AD PowerShell [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) командлет.
+> В настоящее время эта роль не может управлять многопользовательским MFA на портале управления MFA прежних версий. Те же функции можно выполнить с помощью модуля Azure AD PowerShell [Set-MsolUser](/powershell/module/msonline/set-msoluser) командлет.
 
 ### <a name="authentication-policy-administrator"></a>[Администратор политики проверки подлинности](#authentication-policy-administrator-permissions)
 
@@ -406,7 +406,7 @@ ms.locfileid: "101095875"
 
 
 > [!IMPORTANT]
-> В настоящее время эта роль не может управлять многопользовательским MFA на портале управления MFA прежних версий. Те же функции можно выполнить с помощью модуля Azure AD PowerShell [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) командлет.
+> В настоящее время эта роль не может управлять многопользовательским MFA на портале управления MFA прежних версий. Те же функции можно выполнить с помощью модуля Azure AD PowerShell [Set-MsolUser](/powershell/module/msonline/set-msoluser) командлет.
 
 ### <a name="privileged-role-administrator"></a>[Администратор привилегированных ролей](#privileged-role-administrator-permissions)
 
@@ -2174,7 +2174,7 @@ Device Users (Пользователи устройства) | Не рекоме
 
 \* Глобальный администратор не может удалить собственное назначение глобального администратора. Это позволяет избежать ситуации, когда у Организации есть 0 глобальных администраторов.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о назначении пользователя в качестве администратора подписки Azure см. в статье [Назначение пользователя](../../role-based-access-control/role-assignments-portal-subscription-admin.md) администратором подписки Azure.
 * Дополнительные сведения о том, как контролируется доступ к ресурсам в Microsoft Azure, см. в [этой статье](../../role-based-access-control/rbac-and-directory-admin-roles.md).

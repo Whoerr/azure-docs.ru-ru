@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9fac8db6747d1e081fa884ed794e55b98f44577f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652043"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650164"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Руководство. Разработка образца конечной точки SCIM
 
@@ -33,7 +33,7 @@ ms.locfileid: "100652043"
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Развертывание конечной точки SCIM в Azure
 
-В этом разделе описывается развертывание конечной точки SCIM в службе с помощью [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) и [службы приложений Azure](https://docs.microsoft.com/azure/app-service/). Справочный код SCIM также можно запустить локально, разместить на локальном сервере или развернуть в другой внешней службе.
+В этом разделе описывается развертывание конечной точки SCIM в службе с помощью [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) и [службы приложений Azure](../../app-service/index.yml). Справочный код SCIM также можно запустить локально, разместить на локальном сервере или развернуть в другой внешней службе.
 
 1. Перейдите к [коду ссылки](https://github.com/AzureAD/SCIMReferenceCode) из GitHub и выберите **клонировать или скачать**.
 

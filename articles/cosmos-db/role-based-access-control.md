@@ -6,15 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 813bb99be0d072ebc9b21dba07ed85671a925910
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526947"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659449"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Управление доступом на основе ролей в Azure в Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> Эта статья посвящена управлению доступом на основе ролей для операций плоскости управления в Azure Cosmos DB. Если вы используете операции с плоскостью данных, см. раздел [Azure Cosmos DB RBAC](how-to-setup-rbac.md) для управления доступом на основе ролей, примененных к операциям с плоскостью данных.
 
 Azure Cosmos DB предоставляет встроенные возможности управления доступом на основе ролей в Azure (Azure RBAC) для распространенных сценариев управления в Azure Cosmos DB. Пользователь, имеющий профиль в Azure Active Directory, может назначить эти роли Azure пользователям, группам, субъектам-службам или управляемым удостоверениям, чтобы предоставить или запретить доступ к ресурсам и операциям в Azure Cosmos DBных ресурсах. Назначения ролей предоставляются только для доступа к плоскости управления, включая доступ к учетным записям Azure Cosmos, базам данных, контейнерам и предложениям (пропускная способность).
 
@@ -69,7 +72,7 @@ Azure Cosmos DB предоставляет встроенные возможно
 
 - Изменение хранимых процедур, триггеров или определяемых пользователем функций.
 
-Если приложения (или пользователи с помощью портал Azure) выполняют любое из этих действий, их необходимо перенести для выполнения с помощью [шаблонов ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), службы "оставшаяся" или [библиотеки управления Azure](https://github.com/Azure-Samples/cosmos-management-net). Обратите внимание, что Управление Azure доступно на [нескольких языках](/azure/?product=featured#languages-and-tools).
+Если приложения (или пользователи с помощью портал Azure) выполняют любое из этих действий, их необходимо перенести для выполнения с помощью [шаблонов ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), службы "оставшаяся" или [библиотеки управления Azure](https://github.com/Azure-Samples/cosmos-management-net). Обратите внимание, что Управление Azure доступно на [нескольких языках](../index.yml?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Задать с помощью шаблона ARM
 
@@ -113,7 +116,7 @@ az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroup
 Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBAccountName] -DisableKeyBasedMetadataWriteAccess true
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Что такое управление доступом на основе ролей в Azure (Azure RBAC)](../role-based-access-control/overview.md)
 - [Настраиваемые роли Azure](../role-based-access-control/custom-roles.md)

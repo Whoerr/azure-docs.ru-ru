@@ -12,21 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400732"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648022"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Отладка политик управления API Azure в Visual Studio Code
 
 [Политики](api-management-policies.md) в службе управления API Azure предоставляют мощные возможности, которые помогают издателям API устранять перекрестные задачи, такие как проверка подлинности, авторизация, регулирование, кэширование и преобразование. Политика — это коллекция правил, которые выполняются последовательно над запросом или ответом API. 
 
 В этой статье описывается, как выполнить отладку политик управления API с помощью [расширения управления API Azure для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
-
-> [!NOTE]
-> Эта функция предоставляется в общедоступной предварительной версии.
 
 ## <a name="prerequisites"></a>Предварительные требования
 

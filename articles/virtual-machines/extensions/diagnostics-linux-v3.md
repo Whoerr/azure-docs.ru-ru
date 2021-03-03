@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 88f8d62a6321deae8a46d32441625c5960547694
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 6b03d4fb51021019da4c7d31fccf28b0ee157f32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982122"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670547"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Использование диагностического расширения Linux 3,0 для мониторинга метрик и журналов
 
@@ -825,6 +825,6 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Создайте оповещения метрик в [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) для собираемых метрик.
-* Создайте [диаграммы мониторинга](../../azure-monitor/platform/data-platform.md) для метрик.
+* Создайте оповещения метрик в [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) для собираемых метрик.
+* Создайте [диаграммы мониторинга](../../azure-monitor/data-platform.md) для метрик.
 * Узнайте, как [создать масштабируемый набор виртуальных машин](../linux/tutorial-create-vmss.md), используя метрики для управления автоматическим масштабированием.

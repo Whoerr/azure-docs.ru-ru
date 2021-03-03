@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553952"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657376"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Выполнение пакетных прогнозов с помощью конструктора Машинного обучения Azure
 
@@ -115,13 +115,13 @@ ms.locfileid: "94553952"
 
     На странице сведений о конвейере отображается подробный журнал выполнения и сведения о строке подключения к вашему конвейеру. 
     
-1. Нажмите **Запустить** , чтобы осуществить выполнение конвейера вручную.
+1. Нажмите **Запустить**, чтобы осуществить выполнение конвейера вручную.
 
     ![Сведения о конвейере](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
     
 1. Измените параметр, чтобы использовать другой набор данных.
     
-1. Нажмите **Запустить** , чтобы запустить конвейер.
+1. Нажмите **Запустить**, чтобы запустить конвейер.
 
 ### <a name="use-the-rest-endpoint"></a>Использование конечной точки REST
 
@@ -145,7 +145,23 @@ ms.locfileid: "94553952"
 
 ![Настройка конвейера по умолчанию на странице опубликованного конвейера](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
+## <a name="limitations"></a>Ограничения
+
+Если вы вносите некоторые изменения в обучающий конвейер, необходимо повторно отправить обучающий конвейер, **Обновить**  конвейер вывода и снова запустить конвейер вывода.
+
+Обратите внимание, что в конвейере вывода будут обновляться только модели, а преобразование данных не будет обновлено.
+
+Чтобы использовать обновленное преобразование в конвейере вывода, необходимо зарегистрировать выходные данные преобразования модуля преобразования в виде набора данных.
+
+![Снимок экрана, показывающий, как зарегистрировать набор данных преобразования](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Затем вручную замените **TD-** Module в конвейере вывода на зарегистрированный набор данных.
+
+![Снимок экрана, показывающий, как заменить модуль преобразования](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+Затем можно отправить конвейер вывода с обновленной моделью и преобразованием и опубликовать.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Чтобы обучить и развернуть регрессионную модель, следуйте указаниям в [учебнике](tutorial-designer-automobile-price-train-score.md) по конструктору.
-"
+''

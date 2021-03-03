@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 66687f5954894d962a67767669081de15a30c7c3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966077"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672618"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Обзор расширений и компонентов виртуальных машин под управлением Linux
 
@@ -30,10 +30,10 @@ ms.locfileid: "94966077"
 
 ## <a name="use-cases-and-samples"></a>Варианты использования и примеры
 
-Существует несколько разных расширений ВМ Azure, которые используются в определенных сценариях. Ниже приведены некоторые примеры таких ситуаций.
+Существует несколько разных расширений ВМ Azure, которые используются в определенных сценариях. Некоторые примеры:
 
 - Применение к виртуальной машине конфигураций требуемого состояния PowerShell с помощью расширения DSC для Linux. Подробнее см. [Общие сведения об обработчике расширения Desired State Configuration в Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC);
-- Настройка мониторинга виртуальной машины с помощью расширения виртуальной машины Microsoft Monitoring Agent. Дополнительные сведения см. в статье [Мониторинг виртуальных машин Linux в Azure](../linux/tutorial-monitor.md).
+- Настройка мониторинга виртуальной машины с помощью расширения виртуальной машины Microsoft Monitoring Agent. Дополнительные сведения см. в статье [Мониторинг виртуальных машин Linux в Azure](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
 - Настройка мониторинга инфраструктуры Azure с помощью расширения Chef или Datadog. Дополнительную информацию см. в [документации по Chef](https://docs.chef.io/azure_portal.html) или [блоге Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Помимо расширений, созданных для конкретных процессов, существует расширение пользовательских сценариев для виртуальных машин под управлением Windows и Linux. Расширение пользовательских сценариев для Linux позволяет запустить на виртуальной машине любой сценарий Bash. Пользовательские сценарии могут пригодиться при проектировании развертывания Azure, для которого требуется дополнительная настройка, ее невозможно выполнить собственными средствами Azure. Дополнительные сведения см. в статье [Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux](custom-script-linux.md).
@@ -411,6 +411,6 @@ az vm extension delete \
 | Расширение службы "Диагностика Azure" |Управляет системой диагностики Azure |[Расширение службы "Диагностика Azure"](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Расширение Azure VM Access |Управляет пользователями и учетными данными. |[Расширение VM Access для Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о расширениях виртуальных машин см. в статье c [обзором расширений и компонентов виртуальной машины Azure](overview.md).

@@ -6,19 +6,18 @@ documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: b90d703a44cf89961eb0dca02abb1b8ea9cff166
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2939e00d704f5c2799a1f16822cccdcc963fb73e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259208"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671572"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Высокий уровень доступности SAP HANA с Azure NetApp Files на Red Hat Enterprise Linux
 
@@ -91,7 +90,7 @@ ms.locfileid: "99259208"
     - [Установите SAP HANA на Red Hat Enterprise Linux для использования в Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Настройка SAP HANA масштабируемой репликации системы в кластере Pacemaker, если файловые системы HANA находятся в общих папках NFS](https://access.redhat.com/solutions/5156571)
 - [Приложения NetApp SAP в Microsoft Azure. Использование Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
-- [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+- [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>Обзор
 
@@ -701,4 +700,4 @@ Azure NetApp Files доступен в нескольких [регионах Az
 * [Планирование и реализация виртуальных машин Azure для SAP][planning-guide]
 * [Развертывание виртуальных машин Azure для SAP NetWeaver][deployment-guide]
 * [SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию СУБД SQL Server][dbms-guide]
-* [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](./hana-vm-operations-netapp.md)

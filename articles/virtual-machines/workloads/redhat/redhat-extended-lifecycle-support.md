@@ -2,18 +2,18 @@
 title: Расширенная поддержка жизненного цикла в Red Hat Enterprise Linux
 description: Дополнительные сведения о добавлении поддержки расширенного жизненного цикла выпуска Red Hat Enterprise
 author: mathapli
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-ms.reviewer: cynthn
-ms.openlocfilehash: fd36d365eb02819352bc14caf9d8e258a8663c70
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 703732725ae7215d3ff59ad92a4c171a86251c20
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861385"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677193"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Расширенная поддержка жизненного цикла Red Hat Enterprise Linux (RHEL)
 В этой статье приводятся сведения о поддержке расширенного жизненного цикла для корпоративных образов Red Hat.
@@ -30,7 +30,7 @@ ms.locfileid: "97861385"
 > [!Note]
 > Не предоставляйте общий доступ к шагам для использования RHEL ELS Add on to a of the, за пределами Организации. AzureRedHatELS@microsoft.comОбратитесь в службу поддержки или за дополнительными вопросами.
 
-## <a name="frequently-asked-questions"></a>Вопросы и ответы
+## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
 #### <a name="im-running-red-hat-enterprise-linux-6-and-cant-migrate-to-a-later-version-at-this-time-what-options-do-i-have"></a>Я использую Red Hat Enterprise Linux 6 и не может выполнить миграцию на более позднюю версию в настоящее время. Какие существуют варианты?
 * Продолжайте работать Red Hat Enterprise Linux 6 и приобретайте поддержку расширенного жизненного цикла (ELS) Add-On репозитории, чтобы по-прежнему получить ограниченное обслуживание программного обеспечения и техническую поддержку (см. статью Обновление и сведения о ценах ниже).

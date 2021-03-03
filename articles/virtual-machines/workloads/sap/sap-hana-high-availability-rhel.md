@@ -6,19 +6,18 @@ documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 277ed8ad5f9888daa911cb3b5c7dcf00fd285bf4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a98fd5785174d681b333cdaa29fe53ae06f137e1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489162"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675376"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Обеспечение высокого уровня доступности SAP HANA в виртуальных машинах Azure в Red Hat Enterprise Linux
 
@@ -583,7 +582,7 @@ clone clone-max=2 clone-node-max=1 interleave=true
 Теперь создайте ресурсы HANA.
 
 > [!NOTE]
-> Эта статья содержит ссылки на термин « *Ведомый*» термин, который корпорация Майкрософт больше не использует. При удалении термина из программного обеспечения мы удалим его из этой статьи.
+> Эта статья содержит ссылки на термин « *Ведомый*» термин, который корпорация Майкрософт больше не использует. Когда этот термин будет удален из программного обеспечения, мы удалим его из статьи.
 
 При создании кластера на **RHEL 7. x** используйте следующие команды:  
 
@@ -724,7 +723,7 @@ Resource Group: g_ip_HN1_03
 ### <a name="test-the-azure-fencing-agent"></a>Проверка агента ограждения Azure
 
 > [!NOTE]
-> Эта статья содержит ссылки на термин « *Ведомый*» термин, который корпорация Майкрософт больше не использует. При удалении термина из программного обеспечения мы удалим его из этой статьи.  
+> Эта статья содержит ссылки на термин « *Ведомый*» термин, который корпорация Майкрософт больше не использует. Когда этот термин будет удален из программного обеспечения, мы удалим его из статьи.  
 
 Состояние ресурсов перед запуском теста:
 

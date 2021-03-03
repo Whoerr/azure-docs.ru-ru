@@ -2,18 +2,20 @@
 title: Подслужба "Запланированные события" для виртуальных машин Linux в Azure
 description: Запланируйте события с помощью службы метаданных Azure, для виртуальных машин Linux.
 author: EricRadzikowskiMSFT
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: scheduled-events
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 3bda1e2076e29fc1365bfc236adc9071db2564a1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1029790cbcfa86f988c2249d67640a642e529229
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104745"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674857"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Служба метаданных Azure: подслужба "Запланированные события" для виртуальных машин Linux
 
@@ -138,8 +140,8 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | Ресурсы| Список ресурсов, на которые влияет это событие. Список обязательно будет содержать виртуальные машины максимум из одного [домена обновления](../manage-availability.md), но в нем не могут содержаться все машины из такого домена. <br><br> Пример <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Состояние этого события. <br><br> Значения: <ul><li>`Scheduled`: это запланированное событие состоится по истечении времени, указанного в свойстве `NotBefore`.<li>`Started`: это событие запущено.</ul> Состояние `Completed` (или аналогичное) никогда не предоставляется. После завершения событие не повторяется.
 | NotBefore| Время, после которого это событие может состояться. <br><br> Пример <br><ul><li> Пн, 19 сентября 2016 г., 18:29:47 (GMT)  |
-| Description | Описание этого события. <br><br> Пример: <br><ul><li> Сервер узла находится в состоянии обслуживания. |
-| EventSource | Инициатор события. <br><br> Пример: <br><ul><li> `Platform`: Это событие инициируется платформой. <li>`User`: Это событие инициируется пользователем. |
+| Описание | Описание этого события. <br><br> Пример <br><ul><li> Сервер узла находится в состоянии обслуживания. |
+| EventSource | Инициатор события. <br><br> Пример <br><ul><li> `Platform`: Это событие инициируется платформой. <li>`User`: Это событие инициируется пользователем. |
 
 ### <a name="event-scheduling"></a>Планирование события
 В зависимости от типа каждое будущее событие будет выполняться минимальное количество времени. Это время отражается в свойстве события `NotBefore`. 

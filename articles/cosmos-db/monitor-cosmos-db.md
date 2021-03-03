@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 026724b6c9636a0c4b89ca8390a997d9640be6ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e23318684294a833c59fd5666db8c0a14efde890
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582223"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658509"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Мониторинг Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -129,7 +129,7 @@ Azure Cosmos DB предоставляет пользовательский ин
 
 Все журналы ресурсов в Azure Monitor имеют те же поля, за которыми следуют поля, связанные со службой. Общая схема описана в [Azure Monitor схеме журнала ресурсов](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Список типов журналов ресурсов, собранных для Azure Cosmos DB, см. в разделе [мониторинг справочника по данным Azure Cosmos DB](monitor-cosmos-db-reference.md#resource-logs).
 
-[Журналы действий](../azure-monitor/platform/activity-log.md) — это средство платформы Azure, которое предоставляет представление о событиях уровня подписки. Вы можете просмотреть их независимо или направить в журналы Azure Monitor, где можно выполнять гораздо более сложные запросы с помощью Log Analytics.  
+[Журналы действий](../azure-monitor/essentials/activity-log.md) — это средство платформы Azure, которое предоставляет представление о событиях уровня подписки. Вы можете просмотреть их независимо или направить в журналы Azure Monitor, где можно выполнять гораздо более сложные запросы с помощью Log Analytics.  
 
 Azure Cosmos DB сохраняет данные в указанных ниже таблицах.
 

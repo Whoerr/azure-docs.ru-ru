@@ -8,19 +8,18 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4772fdae06f23430d829fa411068b7af7a85b3dd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959158"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668713"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Соединитель SAP LaMa для Azure
 
@@ -424,7 +423,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di
 
 Обязательно создайте резервную копию SYSTEMDB и всех баз данных клиентов, прежде чем пытаться делать копию клиента, перемещать клиент или создавать репликацию системы.
 
-### <a name="microsoft-sql-server"></a>Microsoft SQL Server
+### <a name="microsoft-sql-server"></a>Microsoft SQL Server
 
 В приведенных ниже примерах предполагается, что вы устанавливаете систему SAP NetWeaver с системным ID AS1. Имена виртуальных узлов представляют собой as1-db для экземпляра SQL Server, используемого системой SAP NetWeaver, as1-ascs для SAP NetWeaver ASCS и as1-di-0 для первого сервера приложений SAP NetWeaver.
 
@@ -592,7 +591,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * Решение  
     Не забудьте добавить правило узла на шаге *изоляции* для подключения виртуальной машины к контроллеру домена.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * [Руководство по использованию SAP HANA в Azure][hana-ops-guide]
 * [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению][planning-guide]
 * [Развертывание виртуальных машин Azure для SAP NetWeaver][deployment-guide]

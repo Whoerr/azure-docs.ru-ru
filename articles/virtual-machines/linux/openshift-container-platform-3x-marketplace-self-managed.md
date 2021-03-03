@@ -3,19 +3,20 @@ title: Развертывание предложения OpenShift для пла
 description: Развертывание предложения OpenShift Container Platform 3,11 Self-Managed Marketplace в Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374105"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670444"
 ---
 # <a name="configure-prerequisites"></a>Настройка необходимых компонентов
 
@@ -93,7 +94,7 @@ ms.locfileid: "87374105"
 
 **Изменить размер**
 
-Чтобы выбрать другой размер виртуальной машины, нажмите кнопку ***изменить размер***.  Откроется окно выбора виртуальной машины.  Выберите нужный размер виртуальной машины и нажмите кнопку **выбрать**.
+Чтобы выбрать другой размер виртуальной машины, щелкните ***изменить размер** _.  Откроется окно выбора виртуальной машины.  Выберите требуемый размер виртуальной машины и нажмите кнопку _ * выбрать * *.
 
    ![Выбор размера виртуальной машины](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>

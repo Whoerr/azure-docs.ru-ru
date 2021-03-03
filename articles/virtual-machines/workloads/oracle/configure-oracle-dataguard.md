@@ -2,18 +2,18 @@
 title: Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux | Документация Майкрософт
 description: Быстрое создание и запуск Oracle Data Guard в среде Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: d9ff355ac81d3375a7c41b18df687f6068ee7069
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1b04ef24ff01787c6904db0e288c23d4434e7dcf
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98926962"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673828"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux 
 
@@ -22,7 +22,7 @@ Azure CLI используется для создания ресурсов Azur
 Прежде чем начать, убедитесь, что установлен интерфейс командной строки Azure CLI. Дополнительные сведения см. в разделе [руководства по установке Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Подготовка среды
-### <a name="assumptions"></a>Допущения
+### <a name="assumptions"></a>Предположения
 
 Чтобы установить Oracle Data Guard, необходимо создать две виртуальные машины Azure в одной группе доступности:
 
@@ -154,7 +154,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Подключитесь к виртуальной машине
+### <a name="connect-to-the-virtual-machine"></a>Подключение к виртуальной машине
 
 Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIpAddress`).
 

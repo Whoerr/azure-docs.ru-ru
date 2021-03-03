@@ -1,36 +1,38 @@
 ---
-title: Устранение распространенных проблем Kubernetes с поддержкой Azure Arc (предварительная версия)
+title: Устранение распространенных проблем Kubernetes с поддержкой ARC в Azure
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 03/02/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Устранение распространенных проблем с кластерами Kubernetes с поддержкой Arc.
 keywords: Kubernetes, Arc, Azure, контейнеры
-ms.openlocfilehash: 0827386eb6ec089cf7951e8fa513a77fc78aef22
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1f4e84f16c6b584f1ffbd918a86c251f47efcca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684095"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654006"
 ---
-# <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Устранение неполадок Kubernetes с поддержкой Azure Arc (предварительная версия)
+# <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Устранение неполадок Kubernetes с поддержкой ARC в Azure
 
-В этом документе содержатся некоторые распространенные сценарии устранения неполадок с подключением, разрешениями и агентами.
+В этом документе содержатся руководства по устранению проблем с подключением, разрешениями и агентами.
 
 ## <a name="general-troubleshooting"></a>Общие действия по устранению неполадок
 
-### <a name="azure-cli-set-up"></a>Настройка Azure CLI
-Перед использованием команд az connectedk8s или az k8sconfiguration убедитесь, что az настроен для работы с правильной подпиской Azure.
+### <a name="azure-cli"></a>Azure CLI
+
+Перед использованием `az connectedk8s` `az k8s-configuration` команд или интерфейса командной строки убедитесь, что Azure CLI настроена для работы с правильной подпиской Azure.
 
 ```azurecli
 az account set --subscription 'subscriptionId'
 az account show
 ```
 
-### <a name="azure-arc-agents"></a>Агенты azure-arc
-Все агенты для Kubernetes с поддержкой Azure Arc развертываются в виде объектов pod в пространстве имен `azure-arc`. В обычных условиях должны выполняться все объекты pod, и они должны проходить проверку работоспособности.
+### <a name="azure-arc-agents"></a>Агенты Arc Azure
+
+Все агенты для Kubernetes с поддержкой Azure Arc развертываются в виде объектов pod в пространстве имен `azure-arc`. Все модули Pod должны работать и передавать их проверки работоспособности.
 
 Сначала проверьте выпуск Azure Arc Helm.
 
@@ -44,9 +46,9 @@ REVISION: 5
 TEST SUITE: None
 ```
 
-Если выпуск Helm не найден или отсутствует, попробуйте подключить кластер еще раз.
+Если выпуск Helm не найден или отсутствует, попробуйте [подключить кластер к службе "Дуга" Azure](./connect-cluster.md) еще раз.
 
-Если выпуск Helm имеется и `STATUS: deployed`, определите состояние агентов с помощью `kubectl`:
+Если выпуск Helm имеется в `STATUS: deployed` , проверьте состояние агентов с помощью `kubectl` :
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
@@ -69,45 +71,42 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Для всех объектов pod значение параметра `STATUS` должно отображаться как `Running`, а значение параметра `READY` — либо `3/3`, либо `2/2`. Получите журналы и описания объектов pod, которые возвращают `Error` или `CrashLoopBackOff`. Если какая-либо из этих модулей повреждена, `Pending` это может быть вызвано нехваткой ресурсов на узлах кластера. При увеличении [масштаба кластера](https://kubernetes.io/docs/tasks/administer-cluster/) эти модули могут переходить в `Running` состояние.
+Все модули Pod должны показываться, `STATUS` как и в столбце, либо `Running` `3/3` `2/2` в нем `READY` . Извлечение журналов и описание модулей Pod, возвращающих `Error` или `CrashLoopBackOff` . В случае зависания каких либо модулей Pod в `Pending` состоянии может быть недостаточно ресурсов на узлах кластера. [Увеличение масштаба кластера](https://kubernetes.io/docs/tasks/administer-cluster/) может стать переходом к `Running` состоянию.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Подключение кластеров Kubernetes к службе "Дуга Azure"
 
-Для подключения кластеров к Azure требуется доступ к подписке Azure и доступ `cluster-admin` к целевому кластеру. Если кластер недоступен или у него недостаточно разрешений, подключение завершится сбоем.
+Для подключения кластеров к Azure требуется как доступ к подписке Azure, так и `cluster-admin` доступ к целевому кластеру. Если вы не можете подключиться к кластеру или у вас недостаточно разрешений, подключение кластера к службе "Дуга" Azure завершится сбоем.
 
 ### <a name="insufficient-cluster-permissions"></a>Недостаточно разрешений для кластера
 
-Если предоставленный файл kubeconfig не имеет достаточных разрешений для установки агентов Azure Arc, команда Azure CLI вернет ошибку при попытке вызова API Kubernetes.
+Если предоставленный файл kubeconfig не имеет достаточных разрешений для установки агентов Arc Azure, команда Azure CLI вернет ошибку.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 
 Error: list: failed to list: secrets is forbidden: User "myuser" cannot list resource "secrets" in API group "" at the cluster scope
 ```
 
-Владелец кластера должен использовать пользователя Kubernetes с разрешениями администратора кластера.
+Пользователю, подключающемуся к кластеру в службе "Дуга Azure", должна быть `cluster-admin` назначена роль в кластере.
 
 ### <a name="installation-timeouts"></a>Время ожидания установки
 
-Для установки агента Azure Arc требуется запустить набор контейнеров в целевом кластере. Если для работы с кластером используется медленное подключение к Интернету, извлечение образа контейнера может занять больше времени, чем время ожидания Azure CLI.
+Подключение кластера Kubernetes к службе Arc Azure Kubernetes требует установки агентов ARC для Azure в кластере. Если кластер работает с медленным подключением к Интернету, извлечение образа контейнера для агентов может занять больше времени, чем время ожидания Azure CLI.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
 
 ### <a name="helm-issue"></a>Helm проблемы
 
-В версии Helm возникла ошибка, из-за `v3.3.0-rc.1` которой Helm Установка/обновление (используемое в расширении CLI с помощью интерфейса командной строки connectedk8s) приводит к запуску всех обработчиков, ведущих к следующей ошибке: [](https://github.com/helm/helm/pull/8527)
+В версии Helm возникла ошибка, при `v3.3.0-rc.1` которой установка или обновление Helm (используемое [](https://github.com/helm/helm/pull/8527) `connectedk8s` расширением CLI) приводит к запуску всех обработчиков, ведущих к следующей ошибке:
 
 ```console
 $ az connectedk8s connect -n shasbakstest -g shasbakstest
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
@@ -132,15 +131,16 @@ ValidationError: Unable to install helm release: Error: customresourcedefinition
 ## <a name="configuration-management"></a>Управление конфигурацией
 
 ### <a name="general"></a>Общие сведения
-Чтобы устранить проблемы с конфигурацией системы управления версиями, выполните команды az с параметром --debug.
+Чтобы помочь в устранении неполадок, связанных с ресурсом конфигурации, выполните команды AZ с `--debug` указанным параметром.
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8sconfiguration create <parameters> --debug
+az k8s-configuration create <parameters> --debug
 ```
 
-### <a name="create-source-control-configuration"></a>Создание конфигурации системы управления версиями
-Роль участника для ресурса Microsoft.Kubernetes/connectedCluster является обязательным условием. Ее достаточно для создания ресурса Microsoft.KubernetesConfiguration/sourceControlConfiguration.
+### <a name="create-configurations"></a>Создание конфигураций
+
+Разрешения на запись в ресурсе Kubernetes с включенной службой Arc Azure ( `Microsoft.Kubernetes/connectedClusters/Write` ) необходимы и достаточно для создания конфигураций в этом кластере.
 
 ### <a name="configuration-remains-pending"></a>Конфигурация остается `Pending`
 
@@ -185,7 +185,7 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
-## <a name="monitoring"></a>Мониторинг
+## <a name="monitoring"></a>Наблюдение
 
 Azure Monitor для контейнеров требуется, чтобы его демон был запущен в привилегированном режиме. Чтобы успешно настроить канонический Kubernetes кластер для мониторинга, выполните следующую команду:
 

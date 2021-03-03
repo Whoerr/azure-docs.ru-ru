@@ -1,21 +1,21 @@
 ---
-title: Развертывание диаграмм Helm с помощью Гитопс в кластере Kubernetes с поддержкой ARC (Предварительная версия)
+title: Развертывание диаграмм Helm с помощью Гитопс в кластере Kubernetes с поддержкой Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 03/02/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Использование Гитопс с Helm для конфигурации кластера с поддержкой Arc Azure (Предварительная версия)
+description: Использование Гитопс с Helm для конфигурации кластера с поддержкой Arc Azure
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, служба Azure Kubernetes, контейнеры
-ms.openlocfilehash: 2dfb516487d1064f29b4018cc8b322e8db44e53a
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 117fc8dabdce2fdf23cbc2b9fe78137db1c656a5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558526"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647648"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Развертывание диаграмм Helm с помощью Гитопс в кластере Kubernetes с поддержкой ARC (Предварительная версия)
+# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Развертывание диаграмм Helm с помощью Гитопс на кластере Kubernetes с поддержкой Arc
 
 Средство упаковки с открытым кодом Helm помогает устанавливать приложения Kubernetes и управлять их жизненным циклом. Как и для диспетчеров пакетов Linux, таких как APT и YUM, Helm используется для управления диаграммами Kubernetes, которые представляют собой пакеты предварительно настроенных ресурсов Kubernetes.
 
@@ -23,7 +23,7 @@ ms.locfileid: "100558526"
 
 ## <a name="before-you-begin"></a>Перед началом
 
-Убедитесь, что у вас уже есть подключенный кластер Kubernetes с включенной службой "Дуга Azure". Если вам нужен подключенный кластер, ознакомьтесь с кратким руководством по подключению [кластера Azure ARC с поддержкой Kubernetes](./connect-cluster.md).
+Убедитесь, что у вас уже есть подключенный кластер Kubernetes с включенной службой "Дуга Azure". Если вам нужен подключенный кластер, ознакомьтесь с кратким руководством по подключению [кластера Azure ARC с поддержкой Kubernetes](./quickstart-connect-cluster.md).
 
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Общие сведения об использовании Гитопс и Helm с поддержкой ARC в Azure Kubernetes
 
@@ -69,7 +69,7 @@ spec:
 | `metadata.name` | Обязательное поле. Необходимо соблюдать соглашения об именовании Kubernetes. |
 | `metadata.namespace` | Дополнительное поле. Определяет место создания выпуска. |
 | `spec.releaseName` | Дополнительное поле. Если не указано имя выпуска, будет использоваться значение `$namespace-$name` . |
-| `spec.chart.path` | Каталог, содержащий диаграмму, заданный относительно корня репозитория. |
+| `spec.chart.path` | Каталог, содержащий диаграмму (относительно корня репозитория). |
 | `spec.values` | Пользовательские настройки значений параметров по умолчанию из самой диаграммы. |
 
 Параметры, заданные в Хелмрелеасе, `spec.values` будут переопределять параметры, заданные в `values.yaml` источнике диаграммы.
@@ -78,30 +78,27 @@ spec:
 
 ## <a name="create-a-configuration"></a>Создание конфигурации
 
-Используя расширение Azure CLI для `k8sconfiguration` , свяжите подключенный кластер с примером репозитория Git. Присвойте этой конфигурации имя `azure-arc-sample` и разверните оператор Flux в `arc-k8s-demo` пространстве имен.
+Используя расширение Azure CLI для `k8s-configuration` , свяжите подключенный кластер с примером репозитория Git. Присвойте этой конфигурации имя `azure-arc-sample` и разверните оператор Flux в `arc-k8s-demo` пространстве имен.
 
 ```console
-az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>Параметры конфигурации
 
-Чтобы настроить создание конфигурации, [Ознакомьтесь с дополнительными параметрами, которые вы можете использовать](./use-gitops-connected-cluster.md#additional-parameters).
+Сведения о настройке создания конфигурации см. в [статье дополнительные параметры](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## <a name="validate-the-configuration"></a>Проверка конфигурации
 
-С помощью Azure CLI убедитесь, что объект `sourceControlConfiguration` был успешно создан.
+С помощью Azure CLI убедитесь, что конфигурация была успешно создана.
 
 ```console
-az k8sconfiguration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
+az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
-`sourceControlConfiguration`Ресурс обновляется с учетом состояния соответствия, сообщений и отладочной информации.
+Ресурс конфигурации обновляется с учетом состояния соответствия, сообщений и отладочной информации.
 
-**Выходные данные:**
-
-```console
-Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
+```output
 {
   "complianceStatus": {
     "complianceState": "Installed",
@@ -129,7 +126,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 }
 ```
 
-## <a name="validate-application"></a>Проверка приложения
+## <a name="validate-application"></a>Проверить приложение
 
 Выполните следующую команду и перейдите в `localhost:8080` браузере, чтобы убедиться, что приложение запущено.
 

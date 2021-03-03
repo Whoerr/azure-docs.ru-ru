@@ -1,20 +1,20 @@
 ---
-title: Поддерживаемые функции Azure Synapse Link (предварительная версия) для Azure Cosmos DB
+title: Поддерживаемые функции Azure Synapse Link для Azure Cosmos DB
 description: Описание текущего набора действий, поддерживаемых Azure Synapse Link для Azure Cosmos DB
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 09/15/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: b58474758ac4d26b347dc72d84be401d15a3846b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: cb2cadadacd914bfa5473b512255c1ab0f856150
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119821"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666308"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Поддерживаемые функции Azure Synapse Link для Azure Cosmos DB
 
@@ -33,7 +33,7 @@ ms.locfileid: "98119821"
 
 | Категория              | Описание |[Пул Apache Spark](../sql/on-demand-workspace-overview.md) | [Бессерверный пул SQL](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Поддержка среды выполнения** |Поддержка среды выполнения Azure синапсе для доступа к Azure Cosmos DB| ✓ | Предварительный просмотр |
+| **Поддержка среды выполнения** |Поддержка среды выполнения Azure синапсе для доступа к Azure Cosmos DB| ✓ | ✓ |
 | **Поддержка API Azure Cosmos DB** | Поддерживаемый тип API Azure Cosmos DB | SQL/MongoDB | SQL/MongoDB |
 | **Объект**  |Такие объекты, как таблица, которую можно создать, указав непосредственно на контейнер Azure Cosmos DB| Кадр данных, представление, таблица | Представление |
 | **Чтение**    | Тип контейнера Azure Cosmos DB, который можно считать | OLTP/HTAP | HTAP  |
@@ -51,7 +51,6 @@ ms.locfileid: "98119821"
 | **Запись DataFrame в контейнер** |Запись данных в контейнер|✓| ✓ |
 | **Загрузка DataFrame для потоковой передачи из контейнера** |Потоковая передача данных с помощью канала изменений Azure Cosmos DB|✓| ✓ |
 | **Запись DataFrame для потоковой передачи в контейнер** |Потоковая передача данных с помощью канала изменений Azure Cosmos DB|✓| ✓ |
-
 
 ## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>Поддерживаемые действия, созданные кодом, для независящего от сервера пула SQL
 

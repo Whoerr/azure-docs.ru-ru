@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2021
 ms.author: radeltch
-ms.openlocfilehash: 631ebcd41e50a6b8f9e049a646394e572c0b15f7
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: af8523486b42af8c0722a56bdd813d6449692c14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549326"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676888"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Настройка кластера Pacemaker в Red Hat Enterprise Linux в Azure
 
@@ -55,9 +54,9 @@ ms.locfileid: "99549326"
 * примечание к SAP [2243692], содержащее сведения о лицензировании SAP в Linux в Azure;
 * примечание к SAP [1999351], содержащее дополнительные сведения об устранении неполадок, связанных с расширением для расширенного мониторинга Azure для SAP;
 * [вики-сайт сообщества SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes), содержащий все необходимые примечания к SAP для Linux;
-* [Планирование и внедрение Виртуальных машин Azure в SAP на Linux][planning-guide].
-* [Развертывание Виртуальных машин Azure для SAP на Linux][deployment-guide].
-* [Развертывание СУБД Виртуальных машин Azure для SAP на Linux][dbms-guide].
+* [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению][planning-guide];
+* [Развертывание программного обеспечения SAP на виртуальных машинах Linux в Azure][deployment-guide] (эта статья);
+* [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide];
 * [Репликация системы SAP HANA в кластере pacemaker](https://access.redhat.com/articles/3004101)
 * Общая документация по RHEL
   * [Общие сведения о надстройке для обеспечения высокой доступности](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)

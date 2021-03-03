@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b6dd95dafbd079e79247110ee227121483dc372e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259310"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643615"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Настройка согласия конечных пользователей для приложений
 
@@ -185,4 +185,4 @@ Set-AzureADMSAuthorizationPolicy `
 * [Разрешения и согласие для платформы удостоверений Майкрософт](../develop/v2-permissions-and-consent.md)
 
 Получение справки или ответов на вопросы:
-* [Azure AD в Microsoft Q&а.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Azure AD в Microsoft Q&а.](/answers/topics/azure-active-directory.html)

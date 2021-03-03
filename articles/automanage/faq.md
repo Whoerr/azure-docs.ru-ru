@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696182"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654023"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Часто задаваемые вопросы об управлении Azure для виртуальных машин
 
@@ -27,7 +27,7 @@ ms.locfileid: "98696182"
 **Каковы все необходимые условия для включения службы "Управление Azure"?**
 
 Ниже приведены предварительные требования для включения функции управления Azure.
-- Только виртуальные машины Windows Server
+- Поддерживаемые [версии Windows Server](automanage-windows-server.md#supported-windows-server-versions) и [Linux дистрибутивов](automanage-linux.md#supported-linux-distributions-and-versions)
 - Виртуальные машины должны находиться в поддерживаемом регионе
 - Пользователь должен иметь правильные разрешения
 - Только виртуальные машины без масштабируемого набора
@@ -42,12 +42,12 @@ ms.locfileid: "98696182"
 
 **Какие регионы поддерживаются?**
 
-Поддерживаются виртуальные машины в следующих регионах: Западная Европа, Восточная часть США, Западная часть США 2, Центральная Канада, Западная Центральная часть США, Восточная Япония.
+Полный список поддерживаемых регионов доступен [здесь](./automanage-virtual-machines.md#supported-regions).
 
 
 **Какие возможности автоматизируют управление Azure?**
 
-Автоматическое управление регистрациями, настройками и мониторами на протяжении всего жизненного цикла виртуальной машины, перечисленных [здесь](virtual-machines-best-practices.md)служб.
+Автоматическое управление регистрациями, настройками и мониторами на протяжении всего жизненного цикла виртуальной машины, перечисленных [здесь](automanage-virtual-machines.md)служб.
 
 **Работает ли служба "Управление Azure" с помощью виртуальных машин с поддержкой Arc Azure?**
 
@@ -55,12 +55,12 @@ ms.locfileid: "98696182"
 
 **Можно ли настраивать конфигурации в службе "Управление Azure"?**
 
-Клиенты могут настраивать параметры для конкретных служб, например для хранения Azure Backup, с помощью настроек конфигурации. Полный список параметров, которые можно изменить, [см. в](virtual-machines-best-practices.md)нашей документации.
+Клиенты могут настраивать параметры для конкретных служб, например для хранения Azure Backup, с помощью настроек конфигурации. Полный список параметров, которые можно изменить, [см. в](automanage-virtual-machines.md#customizing-an-environment-using-preferences)нашей документации.
 
 
 **Работает ли служба "Управление Azure" с виртуальными машинами Linux и Windows?**
 
-Сейчас Управление поддерживает виртуальные машины Azure Windows Server.
+Да, см. Поддерживаемые [версии Windows Server](automanage-windows-server.md#supported-windows-server-versions) и [Linux дистрибутивов](automanage-linux.md#supported-linux-distributions-and-versions).
 
 
 **Можно ли выборочно применять управление только на наборе виртуальных машин?**

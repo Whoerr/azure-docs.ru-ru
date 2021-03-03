@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4e43ebba9f5f3d0c52d1d03bbf6baca92d5b87a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178744"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651589"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Учебник. Настройка GitHub AE для автоматической подготовки пользователей
 
@@ -111,17 +111,27 @@ ms.locfileid: "96178744"
    |name.formatted|Строка|
    |displayName|Строка|
 
-10. Чтобы настроить фильтры области, ознакомьтесь со следующими инструкциями, предоставленными в [руководстве по фильтрам области](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. В разделе **сопоставления** выберите **синхронизировать Azure Active Directory группы с GitHub AE**.
 
-11. Чтобы включить службу подготовки Azure AD для GitHub AE, измените значение параметра **состояние подготовки** на **включено** в разделе **Параметры** .
+11. Проверьте атрибуты группы, которые синхронизированы из Azure AD в GitHub AE в разделе " **сопоставление атрибутов** ". Атрибуты, выбранные как свойства **Matching** , используются для сопоставления групп в GitHub AE для операций обновления. Нажмите кнопку **Сохранить**, чтобы зафиксировать все изменения.
+
+      |attribute|Тип|
+      |---|---|
+      |displayName|Строка|
+      |externalId|Строка|
+      |members|Справочник|
+
+12. Чтобы настроить фильтры области, ознакомьтесь со следующими инструкциями, предоставленными в [руководстве по фильтрам области](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Чтобы включить службу подготовки Azure AD для GitHub AE, измените значение параметра **состояние подготовки** на **включено** в разделе **Параметры** .
 
     ![Состояние подготовки "Включено"](common/provisioning-toggle-on.png)
 
-12. Определите пользователей и (или) группы, которые вы хотите подготавливать к GitHub AE, выбрав нужные значения в **области** в разделе **Параметры** .
+14. Определите пользователей и (или) группы, которые вы хотите подготавливать к GitHub AE, выбрав нужные значения в **области** в разделе **Параметры** .
 
     ![Область действия подготовки](common/provisioning-scope.png)
 
-13. Когда будете готовы выполнить подготовку, нажмите кнопку **Сохранить**.
+15. Когда будете готовы выполнить подготовку, нажмите кнопку **Сохранить**.
 
     ![Сохранение конфигурации подготовки](common/provisioning-configuration-save.png)
 
@@ -133,6 +143,10 @@ ms.locfileid: "96178744"
 1. Используйте [журналы подготовки](../reports-monitoring/concept-provisioning-logs.md), чтобы определить, какие пользователи были подготовлены успешно или неудачно.
 2. Используйте [индикатор выполнения](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), чтобы узнать состояние цикла подготовки и приблизительное время до его завершения.
 3. Если конфигурация подготовки, вероятно, находится в неработоспособном состоянии, приложение перейдет в карантин. Дополнительные сведения о режимах карантина см. [здесь](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Журнал изменений
+
+* 02/18/2021 — добавлена поддержка подготовки групп.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

@@ -6,30 +6,29 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1750f1d61028cb186b02251b551b7a798e1df9d6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d49191abbba9c189672be4cd8bad4346e9689bf6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967539"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675422"
 ---
 # <a name="sizing"></a>Определение размера
 
 В целом определение размера для крупных экземпляров HANA ничем не отличается от определения размера для HANA. Для существующих и развернутых систем необходимо перенести данные из других реляционных СУБД в HANA, так как SAP предоставляет ряд отчетов, которые выполняются в имеющихся системах SAP. Эти отчеты проверяют данные и определяют требования к памяти при перемещении базы данных в HANA. Прочтите следующие примечания SAP, чтобы получить дополнительные сведения о выполнении этих отчетов и информацию о последних исправлениях и версиях этих отчетов:
 
-- [Примечание SAP #1793345 — изменение размера для SAP Suite в HANA](https://launchpad.support.sap.com/#/notes/1793345)
-- [Примечание SAP #1872170-Suite в HANA и S/4. отчет о размере HANA](https://launchpad.support.sap.com/#/notes/1872170)
-- [Примечание SAP #2121330 — часто задаваемые вопросы: SAP BW в отчете о размере HANA](https://launchpad.support.sap.com/#/notes/2121330)
-- [Примечание SAP #1736976 — отчет о размере для BW в HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [Примечание SAP #2296290 — новый отчет о размере для BW в HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [SAP Note #1793345 — Sizing for SAP Suite on HANA (Примечание SAP № 1793345. Определение размера для SAP Suite в HANA)](https://launchpad.support.sap.com/#/notes/1793345);
+- [SAP Note #1872170 — Suite on HANA and S/4 HANA sizing report (Примечание SAP № 1872170. Отчет для определения размера Suite в HANA и S/4 HANA)](https://launchpad.support.sap.com/#/notes/1872170);
+- [SAP Note #2121330 — FAQ: SAP BW on HANA Sizing Report](https://launchpad.support.sap.com/#/notes/2121330) (Примечание SAP № 2121330. Часто задаваемые вопросы: отчет для определения размера SAP BW в HANA);
+- [SAP Note #1736976 — Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/1736976) (Примечание SAP № 1736976. Отчет для определения размера BW в HANA);
+- [SAP Note #2296290 — New Sizing Report for BW on HANA](https://launchpad.support.sap.com/#/notes/2296290) (Примечание SAP № 2296290. Новый отчет для определения размера BW в HANA).
 
 Для новых развертываний доступно средство для определения требований к памяти для реализации программного обеспечения SAP на базе HANA — SAP Quick Sizer.
 

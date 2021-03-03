@@ -1,136 +1,114 @@
 ---
 title: Базовый план безопасности Azure для кэша Azure для Redis
-description: Базовый план безопасности Azure для кэша Azure для Redis
+description: Базовый план безопасности кэша Azure для Redis содержит практические руководства и ресурсы для реализации рекомендаций по безопасности, указанных в статье о производительности системы безопасности Azure.
 author: msmbaldwin
-ms.service: security
+ms.service: cache
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 567652ec8da257e72aafa95e24af9f5680a2b6d3
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 516a66ef64512cbe4fa4c3589e651c14ddf18550
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807960"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647631"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Базовый план безопасности Azure для кэша Azure для Redis
 
-Базовый план безопасности Azure для кэша Azure для Redis содержит рекомендации, которые помогут повысить уровень безопасности развертывания.
+Этот базовый план безопасности применяет рекомендации из [тестового показателя безопасности Azure версии 1,0](../security/benchmarks/overview-v1.md) к кэшу Azure для Redis. Azure Security Benchmark содержит рекомендации по обеспечению безопасности облачных решений в Azure.
+Содержимое группируются по **элементам управления безопасностью** , определенным в ходе тестирования системы безопасности Azure, и связанным рекомендациям, применимым к кэшу Azure для Redis. **Элементы управления** , неприменимые к кэшу Azure для Redis, были исключены.
 
-Базовый план безопасности для этой службы взят из [Эталона безопасности Azure версии 1.0](../security/benchmarks/overview.md), содержащего рекомендации по обеспечению безопасности облачных решений в Azure с помощью наших практических рекомендаций.
-
-Дополнительные сведения см. в статье [Обзор базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+ 
+Сведения о том, как кэш Azure для Redis полностью сопоставляется с тестовым показателем безопасности Azure, см. в разделе [полный кэш Azure для базового сопоставления безопасности Redis](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Безопасность сети
 
-*Дополнительные сведения см. в статье [Управление безопасностью: безопасность сети](../security/benchmarks/security-control-network-security.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: безопасность сети](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1. Защита ресурсов в виртуальной сети с помощью групп безопасности сети или Брандмауэра Azure
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: защита ресурсов Azure в виртуальных сетях
 
 **Руководство**. Развертывание кэша Azure для экземпляра Redis в виртуальной сети (VNet). Виртуальная сеть — это частная сеть в облаке. Если экземпляр кэша Azure для Redis настроен в виртуальной сети, он не является общедоступным, а доступен только для виртуальных машин и приложений в этой виртуальной сети.
 
 Вы также можете указать правила брандмауэра с начальным и конечным диапазоном IP-адресов. Когда правила брандмауэра будут настроены, подключения к кэшу будут доступны только для клиентов из указанного диапазона IP-адресов.
 
-Как настроить поддержку виртуальной сети для кэша Azure уровня "Премиум" для Redis:
+- [Настройка поддержки виртуальной сети для кэша Azure уровня "Премиум" для Redis](cache-how-to-premium-vnet.md)
 
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet
-
-Настройка правил брандмауэра для кэша Azure для Redis:
-
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка правил брандмауэра для кэша Azure для Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
 
 **Ответственность**: Customer
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2. Мониторинг и запись конфигурации и трафика виртуальных сетей, подсетей и сетевых карт
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2. Мониторинг и запись конфигурации и трафика виртуальных сетей, подсетей и сетевых интерфейсов
 
 **Рекомендации**. Если виртуальные машины развернуты в той же виртуальной сети, что и кэш Azure для экземпляра Redis, можно использовать группы безопасности сети (NSG), чтобы снизить риск утечка данных. Включите журналы потоков NSG и отправьте журналы в учетную запись хранения Azure для аудита трафика. Вы также можете отправить журналы потоков для группы безопасности сети в рабочую область Log Analytics и использовать аналитику трафика для получения ценных сведений о потоке трафика в облаке Azure. Некоторые преимущества Аналитики трафика — это возможность визуализировать сетевые активности и определять горячие участки, выявлять угрозы безопасности, анализировать шаблоны потоков трафика и выявлять некорректные сетевые настройки.
 
-Включение журналов потоков NSG: 
+- [Как включить журналы потоков NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
-
-Как включить и использовать Аналитика трафика:
-
-https://docs.microsoft.com/azure/network-watcher/traffic-analytics
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как включать и использовать Аналитику трафика](../network-watcher/traffic-analytics.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="13-protect-critical-web-applications"></a>1.3. Защита критических веб-приложений
 
 **Рекомендации**. Неприменимо. Эта рекомендация предназначена для веб-приложений, работающих в службе приложений Azure или в ресурсах вычислений.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
 
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4. Запрет взаимодействия с известными опасными IP-адресами
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: запретите обмен данными с известными вредоносными IP-адресами
 
 **Руководство**. развертывание виртуальной сети Azure (VNet) обеспечивает повышенную безопасность и изоляцию кэша Azure для Redis, а также подсети, политики управления доступом и другие функции для дальнейшего ограничения доступа. При развертывании в виртуальной сети доступ к кэшу Azure для Redis не предоставляется. доступ к нему можно получить только из виртуальных машин и приложений в виртуальной сети.
 
 Включите от атак DDoS Protection Standard на виртуальных сетей, связанном с кэшем Azure для экземпляров Redis, чтобы защититься от атак типа "отказ в обслуживании" (от атак DDoS). Используйте интегрированную аналитику угроз Центра безопасности Azure, чтобы запретить обмен данными с известными вредоносными или неиспользуемыми IP-адресами Интернета.
 
-Как настроить поддержку виртуальной сети для кэша Azure уровня "Премиум" для Redis:
+- [Настройка поддержки виртуальной сети для кэша Azure уровня "Премиум" для Redis](cache-how-to-premium-vnet.md)
 
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet
-
-Управление Azure от атак DDoS Protection Standard с помощью портал Azure:
-
-https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Управление защитой от атак DDoS Azure уровня "Стандартный" с помощью портала Azure](/azure/virtual-network/manage-ddos-protection)
 
 **Ответственность**: Customer
 
-### <a name="15-record-network-packets-and-flow-logs"></a>1.5. Запись сетевых пакетов и журналов потоков
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="15-record-network-packets"></a>1,5: запись сетевых пакетов
 
 **Рекомендации**. Если виртуальные машины развернуты в той же виртуальной сети, что и кэш Azure для экземпляра Redis, можно использовать группы безопасности сети (NSG), чтобы снизить риск утечка данных. Включите журналы потоков NSG и отправьте журналы в учетную запись хранения Azure для аудита трафика. Вы также можете отправить журналы потоков для группы безопасности сети в рабочую область Log Analytics и использовать аналитику трафика для получения ценных сведений о потоке трафика в облаке Azure. Некоторые преимущества Аналитики трафика — это возможность визуализировать сетевые активности и определять горячие участки, выявлять угрозы безопасности, анализировать шаблоны потоков трафика и выявлять некорректные сетевые настройки.
 
-Включение журналов потоков NSG: 
+- [Как включить журналы потоков NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
-
-Как включить и использовать Аналитика трафика:
-
-https://docs.microsoft.com/azure/network-watcher/traffic-analytics
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как включать и использовать Аналитику трафика](../network-watcher/traffic-analytics.md)
 
 **Ответственность**: Customer
 
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6. Развертывание сетевых систем обнаружения и предотвращения вторжений (IDS/IPS)
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: развертывание системы обнаружения вторжений на основе сети и предотвращения вторжения (ИДЕНТИФИКАТОРы и IP-адреса)
 
 **Руководство**. при использовании кэша Azure для Redis с веб-приложениями, работающими в службе приложений Azure или в среде вычислений, разверните все ресурсы в виртуальной сети Azure и обеспечьте безопасность с помощью брандмауэра веб-приложения Azure (WAF) на шлюзе веб-приложений. Настройте WAF для запуска в режиме предотвращения. Режим защиты блокирует вторжения и атаки, обнаруженные правилами. Злоумышленник получает сообщение "403 unauthorized access" (несанкционированный доступ) и такое подключение прерывается. В режиме предотвращения подобные атаки также заносятся в журналы WAF.
 
 Кроме того, вы можете выбрать предложение из Azure Marketplace, которое поддерживает функции ИДЕНТИФИКАТОРов и IP-адресов с возможностью проверки полезных данных или обнаружения аномалий.
 
-Общие сведения о возможностях Azure WAF:
+- [Общие сведения о возможностях Azure WAF](../web-application-firewall/ag/ag-overview.md)
 
-https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview
+- [Развертывание WAF Azure](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-Как развернуть Azure WAF:
-
-https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag
-
-Azure Marketplace:
-
-https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7. Управление трафиком к веб-приложениям
 
 **Рекомендации**. Неприменимо. Эта рекомендация предназначена для веб-приложений, работающих в службе приложений Azure или в ресурсах вычислений.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8. Уменьшение сложности и дополнительных затрат на администрирование в правилах безопасности сети
 
@@ -138,89 +116,66 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 Вы также можете использовать группы безопасности приложений (ASG) для упрощения сложной конфигурации безопасности. ASG позволяют настроить сетевую безопасность как естественное расширение структуры приложения, что позволяет группировать виртуальные машины и определять политики безопасности сети на основе этих групп.
 
-Теги службы виртуальной сети:
+- [Теги службы виртуальной сети](../virtual-network/service-tags-overview.md)
 
-https://docs.microsoft.com/azure/virtual-network/service-tags-overview
-
-Группы безопасности приложений:
-
-https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Группы безопасности приложений](/azure/virtual-network/security-overview#application-security-groups)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9. Поддержание стандартных конфигураций безопасности для сетевых устройств
 
 **Руководство**. Определение и реализация стандартных конфигураций безопасности для сетевых ресурсов, связанных с кэшем Azure для экземпляров Redis с помощью политики Azure. Используйте псевдонимы политик Azure в пространствах имен "Microsoft. cache" и "Microsoft. Network" для создания настраиваемых политик для аудита или принудительного применения конфигурации сети кэша Azure для экземпляров Redis. Вы также можете использовать встроенные определения политик, такие как:
+- К кэшу Redis должны выполняться только безопасные подключения.
 
-К кэшу Redis должны выполняться только безопасные подключения.
+- Стандарт Защиты от атак DDoS должен быть включен.
 
-Стандарт Защиты от атак DDoS должен быть включен.
+Вы также можете использовать схемы Azure для упрощения крупномасштабных развертываний Azure с помощью ключевых артефактов среды пакетов, таких как шаблоны Azure Resource Manager, управление доступом на основе ролей Azure (Azure RBAC) и политики, в одном определении схемы. Простое применение схемы к новым подпискам и средам, а также управление точной настройкой и управление с помощью версионирования.
 
-Вы также можете использовать схемы Azure для упрощения крупномасштабных развертываний Azure с помощью ключевых артефактов среды пакетов, таких как шаблоны Azure Resource Manager (ARM), управление доступом на основе ролей Azure (Azure RBAC) и политики, в одном определении схемы. Простое применение схемы к новым подпискам и средам, а также управление точной настройкой и управление с помощью версионирования.
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-Как настроить политику Azure и управлять ей:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Создание Azure Blueprint.
-
-https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание схемы Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10. Документация по правилам конфигурации трафика
 
 **Руководство**. Используйте теги для сетевых ресурсов, связанных с кэшем Azure для развертывания Redis, чтобы логически упорядочить их в таксономии.
 
-Создание и использование тегов:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11. Использование автоматизированных средств для мониторинга конфигураций сетевых ресурсов и обнаружения изменений
 
 **Руководство**. Использование журнала действий Azure для мониторинга конфигураций сетевых ресурсов и обнаружения изменений сетевых ресурсов, связанных с кэшем Azure для экземпляров Redis. Создавайте оповещения в Azure Monitor, которые будут запускаться при изменении критических сетевых ресурсов.
 
-Просмотр и получение событий журнала действий Azure:
+- [Как просматривать и извлекать события журнала действий Azure](/azure/azure-monitor/platform/activity-log-view)
 
-https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
-
-Создание оповещений в Azure Monitor:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как создать оповещения в службе Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="logging-and-monitoring"></a>Ведение журналов и мониторинг
 
-*Дополнительные сведения см. в статье [Управление безопасностью: ведение журналов и мониторинг](../security/benchmarks/security-control-logging-monitoring.md).*
-
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1. Использование утвержденных источников синхронизации времени
-
-**Руководство**. Корпорация Майкрософт поддерживает источник времени, используемый для ресурсов Azure, таких как кэш Azure для Redis, для меток времени в журналах.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Microsoft
+*Дополнительные сведения см. в статье [производительность системы безопасности Azure: ведение журнала и мониторинг](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2. Настройка централизованного управления журналами безопасности
 
 **Руководство**. Включите параметры диагностики журнала действий Azure и отправьте журналы в рабочую область Log Analytics, концентратор событий Azure или учетную запись хранения Azure для архивации. Журналы действий позволяют получить представление об операциях, которые выполнялись в кэше Azure для экземпляров Redis на уровне плоскости управления. С помощью данных журнала действий Azure можно определить "что, кто и когда" для любых операций записи (размещение, публикация, удаление), выполненных на уровне плоскости управления для кэша Azure для экземпляров Redis.
 
-Как включить параметры диагностики для журнала действий Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как включить параметры диагностики для журнала действий Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3. Включение журналов аудита для ресурсов Azure
 
@@ -228,19 +183,11 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 Хотя метрики доступны, включая параметры диагностики, ведение журнала аудита в плоскости данных пока недоступно для кэша Azure для Redis.
 
-Как включить параметры диагностики для журнала действий Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как включить параметры диагностики для журнала действий Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Ответственность**: Customer
 
-### <a name="24-collect-security-logs-from-operating-systems"></a>2.4. Сбор журналов безопасности из операционных систем
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5. Настройка хранения журнала безопасности
 
@@ -248,93 +195,67 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 Обратите внимание, что ведение журнала аудита в плоскости данных пока недоступно для кэша Azure для Redis.
 
-Как задать параметры хранения журнала:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка параметров хранения журнала](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Ответственность**: Customer
 
-### <a name="26-monitor-and-review-logs"></a>2.6. Мониторинг и просмотр журналов
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="26-monitor-and-review-logs"></a>2,6: мониторинг и просмотр журналов
 
 **Руководство**. Включение параметров диагностики журнала действий Azure и отправка журналов в рабочую область log Analytics. Выполнение запросов в Log Analytics для поиска терминов, выявления тенденций, анализа закономерностей и предоставления многих других аналитических сведений на основе данных журнала действий, которые могли быть собраны для кэша Azure для Redis.
 
 Обратите внимание, что ведение журнала аудита в плоскости данных пока недоступно для кэша Azure для Redis.
 
-Как включить параметры диагностики для журнала действий Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+- [Как включить параметры диагностики для журнала действий Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-Как получить и проанализировать журналы действий Azure в рабочей области Log Analytics в Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Получение и анализ журналов действий Azure в Log Analytics рабочей области в Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
 
 **Ответственность**: Customer
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7. Включение оповещений об аномальных действиях
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Включение оповещений для аномальных действий
 
 **Руководство**. Вы можете настроить для получения оповещений на основе метрик и журналов действий, связанных с кэшем Azure для экземпляров Redis. Azure Monitor позволяет настроить оповещение для отправки уведомлений по электронной почте, вызова веб-перехватчика или вызова приложения логики Azure.
 
 Хотя метрики доступны, включая параметры диагностики, ведение журнала аудита в плоскости данных пока недоступно для кэша Azure для Redis.
 
-Настройка оповещений для кэша Azure для Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка оповещений для кэша Azure для Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts)
 
 **Ответственность**: Customer
 
-### <a name="28-centralize-anti-malware-logging"></a>2.8. Централизованное ведение журнала защиты от вредоносных программ
-
-**Руководство**: неприменимо; Кэш Azure для Redis не обрабатывает и не создает журналы, связанные с защитой от вредоносных программ.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="29-enable-dns-query-logging"></a>2.9. Включение ведения журнала запросов DNS
-
-**Руководство**: неприменимо; Кэш Azure для Redis не обрабатывает и не создает журналы, связанные с DNS.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="210-enable-command-line-audit-logging"></a>2.10. Включение ведения журнала аудита для командной строки
-
-**Руководство**. Неприменимо. Эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="identity-and-access-control"></a>Идентификатор и управление доступом
 
-*Дополнительные сведения см. в статье [Управление безопасностью: идентификаторы и управление доступом](../security/benchmarks/security-control-identity-access-control.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: идентификация и управление доступом](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1. Инвентаризация учетных записей администраторов
 
-**Руководство**. Azure Active Directory (AD) содержит встроенные роли, которые должны быть явно назначены и доступны для запросов. Используйте модуль Azure AD PowerShell для выполнения нерегламентированных запросов для обнаружения учетных записей, входящих в группы администраторов.
+**Руководство**. Azure Active Directory (Azure AD) содержит встроенные роли, которые должны быть явно назначены и доступны для запросов. Используйте модуль Azure AD PowerShell для выполнения нерегламентированных запросов для обнаружения учетных записей, входящих в группы администраторов.
 
-Как получить роль каталога в Azure AD с помощью PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+- [Как получить роль каталога в Azure AD с помощью PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
 
-Как получить членов роли каталога в Azure AD с помощью PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как получить членов роли каталога в Azure AD с помощью PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2. Изменение паролей по умолчанию, где применимо
 
-**Руководство**. доступ к плоскости управления к кэшу Azure для Redis контролируется с помощью Azure Active Directory (AD). В Azure AD нет концепции паролей по умолчанию. 
+**Руководство**. доступ к плоскости управления к кэшу Azure для Redis контролируется с помощью Azure Active Directory (Azure AD). В Azure AD нет концепции паролей по умолчанию.
 
 Управление доступом к плоскости данных к кэшу Azure для Redis осуществляется с помощью ключей доступа. Эти ключи используются клиентами, которые подключаются к кэшу и могут быть повторно созданы в любое время.
 
-Не рекомендуется создавать пароли по умолчанию в приложении. Вместо этого можно сохранить пароли в Azure Key Vault а затем использовать Azure Active Directory для их извлечения.
+Не рекомендуется создавать пароли по умолчанию в приложении. Вместо этого можно хранить пароли в Azure Key Vault а затем использовать Azure AD для их извлечения.
 
-Повторное создание кэша Azure для ключей доступа Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Повторное создание кэша Azure для ключей доступа Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3. Применение выделенных административных учетных записей
 
@@ -348,186 +269,157 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#chan
 
 - Внешние учетные записи с разрешениями владельца следует удалять из подписки.
 
-Как использовать центр безопасности Azure для мониторинга удостоверений и доступа (Предварительная версия): https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Дополнительные сведения см. в следующих ресурсах.
 
-Как использовать политику Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Использование Центра безопасности Azure для мониторинга идентификации и доступа (предварительная версия)](../security-center/security-center-identity-access.md)
 
-
-**Мониторинг Центра безопасности Azure**: Да
-
-**Ответственность**: Customer
-
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4. Использование единого входа с Azure Active Directory
-
-**Руководство**. кэш Azure для Redis использует ключи доступа для проверки подлинности пользователей и не поддерживает единый вход (SSO) на уровне плоскости данных. Доступ к плоскости управления для кэша Azure для Redis можно получить с помощью REST API и поддерживает единый вход. Чтобы выполнить проверку подлинности, установите JSON Web Token, полученный из Azure Active Directory (AAD), в качестве заголовка авторизации.
-
-Общие сведения о кэше Azure для REST API Redis: https://docs.microsoft.com/rest/api/redis/
-
-Общие сведения о едином входе в Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
-
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Использование Политики Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5. Использование многофакторной проверки подлинности для любого доступа на основе Azure Active Directory
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Включите Многофакторную идентификацию (MFA) в Azure Active Directory (AD) и следуйте рекомендациям по управлению идентификацией и доступом в Центре безопасности Azure.
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4. Использование единого входа Azure Active Directory (SSO)
 
-Включение MFA в Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+**Руководство**. кэш Azure для Redis использует ключи доступа для проверки подлинности пользователей и не поддерживает единый вход (SSO) на уровне плоскости данных. Доступ к плоскости управления для кэша Azure для Redis можно получить с помощью REST API и поддерживает единый вход. Для проверки подлинности задайте заголовок авторизации для запросов к JSON Web Token, полученному из Azure Active Directory (Azure AD).
 
-Мониторинг идентификации и доступа в Центре безопасности Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+- [Общие сведения о кэше Azure для Redis REST API](/rest/api/redis/)
 
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения об использовании единого входа в Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: используйте многофакторную проверку подлинности для всех Azure Active Directory доступа
+
+**Руководство**. Включение многофакторной проверки подлинности в Azure Active Directory (Azure AD) и следование рекомендациям по управлению удостоверениями и доступом в центре безопасности Azure.
+
+- [Как включить многофакторную проверку подлинности в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+
+- [Мониторинг идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md)
+
+**Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6. Использование выделенных компьютеров (рабочих станций с привилегированным доступом) для всех административных задач
 
-**Руководство**. Используйте рабочие станции с привилегированным доступом (PAW) с настроенной Многофакторной идентификацией (MFA) для входа в ресурсы Azure и их настройки.
+**Руководство**. Использование рабочих станций привилегированного доступа (привилегированным доступом) с многофакторной проверкой подлинности, настроенной для входа и настройки ресурсов Azure. 
 
-Дополнительные сведения о рабочих станциях с привилегированным доступом:
+- [Использование рабочих станций с привилегированным доступом](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
-
-Как включить MFA в Azure:
-
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как включить многофакторную проверку подлинности в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Ответственность**: Customer
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7. Ведение журнала и создание оповещений по подозрительным действиям учетных записей администраторов
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Используйте Privileged Identity Management (PIM) в Azure Active Directory (AD) для создания журналов и оповещений при возникновении подозрительных или небезопасных действий в среде.
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: журналы и оповещения о подозрительных действиях учетных записей администраторов
+
+**Руководство**. Использование Azure Active Directory (Azure AD) Управление привилегированными пользователями (PIM) для создания журналов и оповещений при возникновении подозрительных или ненадежных действий в среде.
 
 Кроме того, используйте обнаружение рисков Azure AD для просмотра оповещений и отчетов об опасном поведении пользователя.
 
-Развертывание Azure AD Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+- [Развертывание Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-Общие сведения об обнаружении рисков Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения об обнаружении рисков в Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8. Управление ресурсами Azure только из утвержденных расположений
 
-**Руководство**. Настройка именованных расположений в условном доступе Azure Active Directory (AD) для разрешения доступа только из конкретных логических групп диапазонов IP-адресов или стран и регионов.
+**Руководство**. Настройка именованных расположений в условном доступе Azure Active Directory (Azure AD) для разрешения доступа только из конкретных логических групп диапазонов IP-адресов или стран и регионов.
 
-Настройка именованных расположений в Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка именованных расположений в Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="39-use-azure-active-directory"></a>3.9. Использование Azure Active Directory
 
-**Рекомендации**. Используйте Azure Active Directory как центральную систему проверки подлинности и авторизации. Azure AD защищает данные с помощью надежного шифрования для хранимых и транзитных данных. Кроме того, в Azure AD используются salt-записи, хэши и безопасное хранение учетных данных пользователей.
+**Руководство**. Использование Azure Active Directory (Azure AD) в качестве централизованной системы проверки подлинности и авторизации. Azure AD защищает данные с помощью надежного шифрования для хранимых и транзитных данных. Кроме того, в Azure AD используются salt-записи, хэши и безопасное хранение учетных данных пользователей.
 
 Аутентификацию Azure AD нельзя использовать для прямого доступа к плоскости данных кэша Azure для Redis. Однако учетные данные Azure AD можно использовать для администрирования на уровне плоскости управления (т. е. портал Azure) для управления кэшем Azure для ключей доступа Redis.
 
-
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10. Регулярная проверка и согласование доступа пользователей
 
-**Руководство**. Azure Active Directory (AD) предоставляет журналы для упрощения обнаружения устаревших учетных записей. Кроме того, используйте проверку доступа удостоверений Azure, чтобы эффективно управлять членством в группах, доступом к корпоративным приложениям и назначениями ролей. Доступ пользователей можно проверять на регулярной основе, чтобы только у авторизованных пользователей был постоянный доступ. 
+**Руководство**. Azure Active Directory (Azure AD) предоставляет журналы для упрощения обнаружения устаревших учетных записей. Кроме того, используйте проверку доступа удостоверений Azure, чтобы эффективно управлять членством в группах, доступом к корпоративным приложениям и назначениями ролей. Доступ пользователей можно проверять на регулярной основе, чтобы только у авторизованных пользователей был постоянный доступ.
 
-Общие сведения об отчетах Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+- [Общие сведения об отчетах Azure AD](/azure/active-directory/reports-monitoring/)
 
-Использование проверок доступа для идентификации Azure: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Использование проверок доступа для идентификации Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Ответственность**: Customer
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11. Отслеживание попыток доступа к отключенным учетным записям
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. у вас есть доступ к источникам журналов событий входа Azure Active Directory (AD), аудита и риску, которые позволяют интегрироваться с Azure Sentinel или сторонними SIEM.
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: монитор пытается получить доступ к отключенным учетным данным
+
+**Руководство**. у вас есть доступ к Azure Active Directory (Azure AD) действиям входа в систему, источникам журналов событий аудита и риска, которые позволяют интегрироваться с Azure Sentinel или сторонними SIEM.
 
 Этот процесс можно упростить, создав параметры диагностики для учетных записей пользователей Azure AD и отправив журналы аудита и журналы входа в рабочую область Log Analytics. Вы можете настроить нужные оповещения журнала в Log Analytics.
 
-Интеграция журналов действий Azure в Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+- [Как интегрировать журналы действий Azure в Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-Как настроить метку Azure: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Ответственность**: Customer
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12. Предупреждение при подозрительном входе в учетную запись
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. при отклонении поведения учетной записи для входа в плоскости управления используйте функции защиты идентификации Azure Active Directory (AD) и обнаружения рисков, чтобы настроить автоматические ответы на обнаруженные подозрительные действия, связанные с удостоверениями пользователей. Вы также можете включить данные в Azure Sentinel для дальнейшего изучения.
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: предупреждение об отклонении при входе в учетную запись
 
-Просмотр рискованных входов в Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+**Руководство**. при отклонении режима входа учетной записи на плоскости управления используйте функции защиты идентификации и средства обнаружения рисков Azure Active Directory (Azure AD) для настройки автоматических ответов на обнаруженные подозрительные действия, связанные с удостоверениями пользователей. Вы также можете включить данные в Azure Sentinel для дальнейшего изучения.
 
-Настройка и включение политик риска для защиты идентификации. https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+- [Просмотр рискованных входов в Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-Подключение к Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Как настроить и включить политики рисков с помощью защиты идентификации](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Ответственность**: Customer
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13. Предоставление корпорации Майкрософт доступа к соответствующим данным клиентов в рамках сценариев поддержки
-
-**Руководство**: еще не доступно; Защищенное хранилище еще не поддерживается для кэша Azure для Redis.
-
-Список поддерживаемых защищенное хранилище служб:
-
-https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-protection"></a>Защита данных
 
-*Дополнительные сведения см. в статье [Управление безопасностью: защита данных](../security/benchmarks/security-control-data-protection.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: защита данных](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1. Инвентаризация конфиденциальных данных
 
 **Руководство**. Используйте теги для пометки ресурсов Azure, в которых хранятся или обрабатываются конфиденциальные данные.
 
-Создание и использование тегов:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2. Изолирование систем, хранящих или обрабатывающих конфиденциальные данные
 
 **Руководство**. Реализуйте отдельные подписки и группы управления для разработки, тестирования и производства. Кэш Azure для экземпляров Redis должен быть отделен виртуальной сетью или подсетью и соответствующим образом помечен. При необходимости используйте кэш Azure для Redis брандмауэра, чтобы определить правила, чтобы только клиентские подключения из указанных диапазонов IP-адресов могли подключаться к кэшу.
 
-Как создать дополнительные подписки Azure:
+- [Создание дополнительных подписок Azure](/azure/billing/billing-create-subscription)
 
-https://docs.microsoft.com/azure/billing/billing-create-subscription
+- [Создание групп управления](/azure/governance/management-groups/create)
 
-Создание Группы управления:
+- [Развертывание кэша Azure для Redis в виртуальной сети](cache-how-to-premium-vnet.md)
 
-https://docs.microsoft.com/azure/governance/management-groups/create
+- [Настройка правил брандмауэра для кэша Azure для Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
 
-Как развернуть кэш Azure для Redis в виртуальной сети:
-
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet
-
-Настройка правил брандмауэра для кэша Azure для Redis:
-
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall
-
-Создание и использование тегов:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. Мониторинг и блокирование несанкционированной передачи конфиденциальной информации
 
@@ -535,27 +427,27 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Корпорация Майкрософт управляет базовой инфраструктурой кэша Azure для Redis и реализовала четкие элементы управления для предотвращения потери или раскрытия данных клиента.
 
-Общие сведения о защите данных клиентов в Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
 **Ответственность**: Совмещаемая блокировка
 
-### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Шифрование любой конфиденциальной информации при передаче
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4. Шифрование любой конфиденциальной информации при передаче
 
 **Рекомендации**. по умолчанию для кэша Azure для Redis требуется шифрование по протоколу TLS. В настоящее время поддерживаются версии TLS 1,0, 1,1 и 1,2. Однако протоколы TLS 1,0 и 1,1 — это путь к устаревшей отрасли, поэтому по возможности используйте TLS 1,2. Если клиентская библиотека или средство не поддерживает протокол TLS, то включить незашифрованные соединения можно с помощью портал Azure или API управления. В таких случаях, когда зашифрованные подключения невозможны, рекомендуется разместить кэш и клиентское приложение в виртуальной сети.
 
-Общие сведения о шифровании при передаче для кэша Azure для Redis:
+- [Общие сведения о шифровании при передаче для кэша Azure для Redis](cache-best-practices.md)
 
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-best-practices
-
-Сведения о необходимых портах, используемых в сценариях кэша виртуальной сети:
-
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet#outbound-port-requirements
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения о необходимых портах, используемых в сценариях кэша виртуальной сети](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet#outbound-port-requirements)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг в центре безопасности Azure. производительность** [системы безопасности Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) — это инициатива политики по умолчанию для центра безопасности, которая является основой для [рекомендаций центра безопасности](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Определения политик Azure, связанные с этим элементом управления, автоматически включаются центром безопасности. Для оповещений, связанных с этим элементом управления, может потребоваться план [защитника Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) для связанных служб.
+
+**Встроенные определения политики Azure — Microsoft. Cache**:
+
+[!INCLUDE [Resource Policy for Microsoft.Cache 4.4](../../includes/policy/standards/asb/rp-controls/microsoft.cache-4-4.md)]
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5. Использование средства активного обнаружения для распознавания конфиденциальных данных
 
@@ -563,37 +455,21 @@ https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet
 
 Для базовой платформы, управляемой корпорацией Майкрософт, корпорация Майкрософт считает все содержимое клиента конфиденциальным и предпринимает все возможные усилия для защиты клиентов от потери данных и раскрытия информации. Чтобы обеспечить безопасность данных клиентов в Azure, корпорация Майкрософт реализовала и поддерживает набор надежных элементов управления и возможностей защиты данных.
 
-Общие сведения о защите данных клиентов в Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
 **Ответственность**: Customer
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6. Контроль доступа к ресурсам с помощью RBAC
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Использование управления доступом на основе ролей Azure (Azure RBAC) для управления доступом к кэшу Azure для плоскости управления Redis (т. е. портал Azure). 
+### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6. Использование управления доступом на основе ролей для управления доступом к ресурсам
 
-Как настроить Azure RBAC:
+**Руководство**. Использование управления доступом на основе ролей Azure (Azure RBAC) для управления доступом к кэшу Azure для плоскости управления Redis (т. е. портал Azure).
 
-https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Ответственность**: Customer
 
-### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7. Использование защиты от потери данных на основе узла для обеспечения контроля доступа
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-Корпорация Майкрософт управляет базовой инфраструктурой кэша Azure для Redis и реализовала четкие элементы управления для предотвращения потери или раскрытия данных клиента.
-
-Общие сведения о защите данных клиентов в Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**. Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8. Шифрование конфиденциальной информации при хранении
 
@@ -603,31 +479,29 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 Данные в службе хранилища Azure шифруются и расшифровываются прозрачно с использованием 256-разрядного шифрования AES, одним из наиболее подданных блоков блочных шифров и совместимым с FIPS 140-2. Шифрование службы хранилища Azure не может быть отключено. Вы можете использовать ключи, управляемые корпорацией Майкрософт, для шифрования учетной записи хранения или управлять шифрованием с помощью собственных ключей.
 
-Как настроить сохраняемость в кэше Azure для Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence
+- [Настройка сохраняемости в кэше Azure для Redis](cache-how-to-premium-persistence.md)
 
-Общие сведения о шифровании учетных записей хранения Azure: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
+- [Общие сведения о шифровании учетных записей хранения Azure](../storage/common/storage-service-encryption.md)
 
-Общие сведения о защите данных клиентов Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+- [Общие сведения о защите данных клиентов Azure](../security/fundamentals/protection-customer-data.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+**Ответственность**: Совмещаемая блокировка
 
-**Ответственность**. Совмещаемая блокировка
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9. Включение в журнал и создание оповещений по изменениям критических ресурсов Azure
 
 **Руководство**. Использование Azure Monitor с журналом действий Azure для создания оповещений о том, когда изменения выполняются в рабочих экземплярах кэша Azure для Redis и других критических или связанных ресурсах.
 
-Создание оповещений для событий журнала действий Azure: 
-
-https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание оповещений для событий журнала действий Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="vulnerability-management"></a>Управление уязвимостями
 
-*Дополнительные сведения см. в статье [Управление безопасностью: управление уязвимостями](../security/benchmarks/security-control-vulnerability-management.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Управление уязвимостью](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1. Выполнение автоматизированных средства анализа уязвимостей
 
@@ -635,373 +509,214 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 Майкрософт выполняет Управление уязвимостью в базовых системах, поддерживающих кэш Azure для Redis.
 
-Ознакомьтесь с рекомендациями центра безопасности Azure: https://docs.microsoft.com/azure/security-center/recommendations-reference
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения о рекомендациях центра безопасности Azure](../security-center/recommendations-reference.md)
 
 **Ответственность**: Совмещаемая блокировка
 
-### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2. Развертывание автоматизированного решения для управления исправлениями операционной системы
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Развертывание автоматизированного решения для управления исправлениями ПО сторонних производителей
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Сравнение проверок смежных уязвимостей
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Использование процесса оценки рисков для определения приоритета в устранении обнаруженных уязвимостей
-
-**Руководство**. Корпорация Майкрософт выполняет Управление уязвимостью в базовых системах, поддерживающих кэш Azure для Redis.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Microsoft
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="inventory-and-asset-management"></a>Инвентаризация и управление ресурсами
 
-*Дополнительные сведения см. в статье [Управление безопасностью: инвентаризация и управление ресурсами](../security/benchmarks/security-control-inventory-asset-management.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Инвентаризация и управление активами](../security/benchmarks/security-control-inventory-asset-management.md).*
 
-### <a name="61-use-azure-asset-discovery"></a>6.1. Использование обнаружения ресурсов Azure
+### <a name="61-use-automated-asset-discovery-solution"></a>6,1. Использование автоматизированного решения для обнаружения ресурсов
 
-**Руководство**. Используйте Azure Resource Graph для запроса и обнаружения всех ресурсов (например, вычислений, хранилища, сети, портов, протоколов и т. д.) в ваших подписках.  Убедитесь в том, что в вашем клиенте есть соответствующие разрешения (на чтение) и вы можете перечислить все подписки Azure, а также ресурсы в ваших подписках.
+**Руководство**. Используйте Azure Resource Graph для запроса и обнаружения всех ресурсов (например, вычислений, хранилища, сети, портов, протоколов и т. д.) в ваших подписках. Убедитесь в том, что в вашем клиенте есть соответствующие разрешения (на чтение) и вы можете перечислить все подписки Azure, а также ресурсы в ваших подписках.
 
 Хотя классические ресурсы Azure можно обнаружить через Resource Graph, настоятельно рекомендуется в дальнейшем создавать и использовать ресурсы Azure Resource Manager.
 
-Создание запросов с помощью Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+- [Как создавать запросы с помощью Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-Просмотр подписок Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+- [Как просматривать подписки Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
 
-Общие сведения об Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Общие сведения об Azure RBAC](../role-based-access-control/overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="62-maintain-asset-metadata"></a>6.2. Ведение метаданных активов
 
 **Руководство**. Применяйте к ресурсам Azure теги, чтобы логически классифицировать их на основе метаданных.
 
-Создание и использование тегов:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3. Удаление неавторизованных ресурсов Azure
 
 **Руководство**. Использование тегов, групп управления и отдельных подписок (при необходимости) для упорядочения и мониторинга кэша Azure для экземпляров Redis и связанных ресурсов. Регулярно сверяйте ресурсы, чтобы своевременно удалять неавторизованные ресурсы из подписки.
 
-Кроме того, используйте политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в подписках клиентов, используя следующие встроенные определения политик:
+Кроме того, используйте политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в клиентских подписках, используя следующие встроенные определения политик:
 
 - Недопустимые типы ресурсов
 
 - Допустимые типы ресурсов
 
-Создание дополнительных подписок Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
+Дополнительные сведения см. в следующих ресурсах.
 
-Создание групп управления: https://docs.microsoft.com/azure/governance/management-groups/create
+- [Создание дополнительных подписок Azure](/azure/billing/billing-create-subscription)
 
-Создание и использование тегов: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Создание групп управления](/azure/governance/management-groups/create)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание и использование тегов ресурсов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
 
-### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4. Ведение каталога утвержденных ресурсов Azure и наименований программного обеспечения
-
-**Рекомендации**. Неприменимо. Эта рекомендация предназначена для вычислений с ресурсами, а также для Azure в целом.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5. Отслеживание неутвержденных ресурсов Azure
 
-**Рекомендации**. Используйте политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в подписках клиентов, используя следующие встроенные определения политик:
+**Руководство**. Использование политики Azure для ограничения типа ресурсов, которые могут быть созданы в клиентских подписках, с помощью следующих встроенных определений политик:
 
-Недопустимые типы ресурсов
+- Недопустимые типы ресурсов
+- Допустимые типы ресурсов
 
-Допустимые типы ресурсов
+Кроме того, используйте граф ресурсов Azure для запроса и обнаружения ресурсов в подписках.
 
-Кроме того, используйте граф ресурсов Azure для запроса или обнаружения ресурсов в подписках.
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-Как настроить политику Azure и управлять ей:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Как создавать запросы с помощью Azure Graph:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как создавать запросы с помощью Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Ответственность**: Customer
 
-### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6. Отслеживание неутвержденных программных приложений в рамках ресурсов вычислений
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Удаление неутвержденных ресурсов Azure и программных приложений
-
-**Рекомендации**. Неприменимо. Эта рекомендация предназначена для вычислений с ресурсами, а также для Azure в целом.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="68-use-only-approved-applications"></a>6.8: Использование только утвержденных приложений
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="69-use-only-approved-azure-services"></a>6.9: Использование только утвержденных служб Azure
+### <a name="69-use-only-approved-azure-services"></a>6.9. Использование только утвержденных служб Azure
 
 **Руководство**. Используйте Политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в подписках клиентов, используя следующие встроенные определения политик.
 
-Недопустимые типы ресурсов
+- Недопустимые типы ресурсов
 
-Допустимые типы ресурсов
+- Допустимые типы ресурсов
 
-Как настроить политику Azure и управлять ей:
+Дополнительные сведения см. в следующих ресурсах.
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-Как отказаться от определенного типа ресурса с помощью политики Azure:
-
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как отказаться от определенного типа ресурса с помощью Политики Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Ответственность**: Customer
 
-### <a name="610-implement-approved-application-list"></a>6.10. Реализация списка утвержденных приложений
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: ограничьте возможность пользователей работать с Azure Resource Manager
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+**Руководство**. Настройте условный доступ Azure, чтобы ограничить возможность пользователей взаимодействовать с Azure Resource Manager путем настройки "Блокировать доступ" для приложения "Управление Microsoft Azure".
 
-**Ответственность**: Неприменимо
-
-### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11: Ограничение возможности пользователей взаимодействовать с диспетчером ресурсов Azure с помощью сценариев
-
-**Руководство**. Настройка условного доступа Azure для ограничения возможности пользователей взаимодействовать с Azure Resource Manager (ARM) путем настройки "блокировать доступ" для приложения "Управление Microsoft Azure".
-
-Настройка условного доступа для блокировки доступа к ARM:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как настроить условный доступ для блокировки доступа к Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Ответственность**: Customer
 
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12. Ограничение возможности пользователей выполнять сценарии в ресурсах вычислений
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13. Физическое или логическое разделение приложений с высоким риском
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для веб-приложений, работающих в службе приложений Azure или в ресурсах вычислений.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="secure-configuration"></a>Настройка безопасности
 
-*Дополнительные сведения см. в статье [Управление безопасностью: безопасная конфигурация](../security/benchmarks/security-control-secure-configuration.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: безопасная конфигурация](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1. Установка безопасных конфигураций для всех ресурсов Azure
 
 **Руководство**. Определение и реализация стандартных конфигураций безопасности для кэша Azure для экземпляров Redis с помощью политики Azure. Используйте псевдонимы политик Azure в пространстве имен Microsoft. Cache, чтобы создать настраиваемые политики для аудита или принудительного применения конфигурации кэша Azure для экземпляров Redis. Вы также можете использовать встроенные определения политик, связанные с кэшем Azure для экземпляров Redis, например:
 
-К кэшу Redis должны выполняться только безопасные подключения.
+- К кэшу Redis должны выполняться только безопасные подключения.
 
-Просмотр доступных псевдонимов политик Azure: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Дополнительные сведения см. в следующих ресурсах.
 
-Настройка Политики SQL Azure и управление ею: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Просмотр доступных псевдонимов политик Azure](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
 
-### <a name="72-establish-secure-operating-system-configurations"></a>7.2. Сохранение безопасных конфигураций для операционных систем
+**Мониторинг центра безопасности Azure**: нет
 
-**Рекомендации**. Неприменимо. Эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Сохранение безопасных конфигураций для ресурсов Azure
+### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3. Сохранение безопасных конфигураций для ресурсов Azure
 
 **Рекомендации**. Используйте Политику Azure [отказывать] и [развернуть, если не существует], чтобы обеспечить безопасность параметров в ресурсах Azure.
 
-Настройка Политики SQL Azure и управление ею: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-Сведения о действии Политики Azure: https://docs.microsoft.com/azure/governance/policy/concepts/effects
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Сведения о действии Политик Azure](../governance/policy/concepts/effects.md)
 
 **Ответственность**: Customer
 
-### <a name="74-maintain-secure-operating-system-configurations"></a>7.4. Сохранение безопасных конфигураций для операционных систем
+**Мониторинг центра безопасности Azure**: нет
 
-**Рекомендации**. Неприменимо. Эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Безопасное хранение конфигурации ресурсов Azure
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5. Безопасное хранение конфигурации ресурсов Azure
 
 **Руководство**. Если вы используете пользовательские определения политик Azure или шаблоны Azure Resource Manager для кэша Azure для экземпляров Redis и связанных ресурсов, используйте Azure Repos для безопасного хранения кода и управления им.
 
-Хранение кода в Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+- [Как хранить код в Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
-Документация по Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Документация по Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
 
 **Ответственность**: Customer
 
-### <a name="76-securely-store-custom-operating-system-images"></a>7.6. Безопасное хранение пользовательских образов операционной системы
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Развертывание инструментов управления конфигурацией системы
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: развертывание средств управления конфигурацией для ресурсов Azure
 
 **Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. Cache для создания настраиваемых политик для оповещения, аудита и принудительного применения конфигураций системы. Кроме того, разрабатывайте процесс и конвейер для управления исключениями политик.
 
-Настройка Политики SQL Azure и управление ею: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
 
-### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8. Развертывание средств управления конфигурацией системы для операционных систем
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Реализация автоматизированного мониторинга конфигурации для служб Azure
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9. Реализация автоматического мониторинга конфигурации для ресурсов Azure
 
 **Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. Cache для создания настраиваемых политик для оповещения, аудита и принудительного применения конфигураций системы. Используйте политику Azure [аудит], [запретить] и [развернуть, если не существует], чтобы автоматически применять конфигурации для кэша Azure для экземпляров Redis и связанных ресурсов.
 
-Настройка Политики SQL Azure и управление ею: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
 
-### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10. Реализация автоматизированного мониторинга конфигурации для операционных систем
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="711-manage-azure-secrets-securely"></a>7.11: Безопасное управление секретами Azure
+### <a name="711-manage-azure-secrets-securely"></a>7.11. Безопасное управление секретами Azure
 
 **Руководство**. для виртуальных машин Azure или веб-приложений, работающих в службе приложений Azure, которые используют для доступа к кэшу Azure для экземпляров Redis, используйте управляемое удостоверение службы в сочетании с Azure Key Vault, чтобы упростить и защитить кэш Azure для управления секретами Redis. Убедитесь, что Key Vault обратимое удаление включено.
 
-Интеграция с управляемыми удостоверениями Azure: 
+- [Интеграция с управляемыми удостоверениями Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+- [Создание Key Vault](../key-vault/general/quick-create-portal.md)
 
-Создание Key Vault: 
-
-https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
-
-Проверка подлинности в Key Vault:
-
-https://docs.microsoft.com/azure/key-vault/general/authentication
-
-Назначение политики доступа Key Vault.
-
-https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Проверка подлинности в Key Vault](/azure/key-vault/managed-identity)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12. Безопасное и автоматическое управление удостоверениями
 
 **Руководство**. для виртуальных машин Azure или веб-приложений, работающих в службе приложений Azure, которые используют для доступа к кэшу Azure для экземпляров Redis, используйте управляемое удостоверение службы в сочетании с Azure Key Vault, чтобы упростить и защитить кэш Azure для управления секретами Redis. Убедитесь, что включено обратимое удаление в Azure Key Vault.
 
-Используйте управляемые удостоверения для предоставления служб Azure с автоматически управляемым удостоверением в Azure Active Directory. Управляемые удостоверения позволяют проходить проверку подлинности в любой службе, поддерживающей проверку подлинности AAD, включая Azure Key Vault без каких бы то ни было учетных данных в коде.
+Используйте управляемые удостоверения для предоставления служб Azure с автоматически управляемым удостоверением в Azure Active Directory (Azure AD). Управляемые удостоверения позволяют проходить проверку подлинности в любой службе, поддерживающей проверку подлинности Azure AD, включая Azure Key Vault без каких бы то ни было учетных данных в коде.
 
-Настройка управляемых удостоверений: 
+- [Настройка управляемых удостоверений](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
-
-Интеграция с управляемыми удостоверениями Azure: 
-
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Интеграция с управляемыми удостоверениями Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13. Устранение непреднамеренного раскрытия учетных данных
 
 **Руководство**. Реализуйте сканер учетных данных для обнаружения учетных данных в коде. Сканер учетных данных также рекомендует перемещать обнаруженные учетные данные в более безопасные расположения, такие как Azure Key Vault.
 
-Настройка сканера учетных данных: https://secdevtools.azurewebsites.net/helpcredscan.html
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как настроить сканер учетных данных](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="malware-defense"></a>Защита от вредоносных программ
 
-*Дополнительные сведения см. в статье [Управление безопасностью: защита от вредоносных программ](../security/benchmarks/security-control-malware-defense.md).*
-
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1. Использование централизованно управляемого программного обеспечения для защиты от вредоносных программ
-
-**Руководство**: Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-Защита от вредоносных программ Майкрософт включена на базовом узле, поддерживающем службы Azure (например, служба приложений Azure), но не выполняется в содержимом клиента.
-
-**Мониторинг центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: защита от вредоносных программ](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2. Предварительная проверка файлов для отправки в ресурсы Azure, не являющиеся вычислительными
 
@@ -1009,43 +724,29 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Предварительно сканируйте любое содержимое, отправляемое в невычислительные ресурсы Azure, например служба приложений, хранилище Data Lake, хранилище BLOB-объектов, база данных Azure для PostgreSQL и т. д. Корпорация Майкрософт не может получить доступ к данным в этих экземплярах.
 
-**Мониторинг центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
 
-### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3. Своевременное обновление программного обеспечения для защиты от вредоносных программ и подписей
-
-**Рекомендации**. Неприменимо. Эта рекомендация предназначена для вычислительных ресурсов.
-
-Защита от вредоносных программ Майкрософт включена на базовом узле, поддерживающем службы Azure (например, кэш Azure для Redis), но не выполняется в содержимом клиента.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-recovery"></a>Восстановление данных
 
-*Дополнительные сведения см. в статье [Управление безопасностью: восстановление данных](../security/benchmarks/security-control-data-recovery.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: восстановление данных](../security/benchmarks/security-control-data-recovery.md).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9.1. Обеспечение регулярного автоматического резервного копирования
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Обеспечьте регулярное автоматическое резервное копирование
 
 **Руководство**. Включение сохраняемости Redis. Постоянное хранение Redis позволяет постоянно хранить данные, размещенные в Redis. Также можно создавать моментальные снимки и архивировать данные, которые можно будет восстановить в случае сбоя оборудования. Это огромное преимущество по сравнению с уровнями Базовый и Стандартный, в которых все данные хранятся в памяти, и при сбое, когда узлы кэша становятся недоступными, может произойти потеря данных.
 
 Вы также можете использовать кэш Azure для экспорта Redis. Экспорт позволяет экспортировать данные, хранящиеся в кэше Azure для Redis, в RDB-файлы, совместимые с Redis. Эту функцию можно использовать для перемещения данных из одного экземпляра кэша Azure для Redis в другой или на другой сервер Redis. Во время экспорта на виртуальной машине создается временный файл, на котором размещается кэш Azure для экземпляра сервера Redis, а файл загружается в указанную учетную запись хранения. После успешного или неудачного завершения операции экспорта этот временный файл удаляется.
 
-Включение сохраняемости Redis:
+- [Включение сохраняемости Redis](cache-how-to-premium-persistence.md)
 
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence
-
-Как использовать кэш Azure для экспорта Redis:
-
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-import-export-data
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как использовать кэш Azure для экспорта Redis](cache-how-to-import-export-data.md)
 
 **Ответственность**: Customer
 
-### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2. Выполнение полного резервного копирования системы и любых ключей, управляемых клиентом
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: выполните полное резервное копирование системы и резервное копирование ключей, управляемых клиентом
 
 **Руководство**. Включение сохраняемости Redis. Постоянное хранение Redis позволяет постоянно хранить данные, размещенные в Redis. Также можно создавать моментальные снимки и архивировать данные, которые можно будет восстановить в случае сбоя оборудования. Это огромное преимущество по сравнению с уровнями Базовый и Стандартный, в которых все данные хранятся в памяти, и при сбое, когда узлы кэша становятся недоступными, может произойти потеря данных.
 
@@ -1053,159 +754,119 @@ https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-import-expor
 
 Если вы используете Azure Key Vault для хранения учетных данных для экземпляров Redis в кэше Azure, обеспечьте регулярное автоматическое резервное копирование ключей.
 
-Включение сохраняемости Redis:
+- [Включение сохраняемости Redis](cache-how-to-premium-persistence.md)
 
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence
+- [Как использовать кэш Azure для экспорта Redis](cache-how-to-import-export-data.md)
 
-Как использовать кэш Azure для экспорта Redis:
-
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-import-export-data
-
-Резервное копирование ключей Key Vault: 
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Резервное копирование ключей Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Ответственность**: Customer
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3. Проверка всех резервных копий, включая управляемые клиентом ключи
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Проверьте все резервные копии, включая управляемые клиентом ключи.
 
 **Руководство**. использование кэша Azure для импорта Redis. Импорт можно использовать для переноса файлов RDB, совместимых с Redis, с любого сервера Redis, работающего в любом облаке или среде, включая Redis, работающую под управлением Linux, Windows или любого поставщика облачных служб, например Amazon Web Services и других. Импорт данных позволяет легко создать кэш, предварительно заполненный данными. Во время импорта кэш Azure для Redis загружает RDB-файлы из службы хранилища Azure в память, а затем вставляет в кэш ключи.
 
 Периодическое тестирование данных для Azure Key Vault секретов.
 
-Как использовать кэш Azure для импорта Redis:
+- [Как использовать кэш Azure для импорта Redis](cache-how-to-import-export-data.md)
 
-https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-import-export-data
-
-Восстановление секретов Key Vault:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Восстановление секретов Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
 
 **Ответственность**: Customer
 
-### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4. Обеспечение защиты резервных копий и управляемых клиентом ключей
-
-**Руководство**. кэш Azure для резервного копирования Redis из Redis экспорта и Redis хранится в выбранной учетной записи хранения Azure. Данные в службе хранилища Azure шифруются и расшифровываются прозрачно с использованием 256-разрядного шифрования AES, одним из наиболее подданных блоков блочных шифров и совместимым с FIPS 140-2. Шифрование службы хранилища Azure не может быть отключено. Вы можете использовать ключи, управляемые корпорацией Майкрософт, для шифрования учетной записи хранения или управлять шифрованием с помощью собственных ключей.
-
-Общие сведения о шифровании учетных записей хранения Azure: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
-
-**Мониторинг Центра безопасности Azure**: Да
-
-**Ответственность**: Microsoft
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="incident-response"></a>реагирование на инциденты.
 
-*Дополнительные сведения см. в статье [Управление безопасностью: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1. Создание руководства по реагированию на инциденты
 
-**Руководство**. Создайте руководство по реагированию на инциденты для вашей организации. Убедитесь в том, что имеются письменные планы реагирования на инциденты, которые определяют все действия персонала, а также этапы обработки инцидентов и управления ими для проверки после инцидента.
+**Руководство**. Создайте руководство по реагированию на инциденты для вашей организации. Убедитесь, что имеются письменные планы реагирования на инциденты, которые определяют все действия персонала, а также этапы обработки инцидентов и управления ими для проверки после инцидента.
 
-Настройка автоматизации рабочих процессов в Центре безопасности Azure: 
+- [Как настроить автоматизацию рабочих процессов в Центре безопасности Azure](../security-center/security-center-planning-and-operations-guide.md)
 
-https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+- [Руководство по созданию собственного процесса реагирования на инциденты безопасности](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-Руководство по созданию собственного процесса реагирования на инциденты безопасности:
+- [Анатомия инцидента Центра Майкрософт по реагированию на угрозы](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
-
-Анатомия инцидента Microsoft Security Response Center:
-
-https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
-
-Клиент может также использовать руководство по обработке инцидентов безопасности компьютера от NIST, чтобы разработать собственный план реагирования на инциденты: 
-
-https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Клиент также может воспользоваться руководством по обработке инцидентов безопасности компьютера NIST, чтобы помочь в создании собственного плана реагирования на инциденты.](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2. Создание процедуры оценки инцидента и определения приоритетов
 
-**Руководство**. Центр безопасности назначает каждому оповещению серьезность, которая поможет определить, какие предупреждения следует расследовать первыми. Серьезность основывается на том, насколько уверен Центр безопасности в исследовании или аналитике, используемой для оповещения, а также на уровне достоверности злонамеренности события, приведшего к оповещению.
+**Руководство**. Центр безопасности назначает каждому оповещению серьезность, которая поможет определить, какие предупреждения следует расследовать первыми. Серьезность основывается на том, насколько надежным является центр безопасности в поиске или аналитике, используемой для выдаче оповещения, а также об уровне достоверности, который был вредоносным намерением для действия, вызвавшего оповещение.
 
 Кроме того, четко помечайте подписки (для устар. производственной, непроизводственной) и создайте систему именования, чтобы четко определить и классифицировать ресурсы Azure.
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="103-test-security-response-procedures"></a>10.3. Проверка процедур реагирования на угрозы
 
-**Рекомендации**. Выполните упражнения, чтобы периодически протестировать возможности ваших систем реагировать на угрозы. Выявите слабые точки и пробелов и пересмотрите план по мере необходимости.
+**Рекомендации**. Выполните упражнения, чтобы периодически протестировать возможности ваших систем реагировать на угрозы. Выявите слабые точки и пробелы и пересмотрите план по мере необходимости.
 
-См. публикацию NIST: Руководство по тестированию, обучению и выполнению программ для ИТ-планов и возможностей: 
-
-https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [См. публикацию NIST: руководство по тестированию, обучению и выполнению программ для ИТ-планов и возможностей](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4. Предоставление контактных сведений и настройка уведомлений по инцидентам безопасности
 
 **Рекомендации**. Корпорация Майкрософт будет использовать информацию об инциденте безопасности для связи с вами, если центр Microsoft Security Response Center (MSRC) обнаружит, что к вашим пользовательским данным был получен незаконный или несанкционированный доступ.  Проверьте инциденты после факта обращения, чтобы убедиться, что проблемы устранены.
 
-Как задать контакт безопасности центра безопасности Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как задать контакт безопасности Центра безопасности Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5. Включение оповещений системы безопасности в систему реагирования на инциденты
 
 **Рекомендации**. Экспортируйте оповещения и рекомендации центра безопасности Azure с помощью функции непрерывного экспорта. Непрерывный экспорт позволяет экспортировать предупреждения и рекомендации как вручную, так и в постоянном, непрерывном режиме. Вы можете использовать соединитель данных Центра безопасности Azure для потоковой передачи оповещений в Azure Sentinel.
 
-Как настроить непрерывный экспорт:
+- [Настройка непрерывного экспорта данных](../security-center/continuous-export.md)
 
-https://docs.microsoft.com/azure/security-center/continuous-export
-
-Как выполнить потоковую передачу предупреждений в Azure Sentinel:
-
-https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как выполнить потоковую передачу оповещений в Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6. Автоматизация реагирования на оповещения системы безопасности
 
-**Рекомендации**. Используйте функцию автоматизации рабочих процессов в центре безопасности Azure для автоматического запуска ответов с помощью "Logic Apps" в оповещениях и рекомендациях системы безопасности.
+**Руководство**. Используйте функцию автоматизации рабочих процессов в Центре безопасности Azure для автоматического запуска реагирования с помощью Logic Apps в оповещениях и рекомендациях системы безопасности.
 
-Как настроить автоматизацию рабочего процесса и Logic Apps:
-
-https://docs.microsoft.com/azure/security-center/workflow-automation
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как настроить автоматизацию рабочего процесса и Logic Apps](../security-center/workflow-automation.md)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="penetration-tests-and-red-team-exercises"></a>Тесты на проникновение и попытки нарушения безопасности "красной командой"
 
-*Дополнительные сведения см. в статье [Управление безопасностью: тесты на проникновение и попытки нарушения безопасности "красной командой"](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Дополнительные сведения см. в статье [тесты производительности системы безопасности Azure: испытания на проникновение и команды красных команд](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1. Регулярное тестирование на проникновение ресурсов Azure и отслеживание исправлений всех критических точек безопасности в течение 60 дней
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1. Проведите регулярное тестирование на проникновение ресурсов Azure и обеспечьте исправление всех критических результатов безопасности.
 
-**Рекомендации**. Следуйте правилам взаимодействия Майкрософт, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт: 
+**Рекомендации**. Следуйте правилам тестирования уязвимости Microsoft Cloud, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт. Используйте стратегию Майкрософт и рекомендации "красных команд", а затем выполните тест на проникновение в режиме реального времени для управляемых корпорацией Майкрософт облачной инфраструктуры, служб и приложений. 
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+- [Правила взаимодействия при выполнении тестирования на проникновение](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-Дополнительные сведения о стратегии корпорации Майкрософт и реализации "красной команды", а также о тестировании на основе уязвимости для облачной инфраструктуры, служб и приложений Майкрософт см. здесь:  
-
-https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Привлечение "красных команд для тестирования "Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Ответственность**: Совмещаемая блокировка
 
-## <a name="next-steps"></a>Дальнейшие действия
+**Мониторинг центра безопасности Azure**: нет
 
-- См. [Тесты производительности системы безопасности Azure](../security/benchmarks/overview.md).
-- Узнайте больше о [Базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+## <a name="next-steps"></a>Следующие шаги
+
+- См. [Обзор Azure Security Benchmark версии 2](/azure/security/benchmarks/overview)
+- Дополнительные сведения о [базовой конфигурации безопасности Azure](/azure/security/benchmarks/security-baselines-overview).

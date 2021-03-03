@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c2e1ddbfb87df40a0e3683e7bca7539c26191a7b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321439"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671315"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>ГРУППИРОВАНие по параметрам в синапсе SQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "93321439"
 
 ## <a name="what-group-by-does"></a>Действие GROUP BY
 
-Предложение T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) используется для объединения данных в сводный набор строк.
+Предложение T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest&preserve-view=true) используется для объединения данных в сводный набор строк.
 
 Бессерверный пул SQL поддерживает весь диапазон параметров GROUP BY. Выделенный пул SQL поддерживает ограниченное число вариантов GROUP BY.
 
@@ -125,7 +125,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-На следующем рисунке показаны результаты [CREATE TABLE как SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+На следующем рисунке показаны результаты [CREATE TABLE как SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true):
 
 ![GROUP BY с CUBE](./media/develop-group-by-options/develop-group-by-cube.png)
 

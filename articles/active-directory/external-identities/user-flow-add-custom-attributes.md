@@ -7,25 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 46b498f8b8512d0202f47dd31ba25cc851ca71e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441459"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644108"
 ---
-# <a name="define-custom-attributes-for-user-flows-preview"></a>Определение настраиваемых атрибутов для потоков пользователя (предварительная версия)
-
-> [!NOTE]
-> Функция настраиваемых атрибутов пользователя — это функция, которая предоставляется в общедоступной предварительной версии в Azure Active Directory. См. подробные сведения о [дополнительных условиях использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="define-custom-attributes-for-user-flows"></a>Определение настраиваемых атрибутов для потоков пользователя
 
 Для каждого приложения могут существовать различные требования к информации, которую необходимо получить во время регистрации. Azure AD поставляется со встроенным набором информации, сохраняемой в атрибутах, например "Given Name", "Surname", "City" и "Postal Code". С помощью Azure AD можно расширить набор атрибутов, хранящихся в гостевой учетной записи, когда внешний пользователь подписывается через пользовательский поток.
 
-Вы можете создать настраиваемые атрибуты на портале Azure и использовать их в потоке самообслуживания пользователей для самостоятельной регистрации. Эти атрибуты можно также считывать и записывать с помощью [Microsoft API Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). Microsoft Graph API поддерживает создание и обновление пользователя с помощью атрибутов расширения. Атрибуты расширений в API Graph именуются по соглашению `extension_<extensions-app-id>_attributename`. Пример:
+Вы можете создать настраиваемые атрибуты на портале Azure и использовать их в потоке самообслуживания пользователей для самостоятельной регистрации. Эти атрибуты можно также считывать и записывать с помощью [Microsoft API Graph](../../active-directory-b2c/microsoft-graph-operations.md). Microsoft Graph API поддерживает создание и обновление пользователя с помощью атрибутов расширения. Атрибуты расширений в API Graph именуются по соглашению `extension_<extensions-app-id>_attributename`. Пример:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -38,7 +35,7 @@ ms.locfileid: "92441459"
 1. Войдите на [портал Azure](https://portal.azure.com) с учетной записью администратора Azure AD.
 2. В разделе **Службы Azure** щелкните **Azure Active Directory**.
 3. В меню слева щелкните **Внешние удостоверения**.
-4. Выберите **Настраиваемые атрибуты пользователя (предварительная версия)** . Будут перечислены доступные атрибуты пользователя.
+4. Выберите **настраиваемые атрибуты пользователя**. Будут перечислены доступные атрибуты пользователя.
 
    ![Выберите атрибуты пользователя для регистрации](media/user-flow-add-custom-attributes/user-attributes.png)
 

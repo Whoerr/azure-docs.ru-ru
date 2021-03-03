@@ -4,17 +4,20 @@ description: Подробные сведения о настройке упра�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 02/19/2021
 ms.author: thweiss
-ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338288"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656522"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Настройка управляемых клиентом ключей для учетной записи Azure Cosmos с Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> Использование управляемых клиентом ключей с Azure Cosmos DBным [аналитическим хранилищем](analytical-store-introduction.md) в настоящее время требует дополнительной настройки вашей учетной записи. Обратитесь за дополнительными [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) сведениями.
 
 Данные, хранимые в учетной записи Azure Cosmos, автоматически шифруются с помощью ключей, управляемых корпорацией Майкрософт (**ключи, управляемые службой**). При необходимости можно добавить второй уровень шифрования с ключами, которыми вы управляете (**управляемыми клиентом ключами**).
 
@@ -291,6 +294,10 @@ az cosmosdb show \
 ### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>Поддерживаются ли управляемые клиентом ключи для имеющихся учетных записей Azure Cosmos?
 
 Сейчас эта возможность доступна только для новых учетных записей.
+
+### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>Можно ли использовать управляемые клиентом ключи в сочетании с Azure Cosmos DBным [аналитическим хранилищем](analytical-store-introduction.md)?
+
+Да, но в настоящее время для вашей учетной записи требуется дополнительная настройка. Обратитесь за дополнительными [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) сведениями.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Планируется ли поддержка большей детализации по сравнению с ключами уровня учетной записи?
 

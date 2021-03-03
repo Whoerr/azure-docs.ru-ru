@@ -8,19 +8,18 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: SAP
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 8202b9bd496b4f539df99e35a3118ed109dbd31c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 979de230655b4804fa65a4bddb678e21b59c4ea2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365112"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674447"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Обеспечение высокого уровня доступности IBM DB2 LUW на виртуальных машинах Azure в Red Hat Enterprise Linux Server
 
@@ -353,7 +352,7 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
 
    d. Выберите группу доступности или виртуальные машины, на которых размещена база данных IBM DB2, созданная на предыдущем шаге.
 
-   д. Выберите виртуальные машины кластера IBM DB2.
+   д) Выберите виртуальные машины кластера IBM DB2.
 
    е) Щелкните **ОК**.
 
@@ -377,9 +376,9 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
 
    d. Установите для параметра **протокол** значение **TCP** и введите порт *связи с базой данных* порта.
 
-   д. Увеличьте **время ожидания** до 30 минут.
+   д) Увеличьте **время ожидания** до 30 минут.
 
-   f. Не забудьте **включить плавающий IP-адрес**.
+   е) Не забудьте **включить плавающий IP-адрес**.
 
    ж. Щелкните **ОК**.
 
@@ -530,7 +529,7 @@ j2ee/dbhost = db-virt-hostname
     
     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
     
-1. Выберите **Добавить**.
+1. Нажмите **Добавить**.
 1. Чтобы сохранить изменения, щелкните значок диска в левом верхнем углу.
 1. Закройте средство настройки.
 1. Перезапустите экземпляр Java.
@@ -859,7 +858,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 - [Высокодоступная архитектура и сценарии для SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 - [Настройка кластера Pacemaker в Red Hat Enterprise Linux в Azure][rhel-pcs-azr]
 

@@ -6,23 +6,23 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202629"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668575"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Расширение файла сведения о данных из Azure зрения 
 
 В этом пошаговом руководство описывается, как получить доступ к файлам, а также просмотреть и отфильтровать аналитические сведения о расширениях файлов или типах файлов, найденных в данных.
 
-Поддерживаются следующие источники данных: хранилище BLOB-объектов Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
+В число поддерживаемых источников данных входят: хранилище BLOB-объектов Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, контейнеры Amazon S3
 
 В этом пошаговом руководство вы узнаете, как:
 > [!div class="checklist"]
-> * Запустите учетную запись зрения из Azure. 
+> * Запуск учетной записи зрения из Azure 
 > - Просмотр сведений о расширении файла в данных
 > - Детализация дополнительных сведений о расширении файла для данных
 
@@ -32,7 +32,7 @@ ms.locfileid: "98202629"
 
 - Настройка ресурсов Azure и заполнение соответствующих учетных записей тестовыми данными
 
-- Настройка и завершение проверки тестовых данных в каждом источнике данных
+- Настройка и завершение проверки тестовых данных в каждом источнике данных. Дополнительные сведения см. [в статье Управление источниками данных в Azure зрения (Предварительная версия)](manage-data-sources.md) и [Создание набора правил проверки](create-a-scan-rule-set.md).
 
 - Выполнен вход в зрения с учетной записью с помощью [средства чтения данных или роли пленку данных](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
@@ -70,7 +70,7 @@ ms.locfileid: "98202629"
 
 После просмотра подробных сведений о типах файлов, найденных в области данных, выполните детализацию для получения дополнительных сведений о расположении, где они расположены, а также о том, можно ли проверить их на наличие конфиденциальных данных.
 
-Пример:
+Пример.
 
 :::image type="content" source="media/file-extension-insights/file-extension-drilldown-small.png" alt-text="Отчет о расширении файла — Углубленная детализация" lightbox="media/file-extension-insights/file-extension-drilldown.png":::
 

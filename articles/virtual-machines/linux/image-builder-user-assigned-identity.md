@@ -6,13 +6,14 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: f5734d4b1871dd285fc83a72631f7d645e0b72ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: bed861fe392703c99c088372fa9bdf58ad9572ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307268"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668215"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Создание образа и использование управляемого удостоверения, назначенного пользователем, для доступа к файлам в службе хранилища Azure 
 
@@ -254,6 +255,6 @@ az group delete -n $imageResourceGroup
 az group delete -n $strResourceGroup
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Если у вас возникли проблемы с построителем образов Azure, см. раздел [Устранение неполадок](image-builder-troubleshoot.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).

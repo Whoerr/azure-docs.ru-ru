@@ -6,20 +6,19 @@ author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 keywords: Azure, DB2, SAP, IBM
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bce8b878de1892162ddce7957befa41649014073
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3f89f218c82505fd6bc261d41938d4619b32bf8a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959018"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675973"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Развертывание СУБД IBM DB2 на Виртуальных машинах Azure для рабочей нагрузки SAP
 
@@ -230,7 +229,7 @@ Microsoft Cluster Server (MSCS) не поддерживается.
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 Читать статью 
 
 - [Вопросы развертывания СУБД для рабочей нагрузки SAP на виртуальных машинах Azure](dbms_guide_general.md)

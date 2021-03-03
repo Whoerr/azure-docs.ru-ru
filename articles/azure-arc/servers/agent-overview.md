@@ -1,14 +1,14 @@
 ---
 title: Общие сведения об агенте Connected Machine для Windows
 description: В этой статье представлен подробный обзор доступного агента серверов с поддержкой Arc Azure, который поддерживает мониторинг виртуальных машин, размещенных в гибридных средах.
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8c06989d726a30e95f0b9c4dcc15a967d498f92a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580873"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651099"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Обзор агента серверов с поддержкой ARC в Azure
 
@@ -68,6 +68,10 @@ ms.locfileid: "100580873"
 Агент Azure Connected Machine для Windows и Linux можно обновить до последней версии вручную или автоматически в зависимости от требований. Дополнительные сведения см. [здесь](manage-agent.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
+### <a name="supported-environments"></a>Поддерживаемые среды
+
+Серверы с поддержкой Arc поддерживают установку агента подключенного компьютера на любой физический сервер и виртуальную машину, размещенные *за пределами* Azure. Сюда входят виртуальные машины, работающие на таких платформах, как VMware, Azure Stack ХЦИ и другие облачные среды. Серверы с поддержкой Arc не поддерживают установку агента на виртуальных машинах, работающих в Azure, или на виртуальных машинах, работающих в центре Azure Stack или Azure Stack, так как они уже смоделированы как виртуальные машины Azure.
 
 ### <a name="supported-operating-systems"></a>Поддерживаемые операционные системы
 
@@ -132,7 +136,7 @@ URL-адреса:
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Гостевая конфигурация|
 |`*.his.arc.azure.com`|Служба гибридной идентификации|
-|`www.office.com`|Office 365|
+|`www.office.com`|Office 365|
 
 Для предварительных версий агентов (версии 0,11 и ниже) также требуется доступ к следующим URL-адресам:
 
@@ -293,7 +297,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
     * /var/opt/azcmagent
     * /opt/logs
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Чтобы начать оценку серверов с поддержкой Arc Azure, следуйте указаниям в статье [подключение гибридных компьютеров к Azure из портал Azure](onboard-portal.md).
 

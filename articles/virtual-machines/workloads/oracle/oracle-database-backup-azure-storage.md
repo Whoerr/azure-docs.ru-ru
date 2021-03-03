@@ -2,18 +2,19 @@
 title: Резервное копирование Oracle Database базы данных 19c на виртуальной машине Linux в Azure с помощью RMAN и службы хранилища Azure
 description: Узнайте, как создать резервную копию базы данных 19c Oracle Database в облачном хранилище Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806279"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670025"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Резервное копирование и восстановление Oracle Database базы данных 19c на виртуальной машине Linux в Azure с помощью службы хранилища Azure
 
@@ -210,7 +211,7 @@ ms.locfileid: "99806279"
     
     ![Страница добавления учетной записи хранения](./media/oracle-backup-recovery/file-storage-5.png)
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Чтобы настроить учетную запись хранения и общую папку, выполните следующие команды в Azure CLI.
 
@@ -405,4 +406,4 @@ az group delete --name rg-oracle
 
 Изучите [руководство по созданию высокодоступных виртуальных машин](../../linux/create-cli-complete.md).
 
-[Изучите примеры развертывания виртуальных машин с помощью интерфейса командной строки](../../linux/cli-samples.md).
+[Изучите примеры развертывания виртуальных машин с помощью интерфейса командной строки](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine).

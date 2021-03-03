@@ -2,21 +2,19 @@
 title: Вопросы и ответы по Azure Monitor для решений SAP | Документация Майкрософт
 description: В этой статье приведены ответы на часто задаваемые вопросы о Azure Monitor решениях SAP.
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
-ms.openlocfilehash: 204b809966fbf63a48f6d1ce1d80f87f706c9a56
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3732189c1d2e09b648a2fba0a39e7e4113a76d48
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968576"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675953"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Вопросы и ответы по Azure Monitor для решений SAP (Предварительная версия)
-## <a name="frequently-asked-questions"></a>Вопросы и ответы
+## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
 В этой статье содержатся ответы на часто задаваемые вопросы о Azure Monitor решениях SAP.  
 
@@ -70,6 +68,6 @@ SQL Server 2012 SP4 или более поздней версии.
  - **Какова ценность этой службы по традиционным решениям, таким как SAP HANAная панель или студия?**  
 Azure Monitor для решений SAP не зависит от базы данных HANA. Azure Monitor для решений SAP поддерживает также сертифицированную.  
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Создайте первую Azure Monitor для ресурса решений SAP.

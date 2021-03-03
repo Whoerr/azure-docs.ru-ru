@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e6c3987e2de7f9592a1f7f6086657592e1bf0c16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305101"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676596"
 ---
 # <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Настройка производительности с материализованными представлениями с помощью выделенного пула SQL в Azure синапсе Analytics
 
@@ -29,7 +29,7 @@ ms.locfileid: "93305101"
 
 Материализованные представления предварительно вычисляются, сохраняют и сохраняют свои данные в выделенном пуле SQL так же, как и таблица.  При использовании материализованных представлений повторное вычисление не требуется.  Именно поэтому запросы, использующие все или подмножество данных в материализованных представлениях, могут повысить производительность.  Более того, запросы могут использовать материализованные представления, не используя явные ссылки на них, поэтому нет необходимости изменять код приложения.  
 
-Большинство требований к стандартным представлениям применимо и к материализованным представлениям. Дополнительные сведения о синтаксисе материализованных представлений и других требованиях см. в статье о выражении [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Большинство требований к стандартным представлениям применимо и к материализованным представлениям. Дополнительные сведения о синтаксисе материализованных представлений и других требованиях см. в статье о выражении [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 | Сравнение                     | Представление                                         | Материализованное представление
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ ms.locfileid: "93305101"
 По сравнению с другими поставщиками хранилища данных материализованные представления, реализованные в выделенном пуле SQL, также предоставляют следующие дополнительные преимущества:
 
 - Автоматическое и синхронное обновление данных при их изменении в базовых таблицах. Вмешательство пользователя не требуется.
-- Широкая поддержка агрегатных функций. См. статью [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- Поддержка рекомендаций по материализованным представлениям для конкретных запросов.  См. статью [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Широкая поддержка агрегатных функций. См. статью [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+- Поддержка рекомендаций по материализованным представлениям для конкретных запросов.  См. статью [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Распространенные сценарии  
 
@@ -147,7 +147,7 @@ GROUP BY A, C
 
 Материализованные представления хранятся в хранилище данных точно так же, как таблица с кластеризованным индексом columnstore (CCI).  Чтение данных из материализованных представлений включает сканирование индекса и применение изменений из разностного хранилища.  Если число строк в разностном хранилище слишком велико, разрешение запроса из материализованных представлений может занять больше времени, чем непосредственное выполнение запросов к базовым таблицам.  
 
-Чтобы избежать снижения производительности запросов, рекомендуется выполнять запрос [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) для отслеживания коэффициента_дополнительных_затрат представления (строк_всего/строк_в_базовом_представлении).  Если коэффициент_дополнительных_затрат слишком высок, рассмотрите возможность перестроения материализованных представлений, чтобы все строки в разностном хранилище переместились в индекс columnstore.  
+Чтобы избежать снижения производительности запросов, рекомендуется выполнять запрос [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest&preserve-view=true) для отслеживания коэффициента_дополнительных_затрат представления (строк_всего/строк_в_базовом_представлении).  Если коэффициент_дополнительных_затрат слишком высок, рассмотрите возможность перестроения материализованных представлений, чтобы все строки в разностном хранилище переместились в индекс columnstore.  
 
 **Материализованные представления и кэширование результирующего набора**
 

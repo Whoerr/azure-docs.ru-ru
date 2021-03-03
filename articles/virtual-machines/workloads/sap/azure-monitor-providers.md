@@ -2,18 +2,16 @@
 title: Azure Monitor для поставщиков решений SAP | Документация Майкрософт
 description: Эта статья содержит ответы на часто задаваемые вопросы о Azure Monitor для поставщиков решений SAP.
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
-ms.openlocfilehash: 8192d7104daf1474a2123331183edf05e6fa1ada
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007420"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668999"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Azure Monitor для поставщиков решений SAP (Предварительная версия)
 
@@ -26,7 +24,7 @@ ms.locfileid: "100007420"
 Клиенты также могут настроить несколько поставщиков определенного типа поставщика, чтобы повторно использовать один и тот же ресурс SAP Monitor и связанную управляемую группу. Дополнительные сведения об управляемой группе ресурсов. Для общедоступной предварительной версии поддерживаются следующие типы поставщиков:   
 - SAP HANA
 - Кластер с высоким уровнем доступности
-- Microsoft SQL Server
+- Microsoft SQL Server
 
 ![Azure Monitor для поставщиков решений SAP](./media/azure-monitor-sap/azure-monitor-providers.png)
 

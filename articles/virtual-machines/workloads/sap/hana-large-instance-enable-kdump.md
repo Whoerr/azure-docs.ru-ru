@@ -6,20 +6,19 @@ documentationcenter: ''
 author: prtyag
 manager: hrushib
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a799242ecaae7b7152d79b7d341a9cb5cc18d7fe
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4a9b3d534e74ccd44dfaa35ec5bf3b65f50641c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654478"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666654"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Кдумп для SAP HANA на крупных экземплярах Azure (ХЛИ)
 
@@ -33,7 +32,7 @@ ms.locfileid: "97654478"
 
 ## <a name="supported-skus"></a>Поддерживаемые номера SKU
 
-|  Тип крупных экземпляров Hana   |  Поставщик ОС   |  Версия пакета ОС   |  номер SKU |
+|  Тип крупных экземпляров Hana   |  Поставщик ОС   |  Версия пакета ОС   |  SKU |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Тип I                    |  SuSE        |   SLES 12 с пакетом обновления 3 (SP3)         |  S224m      |
 |   Тип I                    |  SuSE        |   SLES 12 с пакетом обновления 4 (SP4)         |  S224m      |

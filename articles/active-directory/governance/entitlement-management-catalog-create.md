@@ -3,7 +3,7 @@ title: Создание & Управление каталогом ресурсо
 description: Узнайте, как создать новый контейнер ресурсов и получать доступ к пакетам в Azure Active Directory управлении назначением.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 8ae3ee8cb96453bae1ce581ea92bdb77854c02d8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745969"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644152"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Создание каталога ресурсов и управление им в управлении назначением Azure AD
 
@@ -80,6 +80,14 @@ ms.locfileid: "97745969"
 1. По завершении нажмите кнопку **Добавить**.
 
     Теперь эти ресурсы можно включать в пакеты Access в каталоге.
+
+### <a name="add-a-multi-geo-sharepoint-site"></a>Добавление сайта SharePoint с несколькими геогеографическими возможностями
+
+1. Если для SharePoint включена [Поддержка нескольких географических](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) сред, выберите среду, из которой вы хотите выбрать сайты.
+    
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Доступ к пакету — Добавление ролей ресурсов. Выберите SharePoint с несколькими географическими сайтами.":::
+
+1. Затем выберите сайты, которые вы хотите добавить в каталог. 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Программное добавление ресурса в каталог
 

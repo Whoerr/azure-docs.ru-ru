@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417970"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649212"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Управление учетными записями локальной службы
 
@@ -47,7 +47,7 @@ ms.locfileid: "100417970"
 
 При создании новой учетной записи службы используйте следующие критерии.
 
-| Принципы работы| Рекомендации | 
+| Принципы| Рекомендации | 
 | - |- | 
 | Сопоставление учетной записи службы| Привязать учетную запись службы к одной службе, приложению или сценарию. |
 | владельца;| Убедитесь, что есть владелец, который запрашивает и несет ответственность за учетную запись. |
@@ -60,11 +60,11 @@ ms.locfileid: "100417970"
 
 Используйте следующие параметры с учетными записями пользователей, используемыми в качестве учетных записей служб.
 
-* [**Срок действия учетной записи**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): задайте автоматический срок действия учетной записи службы по истечении периода проверки, если не будет определено, что он должен быть продолжен.
+* [**Срок действия учетной записи**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): задайте автоматический срок действия учетной записи службы по истечении периода проверки, если не будет определено, что он должен быть продолжен.
 
 *  **Логонворкстатионс**: Ограничьте разрешения для того места, где может входить учетная запись службы. Если он выполняется локально на компьютере и обращается только к ресурсам на этом компьютере, ограничьте его вход в систему в любом месте.
 
-* [**Невозможно изменить пароль**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): запретить учетной записи службы изменять свой собственный пароль, присвоив параметру значение false.
+* [**Невозможно изменить пароль**](/powershell/module/addsadministration/set-aduser?view=win10-ps): запретить учетной записи службы изменять свой собственный пароль, присвоив параметру значение false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Создание процесса управления жизненным циклом
@@ -149,17 +149,17 @@ ms.locfileid: "100417970"
 
 Создавайте учетную запись службы только после документирования соответствующей информации в CMDB, и вы выполняете оценку рисков. Ограничения учетной записи должны быть согласованы с оценкой рисков. Учитывайте следующие ограничения, связанные с оценкой.
 
-* [Срок действия учетной записи](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Срок действия учетной записи](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * Для всех учетных записей пользователей, используемых в качестве учетных записей служб, определите реалистичную и определенную конечную дату для использования. Задайте его с помощью флага "срок действия учетной записи". Дополнительные сведения см. в разделе[ Set-адаккаунтекспиратион](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Для всех учетных записей пользователей, используемых в качестве учетных записей служб, определите реалистичную и определенную конечную дату для использования. Задайте его с помощью флага "срок действия учетной записи". Дополнительные сведения см. в разделе[ Set-адаккаунтекспиратион](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
 
-* Вход в ([логонворкстатион](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Вход в ([логонворкстатион](/powershell/module/addsadministration/set-aduser?view=win10-ps))
 
-* Требования [политики паролей](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)
+* Требования [политики паролей](../../active-directory-domain-services/password-policy.md)
 
-* Создание в [расположении подразделения](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) , которое обеспечивает управление только привилегированными пользователями
+* Создание в [расположении подразделения](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) , которое обеспечивает управление только привилегированными пользователями
 
-* Настройте и собирайте аудит [, который обнаруживает изменения](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) в учетной записи службы и [использует учетную запись службы](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
+* Настройте и собирайте аудит [, который обнаруживает изменения](/windows/security/threat-protection/auditing/audit-directory-service-changes) в учетной записи службы и [использует учетную запись службы](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
 Когда все будет готово к переходу в рабочую среду, предоставьте доступ к учетной записи службы безопасно. 
 
@@ -193,14 +193,14 @@ ms.locfileid: "100417970"
 
 3. Удалите учетную запись службы после выполнения политики "осталось отключено". 
 
-   * Для MSAs можно [удалить его](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) с помощью PowerShell или удалить вручную из контейнера учетной записи управляемой службы.
+   * Для MSAs можно [удалить его](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) с помощью PowerShell или удалить вручную из контейнера учетной записи управляемой службы.
 
    * Учетные записи компьютеров или пользователей можно удалить вручную из Active Directory.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 См. следующие статьи о защите учетных записей служб.
 
-* [Общие сведения о локальных учетных записях служб](service-accounts-on-premises.md)
+* [Вводные сведения о локальных учетных записях служб](service-accounts-on-premises.md)
 
 * [Безопасная групповая управляемая учетная запись службы](service-accounts-group-managed.md)
 
@@ -210,4 +210,4 @@ ms.locfileid: "100417970"
 
 * [Защита учетных записей пользователей](service-accounts-user-on-premises.md)
 
-* [Управление учетными записями локальной службы](service-accounts-govern-on-premises.md)
+* [Управление локальными учетными записями служб](service-accounts-govern-on-premises.md)

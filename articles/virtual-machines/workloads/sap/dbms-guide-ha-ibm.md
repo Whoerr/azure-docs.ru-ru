@@ -2,18 +2,17 @@
 title: Настройка IBM DB2 HADR на виртуальных машинах Azure | Документация Майкрософт
 description: Установите высокий уровень доступности IBM DB2 LUW на виртуальных машинах Azure.
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621388"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671886"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Высокий уровень доступности IBM DB2 LUW на виртуальных машинах Azure на SUSE Linux Enterprise Server с Pacemaker
 
@@ -403,11 +402,11 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 1. Создайте интерфейсный пул IP-адресов:
 
-   a. В портал Azure откройте Azure Load Balancer, выберите **интерфейсный пул IP-адресов** и нажмите кнопку **Добавить**.
+   а. В портал Azure откройте Azure Load Balancer, выберите **интерфейсный пул IP-адресов** и нажмите кнопку **Добавить**.
 
    b. Введите имя нового пула IP-адресов внешнего интерфейса (например, **DB2-Connection**).
 
-   c. Установите статическое **назначение** и **Static** введите IP-адрес **Virtual-IP** , определенный в начале.
+   c. Установите статическое **назначение** и введите IP-адрес **Virtual-IP** , определенный в начале.
 
    d. Щелкните **ОК**.
 
@@ -415,13 +414,13 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 1. Создайте пул серверной части:
 
-   a. В портал Azure откройте Azure Load Balancer, выберите **серверные пулы** и нажмите кнопку **Добавить**.
+   а. В портал Azure откройте Azure Load Balancer, выберите **серверные пулы** и нажмите кнопку **Добавить**.
 
    b. Введите имя нового пула серверной части (например, **DB2-Серверная** часть).
 
    c. Щелкните **Добавить виртуальную машину**.
 
-   г. Выберите группу доступности или виртуальные машины, на которых размещена база данных IBM DB2, созданная на предыдущем шаге.
+   d. Выберите группу доступности или виртуальные машины, на которых размещена база данных IBM DB2, созданная на предыдущем шаге.
 
    д) Выберите виртуальные машины кластера IBM DB2.
 
@@ -429,7 +428,7 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 1. Создание пробы работоспособности:
 
-   a. В портал Azure откройте Azure Load Balancer, выберите **зонды работоспособности** и нажмите кнопку **Добавить**.
+   а. В портал Azure откройте Azure Load Balancer, выберите **зонды работоспособности** и нажмите кнопку **Добавить**.
 
    b. Введите имя новой проверки работоспособности (например, **DB2-HP**).
 
@@ -439,13 +438,13 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 1. Создайте правила балансировки нагрузки.
 
-   a. В портал Azure откройте Azure Load Balancer, выберите **правила балансировки нагрузки**, а затем нажмите кнопку **Добавить**.
+   а. В портал Azure откройте Azure Load Balancer, выберите **правила балансировки нагрузки**, а затем нажмите кнопку **Добавить**.
 
    b. Введите имя нового правила Load Balancer (например, **DB2-SID**).
 
    c. Выберите интерфейсный IP-адрес, пул внутренних серверов и пробы работоспособности, созданные ранее (например, **DB2-** Front).
 
-   г. Установите для параметра **протокол** значение **TCP** и введите порт *связи с базой данных* порта.
+   d. Установите для параметра **протокол** значение **TCP** и введите порт *связи с базой данных* порта.
 
    д) Увеличьте **время ожидания** до 30 минут.
 
@@ -483,7 +482,7 @@ j2ee/dbhost = db-virt-hostname
 1. В правом окне выберите ключевые JDBC/Pool/ \<SAPSID> /УРЛ..
 1. Измените имя узла в URL-адресе JDBC на имя виртуального узла.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
-1. Выберите **Добавить**.
+1. Нажмите **Добавить**.
 1. Чтобы сохранить изменения, щелкните значок диска в левом верхнем углу.
 1. Закройте средство настройки.
 1. Перезапустите экземпляр Java.

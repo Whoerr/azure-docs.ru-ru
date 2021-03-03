@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5265b875769e6a1b8f1728c9c41c0bee00619956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807026"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647393"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Добавление соединителя API в поток пользователя
 
@@ -30,7 +30,7 @@ ms.locfileid: "99807026"
 1. Войдите на [портал Azure](https://portal.azure.com/) с учетной записью администратора Azure AD.
 2. В разделе **Службы Azure** щелкните **Azure Active Directory**.
 3. В меню слева щелкните **Внешние удостоверения**.
-4. Выберите **все соединители API (Предварительная версия)**, а затем выберите **новый соединитель API**.
+4. Выберите **все соединители API**, а затем выберите **новый соединитель API**.
 
    ![Добавить новый соединитель API](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "99807026"
    - В настоящее время поддерживается только обычная проверка подлинности. Если вы хотите использовать API без обычной проверки подлинности для целей разработки, просто введите фиктивное **имя пользователя** и **пароль** , которые API может игнорировать. Для использования с функцией Azure с ключом API можно включить код в качестве параметра запроса в **URL-адрес конечной точки** (например, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Настройка нового соединителя API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
-8. Нажмите кнопку **Сохранить**.
+8. Щелкните **Сохранить**.
 
 > [!IMPORTANT]
 > Ранее было необходимо было настроить, какие атрибуты пользователей следует отправлять в API ("утверждений для отправки"), и какие атрибуты пользователя следует принимать из API ("утверждений для получения"). Теперь все пользовательские атрибуты отправляются по умолчанию, если в ответе "продолжение" интерфейс API может вернуть любой пользовательский атрибут.
@@ -97,7 +97,7 @@ Content-type: application/json
 1. Войдите на [портал Azure](https://portal.azure.com/) с учетной записью администратора Azure AD.
 2. В разделе **Службы Azure** щелкните **Azure Active Directory**.
 3. В меню слева щелкните **Внешние удостоверения**.
-4. Выберите **потоки пользователей (Предварительная версия)**, а затем выберите пользовательский поток, к которому нужно добавить соединитель API.
+4. Выберите последовательности **пользователей**, а затем выберите пользовательский поток, к которому нужно добавить соединитель API.
 5. Выберите **соединители API**, а затем выберите конечные точки API, которые нужно вызвать, на следующих шагах в потоке пользователя:
 
    - **После входа с помощью поставщика удостоверений**
@@ -105,7 +105,7 @@ Content-type: application/json
 
    ![Добавление API в поток пользователя](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
-6. Нажмите кнопку **Сохранить**.
+6. Щелкните **Сохранить**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>После входа с помощью поставщика удостоверений
 

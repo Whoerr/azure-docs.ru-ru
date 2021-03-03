@@ -3,15 +3,16 @@ title: Развертывание виртуальных машин и экзе�
 description: Развертывание виртуальных машин и экземпляров масштабируемых наборов на выделенные узлы с помощью Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dcb5a3c664386e65e676f5559c47236126fefe87
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 9d4117cafd665556fb60278aa4dc60dc14a27ada
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704934"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670526"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Развертывание на выделенных узлах с помощью Azure CLI
  

@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 842c56ef1fb6f68c3d8b82e2633d9a604db9fde2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871321"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671633"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Конфигурации рабочих нагрузок SAP с использованием Зон доступности Azure
 Кроме того, для развертывания различных уровней архитектуры SAP в группах доступности Azure можно также использовать более новые [зоны доступности Azure](../../../availability-zones/az-overview.md) для развертываний рабочих нагрузок SAP. Зона доступности Azure определяется как "уникальные физические расположения в пределах региона". Каждая зона состоит из одного или нескольких центров обработки данных, оснащенных независимым питанием, охлаждением и сетью. Зоны доступности Azure недоступны во всех регионах. Для регионов Azure, которые предоставляют Зоны доступности, проверьте [карту региона Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Эта схема показывает, какие регионы предоставляются или объявлены для предоставления Зоны доступности. 
@@ -154,7 +153,7 @@ ms.locfileid: "98871321"
 
 Ниже перечислены регионы Azure, в которых может быть предпочтительнее такой тип архитектуры развертывания в разных зонах.
 
-- Southeast Asia
+- Юго-Восточная Азия
 - Восточная Австралия
 - Brazil South
 - Центрально-Западная Германия

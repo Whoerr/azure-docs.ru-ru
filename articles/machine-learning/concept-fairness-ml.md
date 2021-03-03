@@ -10,18 +10,18 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 01/26/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871508"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659687"
 ---
 # <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Устранение недостоверности в моделях машинного обучения (Предварительная версия)
 
 Узнайте о равноправии в машинном обучении и о том, как пакет Python с открытым кодом [фаирлеарн](https://fairlearn.github.io/) может помочь в устранении проблем неуверенности в моделях машинного обучения. Если вы не собираетесь понимать проблемы с равноправием и не можете оценить равноправие при построении моделей машинного обучения, можно создать модели, которые выдают нечестные результаты.
 
-Приведенная ниже сводка [руководства пользователя](https://fairlearn.github.io/master/user_guide/index.html) по пакету фаирлеарн с открытым исходным кодом описывает, как использовать его для оценки равноправия создаваемых систем AI.  Пакет Фаирлеарн с открытым исходным кодом может также предложить варианты, помогающие снизить или уменьшить количество проблем с равноправием.  Ознакомьтесь с [примерами записных книжек](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) [, чтобы](how-to-machine-learning-fairness-aml.md) включить оценку равноправия для систем AI во время обучения на машинное обучение Azure.
+Приведенная ниже сводка [руководства пользователя](https://fairlearn.github.io/main/user_guide/index.html) по пакету фаирлеарн с открытым исходным кодом описывает, как использовать его для оценки равноправия создаваемых систем AI.  Пакет Фаирлеарн с открытым исходным кодом может также предложить варианты, помогающие снизить или уменьшить количество проблем с равноправием.  Ознакомьтесь с [примерами записных книжек](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) [, чтобы](how-to-machine-learning-fairness-aml.md) включить оценку равноправия для систем AI во время обучения на машинное обучение Azure.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>Что такое равноправие в моделях машинного обучения?
@@ -109,6 +109,6 @@ ms.locfileid: "98871508"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Узнайте, как использовать различные компоненты, извлекая сведения о [GitHub](https://github.com/fairlearn/fairlearn/), [Руководство пользователя](https://fairlearn.github.io/master/user_guide/index.html), [примеры](https://fairlearn.github.io/master/auto_examples/)и примеры [записных книжек](https://github.com/fairlearn/fairlearn/tree/master/notebooks)фаирлеарн.
+- Узнайте, как использовать различные компоненты, извлекая сведения о [GitHub](https://github.com/fairlearn/fairlearn/), [Руководство пользователя](https://fairlearn.github.io/main/user_guide/index.html), [примеры](https://fairlearn.github.io/main/auto_examples/index.html)и примеры [записных книжек](https://github.com/fairlearn/fairlearn/tree/master/notebooks)фаирлеарн.
 - Узнайте [, как](how-to-machine-learning-fairness-aml.md) включить оценку равноправия моделей машинного обучения в машинное обучение Azure.
 - Дополнительные сценарии оценки равноправия в Машинное обучение Azure см. в [примерах записных книжек](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) . 

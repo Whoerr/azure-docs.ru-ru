@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e5aba2bad4cd7ae63ceb9c9f67f7e653a82a91
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 000b91529b3b02f2c7d03b50ddc841c68625dada
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650156"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644809"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Необходимые условия для Azure AD Connect
 В этой статье описаны необходимые условия и требования к оборудованию для Azure Active Directory (Azure AD) Connect.
@@ -29,7 +29,7 @@ ms.locfileid: "100650156"
 ## <a name="before-you-install-azure-ad-connect"></a>Перед установкой Azure AD Connect
 Прежде чем установить Azure AD Connect и обновить DirSync, вам потребуется ряд элементов.
 
-### <a name="azure-ad"></a>Azure AD
+### <a name="azure-ad"></a>Azure AD
 * Необходим клиент Azure AD. Вы получите его с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/). Вы можете использовать один из следующих порталов для управления Azure AD Connect:
   * [Портал Azure](https://portal.azure.com).
   * [Портал Office](https://portal.office.com).
@@ -100,7 +100,7 @@ Azure AD Connect сервер должен рассматриваться как
 * Если вы используете [быстрые параметры](reference-connect-accounts-permissions.md#express-settings-installation) или обновляете DirSync, у вас должна быть учетная запись администратора предприятия для локального Active Directory.
 * Если вы используете путь установки настраиваемых параметров, у вас есть дополнительные параметры. Дополнительные сведения см. в разделе [Параметры выборочной установки](reference-connect-accounts-permissions.md#custom-installation-settings).
 
-### <a name="connectivity"></a>Подключение
+### <a name="connectivity"></a>Соединение
 * Для серверов Azure AD Connect требуется разрешение DNS как для интрасети, так и для Интернета. DNS-сервер должен иметь возможность разрешения имен как для локальной службы Active Directory, так и для конечных точек Azure AD.
 * Если в интрасети есть брандмауэры и необходимо открыть порты между серверами Azure AD Connect и контроллерами домена, см. Дополнительные сведения в разделе [Azure AD Connect Ports](reference-connect-ports.md) .
 * Если прокси-сервер или брандмауэр ограничивает доступ к URL-адресам, необходимо открыть URL-адреса, описанные в списке URL-адресов [и диапазонов IP-адреса Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) . См. также [портал Azure URL-адреса списка надежных адресов в брандмауэре или прокси-сервере](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
@@ -141,7 +141,7 @@ Azure AD Connect сервер должен рассматриваться как
 Дополнительные сведения см. в разделе MSDN об [элементе прокси по умолчанию](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 В случае проблем с подключением изучите статью [Устранение неполадок подключения в Azure AD Connect](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Другие
+### <a name="other"></a>Другое
 Необязательно. Используйте тестовую учетную запись пользователя для проверки синхронизации.
 
 ## <a name="component-prerequisites"></a>Предварительные требования к компонентам
@@ -151,7 +151,7 @@ Azure AD Connect сервер должен рассматриваться как
 * Windows Server 2012 R2
   * Microsoft PowerShell устанавливается по умолчанию. Никаких действий не требуется.
   * Платформа .NET Framework 4.5.1 и более поздних версий распространяется через Центр обновления Windows. Убедитесь, что установлены последние обновления для Windows Server на панели управления.
-* Windows Server 2012
+* Windows Server 2012
   * Последняя версия Microsoft PowerShell доступна в Windows Management Framework 4,0, доступной в [центре загрузки Майкрософт](https://www.microsoft.com/downloads).
   * Платформа .NET Framework 4.5.1 и более поздние версии доступны в [центре загрузки Майкрософт](https://www.microsoft.com/downloads).
 
@@ -175,9 +175,9 @@ Azure AD Connect сервер должен рассматриваться как
 
 В этом разделе реестра Azure AD Connect проверит наличие и отсутствие повреждений следующих значений: 
 
-- [мачинеакцессрестриктион](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
-- [мачинелаунчрестриктион](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
-- [дефаултлаунчпермиссион](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
+- [мачинеакцессрестриктион](/windows/win32/com/machineaccessrestriction)
+- [мачинелаунчрестриктион](/windows/win32/com/machinelaunchrestriction)
+- [дефаултлаунчпермиссион](/windows/win32/com/defaultlaunchpermission)
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Предварительные требования для установки и настройки федерации
 ### <a name="windows-remote-management"></a>Удаленное управление Windows

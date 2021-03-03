@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 430629f94695f0689422434c8d80fe4e1876e5dd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 94e7ae93d05ae8ee35028882e14d8da74814d833
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900270"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650232"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Руководство. Настройка проверки подлинности с помощью Azure Active Directory B2C для безопасного гибридного доступа
 
@@ -80,7 +80,7 @@ PingFederate — это корпоративный мост, который мо
 
 - Подписка Azure. Если у вас ее нет, получите [бесплатную учетную запись](https://azure.microsoft.com/free/).
 
-- [Клиент Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) , связанный с вашей подпиской Azure.
+- [Клиент Azure AD B2C](./tutorial-create-tenant.md) , связанный с вашей подпиской Azure.
 
 - PingAccess и PingFederate разворачиваются в контейнерах DOCKER или непосредственно на виртуальных машинах Azure.
 
@@ -107,7 +107,7 @@ PingFederate — это корпоративный мост, который мо
 
 ![на рисунке показаны параметры токена](./media/partner-ping/token-setting.png)
 
-В расширенных политиках этот параметр можно настроить с помощью элемента метаданных **иссуанцеклаимпаттерн** , чтобы **аусоритивистфп** значение в [техническом профиле издателя маркера JWT](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile).
+В расширенных политиках этот параметр можно настроить с помощью элемента метаданных **иссуанцеклаимпаттерн** , чтобы **аусоритивистфп** значение в [техническом профиле издателя маркера JWT](./jwt-issuer-technical-profile.md).
 
 ## <a name="configure-pingaccesspingfederate"></a>Настройка PingAccess и PingFederate
 
@@ -160,7 +160,7 @@ PingFederate — это корпоративный мост, который мо
 
 7. В поле **секрет клиента** введите **ключ** , созданный для приложения в Azure AD.
 
-8. Необязательно. Вы можете создавать и использовать пользовательские утверждения с помощью Microsoft Graph API. Если вы решили сделать это, выберите **Дополнительно** и отмените выбор параметров **профиль запроса** и **обновить атрибуты пользователя** . Дополнительные сведения об использовании настраиваемых утверждений см. в статье [Использование настраиваемого утверждения](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#optional---use-a-custom-claim).
+8. Необязательно. Вы можете создавать и использовать пользовательские утверждения с помощью Microsoft Graph API. Если вы решили сделать это, выберите **Дополнительно** и отмените выбор параметров **профиль запроса** и **обновить атрибуты пользователя** . Дополнительные сведения об использовании настраиваемых утверждений см. в статье [Использование настраиваемого утверждения](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
 
 9. Нажмите кнопку **Сохранить**.
 
@@ -179,7 +179,7 @@ PingFederate — это корпоративный мост, который мо
 
 4. Выберите тип сопоставления идентификаторов **для сопоставления идентификаторов заголовков**
 
-5. В таблице **сопоставления атрибутов** укажите необходимые сопоставления. Например, примененная к объекту директива
+5. В таблице **сопоставления атрибутов** укажите необходимые сопоставления. Например,
 
    Имя атрибута | Имя заголовка |
    |-------|--------|
@@ -265,6 +265,6 @@ PingFederate — это корпоративный мост, который мо
 
 Дополнительные сведения см. в следующих статьях.
 
-- [Пользовательские политики в Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Пользовательские политики в Azure AD B2C](./custom-policy-overview.md)
 
-- [Приступая к работе с пользовательскими политиками в Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Приступая к работе с пользовательскими политиками в Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

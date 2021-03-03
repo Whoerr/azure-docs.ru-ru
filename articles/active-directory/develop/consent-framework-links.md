@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd55375f2c5970ff0620e753923f369d40478cef
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fa910dee2830f6749f0fbd36f065c31dafa6757
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052031"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646254"
 ---
 # <a name="how-application-consent-works"></a>Как действует согласие для приложения
 
@@ -31,4 +31,4 @@ ms.locfileid: "99052031"
 - Узнайте подробнее о том, [как согласие поддерживается на уровне протокола OAuth 2.0 во время предоставления кода авторизации.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

@@ -3,17 +3,17 @@ title: Диагностика и устранение неполадок с до
 description: Узнайте все о принципах доступности пакета SDK для Azure Cosmos при работе в разных регионах.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0720eb01920e39a9bee27e4d00d97acba55b0ad5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650989"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661432"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Диагностика и устранение неполадок с доступностью пакетов SDK для Cosmos Azure в многорегионовых средах
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,13 +47,13 @@ ms.locfileid: "100650989"
 > Если значения, указанные в качестве региональных настроек, не совпадают с существующими регионами Azure, они будут проигнорированы. Если они совпадают с существующим регионом, но учетная запись не реплицируется на нее, клиент будет подключаться к следующему предпочитаемому региону, который соответствует или к основному региону.
 
 > [!WARNING]
-> Отключение повторного обнаружения конечных точек (при этом устанавливается значение false) в конфигурации клиента отключит всю логику отработки отказа и доступности, описанную в этом документе.
-> Доступ к этой конфигурации можно получить с помощью следующих параметров в каждом пакете SDK для Azure Cosmos:
+> Логика отработки отказа и доступности, описанная в этом документе, может быть отключена в конфигурации клиента, что не рекомендуется, если пользовательское приложение не будет обрабатывать ошибки доступности. Это можно сделать, выполнив следующие действия.
 >
-> * Свойство [ConnectionPolicy. енаблиндпоинтредисковери](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) в пакете SDK для .NET v2.
-> * Метод [космосклиентбуилдер. ендпоинтдисковеренаблед](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) в пакете SDK для Java v4.
-> * Параметр [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) в пакете SDK для Python.
-> * Параметр [космосклиентоптионс. ConnectionPolicy. енаблиндпоинтдисковери](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) в пакете SDK для JS.
+> * Установка для свойства [ConnectionPolicy. енаблиндпоинтредисковери](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) в пакете SDK для .NET v2 значения false.
+> * Установка значения true для свойства [космосклиентоптионс. лимиттоендпоинт](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) в пакете SDK для .NET v3.
+> * Установка для метода [космосклиентбуилдер. ендпоинтдисковеренаблед](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) в пакете SDK для Java v4 значения false.
+> * Установка параметра [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) в пакете SDK для Python в значение false.
+> * Установка параметра [космосклиентоптионс. ConnectionPolicy. енаблиндпоинтдисковери](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) в пакете SDK для JS в значение false.
 
 В нормальных обстоятельствах клиент SDK будет подключаться к предпочтительному региону (если задана региональная предпочтение) или к основному региону (если предпочтений не задан), и операции будут ограничены этим регионом, если не будет выполнено ни один из следующих сценариев.
 

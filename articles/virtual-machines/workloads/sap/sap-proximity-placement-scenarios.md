@@ -8,20 +8,19 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee28f25e766940eb51e92b61fd782b97fd888705
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 924fdef475c43023c69c3006db19cd9a5aa15349
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879618"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669655"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Группы размещения службы "близость" Azure для оптимальной сетевой задержки с приложениями SAP
 Приложения SAP на основе архитектуры SAP NetWeaver или SAP S/4HANA чувствительны к задержке в сети между уровнем приложений SAP и уровнем базы данных SAP. Эта чувствительность является результатом большей части бизнес-логики, выполняемой на уровне приложения. Поскольку уровень приложений SAP выполняет бизнес-логику, он отправляет запросы на уровень базы данных с высокой частотой в тысячах или десятках тысяч в секунду. В большинстве случаев характер этих запросов прост. Они часто могут выполняться на уровне базы данных за 500 МКС или менее.

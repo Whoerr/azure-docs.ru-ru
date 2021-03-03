@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de24975dadf27293f305611c6ba07522e8aa90
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417964"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645622"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Общие сведения об учетных записях служб Active Directory
 
@@ -34,7 +34,7 @@ ms.locfileid: "100417964"
 
 ### <a name="group-msa-accounts"></a>Группирование учетных записей MSA
 
-По возможности используйте [групповые управляемые учетные записи служб](service-accounts-group-managed.md) (gmsa), если это возможно для служб, работающих в локальной среде. Gmsa предоставляют единое решение идентификации для службы, работающей на ферме серверов или за подсистемой балансировки сетевой нагрузки. Их также можно использовать для службы, работающей на одном сервере. [Gmsa предъявляют определенные требования, которые должны быть удовлетворены](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+По возможности используйте [групповые управляемые учетные записи служб](service-accounts-group-managed.md) (gmsa), если это возможно для служб, работающих в локальной среде. Gmsa предоставляют единое решение идентификации для службы, работающей на ферме серверов или за подсистемой балансировки сетевой нагрузки. Их также можно использовать для службы, работающей на одном сервере. [Gmsa предъявляют определенные требования, которые должны быть удовлетворены](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 ### <a name="standalone-msa-accounts"></a>Автономные учетные записи MSA
 
@@ -122,11 +122,11 @@ Out-GridView
 
   
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 См. следующие статьи о защите учетных записей служб.
 
-* [Общие сведения о локальных учетных записях служб](service-accounts-on-premises.md)
+* [Вводные сведения о локальных учетных записях служб](service-accounts-on-premises.md)
 
 * [Безопасная групповая управляемая учетная запись службы](service-accounts-group-managed.md)
 
@@ -136,6 +136,5 @@ Out-GridView
 
 * [Защита учетных записей пользователей](service-accounts-user-on-premises.md)
 
-* [Управление учетными записями локальной службы](service-accounts-govern-on-premises.md)
+* [Управление локальными учетными записями служб](service-accounts-govern-on-premises.md)
 
- 

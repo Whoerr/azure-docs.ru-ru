@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 42ed42a1fc9a2750cc928b5fd03eb4b32f770276
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355517"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644091"
 ---
 # <a name="identity-providers-for-external-identities"></a>Поставщики удостоверений для внешних удостоверений
 
@@ -26,10 +26,7 @@ ms.locfileid: "97355517"
 
 - **Google**. Федерация Google позволяет внешним пользователям активировать приглашения от вас и входить в ваши приложения с собственными учетными записями Gmail. Федерацию Google можно также использовать в потоках самостоятельной регистрации пользователей.
    > [!IMPORTANT]
-   > **Начиная с 4 января 2021** г. Компания Google не [WebView поддержку входа в систему](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Если вы используете Google Federation или самостоятельную регистрацию с помощью Gmail, необходимо [протестировать собственные бизнес-приложения для обеспечения совместимости](google-federation.md#deprecation-of-webview-sign-in-support).
-
-   > [!NOTE]
-   > В текущей предварительной версии, если поток пользователя для самостоятельной регистрации связан с приложением и вы отправляете пользователю приглашение на это приложение, пользователь не сможет использовать учетную запись Gmail для активации приглашения. В качестве решения этой проблемы пользователь может самостоятельно зарегистрироваться, активировать приглашение в другом приложении или воспользоваться порталом "Мои приложения" по адресу https://myapps.microsoft.com.
+   > **Начиная с 4 января 2021 г.** компания Google [прекращает поддержку входа через веб-представление](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Если вы используете федерацию Google или самостоятельную регистрацию с помощью Gmail, вам нужно [проверить нативные бизнес-приложения на совместимость](google-federation.md#deprecation-of-webview-sign-in-support).
 
 - **Facebook**. При создании приложения можно настроить самостоятельную регистрацию и включить федерацию Facebook, чтобы пользователи могли регистрироваться в приложении с помощью собственных учетных записей Facebook. Facebook можно использовать только для самостоятельной регистрации пользователей, но не как вариант входа, когда пользователи активируют приглашения, полученные от вас.
 

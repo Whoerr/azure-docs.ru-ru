@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: bd0abadb624bced7f603fcbd112f7c422e88fc0c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: d78621697d53f429624dc22a8e91ba4367dcfd18
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371853"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093971"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Устранение неполадок в представлении затрат на условиях соглашения Enterprise
 
@@ -41,7 +41,7 @@ ms.locfileid: "91371853"
 
 ![Снимок экрана: сообщение "ресурс недоступен".](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Чтобы получить доступ, попросите администратора подписки Azure или группы управления. Дополнительные сведения см. в статье о [добавлении и удалении назначений ролей Azure с помощью портала Azure](../../role-based-access-control/role-assignments-portal.md).
+Чтобы получить доступ, попросите администратора подписки Azure или группы управления. Дополнительные сведения см. в статье [Назначение ролей Azure с помощью портала Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Если у вас есть вопросы или вам нужна помощь, [создайте запрос в службу поддержки](https://go.microsoft.com/fwlink/?linkid=2083458).

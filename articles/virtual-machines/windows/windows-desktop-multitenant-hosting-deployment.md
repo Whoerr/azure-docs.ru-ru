@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
 ms.custom: rybaker, chmimckitt
-ms.openlocfilehash: 744f265251e9f58ce91085f0e5dd5d1ad13eec69
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6e6f6ced1cdba429abd914354a5eba861ab127ec
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625117"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670053"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Как развернуть Windows 10 в Azure с правами на мультитенантное размещение 
 Клиентам, использующим Windows 10 Корпоративная E3 или Windows 10 Корпоративная E5 для каждого пользователя, либо Windows VDA для каждого пользователя (лицензии на подписку пользователя или дополнительные лицензии на подписку пользователя), права на мультитенантное размещение для Windows 10 позволяют перенести лицензии Windows 10 в облако и запустить виртуальные машины Windows 10 в Azure без необходимости платить за другую лицензию. Права на размещение для клиентов доступны только для Windows 10 (версия 1703 или более поздняя).
@@ -26,7 +26,7 @@ ms.locfileid: "99625117"
 
 ## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>Лицензии на подписку, подходящие для прав на размещение клиентов
 
-С помощью [центра администрирования Майкрософт](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true)можно подтвердить, что пользователю назначена поддерживаемая лицензия Windows 10.
+С помощью [центра администрирования Майкрософт](/microsoft-365/admin/admin-overview/about-the-admin-center?preserve-view=true&view=o365-worldwide)можно подтвердить, что пользователю назначена поддерживаемая лицензия Windows 10.
 
 > [!IMPORTANT]
 > Для использования образов Windows 10 в Azure пользователи должны иметь одну из следующих лицензий подписки. Если у вас нет одной из этих лицензий, их можно приобрести через [партнера по облачным службам](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) или напрямую в [корпорации Майкрософт](https://www.microsoft.com/microsoft-365?rtc=1).
@@ -75,7 +75,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-Дополнительные сведения 
+Дополнительные сведения: 
 * [Отправка универсального диска VHD и создание виртуальных машин с его помощью в Azure](upload-generalized-managed.md)
 * [Подготовка диска VHD или VHDX для Windows к отправке в Azure](prepare-for-upload-vhd-image.md)
 
@@ -128,6 +128,6 @@ LicenseType              :
 ## <a name="additional-information-about-joining-azure-ad"></a>Дополнительная информация о присоединении к Azure AD
 Azure подготавливает все виртуальные машины Windows со встроенной учетной записью администратора, которую нельзя использовать для присоединения к AAD. Например, выбор команды *Параметры > Учетная запись > Доступ к рабочей или учебной учетной записи > + Подключиться* не сработает. Чтобы присоединиться к Azure AD вручную, необходимо создать журнал и войти в систему, используя учетную запись второго администратора. Вы также можете настроить Azure AD с помощью пакета подготовки, воспользовавшись ссылкой в разделе *дальнейшие действия* , чтобы получить дополнительные сведения.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Next Steps
 - Узнайте больше о [настройке VDA для Windows 10](/windows/deployment/vda-subscription-activation).
 - Узнайте больше о [правах на мультитенантное размещение для Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).

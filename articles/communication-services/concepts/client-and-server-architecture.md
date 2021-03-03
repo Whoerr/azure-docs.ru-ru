@@ -9,20 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2cc7e1d0c108d45383a68258fb6f62fcab87d1f7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0dbd1770030eeee8768c0b610171f5f27456ed70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653821"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656233"
 ---
 # <a name="client-and-server-architecture"></a>Архитектура клиента и сервера
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,7 +54,7 @@ ms.locfileid: "100653821"
 Взаимодействие по телефонной системе может значительно повысить уровень доступности вашего приложения. Для поддержки сценариев Voice и SMS службы связи Azure помогают [получать номера телефонов](../quickstarts/telephony-sms/get-phone-number.md) непосредственно из портал Azure или с помощью интерфейсов API и клиентских библиотек. После получения телефонных номеров их можно использовать для доступа клиентов, использующих как PSTN, так и SMS в сценариях входящего и исходящего трафика. Пример последовательности архитектуры можно найти ниже:
 
 > [!Note]
-> Во время общедоступной предварительной версии подготовка телефонных номеров США доступна клиентам с адресами для выставления счетов, расположенными в США и Канаде. 
+> Во время общедоступной предварительной версии подготовка телефонных номеров США доступна клиентам с адресами для выставления счетов, расположенными в США и Канаде.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Схема, показывающая архитектуру PSTN служб связи.":::
 

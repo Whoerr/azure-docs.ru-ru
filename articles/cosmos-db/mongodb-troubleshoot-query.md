@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340895"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659908"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Устранение проблем с запросами при использовании Azure Cosmos DB API для MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "93340895"
 В этой статье приведены примеры, которые можно создать повторно с помощью [набора данных информации питании](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> В этой статье предполагается, что вы используете API-интерфейс версии 3,6 Azure Cosmos DB "s" для MongoDB. Некоторые запросы, которые плохо работают в версии 3,2, имеют значительные улучшения в версии 3,6. Выполните обновление до версии 3,6, выполнив [запрос на поддержку](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> В этой статье предполагается, что вы используете API Azure Cosmos DB для учетных записей MongoDB с версией 3,6 и более поздними версиями. Некоторые запросы, которые плохо работают в версии 3,2, имеют значительные улучшения в версиях 3.6 и более поздних. Выполните обновление до версии 3,6, выполнив [запрос на поддержку](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="use-explain-command-to-get-metrics"></a>Получение метрик с помощью команды $explain
 
@@ -345,7 +345,7 @@ Azure Cosmos DB использует [секционирование](partitioni
 
 Это значение `estimatedDelayFromRateLimitingInMilliseconds` дает представление о возможных преимуществах задержки при увеличении пропускной способности.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Устранение неполадок с производительностью запросов (API SQL)](troubleshoot-query-performance.md)
-* [Управление индексированием в API Azure Cosmos DB для MongoDB](mongodb-indexing.md)
+* [Управление индексированием в API Azure Cosmos DB для MongoDB](mongodb-indexing.md)

@@ -3,18 +3,18 @@ title: 'Справочник: виртуальная машина Ubuntu для 
 titleSuffix: Azure Data Science Virtual Machine
 description: Сведения о средствах, включенных в виртуальную машину Ubuntu для обработки и анализа данных
 author: gvashishtha
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e9a55f72718d6ed5991f3d0f16323409bb0f699f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013859"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661075"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Справочник: виртуальная машина Ubuntu (Linux) для обработки и анализа данных
 
@@ -253,7 +253,7 @@ LaTeX устанавливается с помощью пакета texlive вм
 
 ## <a name="machine-learning-tools"></a>Инструменты машинного обучения
 
-В состав виртуальной машины входят некоторые инструменты и алгоритмы машинного обучения, которые были предварительно скомпилированы и установлены локально. Сюда входит следующее.
+В состав виртуальной машины входят некоторые инструменты и алгоритмы машинного обучения, которые были предварительно скомпилированы и установлены локально. приведенные ниже.
 
 * **Vowpal Wabbit**— алгоритм быстрого онлайн-обучения.
 * **xgboost**— инструмент, предоставляющий оптимизированные алгоритмы повышенного дерева.
@@ -282,7 +282,7 @@ vw house_dataset
 
 В этом каталоге есть и другие примеры, большего размера. Дополнительные сведения о Vowpal Wabbit см. в [этом разделе GitHub](https://github.com/JohnLangford/vowpal_wabbit) и на [вики-сайте Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
-### <a name="xgboost"></a>xgboost;
+### <a name="xgboost"></a>XGBoost
 
 Библиотека xgboost разработана и оптимизирована для алгоритмов увеличивающегося дерева. Цель этой библиотеки — сдвинуть вычислительные ограничения виртуальных машин до пределов, необходимых для получения повышенного дерева большого размера, которое является масштабируемым, переносимым и точным.
 
@@ -344,6 +344,6 @@ rattle()
 
 Теперь вы можете выйти из Rattle и R и отредактировать созданный скрипт R. Этот скрипт можно использовать и без изменений, запуская его в любой момент для повтора действий, выполненных в пользовательском интерфейсе Rattle. Этот способ позволяет новичкам в R быстро выполнить анализ и машинное обучение в простом графическом интерфейсе с автоматическим созданием кода на R для изменения и (или) изучения.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Остались еще вопросы? Рассмотрите возможность создания запроса в [службу поддержки](https://azure.microsoft.com/support/create-ticket/).

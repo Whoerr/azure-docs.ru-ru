@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199382"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676564"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Метка чувствительности к данным в Azure зрения
 
 В этом пошаговом руководство описывается, как получить, просмотреть и отфильтровать аналитические сведения о безопасности, предоставляемые метками конфиденциальности, применяемыми к данным.
 
-Поддерживаются следующие источники данных: хранилище BLOB-объектов Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, база данных SQL Azure, Azure SQL Управляемый экземпляр
+Поддерживаются следующие источники данных: хранилище BLOB-объектов Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, база данных SQL Azure, Управляемый экземпляр SQL Azure, контейнеры Amazon S3.
 
 В этом пошаговом руководство вы узнаете, как:
 
@@ -40,7 +40,7 @@ ms.locfileid: "98199382"
 
 - [Расширенные Microsoft 365 метки чувствительности к активам в Azure зрения](create-sensitivity-label.md), а также созданные или выбранные метки, которые необходимо применить к данным.
 
-- Настройка и завершение проверки тестовых данных в каждом источнике данных
+- Настройка и завершение проверки тестовых данных в каждом источнике данных. Дополнительные сведения см. [в статье Управление источниками данных в Azure зрения (Предварительная версия)](manage-data-sources.md) и [Создание набора правил проверки](create-a-scan-rule-set.md).
 
 - Выполнен вход в зрения с учетной записью с помощью [средства чтения данных или роли пленку данных](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
@@ -97,7 +97,7 @@ ms.locfileid: "98199382"
 - **Верхние метки применены к таблицам**
 - **Действие добавления меток > помеченные данные**
 
-Пример:
+Пример.
 
 :::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Детализация метки чувствительности" lightbox="media/insights/sensitivity-label-drilldown.png":::
 

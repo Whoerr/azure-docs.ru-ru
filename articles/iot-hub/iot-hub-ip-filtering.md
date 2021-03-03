@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/19/2020
 ms.author: jlian
-ms.openlocfilehash: c6544e8ac00744602476207a89567aea5afe5b1d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6f83421d4ee56d56875e13ffbdd8ac9dbbf4b6bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632417"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656369"
 ---
 # <a name="use-ip-filters"></a>Использование фильтрации IP-адресов
 
@@ -20,7 +20,7 @@ ms.locfileid: "98632417"
 
 ## <a name="when-to-use"></a>Назначение
 
-Используйте IP-фильтр для получения трафика только из указанного диапазона IP-адресов и отклоните все остальное. Например, вы используете центр Интернета вещей с помощью [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) для создания частных подключений между центром Интернета вещей и локальной инфраструктурой.
+Используйте IP-фильтр для получения трафика только из указанного диапазона IP-адресов и отклоните все остальное. Например, вы используете центр Интернета вещей с помощью [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) для создания частных подключений между центром Интернета вещей и локальной инфраструктурой.
 
 ## <a name="default-setting"></a>Параметр по умолчанию
 
@@ -164,7 +164,7 @@ $iothubResource | Set-AzResource -Force
 ## <a name="update-ip-filter-rules-using-rest"></a>Обновление правил фильтра IP-адреса с помощью REST
 
 
-Вы также можете получать и изменять фильтры IP-адресов Центра Интернета вещей, используя конечную точку REST поставщика ресурсов Azure. Подробные сведения о `properties.networkRuleSets` см. в статье [Iot Hub Resource — Create Or Update](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate) (Ресурс Центра Интернета вещей. Создание или обновление).
+Вы также можете получать и изменять фильтры IP-адресов Центра Интернета вещей, используя конечную точку REST поставщика ресурсов Azure. Подробные сведения о `properties.networkRuleSets` см. в статье [Iot Hub Resource — Create Or Update](/rest/api/iothub/iothubresource/createorupdate) (Ресурс Центра Интернета вещей. Создание или обновление).
 
 ## <a name="ip-filter-classic-retirement"></a>Прекращение использования IP-фильтра (классическая модель)
 
@@ -174,7 +174,7 @@ $iothubResource | Set-AzResource -Force
 
 Для дальнейшего изучения возможностей Центра Интернета вещей см. следующие статьи:
 
-* [Общие сведения о метриках Центра Интернета вещей](iot-hub-metrics.md)
+* [Общие сведения о метриках Центра Интернета вещей](./monitor-iot-hub.md)
 * [Поддержка Центра Интернета вещей для виртуальных сетей с Приватным каналом и управляемым удостоверением](virtual-network-support.md)
 * [Управление доступом к общедоступной сети для центра Интернета вещей](iot-hub-public-network-access.md)
 * [Мониторинг Центра Интернета вещей](monitor-iot-hub.md)

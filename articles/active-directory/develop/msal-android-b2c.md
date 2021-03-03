@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 902159153bccbea851481e1f81d03e8e70495020
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680371"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644278"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Использование MSAL для Android с B2C
 
@@ -39,21 +39,23 @@ ms.locfileid: "98680371"
 >Примечание. `account_mode` для приложений B2C должно быть задано значение " **несколько** ". Дополнительные сведения о [общедоступных клиентских приложениях для нескольких учетных записей](./single-multi-account.md#multiple-account-public-client-application)см. в документации.
 
 ### `app/src/main/res/raw/msal_config.json`
+
 ```json
 {
-    "client_id": "<your_client_id_here>",
-    "redirect_uri": "<your_redirect_uri_here>",
-    "account_mode" : "MULTIPLE",
-    "authorities": [{
-            "type": "B2C",
-            "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
-            "default": true
-        },
-        {
-            "type": "B2C",
-            "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
-        }
-    ]
+  "client_id": "<your_client_id_here>",
+  "redirect_uri": "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
+  "authorities": [
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
+      "default": true
+    },
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
+    }
+  ]
 }
 ```
 
@@ -118,7 +120,7 @@ pca.acquireToken(parameters);
 Чтобы получить маркер в автоматическом режиме с помощью MSAL, создайте `AcquireTokenSilentParameters` экземпляр и предоставьте его `acquireTokenSilentAsync` методу. В отличие от `acquireToken` метода, `authority` необходимо указать для получения маркера в автоматическом режиме.
 
 ```java
-IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
+IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
 AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Builder()
     .withScopes(Arrays.asList("https://contoso.onmicrosoft.com/contosob2c/read")) // Provide your registered scope here
     .forAccount(account)
@@ -142,7 +144,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Укажите политику
 
-Так как политики в B2C представляются в виде отдельных центров, вызов политики, отличной от значения по умолчанию, достигается путем указания `fromAuthority` предложения при создании `acquireToken` или настройке `acquireTokenSilent` параметров.  Пример:
+Так как политики в B2C представляются в виде отдельных центров, вызов политики, отличной от значения по умолчанию, достигается путем указания `fromAuthority` предложения при создании `acquireToken` или настройке `acquireTokenSilent` параметров.  Пример.
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -240,6 +242,6 @@ B2C рассматривает каждую политику как отдель
 
 При обновлении маркеров для политики с помощью `acquireTokenSilent` Укажите то же значение `IAccount` , которое было возвращено предыдущими вызовами политики в  `AcquireTokenSilentParameters` . Предоставление учетной записи, возвращаемой другой политикой, приведет к ошибке.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о Azure Active Directory B2C (Azure AD B2C) о том [, что Azure Active Directory B2C?](../../active-directory-b2c/overview.md)

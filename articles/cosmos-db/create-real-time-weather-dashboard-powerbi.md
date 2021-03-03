@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b3ec3e96aa1ba4bce3893c1af2446bb509a867b6
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 07a3deaf67c4f269b01d62ea25ddb212c1e01f6f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333602"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657542"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Создание панели мониторинга в режиме реального времени с помощью Azure Cosmos DB и Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "93333602"
 Существует несколько способов настройки панелей мониторинга отчетов для данных, хранящихся в Azure Cosmos DB. В зависимости от требований устаревания и размера данных в следующей таблице описывается настройка отчетов для каждого сценария.
 
 
-|Сценарий |Настройка |
+|Сценарий |Установка |
 |---------|---------|
 |1. Создание специальных отчетов (без обновления)    |  [Power BI Azure Cosmos DB соединителя с режимом импорта](powerbi-visualize.md)       |
 |2. Создание специальных отчетов с периодическим обновлением   |  [Power BI Azure Cosmos DB соединителя с режимом импорта (запланированное периодическое обновление)](powerbi-visualize.md)       |
@@ -48,7 +48,7 @@ Azure Analysis Services предоставляет полностью управ
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Прием данных о погоде в Azure Cosmos DB
 
-Настройте конвейер приема для загрузки [данных погоды](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) в Azure Cosmos DB. Вы можете настроить задание [фабрики данных Azure (ADF)](../data-factory/connector-azure-cosmos-db.md) для периодической загрузки последних данных о погоде в Azure Cosmos DB с помощью источника HTTP и приемника Cosmos DB.
+Настройте конвейер приема для загрузки [данных погоды](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) в Azure Cosmos DB. Вы можете настроить задание [фабрики данных Azure (ADF)](../data-factory/connector-azure-cosmos-db.md) для периодической загрузки последних данных о погоде в Azure Cosmos DB с помощью источника HTTP и приемника Cosmos DB.
 
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>Подключение Power BI к Azure Cosmos DB
@@ -70,7 +70,7 @@ Azure Analysis Services предоставляет полностью управ
    В зависимости от того, какой столбец и тип данных есть в исходном наборе данных, можно соответствующим образом изменить поля RangeStart и RangeEnd
 
    
-   |Свойство  |Тип данных  |Фильтр  |
+   |Свойство  |Тип данных  |Filter  |
    |---------|---------|---------|
    |_ts     |   Числовой      |  [_ts] > Duration. Тоталсекондс (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) и [_ts] < Duration. Тоталсекондс (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |Дата (например,-2019-08-19).     |   Строка      | [Document. Date] > DateTime. Тотекст (RangeStart, "гггг-мм-дд") и [Document. Date] < DateTime. Тотекст (RangeEnd, "гггг-мм-дд")        |
@@ -94,7 +94,7 @@ Azure Analysis Services предоставляет полностью управ
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Прием данных о погоде в Azure Cosmos DB 
 
-Настройте конвейер приема для загрузки [данных погоды](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) в Azure Cosmos DB. Вы можете настроить задание фабрики данных Azure (ADF) для периодической загрузки последних данных о погоде в Azure Cosmos DB с помощью источника HTTP и приемника Cosmos DB.
+Настройте конвейер приема для загрузки [данных погоды](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) в Azure Cosmos DB. Вы можете настроить задание фабрики данных Azure (ADF) для периодической загрузки последних данных о погоде в Azure Cosmos DB с помощью источника HTTP и приемника Cosmos DB.
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Подключение Azure Analysis Services к учетной записи Azure Cosmos
 
@@ -112,7 +112,7 @@ Azure Analysis Services предоставляет полностью управ
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Добавить Cosmos DB источник данных":::
 
-   Подключитесь к Azure Cosmos DB, указав **URI учетной записи** , **имя базы данных** и **имя контейнера**. Теперь вы можете увидеть данные из контейнера Azure Cosmos, импортированные в Power BI.
+   Подключитесь к Azure Cosmos DB, указав **URI учетной записи**, **имя базы данных** и **имя контейнера**. Теперь вы можете увидеть данные из контейнера Azure Cosmos, импортированные в Power BI.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Предварительный просмотр Azure Cosmos DB данных":::
 
@@ -167,7 +167,7 @@ Azure Analysis Services предоставляет полностью управ
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Загрузка данных и создание отчетов":::
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о Power BI см. в статье [Приступая к работе с Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 

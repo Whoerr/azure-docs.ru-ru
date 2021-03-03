@@ -3,16 +3,17 @@ title: Коды ошибок для виртуальных машин и экз�
 description: Узнайте о кодах ошибок, которые могли бы быть доступны при использовании виртуальных машин и экземпляров масштабируемых наборов Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 9bea9978f1755e5a40b5fb3ff967eb7f32384d19
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 6d43935365580233063deb0e523d222351c22d54
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557735"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670616"
 ---
 # <a name="error-messages-for-azure-spot-virtual-machines-and-scale-sets"></a>Сообщения об ошибках для виртуальных машин и масштабируемых наборов Azure
 

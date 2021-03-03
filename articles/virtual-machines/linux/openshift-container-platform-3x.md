@@ -3,18 +3,19 @@ title: Развертывание платформы контейнеров Open
 description: Развертывание платформы контейнеров OpenShift 3,11 в Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: fab8f88a39730411503af273902a53f169e3fe57
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 054fb2ffc65b44d5436282eab5327f0facf39c06
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703744"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671195"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Развертывание платформы контейнеров OpenShift 3,11 в Azure
 
@@ -276,8 +277,8 @@ ms.locfileid: "97703744"
 | `keyVaultName` | Имя созданного Key Vault |  |  |
 | `enableAzure` | Включение поставщика облачных служб Azure | true <br> false | true |
 | `aadClientId` | Идентификатор клиента Azure Active Directory также известен как идентификатор приложения для субъекта-службы |  |  |
-| `domainName` | Имя пользовательского доменного имени, которое будет использоваться (если применимо). Если не развертывать полностью частный кластер, задайте значение "нет". |  | Нет |
-| `masterClusterDnsType` | Тип домена для веб-консоли OpenShift. "default" будет использовать DNS-метку для основного общедоступного IP-адреса. "Custom" позволяет определить собственное имя | значение по умолчанию <br> пользовательский | значение по умолчанию |
+| `domainName` | Имя пользовательского доменного имени, которое будет использоваться (если применимо). Если не развертывать полностью частный кластер, задайте значение "нет". |  | нет |
+| `masterClusterDnsType` | Тип домена для веб-консоли OpenShift. "default" будет использовать DNS-метку для основного общедоступного IP-адреса. "Custom" позволяет определить собственное имя | default <br> пользовательский | default |
 | `masterClusterDns` | Настраиваемое DNS-имя, которое будет использоваться для доступа к Web Console OpenShift, если вы выбрали "Custom" для `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Если задано значение "нипио", `routingSubDomain` будет использоваться NIP.IO.  Используйте "Custom", если у вас есть собственный домен, который вы хотите использовать для маршрутизации. | нипио <br> пользовательский | нипио |
 | `routingSubDomain` | DNS-имя с подстановочными знаками, которое вы хотите использовать для маршрутизации, если вы выбрали "Custom" для `routingSubDomainType` |  | apps.contoso.com |

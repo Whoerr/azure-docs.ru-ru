@@ -3,12 +3,12 @@ title: Как перенести серверы с поддержкой ARC в A
 description: Узнайте, как перенести сервер с поддержкой ARC в Azure из одного региона в другой.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418209"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650181"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Как перенести серверы с поддержкой ARC в Azure в разных регионах
 
@@ -32,8 +32,8 @@ ms.locfileid: "100418209"
 
 4. Повторно разверните расширения виртуальной машины, которые изначально были развернуты на компьютере с серверов с поддержкой ARC. Если вы развернули агент Azure Monitor для виртуальных машин (Insights) или агент Log Analytics с помощью политики Azure, агенты будут развернуты повторно после следующего [цикла оценки](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Сведения об устранении неполадок можно найти в разделе [руководство по устранению неполадок подключенного компьютера](troubleshoot-agent-onboard.md).
 
-* Узнайте, как управлять компьютером с помощью [политики Azure](../../governance/policy/overview.md), например [гостевой конфигурации](../../governance/policy/concepts/guest-configuration.md)виртуальной машины, проверки того, что компьютер сообщает о предполагаемой log Analytics рабочей области, включить мониторинг с помощью [Azure Monitor политики виртуальных машин](../../azure-monitor/insights/vminsights-enable-policy.md) и многое другое.
+* Узнайте, как управлять компьютером с помощью [политики Azure](../../governance/policy/overview.md), например [гостевой конфигурации](../../governance/policy/concepts/guest-configuration.md)виртуальной машины, проверки того, что компьютер сообщает о предполагаемой log Analytics рабочей области, включить мониторинг с помощью [Azure Monitor политики виртуальных машин](../../azure-monitor/vm/vminsights-enable-policy.md) и многое другое.

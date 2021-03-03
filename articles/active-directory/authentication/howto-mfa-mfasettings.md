@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9566560aaebaaa7ba3fc6d963a30637e33118077
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361627"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651065"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Настройка параметров многофакторной идентификации Azure AD
 
@@ -120,8 +120,6 @@ Azure AD поддерживает использование токенов OATH
 Аппаратные маркеры OATH TOTP, как правило, поставляются с предварительно запрограммированным в маркере секретным ключом или начальным значением. Эти ключи необходимо ввести в Azure AD, как описано в следующих шагах. Максимальная длина секретного ключа — 128 символов, что может быть несовместимо с некоторыми маркерами. Секретный ключ может содержать только символы *a–z* или *A–Z* и цифры *1–7*. Кроме того, он должен иметь кодировку *Base32*.
 
 Программируемые аппаратные маркеры OATH TOTP с возможностью повторного заполнения также можно настроить для Azure AD в процессе настройки программных маркеров.
-
-Аппаратные маркеры OATH поддерживаются как часть общедоступной предварительной версии. См. дополнительные сведения о [дополнительных условиях использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Отправка маркеров OATH в колонку маркеров OATH MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -372,6 +370,6 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 
 После включения функции "запомнить многофакторную проверку подлинности" пользователи могут помечать устройства как доверенные при входе, установив флажок **больше не спрашивать**.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о доступных методах использования многофакторной идентификации Azure AD см [. в статье какие методы проверки подлинности и проверки доступны в Azure Active Directory?](concept-authentication-methods.md)

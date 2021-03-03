@@ -5,15 +5,15 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 03/02/2021
 ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: deba6696eb71287902fa3970ed2d83d0b09ac08d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359652"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658492"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Используйте команды расширения MongoDB для управления данными, хранящимися в API-интерфейсе Azure Cosmos DB для MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "93359652"
 
 ## <a name="mongodb-protocol-support"></a>Поддержка протокола MongoDB
 
-API Azure Cosmos DB для MongoDB совместим с MongoDB Server версии 3,2 и 3,6. Дополнительные сведения см. в разделе [Поддерживаемые функции и синтаксис](mongodb-feature-support.md) . 
+API Azure Cosmos DB для MongoDB совместим с MongoDB Server версии 4,0, 3,6 и 3,2. Дополнительные сведения см. в статье поддерживаемые функции и синтаксис в статьях [4,0](mongodb-feature-support-40.md), [3,6](mongodb-feature-support-36.md)и [3,2](mongodb-feature-support.md) . 
 
 Следующие команды расширения предоставляют возможность создания и изменения ресурсов, связанных с Azure Cosmos DB, с помощью запросов к базе данных.
 
@@ -90,7 +90,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 ## <a name="update-database"></a><a id="update-database"></a> Обновить базу данных
 
-Команда обновить расширение базы данных обновляет свойства, связанные с указанной базой данных. В следующей таблице описаны параметры в команде.
+Команда обновить расширение базы данных обновляет свойства, связанные с указанной базой данных. Изменение базы данных с подготовленной пропускной способности на Автомасштабирование и наоборот поддерживается только на портале Azure. В следующей таблице описаны параметры в команде.
 
 |**Поле**|**Тип** |**Описание** |
 |---------|---------|---------|
@@ -206,8 +206,8 @@ db.runCommand({customAction: "GetDatabase"});
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  offerThroughput: (int), // Amount of throughput allocated to a specific collection
-
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -236,7 +236,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Это приведет к созданию новой фиксированной, несегментированной коллекции с 400RU/s и `_id` автоматически созданного индекса в поле. Этот тип конфигурации также будет применяться при создании новых коллекций с помощью `insert()` функции. Пример: 
+Это приведет к созданию новой фиксированной, несегментированной коллекции с 400RU/s и `_id` автоматически созданного индекса в поле. Этот тип конфигурации также будет применяться при создании новых коллекций с помощью `insert()` функции. Пример. 
 
 ```javascript
 use test
@@ -292,13 +292,14 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 ## <a name="update-collection"></a><a id="update-collection"></a> Обновить коллекцию
 
-Команда Update Collection обновляет свойства, связанные с указанной коллекцией.
+Команда Update Collection обновляет свойства, связанные с указанной коллекцией. Изменение коллекции с подготовленной пропускной способности на Автомасштабирование и наоборот поддерживается только на портале Azure.
 
 ```javascript
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  offerThroughput: (int) // New throughput that will be set to the collection
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -425,7 +426,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 | `code`    |   `int`      |   Возвращается только при сбое команды (т. е. ОК = = 0). Содержит код ошибки MongoDB. Это необязательный параметр ответа.      |
 |  `errMsg`   |  `string`      |    Возвращается только при сбое команды (т. е. ОК = = 0). Содержит понятное сообщение об ошибке. Это необязательный параметр ответа.      |
 
-Пример:
+Например:
 
 ```javascript
 { "ok" : 1 }

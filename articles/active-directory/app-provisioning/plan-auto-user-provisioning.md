@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9f2b5bf1195682b200b5840459194506e29bcdc6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255769"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645094"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Планирование развертывания автоматической подготовки пользователей
 
@@ -318,11 +318,11 @@ Azure AD может предоставить [Дополнительные](../a
 
 #### <a name="resources"></a>Ресурсы
 
-* [Отправить отзыв о продукте](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [Отзыв о продукте](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 * [Актуальные сведения о новых возможностях Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&форум Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q&форум Azure AD](/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Настройка автоматической подготовки пользователей](../app-provisioning/configure-automatic-user-provisioning-portal.md)

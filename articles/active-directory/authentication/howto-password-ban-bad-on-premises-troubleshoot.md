@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ca00785bfe8a99b8a3d620559c4fa492ee60c63
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2bbc1c555824d4c632c5bf85a9cd0aa83087fc8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741751"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648731"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Устранение неполадок: Локальная защита паролей Azure AD
 
@@ -259,6 +259,146 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
    `%windir%\sysvol\domain\Policies\AzureADPasswordProtection`
 
    Этот путь будет другим, если общий ресурс sysvol настроен в нестандартном местоположении.
+
+## <a name="health-testing-with-powershell-cmdlets"></a>Тестирование работоспособности с помощью командлетов PowerShell
+
+Модуль PowerShell Азуреадпассвордпротектион включает два командлета, связанных с работоспособностью, которые выполняют базовую проверку того, что программное обеспечение установлено и работает. Рекомендуется запускать эти командлеты после настройки нового развертывания, периодически после этого и при исследовании проблемы.
+
+Каждый отдельный тест работоспособности возвращает базовый пройденный или непройденный результат, а также необязательное сообщение об ошибке. В случаях, когда причина сбоя неясно, найдите сообщения об ошибках в журнале, которые могут объяснить ошибку. Включение сообщений журнала в текстовом журнале также может быть полезным. Дополнительные сведения см. в статье [мониторинг защиты паролей Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+
+## <a name="proxy-health-testing"></a>Проверка работоспособности прокси-сервера
+
+Командлет Test-AzureADPasswordProtectionProxyHealth поддерживает два теста работоспособности, которые можно выполнять по отдельности. Третий режим позволяет выполнять все тесты, не требующие ввода параметров.
+
+### <a name="proxy-registration-verification"></a>Проверка регистрации прокси-сервера
+
+Этот тест проверяет, правильно ли зарегистрирован прокси-агент в Azure и способен ли пройти проверку подлинности в Azure. Успешный запуск будет выглядеть следующим образом:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Passed
+```
+
+При обнаружении ошибки тест вернет неудачный результат и необязательное сообщение об ошибке. Ниже приведен пример одной из возможных сбоев.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Failed No proxy certificates were found - please run the Register-AzureADPasswordProtectionProxy cmdlet to register the proxy.
+```
+
+### <a name="proxy-verification-of-end-to-end-azure-connectivity"></a>Проверка прокси-сервера для сквозного подключения Azure
+
+Этот тест является надмножеством Верифипроксирегистратион теста. Для этого требуется, чтобы прокси-агент был правильно зарегистрирован в Azure, который может пройти проверку подлинности в Azure, и, наконец, добавляет проверку того, что сообщение может быть успешно отправлено в Azure, что позволяет проверить, работает ли полное сквозное взаимодействие.
+
+Успешный запуск будет выглядеть следующим образом:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyAzureConnectivity
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyAzureConnectivity Passed
+```
+
+### <a name="proxy-verification-of-all-tests"></a>Проверка прокси всех тестов
+
+Этот режим позволяет выполнять полный запуск всех тестов, поддерживаемых командлетом, не требующих ввода параметров. Успешный запуск будет выглядеть следующим образом:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -TestAll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyTLSConfiguration  Passed
+VerifyProxyRegistration Passed
+VerifyAzureConnectivity Passed
+```
+
+## <a name="dc-agent-health-testing"></a>Тестирование работоспособности агента контроллера домена
+
+Командлет Test-AzureADPasswordProtectionDCAgentHealth поддерживает несколько тестов работоспособности, которые можно выполнять по отдельности. Третий режим позволяет выполнять все тесты, не требующие ввода параметров.
+
+### <a name="basic-dc-agent-health-tests"></a>Тесты работоспособности агентов основного контроллера домена
+
+Следующие тесты можно выполнять по отдельности и не принимать. Краткое описание
+
+|Проверка работоспособности агента контроллера домена|Описание|
+| --- | :---: |
+|-Верифипассвордфилтердлл|Проверяет, загружена ли в настоящее время библиотека DLL фильтра паролей, и может ли она вызывать службу агента контроллера домена|
+|-Верифифорестрегистратион|Проверяет, зарегистрирован ли лес в настоящий момент|
+|-Верифенкриптиондекриптион|Проверка работы базового шифрования и расшифровки с помощью службы Microsoft KDS|
+|-Верифидомаинисусингдфср|Проверяет, что текущий домен использует DFSR для репликации SYSVOL.|
+|-Верифязуреконнективити|Проверяет, работает ли сквозное взаимодействие с Azure, используя любой доступный прокси-сервер|
+
+Ниже приведен пример тестовой передачи Верифипассвордфилтердлл. другие тесты будут выглядеть аналогично успешно:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyPasswordFilterDll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyPasswordFilterDll Passed
+```
+
+### <a name="dc-agent-verification-of-all-tests"></a>Проверка агента контроллера домена для всех тестов
+
+Этот режим позволяет выполнять полный запуск всех тестов, поддерживаемых командлетом, не требующих ввода параметров. Успешный запуск будет выглядеть следующим образом:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -TestAll
+
+DiagnosticName             Result AdditionalInfo
+--------------             ------ --------------
+VerifyPasswordFilterDll    Passed
+VerifyForestRegistration   Passed
+VerifyEncryptionDecryption Passed
+VerifyDomainIsUsingDFSR    Passed
+VerifyAzureConnectivity    Passed
+```
+
+### <a name="connectivity-testing-using-specific-proxy-servers"></a>Тестирование подключения с использованием конкретных прокси-серверов
+
+Многие ситуации, связанные с устранением неполадок, относятся к исследованию сетевого подключения между агентами контроллера домена и прокси-серверами. Существуют два теста работоспособности, которые позволяют сосредоточиться на таких проблемах. Для этих тестов требуется указать конкретный прокси-сервер.
+
+#### <a name="verifying-connectivity-between-a-dc-agent-and-a-specific-proxy"></a>Проверка подключения между агентом контроллера домена и конкретным прокси-сервером
+
+Этот тест проверяет подключение к прокси-серверу с помощью первого участка связи от агента контроллера домена. Он проверяет, получает ли прокси-сервер вызов, но не участвует в обмене данными с Azure. Успешный запуск выглядит следующим образом:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Passed
+```
+
+Ниже приведен пример состояния сбоя, при котором служба прокси-сервера, запущенная на целевом сервере, была остановлена.
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Failed The RPC endpoint mapper on the specified proxy returned no results; please check that the proxy service is running on that server.
+```
+
+#### <a name="verifying-connectivity-between-a-dc-agent-and-azure-using-a-specific-proxy"></a>Проверка подключения между агентом контроллера домена и Azure (с помощью определенного прокси-сервера)
+
+Этот тест проверяет полное сквозное подключение между агентом контроллера домена и Azure с помощью определенного прокси-сервера. Успешный запуск выглядит следующим образом:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyAzureConnectivityViaSpecificProxy bpl2.bpl.com
+
+DiagnosticName                          Result AdditionalInfo
+--------------                          ------ --------------
+VerifyAzureConnectivityViaSpecificProxy Passed
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

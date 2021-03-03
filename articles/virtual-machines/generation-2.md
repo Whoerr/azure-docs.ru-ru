@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: dcc599daaa8d124c7188165ff5e024767a5e3cd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759744"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672628"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Поддержка виртуальных машин 2-го поколения в Azure
 
@@ -79,11 +79,13 @@ ms.locfileid: "97759744"
 
 | Функция 2-го поколения                | Локальная среда Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Безопасная загрузка                         | :heavy_check_mark:  | :x:   |
+| Безопасная загрузка                         | :heavy_check_mark:  | С доверенным запуском (Предварительная версия)   |
 | Экранированная виртуальная машина                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Безопасность на базе виртуализации (VBS) | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | С доверенным запуском (Предварительная версия)  |
+| Безопасность на базе виртуализации (VBS) | :heavy_check_mark:  | С доверенным запуском (Предварительная версия)   |
 | Формат VHDX                         | :heavy_check_mark:  | :x:   |
+
+Дополнительные сведения см. в разделе [доверенный запуск (Предварительная версия)](trusted-launch.md).
 
 ## <a name="features-and-capabilities"></a>Функции и возможности
 
@@ -105,7 +107,7 @@ ms.locfileid: "97759744"
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Резервное копирование и восстановление                    | :heavy_check_mark: | :heavy_check_mark: |
 | Коллекция общих образов              | :heavy_check_mark: | :heavy_check_mark: |
-| [Шифрование дисков Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Шифрование дисков Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Шифрование на стороне сервера](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Создание виртуальной машины 2-го поколения
@@ -206,7 +208,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
     Да. Дополнительные сведения см. в разделе [Создание виртуальной машины с ускоренной сетью](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Поддерживают ли виртуальные машины поколения 2 безопасную загрузку или vTPM в Azure?**
-    Виртуальные машины версии 1 и поколения 2 в Azure не поддерживают безопасную загрузку или vTPM. 
+    Как vTPM, так и безопасная загрузка — это функции доверенного запуска (Предварительная версия) для виртуальных машин поколения 2. Дополнительные сведения см. в разделе [доверенный запуск](trusted-launch.md).
     
 * **Поддерживается ли VHDX во 2-м поколении?**  
     Нет, виртуальные машины 2-го поколения поддерживают только виртуальные жесткие диски (VHD).
@@ -225,5 +227,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
     1. Убедитесь, что вы ищете [размер виртуальной машины, совместимый с виртуальными машинами 2-го поколения](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
+Дополнительные сведения о [доверенном запуске (Предварительная версия)](trusted-launch-portal.md) с виртуальными машинами поколения 2.
 
 Узнайте больше о [виртуальных машинах 2-го поколения в Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

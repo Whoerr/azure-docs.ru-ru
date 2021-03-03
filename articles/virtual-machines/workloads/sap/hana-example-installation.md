@@ -6,20 +6,19 @@ documentationcenter: ''
 author: hermanndms
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 994130ce2ecb4578a8d34f1f77b310bb558d3c7a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 59ea41254c16f32f19a67e7811177a4667a85e7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967913"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666702"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Установка HANA на сервере SAP HANA в Azure (крупные экземпляры)
 
@@ -40,7 +39,7 @@ ms.locfileid: "94967913"
 
 Необходим S-пользователь SAP или другой пользователь, который позволяет вам получить доступ к SAP Marketplace.
 
-1. Войдите и перейдите к [службе SAP Marketplace](https://support.sap.com/en/index.html). Выберите **загрузить установки программного обеспечения**  >  **и обновить**  >  **по алфавиту**. Затем выберите **в разделе H — SAP HANA Platform Edition**  >  **SAP HANA Platform Edition 2,0**  >  **установки**. Загрузите файлы, как показано на снимке экрана ниже:
+1. Войдите и перейдите к [службе SAP Marketplace](https://support.sap.com/en/index.html). Выберите **Загрузить программное обеспечение** > **Установки и обновления** > **По алфавитному указателю**. Затем в разделе H выберите **SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Установка**. Загрузите файлы, как показано на снимке экрана ниже:
 
    ![Снимок экрана файлов для загрузки](./media/hana-installation/image16_download_hana.PNG)
 
@@ -131,7 +130,7 @@ rpm –qa | grep gtk2
 Теперь экземпляр SAP HANA должен быть готов к использованию. Вы сможете подключиться к нему из SAP HANA Studio. Кроме того, убедитесь, что последние обновления проверены и установлены.
 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- [SAP HANA (крупные экземпляры) высокий уровень доступности и аварийное восстановление в Azure](hana-overview-high-availability-disaster-recovery.md)
+- [Высокий уровень доступности и аварийное восстановление SAP HANA в Azure (крупные экземпляры)](hana-overview-high-availability-disaster-recovery.md)
 

@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 72e89a67f2d767c8a104982dbe9eb9e47aec015a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574650"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656964"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Подготовка к переносу данных из MongoDB в API Azure Cosmos DB для MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "100574650"
 |**Тип переноса**|**Решение**|**Рекомендации**|
 |---------|---------|---------|
 |Справка в Интернете|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Использует библиотеку исполнителя массовых операций в Azure Cosmos DB. <br/>&bull; Подходит для больших наборов данных и выполняет репликацию динамических изменений. <br/>&bull; Работает только с другими источниками MongoDB.|
-|Автономная миграция|[Миграция баз данных Azure](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Использует библиотеку исполнителя массовых операций в Azure Cosmos DB. <br/>&bull; Подходит для больших наборов данных и выполняет репликацию динамических изменений. <br/>&bull; Работает только с другими источниками MongoDB.|
+|Автономная миграция|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Использует библиотеку исполнителя массовых операций в Azure Cosmos DB. <br/>&bull; Подходит для больших наборов данных и выполняет репликацию динамических изменений. <br/>&bull; Работает только с другими источниками MongoDB.|
 |Вне сети|[Фабрика данных Azure](../data-factory/connector-azure-cosmos-db.md).|&bull; Простота настройки и поддержка нескольких источников. <br/>&bull; Использует библиотеку исполнителя массовых операций в Azure Cosmos DB. <br/>&bull; Подходит для больших наборов данных. <br/>&bull; Отсутствие контрольных точек означает, что любые проблемы во время переноса потребуют перезапуска всего процесса.<br/>&bull; Отсутствие очереди недоставленных сообщений означает, что несколько ошибочных файлов могут прервать весь процесс переноса. <br/>&bull; Требуется пользовательский код для увеличения пропускной способности чтения для определенных источников данных.|
 |Вне сети|[Существующие инструменты Mongo (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Простота настройки и интеграции. <br/>&bull; Требуется настраиваемая обработка регулирования.|
 
@@ -80,7 +80,7 @@ ms.locfileid: "100574650"
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Индексирование данных
 
-API Azure Cosmos DB для сервера MongoDB версии 3,6 автоматически индексирует `_id` только поле. Невозможно удалить это поле. Он автоматически обеспечивает уникальность `_id` поля для каждого ключа сегмента. Для индексирования дополнительных полей применяются команды управления индексами MongoDB. Эта политика индексирования по умолчанию отличается от API SQL для Azure Cosmos DB, где по умолчанию индексируются все поля.
+API Azure Cosmos DB для MongoDB Server версии 3,6 и более поздних версий автоматически индексирует `_id` только поле. Невозможно удалить это поле. Он автоматически обеспечивает уникальность `_id` поля для каждого ключа сегмента. Для индексирования дополнительных полей применяются [команды управления индексами MongoDB](mongodb-indexing.md). Эта политика индексирования по умолчанию отличается от API SQL для Azure Cosmos DB, где по умолчанию индексируются все поля.
 
 Возможности индексирования, предоставляемые Azure Cosmos DB, включают добавление составных индексов, уникальных индексов и индексов срока жизни (TTL). Интерфейс управления индексами сопоставляется с командой `createIndex()`. Дополнительные сведения см. [в статье об индексировании Azure Cosmos DB API для MongoDB](mongodb-indexing.md).
 

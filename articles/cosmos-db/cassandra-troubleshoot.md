@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493228"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658577"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Устранение распространенных неполадок в Azure Cosmos DB API Cassandra
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ API Cassandra в Azure Cosmos DB — это уровень совместимо�
 Может отобразиться следующее сообщение об ошибке: `Cannot connect to any host, scheduling retry in 600000 milliseconds` . 
 
 ### <a name="solution"></a>Решение
-Это может быть нехватка SNAT на стороне клиента. Чтобы устранить эту ошибку, выполните действия, указанные в [SNAT для исходящих подключений](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) . Это также может быть проблемой времени ожидания простоя, когда в подсистеме балансировки нагрузки Azure по умолчанию используется 4 минуты ожидания простоя. См. документацию во [время ожидания простоя подсистемы балансировки нагрузки](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Включите функцию поддержания активности TCP в параметрах драйвера (см. [ниже](#enable-keep-alive-for-java-driver)) и задайте `keepAlive` для параметра Интервал в операционной системе значение менее 4 минут.
+Это может быть нехватка SNAT на стороне клиента. Чтобы устранить эту ошибку, выполните действия, указанные в [SNAT для исходящих подключений](../load-balancer/load-balancer-outbound-connections.md) . Это также может быть проблемой времени ожидания простоя, когда в подсистеме балансировки нагрузки Azure по умолчанию используется 4 минуты ожидания простоя. См. документацию во [время ожидания простоя подсистемы балансировки нагрузки](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Включите функцию поддержания активности TCP в параметрах драйвера (см. [ниже](#enable-keep-alive-for-java-driver)) и задайте `keepAlive` для параметра Интервал в операционной системе значение менее 4 минут.
 
  
 
@@ -50,7 +50,7 @@ API Cassandra в Azure Cosmos DB — это уровень совместимо�
 Неожиданное завершение соединения или время его ожидания.
 
 ### <a name="solution"></a>Решение 
-Драйверы Apache Cassandra для Java предоставляют две встроенные политики переподключения: `ExponentialReconnectionPolicy` и `ConstantReconnectionPolicy` . Значение по умолчанию — `ExponentialReconnectionPolicy`. Однако для Azure Cosmos DB API Cassandra рекомендуется использовать `ConstantReconnectionPolicy` задержку в 2 секунды. См. [документацию](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  по драйверу для Java v4. x [и руководство по Java](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) 3. x. Кроме того, см. инструкции по [настройке драйвера реконнектионполици для Java](#configuring-reconnectionpolicy-for-java-driver) ниже.
+Драйверы Apache Cassandra для Java предоставляют две встроенные политики переподключения: `ExponentialReconnectionPolicy` и `ConstantReconnectionPolicy` . Значение по умолчанию — `ExponentialReconnectionPolicy`. Однако для Azure Cosmos DB API Cassandra рекомендуется использовать `ConstantReconnectionPolicy` задержку в 2 секунды. См. [документацию](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  по драйверу для Java v4. x [и руководство по Java](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) 3. x. Кроме того, см. инструкции по [настройке драйвера реконнектионполици для Java](#configuring-reconnectionpolicy-for-java-driver) ниже.
 
 ## <a name="error-with-load-balancing-policy"></a>Ошибка с политикой балансировки нагрузки
 

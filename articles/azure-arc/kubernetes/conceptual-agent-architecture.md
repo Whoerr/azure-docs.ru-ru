@@ -2,18 +2,18 @@
 title: Архитектура агента Kubernetes с включенной службой Arc Azure
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: В этой статье представлен обзор архитектуры Kubernetes агентов Azure с поддержкой ARC.
 keywords: Kubernetes, Arc, Azure, контейнеры
-ms.openlocfilehash: 287ffdd40dc9ffdb91abb58b305d8b35b0bc3674
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652570"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650538"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Архитектура агента Kubernetes с включенной службой Arc Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "100652570"
 
 ![Общие сведения об архитектуре](./media/architectural-overview.png)
 
-### <a name="connect-a-cluster-to-azure-arc"></a>Подключение кластера к службе "Дуга Azure"
+### <a name="connect-a-cluster-to-azure-arc"></a>Подключение кластера к Azure Arc
 
 1. Создайте кластер Kubernetes на выбранной инфраструктуре (VMware vSphere, Amazon Web Services, Google Cloud Platform и т. д.). 
 
@@ -42,7 +42,7 @@ ms.locfileid: "100652570"
 
         | Агент | Описание |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | В настоящее время Kubernetes с включенной службой "Дуга Azure" поддерживает только [назначенные системой удостоверения](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). `clusteridentityoperator` инициирует первое исходящее взаимодействие. Первое взаимодействие извлекает сертификат Управляемое удостоверение службы (MSI), используемый другими агентами для связи с Azure. |
+        | `deployment.apps/clusteridentityoperator` | В настоящее время Kubernetes с включенной службой "Дуга Azure" поддерживает только [назначенные системой удостоверения](../../active-directory/managed-identities-azure-resources/overview.md). `clusteridentityoperator` инициирует первое исходящее взаимодействие. Первое взаимодействие извлекает сертификат Управляемое удостоверение службы (MSI), используемый другими агентами для связи с Azure. |
         | `deployment.apps/config-agent` | Наблюдает за подключенным кластером для ресурсов конфигурации системы управления версиями, примененных к кластеру. Обновляет состояние соответствия. |
         | `deployment.apps/controller-manager` | Оператор операторов, который управляет взаимодействием между компонентами дуги Azure. |    
         | `deployment.apps/metrics-agent` | Собирает метрики других агентов ARC для проверки оптимальной производительности. |
@@ -93,5 +93,5 @@ ms.locfileid: "100652570"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Подключение кластера к службе "Дуга Azure"](./connect-cluster.md)
+* [Подключение кластера к Azure Arc](./quickstart-connect-cluster.md)
 * [Общие сведения о конфигурациях](./conceptual-configurations.md)

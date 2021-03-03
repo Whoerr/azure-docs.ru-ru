@@ -2,22 +2,23 @@
 title: Разработка базы данных Oracle и ее реализация в Azure | Документация Майкрософт
 description: Разработка базы данных Oracle и ее реализация в среду Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: 0b6f4e652ca8fef7bee4165bcd0673be2fa11eac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890770"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669991"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Разработка базы данных Oracle и ее реализация в Azure
 
-## <a name="assumptions"></a>Допущения
+## <a name="assumptions"></a>Предположения
 
 - Вы планируете перенести базу данных Oracle из локальной среды в Azure.
 - У вас есть [Пакет диагностики](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) или [Автоматическое хранилище рабочей нагрузки](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) для Oracle Database, которые нужно перенести.
@@ -47,7 +48,7 @@ ms.locfileid: "98890770"
 | **Плановое техническое обслуживание** |Установка исправлений и обновлений|[Группы доступности](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (установка исправлений и обновлений, управляемая Azure) |
 | **Ресурс** |Выделенные  |Совместное использование с другими клиентами|
 | **Регионы** |Центры обработки данных |[Пары регионов](../../regions.md#region-pairs)|
-| **Хранилище** |Сеть SAN и физические диски |[Хранилище под управлением Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Память** |Сеть SAN и физические диски |[Хранилище под управлением Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 | **Масштаб** |Вертикальное масштабирование |Горизонтальное масштабирование|
 
 
@@ -57,7 +58,7 @@ ms.locfileid: "98890770"
 - Определите размер базы данных, хранилище службы архивации и скорость роста.
 - Определите требования к ВВОДу-выводу, которые можно оценить на основе отчетов Oracle Статспакк и AWR или средств наблюдения за хранилищем на уровне ОС.
 
-## <a name="configuration-options"></a>Параметры конфигурации
+## <a name="configuration-options"></a>Варианты настройки
 
 В среде Azure есть четыре области, которые можно настроить для повышения производительности:
 
@@ -220,7 +221,7 @@ SQL> @$ORACLE_HOME/rdbms/admin/awrrpt.sql;
 - *Частная сеть (подсети):* рекомендуем устанавливать службу приложений и базу данных в разных подсетях, чтобы политика NSG могла настроить расширенные возможности управления.
 
 
-## <a name="additional-reading"></a>Дополнительные материалы для чтения
+## <a name="additional-reading"></a>Дополнительные материалы
 
 - [Настройка Oracle ASM](configure-oracle-asm.md)
 - [Настройка Oracle Data Guard](configure-oracle-dataguard.md)

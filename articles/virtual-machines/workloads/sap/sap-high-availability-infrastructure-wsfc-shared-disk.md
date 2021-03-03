@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ec976257-396b-42a0-8ea1-01c97f820fa6
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00d0aa10f2beda3d7b8508e5ca823e020dc79d95
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4218b4c00b79d78965eaf6e73028e63f52b1ff17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489145"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673629"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Подготовка инфраструктуры Azure для SAP высокого уровня доступности с помощью отказоустойчивого кластера Windows и общего диска для SAP ASCS/SC
 
@@ -193,9 +192,9 @@ ms.locfileid: "96489145"
 | --- | --- | --- |---| ---|
 | 1-й кластер узлов кластера ASCS/SCS |PR1-ASCS-10 |10.0.0.4 |PR1-ASCS-avset |PR1PPG |
 | кластер ASCS/SCS второго узла кластера |PR1-ASCS-11 |10.0.0.5 |PR1-ASCS-avset |PR1PPG |
-| Сетевое имя кластера | pr1clust |10.0.0.42 (**только** для кластера Win 2016) | Недоступно | Недоступно |
-| Сетевое имя кластера ASCS | PR1 — аскскл |10.0.0.43 | Недоступно | Недоступно |
-| Сетевое имя кластера ERS (**только** для ERS2) | PR1 — ерскл |10.0.0.44 | Недоступно | Недоступно |
+| Сетевое имя кластера | pr1clust |10.0.0.42 (**только** для кластера Win 2016) | Н/Д | Н/Д |
+| Сетевое имя кластера ASCS | PR1 — аскскл |10.0.0.43 | Н/Д | Н/Д |
+| Сетевое имя кластера ERS (**только** для ERS2) | PR1 — ерскл |10.0.0.44 | Н/Д | Н/Д |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Создание внутренней подсистемы балансировки нагрузки Azure

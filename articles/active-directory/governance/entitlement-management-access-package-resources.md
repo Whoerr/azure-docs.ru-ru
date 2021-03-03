@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82247ae9817e5ff2e26d0862230654021876406b
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 65f69cf492ec3e28d7f4aa86971dc6c91b34bdf5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223294"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644186"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Изменение ролей ресурсов для пакета Access в управлении назначениями Azure AD
 
@@ -86,14 +86,14 @@ ms.locfileid: "99223294"
 
     ![Доступ к пакету — Добавление ролей ресурсов — выбор групп](./media/entitlement-management-access-package-resources/group-select.png)
 
-1. Щелкните **Выбрать**.
+1. Нажмите кнопку **Выбрать**.
 
     После выбора группы или группы в столбце **подтипа** будет отображаться один из следующих подтипов:
 
     | Подтип | Описание |
     | --- | --- |
     | Безопасность | Используется для предоставления доступа к ресурсам. |
-    | Распределение | Используется для отправки уведомлений группе людей. |
+    | Дистрибутив | Используется для отправки уведомлений группе людей. |
     | Microsoft 365 | Группа Microsoft 365, не поддерживающая команды. Используется для совместной работы пользователей как внутри организации, так и за ее пределами. |
     | Группа | Группа Microsoft 365, поддерживающая команды. Используется для совместной работы пользователей как внутри организации, так и за ее пределами. |
 
@@ -128,7 +128,7 @@ Azure AD может автоматически назначать пользов
 
     ![Доступ к пакету — Добавление ролей ресурсов — выбор приложений](./media/entitlement-management-access-package-resources/application-select.png)
 
-1. Щелкните **Выбрать**.
+1. Нажмите кнопку **Выбрать**.
 
 1. В списке **роль** выберите роль приложения.
 
@@ -144,17 +144,13 @@ Azure AD может автоматически назначать пользов
 
 1. На странице **Добавление ролей ресурсов для доступа к пакету** щелкните **сайты SharePoint** , чтобы открыть панель "Выбор сайтов SharePoint Online".
 
-    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="Доступ к пакету — Добавление ролей ресурсов — выбор сайтов SharePoint — представление портала":::
+    :::image type="content" source="media/entitlement-management-access-package-resources/resource-sharepoint-add.png" alt-text="Доступ к пакету — Добавление ролей ресурсов — выбор сайтов SharePoint — представление портала":::
 
-1. Если для SharePoint включена [Поддержка нескольких географических](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) сред, выберите среду, из которой вы хотите выбрать сайты.
-    
-    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="Доступ к пакету — Добавление ролей ресурсов. Выберите SharePoint с несколькими географическими сайтами.":::
-
-1. Если поддержка нескольких географических объектов не включена, выбирать среду не нужно. Выберите сайты SharePoint Online, которые необходимо включить в пакет Access.
+1. Выберите сайты SharePoint Online, которые необходимо включить в пакет Access.
 
     ![Доступ к пакету — Добавление ролей ресурсов. Выбор сайтов SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 
-1. Щелкните **Выбрать**.
+1. Нажмите кнопку **Выбрать**.
 
 1. В списке **роль** выберите роль сайта SharePoint Online.
 

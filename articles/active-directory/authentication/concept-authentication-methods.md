@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0bbaf5fa4f3404b0e4fdb4dc016b703c58910457
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725677"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652085"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Какие методы проверки подлинности и подтверждения доступны в Azure Active Directory?
 
@@ -42,10 +42,10 @@ ms.locfileid: "98725677"
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello для бизнеса     | Высокий     | Высокий      | Высокий         |
 | Приложение Microsoft Authenticator    | Высокий     | Высокий      | Высокий         |
-| Ключ безопасности FIDO2 (Предварительная версия)   | Высокий     | Высокий      | Высокий         |
-| Аппаратные маркеры OATH (предварительная версия) | Средн.   | Средн.    | Высокий         |
+| Ключ безопасности FIDO2             | Высокий     | Высокий      | Высокий         |
+| Токены оборудования OATH           | Средн.   | Средн.    | Высокий         |
 | Программные маркеры OATH           | Средн.   | Средн.    | Высокий         |
-| SMS                            | Средний   | Высокий      | Средний       |
+| SMS                            | Средн.   | Высокий      | Средний       |
 | Голосовая связь                          | Средн.   | Средн.    | Средн.       |
 | Пароль                       | Низкий      | Высокий      | Высокий         |
 
@@ -66,9 +66,9 @@ ms.locfileid: "98725677"
 | Метод                         | Основная проверка подлинности | Дополнительная проверка подлинности  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello для бизнеса     | Да                    | MFA                       |
-| Приложение Microsoft Authenticator    | Да (предварительная версия)          | MFA и SSPR              |
-| Ключ безопасности FIDO2 (Предварительная версия)   | Да                    | MFA                       |
-| Аппаратные маркеры OATH (предварительная версия) | нет                     | MFA                       |
+| Приложение Microsoft Authenticator    | Да                    | MFA и SSPR              |
+| Ключ безопасности FIDO2             | Да                    | MFA                       |
+| Токены оборудования OATH           | нет                     | MFA                       |
 | Программные маркеры OATH           | нет                     | MFA                       |
 | SMS                            | Да                    | MFA и SSPR              |
 | Голосовой звонок                     | нет                     | MFA и SSPR              |
@@ -80,8 +80,8 @@ ms.locfileid: "98725677"
 
 * [Windows Hello для бизнеса](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Приложение Microsoft Authenticator](concept-authentication-authenticator-app.md)
-* [Ключ безопасности FIDO2 (Предварительная версия)](concept-authentication-passwordless.md#fido2-security-keys)
-* [Аппаратные маркеры OATH (предварительная версия)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
+* [Ключ безопасности FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
+* [Токены оборудования OATH](concept-authentication-oath-tokens.md#oath-hardware-tokens)
 * [Программные маркеры OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [Вход](howto-authentication-sms-signin.md) и [Проверка](concept-authentication-phone-options.md#mobile-phone-verification) SMS
 * [Проверка речевого вызова](concept-authentication-phone-options.md)

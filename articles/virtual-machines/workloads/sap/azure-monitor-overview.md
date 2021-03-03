@@ -2,18 +2,16 @@
 title: 'Azure Monitor для решения SAP: обзор и архитектура | Документация Майкрософт'
 description: В этой статье содержатся ответы на часто задаваемые вопросы о Azure Monitor для решений SAP.
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
-ms.openlocfilehash: 411a95154c9ca36595dff4472e9ab8e1ae8a767e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88ad3930e114bdf9f3c3c340f92f164215d59c1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571363"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671988"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor для решений SAP (Предварительная версия)
 
@@ -112,7 +110,7 @@ Azure Monitor для решений SAP собирает системные ме
 ## <a name="pricing"></a>Цены
 Azure Monitor для решений SAP — это бесплатный продукт (без оплаты лицензии). Клиенты несут ответственность за оплату расходов на базовые компоненты в управляемой группе ресурсов.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте о поставщиках и создайте свои первые Azure Monitor для ресурса по решениям SAP.
  - Дополнительные сведения о [поставщиках](./azure-monitor-providers.md)

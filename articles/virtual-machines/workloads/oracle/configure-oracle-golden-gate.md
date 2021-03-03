@@ -2,18 +2,18 @@
 title: Реализация Oracle Golden Gate на виртуальной машине Azure под управлением Linux | Документация Майкрософт
 description: Быстрое создание и запуск Oracle Golden Gate в среде Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 6b3f4ef82813fd4c0e5b3b24be59b68a2dc5b2a7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fee6770108cbcc2334b2d8fb3ccc3b1e923772d9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880395"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673246"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Реализация Oracle Golden Gate на виртуальной машине Azure под управлением Linux 
 
@@ -164,7 +164,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Подключитесь к виртуальной машине
+### <a name="connect-to-the-virtual-machine"></a>Подключение к виртуальной машине
 
 Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIpAddress`).
 
@@ -775,7 +775,7 @@ GGSCI> VIEW REPORT INITEXT
 
 ### <a name="view-job-status-and-troubleshooting"></a>Просмотр состояния задания и устранение неполадок
 
-#### <a name="view-reports"></a>Отображение отчетов
+#### <a name="view-reports"></a>Просмотр отчетов
 Чтобы просмотреть отчеты на myVM1, выполните следующие команды:
 
   ```bash

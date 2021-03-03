@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a3cca7740adb6fa44b162e8c8740d1be1c7aa6b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9e315812f7e281cf281cad9e052ab4546bde05f9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953892"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645853"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Настройка входа для определенной организации Azure Active Directory в Azure Active Directory B2C
 
@@ -90,7 +90,7 @@ ms.locfileid: "98953892"
 
 1. В поле **Идентификатор клиента** введите ранее записанное значение идентификатора приложения.
 1. В поле **Секрет клиента** введите ранее записанное значение секрета клиента.
-1. Для параметра **Область** введите значение `openid profile`.
+1. Для **области** введите `openid profile` .
 1. Сохраните значения по умолчанию для параметров **Тип ответа** и **Режим ответа**.
 1. (Необязательно) В поле **Указание домена** Введите `contoso.com`. Дополнительные сведения см. в статье [Настройка прямого входа в систему с помощью Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. В разделе **Сопоставление утверждений поставщика удостоверений** выберите следующие утверждения:
@@ -193,7 +193,7 @@ ms.locfileid: "98953892"
 1. Обновите значение **DisplayName**. Это значение будет отображаться на кнопке входа на экране входа в систему.
 1. Обновите значение **Description**.
 1. Azure AD использует протокол OpenID Connect, поэтому для параметра **Protocol** должно быть задано значение `OpenIdConnect`.
-1. Задайте для параметра **METADATA** значение `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, где `tenant-name` — это имя клиента Azure AD. Например: `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
+1. Задайте для параметра **METADATA** значение `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, где `tenant-name` — это имя клиента Azure AD. Например `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
 1. Задайте для параметра **client_id** значение идентификатора приложения из регистрации приложения.
 1. В разделе **криптографиккэйс** измените значение **идентификатором storagereferenceid** на имя созданного ранее ключа политики. Например, `B2C_1A_ContosoAppSecret`.
 

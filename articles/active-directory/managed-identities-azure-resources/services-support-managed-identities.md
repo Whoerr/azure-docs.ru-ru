@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3021e9155e229fcaf52166fd0e9dc908f9b7cfb6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373680"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650079"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Службы с поддержкой управляемых удостоверений для ресурсов Azure
 
@@ -50,7 +50,7 @@ ms.locfileid: "100373680"
 
 См. следующий список, чтобы настроить управляемое удостоверение для конфигурации приложения Azure (в регионах, где это возможно):
 
-- [Azure CLI](../../azure-app-configuration/overview-managed-identity.md);
+- [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
 
 ### <a name="azure-app-service"></a>Служба приложений Azure
 
@@ -176,7 +176,7 @@ ms.locfileid: "100373680"
 
 См. следующий список, чтобы настроить управляемое удостоверение для Azure Digital двойников (в регионах, где это возможно):
 
-- [Портал Azure](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Портал Azure](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### <a name="azure-event-grid"></a>Сетка событий Azure
 
@@ -221,7 +221,7 @@ ms.locfileid: "100373680"
 
 Тип управляемого удостоверения | Все общедоступные версии<br>Глобальные регионы Azure | Azure для государственных организаций | Azure для Германии | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Назначено системой | Доступно в регионе, где доступна служба импорта и экспорта Azure | Предварительный просмотр | Доступно | Доступно |
+| Назначено системой | Доступно в регионе, где доступна служба импорта и экспорта Azure | Preview (Предварительный просмотр) | Доступно | Доступно |
 | Назначено пользователем | Недоступно | Недоступно | Недоступно | Недоступно |
 
 ### <a name="azure-kubernetes-service-aks"></a>Служба Azure Kubernetes (AKS)
@@ -252,7 +252,7 @@ ms.locfileid: "100373680"
 
 Тип управляемого удостоверения | Все общедоступные версии<br>Глобальные регионы Azure | Azure для государственных организаций | Azure для Германии | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Назначено системой | Предварительный просмотр | Недоступно | Недоступно | Недоступно |
+| Назначено системой | Preview (Предварительный просмотр) | Недоступно | Недоступно | Недоступно |
 | Назначено пользователем | Preview (Предварительный просмотр) | Недоступно | Недоступно | Недоступно |
 
 Дополнительные сведения см. [в статье Использование управляемых удостоверений с машинное обучение Azure](../../machine-learning/how-to-use-managed-identities.md).

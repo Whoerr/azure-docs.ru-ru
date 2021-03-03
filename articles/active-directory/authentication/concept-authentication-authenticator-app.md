@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744369"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648804"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Методы проверки подлинности в приложении Azure Active Directory Microsoft Authenticator
 
@@ -23,7 +23,7 @@ Microsoft Authenticator приложение предоставляет допо
 
 Пользователи могут получить уведомление через мобильное приложение (которое они могут принять или отклонить) или использовать приложение Authenticator для создания кода проверки OATH, который можно ввести в интерфейсе входа в систему. Если включить и уведомление, и проверочный код, пользователи, регистрирующие приложение Authenticator, могут использовать для подтверждения личности любой способ.
 
-Чтобы использовать для входа приложение Authenticator, а не имя пользователя и пароль, выполните инструкции в разделе [Включение беспарольного входа с использованием приложения Microsoft Authenticator (предварительная версия)](howto-authentication-passwordless-phone.md).
+Сведения о том, как использовать приложение Authenticator в запросе на вход, а не в комбинации имени пользователя и пароля, см. в разделе [Включение входа без пароля в приложение Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Пользователи не могут зарегистрировать мобильное приложение, если включена функция SSPR. Вместо этого они могут зарегистрировать мобильное приложение в [https://aka.ms/mfasetup](https://aka.ms/mfasetup) или в составе регистрации объединенной информации о безопасности в [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -34,7 +34,7 @@ Microsoft Authenticator приложение предоставляет допо
 
 ![Пример входа в браузер с запросом пользователя на утверждение входа](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Этот метод проверки подлинности обеспечивает высокий уровень безопасности и устраняет необходимость ввода пароля пользователем при входе. Вход без пароля с помощью приложения Microsoft Authenticator в настоящее время находится на этапе предварительной версии.
+Этот метод проверки подлинности обеспечивает высокий уровень безопасности и устраняет необходимость ввода пароля пользователем при входе. 
 
 Чтобы приступить к входу без пароля, см. статью [Включение входа без пароля с помощью приложения Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

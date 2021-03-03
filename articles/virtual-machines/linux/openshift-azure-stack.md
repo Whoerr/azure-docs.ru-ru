@@ -3,24 +3,25 @@ title: Развертывание OpenShift в Azure Stack
 description: Развертывание OpenShift в Azure Stack.
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 3729dbbc54d15d4641f5e514582f1437e790ef19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: decc66d2d5abd16c084aa19443dbac54e87a9560
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374051"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667224"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Развертывание платформы контейнеров OpenShift (OKD) в Azure Stack
 
 Вы можете развернуть OpenShift в Azure Stack. Есть несколько важных различий между Azure и Azure Stack, из-за которых процесс развертывания и функции также будут немного отличаться.
 
-Сейчас поставщик облачных служб Azure не работает в Azure Stack. Это означает, что вы не сможете присоединить диск для организации постоянного хранения в Azure Stack. Вместо этого можно настроить другие параметры хранилища, такие как NFS, iSCSI, Глустерфс и т. д. В качестве альтернативы можно включить CNS и использовать Глустерфс для постоянного хранения. Если включить CNS, для GlusterFS развертываются три дополнительных узла с дополнительным хранилищем.
+Сейчас поставщик облачных служб Azure не работает в Azure Stack. Это означает, что вы не сможете присоединить диск для организации постоянного хранения в Azure Stack. Но вы можете настроить другие варианты хранилища, например NFS, iSCSI, GlusterFS и т. д. В качестве альтернативы можно включить CNS и использовать постоянное хранилище GlusterFS. Если включить CNS, для GlusterFS развертываются три дополнительных узла с дополнительным хранилищем.
 
 Для развертывания платформы OpenShift Container Platform (OKD) в Azure Stack можно использовать один из нескольких способов.
 

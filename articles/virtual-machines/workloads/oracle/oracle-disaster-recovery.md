@@ -2,22 +2,22 @@
 title: Общие сведения о сценарии аварийного восстановления Oracle в среде Azure | Документация Майкрософт
 description: Сценарий аварийного восстановления базы данных Oracle Database 12c в среде Azure
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 8c5281b4fe596cf9807d6f0dacb844562dc152dc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 68b5b9dfd205628c9d7c430df4c0230267752e01
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880630"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669954"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Аварийное восстановление базы данных Oracle Database 12c в среде Azure.
 
-## <a name="assumptions"></a>Допущения
+## <a name="assumptions"></a>Предположения
 
 - У вас есть представление о структуре Oracle Data Guard и средах Azure.
 
@@ -89,7 +89,7 @@ ms.locfileid: "98880630"
 
 ![Снимок экрана страницы топологии аварийного восстановления](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>Дополнительные материалы для чтения
+## <a name="additional-reading"></a>Дополнительные материалы
 
 - [Design and implement an Oracle database in Azure](oracle-design.md) (Разработка базы данных Oracle и ее реализация в Azure)
 - [Настройка Oracle Data Guard](configure-oracle-dataguard.md)

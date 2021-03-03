@@ -1,24 +1,24 @@
 ---
 title: Вопросы и ответы по развертыванию ключа безопасности гибридной FIDO2 — Azure Active Directory
-description: Дополнительные сведения о некоторых часто задаваемых вопросах при входе в систему с использованием ключа безопасности гибридного FIDO2 с паролем с помощью Azure Active Directory (Предварительная версия)
+description: Узнайте о некоторых часто задаваемых вопросах при входе в систему с использованием ключа безопасности гибридного FIDO2 с паролем с помощью Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98cb990ede7c4d6e261bba05b0b8c97d758e6c32
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743536"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646390"
 ---
-# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Часто задаваемые вопросы о развертывании для гибридных FIDO2 ключей безопасности в Azure AD (Предварительная версия)
+# <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Часто задаваемые вопросы о развертывании для гибридных FIDO2 ключей безопасности в Azure AD 
 
 В этой статье рассматриваются часто задаваемые вопросы по развертыванию для гибридных устройств, присоединенных к Azure AD, и входа без пароля в локальные ресурсы. Эта функция без пароля позволяет включить проверку подлинности Azure AD на устройствах Windows 10 для гибридных устройств, присоединенных к Azure AD, с помощью ключей безопасности FIDO2. Пользователи могут входить в Windows на своих устройствах с помощью современных учетных данных, таких как FIDO2 ключи, и получать доступ к ресурсам на базе традиционных домен Active Directory Services (AD DS) с помощью простого интерфейса единого входа (SSO) для своих локальных ресурсов.
 
@@ -32,9 +32,6 @@ ms.locfileid: "96743536"
 * [Ключи безопасности FIDO2 без пароля](howto-authentication-passwordless-security-key.md)
 * [Вход без пароля в Windows 10](howto-authentication-passwordless-security-key-windows.md)
 * [Вход без пароля в локальной среде](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> Ключи безопасности FIDO2 — это общедоступная Предварительная версия функции Azure Active Directory. См. подробные сведения о [дополнительных условиях использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="security-keys"></a>Ключи безопасности
 

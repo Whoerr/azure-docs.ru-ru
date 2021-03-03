@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bce9479d063d091eb4fa68d2452d8a4218d45db9
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: c72a305a7000052be4f11c9c24a76db94de47ace
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219949"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650113"
 ---
 # <a name="support-and-help-options-for-developers"></a>Возможности получения поддержки и справки для разработчиков
 
@@ -30,13 +30,13 @@ ms.locfileid: "99219949"
 > * Если возникла проблема с одной из наших библиотек аутентификации, сообщите об этом на сайте *GitHub*.
 > * И, наконец, если вам требуется консультация, подайте запрос в службу поддержки.
 
-## <a name="search"></a>Система поиска
+## <a name="search"></a>Поиск
 
-Если у вас есть вопрос, связанный с разработкой, возможно, вы сможете найти ответ в документации, [примеры GitHub](https://github.com/azure-samples)или ответы на вопросы в [Microsoft Q&](https://docs.microsoft.com/answers/products/) .
+Если у вас есть вопрос, связанный с разработкой, возможно, вы сможете найти ответ в документации, [примеры GitHub](https://github.com/azure-samples)или ответы на вопросы в [Microsoft Q&](/answers/products/) .
 
 ### <a name="scoped-search"></a>Поиск в заданных областях
 
-Для ускорения поиска в [Microsoft Q&](https://docs.microsoft.com/answers/products/)документацию и примеры кода с помощью следующего запроса в вашей любимой поисковой подсистеме:
+Для ускорения поиска в [Microsoft Q&](/answers/products/)документацию и примеры кода с помощью следующего запроса в вашей любимой поисковой подсистеме:
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -46,31 +46,31 @@ ms.locfileid: "99219949"
 
 ## <a name="use-the-development-support-tools"></a>Использование средств технической поддержки для разработки
 
-| Средство  | Описание  |
+| Инструмент  | Описание  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Вставьте идентификатор или маркер доступа, чтобы декодировать имена и значения утверждений. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Средство для выполнения запросов и получения ответов по API Microsoft Graph. |
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Публикация вопроса в Microsoft Q&A
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/products/) — предпочтительный канал для вопросов, связанных с разработкой. Здесь члены сообщества разработчиков и команды Майкрософт постараются помочь вам решить проблемы.
+[Microsoft Q&A](/answers/products/) — предпочтительный канал для вопросов, связанных с разработкой. Здесь члены сообщества разработчиков и команды Майкрософт постараются помочь вам решить проблемы.
 
-Если вы не можете найти ответ на свой вопрос с помощью поиска, отправьте новый вопрос в [Microsoft Q&a](https://docs.microsoft.com/answers/products/) . При этом используйте один из указанных ниже тегов. Это поможет сообществу своевременно определить ваш вопрос и ответить на него.
+Если вы не можете найти ответ на свой вопрос с помощью поиска, отправьте новый вопрос в [Microsoft Q&a](/answers/products/) . При этом используйте один из указанных ниже тегов. Это поможет сообществу своевременно определить ваш вопрос и ответить на него.
 
 |Компонент/область  | Теги |
 |---------|---------|
-| Библиотека ADAL | [ADAL](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) |
-| Библиотека MSAL     | [msal](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) |
-| ПО промежуточного слоя OWIN  | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
-| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[Azure-AD-Graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Любая другая область, которая относится к аутентификации или авторизации | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Библиотека ADAL | [ADAL](/answers/topics/azure-ad-adal-deprecation.html) |
+| Библиотека MSAL     | [msal](/answers/topics/azure-ad-msal.html) |
+| ПО промежуточного слоя OWIN  | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
+| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html) |
+| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html) |
+| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[Azure-AD-Graph]](/answers/topics/azure-ad-graph.html) |
+| Любая другая область, которая относится к аутентификации или авторизации | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
 
-Следующие сообщения от [Microsoft Q&A](https://docs.microsoft.com/answers/products/) содержат советы по заданию вопросов и добавлению исходного кода. Следуя этим рекомендациям, вы повысите вероятность того, что участники сообщества быстро отреагируют на ваш вопрос.
+Следующие сообщения от [Microsoft Q&A](/answers/products/) содержат советы по заданию вопросов и добавлению исходного кода. Следуя этим рекомендациям, вы повысите вероятность того, что участники сообщества быстро отреагируют на ваш вопрос.
 
-* [Разделы справки задать хороший вопрос](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
-* [How to create a Minimal, Complete, and Verifiable example](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html) (Как создать минимальный, полный и доступный для проверки пример)
+* [Разделы справки задать хороший вопрос](/answers/articles/24951/how-to-write-a-quality-question.html)
+* [How to create a Minimal, Complete, and Verifiable example](/answers/articles/24907/how-to-write-a-quality-answer.html) (Как создать минимальный, полный и доступный для проверки пример)
 
 ## <a name="create-a-github-issue"></a>Сообщение о проблеме на GitHub
 

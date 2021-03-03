@@ -3,15 +3,15 @@ title: Политики интеграции ДАПР управления API A
 description: Узнайте о политиках управления API Azure для взаимодействия с расширениями микрослужб ДАПР.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 10/23/2020
+ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: b8e253f75f56f961a24a441188b7a8e571622667
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560235"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646815"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Политики интеграции ДАПР управления API
 
@@ -45,21 +45,21 @@ template:
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Отправить запрос службе
 
-Эта политика задает целевой URL-адрес для текущего запроса на `http://localhost:3500/v1.0/invoke/{app-id}/method/{method-name}` замену параметров шаблона значениями, указанными в инструкции политики.
+Эта политика задает целевой URL-адрес для текущего запроса на `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}` замену параметров шаблона значениями, указанными в инструкции политики.
 
 Политика предполагает, что ДАПР выполняется в контейнере расширения в том же Pod, что и шлюз. После получения запроса среда выполнения ДАПР выполняет обнаружение служб и фактический вызов, включая возможное преобразование протокола между HTTP и gRPC, повторные попытки, распределенную трассировку и обработку ошибок.
 
 ### <a name="policy-statement"></a>Правило политики
 
 ```xml
-<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" />
+<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" dapr-namespace="ns-name" />
 ```
 
 ### <a name="examples"></a>Примеры
 
 #### <a name="example"></a>Пример
 
-В следующем примере демонстрируется вызов метода с именем "Back" в микрослужбе с именем "echo". `set-backend-service`Политика задает URL-адрес назначения. `forward-request`Политика отправляет запрос в среду выполнения ДАПР, которая доставляет его микрослужбе.
+В следующем примере демонстрируется вызов метода с именем "Back" в микрослужбе с именем "echo". `set-backend-service`Политика задает URL-адрес назначения `http://localhost:3500/v1.0/invoke/echo.echo-app/method/back` . `forward-request`Политика отправляет запрос в среду выполнения ДАПР, которая доставляет его микрослужбе.
 
 Эта `forward-request` Политика показана здесь для ясности. Политика обычно является "унаследованной" из глобальной области с помощью `base` ключевого слова.
 
@@ -67,7 +67,7 @@ template:
 <policies>
     <inbound>
         <base />
-        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" />
+        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" dapr-namespace="echo-app" />
     </inbound>
     <backend>
         <forward-request />
@@ -92,8 +92,9 @@ template:
 | Атрибут        | Описание                     | Обязательно | По умолчанию |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Необходимо задать значение "ДАПР"           | Да      | Н/Д     |
-| ДАПР-App-ID      | Имя целевой микрослужбы. Сопоставляется с параметром [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) в ДАПР.| Да | Н/Д |
+| ДАПР-App-ID      | Имя целевой микрослужбы. Используется для формирования параметра [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) в ДАПР.| Да | Н/Д |
 | ДАПР-метод      | Имя метода или URL-адреса для вызова в целевой микрослужбе. Сопоставляется с параметром [имени метода](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) в ДАПР.| Да | Н/Д |
+| ДАПР — пространство имен   | Имя пространства имен, в котором размещена целевая микрослужба. Используется для формирования параметра [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) в ДАПР.| Нет | Н/Д |
 
 ### <a name="usage"></a>Использование
 

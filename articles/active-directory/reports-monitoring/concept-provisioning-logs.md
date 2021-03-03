@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091938"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651943"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Общие сведения о подготовке журналов в портал Azure (Предварительная версия)
 
@@ -60,8 +60,8 @@ ms.locfileid: "99091938"
 Клиенты могут взаимодействовать с журналами подготовки четырьмя способами:
 
 - Доступ к журналам из портал Azure, как описано в следующем разделе.
-- Потоковая передача журналов подготовки в [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). Этот метод обеспечивает расширенное хранение данных и создание пользовательских панелей мониторинга, предупреждений и запросов.
-- Запрос [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) для журналов подготовки.
+- Потоковая передача журналов подготовки в [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). Этот метод обеспечивает расширенное хранение данных и создание пользовательских панелей мониторинга, предупреждений и запросов.
+- Запрос [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) для журналов подготовки.
 - Загрузка журналов подготовки в формате CSV или JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Доступ к журналам из портал Azure
@@ -92,7 +92,7 @@ ms.locfileid: "99091938"
 
 Чтобы получить более подробную информацию, выберите элемент в списке.
 
-![Снимок экрана, на котором отображаются подробные сведения.](./media/concept-provisioning-logs/steps.png "Фильтр")
+![Снимок экрана, на котором отображаются подробные сведения.](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## <a name="filter-provisioning-activities"></a>Фильтрация действий по подготовке
@@ -107,7 +107,7 @@ ms.locfileid: "99091938"
 - **Действие**
 
 
-![Снимок экрана, на котором показаны значения фильтра.](./media/concept-provisioning-logs/default-filter.png "Фильтр")
+![Снимок экрана, на котором показаны значения фильтра.](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 Фильтр **удостоверений** позволяет указать имя или удостоверение, которое вас интересуют. Это может быть пользователь, группа, роль или другой объект. 
 
@@ -117,7 +117,7 @@ ms.locfileid: "99091938"
 > Имя пользователя может не всегда присутствовать в столбце **идентификаторов** . Всегда будет один идентификатор. 
 
 
-Фильтр **дат** позволяет определить интервал времени для возвращаемых данных. Доступны следующие значения:
+Фильтр **дат** позволяет определить интервал времени для возвращаемых данных. Возможны следующие значения:
 
 - 1 месяц
 - 7 дней
@@ -171,7 +171,7 @@ ms.locfileid: "99091938"
   1. Сопоставление объекта между источником и целевым объектом.
   1. Подготавливает объект (создание, обновление, удаление или отключение).
 
-  ![На снимке экрана показаны этапы подготовки на вкладке шаги.](./media/concept-provisioning-logs/steps.png "Фильтр")
+  ![На снимке экрана показаны этапы подготовки на вкладке шаги.](./media/concept-provisioning-logs/steps.png "Filter")
 
 - **Устранение неполадок & рекомендации**: содержит код и причину ошибки. Сведения об ошибке доступны, только если происходит сбой.
 
@@ -207,7 +207,7 @@ ms.locfileid: "99091938"
 
 Ниже приведены примеры команд для работы с JSON с файлом с помощью PowerShell. Вы можете использовать любой язык программирования, с которым вам удобно работать.  
 
-Сначала [прочтите файл JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) , выполнив следующую команду:
+Сначала [прочтите файл JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) , выполнив следующую команду:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

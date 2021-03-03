@@ -1,6 +1,6 @@
 ---
 title: Подключение с помощью sqlcmd
-description: Используйте программу командной строки sqlcmd для подключения к пулу SQL синапсе и выполнения запросов к нему.
+description: Используйте программу командной строки sqlcmd для подключения к выделенному пулу SQL и выполнения запросов к нему в Azure синапсе Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676240"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675733"
 ---
-# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Подключение к пулу SQL в Azure синапсе Analytics с помощью sqlcmd
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Подключение к выделенному пулу SQL в Azure синапсе Analytics с помощью программы sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -28,15 +28,15 @@ ms.locfileid: "98676240"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Используйте программу командной строки [sqlcmd] [sqlcmd] для подключения к пулу SQL и выполнения запросов к нему.  
+Используйте программу командной строки [sqlcmd] [sqlcmd] для подключения к выделенному пулу SQL и запроса к нему.  
 
 ## <a name="1-connect"></a>1. Подключение
 
-Чтобы начать работу с [sqlcmd] [sqlcmd], откройте командную строку и введите **sqlcmd** , а затем строку подключения для пула SQL. В строке подключения обязательно укажите следующие параметры.
+Чтобы приступить к работе с [sqlcmd] [sqlcmd], откройте командную строку и введите **sqlcmd** , после чего строка подключения для выделенного пула SQL. В строке подключения обязательно укажите следующие параметры.
 
 * **Server (-S):** сервер в формате `<`имя_сервера`>`.database.windows.net
-* **База данных (-d):** Имя пула SQL.
-* **Включить заключенные в кавычки идентификаторы (-I):** Для подключения к экземпляру пула SQL необходимо включить заключенные в кавычки идентификаторы.
+* **База данных (-d):** выделенное имя пула SQL.
+* **Включить заключенные в кавычки идентификаторы (-I):** Для подключения к выделенному экземпляру пула SQL необходимо включить заключенные в кавычки идентификаторы.
 
 Чтобы использовать проверку подлинности SQL Server, необходимо добавить параметры имени пользователя и пароля.
 
@@ -83,6 +83,6 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о параметрах, доступных в программе sqlcmd, см. в [документации по sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

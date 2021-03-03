@@ -5,15 +5,15 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 941fe8929b75fdebf187186ca7078b0ae1dd261c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359240"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658529"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Потоки изменений в API Azure Cosmos DB для MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "97359240"
 Поддержка [канала изменений](change-feed.md) в API Azure Cosmos DB для MongoDB доступна с помощью API потоков изменений. С помощью API потоков изменений приложения могут получать изменения, внесенные в коллекцию или элементы в пределах одного сегмента. На основе полученных результатов можно будет выполнять дальнейшие действия. Изменения элементов в коллекции фиксируются в порядке времени их изменения, и в каждом ключе сегмента обязательно соблюдается порядок сортировки.
 
 > [!NOTE]
-> Чтобы использовать потоки изменений, создайте учетную запись с API Azure Cosmos DB для MongoDB версии 3.6 или более поздней версии. При запуске примеров потока изменений в более ранней версии может появиться сообщение об ошибке `Unrecognized pipeline stage name: $changeStream`.
+> Чтобы использовать потоки изменений, создайте API Azure Cosmos DB для учетной записи MongoDB с сервером версии 3,6 или более поздней. При запуске примеров потока изменений для более ранней версии может отобразиться *нераспознанное имя этапа конвейера: $changeStream* ошибка.
 
 ## <a name="examples"></a>Примеры
 

@@ -3,20 +3,21 @@ title: Устранение неполадок развертывания OpenSh
 description: Устранение неполадок в развертывании OpenShift Container Platform 3,11 в Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
-ms.openlocfilehash: 9595627e9d7ca2de577aa83ebba3dd58d69e6750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6dfb4cb697e7d66c7db323df9786ff7ad45e1d7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373561"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672333"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Устранение неполадок развертывания OpenShift для платформы контейнеров 3,11 в Azure
 
@@ -36,7 +37,7 @@ ms.locfileid: "87373561"
 
 По протоколу SSH подключитесь к узлу со сборником схем Ansible. Для шаблона OKD (версии 3.9 и более ранних) используйте главный узел 0. Для шаблона OKD (версии 3.10 и более поздних) используйте узел-бастион. Из узла со сборником схем Ansible вы можете подключится по протоколу SSH ко всем другим узлам в кластере (главному узлу, узлу инфраструктуры, узлу CNS и вычислительному узлу). Вам понадобятся права привилегированного пользователя (sudo su -), чтобы просмотреть файлы журналов. Доступ с правами привилегированного пользователя отключен по умолчанию для SSH-подключений, поэтому не используйте его при подключении к другим узлам.
 
-## <a name="log-files"></a>Файлы журнала
+## <a name="log-files"></a>файлы журналов.
 
 Файлы журналов (stderr и stdout) для сценариев подготовки узла находятся в папке `/var/lib/waagent/custom-script/download/0` на всех узлах. Если произошла ошибка во время подготовки узла, просмотрите файлы журналов, чтобы определить ошибку.
 

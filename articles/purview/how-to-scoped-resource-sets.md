@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 517b07eecdbc63754f46fcf1051bf5b987dbc20e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654609"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668441"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Создание правил конфигурации набора ресурсов с заданной областью
 
@@ -43,7 +43,7 @@ ms.locfileid: "100654609"
 
 При создании правил набора ресурсов с заданной областью используйте следующий синтаксис для указания правил, к которым применяются правила активов.
 
-### <a name="static-replacers-single-brackets"></a>Статический реплацерс (одиночные скобки)
+### <a name="dynamic-replacers-single-brackets"></a>Динамический реплацерс (одиночные скобки)
 
 Одинарные скобки используются в качестве **динамических реплацерс** в правиле набора ресурсов с заданной областью. Укажите динамический заменяемый элемент в полном имени, используя формат `{<replacerName:<replacerType>}` . При сопоставлении динамические реплацерс используются в качестве условия группирования, которое указывает, что ресурсы должны быть представлены в виде набора ресурсов. Если ресурсы сгруппированы в набор ресурсов, то полный путь к набору ресурсов будет содержать `{replacerName}` место, где был указан указанный элемент.
 
@@ -65,7 +65,7 @@ ms.locfileid: "100654609"
 
 Ниже приведены доступные типы, которые можно использовать в статических и динамических реплацерс:
 
-| Type | structure |
+| Тип | structure |
 | ---- | --------- |
 | строка | Последовательность из 1 или более символов Юникода, включая разделители, такие как пробелы. |
 | INT | Последовательность из 1 или более 0-9 символов ASCII, это может быть 0 с префиксом (например, 0001). |
@@ -74,7 +74,7 @@ ms.locfileid: "100654609"
 | time | Последовательность из 4 или 6 0-9 символов ASCII с неопределенными разделителями: ЧЧММ, чч: мм, ЧЧММСС, чч: мм: СС, указанные в https://tools.ietf.org/html/rfc3339 |
 | TIMESTAMP | Последовательность из 12 или 14 0-9 символов ASCII с неопределенными разделителями: гггг-мм-ddTHH: mm, ГГГГММДДЧЧмм, гггг-мм-ddTHH: mm: SS, yyyymmddHHmmss, указанный в https://tools.ietf.org/html/rfc3339 |
 | Логическое | Может содержать значение "true" или "false", без учета регистра. |
-| число | Последовательность из 0 или более 0-9 символов ASCII, может иметь значение 0 (например, 0001), за которым следует, по желанию, точка. и последовательность из 1 или более 0-9 символов ASCII, может быть 0 (например, 100). | 
+| number | Последовательность из 0 или более 0-9 символов ASCII, может иметь значение 0 (например, 0001), за которым следует, по желанию, точка. и последовательность из 1 или более 0-9 символов ASCII, может быть 0 (например, 100). | 
 | hex | Последовательность из 1 или более символов ASCII из набора 0-1 и A-F, может иметь значение 0 с префиксом |
 | локаль | Строка, соответствующая синтаксису, указанному в https://tools.ietf.org/html/rfc5646 |
 
@@ -92,7 +92,7 @@ ms.locfileid: "100654609"
 
 Извлечение данных SAP в полные и разностные нагрузки
 
-*Входные данные*
+#### <a name="inputs"></a>Входные данные
 
 Файлы:
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
@@ -102,7 +102,7 @@ ms.locfileid: "100654609"
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
 
-*Правило набора ресурсов с заданной областью*
+#### <a name="scoped-resource-set-rule"></a>Правило набора ресурсов с заданной областью 
 
 **Область действия:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -112,7 +112,7 @@ ms.locfileid: "100654609"
 
 **Набор ресурсов:** true
 
-*Выходные данные*
+#### <a name="output"></a>Выходные данные 
 
 Один ресурс набора ресурсов
 
@@ -124,7 +124,7 @@ ms.locfileid: "100654609"
 
 Данные IoT в формате Avro
 
-*Входные данные*
+#### <a name="inputs"></a>Входные данные 
 
 Файлы:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -132,7 +132,7 @@ ms.locfileid: "100654609"
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Правила набора ресурсов с заданной областью*
+#### <a name="scoped-resource-set-rules"></a>Правила набора ресурсов с заданной областью 
 
 **Область действия:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -150,9 +150,9 @@ ms.locfileid: "100654609"
 
 **Полное имя:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-**Набор ресурсов: true**
+#### <a name="resource-set-true"></a>*Набор ресурсов: true* 
 
-*Выходные данные*
+#### <a name="outputs"></a>Выходные данные 
 
 2 набора ресурсов 
 
@@ -172,7 +172,7 @@ ms.locfileid: "100654609"
 
 Данные IoT в формате Avro
 
-*Входные данные*
+#### <a name="inputs"></a>Входные данные 
 
 Файлы:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -180,7 +180,7 @@ ms.locfileid: "100654609"
 -   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Правило набора ресурсов с заданной областью*
+#### <a name="scoped-resource-set-rule"></a>Правило набора ресурсов с заданной областью 
 
 **Область действия:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -190,7 +190,7 @@ ms.locfileid: "100654609"
 
 **Набор ресурсов:** true
 
-*Выходные данные*
+#### <a name="outputs"></a>Выходные данные 
 
 Набор ресурсов 1
 
@@ -208,7 +208,7 @@ ms.locfileid: "100654609"
 
 Не группировать в наборы ресурсов
 
-*Входные данные*
+#### <a name="inputs"></a>Входные данные 
 
 Файлы:
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -216,7 +216,7 @@ ms.locfileid: "100654609"
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Правило набора ресурсов с заданной областью*
+#### <a name="scoped-resource-set-rule"></a>Правило набора ресурсов с заданной областью 
 
 **Область действия:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -226,7 +226,7 @@ ms.locfileid: "100654609"
 
 **Набор ресурсов:** false
 
-*Выходные данные*
+#### <a name="outputs"></a>Выходные данные 
 
 4 отдельных активов
 

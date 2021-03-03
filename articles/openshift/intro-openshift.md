@@ -3,16 +3,16 @@ title: Общие сведения об Azure Red Hat OpenShift
 description: Узнайте о возможностях и преимуществах службы Microsoft Azure Red Hat OpenShift при развертывании и администрировании контейнерных приложений.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: overview
 ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: 1bf3141876ee56ee1361f19a67689ca3b2f4f89a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ec934a8a9907f0c0c3aff047e003c6725c5ab25f
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685296"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636226"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 

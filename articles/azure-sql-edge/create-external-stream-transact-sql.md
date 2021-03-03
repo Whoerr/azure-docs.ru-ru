@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 92658584030fa83da067eceab391d9bba2f034c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392305"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659228"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -99,7 +99,7 @@ WITH  ( <with_options> )
    - Для объектов потока SQL (SQL Server, база данных SQL Azure или Azure SQL ребро) указывает имя таблицы. Если поток создается в той же базе данных и схеме, что и Целевая таблица, то достаточно лишь имя таблицы. В противном случае необходимо полностью определить (<имя_базы_данных. schema_name. table_name) имя таблицы.
    - Для расположения объекта потока хранилища BLOB-объектов Azure ссылается на шаблон пути, используемый внутри контейнера больших двоичных объектов. Дополнительные сведения об этой функции см. в статье (/артиклес/стреам-Аналитикс/стреам-Аналитикс-дефине-аутпутс.МД # Blob-Storage-and-Azure-Data-Lake-Gen2).
 
-- **INPUT_OPTIONS** : укажите параметры в виде пар "ключ-значение" для таких служб, как Kafka, IOT Edge концентратора, которые являются входными для потоковых запросов.
+- **INPUT_OPTIONS**: укажите параметры в виде пар "ключ-значение" для таких служб, как Kafka, IOT Edge концентратора, которые являются входными для потоковых запросов.
     - PARTITIONs: количество секций, определенных для раздела. Максимальное число секций, которое можно использовать, ограничено 32.
       - Применяется к входным потокам Kafka
     - CONSUMER_GROUP. Концентратор событий и центры Интернета вещей ограничивают число читателей в одной группе потребителей (до пяти). Если оставить это поле пустым, будет использоваться группа потребителей $Default.
@@ -162,7 +162,7 @@ WITH
  
 CREATE EXTERNAL FILE FORMAT myFileFormat  
 WITH (  
-   FORMAT_TYPE = 'JSON', 
+   FORMAT_TYPE = JSON, 
 ); 
  
 CREATE EXTERNAL STREAM Stream_A  

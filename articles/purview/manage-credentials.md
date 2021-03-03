@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526703"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673522"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Учетные данные для исходной проверки подлинности в Azure зрения
 
 В этой статье описывается, как можно создать учетные данные в Azure зрения. Эти сохраненные учетные данные позволяют быстро повторно использовать и применять сохраненные сведения проверки подлинности к проверкам источника данных.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 - Хранилище ключей Azure. Сведения о том, как ее создать, см. в разделе [Краткое руководство. Создание хранилища ключей с помощью портал Azure](../key-vault/general/quick-create-portal.md).
 
@@ -71,7 +71,7 @@ ms.locfileid: "100526703"
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Добавление политики доступа":::
 
-6. Выберите **Добавить**.
+6. Нажмите **Добавить**.
 
 7. Нажмите кнопку **сохранить** , чтобы сохранить политику доступа.
 
@@ -85,8 +85,9 @@ ms.locfileid: "100526703"
 - Субъект-служба. Вы добавляете **ключ субъекта-службы** в качестве секрета в хранилище ключей.
 - Проверка подлинности SQL. Вы добавляете **пароль** в качестве секрета в хранилище ключей.
 - Ключ учетной записи. Вы добавляете **ключ учетной записи** в качестве секрета в хранилище ключей.
+- Роль ARN. для источника данных Amazon S3 добавьте свою **роль ARN** в AWS. 
 
-Дополнительные сведения см. [в разделе Добавление секрета в Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+Дополнительные сведения см. [в разделе Добавление секрета в Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) и [Создание новой роли AWS для зрения](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
 После сохранения секретов в хранилище ключей:
 

@@ -5,17 +5,19 @@ services: virtual-machines
 documentationcenter: ''
 author: mathapli
 manager: westonh
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 44d78d9a47f86520a3a4778806c4ddc0f96eec94
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737903"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671203"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Как Преимущество гибридного использования Azure применяется для виртуальных машин Linux
 
@@ -226,5 +228,5 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 | ----- | ---------- |
 | "Не удалось выполнить действие, так как наши записи показывают, что вы не включили облачный доступ Red Hat к вашей подписке Azure..." | Чтобы использовать преимущество с виртуальными машинами RHEL, необходимо сначала [зарегистрировать подписки Azure с помощью облачного доступа Red Hat](https://access.redhat.com/management/cloud).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте, как создавать и обновлять виртуальные машины, а также добавлять типы лицензий (RHEL_BYOS, SLES_BYOS) для Преимущество гибридного использования Azure с помощью Azure CLI](/cli/azure/vm)

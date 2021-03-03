@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: d8c6a9cc000d307490745b923a1f1ba6c93abf53
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: f8865c9e6726a19e5e215886f92507734ebf0662
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652230"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657321"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Развертывание моделей машинного обучения в Azure
 
@@ -320,17 +320,17 @@ print(service.state)
 | Переход | Служба находится в процессе развертывания. | Нет |
 | Unhealthy | Служба была развернута, но сейчас недоступна.  | Нет |
 | Непланируемый | В настоящее время служба не может быть развернута из-за нехватки ресурсов. | Нет |
-| Failed | Не удалось выполнить развертывание службы из-за ошибки или сбоя. | Да |
+| Сбой | Не удалось выполнить развертывание службы из-за ошибки или сбоя. | Да |
 | Работоспособно | Служба работоспособна, и доступна конечная точка. | Да |
 
 > [!TIP]
 > При развертывании образы DOCKER для целевых объектов вычислений создаются и загружаются из реестра контейнеров Azure (запись контроля доступа). По умолчанию Машинное обучение Azure создает запись контроля доступа, которая использует уровень служб " *базовый* ". Изменение записи контроля доступа для рабочей области на уровень "Стандартный" или "Премиум" может сократить время, затрачиваемое на сборку и развертывание образов в целевых объектах вычислений. Дополнительные сведения см в статье [Уровни службы Реестра контейнеров Azure](../container-registry/container-registry-skus.md).
 
 > [!NOTE]
-> При развертывании модели в службе Kubernetes Azure (AKS) мы рекомендуем включить [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) для этого кластера. Это поможет понять общую работоспособность кластера и использование ресурсов. Вы также можете найти следующие полезные ресурсы:
+> При развертывании модели в службе Kubernetes Azure (AKS) мы рекомендуем включить [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) для этого кластера. Это поможет понять общую работоспособность кластера и использование ресурсов. Вы также можете найти следующие полезные ресурсы:
 >
-> * [Проверка событий Работоспособность ресурсов, влияющих на кластер AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Диагностика службы Kubernetes Azure](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [Проверка событий Работоспособность ресурсов, влияющих на кластер AKS](../aks/aks-resource-health.md)
+> * [Диагностика службы Kubernetes Azure](../aks/concepts-diagnostics.md)
 >
 > Если вы пытаетесь развернуть модель в неработоспособном или перегруженном кластере, то ожидается проблема. Если вам нужна помощь в устранении неполадок с кластером AKS, обратитесь в службу поддержки AKS.
 

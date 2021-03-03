@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258580"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647278"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Управление приложениями: новые возможности
 
@@ -34,7 +34,7 @@ ms.locfileid: "99258580"
 - [Часто задаваемые вопросы о прокси приложения Active Directory (Azure AD)](application-proxy-faq.md)
 - [Руководство по Добавление локального приложения для удаленного доступа через Application Proxy в Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Работа с имеющимися локальными прокси-серверами](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Разработка бизнес-приложений для Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Разработка бизнес-приложений для Azure Active Directory](../develop/v2-overview.md)
 - [Сведения о соединителях прокси приложения Azure AD](application-proxy-connectors.md)
 - [Общие сведения о связанном входе](configure-linked-sign-on.md)
 - [Общие сведения о едином входе на основе пароля](configure-password-single-sign-on-non-gallery-applications.md)
@@ -94,7 +94,7 @@ ms.locfileid: "99258580"
 ### <a name="new-articles"></a>Новые статьи
 - [Краткое руководство. Настройка единого входа на основе OIDC для приложения в арендаторе Azure Active Directory (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Краткое руководство. Назначение пользователей приложению, которое использует Azure AD в качестве поставщика удостоверений](add-application-portal-assign-users.md)
-- [Новые возможности в документах](whats-new-docs.md)
+- [Новые возможности в Документации Майкрософт](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Обновленные статьи

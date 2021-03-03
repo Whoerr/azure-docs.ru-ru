@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af2c848fe06d9ebc44443bdcce61af0c8de08b2d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 2270ff360c7bb923555c9b4ffb0c35ccd4382d0e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537007"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647495"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Методы проверки подлинности в токенах Azure Active Directory-OATH
 
@@ -29,15 +29,13 @@ ms.locfileid: "99537007"
 
 Некоторые аппаратные маркеры OATH TOTP являются программируемыми, то есть не поставляются с предварительно запрограммированным секретным ключом или начальным значением. Эти программируемые аппаратные маркеры можно настроить с помощью секретного ключа или начального значения, полученного в процессе настройки программного маркера. Клиенты могут приобрести эти маркеры у любого выбранного поставщика и использовать секретный ключ или начальное значение в предусмотренном поставщиком процессе настройки.
 
-## <a name="oath-hardware-tokens-preview"></a>Аппаратные маркеры OATH (предварительная версия)
+## <a name="oath-hardware-tokens"></a>Токены оборудования OATH
 
 Azure AD поддерживает использование токенов OATH-TOTP SHA-1, обновляющих коды каждые 30–60 секунд. Клиенты могут приобрести эти маркеры у любого поставщика по выбору.
 
 Аппаратные маркеры OATH TOTP, как правило, поставляются с предварительно запрограммированным в маркере секретным ключом или начальным значением. Эти ключи необходимо ввести в Azure AD, как описано в следующих шагах. Максимальная длина секретного ключа — 128 символов, что может быть несовместимо с некоторыми маркерами. Секретный ключ может содержать только символы *a – z* или *a – z* , цифры *2-7* и должны быть закодированы в *base32*.
 
 Программируемые аппаратные маркеры OATH TOTP с возможностью повторного заполнения также можно настроить для Azure AD в процессе настройки программных маркеров.
-
-Аппаратные маркеры OATH поддерживаются как часть общедоступной предварительной версии. См. подробные сведения о [дополнительных условиях использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Отправка маркеров OATH в колонку маркеров OATH MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -59,6 +57,6 @@ Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
 
 Пользователи могут настроить сочетание до 5 аппаратных маркеров OATH или приложений аутентификации, таких как приложение Microsoft Authenticator, для использования в любое время.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о настройке методов проверки подлинности с помощью [Microsoft Graph REST API бета-версии](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).

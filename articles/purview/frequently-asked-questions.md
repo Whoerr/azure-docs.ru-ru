@@ -1,5 +1,5 @@
 ---
-title: Часто задаваемые вопросы
+title: Вопросы и ответы
 description: В этой статье содержатся ответы на часто задаваемые вопросы об Azure зрения.
 author: SunetraVirdi
 ms.author: suvirdi
@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: eca0b9986c4da30adeeb02bc3d90d1e3d2892df7
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94b765cbcbdd81505b08052845207ee1d93a28d9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553877"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667808"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Часто задаваемые вопросы об Azure зрения
 
@@ -36,7 +36,7 @@ Azure зрения — это решение по управлению данн�
 |Управляемый экземпляр SQL Azure|Протокол SAP ECC (доступен по окончании 2020)|
 |Azure Data Explorer|SAP S/4 HANA (доступно в конце 2020)|
 |Хранилище Azure Data Lake Storage 1-го поколения|Hive хранилище метаданных (доступно в конце 2020)|
-|Azure Data Lake Storage 2-го поколения|--|
+|Azure Data Lake Storage 2-го поколения|Amazon S3|
 |Файлы Azure|--|
 |База данных SQL Azure|--|
 

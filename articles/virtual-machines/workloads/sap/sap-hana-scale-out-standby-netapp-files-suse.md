@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: 6da860cf9f116d859657be8b81682088b47474eb
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d7b6f1d7ed01009af5e21006240a21442492cb07
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259157"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673639"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Развертывание горизонтально масштабируемой системы SAP HANA с резервным узлом на виртуальных машинах Azure с помощью Azure NetApp Files в SUSE Linux Enterprise Server 
 
@@ -84,7 +83,7 @@ ms.locfileid: "99259157"
 * [Рекомендации по использованию SUSE SAP с рекомендациями][suse-ha-guide]: содержит все необходимые сведения для настройки высокой доступности и SAP HANA репликации системы в локальной среде (для использования в качестве общего базового показателя). они предоставляют более подробную информацию.
 * [Заметки о выпуске расширения SUSE высокого уровня доступности 12 SP3][suse-ha-12sp3-relnotes]
 * [Приложения NetApp SAP в Microsoft Azure. Использование Azure NetApp Files][anf-sap-applications-azure]
-* [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>Обзор
 
@@ -663,7 +662,7 @@ Azure NetApp Files доступен в нескольких [регионах Az
 
 1. Имитация сбоя узла на рабочем узле SAP HANA. Выполните следующие действия. 
 
-   a. Прежде чем имитировать сбой узла, выполните следующие команды в качестве **HN1** ADM, чтобы записать состояние среды:  
+   а. Прежде чем имитировать сбой узла, выполните следующие команды в качестве **HN1** ADM, чтобы записать состояние среды:  
 
    <pre><code>
     # Check the landscape status
@@ -863,5 +862,5 @@ Azure NetApp Files доступен в нескольких [регионах Az
 * [Планирование и реализация виртуальных машин Azure для SAP][planning-guide]
 * [Развертывание виртуальных машин Azure для SAP NetWeaver][deployment-guide]
 * [SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию СУБД SQL Server][dbms-guide]
-* [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Тома NFS версии 4.1 в Azure NetApp Files для SAP HANA](./hana-vm-operations-netapp.md)
 * Сведения о том, как установить высокий уровень доступности и спланировать аварийное восстановление SAP HANA на виртуальных машинах Azure, см. в статье [высокий уровень доступности SAP HANA на виртуальные машины Azure][sap-hana-ha].

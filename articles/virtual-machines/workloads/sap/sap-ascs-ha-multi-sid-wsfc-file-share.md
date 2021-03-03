@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b204aa508370c62aaf33688aeb7ec63d3f8f1b0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 125563255bac48de5b4b293ab00004e151fec950
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019367"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673672"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Обеспечение высокого уровня доступности экземпляра ASCS/SCS с несколькими ИД безопасности с помощью отказоустойчивой кластеризации Windows Server и файлового ресурса в Azure
 
@@ -243,7 +242,7 @@ _**Рис 7.** "Общий ресурс SMB — быстрый профиль"_
 
 ![Рис 8. Выбор "sapglobalhost2" и указание пути на Volume2][sap-ha-guide-figure-8019]
 
-_**Рис 8.** Выбор "sapglobalhost2" и указание пути на Volume2_
+_**Рис. 8.** Выберите "sapglobalhost2" и укажите путь в Volume2_
 
 <br>
 
@@ -290,7 +289,7 @@ _**Рис. 13.** Привязка второго sapmnt к узлу sapglobal2 �
 ### <a name="install-dbms-and-sap-application-servers"></a>Установка СУБД и серверов приложений SAP
 Установите СУБД и серверы приложений SAP, как описано выше.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Официальные рекомендации SAP для файлового ресурса высокой доступности: [Installation of an ASCS/SCS Instance on a Failover Cluster with no Shared Disks][sap-official-ha-file-share-document] (Установка экземпляра ASCS/SCS в отказоустойчивом кластере без использования общих дисков)
 

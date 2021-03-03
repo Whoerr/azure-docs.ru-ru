@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 7731aa2eb1a962d4674ed382911ba0058e1ebdaf
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222172"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647512"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Получить сертификат AppSource для Azure Active Directory
 
@@ -102,11 +102,11 @@ ms.locfileid: "99222172"
 
 Дополнительные сведения о пробной версии AppSource см. [в этом видео](https://aka.ms/trialexperienceforwebapps). 
 
-## <a name="get-support"></a>Получение поддержки
+## <a name="get-support"></a>Техническая поддержка
 
-Для интеграции Azure AD мы используем [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) с сообществом для предоставления поддержки.
+Для интеграции Azure AD мы используем [Microsoft Q&A](/answers/topics/azure-active-directory.html) с сообществом для предоставления поддержки.
 
-Мы настоятельно рекомендуем задать свои вопросы в [Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-active-directory.html) и просмотреть существующие проблемы, чтобы узнать, не запрашивал ли пользователь вопрос. Убедитесь, что ваши вопросы или комментарии помечены как [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
+Мы настоятельно рекомендуем задать свои вопросы в [Microsoft Q&](/answers/topics/azure-active-directory.html) и просмотреть существующие проблемы, чтобы узнать, не запрашивал ли пользователь вопрос. Убедитесь, что ваши вопросы или комментарии помечены как [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) .
 
 Оставляйте свои замечания и пожелания в разделе ниже. Они помогают нам улучшать содержимое веб-сайта.
 

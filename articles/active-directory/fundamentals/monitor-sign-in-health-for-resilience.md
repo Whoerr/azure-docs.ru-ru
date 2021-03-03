@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101376"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650997"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Мониторинг работоспособности входа в приложение для обеспечения устойчивости
 
@@ -51,7 +51,7 @@ ms.locfileid: "100101376"
 
 * Log Analytics рабочей области в подписке Azure для отправки журналов в журналы Azure Monitor. 
 
-   * Узнайте, как [создать рабочую область log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Узнайте, как [создать рабочую область log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Журналы Azure AD, интегрированные с журналами Azure Monitor
 
@@ -94,7 +94,7 @@ ms.locfileid: "100101376"
 
  Чтобы настроить базовый запрос и настроить оповещения, выполните следующие действия. Пример запроса будет использоваться в качестве базиса для вашей конфигурации. Описание структуры запроса отображается в конце этого раздела.
 
-Дополнительные сведения о создании, просмотре и управлении оповещениями журнала с помощью Azure Monitor см. в статье [Управление оповещениями журнала](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Дополнительные сведения о создании, просмотре и управлении оповещениями журнала с помощью Azure Monitor см. в статье [Управление оповещениями журнала](../../azure-monitor/alerts/alerts-log.md).
 
  
 1. В книге выберите **изменить**, а затем щелкните **значок запроса** над правой стороны диаграммы.   
@@ -280,10 +280,9 @@ thisWeek
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Дополнительные сведения о книгах](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[Дополнительные сведения о книгах](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

@@ -3,17 +3,17 @@ title: Производительность размера виртуально�
 description: Узнайте о результатах тестирования производительности для размеров виртуальных машин серии HC в Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: e1abe4b87bd5be98dad8e43d604f833eae3854e7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0d164c19da1ed2cbf6930a92686b35690fb0afb5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966961"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666923"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Размеры виртуальных машин серии HC
 
@@ -56,7 +56,7 @@ ms.locfileid: "94966961"
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Ознакомьтесь с последними объявлениями и некоторыми примерами высокопроизводительных вычислений (HPC) и результатами в [блогах сообщества разработчиков Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Более высокоуровневое архитектурное представление выполнения рабочих нагрузок HPC см. в статье [высокопроизводительные вычисления (HPC) в Azure](/azure/architecture/topics/high-performance-computing/).

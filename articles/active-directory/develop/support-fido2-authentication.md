@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
-ms.openlocfilehash: 5abece0e272d4b72ba6f787ad44b091df5d45226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e7193ee5d076538689078ce634b8170926df20b6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418000"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653258"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Поддержка проверки подлинности без пароля с помощью ключей FIDO2 в разрабатываемых приложениях
 
@@ -47,10 +47,10 @@ ms.locfileid: "100418000"
 Рекомендуемые параметры для реализации проверки подлинности приведены в порядке:
 
 - Для классических приложений .NET, использующих библиотеку проверки подлинности Майкрософт (MSAL), следует использовать диспетчер проверки подлинности Windows (WAM). Эта интеграция и ее преимущества [задокументированы на сайте GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
-- Используйте [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) для поддержки FIDO2 во встроенном браузере.
+- Используйте [WebView2](/microsoft-edge/webview2/) для поддержки FIDO2 во встроенном браузере.
 - Используйте системный браузер. Библиотеки MSAL для настольных платформ используют этот метод по умолчанию. Чтобы убедиться, что используемый браузер поддерживает проверку подлинности FIDO2, можно обратиться к странице о совместимости браузера FIDO2.
 
-### <a name="mobile"></a>Мобильные службы
+### <a name="mobile"></a>Мобильный телефон
 
 По состоянию на февраль 2020 FIDO2 в настоящее время не поддерживается для собственных приложений iOS или Android, но находится на стадии разработки.
 
@@ -62,6 +62,6 @@ ms.locfileid: "100418000"
 
 Доступность FIDO2 проверки подлинности с паролем для приложений, выполняемых в веб-браузере, зависит от сочетания браузера и платформы. Чтобы проверить, поддерживается ли комбинация пользователей, можно обратиться к таблице [совместимости FIDO2](../authentication/fido2-compatibility.md) .
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Параметры проверки подлинности с паролем для Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)

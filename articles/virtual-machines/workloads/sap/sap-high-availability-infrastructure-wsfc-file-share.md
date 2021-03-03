@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62803bd450db351290bbc12d650d23a4148a4536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f539a63907bb7cbe9d04dc3249427357d79d7c87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022349"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673597"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Подготовка высокодоступной инфраструктуры Azure для SAP с помощью отказоустойчивого кластера Windows и файлового ресурса для экземпляров SAP ASCS/SCS
 
@@ -219,8 +218,8 @@ ms.locfileid: "96022349"
 | --- | --- | --- | --- |
 | Кластер ASCS/SCS первого узла | ascs-1 | 10.0.6.4 | ascs-as |
 | Кластер ASCS/SCS второго узла | ascs-2 | 10.0.6.5 | ascs-as |
-| Имя сети кластера |ascs-cl | 10.0.6.6 | Недоступно |
-| Имя сети кластера SAP ASCS PR1 |pr1-ascs | 10.0.6.7 | Недоступно |
+| Имя сети кластера |ascs-cl | 10.0.6.6 | Н/Д |
+| Имя сети кластера SAP ASCS PR1 |pr1-ascs | 10.0.6.7 | Н/Д |
 
 
 **Таблица 1**. Кластер ASCS/SCS
@@ -237,8 +236,8 @@ ms.locfileid: "96022349"
 | Первый узел кластера | sofs-1 | 10.0.6.10 | sofs-as |
 | Второй узел кластера | sofs-2 | 10.0.6.11 | sofs-as |
 | Третий узел кластера | sofs-3 | 10.0.6.12 | sofs-as |
-| Имя сети кластера | sofs-cl | 10.0.6.13 | Недоступно |
-| Имя глобального узла SAP | sapglobal | Используйте IP-адреса всех узлов кластера | Недоступно |
+| Имя сети кластера | sofs-cl | 10.0.6.13 | Н/Д |
+| Имя глобального узла SAP | sapglobal | Используйте IP-адреса всех узлов кластера | Н/Д |
 
 **Таблица 3**. Кластер масштабируемых файловых серверов
 
@@ -341,6 +340,6 @@ _**Рис. 2**. экран пользовательского интерфейс
 
 Эти параметры были протестированы у клиентов, они обеспечивают удачный компромисс. Они достаточно устойчивы, но они также обеспечивают достаточную отработку отказа в реальных условиях возникновения ошибок или сбоя виртуальной машины.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Установка высокодоступной системы SAP NetWeaver в отказоустойчивом кластере Windows с файловым ресурсом для экземпляров SAP ASCS/SCS][sap-high-availability-installation-wsfc-file-share]

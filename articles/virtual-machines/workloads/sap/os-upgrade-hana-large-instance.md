@@ -6,29 +6,25 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: a3c4026616b19656c708f4dd4ac8a419f7774198
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608696"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668628"
 ---
 # <a name="operating-system-upgrade"></a>Обновление операционной системы
 В этом документе описывается обновление операционной системы в HANA (крупные экземпляры).
 
 >[!NOTE]
 >Обновление операционной системы — это ответственность клиента, служба поддержки Microsoft Operations может помочь вам в изходе обновления. Перед планированием обновления необходимо обратиться к поставщику операционной системы.
-
-> [!NOTE]
-> Эта статья содержит ссылки на термин « *черный* список», термин, который корпорация Майкрософт больше не использует. При удалении термина из программного обеспечения мы удалим его из этой статьи.
 
 Во время подготовки модульной подсистемы Microsoft Operations ХЛИ устанавливает операционную систему.
 Со временем вам потребуется обслуживать операционную систему (пример: установка исправлений, настройка, обновление и т. д.) на модуле HLI.

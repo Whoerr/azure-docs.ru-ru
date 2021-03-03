@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 521fd61f18d6673e21c23dbca4cfc12d2ee4bf0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9cbfc30b10373ad2a4f4304987dac426b5dcabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939646"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643581"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Миграция базы данных PostgreSQL в службу Arc Azure с включенной PostgreSQLной группой серверов
 
@@ -36,7 +36,7 @@ ms.locfileid: "90939646"
 - Сброс параметров сервера
 - Сброс контекстов безопасности: повторное создание пользователей, ролей и сброс разрешений...
 
-Для выполнения этой операции резервного копирования и восстановления можно использовать любое средство, способное выполнять резервное копирование и восстановление для postgres. Пример:
+Для выполнения этой операции резервного копирования и восстановления можно использовать любое средство, способное выполнять резервное копирование и восстановление для postgres. Пример.
 - Azure Data Studio и его расширение postgres
 - `pgcli`
 - `pgAdmin`
@@ -53,20 +53,20 @@ ms.locfileid: "90939646"
 
 - **Местоназначение**  
     Сервер postgres, работающий в среде Azure Arc и именуемый postgres01. Версия 12. В ней нет базы данных, Кроме стандартной базы данных postgres.  
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="миграцию-источник":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="Миграция-назначение":::
 
 
 ### <a name="take-a-backup-of-the-source-database-on-premises"></a>Создание резервной копии базы данных-источника в локальной среде
 
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="миграцию-источник":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Миграция-источник — резервное копирование":::
 
 Настройте его:
 1. Присвойте ему имя файла: **мисаурцебаккуп**
 2. Установка формата **Custom** 
- :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="миграцию-источник":::
+ :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="Миграция-источник — резервная копия — Настройка":::
 
 Резервное копирование успешно завершено:  
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="миграцию-источник":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Миграция-источник — резервное копирование — завершено":::
 
 ### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Создайте пустую базу данных в целевой системе в вашей службе "Дуга Azure" PostgreSQL "Масштабируемая группа серверов"
 
@@ -94,21 +94,23 @@ azdata arc postgres endpoint list -n postgres01
 ]
 ```
 
-Настроим имя целевой базы данных **RESTORED_MyOnPremPostgresDB**  
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Миграция-назначение-DB-создание"lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
+Настроим имя целевой базы данных **RESTORED_MyOnPremPostgresDB**.
+
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Миграция-назначение-DB-создание" lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
 
 ### <a name="restore-the-database-in-your-arc-setup"></a>Восстановление базы данных в настройке Arc
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="миграцию-источник":::
+
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Мигратре-DB — восстановление":::
 
 Настройте восстановление.
 1. Укажите файл, содержащий резервную копию для восстановления: **мисаурцебаккуп**
 2. Для параметра формат задайте значение **Custom или tar** 
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="миграцию-источник"::: .
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrate-DB-Restore-configure"::: .
 
 3. Щелкните **Восстановить**.  
 
    Восстановление выполнено успешно.  
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="миграцию-источник":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Миграция-DB-Restore-Completed":::
 
 ### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Убедитесь, что база данных успешно восстановлена в службе "Дуга Azure Enabled" PostgreSQL "Масштабируемая группа серверов"
 
@@ -118,7 +120,20 @@ azdata arc postgres endpoint list -n postgres01
 
 Разверните экземпляр postgres, размещенный в вашей настройке дуги Azure. В базе данных появится таблица, которая была восстановлена, и при выборе данных будет отображаться та же строка, что и в локальном экземпляре:
 
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="миграцию-источник"
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrate-DB-Restore-Verification":::
+
+**`psql`Изнутри настройки дуги Azure:**  
+
+В настройке дуги можно использовать `psql` для подключения к экземпляру postgres, установить контекст базы данных в значение `RESTORED_MyOnPremPostgresDB` и запросить данные:
+
+1. Перечислите конечные точки, чтобы помочь в `psql` строке подключения:
+
+   ```console
+   azdata arc postgres endpoint list -n postgres01
+   [
+     {
+       "Description": "PostgreSQL Instance",
+       "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
      },
      {
        "Description": "Log Search Dashboard",
@@ -168,7 +183,7 @@ azdata arc postgres endpoint list -n postgres01
 >
 > - Сейчас невозможно выполнить переход в Azure Arc на существующий экземпляр postgres, который будет выполняться локально или в любом другом облаке. Иными словами, невозможно установить некоторый тип "агент Arc Azure" на имеющемся экземпляре postgres, чтобы сделать установку postgres доступной для службы "Дуга" Azure. Вместо этого необходимо создать новый экземпляр postgres и передавать в него данные. Для этого можно использовать описанный выше метод, или вы можете использовать любой выбранный вами инструмент ETL.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Ознакомьтесь с основными понятиями и руководствами по использованию службы "база данных Azure для PostgreSQL", чтобы распределить данные между несколькими узлами PostgreSQL, а также получить преимущества от всех возможностей базы данных Azure для PostgreSQL Scale.
     * [Узлы и таблицы](../../postgresql/concepts-hyperscale-nodes.md)
@@ -179,6 +194,6 @@ azdata arc postgres endpoint list -n postgres01
     * [Проектирование базы данных с несколькими клиентами](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [Разработка панели мониторинга для аналитики в режиме реального времени](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> * В этих документах пропустите разделы **Вход в портал Azure**и **Создайте базу данных Azure для postgres-Scale (Цитус)**. Реализуйте оставшиеся шаги в развертывании Azure ARC. Эти разделы относятся к службе "база данных Azure для PostgreSQL" (Цитус), предлагаемой в качестве службы PaaS в облаке Azure, но другие части документов напрямую применимы к вашей геомасштабированию Azure с включенной PostgreSQL.
+> * В этих документах пропустите разделы **Вход в портал Azure** и **Создайте базу данных Azure для postgres-Scale (Цитус)**. Реализуйте оставшиеся шаги в развертывании Azure ARC. Эти разделы относятся к службе "база данных Azure для PostgreSQL" (Цитус), предлагаемой в качестве службы PaaS в облаке Azure, но другие части документов напрямую применимы к вашей геомасштабированию Azure с включенной PostgreSQL.
 
 - [Масштабирование группы серверов с Гипермасштабированием Базы данных Azure для PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)

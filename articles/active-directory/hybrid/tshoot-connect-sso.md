@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eef58f6e84fb3b4dec947fa3614b6ec1043ff89e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591180"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644652"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Устранение неполадок с простым единым входом Azure Active Directory
 
@@ -32,6 +32,7 @@ ms.locfileid: "97591180"
 - Microsoft 365 Клиенты Win32 (Outlook, Word, Excel и др.) с версиями 16.0.8730. xxxx и более поздних версий поддерживаются с помощью неинтерактивного потока. Другие версии не поддерживаются. В этих версиях для входа в систему пользователи будут вводить свое имя пользователя, но не пароль. Для OneDrive потребуется активировать [функцию автоматической настройки OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894), чтобы включить автоматический вход в систему.
 - Простой единый вход не работает в конфиденциальном режиме просмотра в Firefox.
 - Простой единый вход не работает в Internet Explorer с включенным режимом повышенной защиты.
+- Простой единый вход не работает в частном режиме обзора в Microsoft ребре (прежних версий).
 - Простой единый вход не работает в браузерах на мобильных устройствах с iOS и Android.
 - Если пользователь входит в состав слишком большого количества групп в Active Directory, скорее всего, билет Kerberos этого пользователя будет слишком большим для обработки, что приведет к сбою простого единого входа. HTTPS-запросы Azure AD могут включать в себя заголовки, максимальный размер которых составляет 50 КБ. Размер билетов Kerberos должен быть меньше, чтобы вместить другие артефакты Azure AD (как правило, он равен 2–5 КБ), такие как файлы cookie. Рекомендуем сократить количество членов в группах и повторить попытку.
 - При синхронизации 30 лесов Active Directory или больше простой единый вход через Azure AD Connect включить невозможно. Чтобы избежать этого, можно [вручную включить](#manual-reset-of-the-feature) эту функцию на своем клиенте.

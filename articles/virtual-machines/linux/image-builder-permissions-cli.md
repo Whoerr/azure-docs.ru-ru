@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 19320b8b497202c473f72f4751daf2110a347080
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: accefe6644f8959bb9426a154d4f33e0834fc06c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676773"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674876"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Настройка разрешений службы Azure Image Builder с помощью Azure CLI
 
@@ -236,6 +237,6 @@ az role assignment create \
 
 Дополнительные сведения об управляемом удостоверении, назначенном пользователем, см. в разделе [Создание пользовательского образа, который будет использовать управляемое удостоверение User-Assigned Azure для доступа к файлам службы хранилища Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). Краткое руководство посвящено созданию и настройке управляемого удостоверения, назначаемого пользователем, для доступа к учетной записи хранения.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в разделе [Общие сведения о построителе образов Azure](../image-builder-overview.md).

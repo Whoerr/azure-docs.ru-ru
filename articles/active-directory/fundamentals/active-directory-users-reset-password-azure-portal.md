@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370905"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651893"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Сброс пароля пользователя в Azure Active Directory
 
@@ -51,7 +51,11 @@ ms.locfileid: "92370905"
     >[!Note]
     >Срок действия временного пароля не ограничен. При следующем входе пользователя пароль будет по-прежнему действующим, независимо от того, сколько времени прошло с момента создания временного пароля.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+> [!IMPORTANT]
+> Если администратору не удается сбросить пароль пользователя, а в журналах событий приложений на Azure AD Connect сервере отображается следующий код ошибки HR = 80231367, проверьте атрибуты пользователя в Active Directory.  Если атрибут **админкаунт** имеет значение 1, это не позволит администратору сбросить пароль пользователя.  Атрибут **админкаунт** должен иметь значение 0, чтобы администратор мог сбросить пароль пользователя.
+
+
+## <a name="next-steps"></a>Дальнейшие действия
 
 После сброса пароля пользователя можно выполнить следующие базовые операции:
 
