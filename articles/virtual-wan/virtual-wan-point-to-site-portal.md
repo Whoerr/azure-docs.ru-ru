@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9d207e2ee0ddff49ab01094626b9af1c8505cb4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732496"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Руководство по созданию пользовательского соединения VPN с помощью Виртуальной глобальной сети Azure
 
@@ -50,7 +50,6 @@ ms.locfileid: "98919076"
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
-
 ## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Выбор пулов адресов клиента для подключений "точка — сеть"
 
 [!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
@@ -79,8 +78,6 @@ ms.locfileid: "98919076"
 1. Перейдите к виртуальной глобальной сети.
 1. На странице **Обзор** каждая точка на карте представляет собой концентратор.
 1. В разделе **Концентраторы и подключения** можно просмотреть сведения о состоянии концентратора, сайте, регионе, состоянии VPN-подключения, а также количестве принятых и переданных байтов.
-
-
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Очистка ресурсов
 

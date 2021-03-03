@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 55f433786ed9dd40b08bb64395a6bbc50800add4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e07abdda805205701a10ca3bf295b7b0d2e71766
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623028"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718035"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Обновление до текущего API предупреждений журнала из устаревшей версии API предупреждений Log Analytics
 
@@ -19,23 +19,23 @@ ms.locfileid: "100623028"
 > Эта статья относится только к Azure для общего пользования (**не** в Azure для государственных организаций или в облаке Azure для Китая).
 
 > [!NOTE]
-> После того как пользователь выбрал параметр для перехода к текущему [API счедуледкуерирулес](/rest/api/monitor/scheduledqueryrules) , невозможно вернуться к старому [API предупреждений устаревших log Analytics](../platform/api-alerts.md).
+> После того как пользователь выбрал параметр для перехода к текущему [API счедуледкуерирулес](/rest/api/monitor/scheduledqueryrules) , невозможно вернуться к старому [API предупреждений устаревших log Analytics](./api-alerts.md).
 
-В прошлом пользователи использовали [Старый API предупреждений log Analytics](../platform/api-alerts.md) для управления правилами генерации оповещений журнала. В текущих рабочих областях используется [API счедуледкуерирулес](/rest/api/monitor/scheduledqueryrules). В этой статье описываются преимущества и процесс перехода от устаревшего API к текущему API.
+В прошлом пользователи использовали [Старый API предупреждений log Analytics](./api-alerts.md) для управления правилами генерации оповещений журнала. В текущих рабочих областях используется [API счедуледкуерирулес](/rest/api/monitor/scheduledqueryrules). В этой статье описываются преимущества и процесс перехода от устаревшего API к текущему API.
 
 ## <a name="benefits"></a>Преимущества
 
 - Один шаблон для создания правил генерации оповещений (ранее требовалось три отдельных шаблона).
 - Один API для Log Analytics рабочих областей или Application Insights ресурсов.
-- [Поддержка командлетов PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- [Поддержка командлетов PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Выравнивание серьезности со всеми другими типами оповещений.
-- Возможность создания [оповещений журнала перекрестных рабочих областей](../log-query/cross-workspace-query.md) , охватывающего несколько внешних ресурсов, таких как log Analytics рабочие области или ресурсы Application Insights.
+- Возможность создания [оповещений журнала перекрестных рабочих областей](../logs/cross-workspace-query.md) , охватывающего несколько внешних ресурсов, таких как log Analytics рабочие области или ресурсы Application Insights.
 - Пользователи могут указать измерения для разбиения предупреждений с помощью параметра "Aggregate on".
 - Срок действия оповещений журнала составляет не более двух дней (раньше он был ограничен одним днем).
 
 ## <a name="impact"></a>Влияние
 
-- Все новые правила должны быть созданы или изменены с помощью текущего API. См. [Пример использования с помощью шаблона ресурсов Azure](alerts-log-create-templates.md) и [примеры использования с помощью PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- Все новые правила должны быть созданы или изменены с помощью текущего API. См. [Пример использования с помощью шаблона ресурсов Azure](alerts-log-create-templates.md) и [примеры использования с помощью PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Так как правила становятся Azure Resource Manager отслеживанию ресурсов в текущем API и должны быть уникальными, идентификатор ресурса правил изменится на эту структуру: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Отображаемые имена правила генерации оповещений останутся без изменений.
 
 ## <a name="process"></a>Процесс
@@ -102,9 +102,9 @@ armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения см. в статье [Оповещения журнала в Azure Monitor](../platform/alerts-unified-log.md).
+- Дополнительные сведения см. в статье [Оповещения журнала в Azure Monitor](./alerts-unified-log.md).
 - Узнайте, как [управлять оповещениями журналов с помощью API](alerts-log-create-templates.md).
-- Узнайте, как [управлять оповещениями журнала с помощью PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
-- Дополнительные сведения об [оповещениях Azure](../platform/alerts-overview.md).
+- Узнайте, как [управлять оповещениями журнала с помощью PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- Дополнительные сведения об [оповещениях Azure](./alerts-overview.md).

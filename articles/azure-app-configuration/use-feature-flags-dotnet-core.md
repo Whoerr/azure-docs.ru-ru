@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380242"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726433"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Руководство по использованию флагов функций в приложении ASP.NET Core
 
@@ -74,7 +74,7 @@ public class Startup
 ```
 
 
-При использовании фильтров во флагах компонентов необходимо включить пространство имен [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) и добавить вызов [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter), указав имя типа фильтра, который будет использоваться в качестве универсального типа метода. Дополнительные сведения об использовании фильтров компонентов для динамического включения и отключения возможностей см. в статье [Включение промежуточного развертывания компонентов для целевых аудиторий](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core).
+При использовании фильтров во флагах компонентов необходимо включить пространство имен [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) и добавить вызов [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter), указав имя типа фильтра, который будет использоваться в качестве универсального типа метода. Дополнительные сведения об использовании фильтров компонентов для динамического включения и отключения возможностей см. в статье [Включение промежуточного развертывания компонентов для целевых аудиторий](./howto-targetingfilter-aspnet-core.md).
 
 В следующем примере показано, как использовать встроенный фильтр функций под названием `PercentageFilter`:
 
@@ -211,14 +211,14 @@ config.AddAzureAppConfiguration(options =>
 
 * Флаг `FeatureA`*включен*.
 * Флаг `FeatureB`*отключен*.
-* `FeatureC` указывает фильтр с именем `Percentage` и свойством `Parameters`. `Percentage` — это настраиваемый фильтр. В этом примере `Percentage` задает 50-процентную вероятность того, что флаг `FeatureC` может быть *включен*. Инструкции по использованию фильтров компонентов см. в статье [Использование фильтров компонентов для включения условных флагов компонентов](/azure/azure-app-configuration/howto-feature-filters-aspnet-core).
+* `FeatureC` указывает фильтр с именем `Percentage` и свойством `Parameters`. `Percentage` — это настраиваемый фильтр. В этом примере `Percentage` задает 50-процентную вероятность того, что флаг `FeatureC` может быть *включен*. Инструкции по использованию фильтров компонентов см. в статье [Использование фильтров компонентов для включения условных флагов компонентов](./howto-feature-filters-aspnet-core.md).
 
 
 
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Внедрение зависимостей для доступа к IFeatureManager 
 
-Для некоторых операций, таких как проверка значений флагов компонентов вручную, необходимо получить экземпляр [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). В MVC ASP.NET Core можно получить доступ к диспетчеру компонентов `IFeatureManager` путем внедрения зависимостей. В следующем примере аргумент типа `IFeatureManager` добавляется в сигнатуру конструктора для контроллера. Среда выполнения автоматически разрешает ссылку и предоставляет интерфейс при вызове конструктора. Если вы используете шаблон приложения, в котором у контроллера уже есть один или несколько аргументов внедрения зависимостей в конструкторе, например `ILogger`, можно просто добавить `IFeatureManager` в качестве дополнительного аргумента:
+Для некоторых операций, таких как проверка значений флагов компонентов вручную, необходимо получить экземпляр [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). В MVC ASP.NET Core можно получить доступ к диспетчеру компонентов `IFeatureManager` путем внедрения зависимостей. В следующем примере аргумент типа `IFeatureManager` добавляется в сигнатуру конструктора для контроллера. Среда выполнения автоматически разрешает ссылку и предоставляет интерфейс при вызове конструктора. Если вы используете шаблон приложения, в котором у контроллера уже есть один или несколько аргументов внедрения зависимостей в конструкторе, например `ILogger`, можно просто добавить `IFeatureManager` в качестве дополнительного аргумента:
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     

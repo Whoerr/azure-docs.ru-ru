@@ -202,7 +202,7 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Включение Azure Monitor для виртуальных машин (предварительная версия)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
     - name: Интеграция службы хранилища Azure
       items:
         - name: Аудит TLS с помощью Политики Azure
@@ -323,16 +323,6 @@
       items:
         - name: 'Канал на YouTube, посвященный системе управления'
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: Видео по гостевой конфигурации
-          items:
-            - name: Приступая к работе
-              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-            - name: Основные сведения об инициативах
-              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-            - name: Назначение политики
-              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-            - name: Задача исправления
-              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Стратегия развития Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Калькулятор цен

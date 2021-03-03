@@ -1,33 +1,33 @@
 ---
-title: Включение Azure Monitor для виртуальных машин с помощью PowerShell
-description: Описание включения Azure Monitor для виртуальных машин для виртуальных машин Azure или масштабируемых наборов виртуальных машин с помощью Azure PowerShell.
+title: Включение аналитики виртуальной машины с помощью PowerShell
+description: Описание включения аналитики виртуальной машины для виртуальных машин Azure или масштабируемых наборов виртуальных машин с помощью Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 83b17e021ce8003b5dbd279886edfdc199f58ce3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625128"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717083"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Включение Azure Monitor для виртуальных машин с помощью PowerShell
-В этой статье описывается, как включить Azure Monitor для виртуальных машин на виртуальных машинах Azure с помощью PowerShell. Эту процедуру можно использовать для следующих действий:
+# <a name="enable-vm-insights-using-powershell"></a>Включение аналитики виртуальной машины с помощью PowerShell
+В этой статье описывается, как включить аналитику ВМ на виртуальных машинах Azure с помощью PowerShell. Эту процедуру можно использовать для следующих действий:
 
 - Виртуальная машина Azure
 - Масштабируемый набор виртуальных машин Azure
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- [Создание и Настройка рабочей области log Analytics](../insights/vminsights-configure-workspace.md).
-- Ознакомьтесь с [поддерживаемыми операционными системами](../insights/vminsights-enable-overview.md#supported-operating-systems) , чтобы убедиться, что операционная система, которую вы включаете, поддерживается. 
+- [Создание и Настройка рабочей области log Analytics](./vminsights-configure-workspace.md).
+- Ознакомьтесь с [поддерживаемыми операционными системами](./vminsights-enable-overview.md#supported-operating-systems) , чтобы убедиться, что операционная система, которую вы включаете, поддерживается. 
 
 
 ## <a name="powershell-script"></a>Сценарий PowerShell
 
-Чтобы включить Azure Monitor для виртуальных машин для нескольких виртуальных машин или масштабируемых наборов виртуальных машин, используйте сценарий PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), доступный в коллекции Azure PowerShell. Этот сценарий выполняет итерацию:
+Чтобы включить аналитику ВМ для нескольких виртуальных машин или масштабируемых наборов виртуальных машин, используйте скрипт PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), доступный в коллекции Azure PowerShell. Этот сценарий выполняет итерацию:
 
 - Каждая виртуальная машина и масштабируемый набор виртуальных машин в вашей подписке.
 - Группа ресурсов с областью действия, заданная параметром *ResourceGroup*.
@@ -139,7 +139,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-В следующем примере представлены команды PowerShell, которые позволяют включить Azure Monitor для виртуальных машин, и описан ожидаемый результат:
+В следующем примере показано использование команд PowerShell в папке для включения аналитики виртуальной машины и понимания ожидаемых выходных данных:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -188,7 +188,7 @@ Not running - start VM to configure: (0)
 Failed: (0)
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* См. статью [использование Azure Monitor для виртуальных машин Map](vminsights-maps.md) для просмотра зависимостей обнаруженных приложений. 
+* См. раздел [Использование схемы VM Insights](vminsights-maps.md) для просмотра зависимостей обнаруженных приложений. 
 * См. статью [Просмотр производительности виртуальной машины Azure](vminsights-performance.md) для выявления узких мест, общего использования и производительности виртуальной машины.

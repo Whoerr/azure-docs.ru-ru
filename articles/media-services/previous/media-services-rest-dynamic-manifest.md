@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 04a9776ca2686aebbb7668c86f5afcd61f5f9238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b0271edbbd119e1d60f30cc149ba7772fd0cfa9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730224"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Создание фильтров с помощью с помощью API REST служб мультимедиа
 
@@ -41,7 +41,7 @@ ms.locfileid: "90530188"
 ## <a name="types-used-to-create-filters"></a>Типы, используемые для создания фильтров
 При создании фильтров используются следующие типы:  
 
-* [Filter](/rest/api/media/operations/filter)
+* [Фильтр](/rest/api/media/operations/filter)
 * [AssetFilter](/rest/api/media/operations/assetfilter)
 * [пресентатионтимеранже](/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect и FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
@@ -74,7 +74,7 @@ x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host:media.windows.net 
 ```
 
-Тело запроса 
+Текст запроса 
 
 ```console
 {  
@@ -133,7 +133,7 @@ x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host: media.windows.net  
 ```
 
-Тело запроса 
+Текст запроса 
 
 ```console
 {   
@@ -363,7 +363,7 @@ Host: media.windows.net
 
 **Smooth Streaming**
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)`
 
     
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа

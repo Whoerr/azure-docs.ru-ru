@@ -1,106 +1,84 @@
 ---
-title: Базовый план обеспечения безопасности Azure для HDInsight
-description: Базовый план обеспечения безопасности Azure для HDInsight
+title: Базовый план безопасности Azure для HDInsight
+description: Базовый план безопасности HDInsight содержит практические руководства и ресурсы для реализации рекомендаций по безопасности, указанных в статье о производительности системы безопасности Azure.
 author: msmbaldwin
-ms.service: security
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5174c3bf2150c4671f1034eba6e661a10c222aec
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bf2360bda55735aa8ef4258da5ae47f673f4d71b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807688"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738928"
 ---
-# <a name="azure-security-baseline-for-hdinsight"></a>Базовый план обеспечения безопасности Azure для HDInsight
+# <a name="azure-security-baseline-for-hdinsight"></a>Базовый план безопасности Azure для HDInsight
 
-Базовый план безопасности Azure для HDInsight содержит рекомендации, которые помогут повысить уровень безопасности развертывания.
+Этот базовый план безопасности применяет рекомендации из [тестового показателя безопасности Azure версии 1,0](../security/benchmarks/overview-v1.md) к HDInsight. Azure Security Benchmark содержит рекомендации по обеспечению безопасности облачных решений в Azure.
+Содержимое группируются по **элементам управления безопасностью** , определенным в средстве оценки безопасности Azure, и связанным рекомендациям, применимым к HDInsight. **Элементы управления** , неприменимые к HDInsight, были исключены.
 
-Базовый план безопасности для этой службы взят из [Эталона безопасности Azure версии 1.0](../security/benchmarks/overview.md), содержащего рекомендации по обеспечению безопасности облачных решений в Azure с помощью наших практических рекомендаций.
-
-Дополнительные сведения см. в статье [Обзор базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+ 
+Чтобы узнать, как HDInsight полностью сопоставляется с тестовыми показателями безопасности Azure, ознакомьтесь с [полным файлом сопоставления базовых показателей безопасности hdinsight](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Безопасность сети
 
-*Дополнительные сведения см. в статье [Управление безопасностью: безопасность сети](../security/benchmarks/security-control-network-security.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: безопасность сети](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1. Защита ресурсов в виртуальной сети с помощью групп безопасности сети или Брандмауэра Azure
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: защита ресурсов Azure в виртуальных сетях
 
 **Руководство**. безопасность периметра в Azure HDInsight достигается через виртуальные сети. Администратор предприятия может создать кластер в виртуальной сети и использовать группу безопасности сети (NSG) для ограничения доступа к виртуальной сети. Только разрешенные IP-адреса в правилах группы безопасности входящих сетей могут взаимодействовать с кластером Azure HDInsight. Эта конфигурация обеспечивает безопасность периметра. Все кластеры, развернутые в виртуальной сети, также будут иметь закрытую конечную точку, которая разрешается в частный IP-адрес в виртуальной сети для доступа через частный протокол HTTP к шлюзам кластера.
 
 Чтобы снизить риск потери данных через утечка, Ограничьте исходящий сетевой трафик для кластеров Azure HDInsight с помощью брандмауэра Azure.
 
-Как развернуть Azure HDInsight в виртуальной сети и обеспечить безопасность с помощью группы безопасности сети: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+- [Развертывание Azure HDInsight в виртуальной сети и обеспечение безопасности с помощью группы безопасности сети](hdinsight-create-virtual-network.md)
 
-Ограничение исходящего трафика для кластеров Azure HDInsight с помощью брандмауэра Azure: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Ограничение исходящего трафика для кластеров Azure HDInsight с помощью брандмауэра Azure](hdinsight-restrict-outbound-traffic.md)
 
 **Ответственность**: Customer
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2. Мониторинг и запись конфигурации и трафика виртуальных сетей, подсетей и сетевых карт
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2. Мониторинг и запись конфигурации и трафика виртуальных сетей, подсетей и сетевых интерфейсов
 
 **Руководство**. Используйте центр безопасности Azure и исправьте рекомендации по защите сети для виртуальной сети, подсети и группы безопасности сети, используемой для защиты кластера Azure HDInsight. Включите журналы потоков группы безопасности сети (NSG) и отправьте журналы в учетную запись хранения Azure для аудита трафика. Вы также можете отправить журналы потоков NSG в рабочую область Azure Log Analytics и использовать Аналитика трафика Azure для получения ценных сведений о потоке трафика в облаке Azure. Некоторые преимущества Azure Аналитика трафика — это возможность визуализировать сетевые активности и выявлять горячие участки, выявлять угрозы безопасности, анализировать шаблоны потоков трафика и определять сетевые конфигурации.
 
-Как включить журналы потоков NSG:
+- [Как включить журналы потоков NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Как включить и использовать Azure Аналитика трафика](../network-watcher/traffic-analytics.md)
 
-Как включить и использовать Аналитика трафика Azure:
-
-https://docs.microsoft.com/azure/network-watcher/traffic-analytics
-
-Общие сведения о безопасности сети, предоставляемой центром безопасности Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения о безопасности сети, предоставляемой центром безопасности Azure](../security-center/security-center-network-recommendations.md)
 
 **Ответственность**: Customer
 
-### <a name="13-protect-critical-web-applications"></a>1.3. Защита критических веб-приложений
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Неприменимо. Тест производительности предназначен для Службы приложений Azure или вычислительных ресурсов для размещения веб-приложений.
-
-**Мониторинг Центра безопасности Azure**. Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4. Запрет взаимодействия с известными опасными IP-адресами
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: запретите обмен данными с известными вредоносными IP-адресами
 
 **Рекомендации**. для защиты от атак от атак DDoS включите защиту Azure от атак DDoS Standard в виртуальной сети, в которой развернута Azure HDInsight. Используйте интегрированную аналитику угроз центра безопасности Azure, чтобы запретить обмен данными с известными вредоносными или неиспользуемыми IP-адресами Интернета.
 
-Настройка защиты от атак DDoS: 
+- [Настройка защиты от атак DDoS](/azure/virtual-network/manage-ddos-protection)
 
-https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
-Общие сведения о центре безопасности Azure, интегрированной с системой анализа угроз.
-
-https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения об интегрированной аналитике угроз в Центре безопасности Azure](/azure/security-center/security-center-alerts-service-layer)
 
 **Ответственность**: Customer
 
-### <a name="15-record-network-packets-and-flow-logs"></a>1.5. Запись сетевых пакетов и журналов потоков
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Включение журналов необработанных группы безопасности сети (NSG) для NSG, подключенных к подсети, используемой для защиты кластера Azure HDInsight. Запишите журналы потоков NSG в учетную запись хранения Azure, чтобы создать записи о потоках. Если требуется для изучения аномальных действий, включите запись пакетов наблюдателя за сетями Azure.
+### <a name="15-record-network-packets"></a>1,5: запись сетевых пакетов
 
-Как включить журналы потоков NSG:
+**Руководство**. Включение журналов потоков для группы безопасности сети (NSG) для NSG, подключенного к подсети, используемой для защиты кластера Azure HDInsight. Запишите журналы потоков NSG в учетную запись хранения Azure, чтобы создать записи о потоках. Если требуется для изучения аномальных действий, включите запись пакетов наблюдателя за сетями Azure.
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Как включить журналы потоков NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-Как включить наблюдатель за сетями:
-
-https://docs.microsoft.com/azure/network-watcher/network-watcher-create
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как включить Наблюдатель за сетями](../network-watcher/network-watcher-create.md)
 
 **Ответственность**: Customer
 
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6. Развертывание сетевых систем обнаружения и предотвращения вторжений (IDS/IPS)
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: развертывание системы обнаружения вторжений на основе сети и предотвращения вторжения (ИДЕНТИФИКАТОРы и IP-адреса)
 
 **Руководство**: требование может быть УДОВЛЕТВОРЕНо идентификатором управления безопасностью Azure 1,1; Разверните кластер Azure HDInsight в виртуальной сети и обеспечьте безопасность с помощью группы безопасности сети (NSG).
 
@@ -108,35 +86,25 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 Чтобы снизить риск потери данных через утечка, Ограничьте исходящий сетевой трафик для кластеров Azure HDInsight с помощью брандмауэра Azure.
 
-Как развернуть HDInsight в виртуальной сети и обеспечить безопасность с помощью группы безопасности сети: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+- [Развертывание HDInsight в виртуальной сети и обеспечение безопасности с помощью группы безопасности сети](hdinsight-create-virtual-network.md)
 
-Общие сведения о зависимостях и использовании брандмауэра HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+- [Общие сведения о зависимостях и использовании брандмауэра HDInsight](hdinsight-restrict-outbound-traffic.md)
 
-IP-адреса управления HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [IP-адреса управления HDInsight](hdinsight-management-ip-addresses.md)
 
 **Ответственность**: Customer
 
-### <a name="17-manage-traffic-to-web-applications"></a>1.7. Управление трафиком к веб-приложениям
-
-**Руководство**. Неприменимо. Тест производительности предназначен для Службы приложений Azure или вычислительных ресурсов для размещения веб-приложений.
-
-**Мониторинг Центра безопасности Azure**. Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8. Уменьшение сложности и дополнительных затрат на администрирование в правилах безопасности сети
 
 **Руководство**. Использование тегов службы виртуальной сети для определения элементов управления доступом к сети для групп безопасности сети (NSG), подключенных к подсети, в которой развернут кластер Azure HDInsight. Теги служб можно использовать вместо определенных IP-адресов при создании правил безопасности. Указав имя тега службы (например, ApiManagement) в соответствующем исходном поле или поле назначения правила, можно разрешить или запретить трафик для соответствующей службы. Корпорация Майкрософт управляет префиксами адресов, входящих в тег службы, и автоматически обновляет этот тег при изменении адресов.
 
-Общие сведения и использование тегов службы для Azure HDInsight:
-
-https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения и использование тегов службы для Azure HDInsight](/azure/virtual-network/security-overview#service-tags)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9. Поддержание стандартных конфигураций безопасности для сетевых устройств
 
@@ -144,19 +112,15 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 Вы также можете использовать схемы Azure для упрощения крупномасштабных развертываний Azure с помощью ключевых артефактов среды пакетов, таких как шаблоны Azure Resource Manager, элементы управления RBAC в Azure и политики, в одном определении схемы. Простое применение схемы к новым подпискам и средам, а также управление точной настройкой и управление с помощью версионирования.
 
-Просмотр доступных псевдонимов политик Azure:
+- [Просмотр доступных псевдонимов политик Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Как настроить политику Azure и управлять ей:
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Создание Azure Blueprint.
-
-https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание схемы Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10. Документация по правилам конфигурации трафика
 
@@ -164,409 +128,315 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 Используйте любое из встроенных определений политик Azure, связанных с тегами, например "требовать тег и его значение", чтобы убедиться, что все ресурсы созданы с помощью тегов и уведомлять вас о существующих ресурсах без тегов.
 
-Вы можете использовать Azure PowerShell или интерфейс командной строки Azure (CLI) для поиска или выполнения действий с ресурсами на основе их тегов.
+Вы можете использовать Azure PowerShell или интерфейс командной строки Azure (CLI) для поиска и выполнения действий с ресурсами на основе их тегов.
 
-Создание и использование тегов:
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Создание виртуальной сети](../virtual-network/quick-create-portal.md)
 
-Создание виртуальной сети.
-
-https://docs.microsoft.com/azure/virtual-network/quick-create-portal
-
-Создание NSG с конфигурацией безопасности:
-
-https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание группы безопасности сети с конфигурацией безопасности](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11. Использование автоматизированных средств для мониторинга конфигураций сетевых ресурсов и обнаружения изменений
 
 **Руководство**. Использование журнала действий Azure для мониторинга конфигураций сетевых ресурсов и обнаружения изменений сетевых ресурсов, связанных с развертываниями Azure HDInsight. Создавайте оповещения в Azure Monitor, которые будут запускаться при изменении критических сетевых ресурсов.
 
-Просмотр и извлечение событий журнала действий Azure: 
+- [Как просматривать и извлекать события журнала действий Azure](/azure/azure-monitor/platform/activity-log-view)
 
-https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
-
-Создание оповещений в службе Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как создать оповещения в службе Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="logging-and-monitoring"></a>Ведение журналов и мониторинг
 
-*Дополнительные сведения см. в статье [Управление безопасностью: ведение журналов и мониторинг](../security/benchmarks/security-control-logging-monitoring.md).*
-
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1. Использование утвержденных источников синхронизации времени
-
-**Руководство**. Майкрософт поддерживает источники времени для компонентов кластера Azure HDInsight. Вы можете обновить синхронизацию времени для развертывания вычислений.
-
-Как настроить синхронизацию времени для ресурсов вычислений Azure:
-
-https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
-**Ответственность**: Microsoft
+*Дополнительные сведения см. в статье [производительность системы безопасности Azure: ведение журнала и мониторинг](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2. Настройка централизованного управления журналами безопасности
 
 **Руководство**. Вы можете подключить кластер Azure HDInsight к Azure Monitor для агрегирования данных безопасности, создаваемых кластером. Используйте пользовательские запросы для обнаружения угроз в среде и реагирования на них. 
 
-Как подключить кластер Azure HDInsight к Azure Monitor:
+- [Как подключить кластер Azure HDInsight к Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
-Создание настраиваемых запросов для кластера Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание настраиваемых запросов для кластера Azure HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3. Включение журналов аудита для ресурсов Azure
 
 **Рекомендации**. Включите Azure Monitor для кластера HDInsight, направьте его в рабочую область log Analytics. При этом будут регистрироваться соответствующие сведения о кластере и метрики ОС для всех узлов кластера Azure HDInsight.
 
-Как включить ведение журнала для кластера HDInsight:
+- [Включение ведения журнала для кластера HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
- https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
-Как выполнять запросы к журналам HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как выполнять запросы к журналам HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4. Сбор журналов безопасности из операционных систем
 
 **Руководство**. Подключение кластера HDInsight Azure к Azure Monitor. Убедитесь, что в рабочей области Log Analytics используется срок хранения журнала, заданный в соответствии с нормативными требованиями вашей организации.
 
-Как подключить кластер Azure HDInsight к Azure Monitor:
+- [Как подключить кластер Azure HDInsight к Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
+- [Настройка срока хранения Log Analytics рабочей области](/azure/azure-monitor/platform/manage-cost-storage)
 
-Настройка срока хранения Log Analytics рабочей области:
+**Ответственность**: Customer
 
-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
-**Ответственность**. Customer
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5. Настройка хранения журнала безопасности
 
 **Руководство**. Подключение кластера HDInsight Azure к Azure Monitor. Убедитесь, что в рабочей области Azure Log Analytics используется срок хранения журнала, заданный в соответствии с нормативными требованиями вашей организации.
 
-Как подключить кластер Azure HDInsight к Azure Monitor:
+- [Как подключить кластер Azure HDInsight к Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
-Настройка срока хранения Log Analytics рабочей области:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка срока хранения Log Analytics рабочей области](/azure/azure-monitor/platform/manage-cost-storage)
 
 **Ответственность**: Customer
 
-### <a name="26-monitor-and-review-logs"></a>2.6. Мониторинг и просмотр журналов
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="26-monitor-and-review-logs"></a>2,6: мониторинг и просмотр журналов
 
 **Руководство**. Использование запросов к рабочей области Azure log Analytics для запроса журналов Azure HDInsight:
 
-Создание настраиваемых запросов для кластеров Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание настраиваемых запросов для кластеров Azure HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
 **Ответственность**: Customer
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7. Включение оповещений об аномальных действиях
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Включение оповещений для аномальных действий
 
 **Руководство**. Использование рабочей области Azure log Analytics для мониторинга и оповещения о аномальных действиях в журналах безопасности и событиях, связанных с кластером Azure HDInsight.
 
-Управление оповещениями в центре безопасности Azure:
+- [Управление оповещениями в центре безопасности Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
-
-Как создавать оповещения для данных журнала Log Analytics:
-
-https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как оповещать данные журнала Log Analytics](/azure/azure-monitor/learn/tutorial-response)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8. Централизованное ведение журнала защиты от вредоносных программ
 
 **Руководство**. Azure HDInsight поставляется с предварительно установленным и включенным для образов узлов кластера, однако необходимо управлять программным обеспечением и вручную собирать и отслеживать любые журналы кламскан.
 
-Общие сведения о Кламскан:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения о Кламскан](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="29-enable-dns-query-logging"></a>2.9. Включение ведения журнала запросов DNS
 
 **Руководство**. Реализация стороннего решения для ведения журнала DNS.
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10. Включение ведения журнала аудита для командной строки
 
 **Руководство**. Ручная настройка ведения журнала консоли для каждого узла.
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="identity-and-access-control"></a>Идентификатор и управление доступом
 
-*Дополнительные сведения см. в статье [Управление безопасностью: идентификаторы и управление доступом](../security/benchmarks/security-control-identity-access-control.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: идентификация и управление доступом](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1. Инвентаризация учетных записей администраторов
 
-**Руководство**. Сохранение записи локальной административной учетной записи, созданной во время подготовки кластера Azure HDInsight, а также любых других создаваемых учетных записей. Кроме того, если используется интеграция Azure AD, в Azure AD есть встроенные роли, которые должны быть явно назначены и, следовательно, доступны для запросов. Используйте модуль Azure AD PowerShell, чтобы выполнять нерегламентированные запросы для обнаружения учетных записей, входящих в группы администраторов.
+**Руководство**. Сохранение записи локальной административной учетной записи, созданной во время подготовки кластера Azure HDInsight, а также любых других создаваемых учетных записей. Кроме того, если используется интеграция Azure Active Directory (Azure AD), Azure AD имеет встроенные роли, которые должны быть явно назначены и, следовательно, доступны для запросов. Используйте модуль Azure AD PowerShell, чтобы выполнять нерегламентированные запросы для обнаружения учетных записей, входящих в группы администраторов.
 
 Кроме того, вы можете использовать рекомендации по управлению удостоверениями и доступом в центре безопасности Azure.
 
-Как получить роль каталога в Azure AD с помощью PowerShell:
+- [Как получить роль каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
+- [Как получить членов роли каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-Как получить членов роли каталога в Azure AD с помощью PowerShell:
-
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
-
-Мониторинг удостоверений и доступа с помощью центра безопасности Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Мониторинг удостоверений и доступа с помощью центра безопасности Azure](../security-center/security-center-identity-access.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2. Изменение паролей по умолчанию, где применимо
 
 **Руководство**. при подготовке кластера Azure требует создания новых паролей для доступа к веб-порталу и Secure Shell (SSH). Пароли по умолчанию для изменения отсутствуют, однако можно указать разные пароли для доступа по протоколу SSH и веб-порталу.
 
-Как задать пароли при подготовке кластера Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка паролей при подготовке кластера Azure HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3. Применение выделенных административных учетных записей
 
-**Руководство**. Интеграция аутентификации для кластера Azure HDInsight с Azure Active Directory. Создание политик и процедур, связанных с использованием выделенных административных учетных записей.
+**Руководство**. Интеграция аутентификации для кластера Azure HDInsight с Azure Active Directory (Azure AD). Создание политик и процедур, связанных с использованием выделенных административных учетных записей.
 
 Кроме того, вы можете использовать рекомендации по управлению удостоверениями и доступом в центре безопасности Azure.
 
-Как интегрировать аутентификацию Azure HDInsight с Azure Active Directory:
+- [Как интегрировать аутентификацию Azure HDInsight с Azure AD](domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
-https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
-Мониторинг удостоверений и доступа с помощью центра безопасности Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Мониторинг удостоверений и доступа с помощью центра безопасности Azure](../security-center/security-center-identity-access.md)
 
 **Ответственность**: Customer
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4. Использование единого входа с Azure Active Directory
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4. Использование единого входа Azure Active Directory (SSO)
 
 **Руководство**. Использование БРОКЕРа идентификаторов Azure HDInsight для входа в кластеры корпоративный пакет безопасности (ESP) с помощью многофакторной проверки подлинности без предоставления паролей. Если вы уже вошли в другие службы Azure, такие как портал Azure, вы можете войти в кластер Azure HDInsight с помощью единого входа.
 
-Как включить брокер ИДЕНТИФИКАТОРов Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как включить брокер ИДЕНТИФИКАТОРов Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker)
 
 **Ответственность**: Customer
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5. Использование многофакторной проверки подлинности для любого доступа на основе Azure Active Directory
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Включите многофакторную проверку подлинности Azure AD и следуйте рекомендациям по управлению идентификацией и доступом в Центре безопасности Azure. Кластеры Azure HDInsight с настроенным Корпоративный пакет безопасности могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности в кластерах и запуска заданий обработки больших данных. При проверке подлинности с включенной многофакторной проверкой подлинности пользователям будет выдаваться запрос второго фактора проверки подлинности.
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: используйте многофакторную проверку подлинности для всех Azure Active Directory доступа
 
-Как включить MFA в Azure:
+**Руководство**. Включение многофакторной проверки подлинности в Azure Active Directory (Azure AD) и следование рекомендациям по управлению удостоверениями и доступом в центре безопасности Azure. Кластеры Azure HDInsight с настроенным Корпоративный пакет безопасности могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности в кластерах и запуска заданий обработки больших данных. При проверке подлинности с включенной многофакторной проверкой подлинности пользователям будет предоставлен второй фактор проверки подлинности.
 
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+- [Как включить многофакторную проверку подлинности в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-Мониторинг удостоверений и доступа в центре безопасности Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Мониторинг идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6. Использование выделенных компьютеров (рабочих станций с привилегированным доступом) для всех административных задач
 
-**Руководство**. Используйте лапы (рабочие станции с привилегированным доступом) с поддержкой многофакторной идентификации (MFA), настроенной для входа в и настройки кластеров Azure HDInsight и связанных ресурсов.
+**Руководство**. Использование лапы (рабочие станции с привилегированным доступом) с многофакторной проверкой подлинности для входа и настройки кластеров Azure HDInsight и связанных ресурсов.
 
-Дополнительные сведения о рабочих станциях с привилегированным доступом:
+- [Использование рабочих станций с привилегированным доступом](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
-
-Как включить MFA в Azure:
-
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как включить многофакторную проверку подлинности в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Ответственность**: Customer
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7. Ведение журнала и создание оповещений по подозрительным действиям учетных записей администраторов
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. кластеры Azure HDInsight с настроенным корпоративный пакет безопасности могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности. Вы можете использовать отчеты о безопасности Azure Active Directory (AAD) для создания журналов и оповещений при возникновении подозрительных или ненадежных действий в среде AAD. Используйте Центр безопасности Azure для мониторинга действий идентификации и доступа.
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: журналы и оповещения о подозрительных действиях учетных записей администраторов
 
-Как опознать пользователей AAD, помеченных для рискованных действий:
+**Руководство**. кластеры Azure HDInsight с настроенным корпоративный пакет безопасности могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности. Вы можете использовать отчеты о безопасности Azure Active Directory (Azure AD) для создания журналов и оповещений при возникновении подозрительных или ненадежных действий в среде Azure AD. Используйте Центр безопасности Azure для мониторинга действий идентификации и доступа.
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+- [Как определить пользователей Azure AD, помеченных для события риска](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-Как отслеживать действия пользователей и доступа в центре безопасности Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как отслеживать активность удостоверений и доступа пользователей в центре безопасности Azure](../security-center/security-center-identity-access.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8. Управление ресурсами Azure только из утвержденных расположений
 
 **Руководство**. кластеры Azure HDInsight с настроенным корпоративный пакет безопасности могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности. Используйте условный доступ с именованными расположениями, чтобы разрешить доступ только из конкретных логических групп диапазонов IP-адресов или стран и регионов.
 
-Как настроить именованные расположения в Azure:
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка именованных расположений в Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="39-use-azure-active-directory"></a>3.9. Использование Azure Active Directory
 
-**Руководство**. Использование Azure Active Directory (AAD) в качестве централизованной системы проверки подлинности и авторизации. Azure AD защищает данные с помощью надежного шифрования для хранимых и транзитных данных. AAD также содержит Salt-записи, хэши и безопасно хранит учетные данные пользователя.
+**Руководство**. Использование Azure Active Directory (Azure AD) в качестве централизованной системы проверки подлинности и авторизации. Azure AD защищает данные с помощью надежного шифрования для хранимых и транзитных данных. Кроме того, в Azure AD используются salt-записи, хэши и безопасное хранение учетных данных пользователей.
 
 Кластеры Azure HDInsight с настроенным Корпоративный пакет безопасности (ESP) могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности в кластерах.
 
-Создание и настройка экземпляра AAD:
+- [Создание и настройка экземпляра Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
-
-Как настроить Корпоративный пакет безопасности с помощью доменных служб Azure Active Directory в Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка Корпоративный пакет безопасности с доменными службами Azure AD в Azure HDInsight](domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10. Регулярная проверка и согласование доступа пользователей
 
-**Руководство**. Использование проверки подлинности Azure Active Directory (AAD) в кластере Azure HDInsight. AAD предоставляет журналы для облегчения поиска устаревших учетных записей. Кроме того, используйте проверку доступа удостоверений Azure, чтобы эффективно управлять членством в группах, доступом к корпоративным приложениям и назначениями ролей. Доступ пользователя можно проверить регулярно, чтобы убедиться, что доступ к ним имеют только нужные пользователи. 
+**Руководство**. Использование проверки подлинности Azure Active Directory (Azure AD) с кластером Azure HDInsight. Azure AD предоставляет журналы для облегчения поиска устаревших учетных записей. Кроме того, используйте проверку доступа удостоверений Azure, чтобы эффективно управлять членством в группах, доступом к корпоративным приложениям и назначениями ролей. Доступ пользователя можно проверить регулярно, чтобы убедиться, что доступ к ним имеют только нужные пользователи.
 
-Использование проверок доступа для идентификации Azure:
-
-https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Использование проверок доступа для идентификации Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Ответственность**: Customer
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11. Отслеживание попыток доступа к отключенным учетным записям
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. Использование Azure Active Directory (AAD) для входа и журналов аудита для наблюдения за попытками доступа к отключенным учетным записям; Эти журналы можно интегрировать в любое стороннее средство SIEM/Monitoring.
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: монитор пытается получить доступ к отключенным учетным данным
 
-Этот процесс можно упростить, создав параметры диагностики для учетных записей пользователей AAD, отправив журналы аудита и журналы входа в рабочую область Azure Log Analytics. Настройте нужные оповещения в рабочей области Azure Log Analytics.
+**Руководство**. Использование Azure Active Directory (Azure AD) для входа и журналов аудита для наблюдения за попытками доступа к отключенным учетным записям; Эти журналы можно интегрировать в любое стороннее средство SIEM/Monitoring.
 
-Как интегрировать журналы действий Azure в Azure Monitor: 
+Этот процесс можно упростить, создав параметры диагностики для учетных записей пользователей Azure AD, отправив журналы аудита и журналы входа в рабочую область Azure Log Analytics. Настройте нужные оповещения в рабочей области Azure Log Analytics.
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как интегрировать журналы действий Azure в Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Ответственность**: Customer
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12. Предупреждение при подозрительном входе в учетную запись
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**. кластеры Azure HDInsight с настроенным корпоративный пакет безопасности (ESP) могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности в кластерах.  Используйте Azure Active Directory обнаружения рисков (AAD) и функцию защиты идентификации, чтобы настроить автоматические ответы на обнаруженные подозрительные действия, связанные с удостоверениями пользователей. Кроме того, вы можете принимать данные в метку Azure для дальнейшего изучения.
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: предупреждение об отклонении при входе в учетную запись
 
-Как просмотреть рискованные входы в AAD:
+**Руководство**. кластеры Azure HDInsight с настроенным корпоративный пакет безопасности (ESP) могут быть подключены к домену, чтобы пользователи домена могли использовать свои учетные данные домена для проверки подлинности в кластерах. Используйте Azure Active Directory (Azure AD) для обнаружения рисков и защиты идентификации, чтобы настроить автоматические ответы на обнаруженные подозрительные действия, связанные с удостоверениями пользователей. Кроме того, вы можете принимать данные в метку Azure для дальнейшего изучения.
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+- [Просмотр рискованных входов в Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-Настройка и включение политик риска для защиты идентификации.
-
-https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как настроить и включить политики рисков с помощью защиты идентификации](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13. Предоставление корпорации Майкрософт доступа к соответствующим данным клиентов в рамках сценариев поддержки
 
 **Руководство**: недоступно; Защищенное хранилище еще не поддерживаются для Azure HDInsight.
 
-Список поддерживаемых служб защищенного хранилища: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
-
-
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Список поддерживаемых защищенное хранилище служб](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="data-protection"></a>Защита данных
 
-*Дополнительные сведения см. в статье [Управление безопасностью: защита данных](../security/benchmarks/security-control-data-protection.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: защита данных](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1. Инвентаризация конфиденциальных данных
 
 **Руководство**. Использование тегов в ресурсах, связанных с развертываниями Azure HDInsight, для помощи в отслеживании ресурсов Azure, в которых хранятся или обрабатываются конфиденциальные данные.
 
-Создание и использование тегов:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2. Изолирование систем, хранящих или обрабатывающих конфиденциальные данные
 
 **Руководство**. Реализуйте отдельные подписки и группы управления для разработки, тестирования и производства. Кластеры Azure HDInsight и все связанные учетные записи хранения должны быть разделены виртуальной сетью или подсетью, помечены соответствующим образом и защищены в группе безопасности сети (NSG) или брандмауэре Azure. Данные кластера должны содержаться в защищенной учетной записи хранения Azure или Azure Data Lake Storage (GEN1 или Gen2).
 
-Выберите параметры хранения для кластера Azure HDInsight:
+- [Выбор параметров хранилища для кластера Azure HDInsight](hdinsight-hadoop-compare-storage-options.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
+- [Как защитить Azure Data Lake Storage](../data-lake-store/data-lake-store-security-overview.md)
 
-Как защитить Azure Data Lake Storage:
-
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
-
-Как защитить учетные записи хранения Azure:
-
-https://docs.microsoft.com/azure/storage/common/storage-security-guide
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как защитить учетные записи хранения Azure](/azure/storage/common/storage-security-guide)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. Мониторинг и блокирование несанкционированной передачи конфиденциальной информации
 
@@ -574,33 +444,25 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 Для базовой платформы, управляемой корпорацией Майкрософт, корпорация Майкрософт считает все содержимое клиента конфиденциальным и предпринимает все возможные усилия для защиты клиентов от потери данных и раскрытия информации. Чтобы обеспечить безопасность данных клиентов в Azure, корпорация Майкрософт реализовала и поддерживает набор надежных элементов управления и возможностей защиты данных.
 
-Ограничение исходящего трафика для кластеров Azure HDInsight с помощью брандмауэра Azure:
+- [Ограничение исходящего трафика для кластеров Azure HDInsight с помощью брандмауэра Azure](hdinsight-restrict-outbound-traffic.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
-
-Общие сведения о защите данных клиентов в Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
 **Ответственность**: Совмещаемая блокировка
 
-### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Шифрование любой конфиденциальной информации при передаче
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4. Шифрование любой конфиденциальной информации при передаче
 
 **Руководство**. шифрование всех конфиденциальных данных во время передачи. Убедитесь, что все клиенты, подключающиеся к кластеру Azure HDInsight или хранилищам данных кластера (учетные записи хранения Azure или Azure Data Lake Storage 1-го поколения/Gen2), могут согласовать TLS 1,2 или более поздней версии. Microsoft Azure ресурсы будут согласовывать TLS 1,2 по умолчанию. 
 
-Общие сведения о шифровании Azure Data Lake Storage при передаче:
+- [Общие сведения о шифровании Azure Data Lake Storage при передаче](../data-lake-store/data-lake-store-security-overview.md)
 
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
-
-Общие сведения о шифровании учетной записи хранения Azure при передаче:
-
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения о шифровании учетной записи хранения Azure во время передачи](../storage/blobs/security-recommendations.md)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5. Использование средства активного обнаружения для распознавания конфиденциальных данных
 
@@ -608,33 +470,25 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryptio
 
 Для базовой платформы, управляемой корпорацией Майкрософт, корпорация Майкрософт считает все содержимое клиента конфиденциальным и предпринимает все возможные усилия для защиты клиентов от потери данных и раскрытия информации. Чтобы обеспечить безопасность данных клиентов в Azure, корпорация Майкрософт реализовала и поддерживает набор надежных элементов управления и возможностей защиты данных.
 
-Общие сведения о защите данных клиентов в Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
 **Ответственность**: Совмещаемая блокировка
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6. Контроль доступа к ресурсам с помощью RBAC
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6. Контроль доступа к ресурсам с помощью RBAC 
 
 **Руководство**. с помощью Azure HDInsight корпоративный пакет безопасности (ESP) можно использовать Apache Ranger для создания детализированных политик управления доступом и маскировки данных и управления ими для данных, хранящихся в файлах, папках, базах данных, таблицах и строках и столбцах. Администратор Hadoop может настроить управление доступом на основе ролей (RBAC) для защиты Apache Hive, HBase, Kafka и Spark, используя эти подключаемые модули в Apache Ranger.
 
 Настройка политик RBAC с помощью Apache Ranger позволяет связать разрешения с ролью в Организации. Этот уровень абстракции позволяет гарантировать, что у людей есть только разрешения, необходимые для выполнения их рабочих обязанностей.
 
-Корпоративный пакет безопасности конфигурации с доменными службами Azure Active Directory в HDInsight:
+- [Корпоративный пакет безопасности конфигураций с доменными службами Azure Active Directory (Azure AD) в HDInsight](domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
-https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
-Обзор корпоративной безопасности в Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
-
-
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения о корпоративной безопасности в Azure HDInsight](domain-joined/hdinsight-security-overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7. Использование защиты от потери данных на основе узла для обеспечения контроля доступа
 
@@ -642,79 +496,59 @@ https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-over
 
 Для базовой платформы, управляемой корпорацией Майкрософт, корпорация Майкрософт считает все содержимое клиента конфиденциальным и предпринимает все возможные усилия для защиты клиентов от потери данных и раскрытия информации. Чтобы обеспечить безопасность данных клиентов в Azure, корпорация Майкрософт реализовала и поддерживает набор надежных элементов управления и возможностей защиты данных.
 
-Общие сведения о защите данных клиентов в Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8. Шифрование конфиденциальной информации при хранении
 
 **Руководство**. Если для хранения Apache Hive и метаданных Apache Oozie используется база данных SQL Azure, убедитесь, что данные SQL остаются зашифрованными в любое время. Для учетных записей хранения Azure и Data Lake Storage (GEN1 или Gen2) рекомендуется разрешить корпорации Майкрософт управлять ключами шифрования, однако у вас есть возможность управлять собственными ключами.
 
-Как управлять ключами шифрования для учетных записей хранения Azure:
+- [Управление ключами шифрования для учетных записей хранения Azure](/azure/storage/common/storage-encryption-keys-portal)
 
-https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
+- [Создание Azure Data Lake Storage с помощью управляемых клиентом ключей шифрования](../data-lake-store/data-lake-store-get-started-portal.md)
 
-Создание Azure Data Lake Storage с помощью управляемых клиентом ключей шифрования:
+- [Общие сведения о шифровании базы данных SQL Azure](/azure/sql-database/sql-database-technical-overview#data-encryption)
 
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-Общие сведения о шифровании базы данных SQL Azure:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#data-encryption
-
-Как настроить прозрачное шифрование данных для базы данных SQL с помощью управляемых клиентом ключей:
-
-https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Настройка прозрачное шифрование данных для базы данных SQL с помощью управляемых клиентом ключей](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9. Включение в журнал и создание оповещений по изменениям критических ресурсов Azure
 
 **Руководство**. Настройка параметров диагностики для учетных записей хранения Azure, связанных с кластерами Azure HDInsight, для отслеживания и регистрации всех операций CRUD с данными кластера. Включите аудит для всех учетных записей хранения или хранилищ Data Lake, связанных с кластером Azure HDInsight.
 
-Как включить дополнительное ведение журнала и аудит для учетной записи хранения Azure:
+- [Включение дополнительного ведения журнала и аудита для учетной записи хранения Azure](/azure/storage/common/storage-monitor-storage-account)
 
-https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
-
-Включение дополнительного ведения журнала и аудита для Azure Data Lake Storage:
-
-https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Включение дополнительного ведения журнала и аудита для Azure Data Lake Storage](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="vulnerability-management"></a>Управление уязвимостями
 
-*Дополнительные сведения см. в статье [Управление безопасностью: управление уязвимостями](../security/benchmarks/security-control-vulnerability-management.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Управление уязвимостью](../security/benchmarks/security-control-vulnerability-management.md).*
 
-### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1. Выполнение автоматизированных средства анализа уязвимостей
+### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1. Выполнение автоматизированных средств анализа уязвимостей
 
 **Руководство**. Реализуйте стороннее решение по управлению уязвимостями.
 
 При необходимости, если у вас есть подписка на Rapid7, Qualys или любую другую уязвимость платформы управления уязвимостью, вы можете использовать действия сценария для установки агентов оценки уязвимостей на узлах кластера Azure HDInsight и управлять узлами с помощью соответствующего портала.
 
-Как установить агент Rapid7 вручную:
+- [Как вручную установить агент Rapid7](https://insightvm.help.rapid7.com/docs/install)
 
-https://insightvm.help.rapid7.com/docs/install
+- [Как вручную установить агент Qualys](https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf)
 
-Как установить агент Qualys вручную:
-
-https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf
-
-Как использовать действия сценария:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Использование действий сценария](hdinsight-hadoop-customize-cluster-linux.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2. Развертывание автоматизированного решения для управления исправлениями операционной системы
 
@@ -722,327 +556,264 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 Корпорация Майкрософт поддерживает и обновляет базовые образы узлов Azure HDInsight.
 
-Настройка расписания обновления ОС для кластеров HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Настройка расписания обновления ОС для кластеров HDInsight](hdinsight-os-patching.md)
 
 **Ответственность**: Совмещаемая блокировка
 
-### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3. Развертывание автоматизированного решения для управления исправлениями ПО сторонних производителей
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Развертывание автоматизированного решения по управлению исправлениями для программ сторонних разработчиков
 
 **Руководство**. Используйте действия сценария или другие механизмы для обновления кластеров Azure HDInsight. Созданные кластеры будут всегда содержать последние обновления, включая самые последние обновления безопасности.
 
-Как настроить расписание обновления ОС для кластеров Azure HDInsight под управлением Linux:
+- [Настройка расписания исправлений ОС для кластеров Azure HDInsight под управлением Linux](hdinsight-os-patching.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
-
-Как использовать действия сценария:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Использование действий сценария](hdinsight-hadoop-customize-cluster-linux.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4. Сравнение проверок смежных уязвимостей
 
 **Руководство**. Реализация решения для управления уязвимостью от сторонних производителей, которое позволяет сравнивать проверки уязвимостей с течением времени. Если у вас есть подписка Rapid7 или Qualys, вы можете использовать портал этого поставщика для просмотра и сравнения проверок уязвимостей обратной передачи.
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5. Использование процесса оценки рисков для определения приоритета в устранении обнаруженных уязвимостей
 
 **Руководство**. Используйте общую программу оценки рисков (например, Common Vulnerability Scoring System) или оценки рисков по умолчанию, предоставляемые сторонним средством сканирования.
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="inventory-and-asset-management"></a>Инвентаризация и управление ресурсами
 
-*Дополнительные сведения см. в статье [Управление безопасностью: инвентаризация и управление ресурсами](../security/benchmarks/security-control-inventory-asset-management.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Инвентаризация и управление активами](../security/benchmarks/security-control-inventory-asset-management.md).*
 
-### <a name="61-use-azure-asset-discovery"></a>6.1. Использование обнаружения ресурсов Azure
+### <a name="61-use-automated-asset-discovery-solution"></a>6,1. Использование автоматизированного решения для обнаружения ресурсов
 
-**Руководство**. Использование графа ресурсов Azure для запроса или обнаружения всех ресурсов (например, вычислений, хранилища, сети, портов и протоколов и т. д.), включая кластеры Azure HDInsight, в рамках ваших подписок.  Убедитесь, что у вас есть соответствующие разрешения (на чтение) в клиенте и вы можете перечислить все подписки Azure, а также ресурсы в ваших подписках.
+**Руководство**. Использование графа ресурсов Azure для запроса и обнаружения всех ресурсов (например, вычислений, хранилища, сети, портов и протоколов и т. д.), включая кластеры Azure HDInsight в ваших подписках. Убедитесь, что у вас есть соответствующие разрешения (на чтение) в клиенте и вы можете перечислить все подписки Azure, а также ресурсы в ваших подписках.
 
-Хотя классические ресурсы Azure можно обнаружить через Resource Graph, настоятельно рекомендуется в дальнейшем создавать и использовать ресурсы Azure Resource Manager.
+Хотя классические ресурсы Azure могут быть обнаружены с помощью графа ресурсов Azure, настоятельно рекомендуется создавать и использовать Azure Resource Manager ресурсы, идущие вперед.
 
-Как создавать запросы с помощью графа ресурсов Azure:
+- [Как создавать запросы с помощью Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+- [Как просматривать подписки Azure](/powershell/module/az.accounts/get-azsubscription)
 
-Как просмотреть подписки Azure:
-
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
-
-Общие сведения об Azure RBAC:
-
-https://docs.microsoft.com/azure/role-based-access-control/overview
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения об Azure RBAC](../role-based-access-control/overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="62-maintain-asset-metadata"></a>6.2. Ведение метаданных активов
 
 **Руководство**. Применяйте к ресурсам Azure теги, чтобы логически классифицировать их на основе метаданных.
 
-Создание и использование тегов:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3. Удаление неавторизованных ресурсов Azure
 
 **Руководство**. Использование тегов, групп управления и отдельных подписок (при необходимости) для Организации и мониторинга ресурсов. Регулярно сверяйте ресурсы, чтобы своевременно удалять неавторизованные ресурсы из подписки.
 
-Создание дополнительных подписок Azure: 
+- [Создание дополнительных подписок Azure](/azure/billing/billing-create-subscription)
 
-https://docs.microsoft.com/azure/billing/billing-create-subscription
+- [Создание групп управления](/azure/governance/management-groups/create)
 
-Создание Группы управления:
-
-https://docs.microsoft.com/azure/governance/management-groups/create
-
-Создание и использование тегов:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание и использование тегов](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Ответственность**: Customer
 
-### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4. Ведение каталога утвержденных ресурсов Azure и наименований программного обеспечения
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: определение и обслуживание инвентаризации утвержденных ресурсов Azure
 
 **Руководство**. Определение списка утвержденных ресурсов Azure и утвержденного программного обеспечения для ресурсов вычислений
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5. Отслеживание неутвержденных ресурсов Azure
 
-**Рекомендации**. Используйте политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в подписках клиентов, используя следующие встроенные определения политик:
+**Руководство**. Использование политики Azure для ограничения типа ресурсов, которые могут быть созданы в клиентских подписках, с помощью следующих встроенных определений политик:
 
 - Недопустимые типы ресурсов
 
 - Допустимые типы ресурсов
 
-Используйте граф ресурсов Azure для запроса или обнаружения ресурсов в ваших подписках. Убедитесь в том, что все ресурсы Azure, представленные в среде, утверждены.
+Используйте граф ресурсов Azure для запроса и обнаружения ресурсов в ваших подписках. Убедитесь в том, что все ресурсы Azure, представленные в среде, утверждены.
 
-Настройка Политики SQL Azure и управление ею: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-Создание запросов с помощью Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
-
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как создавать запросы с помощью Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6. Отслеживание неутвержденных программных приложений в рамках ресурсов вычислений
 
 **Руководство**. Реализация стороннего решения для мониторинга узлов кластера для неутвержденных программных приложений.
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7. Удаление неутвержденных ресурсов Azure и программных приложений
 
-**Руководство**. Использование графа ресурсов Azure для запроса или обнаружения всех ресурсов (например, вычислений, хранилища, сети, портов и протоколов и т. д.), включая кластеры Azure HDInsight, в рамках ваших подписок.  Удалите все неутвержденные ресурсы Azure, которые вы обнаружите. Для узлов кластера Azure HDInsight реализуйте стороннее решение для удаления или оповещения о неутвержденном программном обеспечении.
+**Руководство**. Использование графа ресурсов Azure для запроса и обнаружения всех ресурсов (например, вычислений, хранилища, сети, портов и протоколов и т. д.), включая кластеры Azure HDInsight в ваших подписках.  Удалите все неутвержденные ресурсы Azure, которые вы обнаружите. Для узлов кластера Azure HDInsight реализуйте стороннее решение для удаления или оповещения о неутвержденном программном обеспечении.
 
-Как создавать запросы с помощью Azure Graph:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как создавать запросы с помощью Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="68-use-only-approved-applications"></a>6.8. Использование только утвержденных приложений
 
 **Рекомендации**. для узлов кластера Azure HDInsight реализуйте стороннее решение, чтобы предотвратить выполнение несанкционированного программного обеспечения.
 
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9. Использование только утвержденных служб Azure
 
-**Руководство**. Используйте Политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в подписках клиентов, используя следующие встроенные определения политик.
-
+**Руководство**. Использование политики Azure для ограничения типа ресурсов, которые могут быть созданы в клиентских подписках, с помощью следующих встроенных определений политик:
 - Недопустимые типы ресурсов
 
 - Допустимые типы ресурсов
 
-Настройка Политики SQL Azure и управление ею: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Дополнительные сведения см. в следующих ресурсах.
 
-Отказ от определенного типа ресурса с помощью Политики Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как отказаться от определенного типа ресурса с помощью Политики Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Ответственность**: Customer
 
-### <a name="610-implement-approved-application-list"></a>6.10. Реализация списка утвержденных приложений
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: ведение инвентаризации утвержденных наименований программного обеспечения
 
 **Рекомендации**. для узлов кластера Azure HDInsight реализуйте стороннее решение, чтобы предотвратить выполнение несанкционированных типов файлов.
 
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11. Ограничение возможности пользователей взаимодействовать с диспетчером ресурсов Azure с помощью сценариев
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: ограничьте возможность пользователей работать с Azure Resource Manager
 
 **Руководство**. Используйте условный доступ Azure, чтобы ограничить возможность пользователей взаимодействовать с Azure Resource Manager путем настройки "Блокировать доступ" для приложения "Управление Microsoft Azure".
 
-Настройка условного доступа для блокировки доступа к Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как настроить условный доступ для блокировки доступа к Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Ответственность**: Customer
 
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12. Ограничение возможности пользователей выполнять сценарии в ресурсах вычислений
-
-**Руководство**: неприменимо; Это неприменимо к Azure HDInsight, так как пользователям (не администраторам) кластера не требуется доступ к отдельным узлам для выполнения заданий. Администратор кластера имеет корневой доступ ко всем узлам кластера.
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
-**Ответственность**: Неприменимо
-
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13. Физическое или логическое разделение приложений с высоким риском
-
-**Руководство**. Неприменимо. Тест производительности предназначен для Службы приложений Azure или вычислительных ресурсов для размещения веб-приложений.
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="secure-configuration"></a>Настройка безопасности
 
-*Дополнительные сведения см. в статье [Управление безопасностью: безопасная конфигурация](../security/benchmarks/security-control-secure-configuration.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: безопасная конфигурация](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1. Установка безопасных конфигураций для всех ресурсов Azure
 
 **Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. HDInsight для создания настраиваемых политик для аудита или принудительного применения конфигурации сети кластера HDInsight.
 
-Просмотр доступных псевдонимов политик Azure:
+- [Просмотр доступных псевдонимов политик Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
-
-Как настроить политику Azure и управлять ей:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2. Сохранение безопасных конфигураций для операционных систем
 
-**Руководство**. образы операционной системы Azure HDInsight, управляемые и обслуживаемые корпорацией Майкрософт. Клиент, ответственный за реализацию безопасных конфигураций для операционной системы узлов кластера. 
-
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+**Руководство**. образы операционной системы Azure HDInsight, управляемые и обслуживаемые корпорацией Майкрософт. Клиент, ответственный за реализацию безопасных конфигураций для операционной системы узлов кластера.
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3. Сохранение безопасных конфигураций для ресурсов Azure
 
 **Рекомендации**. Используйте политику Azure [Deny] и [развертывание, если не существует], чтобы применить параметры безопасности для кластеров Azure HDInsight и связанных ресурсов.
 
-Как настроить политику Azure и управлять ей:
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Общие сведения о влиянии политики Azure:
-
-https://docs.microsoft.com/azure/governance/policy/concepts/effects
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Сведения о действии Политик Azure](../governance/policy/concepts/effects.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4. Сохранение безопасных конфигураций для операционных систем
 
 **Руководство**. образы операционной системы Azure HDInsight, управляемые и обслуживаемые корпорацией Майкрософт. Клиент, ответственный за реализацию конфигурации состояния на уровне ОС.
 
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
-
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5. Безопасное хранение конфигурации ресурсов Azure
 
 **Руководство**. Если вы используете пользовательские определения политики Azure, используйте Azure DevOps или Azure Repos для безопасного хранения кода и управления им.
 
-[Как хранить код в Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+- [Учебник по Azure Repos Git](/azure/devops/repos/git/gitworkflow)
 
-[Документация по Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Документация по Azure Repos](/azure/devops/repos/index)
 
 **Ответственность**: Customer
 
-### <a name="76-securely-store-custom-operating-system-images"></a>7.6. Безопасное хранение пользовательских образов операционной системы
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**: неприменимо; пользовательские образы неприменимы к Azure HDInsight.
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
-**Ответственность**: Неприменимо
-
-### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Развертывание инструментов управления конфигурацией системы
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: развертывание средств управления конфигурацией для ресурсов Azure
 
 **Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. HDInsight для создания настраиваемых политик для оповещения, аудита и принудительного применения конфигураций системы. Кроме того, разрабатывайте процесс и конвейер для управления исключениями политик.
 
-Настройка Политики SQL Azure и управление ею: 
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
 
-### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8. Развертывание средств управления конфигурацией системы для операционных систем
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: развертывание средств управления конфигурацией для операционных систем
 
 **Руководство**. Реализация стороннего решения для поддержания требуемого состояния операционных систем узла кластера.
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9. Реализация автоматизированного мониторинга конфигурации для служб Azure
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9. Реализация автоматического мониторинга конфигурации для ресурсов Azure
 
 **Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. HDInsight для создания настраиваемых политик для аудита или принудительного применения конфигурации кластера HDInsight.
 
-[Просмотр доступных псевдонимов политик Azure](/powershell/module/az.resources/get-azpolicyalias)
+- [Просмотр доступных псевдонимов политик Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-[Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10. Реализация автоматизированного мониторинга конфигурации для операционных систем
 
 **Руководство**. Реализация стороннего решения для отслеживания состояния операционных систем узла кластера.
 
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11. Безопасное управление секретами Azure
 
@@ -1052,57 +823,47 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Key Vault также можно использовать с развертываниями Azure HDInsight для управления ключами для хранилища кластера (учетные записи хранения Azure и Azure Data Lake Storage).
 
-Как внедрить собственный ключ для Apache Kafka в Azure HDInsight:
+- [Как внедрить собственный ключ для Apache Kafka в Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
 
-https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
-
-Как управлять ключами шифрования для учетных записей хранения Azure:
-
-https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Управление ключами шифрования для учетных записей хранения Azure](/azure/storage/common/storage-encryption-keys-portal)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12. Безопасное и автоматическое управление удостоверениями
 
-**Руководство**. управляемые удостоверения можно использовать в Azure HDInsight, чтобы предоставить вашим кластерам доступ к Azure Active Directory доменным службам, доступу к Azure Key Vault или доступу к файлам в Azure Data Lake Storage 2-го поколения.
+**Руководство**. управляемые удостоверения можно использовать в Azure HDInsight, чтобы предоставить вашим кластерам доступ к Azure Active Directory доменным службам (Azure AD), доступу к Azure Key Vault или к файлам в Azure Data Lake Storage 2-го поколения.
 
-Общие сведения об управляемых удостоверениях в Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения об управляемых удостоверениях в Azure HDInsight](hdinsight-managed-identities.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13. Устранение непреднамеренного раскрытия учетных данных
 
 **Руководство**. при использовании любого кода, связанного с развертыванием Azure HDInsight, можно реализовать средство проверки учетных данных для указания учетных данных в коде. Сканер учетных данных также рекомендует перемещать обнаруженные учетные данные в более безопасные расположения, такие как Azure Key Vault. 
 
-Настройка средства проверки учетных данных:
-
-https://secdevtools.azurewebsites.net/helpcredscan.html
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как настроить сканер учетных данных](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="malware-defense"></a>Защита от вредоносных программ
 
-*Дополнительные сведения см. в статье [Управление безопасностью: защита от вредоносных программ](../security/benchmarks/security-control-malware-defense.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: защита от вредоносных программ](../security/benchmarks/security-control-malware-defense.md).*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1. Использование централизованно управляемого программного обеспечения для защиты от вредоносных программ
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1. Использование централизованно управляемого программного обеспечения для защиты от вредоносных программ
 
 **Руководство**. Azure HDInsight поставляется с предварительно установленным и включенным для образов узлов кластера, однако необходимо управлять программным обеспечением и вручную собирать и отслеживать любые журналы кламскан.
 
-Общие сведения о Кламскан для Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения о Кламскан для Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2. Предварительная проверка файлов для отправки в ресурсы Azure, не являющиеся вычислительными
 
@@ -1110,183 +871,159 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 Предварительно проверять все файлы, отправляемые в любые ресурсы Azure, связанные с развертыванием кластера Azure HDInsight, например Data Lake Storage, хранилище BLOB-объектов и т. д. Корпорация Майкрософт не может получить доступ к данным клиентов в этих экземплярах.
 
-Сведения о антивредоносном по Майкрософт для облачных служб и виртуальных машин Azure:
-
- https://docs.microsoft.com/azure/security/fundamentals/antimalware
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Сведения о антивредоносном по Майкрософт для облачных служб и виртуальных машин Azure](../security/fundamentals/antimalware.md)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3. Своевременное обновление программного обеспечения для защиты от вредоносных программ и подписей
 
 **Руководство**. Azure HDInsight поставляется с предварительно установленным и включенным кламскан для образов узлов кластера. Кламскан будет автоматически выполнять обновления модулей и определений, однако агрегирование и управление журналами потребуется выполнять вручную.
 
-Общие сведения о Кламскан для Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения о Кламскан для Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-recovery"></a>Восстановление данных
 
-*Дополнительные сведения см. в статье [Управление безопасностью: восстановление данных](../security/benchmarks/security-control-data-recovery.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: восстановление данных](../security/benchmarks/security-control-data-recovery.md).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9.1. Обеспечение регулярного автоматического резервного копирования
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Обеспечьте регулярное автоматическое резервное копирование
 
 **Руководство**. при использовании учетной записи хранения Azure для хранилища данных кластера HDInsight выберите соответствующий параметр избыточности (LRS, ZRS, GRS, RA-GRS).  При использовании базы данных SQL Azure для хранилища данных кластера Azure HDInsight настройте активную георепликацию.
 
-Как настроить избыточность хранилища для учетных записей хранения Azure:
+- [Настройка избыточности хранилища для учетных записей хранения Azure](../storage/common/storage-redundancy.md)
 
-https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
-Как настроить избыточность для базы данных SQL Azure:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка избыточности для базы данных SQL Azure](/azure/sql-database/sql-database-active-geo-replication)
 
 **Ответственность**: Customer
 
-### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2. Выполнение полного резервного копирования системы и любых ключей, управляемых клиентом
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: выполните полное резервное копирование системы и резервное копирование ключей, управляемых клиентом
 
 **Руководство**. при использовании учетной записи хранения Azure для хранилища данных кластера Azure HDInsight выберите соответствующий параметр избыточности (LRS, ZRS, GRS, RA-GRS). Если вы используете Azure Key Vault для любой части развертывания Azure HDInsight, убедитесь, что резервное копирование ключей выполнено.
 
-Выберите параметры хранения для кластера Azure HDInsight:
+- [Выбор параметров хранилища для кластера Azure HDInsight](hdinsight-hadoop-compare-storage-options.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
+- [Настройка избыточности хранилища для учетных записей хранения Azure](../storage/common/storage-redundancy.md)
 
-Как настроить избыточность хранилища для учетных записей хранения Azure:
-
-https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
-Резервное копирование ключей Key Vault в Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Резервное копирование ключей Key Vault в Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Ответственность**: Customer
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3. Проверка всех резервных копий, включая управляемые клиентом ключи
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Проверьте все резервные копии, включая управляемые клиентом ключи.
 
 **Рекомендации**. Если Azure Key Vault используется в развертывании Azure HDInsight, протестируйте резервные копии ключей, управляемых клиентом.
 
-Как внедрить собственный ключ для Apache Kafka в Azure HDInsight:
+- [Как внедрить собственный ключ для Apache Kafka в Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
 
-https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
-
-Как восстановить ключи хранилища ключей в Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как восстановить резервную копию ключей хранилища ключей в Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Ответственность**: Customer
 
-### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4. Обеспечение защиты резервных копий и управляемых клиентом ключей
+**Мониторинг центра безопасности Azure**: нет
 
-**Рекомендации**. Если Azure Key Vault используется в развертывании Azure HDInsight, включите Soft-Delete в Key Vault, чтобы защитить ключи от случайного или вредоносного удаления.
+### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: Обеспечьте защиту резервных копий и ключей, управляемых клиентом
 
-Включение Soft-Delete в Azure Key Vault:
+**Рекомендации**. Если Azure Key Vault используется в развертывании Azure HDInsight, включите обратимое удаление в Key Vault, чтобы защитить ключи от случайного или вредоносного удаления.
 
-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Включение обратимого удаления Azure Key Vault](/azure/key-vault/key-vault-ovw-soft-delete)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="incident-response"></a>реагирование на инциденты.
 
-*Дополнительные сведения см. в статье [Управление безопасностью: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1. Создание руководства по реагированию на инциденты
 
-**Руководство**. Убедитесь, что существуют планы реагирования на инциденты, определяющие роли персонала, а также этапы обработки инцидентов и управления ими.
+**Руководство**. Разработка руководства по реагированию на инциденты для вашей организации. Убедитесь, что имеются письменные планы реагирования на инциденты, которые определяют все роли персонала, а также этапы обработки инцидентов и управления обнаружением до проверки после инцидента. 
 
-Настройка автоматизации рабочих процессов в Центре безопасности Azure: 
+- [Руководство по созданию собственного процесса реагирования на инциденты безопасности](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
-https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+- [Анатомия инцидента Центра Майкрософт по реагированию на угрозы](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/) 
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Воспользуйтесь руководством по обработке инцидентов компьютерной безопасности NIST, чтобы помочь в создании собственного плана реагирования на инциденты.](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2. Создание процедуры оценки инцидента и определения приоритетов
 
-**Руководство**. Центр безопасности назначает серьезность предупреждениям, чтобы помочь вам определить порядок, в котором вы задаете каждое оповещение, чтобы при компрометации ресурса вы могли сразу перейти к нему. Серьезность основывается на том, насколько уверен Центр безопасности в исследовании или аналитике, используемой для оповещения, а также на уровне достоверности злонамеренности события, приведшего к оповещению.
-
-**Мониторинг Центра безопасности Azure**: Да
+**Руководство**. Центр безопасности назначает серьезность предупреждениям, чтобы помочь вам определить порядок, в котором вы задаете каждое оповещение, чтобы при компрометации ресурса вы могли сразу перейти к нему. Серьезность основывается на том, насколько надежным является центр безопасности в поиске или аналитике, используемой для выдаче оповещения, а также об уровне достоверности, который был вредоносным намерением для действия, вызвавшего оповещение.
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="103-test-security-response-procedures"></a>10.3. Проверка процедур реагирования на угрозы
 
-**Руководство**. проведение упражнений по тестированию возможностей реагирования на инциденты систем на регулярной ритмичности. Выявление слабых точек и пробелов и пересмотр плана по мере необходимости. Обратитесь к публикации NIST: руководство по тестированию, обучению и упражнениям для ИТ-планов и возможностей.https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Руководство**. проведение упражнений по тестированию возможностей реагирования на инциденты систем на регулярной ритмичности. Выявите слабые точки и пробелы и пересмотрите план по мере необходимости.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [См. публикацию NIST: руководство по тестированию, обучению и выполнению программ для ИТ-планов и возможностей](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4. Предоставление контактных сведений и настройка уведомлений по инцидентам безопасности
 
 **Руководство**. Корпорация Майкрософт будет использовать информацию об инциденте безопасности для связи с вами, если центр Microsoft Security Response Center (MSRC) обнаружит, что к вашим данным был получен незаконный или несанкционированный доступ.
 
-Как задать контакт безопасности центра безопасности Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как задать контакт безопасности Центра безопасности Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5. Включение оповещений системы безопасности в систему реагирования на инциденты
 
 **Рекомендации**. Экспортируйте оповещения и рекомендации центра безопасности Azure с помощью функции непрерывного экспорта. Непрерывный экспорт позволяет экспортировать предупреждения и рекомендации как вручную, так и в постоянном, непрерывном режиме. Вы можете использовать соединитель данных Центра безопасности Azure для потоковой передачи оповещений в Azure Sentinel.
 
-Как настроить непрерывный экспорт:
+- [Настройка непрерывного экспорта данных](../security-center/continuous-export.md)
 
-https://docs.microsoft.com/azure/security-center/continuous-export
-
-Как выполнить потоковую передачу предупреждений в Azure Sentinel:
-
-https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как выполнить потоковую передачу оповещений в Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6. Автоматизация реагирования на оповещения системы безопасности
 
-**Рекомендации**. Используйте функцию автоматизации рабочих процессов в центре безопасности Azure для автоматического запуска ответов с помощью "Logic Apps" в оповещениях и рекомендациях системы безопасности.
+**Руководство**. Используйте функцию автоматизации рабочих процессов в Центре безопасности Azure для автоматического запуска реагирования с помощью Logic Apps в оповещениях и рекомендациях системы безопасности.
 
-Как настроить автоматизацию рабочего процесса и Logic Apps:
-
-https://docs.microsoft.com/azure/security-center/workflow-automation
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как настроить автоматизацию рабочего процесса и Logic Apps](../security-center/workflow-automation.md)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="penetration-tests-and-red-team-exercises"></a>Тесты на проникновение и попытки нарушения безопасности "красной командой"
 
-*Дополнительные сведения см. в статье [Управление безопасностью: тесты на проникновение и попытки нарушения безопасности "красной командой"](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Дополнительные сведения см. в статье [тесты производительности системы безопасности Azure: испытания на проникновение и команды красных команд](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1. Регулярное тестирование на проникновение ресурсов Azure и отслеживание исправлений всех критических точек безопасности в течение 60 дней
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1. Проведите регулярное тестирование на проникновение ресурсов Azure и обеспечьте исправление всех критических результатов безопасности.
 
-**Рекомендации**. Следуйте правилам взаимодействия Майкрософт, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт:
+**Рекомендации**. Следуйте правилам тестирования уязвимости Microsoft Cloud, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт. Используйте стратегию Майкрософт и рекомендации "красных команд", а затем выполните тест на проникновение в режиме реального времени для управляемых корпорацией Майкрософт облачной инфраструктуры, служб и приложений. 
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
+- [Правила взаимодействия при выполнении тестирования на проникновение](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-Дополнительные сведения о стратегии корпорации Майкрософт и ее выполнении, а также о тестировании на основе уязвимости для управляемой облачной инфраструктуры, служб и приложений Майкрософт см. здесь: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Привлечение "красных команд для тестирования "Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Ответственность**: Совмещаемая блокировка
 
-## <a name="next-steps"></a>Дальнейшие действия
+**Мониторинг центра безопасности Azure**: нет
 
-- См. [Тесты производительности системы безопасности Azure](../security/benchmarks/overview.md).
-- Узнайте больше о [Базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+## <a name="next-steps"></a>Следующие шаги
+
+- См. [Обзор Azure Security Benchmark версии 2](/azure/security/benchmarks/overview)
+- Дополнительные сведения о [базовой конфигурации безопасности Azure](/azure/security/benchmarks/security-baselines-overview).

@@ -3,12 +3,12 @@ title: Создание пула в разных зонах доступност
 description: Узнайте, как создать пул пакетной службы с политикой зональные для защиты от сбоев.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: 98109e1b74106bc636eaa715575e4b30ab29f9e2
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725294"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Создание пула пакетной службы Azure на Зоны доступности
 
@@ -22,7 +22,7 @@ ms.locfileid: "99056352"
 
 Чтобы пул пакетной службы выделился между зонами доступности, регион Azure, в котором создается пул, должен поддерживать запрошенный номер SKU виртуальной машины в нескольких зонах. Это можно проверить путем вызова [API списка SKU ресурсов](/rest/api/compute/resourceskus/list) и проверки поля **локатионинфо** в [ресаурцеску](/rest/api/compute/resourceskus/list#resourcesku). Убедитесь, что для запрошенного номера SKU виртуальной машины поддерживается более одной зоны.
 
-Для [учетных записей пакетной службы в пользовательском режиме подписки](accounts.md#batch-accounts)убедитесь, что в подписке, в которой создается пул, не предусмотрено ограничение на использование зоны для ЗАПРОШЕННОГО номера SKU виртуальной машины. Чтобы подтвердить это, вызовите [API списка SKU ресурсов](/rest/api/compute/resourceskus/list) и проверьте [ресаурцескурестриктионс](/rest/api/compute/resourceskus/list#resourceskurestrictions). Если существует ограничение для зоны, можно отправить запрос в [службу поддержки](../azure-portal/supportability/sku-series-unavailable.md) , чтобы удалить ограничение зоны.
+Для [учетных записей пакетной службы в пользовательском режиме подписки](accounts.md#batch-accounts)убедитесь, что в подписке, в которой создается пул, не предусмотрено ограничение на использование зоны для ЗАПРОШЕННОГО номера SKU виртуальной машины. Чтобы подтвердить это, вызовите [API списка SKU ресурсов](/rest/api/compute/resourceskus/list) и проверьте [ресаурцескурестриктионс](/rest/api/compute/resourceskus/list#resourceskurestrictions). Если существует ограничение для зоны, можно отправить запрос в [службу поддержки](/troubleshoot/azure/general/region-access-request-process) , чтобы удалить ограничение зоны.
 
 Также обратите внимание, что нельзя создать пул с политикой зональные, если включено взаимодействие между узлами и используется [номер SKU виртуальной машины, поддерживающий InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
@@ -52,7 +52,7 @@ POST {batchURL}/pools?api-version=2021-01-01.13.0
 client-request-id: 00000000-0000-0000-0000-000000000000
 ```
 
-Тело запроса
+Текст запроса
 
 ```
 "pool": {
@@ -83,4 +83,3 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 - Узнайте подробнее о [рабочем процессе и основных ресурсах пакетной службы](batch-service-workflow-features.md), таких как пулы, узлы, задания и задачи.
 - Узнайте [, как создать пул в подсети виртуальной сети Azure](batch-virtual-network.md).
 - Узнайте [, как создать пул пакетной службы Azure без общедоступных IP-адресов](./batch-pool-no-public-ip-address.md).
-

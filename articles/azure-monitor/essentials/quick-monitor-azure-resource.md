@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: cab41c025f9f3e5b03f042a2bf5686cb08dbd0a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62afc0ab4e65da53adb35510503051d39e0edc4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626441"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734236"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Краткое руководство. Мониторинг ресурса Azure с помощью Azure Monitor
 [Azure Monitor](../overview.md) начнет сбор данных из ресурсов Azure с момента их создания. В этом кратком руководстве приводится краткое пошаговое руководство с описанием данных, которые автоматически собираются для каждого ресурса, и процедуры просмотра данных для определенного ресурса на портале Azure. Вы можете позднее настроить сбор дополнительных данных и (или) через меню Azure Monitor применить те же средства для просмотра данных для всех ресурсов в подписке.
@@ -67,7 +67,7 @@ ms.locfileid: "100626441"
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом кратком руководстве вы просмотрели для ресурса Azure журнал действий и метрики, которые автоматически собираются службой Azure Monitor. Перейдите к следующему краткому руководству, в котором показано, как выполнять сбор журналов в рабочей области Log Analytics, где их можно проанализировать с помощью [запросов журнала](../log-query/log-query-overview.md).
+В этом кратком руководстве вы просмотрели для ресурса Azure журнал действий и метрики, которые автоматически собираются службой Azure Monitor. Перейдите к следующему краткому руководству, в котором показано, как выполнять сбор журналов в рабочей области Log Analytics, где их можно проанализировать с помощью [запросов журнала](../logs/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Отправка журнала действий Azure в рабочую область Log Analytics](../learn/quick-collect-activity-log-portal.md)
+> [Отправка журнала действий Azure в рабочую область Log Analytics](./quick-collect-activity-log-portal.md)

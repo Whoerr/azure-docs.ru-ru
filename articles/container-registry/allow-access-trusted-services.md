@@ -3,12 +3,12 @@ title: Доступ к реестру с ограниченным доступо
 description: Предоставление доверенному экземпляру службы Azure безопасного доступа к реестру контейнеров, ограниченному сетью, для извлечения или отправки образов
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 3cc32630ea689891e7ba75163c33bc499a38becd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527904"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716488"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Предоставление доверенным службам безопасного доступа к реестру контейнеров, ограниченному сетью (Предварительная версия)
 
@@ -41,7 +41,6 @@ ms.locfileid: "99527904"
 |Доверенная служба  |Поддерживаемые сценарии использования  |
 |---------|---------|
 |Задачи ACR     | [Доступ к другому реестру из задачи записи контроля доступа](container-registry-tasks-cross-registry-authentication.md)       |
-|Машинное обучение | [Развертывание](../machine-learning/how-to-deploy-custom-docker-image.md) или [обучение](../machine-learning/how-to-train-with-custom-image.md) модели в машинное обучение рабочей области с помощью пользовательского образа контейнера DOCKER |
 |Реестр контейнеров Azure | [Импорт изображений из другого реестра контейнеров Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]

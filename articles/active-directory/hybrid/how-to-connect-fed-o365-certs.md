@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661445"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686875"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Продлите сертификаты Федерации для Microsoft 365 и Azure Active Directory
 ## <a name="overview"></a>Обзор
@@ -157,7 +157,7 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
    >
 3. Просмотрите данные, которые будут выведены для всех сертификатов в списке. Если служба AD FS создала сертификат, вы увидите два сертификата в выходных данных: один, для которого значение **IsPrimary** равно **True**, а дата **NotAfter** равна 5 дней; второй, для которого значение **IsPrimary** равно **False**, а дата **NotAfter** равна приблизительно году.
 4. Если вы видите только один сертификат, а дата **NotAfter** равна 5 дням, необходимо создать сертификат.
-5. Чтобы создать сертификат, в командной строке PowerShell выполните такую команду: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+5. Чтобы создать сертификат, в командной строке PowerShell выполните такую команду: `PS C:\Update-ADFSCertificate –CertificateType token-signing`.
 6. Проверьте обновление, запустив следующую команду еще раз: PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
 Теперь должны появиться два сертификата, один из которых имеет дату **NotAfter**, равную приблизительно году, и у которого значение параметра **IsPrimary** равно **False**.

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 9a6c62e91a2d3c600326730b3e6345f97bf6f5f9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0e928f3890e0d86aff7e4615d6d12e1b53c3b6f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598063"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734695"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Примеры шаблонов Resource Manager для правил генерации оповещений метрик в Azure Monitor
 
@@ -3303,6 +3303,5 @@ Azure Monitor поддерживает мониторинг нескольких
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [Другие примеры шаблонов для Azure Monitor](../resource-manager-samples.md).
-- [Дополнительные сведения об оповещениях](../platform/alerts-overview.md).
+- [Дополнительные сведения об оповещениях](./alerts-overview.md).
 - [Пример создания группы действий с помощью шаблона Resource Manager](resource-manager-action-groups.md).
-

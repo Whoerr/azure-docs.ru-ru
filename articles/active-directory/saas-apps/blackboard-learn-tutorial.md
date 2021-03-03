@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: cd62c77b545664464b90248445e6280fba53255c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 9e2898fdeda6e72f09d4127561249906569affb0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427707"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649076"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blackboard-learn"></a>Руководство по интеграции единого входа Azure Active Directory с Blackboard Learn
 
@@ -133,8 +133,8 @@ ms.locfileid: "99427707"
 
 * Перейдите по URL-адресу для входа в Blackboard Learn и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Blackboard Learn на портале "Мои приложения", вы перейдете по URL-адресу для входа в Blackboard Learn. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Blackboard Learn на портале "Мои приложения", вы перейдете по URL-адресу для входа в Blackboard Learn. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Blackboard Learn вы можете применить функцию управления сеансами, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Blackboard Learn вы можете применить функцию управления сеансами, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

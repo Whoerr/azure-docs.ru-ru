@@ -7,12 +7,12 @@ ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
 ms.custom: devx-track-python
-ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740449"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Отслеживание фабрики данных Azure с помощью программных средств
 
@@ -30,12 +30,12 @@ ms.locfileid: "100379902"
 
 ## <a name="pipeline-run-information"></a>Сведения о выполнении конвейера
 
-Сведения о свойствах выполнения конвейера см. в [справочнике по API пипелинерун](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Состояние выполнения конвейера отличается от состояния жизненного цикла, возможные значения состояния выполнения перечислены ниже.
+Сведения о свойствах выполнения конвейера см. в [справочнике по API пипелинерун](/rest/api/datafactory/pipelineruns/get#pipelinerun). Состояние выполнения конвейера отличается от состояния жизненного цикла, возможные значения состояния выполнения перечислены ниже.
 
 * Поставлено в очередь
 * InProgress
 * Выполнено
-* Failed
+* Сбой
 * Идет отмена
 * Отменено
 
@@ -162,6 +162,5 @@ print_activity_run_details(activity_runs_paged[0])
 
 Полная документация по командлетам PowerShell приведена в [справочнике по командлетам PowerShell для фабрики данных](/powershell/module/az.datafactory).
 
-## <a name="next-steps"></a>Следующие шаги
-Дополнительные сведения об использовании Azure Monitor для отслеживания конвейеров фабрики данных см. в статье [Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md) (Отслеживание фабрик данных с помощью Azure Monitor). 
-
+## <a name="next-steps"></a>Дальнейшие действия
+Дополнительные сведения об использовании Azure Monitor для отслеживания конвейеров фабрики данных см. в статье [Monitor data factories using Azure Monitor](monitor-using-azure-monitor.md) (Отслеживание фабрик данных с помощью Azure Monitor).

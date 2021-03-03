@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78eed4086c04ceca677a96f03875481e56206e0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550005"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724026"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Интеграция Azure Active Directory с управляемым AKS
 
@@ -47,7 +47,7 @@ kubelogin --version
 
 Используйте [эти инструкции](https://kubernetes.io/docs/tasks/tools/install-kubectl/) для других операционных систем.
 
-## <a name="before-you-begin"></a>Подготовка к работе
+## <a name="before-you-begin"></a>Перед началом
 
 Для кластера требуется группа Azure AD. Эта группа необходима в качестве группы администраторов кластера для предоставления разрешений администратора кластера. Вы можете использовать существующую группу Azure AD или создать новую. Запишите идентификатор объекта вашей группы Azure AD.
 
@@ -231,6 +231,70 @@ kubectl get nodes
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Ошибка входа в систему из-за политики условного доступа":::
 
+## <a name="configure-just-in-time-cluster-access-with-azure-ad-and-aks"></a>Настройка JIT-доступа к кластеру с помощью Azure AD и AKS
+
+Другим вариантом управления доступом к кластеру является использование управление привилегированными пользователями (PIM) для JIT-запросов.
+
+>[!NOTE]
+> PIM — это Azure AD Premiumная возможность, для которой необходим SKU уровня "Премиум P2". Дополнительные сведения о SKU Azure AD см. в разделе [ценовые указания][aad-pricing].
+
+Чтобы интегрировать JIT-запросы доступа к кластеру AKS с помощью управляемой AKS интеграции Azure AD, выполните следующие действия.
+
+1. В верхней части портал Azure найдите и выберите Azure Active Directory.
+1. Запишите идентификатор клиента, который указан для остальных инструкций, как `<tenant-id>` :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="в веб-браузере, портал Azure экран для Azure Active Directory отображается с ВЫДЕЛЕНным идентификатором клиента.":::
+1. В меню для Azure Active Directory на левой стороне в разделе *Управление* выбор *групп* выберите *Новая группа*.
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Отображает экран портал Azure Active Directory групп с выделенным параметром &quot;создать группу&quot;.":::
+1. Убедитесь, что выбран тип группы *Безопасность* , и введите имя группы, например *мижитграуп*. В разделе *роли Azure AD могут быть назначены этой группе (Предварительная версия)* выберите *Да*. Наконец, выберите *Создать*.
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Отображает экран создания новой группы портал Azure.":::
+1. Будет возвращена страница " *группы* ". Выберите созданную группу и запишите идентификатор объекта, на который ссылаются остальные инструкции как `<object-id>` .
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Отображение портал Azure экрана только что созданной группы с выделением идентификатора объекта":::
+1. Разверните кластер AKS с интеграцией Azure AD, управляемой AKS, используя `<tenant-id>` `<object-id>` значения и из предыдущего:
+    ```azurecli-interactive
+    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    ```
+1. Вернитесь в портал Azure в меню *действия* на левой стороне выберите *привилегированный доступ (Предварительная версия)* и выберите *включить привилегированный доступ*.
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="Отобразится страница портал Azure привилегированный доступ (Предварительная версия) с выделенным параметром &quot;включить привилегированный доступ&quot;.":::
+1. Выберите *добавить назначения* , чтобы начать предоставление доступа.
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="Отобразится экран портал Azure привилегированный доступ (Предварительная версия) после включения. Выделен параметр &quot;добавить назначения&quot;.":::
+1. Выберите роль *член* и выберите пользователей и группы, которым вы хотите предоставить доступ к кластеру. Эти назначения могут быть изменены администратором группы в любое время. Когда вы будете готовы к переходу, нажмите кнопку *Далее*.
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="Отобразится экран &quot;Добавление назначения&quot; портал Azure с примером пользователя, выбранным для добавления в качестве члена. Параметр &quot;Далее&quot; выделен.":::
+1. Выберите тип назначения *Активная*, желаемая длительность и укажите обоснование. Когда вы будете готовы к продолжению, нажмите кнопку *назначить*. Дополнительные сведения о типах назначений см. [в разделе Назначение права для привилегированной группы доступа (Предварительная версия) в Управление привилегированными пользователями][aad-assignments].
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Появится экран настройки добавления назначения портал Azure. Выбран тип назначения &quot;Active&quot;, и указано обоснование. Параметр &quot;Assign&quot; выделен.":::
+
+После выполнения назначений убедитесь, что JIT-доступ работает путем доступа к кластеру. Пример.
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Выполните действия для входа.
+
+Используйте `kubectl get nodes` команду для просмотра узлов в кластере:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Обратите внимание на требование проверки подлинности и выполните действия по проверке подлинности. В случае успеха вы увидите результат, аналогичный приведенному ниже:
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
+aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
+aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
+```
+
+### <a name="troubleshooting"></a>Устранение неполадок
+
+Если функция `kubectl get nodes` возвращает ошибку, аналогичную следующей:
+
+```output
+Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+Убедитесь, что администратор группы безопасности предоставил вашей учетной записи *активное* назначение.
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Сведения об [интеграции с Azure RBAC для авторизации Kubernetes][azure-rbac-integration]
@@ -243,6 +307,7 @@ kubectl get nodes
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[aad-pricing]: /azure/pricing/details/active-directory
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
@@ -260,3 +325,4 @@ kubectl get nodes
 [azure-ad-cli]: azure-ad-integration-cli.md
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
+[aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group

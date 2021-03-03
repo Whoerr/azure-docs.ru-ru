@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791747"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715706"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Как использовать POST для отправки запросов в интерфейсы API цифровых двойников Azure
 
-[POST](https://www.getpostman.com/) представляет собой средство тестирования, предоставляющее основные функциональные возможности HTTP-запросов в пользовательском интерфейсе на настольном компьютере и подключаемом модуле. Его можно использовать для создания HTTP-запросов и их отправки в [интерфейсы API двойников для Azure Digital](how-to-use-apis-sdks.md).
+[Postman](https://www.getpostman.com/) — это средство тестирования REST, предоставляющее основные возможности HTTP-запросов в пользовательском интерфейсе для классических программ и на основе подключаемых модулей. Его можно использовать для создания HTTP-запросов и их отправки в [интерфейсы API двойников для Azure Digital](how-to-use-apis-sdks.md).
 
 В этой статье описывается, как настроить [клиент отправки RESTful](https://www.getpostman.com/) для взаимодействия с API-интерфейсами Azure Digital двойников, выполнив следующие действия.
 
@@ -140,7 +140,7 @@ ms.locfileid: "98791747"
 1. Убедитесь, что заголовки, отображаемые для запроса на вкладке *заголовки* , соответствуют описанным в справочной документации. Для этого запроса несколько заголовков были заполнены автоматически. Для API запроса ни один из параметров заголовка не является обязательным, поэтому этот шаг выполняется.
 1. Убедитесь, что текст, отображаемый для запроса на вкладке *Body* , соответствует требованиям, описанным в справочной документации. Для API запроса текст JSON необходим для предоставления текста запроса. Ниже приведен пример тела запроса, который запрашивает все цифровые двойников в экземпляре:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="В сведениях о новом запросе отображается вкладка Body (тело). Он содержит необработанный текст JSON с запросом SELECT * FROM ДИГИТАЛТВИНС."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="В сведениях о новом запросе отображается вкладка Body (тело). Он содержит необработанный текст JSON с запросом SELECT * FROM ДИГИТАЛТВИНС." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Дополнительные сведения о создании запросов Azure Digital двойников см. в разделе [*инструкции. запрос к графу двойника*](how-to-query-graph.md).
 

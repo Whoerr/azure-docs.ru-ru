@@ -6,17 +6,17 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: fda76fd16787c01b9fc35ef63473be215a2c126d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361151"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740058"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Добавочное копирование новых и измененных файлов на основе LastModifiedDate с помощью средства Копирование данных
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 В этом руководстве вы будете использовать портал Azure для создания фабрики данных. Затем вы сможете использовать средство Копирование данных для создания конвейера, который постепенно копирует только новые и измененные файлы, из хранилища BLOB-объектов Azure в хранилище BLOB-объектов Azure. Он использует `LastModifiedDate` , чтобы определить, какие файлы следует копировать.
 
@@ -69,7 +69,7 @@ ms.locfileid: "100361151"
 
 5. В качестве **версии** выберите **V2**.
 6. В качестве **расположения** выберите расположение фабрики данных. В списке отображаются только поддерживаемые расположения. Хранилища данных (например, служба хранилища Azure и база данных SQL Azure) и расчеты (например, Azure HDInsight), используемые фабрикой данных, могут находиться в других расположениях и регионах.
-8. Щелкните **Создать**.
+8. Нажмите кнопку **создания**.
 9. После создания фабрики данных появится домашняя страница фабрика данных.
 10. Чтобы открыть пользовательский интерфейс фабрики данных Azure на отдельной вкладке, выберите плитку " **автор & монитор** ":
 
@@ -176,7 +176,7 @@ ms.locfileid: "100361151"
     ![Проверять файлы с помощью Обозреватель службы хранилища Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 Чтобы узнать, как преобразовать данные с помощью кластера Apache Spark в Azure, перейдите к следующему руководству:
 
 > [!div class="nextstepaction"]

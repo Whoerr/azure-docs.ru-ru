@@ -3,24 +3,24 @@ title: Создание новой версии образа виртуальн�
 description: Создание новой версии образа виртуальной машины из существующей версии образа с помощью Azure Image Builder в Linux.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2020
+ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 26b0a989e6f16bfffe324dc31a739093b7d99802
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0887051ffa396f1eac8bc00dc2437b8e92bec45a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676209"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695640"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Предварительная версия. Создание новой версии образа виртуальной машины из существующей версии образа с помощью Azure Image Builder в Linux
 
 В этой статье показано, как взять существующую версию образа в [коллекции общих образов](../shared-image-galleries.md), обновить ее и опубликовать в коллекции как новую версию образа.
 
-Для настройки образа мы будем использовать простой шаблон JSON. JSON-файл, который мы используем: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
+Для настройки образа мы будем использовать простой шаблон JSON. JSON-файл, который мы используем: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
 
 ## <a name="register-the-features"></a>Регистрация функций
@@ -43,6 +43,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Network | grep registrationState
 ```
 
 Если регистрация не выполнена, примените следующую команду:
@@ -52,6 +53,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Network
 ```
 
 
@@ -103,13 +105,13 @@ imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, '
 
 
 ## <a name="modify-helloimage-example"></a>Пример изменения Хеллоимаже
-Вы можете ознакомиться с примером, который мы будем использовать, открыв JSON файл здесь: [helloImageTemplateforSIGfromSIG.js](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) вместе с [ссылкой на шаблон построителя образов](image-builder-json.md). 
+Вы можете ознакомиться с примером, который мы будем использовать, открыв JSON файл здесь: [helloImageTemplateforSIGfromSIG.js](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) вместе с [ссылкой на шаблон построителя образов](image-builder-json.md). 
 
 
 Скачайте пример JSON и настройте его с помощью переменных. 
 
 ```console
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforSIGfromSIG.json

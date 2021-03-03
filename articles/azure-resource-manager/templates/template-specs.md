@@ -2,15 +2,15 @@
 title: Создание и развертывание спецификации шаблона
 description: Описание способов создания спецификаций шаблонов и предоставления к ним общего доступа другим пользователям в Организации.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e4efc63ffa49b1c8ca44fc806e37e4aa91cd76c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734921"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700394"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Спецификации шаблонов Azure Resource Manager (Предварительная версия)
 
@@ -246,6 +246,78 @@ az deployment group create \
 
 ---
 
+## <a name="versioning"></a>Управление версиями
+
+При создании спецификации шаблона необходимо указать для нее имя версии. По мере выполнения итерации по коду шаблона можно либо обновить существующую версию (для исправлений), либо опубликовать новую версию. Версия является текстовой строкой. Можно выбрать любую систему управления версиями, включая семантическую версию. Пользователи спецификации шаблона могут предоставить имя версии, которое они хотят использовать при развертывании.
+
+## <a name="use-tags"></a>Использование тегов
+
+[Теги](../management/tag-resources.md) помогают логически упорядочивать ресурсы. Добавить теги в спецификации шаблона можно с помощью Azure PowerShell и Azure CLI.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+При создании или изменении спецификации шаблона с указанным параметром версии, но без параметра TAG или Tags:
+
+- Если спецификация шаблона существует и содержит теги, но версия не существует, Новая версия наследует те же теги, что и существующая спецификация шаблона.
+
+При создании или изменении спецификации шаблона с параметром TAG или Tags и указанным параметром version:
+
+- Если и спецификация шаблона, и версия не существуют, теги добавляются как в новую спецификацию шаблона, так и в новую версию.
+- Если спецификация шаблона существует, но ее версия не существует, теги добавляются только в новую версию.
+- Если существует и спецификация шаблона, и версия, то теги применяются только к версии.
+
+При изменении шаблона с заданным параметром TAG или Tags, но без указания параметра версии теги добавляются только в спецификацию шаблона.
+
 ## <a name="create-a-template-spec-with-linked-templates"></a>Создание спецификации шаблона со связанными шаблонами
 
 Если основной шаблон для спецификации шаблона ссылается на связанные шаблоны, команды PowerShell и CLI могут автоматически находить и упаковывать связанные шаблоны с локального диска. Вам не нужно вручную настраивать учетные записи хранения или репозитории для размещения спецификаций шаблонов. все содержится в ресурсе спецификации шаблона.
@@ -332,11 +404,7 @@ az deployment group create \
 
 Дополнительные сведения о связывании спецификаций шаблонов см. в разделе [учебник. Развертывание шаблона спецификации в качестве связанного шаблона](template-specs-deploy-linked-template.md).
 
-## <a name="versioning"></a>Управление версиями
-
-При создании спецификации шаблона необходимо указать для нее имя версии. По мере выполнения итерации по коду шаблона можно либо обновить существующую версию (для исправлений), либо опубликовать новую версию. Версия является текстовой строкой. Можно выбрать любую систему управления версиями, включая семантическую версию. Пользователи спецификации шаблона могут предоставить имя версии, которое они хотят использовать при развертывании.
-
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Сведения о создании и развертывании шаблона см. в разделе [Краткое руководство. Создание и развертывание спецификации шаблона](quickstart-create-template-specs.md).
 

@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 5a26e5d045be78772ee5dc940fcfecd3cfde9dc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f24947eba71588d8b97afafea35f9a0bcab33c86
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624366"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711014"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Запрос экспортированных данных из Azure Monitor с помощью обозреватель данных Azure (Предварительная версия)
 Экспорт данных из Azure Monitor в учетную запись хранения Azure обеспечивает недорогое хранение и возможность перераспределения журналов в разные регионы. Используйте обозреватель данных Azure для запроса данных, экспортированных из рабочих областей Log Analytics. После настройки поддерживаемые таблицы, отправленные из рабочих областей в учетную запись хранения Azure, будут доступны в качестве источника данных для Azure обозреватель данных.
@@ -30,9 +30,9 @@ ms.locfileid: "100624366"
 ## <a name="send-data-to-azure-storage"></a>Отправка данных в службу хранилища Azure
 Журналы Azure Monitor можно экспортировать в учетную запись хранения Azure с помощью любого из следующих параметров.
 
-- Чтобы экспортировать все данные из рабочей области Log Analytics в учетную запись хранения Azure или концентратор событий, используйте функцию экспорта данных рабочей области Log Analytics в журналах Azure Monitor. См. раздел [Экспорт данных рабочей области log Analytics в Azure Monitor (Предварительная версия)](../platform/logs-data-export.md) .
-- Запланированный экспорт из запроса журнала с помощью приложения логики. Это похоже на функцию экспорта данных, но позволяет отсылать отфильтрованные или агрегированные данные в службу хранилища Azure. Несмотря на то, что для этого метода действуют [ограничения на запросы журнала](../service-limits.md#log-analytics-workspaces)  , см. раздел [архивные данные из рабочей области log Analytics в хранилище Azure с помощью приложения логики](../platform/logs-export-logic-app.md).
-- Однократный экспорт с помощью приложения логики. [Logic Apps и автоматизация питания см. в разделе Azure Monitor журналов](../platform/logicapp-flow-connector.md).
+- Чтобы экспортировать все данные из рабочей области Log Analytics в учетную запись хранения Azure или концентратор событий, используйте функцию экспорта данных рабочей области Log Analytics в журналах Azure Monitor. См. раздел [Экспорт данных рабочей области log Analytics в Azure Monitor (Предварительная версия)](./logs-data-export.md) .
+- Запланированный экспорт из запроса журнала с помощью приложения логики. Это похоже на функцию экспорта данных, но позволяет отсылать отфильтрованные или агрегированные данные в службу хранилища Azure. Несмотря на то, что для этого метода действуют [ограничения на запросы журнала](../service-limits.md#log-analytics-workspaces)  , см. раздел [архивные данные из рабочей области log Analytics в хранилище Azure с помощью приложения логики](./logs-export-logic-app.md).
+- Однократный экспорт с помощью приложения логики. [Logic Apps и автоматизация питания см. в разделе Azure Monitor журналов](./logicapp-flow-connector.md).
 - Один раз экспортируйте на локальный компьютер с помощью скрипта PowerShell. См. раздел [Invoke-азоператионалинсигхтскуерекспорт](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 > [!TIP]
@@ -134,6 +134,6 @@ external_table("HBTest","map") | take 10000
 
 [![Запрос Log Analytics экспортированных данных](media/azure-data-explorer-query-storage/external-table-query.png)](media/azure-data-explorer-query-storage/external-table-query.png#lightbox)
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Сведения о [написании запросов в Azure обозреватель данных](/azure/data-explorer/write-queries)

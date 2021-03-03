@@ -4,14 +4,14 @@ description: Узнайте о решениях, предлагаемых пар
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 01/19/2021
+ms.date: 02/12/2021
 ms.author: tomfitz
-ms.openlocfilehash: 6779596efdebf8220af99f4e86c1fe6cc0ec90d6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: cab246cf19e8a2e3f9e7b08019cd836e3d085266
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598780"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736055"
 ---
 # <a name="extend-azure-with-solutions-from-partners"></a>Расширьте возможности Azure с помощью решений от партнеров
 
@@ -21,4 +21,5 @@ ms.locfileid: "98598780"
 
 | Партнерское решение | Описание |
 | :--- | :--- |
-| [Apache Kafka для Fluent в облаке](./apache-kafka-confluent-cloud/overview.md) | Полностью управляемая платформа потоковой передачи событий на базе Apache Kafka |
+| [Apache Kafka для Confluent Cloud](./apache-kafka-confluent-cloud/overview.md) | Полностью управляемая платформа потоковой передачи событий на базе Apache Kafka |
+| [Datadog](./datadog/overview.md) | Отслеживайте серверы, облака, метрики и приложения в одном месте. |

@@ -221,9 +221,9 @@
         - name: Защита узлов Docker
           displayName: containers
           href: harden-docker-hosts.md
-        - name: Использование Azure Defender для SQL
-          href: defender-for-sql-usage.md
-          displayName: 'hybrid, arc'
+    - name: Использование Azure Defender для SQL
+      href: defender-for-sql-usage.md
+      displayName: 'hybrid, arc'
     - name: Использование Azure Defender для реестров контейнеров
       items:
         - name: Проверка образов реестра на наличие уязвимостей
@@ -269,8 +269,6 @@
     - name: Защита рабочих нагрузок Kubernetes
       displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
-    - name: Управление пользовательскими данными исследования
-      href: security-center-investigation-user-data.md
     - name: Визуальный контроль на уровне клиента
       href: security-center-management-groups.md
     - name: Настройка политики защиты информации SQL
@@ -292,7 +290,7 @@
           href: faq-vms.md
         - name: Существующие пользователи Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Встроенные политики безопасности
+    - name: Встроенные компоненты Политики Azure
       displayName: 'samples, policy'
       href: policy-reference.md
     - name: Блог о стратегии развития Azure

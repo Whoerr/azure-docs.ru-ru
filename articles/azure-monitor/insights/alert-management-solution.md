@@ -1,17 +1,16 @@
 ---
 title: Решение "Управление оповещениями" в Azure Log Analytics | Документация Майкрософт
 description: Решение для управления оповещениями в Log Analytics помогает анализировать все оповещения в вашей среде.  Помимо консолидации оповещений, созданных в Log Analytics, оно позволяет импортировать в Log Analytics оповещения из подключенных групп управления System Center Operations Manager.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 1771801068b08b987fc9b756af6099d45ae5ea9e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6f3761b1c933d113bf65c70370c29bcfa7950eea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623103"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728660"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Решение "Управление оповещениями" в Azure Log Analytics
 
@@ -36,7 +35,7 @@ ms.locfileid: "100623103"
 
 Дополнительные сведения об обновлении пакетов управления для решений см. в статье [Подключение Operations Manager к Log Analytics](../agents/om-agents.md).
 
-## <a name="data-collection"></a>сбор данных
+## <a name="data-collection"></a>Сбор данных
 ### <a name="agents"></a>Агенты
 В следующей таблице описаны подключенные источники, которые поддерживаются этим решением.
 
@@ -113,5 +112,5 @@ ms.locfileid: "100623103"
 
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о генерации оповещений из Log Analytics см. в статье [Оповещения в Log Analytics](../alerts/alerts-overview.md).

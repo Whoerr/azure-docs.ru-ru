@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81a5f771e141639b2dcf33afe603fe53428bf88a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943595"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713071"
 ---
 # <a name="get-face-detection-data"></a>Получение данных обнаружения лиц
 
@@ -28,7 +28,7 @@ ms.locfileid: "98943595"
 - Получите расположения различных ориентиров, таких как пупилс, нос и рот, в образе.
 - Догадаться пол, возраст, распознавания эмоций и другие атрибуты обнаруженного лица.
 
-## <a name="setup"></a>Настройка
+## <a name="setup"></a>Установка
 
 В этом учебнике предполагается, что вы уже создавали объект [фацеклиент](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) `faceClient` с именем с ключом подписки лица и URL-адресом конечной точки. Здесь можно использовать функцию обнаружения лиц, вызвав либо [детектвисурласинк](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync), которая используется в этом руководством, либо [детектвисстреамасинк](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync). Инструкции по настройке этой функции см. в одном из кратких руководств.
 
@@ -82,7 +82,7 @@ ms.locfileid: "98943595"
 
 - [Руководство. Создание приложения WPF для отображения данных о лицах на изображении](../Tutorials/FaceAPIinCSharpTutorial.md)
 
-## <a name="related-topics"></a>Связанные темы
+## <a name="related-topics"></a>Связанные разделы
 
 - [Справочная документация (ОСТАВШАЯся)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 - [Справочная документация (пакет SDK для .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)

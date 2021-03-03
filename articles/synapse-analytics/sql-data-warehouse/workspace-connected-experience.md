@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: d477693667c8d78687d27b291d2b3c15612a0f30
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 6d71d9889701ec834747e4bec1dd111157c3206e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989044"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694620"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Включение функций рабочей области синапсе в существующем выделенном пуле SQL (ранее — в хранилище данных SQL)
 
@@ -46,5 +46,5 @@ ms.locfileid: "99989044"
 - **Студия** Пулы SQL в **концентраторе данных** . выделенный пул SQL с поддержкой рабочей области (прежнее название — SQL DW) можно определить с помощью подсказки в центре данных. 
 - **Создание нового выделенного пула SQL (ранее — хранилище данных SQL)** Новые выделенные пулы SQL можно создать с помощью рабочей области синапсе и студии после включения функции рабочей области и подготовки нового пула на логическом сервере SQL Server. Новые ресурсы будут отображаться на портале и в студии при завершении подготовки.      
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 Включение [функций рабочей области синапсе](workspace-connected-create.md) в имеющемся выделенном пуле SQL (ранее — в хранилище данных SQL)

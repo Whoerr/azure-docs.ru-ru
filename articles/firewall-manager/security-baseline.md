@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f56270d853bf47faebbd6026586111ead6fb0495
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ec746a5c347db8cb92c95b1d76f3622498f0039f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091158"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742387"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Базовый план безопасности Azure для диспетчера брандмауэра Azure
 
@@ -437,7 +437,7 @@ Azure AD поддерживает внешние удостоверения, к�
 
 - [Настройка срока хранения Log Analytics рабочей области](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Хранение журналов ресурсов в учетной записи хранения Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Хранение журналов ресурсов в учетной записи хранения Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
 

@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
-ms.date: 02/26/2021
+ms.date: 03/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: cd39ec9653efba9adabb9ae2076e5a042c69abe2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4c4ad2a1350632d381cc258049ee85c87766f9b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680272"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694127"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Развертывание виртуальной машины с включенным доверенным запуском (Предварительная версия)
 
@@ -31,7 +31,7 @@ ms.locfileid: "101680272"
 
 Создайте виртуальную машину с включенным доверенным запуском.
 
-1. Войдите на [портал](https://portal.azure.com) Azure.
+1. Войдите на [портал](https://aka.ms/TL_preview) Azure.
 1. Выполните поиск **виртуальных машин**.
 1. В разделе **Службы** выберите **Виртуальные машины**.
 1. На странице **виртуальные машины** нажмите кнопку **Добавить**, а затем выберите **Виртуальная машина**.

@@ -3,12 +3,12 @@ title: Шифрование данных резервного копирован
 description: Узнайте, как Azure Backup позволяет шифровать данные резервных копий с помощью ключей, управляемых клиентом (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369464"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716743"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Шифрование данных резервного копирования с использованием ключей, управляемых клиентом
 
@@ -23,7 +23,7 @@ Azure Backup позволяет зашифровать данные резерв
 - Выполнение резервного копирования в хранилищах, зашифрованных с помощью управляемых клиентом ключей
 - Восстановление данных из резервных копий
 
-## <a name="before-you-start"></a>Перед началом работы
+## <a name="before-you-start"></a>Прежде чем начать
 
 - Эта функция позволяет шифровать **только новые хранилища служб восстановления**. Все хранилища, содержащие зарегистрированные или регистрируемые в нем элементы, не поддерживаются.
 
@@ -80,7 +80,7 @@ Azure Backup использует управляемое системой удо
 
 Используйте команду [Update-азрековерисервицесваулт](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) для включения управляемого удостоверения, назначенного системой для хранилища служб восстановления.
 
-Пример:
+Пример
 
 ```AzurePowerShell
 $vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
@@ -210,7 +210,7 @@ Type        : SystemAssigned
 
 Используйте команду [Set-азрековерисервицесваултпроперти](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) , чтобы включить шифрование с помощью управляемых клиентом ключей и назначить или обновить используемый ключ шифрования.
 
-Пример:
+Пример
 
 ```azurepowershell
 $keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
@@ -235,11 +235,11 @@ InfrastructureEncryptionState : Disabled
 >[!NOTE]
 > Этот процесс остается прежним, если вы хотите обновить или изменить ключ шифрования. Если вы хотите обновить и использовать ключ из другого Key Vault (отличного от используемого в данный момент), убедитесь в том, что:
 >
-> - Key Vault находится в том же регионе, что и хранилище служб восстановления
+> - Хранилище ключей находится в том же регионе, что и хранилище служб восстановления.
 >
 > - В хранилище ключей включена защита с обратимым удалением и очисткой.
 >
-> - Хранилище служб восстановления имеет необходимые разрешения для доступа к Key Vault.
+> - Хранилище служб восстановления имеет необходимые разрешения для доступа к хранилищу ключей.
 
 ## <a name="backing-up-to-a-vault-encrypted-with-customer-managed-keys"></a>Резервное копирование в хранилище, зашифрованное с помощью управляемых клиентом ключей
 
@@ -293,7 +293,7 @@ InfrastructureEncryptionState : Disabled
 
 Используйте команду [Get-азрековерисервицесбаккупитем](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) с параметром [ `-DiskEncryptionSetId <string>` ], чтобы [указать алгоритм DES](/powershell/module/az.compute/get-azdiskencryptionset) , используемый для шифрования восстановленного диска. Дополнительные сведения о восстановлении дисков из резервной копии виртуальных машин см. в [этой статье](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
-Пример:
+Пример
 
 ```azurepowershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $vault.ID
@@ -312,7 +312,7 @@ $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -Storag
 
 При восстановлении из резервной копии SAP HANA или базы данных SQL, работающей на виртуальной машине Azure, восстановленные данные будут зашифрованы с помощью ключа шифрования, используемого в целевом расположении хранилища. Это может быть ключ, управляемый клиентом, или управляемый платформой ключ, используемый для шифрования дисков виртуальной машины.
 
-## <a name="frequently-asked-questions"></a>Вопросы и ответы
+## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
 ### <a name="can-i-encrypt-an-existing-backup-vault-with-customer-managed-keys"></a>Можно ли зашифровать существующее резервное хранилище с помощью управляемых клиентом ключей?
 
@@ -338,6 +338,6 @@ $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -Storag
 
 Использование шифрования CMK для резервного копирования не влечет за собой никаких дополнительных затрат. Однако вы можете продолжать взимать затраты на использование Azure Key Vault, где хранится ваш ключ.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Общие сведения о средствах безопасности в Azure Backup](security-overview.md)

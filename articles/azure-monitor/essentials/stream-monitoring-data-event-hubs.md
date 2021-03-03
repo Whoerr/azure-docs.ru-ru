@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: e541869d040cc1eead2d295583c42016b64d5edb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: db8f8628f77ef2a04a7e6d42d6470f254e458e01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623118"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708090"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Потоковая передача данных мониторинга Azure в концентратор событий или внешний партнер
 
@@ -48,7 +48,7 @@ Azure Monitor предоставляет полное решение для мо
 
 Маршрутизация данных мониторинга в концентратор событий с помощью Azure Monitor позволяет легко интегрироваться с внешними средствами SIEM и мониторинга. Примерами средств интеграции Azure Monitor являются следующие:
 
-| Средство | Размещено в Azure | Описание |
+| Инструмент | Размещено в Azure | Описание |
 |:---|:---| :---|
 |  IBM QRadar | Нет | Модуль устройства (DSM) Microsoft Azure и протокол концентратора событий Microsoft Azure доступны для загрузки на [веб-сайте поддержки IBM](https://www.ibm.com/support). Дополнительные сведения об интеграции с Azure можно узнать в [конфигурации DSM QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
 | Splunk | Нет | [Microsoft Azure Add-On для Splunk](https://splunkbase.splunk.com/app/3757/) — это проект с открытым кодом, доступный в Splunkbase. <br><br> Если вы не можете установить надстройку в экземпляре Splunk, например, вы используете прокси-сервер или работаете в облаке Splunk, вы можете перенаправить эти события в сборщик событий Splunk HTTP с помощью [функции Azure для Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), которая активируется новыми сообщениями в концентраторе событий. |
@@ -58,10 +58,9 @@ Azure Monitor предоставляет полное решение для мо
 | логрхисм | Нет| Инструкции по настройке Логрхисм для получения журналов из концентратора событий доступны [здесь](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Да | Дополнительные сведения см. в статье [Приступая к работе с мониторингом и ведением журнала с помощью Logz.IO для приложений Java, работающих в Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio) .
 
-Также могут быть доступны другие партнеры. Более полный список всех Azure Monitor партнеров и их возможностей см. в статье [Интеграция с Azure Monitor партнерами](../platform/partners.md).
+Также могут быть доступны другие партнеры. Более полный список всех Azure Monitor партнеров и их возможностей см. в статье [Интеграция с Azure Monitor партнерами](../partners.md).
 
 ## <a name="next-steps"></a>Next Steps
 * [Архивация журнала действий в учетную запись хранения](./activity-log.md#legacy-collection-methods)
 * [Ознакомьтесь с обзором журнала действий Azure.](../essentials/platform-logs-overview.md)
 * [Настройка оповещения на основе события журнала действий](../alerts/alerts-log-webhook.md)
-

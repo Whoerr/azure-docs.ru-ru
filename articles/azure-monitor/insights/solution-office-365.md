@@ -1,17 +1,16 @@
 ---
 title: Решение для управления Office 365 в Azure
 description: В этой статье представлены сведения о настройке и использовании решения Office 365 в Azure.  Она содержит подробное описание записей Office 365, создаваемых в службе Azure Monitor.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: d031b64b36bd7ff91c64960642cfbf00fb1682ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587304"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728643"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Решение по управлению Office 365 в Azure (предварительная версия)
 
@@ -226,7 +225,7 @@ ms.locfileid: "100587304"
 
 Вам будет предложено ввести учетные данные. Укажите учетные данные для рабочей области Log Analytics.
 
-## <a name="data-collection"></a>сбор данных
+## <a name="data-collection"></a>Сбор данных
 
 Для сбора данных может потребоваться несколько часов. После запуска сбора при создании каждой записи Office 365 отправляет в службу Azure Monitor [уведомление веб-перехватчика](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) с подробными данными. Эта запись становится доступной в Azure Monitor в течение нескольких минут после ее получения.
 
@@ -263,7 +262,7 @@ ms.locfileid: "100587304"
 
 | Свойство | Описание |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Тип | *OfficeActivity* |
 | ClientIP | IP-адрес устройства, которое использовалось при записи действия в журнал. IP-адрес отображается в формате IPv4- или IPv6-адреса. |
 | OfficeWorkload | Служба Office 365, к которой относится запись.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Операция | Имя действия пользователя или администратора.  |
@@ -471,7 +470,7 @@ ms.locfileid: "100587304"
 
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения об обновлении данных см. в статье [Анализ данных Log Analytics в Azure Monitor](../logs/log-query-overview.md).
 * [Создайте собственные панели мониторинга](../visualize/tutorial-logs-dashboards.md) для отображения избранных поисковых запросов Office 365.

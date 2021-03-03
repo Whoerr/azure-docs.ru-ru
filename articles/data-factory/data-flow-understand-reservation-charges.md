@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: makromer
-ms.openlocfilehash: 3b97f09c2b6f4c5f5352bbaa081e0bcae900ebd5
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 12b640fd97f48e293320593b33ab2fdc54980c0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808424"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716301"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-data-factory-data-flows"></a>Как скидка резервирования применяется к потокам данных фабрики данных Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "99808424"
 - Сценарий 1. Вы приобретаете резервирование потока данных ADF в течение 1 часа из 80 ядер оптимизированных для памяти вычислений, вводя 80 как количество для типа вычислений, оптимизированного для памяти. Вы запускаете поток данных с установленной средой выполнения интеграции Azure в 144 ядер памяти, оптимизированных в течение одного часа. Вы оплачиваете цену с оплатой по мере использования для 64 ядер потребления потока данных в течение одного часа. Вы получаете скидку на резервирование в течение одного часа из 80 ядер оптимизированного для памяти объема использования.
 - Сценарий 2. Вы приобретаете резервирование потока данных ADF в течение 1 часа из 32 ядер общего назначения, введя 32 в качестве количества вычислений общего назначения. Вы выполняете отладку потоков данных в течение 1 часа с помощью 32 ядер общей среды выполнения интеграции Azure. Вы получаете скидку резервирования за весь час использования.
 
-Чтобы больше узнать о применении резервирований Azure и просмотреть отчеты о начислении платы за использование, ознакомьтесь со статьей [Общие сведения об использовании зарезервированных экземпляров Azure с Соглашением о регистрации Enterprise](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Чтобы больше узнать о применении резервирований Azure и просмотреть отчеты о начислении платы за использование, ознакомьтесь со статьей [Общие сведения об использовании зарезервированных экземпляров Azure с Соглашением о регистрации Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Требуется помощь? Свяжитесь с нами
 
@@ -42,4 +42,4 @@ ms.locfileid: "99808424"
 
 Дополнительные сведения о резервировании Azure см. в следующей статье:
 
-- [Основные сведения о резервировании в Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [Основные сведения о резервировании в Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md)

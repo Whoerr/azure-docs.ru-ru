@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 471ccd6176bd8821ce7e40fde6d961bd9bcf7f0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509576"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702153"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Обновление основной версии в базе данных Azure для MySQL с одним сервером
 
@@ -59,7 +59,7 @@ ms.locfileid: "99509576"
  
    Для этого обновления требуется версия 2.16.0 или более поздняя Azure CLI. Если вы используете Azure Cloud Shell, последняя версия уже установлена. Выполните команду az version, чтобы узнать установленную версию и зависимые библиотеки. Чтобы обновиться до последней версии, выполните команду az upgrade.
 
-2. После входа выполните команду [AZ MySQL Server Upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) :
+2. После входа выполните команду [AZ MySQL Server Upgrade](/cli/azure/mysql/server?preserve-view=true&view=azure-cli-latest#az_mysql_server_upgrade) :
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
@@ -89,7 +89,7 @@ ms.locfileid: "99509576"
 
 1. В [портал Azure](https://portal.azure.com/)выберите существующую базу данных Azure для MySQL 5,6.
 
-2. Создайте [реплику чтения](https://docs.microsoft.com/azure/mysql/concepts-read-replicas#create-a-replica) с сервера-источника.
+2. Создайте [реплику чтения](./concepts-read-replicas.md#create-a-replica) с сервера-источника.
 
 3. [Обновите реплику чтения](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal) до версии 5,7.
 
@@ -105,7 +105,7 @@ ms.locfileid: "99509576"
 
    Если для параметра и задано `Slave_IO_Running` `Slave_SQL_Running` значение "Yes", а для параметра `Seconds_Behind_Master` равно "0", репликация работает правильно. `Seconds_Behind_Master` указывает величину задержки на реплике. Если значение не равно "0", это означает, что реплика обрабатывает обновления. После подтверждения `Seconds_Behind_Master` "0" вы можете отключить репликацию.
 
-6. Передвигайте реплику чтения до первичной, [останавливая репликацию](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal#stop-replication-to-a-replica-server).
+6. Передвигайте реплику чтения до первичной, [останавливая репликацию](./howto-read-replicas-portal.md#stop-replication-to-a-replica-server).
 
 7. Наведите приложение на новую основную (бывшую реплику), на которой работает сервер 5,7. Каждый сервер имеет уникальную строку подключения. Обновите приложение так, чтобы оно указывало на (бывшая) реплику, а не на источник.
 

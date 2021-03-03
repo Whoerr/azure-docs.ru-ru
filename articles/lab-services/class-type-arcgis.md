@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 530597a72b19afa1e80b5c7640b105d86479b1c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373714"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740109"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Настройка лаборатории для Аркмап\аркгис Desktop
 
@@ -24,7 +24,7 @@ ms.locfileid: "100373714"
 
 ### <a name="lab-account-settings"></a>Параметры учетной записи лаборатории
 
-Включите параметры учетной записи лаборатории, как описано в следующей таблице.  Дополнительные сведения о том, как включить образы Azure Marketplace, см. в статье [Указание образов Azure Marketplace, доступных авторам лабораторий](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images).
+Включите параметры учетной записи лаборатории, как описано в следующей таблице.  Дополнительные сведения о том, как включить образы Azure Marketplace, см. в статье [Указание образов Azure Marketplace, доступных авторам лабораторий](./specify-marketplace-images.md).
 
 | Настройки учетной записи лаборатории | Instructions |
 | ------------------- | ------------ |
@@ -34,7 +34,7 @@ ms.locfileid: "100373714"
 
 Один из типов лицензирования, с помощью которых ArcGIS Desktop предлагает [лицензии на одновременный](https://desktop.arcgis.com/en/license-manager/latest/license-manager-basics.htm)доступ.  Для этого необходимо установить диспетчер лицензий ArcGIS на сервере лицензирования.  Диспетчер лицензий отслеживает количество копий программного обеспечения, которые могут быть запущены одновременно.  Дополнительные сведения о настройке диспетчера лицензий на сервере см. в разделе [руководства по диспетчеру лицензий](https://desktop.arcgis.com/en/license-manager/latest/welcome.htm).
 
-Сервер лицензирования обычно находится в локальной сети или размещен на виртуальной машине Azure в виртуальной сети Azure.  После настройки сервера лицензирования необходимо установить [пиринг между виртуальной сетью](https://docs.microsoft.com/azure/lab-services/how-to-connect-peer-virtual-network) и [учетной записью лаборатории](https://docs.microsoft.com/azure/lab-services/tutorial-setup-lab-account).  Перед созданием лаборатории необходимо выполнить пиринг сети, чтобы виртуальные машины лаборатории могли получить доступ к серверу лицензирования и наоборот.
+Сервер лицензирования обычно находится в локальной сети или размещен на виртуальной машине Azure в виртуальной сети Azure.  После настройки сервера лицензирования необходимо установить [пиринг между виртуальной сетью](./how-to-connect-peer-virtual-network.md) и [учетной записью лаборатории](./tutorial-setup-lab-account.md).  Перед созданием лаборатории необходимо выполнить пиринг сети, чтобы виртуальные машины лаборатории могли получить доступ к серверу лицензирования и наоборот.
 
 Дополнительные сведения см. в разделе [Настройка сервера лицензирования в качестве общего ресурса](how-to-create-a-lab-with-shared-resource.md).
 
@@ -90,7 +90,7 @@ ms.locfileid: "100373714"
 >[!IMPORTANT]
 > Оценка стоимости предназначена только для примера.  Текущие сведения о ценах см. на странице [цен на службы лаборатории Azure](https://azure.microsoft.com/pricing/details/lab-services/).  
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дальнейшие действия являются общими для настройки любой лаборатории.
 

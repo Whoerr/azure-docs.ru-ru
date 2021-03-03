@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: fe98ef297c6bed5ef3d982ed09db361244f75216
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675694"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695521"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Развертывание виртуальных машин Azure для SAP NetWeaver
 
@@ -1057,47 +1057,17 @@ az --version
    az login
    ```
 
-1. Выполните действия, описанные в статье [Настройка управляемых удостоверений для ресурсов Azure на виртуальной машине Azure с помощью Azure CLIной][qs-configure-cli-windows-vm] статьи, чтобы включить в виртуальную машину System-Assigned управляемое удостоверение. User-Assigned управляемые удостоверения не поддерживаются расширением виртуальной машины для SAP. Однако можно включить и то, и другое, назначенное системой и назначенное пользователю удостоверение.
-
-   Пример
+1. Установите Azure CLI расширение AEM. Убедитесь, что используется не менее версии 0.2.0 или выше.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. Назначьте управляемому удостоверению доступ к группе ресурсов виртуальной машины или ко всем сетевым интерфейсам, управляемым дискам и самой виртуальной машине, как описано в статье [назначение управляемого удостоверения доступ к ресурсу с помощью Azure CLI][howto-assign-access-cli]
-
-    Пример
-
-    ```azurecli
-    # Azure CLI on Linux
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-
-    # Azure CLI on Windows/PowerShell
-    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
-    $rgId=az group show -g <resource-group-name> --query id --out tsv
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. Выполните следующую команду Azure CLI, чтобы установить расширение Azure для SAP.
-    В настоящее время расширение поддерживается только в AzureCloud. Azure для Китая, Azure для государственных организаций и других специальных сред пока не поддерживаются.
-
-    ```azurecli
-    # Azure CLI on Linux
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    # Azure CLI on Windows/PowerShell
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-    ```
+  
+1. Установите новое расширение с помощью
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Проверки и устранение неполадок
 

@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579e86df23a0b6369f7ff5b6113c4972e054d5cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2cff0773883f7de5788bca5e4e3f680818e2bd77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734882"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Создание и просмотр оповещений журнала, а также управление ими с помощью Azure Monitor
 
 ## <a name="overview"></a>Обзор
 
-Оповещения журнала позволяют пользователям использовать [log Analytics](../log-query/log-analytics-tutorial.md) запрос для проверки журнала ресурсов каждые заданные частоты и запуска предупреждения на основе результатов. Правила могут запускать одно или несколько действий с помощью [групп действий](../platform/action-groups.md). [Дополнительные сведения о функциональности и терминологии оповещений журнала](../platform/alerts-unified-log.md).
+Оповещения журнала позволяют пользователям использовать [log Analytics](../logs/log-analytics-tutorial.md) запрос для проверки журнала ресурсов каждые заданные частоты и запуска предупреждения на основе результатов. Правила могут запускать одно или несколько действий с помощью [групп действий](./action-groups.md). [Дополнительные сведения о функциональности и терминологии оповещений журнала](./alerts-unified-log.md).
 
 В этой статье показано, как создавать оповещения журналов и управлять ими с помощью Azure Monitor. Правила генерации оповещений определяются тремя компонентами:
 - Цель: конкретный ресурс Azure для мониторинга.
@@ -27,7 +27,7 @@ ms.locfileid: "100625833"
 Правила генерации оповещений журнала также можно создать с помощью шаблонов Azure Resource Manager, которые описаны в [отдельной статье](../alerts/alerts-log-create-templates.md).
 
 > [!NOTE]
-> Данные журнала из [log Analytics рабочей области](../log-query/log-analytics-tutorial.md) можно отправить в хранилище метрик Azure Monitor. Поведение оповещений метрик [отличается от поведения](../platform/alerts-metric-overview.md), которое может быть более желательным в зависимости от данных, с которыми вы работаете. Сведения о том, что и как можно направить журналы в метрики, см. в разделе [метрики оповещений для журналов](../platform/alerts-metric-logs.md).
+> Данные журнала из [log Analytics рабочей области](../logs/log-analytics-tutorial.md) можно отправить в хранилище метрик Azure Monitor. Поведение оповещений метрик [отличается от поведения](./alerts-metric-overview.md), которое может быть более желательным в зависимости от данных, с которыми вы работаете. Сведения о том, что и как можно направить журналы в метрики, см. в разделе [метрики оповещений для журналов](./alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Создание правила генерации оповещений журнала с помощью портала Azure
 
@@ -35,13 +35,13 @@ ms.locfileid: "100625833"
 
 1. Перейдите к ресурсу, по которому вы хотите включить оповещение. Рекомендуется настроить правила оповещений для нескольких ресурсов, выбрав подписку или область группы ресурсов, когда это возможно. Оповещения на нескольких ресурсах уменьшают затраты и требуют управления несколькими правилами генерации оповещений.
 1. В разделе **монитор** выберите **журналы**.
-1. Запросите данные журнала, в которых может быть указана проблема. В [разделе с примерами запросов на предупреждения](../log-query/example-queries.md) можно узнать, что можно найти или начать [с написания собственного запроса](../log-query/log-analytics-tutorial.md). Кроме того, [узнайте, как создать оптимизированные запросы оповещений](alerts-log-query.md).
+1. Запросите данные журнала, в которых может быть указана проблема. В [разделе с примерами запросов на предупреждения](../logs/example-queries.md) можно узнать, что можно найти или начать [с написания собственного запроса](../logs/log-analytics-tutorial.md). Кроме того, [узнайте, как создать оптимизированные запросы оповещений](alerts-log-query.md).
 1. Нажмите кнопку "+ новое правило генерации оповещений", чтобы начать процесс создания предупреждения.
 
     ![Настройка оповещения в Log Analytics](media/alerts-log/AlertsAnalyticsCreate.png)
 
 > [!NOTE]
-> Рекомендуется создавать оповещения в масштабе при использовании режима доступа к ресурсам для журналов, которые выполняются на нескольких ресурсах с помощью группы ресурсов или области действия подписки. Предупреждение на шкале уменьшает издержки на управление правилами. Чтобы иметь возможность ориентироваться на ресурсы, включите столбец ИДЕНТИФИКАТОРов ресурсов в результаты. Дополнительные [сведения о разбиении оповещений по измерениям](../platform/alerts-unified-log.md#split-by-alert-dimensions).
+> Рекомендуется создавать оповещения в масштабе при использовании режима доступа к ресурсам для журналов, которые выполняются на нескольких ресурсах с помощью группы ресурсов или области действия подписки. Предупреждение на шкале уменьшает издержки на управление правилами. Чтобы иметь возможность ориентироваться на ресурсы, включите столбец ИДЕНТИФИКАТОРов ресурсов в результаты. Дополнительные [сведения о разбиении оповещений по измерениям](./alerts-unified-log.md#split-by-alert-dimensions).
 
 ### <a name="log-alert-for-log-analytics-and-application-insights"></a>Оповещение журнала для Log Analytics и Application Insights
 
@@ -51,9 +51,9 @@ ms.locfileid: "100625833"
 
     ![Настройка правил оповещений](media/alerts-log/AlertsPreviewAlertLog.png)
 
-1. Выберите диапазон времени, по которому будет оцениваться указанное условие с помощью параметра [**period**](../platform/alerts-unified-log.md#query-time-range) .
+1. Выберите диапазон времени, по которому будет оцениваться указанное условие с помощью параметра [**period**](./alerts-unified-log.md#query-time-range) .
 
-1. Оповещения журнала могут основываться на двух типах [**мер**](../platform/alerts-unified-log.md#measure):
+1. Оповещения журнала могут основываться на двух типах [**мер**](./alerts-unified-log.md#measure):
     1. **Число результатов** — количество записей, возвращаемых запросом.
     1. **Измерение метрик**  -  *Статистическое значение* , вычисленное с использованием суммирования, сгруппированных по выражениям, выбранным и [ячейками](/azure/kusto/query/binfunction) . Пример.
 
@@ -65,29 +65,29 @@ ms.locfileid: "100625833"
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
-1. Для логики оповещения измерений метрик можно дополнительно указать способ [разделения предупреждений по измерениям](../platform/alerts-unified-log.md#split-by-alert-dimensions) с помощью параметра **Aggregate on** . Выражение группирования строк должно быть уникальным и сортированным.
+1. Для логики оповещения измерений метрик можно дополнительно указать способ [разделения предупреждений по измерениям](./alerts-unified-log.md#split-by-alert-dimensions) с помощью параметра **Aggregate on** . Выражение группирования строк должно быть уникальным и сортированным.
 
     > [!NOTE]
     > Так как [bin ()](/azure/kusto/query/binfunction) может привести к нечетным интервалам времени, служба оповещений автоматически преобразует функцию [bin ()](/azure/kusto/query/binfunction) в функцию [bin_at ()](/azure/kusto/query/binatfunction) с соответствующим временем во время выполнения, чтобы гарантировать результат с фиксированной точкой.
 
     > [!NOTE]
-    > Разбиение по измерениям предупреждений доступно только для текущего API Счедуледкуерирулес. Если используется устаревший [API-интерфейс предупреждений log Analytics](../platform/api-alerts.md), необходимо будет переключиться. Дополнительные [сведения о переключении](./alerts-log-api-switch.md). Оповещения, ориентированные на ресурсы в масштабе, поддерживаются только в версии API `2020-05-01-preview` и выше.
+    > Разбиение по измерениям предупреждений доступно только для текущего API Счедуледкуерирулес. Если используется устаревший [API-интерфейс предупреждений log Analytics](./api-alerts.md), необходимо будет переключиться. Дополнительные [сведения о переключении](./alerts-log-api-switch.md). Оповещения, ориентированные на ресурсы в масштабе, поддерживаются только в версии API `2020-05-01-preview` и выше.
 
     ![параметр "Агрегация по"](media/alerts-log/aggregate-on.png)
 
-1. Затем, основываясь на предварительном просмотре, задаете [ **оператор**, **пороговое значение**](../platform/alerts-unified-log.md#threshold-and-operator)и [**частоту**](../platform/alerts-unified-log.md#frequency).
+1. Затем, основываясь на предварительном просмотре, задаете [ **оператор**, **пороговое значение**](./alerts-unified-log.md#threshold-and-operator)и [**частоту**](./alerts-unified-log.md#frequency).
 
-1. Можно также задать [число нарушений, вызывающих срабатывание предупреждения](../platform/alerts-unified-log.md#number-of-violations-to-trigger-alert) , с помощью **общего или последовательного нарушения**.
+1. Можно также задать [число нарушений, вызывающих срабатывание предупреждения](./alerts-unified-log.md#number-of-violations-to-trigger-alert) , с помощью **общего или последовательного нарушения**.
 
 1. Нажмите кнопку **Готово**. 
 
 1. Определите имя и **Описание** **правила генерации оповещений**, а также выберите **серьезность** предупреждения. Эти сведения используются во всех действиях оповещений. Кроме того, можно отключить правило генерации оповещений при создании, выбрав параметр **включить правило при создании**.
 
-1. Выберите, если вы хотите отключить действия правил в течение определенного времени после запуска оповещения, используйте параметр [**подавлять предупреждения**](../platform/alerts-unified-log.md#state-and-resolving-alerts) . Правило будет выполняться и создавать предупреждения, но действия не будут запускаться для предотвращения шума. Значение для отключения действий должно быть больше, чем частота оповещений, которые должны быть эффективными.
+1. Выберите, если вы хотите отключить действия правил в течение определенного времени после запуска оповещения, используйте параметр [**подавлять предупреждения**](./alerts-unified-log.md#state-and-resolving-alerts) . Правило будет выполняться и создавать предупреждения, но действия не будут запускаться для предотвращения шума. Значение для отключения действий должно быть больше, чем частота оповещений, которые должны быть эффективными.
 
     ![Отключение оповещений в оповещениях журналов](media/alerts-log/AlertsPreviewSuppress.png)
 
-1. Укажите, должно ли правило генерации оповещений активировать одну или несколько [**групп действий**](../platform/action-groups.md#webhook) при выполнении условия оповещения.
+1. Укажите, должно ли правило генерации оповещений активировать одну или несколько [**групп действий**](./action-groups.md#webhook) при выполнении условия оповещения.
 
     > [!NOTE]
     > Ограничения на действия, которые можно выполнить, см. в разделе [ограничения службы подписки Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) .  
@@ -148,11 +148,11 @@ ms.locfileid: "100625833"
 
 1. Начните с вкладки **условие** :
 
-    1. Убедитесь, что [**мера**](../platform/alerts-unified-log.md#measure), [**тип агрегирования**](../platform/alerts-unified-log.md#aggregation-type)и [**гранулярность статистической обработки**](../platform/alerts-unified-log.md#aggregation-granularity) верны. 
+    1. Убедитесь, что [**мера**](./alerts-unified-log.md#measure), [**тип агрегирования**](./alerts-unified-log.md#aggregation-type)и [**гранулярность статистической обработки**](./alerts-unified-log.md#aggregation-granularity) верны. 
         1. По умолчанию правило подсчитывает количество результатов за последние 5 минут.
         1. При обнаружении сводных результатов запроса правило будет автоматически обновляться в течение нескольких секунд для записи.
 
-    1. При необходимости выберите [разбиение предупреждений по измерениям](../platform/alerts-unified-log.md#split-by-alert-dimensions): 
+    1. При необходимости выберите [разбиение предупреждений по измерениям](./alerts-unified-log.md#split-by-alert-dimensions): 
        - **Столбец идентификаторов ресурсов** выбирается автоматически, если он обнаружен, и изменяет контекст запущенного предупреждения на ресурс записи. 
        - **Столбец Идентификатор ресурса** можно отменить, чтобы инициировать оповещения по подписке или группам ресурсов. Отмена выбора полезна, если результаты запроса основаны на перекрестных ресурсах. Например, запрос, который проверяет, испытывает ли 80% виртуальных машин группы ресурсов высокий уровень загрузки ЦП.
        - Для любого типа числовых или текстовых столбцов с помощью таблицы Dimensions можно также выбрать до шести дополнительных прерываний.
@@ -164,19 +164,19 @@ ms.locfileid: "100625833"
 
         ![Предварительный просмотр диаграммы](media/alerts-log/preview-chart.png)
 
-    1. Затем на основе данных для предварительного просмотра задайте **логику оповещения**. [ **Оператор**, **пороговое значение**](../platform/alerts-unified-log.md#threshold-and-operator)и [**периодичность**](../platform/alerts-unified-log.md#frequency).
+    1. Затем на основе данных для предварительного просмотра задайте **логику оповещения**. [ **Оператор**, **пороговое значение**](./alerts-unified-log.md#threshold-and-operator)и [**периодичность**](./alerts-unified-log.md#frequency).
 
         ![Предварительный просмотр диаграммы с пороговыми значениями и оповещениями](media/alerts-log/chart-and-alert-logic.png)
 
-    1. При необходимости можно задать [**число нарушений, вызывающих срабатывание предупреждения**](../platform/alerts-unified-log.md#number-of-violations-to-trigger-alert) , в разделе **Дополнительные параметры** .
+    1. При необходимости можно задать [**число нарушений, вызывающих срабатывание предупреждения**](./alerts-unified-log.md#number-of-violations-to-trigger-alert) , в разделе **Дополнительные параметры** .
     
         ![Расширенные параметры](media/alerts-log/advanced-options.png)
 
-1. На вкладке **действия** выберите или создайте необходимые [группы действий](../platform/action-groups.md).
+1. На вкладке **действия** выберите или создайте необходимые [группы действий](./action-groups.md).
 
     ![Вкладка "действия"](media/alerts-log/actions-tab.png)
 
-1. На вкладке **сведения** укажите **сведения о правиле генерации оповещений** и **сведения о проекте**. При необходимости можно указать, следует ли не **запускать сейчас**, или [**Отключить действия**](../platform/alerts-unified-log.md#state-and-resolving-alerts) за период после срабатывания правила оповещения.
+1. На вкладке **сведения** укажите **сведения о правиле генерации оповещений** и **сведения о проекте**. При необходимости можно указать, следует ли не **запускать сейчас**, или [**Отключить действия**](./alerts-unified-log.md#state-and-resolving-alerts) за период после срабатывания правила оповещения.
 
     > [!NOTE]
     > Правила генерации оповещений журнала в настоящее время не имеют состояния и запускают действие при каждом создании предупреждения, если не определено выключение звука.
@@ -199,7 +199,7 @@ ms.locfileid: "100625833"
 1. В окне Управление оповещениями отображаются все оповещения, которые были запущены. Дополнительные [сведения об управлении оповещениями](alerts-managing-alert-instances.md).
 
     > [!NOTE]
-    > Правила генерации оповещений журнала в настоящее время не имеют [состояния и не разрешаются](../platform/alerts-unified-log.md#state-and-resolving-alerts).
+    > Правила генерации оповещений журнала в настоящее время не имеют [состояния и не разрешаются](./alerts-unified-log.md#state-and-resolving-alerts).
 
 1. Нажмите кнопку **Управление правилами генерации оповещений** на верхней панели, чтобы изменить правила.
 
@@ -221,13 +221,13 @@ ms.locfileid: "100625833"
 - [New-азсчедуледкуерирулеалертингактион](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : командлет PowerShell для создания или обновления объекта, указывающего параметры действия для оповещения журнала. Используется в качестве входных данных командлетами [New-азсчедуледкуерируле](/powershell/module/az.monitor/new-azscheduledqueryrule) и [Set-азсчедуледкуерируле](/powershell/module/az.monitor/set-azscheduledqueryrule) .
 - [New-азсчедуледкуерирулеазнсактионграуп](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : командлет PowerShell для создания или обновления объекта, указывающего параметры групп действий для оповещения журнала. Используется в качестве входных данных командлетом [New-азсчедуледкуерирулеалертингактион](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
 - [New-азсчедуледкуерирулетригжеркондитион](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : командлет PowerShell для создания или обновления объекта, указывающего параметры условия триггера для оповещения журнала. Используется в качестве входных данных командлетом [New-азсчедуледкуерирулеалертингактион](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
-- [New-азсчедуледкуерирулелогметриктригжер](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : командлет PowerShell для создания или обновления объекта, указывающего параметры условия триггера метрик для [оповещения журнала типа измерения "измерение](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value)". Используется в качестве входных данных командлетом [New-азсчедуледкуерирулетригжеркондитион](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
+- [New-азсчедуледкуерирулелогметриктригжер](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : командлет PowerShell для создания или обновления объекта, указывающего параметры условия триггера метрик для [оповещения журнала типа измерения "измерение](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value)". Используется в качестве входных данных командлетом [New-азсчедуледкуерирулетригжеркондитион](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
 - [Get-азсчедуледкуерируле](/powershell/module/az.monitor/get-azscheduledqueryrule) : командлет PowerShell для перечисления существующих правил генерации оповещений журнала или определенного правила оповещения журнала
 - [Update-азсчедуледкуерируле](/powershell/module/az.monitor/update-azscheduledqueryrule) : командлет PowerShell для включения или отключения правила генерации оповещений журнала
 - [Remove-азсчедуледкуерируле](/powershell/module/az.monitor/remove-azscheduledqueryrule): командлет PowerShell для удаления существующего правила оповещения журнала
 
 > [!NOTE]
-> Командлеты PowerShell для Счедуледкуерирулес могут управлять только правилами, созданными в текущем [запланированном API правил запросов](/rest/api/monitor/scheduledqueryrules/). Правила генерации оповещений журнала, созданные с помощью устаревшего [log Analytics API предупреждений](../platform/api-alerts.md) , можно управлять только с помощью PowerShell только после [переключения на API запланированных правил запросов](../alerts/alerts-log-api-switch.md).
+> Командлеты PowerShell для Счедуледкуерирулес могут управлять только правилами, созданными в текущем [запланированном API правил запросов](/rest/api/monitor/scheduledqueryrules/). Правила генерации оповещений журнала, созданные с помощью устаревшего [log Analytics API предупреждений](./api-alerts.md) , можно управлять только с помощью PowerShell только после [переключения на API запланированных правил запросов](../alerts/alerts-log-api-switch.md).
 
 Ниже приведены примеры действий по созданию правила генерации оповещений журнала с помощью PowerShell.
 
@@ -247,6 +247,25 @@ $alertingAction = New-AzScheduledQueryRuleAlertingAction -AznsAction $aznsAction
 New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name for your Application Insights App or Log Analytics Workspace" -Action $alertingAction -Enabled $true -Description "Alert description" -Schedule $schedule -Source $source -Name "Alert Name"
 ```
 
+Ниже приведены примеры действий по созданию правила генерации оповещений журнала с помощью PowerShell с запросами перекрестных ресурсов.
+
+```powershell
+$authorized = @ ("/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicewsCrossExample", "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceAppInsights")
+
+$source = New-AzScheduledQueryRuleSource -Query 'Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m), _ResourceId' -DataSourceId "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews" -AuthorizedResource $authorized
+
+$schedule = New-AzScheduledQueryRuleSchedule -FrequencyInMinutes 15 -TimeWindowInMinutes 30
+
+$metricTrigger = New-AzScheduledQueryRuleLogMetricTrigger -ThresholdOperator "GreaterThan" -Threshold 2 -MetricTriggerType "Consecutive" -MetricColumn "_ResourceId"
+
+$triggerCondition = New-AzScheduledQueryRuleTriggerCondition -ThresholdOperator "LessThan" -Threshold 5 -MetricTrigger $metricTrigger
+
+$aznsActionGroup = New-AzScheduledQueryRuleAznsActionGroup -ActionGroup "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG" -EmailSubject "Custom email subject" -CustomWebhookPayload "{ `"alert`":`"#alertrulename`", `"IncludeSearchResults`":true }"
+
+$alertingAction = New-AzScheduledQueryRuleAlertingAction -AznsAction $aznsActionGroup -Severity "3" -Trigger $triggerCondition
+New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name for your Application Insights App or Log Analytics Workspace" -Action $alertingAction -Enabled $true -Description "Alert description" -Schedule $schedule -Source $source -Name "Alert Name" 
+```
+
 Вы также можете создать оповещение журнала с помощью файлов [шаблона и параметров](./alerts-log-create-templates.md) с помощью PowerShell:
 
 ```powershell
@@ -261,7 +280,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 ## <a name="managing-log-alerts-using-cli"></a>Управление оповещениями журнала с помощью интерфейса командной строки
 
 > [!NOTE]
-> Поддержка Azure CLI доступна только для версии API Счедуледкуерирулес `2020-05-01-preview` и более поздних версий. Версия API предыдущей может использовать интерфейс командной строки Azure Resource Manager с шаблонами, как описано ниже. При использовании устаревшего [API log Analytics предупреждений](../platform/api-alerts.md)необходимо переключиться на использование интерфейса командной строки. Дополнительные [сведения о переключении](./alerts-log-api-switch.md).
+> Поддержка Azure CLI доступна только для версии API Счедуледкуерирулес `2020-05-01-preview` и более поздних версий. Версия API предыдущей может использовать интерфейс командной строки Azure Resource Manager с шаблонами, как описано ниже. При использовании устаревшего [API log Analytics предупреждений](./api-alerts.md)необходимо переключиться на использование интерфейса командной строки. Дополнительные [сведения о переключении](./alerts-log-api-switch.md).
 
 В предыдущих разделах были описаны способы создания, просмотра и управления правилами генерации оповещений журнала с помощью портал Azure. В этом разделе вы узнаете, как сделать то же самое с помощью кроссплатформенного [Azure CLI](/cli/azure/get-started-with-azure-cli). Самый быстрый способ начать использовать Azure CLI посредством [Azure Cloud Shell](../../cloud-shell/overview.md). В этой статье мы будем использовать Cloud Shell.
 
@@ -321,9 +340,9 @@ az deployment group create \
 
 При успешном создании возвращается 201. При успешном обновлении возвращается 200.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* Сведения об [оповещениях журнала](../platform/alerts-unified-log.md).
+* Сведения об [оповещениях журнала](./alerts-unified-log.md).
 * Создание оповещений журнала с помощью [шаблонов Azure Resource Manager](./alerts-log-create-templates.md).
 * Общие сведения о [действиях веб-перехватчика для оповещений журнала](./alerts-log-webhook.md).
-* Дополнительные сведения о [запросах журналов](../log-query/log-query-overview.md).
+* Дополнительные сведения о [запросах журналов](../logs/log-query-overview.md).

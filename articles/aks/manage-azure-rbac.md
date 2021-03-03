@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: aa1693ba2b17c344475b96db42fa55514cf6b4db
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d967884193ee228b67ab094059ce4e050f4c7ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380582"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741248"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Использование Azure RBAC для авторизации Kubernetes (предварительная версия)
 
@@ -21,7 +21,7 @@ ms.locfileid: "100380582"
 
 В этом документе рассматривается новый подход, обеспечивающий унифицированный контроль и управление доступом к ресурсам Azure, AKS и Kubernetes.
 
-## <a name="before-you-begin"></a>Подготовка к работе
+## <a name="before-you-begin"></a>Перед началом
 
 Возможность управления RBAC для ресурсов Kubernetes из Azure дает возможность управлять RBAC для ресурсов кластера с помощью Azure или собственных механизмов Kubernetes. Если этот параметр включен, субъекты Azure AD будут проверяться исключительно в Azure RBAC, а обычные пользователи Kubernetes и учетные записи служб будут проверены только с помощью Kubernetes RBAC. Дополнительные сведения о проверке подлинности и авторизации с помощью RBAC в AKS см. [здесь](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
@@ -159,12 +159,12 @@ az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assign
     "Actions": [],
     "NotActions": [],
     "DataActions": [
-        "Microsoft.ContainerService/managedClusters/apps/deployments/read"  
+        "Microsoft.ContainerService/managedClusters/apps/deployments/read"
     ],
     "NotDataActions": [],
     "assignableScopes": [
         "/subscriptions/<YOUR SUBSCRIPTION ID>"
-    ]   
+    ]
 }
 ```
 
@@ -270,7 +270,7 @@ az role definition delete -n "AKS Deployment Viewer"
 az group delete -n MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о проверке подлинности AKS, авторизации, Kubernetes RBAC и Azure RBAC см. [здесь](concepts-identity.md).
 - Дополнительные сведения об Azure RBAC см. [здесь](../role-based-access-control/overview.md).

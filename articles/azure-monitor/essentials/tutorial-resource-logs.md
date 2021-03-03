@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 88138cc1366dcef68aeccf652af05704e72c8e15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598035"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734151"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Руководство по Сбор и анализ журналов ресурсов из ресурса Azure
 
@@ -93,7 +93,7 @@ ms.locfileid: "100598035"
 
 
 5. Введите запрос и щелкните **Выполнить**, чтобы просмотреть результаты. 
-6. См. сведения о том, как [начать работу с запросами журналов в Azure Monitor](../log-query/get-started-queries.md).
+6. См. сведения о том, как [начать работу с запросами журналов в Azure Monitor](../logs/get-started-queries.md).
 
     ![Запрос журнала](media/tutorial-resource-logs/log-query-1.png)
 
@@ -104,4 +104,4 @@ ms.locfileid: "100598035"
 Итак, вы узнали о том, как собирать журналы ресурсов в рабочую область Log Analytics. Теперь вы можете перейти к руководству по написанию запросов к журналам для анализа этих данных.
 
 > [!div class="nextstepaction"]
-> [Начало работы с запросами к журналам Azure Monitor](../log-query/get-started-queries.md)
+> [Начало работы с запросами к журналам Azure Monitor](../logs/get-started-queries.md)

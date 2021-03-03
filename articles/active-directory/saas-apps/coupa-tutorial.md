@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 0be2e2f6ce22525cb4c3a7e0656ce9ce75fb7f77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d6a686b38c9b67ed8b1a7801c2a6ba95ef29558c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363547"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Руководство. Интеграция Azure Active Directory с Coupa
 
@@ -187,8 +187,8 @@ ms.locfileid: "100363547"
 
 * Перейдите по URL-адресу для входа в Coupa и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Coupa на портале "Мои приложения", вы автоматически войдете в приложение Coupa, для которого настроили единый вход. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Coupa на портале "Мои приложения", вы автоматически войдете в приложение Coupa, для которого настроили единый вход. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Coupa вы сможете применить функцию управления сеансом, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Coupa вы сможете применить функцию управления сеансом, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

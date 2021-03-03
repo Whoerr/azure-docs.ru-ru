@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 63a690ffaaefc506de296d43e7de13020fbd584a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 574c4967c1e45ce1ae2be92d8648d654322e2244
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366931"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727827"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Устранение неполадок соединителей фабрики данных Azure
 
@@ -28,12 +28,12 @@ ms.locfileid: "100366931"
 
 - **Причина**: проблема с операцией с хранилищем BLOB-объектов.
 
-- **Рекомендация**: чтобы проверить сведения об ошибке, см. раздел [коды ошибок хранилища BLOB-объектов](https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes). За дальнейшей помощью обратитесь к команде хранилища BLOB-объектов.
+- **Рекомендация**: чтобы проверить сведения об ошибке, см. раздел [коды ошибок хранилища BLOB-объектов](/rest/api/storageservices/blob-service-error-codes). За дальнейшей помощью обратитесь к команде хранилища BLOB-объектов.
 
 
 ### <a name="invalid-property-during-copy-activity"></a>Недопустимое свойство во время действия копирования
 
-- **Сообщение**: `Copy activity \<Activity Name> has an invalid "source" property. The source type is not compatible with the dataset \<Dataset Name> and its linked service \<Linked Service Name>. Please verify your input against.`
+- **Сообщение.** `Copy activity \<Activity Name> has an invalid "source" property. The source type is not compatible with the dataset \<Dataset Name> and its linked service \<Linked Service Name>. Please verify your input against.`
 
 - **Причина**: тип, определенный в наборе данных, не согласуется с типом источника или приемника, определенным в действии копирования.
 
@@ -164,7 +164,7 @@ ms.locfileid: "100366931"
   | Анализ причин                                               | Рекомендация                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | Если Azure Data Lake Storage 2-го поколения выдает ошибку, указывающую на сбой некоторой операции.| Проверьте подробное сообщение об ошибке, выдаваемое Azure Data Lake Storage 2-го поколения. Если ошибка является временным сбоем, повторите операцию. Для получения дополнительной помощи обратитесь в службу поддержки хранилища Azure и укажите идентификатор запроса в сообщении об ошибке. |
-  | Если сообщение об ошибке содержит строку "запрещено", возможно, субъект-служба или управляемое удостоверение, которые вы используете, не имеют достаточных разрешений для доступа к Azure Data Lake Storage 2-го поколения. | Сведения об устранении этой ошибки см. [в статье копирование и преобразование данных в Azure Data Lake Storage 2-го поколения с помощью фабрики данных Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication). |
+  | Если сообщение об ошибке содержит строку "запрещено", возможно, субъект-служба или управляемое удостоверение, которые вы используете, не имеют достаточных разрешений для доступа к Azure Data Lake Storage 2-го поколения. | Сведения об устранении этой ошибки см. [в статье копирование и преобразование данных в Azure Data Lake Storage 2-го поколения с помощью фабрики данных Azure](./connector-azure-data-lake-storage.md#service-principal-authentication). |
   | Если сообщение об ошибке содержит строку "InternalServerError", то ошибка возвращается Azure Data Lake Storage 2-го поколения. | Эта ошибка может быть вызвана временным сбоем. Если это так, повторите операцию. Если проблема будет повторяться, обратитесь в службу поддержки хранилища Azure и укажите идентификатор запроса из сообщения об ошибке. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>Запрос к Azure Data Lake Storage 2-го поколения учетной записи привел к ошибке времени ожидания
@@ -204,24 +204,24 @@ ms.locfileid: "100366931"
 
 - **Причина**: проблема с операцией с хранилищем файлов Azure.
 
-- **Рекомендация**: чтобы проверить сведения об ошибке, см. [раздел Справка по файлам Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes). За дальнейшей помощью обратитесь в службу поддержки файлов Azure.
+- **Рекомендация**: чтобы проверить сведения об ошибке, см. [раздел Справка по файлам Azure](/rest/api/storageservices/file-service-error-codes). За дальнейшей помощью обратитесь в службу поддержки файлов Azure.
 
 
 ## <a name="azure-synapse-analytics-azure-sql-database-and-sql-server"></a>Azure синапсе Analytics, база данных SQL Azure и SQL Server
 
 ### <a name="error-code-sqlfailedtoconnect"></a>Код ошибки: Склфаиледтоконнект
 
-- **Сообщение**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
+- **Сообщение.** `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 - **Причины и рекомендации**. различные причины могут привести к этой ошибке. Ниже приведен список возможных причин и соответствующие рекомендации.
 
     | Анализ причин                                               | Рекомендация                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | В случае с Azure SQL, если сообщение об ошибке содержит строку "Склеррорнумбер = 47073", это означает, что доступ к общедоступной сети запрещен в параметре подключения. | В брандмауэре Azure SQL установите для параметра **запретить доступ к общедоступной сети** значение *нет*. Дополнительные сведения см. в статье [Параметры подключения к SQL Azure](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access). |
-    | Для Azure SQL, если сообщение об ошибке содержит код ошибки SQL, например "Склеррорнумбер = [ErrorCode]", см. Руководство по устранению неполадок SQL Azure. | Рекомендации см. в статьях [Устранение неполадок подключения и другие ошибки в базе данных SQL Azure и управляемый экземпляр Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues). |
-    | Проверьте, включен ли порт 1433 в список разрешений брандмауэра. | Дополнительные сведения см. в разделе [порты, используемые SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
-    | Если сообщение об ошибке содержит строку «SqlException», то база данных SQL. Эта ошибка указывает на сбой некоторой конкретной операции. | Для получения дополнительных сведений выполните поиск по коду ошибки SQL в [ошибках ядра](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)СУБД. Для получения дополнительной помощи обратитесь в службу поддержки Azure SQL. |
-    | Если это временная проблема (например, нестабильное сетевое подключение), добавьте повторную попытку в политике действий, чтобы устранить неполадки. | См. дополнительные сведения о [конвейерах и действиях в фабрике данных Azure](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy). |
-    | Если сообщение об ошибке содержит строку "клиент с IP-адресом"... " не разрешен доступ к серверу ", и вы пытаетесь подключиться к базе данных SQL Azure, то ошибка обычно вызвана проблемой с брандмауэром базы данных SQL Azure. | В конфигурации брандмауэра Azure SQL Server включите параметр **Разрешить службам Azure и ресурсам доступ к этому серверу** . Дополнительные сведения см. в статьях [база данных SQL Azure и правила брандмауэра IP-адресов Azure синапсе](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure). |
+    | В случае с Azure SQL, если сообщение об ошибке содержит строку "Склеррорнумбер = 47073", это означает, что доступ к общедоступной сети запрещен в параметре подключения. | В брандмауэре Azure SQL установите для параметра **запретить доступ к общедоступной сети** значение *нет*. Дополнительные сведения см. в статье [Параметры подключения к SQL Azure](../azure-sql/database/connectivity-settings.md#deny-public-network-access). |
+    | Для Azure SQL, если сообщение об ошибке содержит код ошибки SQL, например "Склеррорнумбер = [ErrorCode]", см. Руководство по устранению неполадок SQL Azure. | Рекомендации см. в статьях [Устранение неполадок подключения и другие ошибки в базе данных SQL Azure и управляемый экземпляр Azure SQL](../azure-sql/database/troubleshoot-common-errors-issues.md). |
+    | Проверьте, включен ли порт 1433 в список разрешений брандмауэра. | Дополнительные сведения см. в разделе [порты, используемые SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
+    | Если сообщение об ошибке содержит строку «SqlException», то база данных SQL. Эта ошибка указывает на сбой некоторой конкретной операции. | Для получения дополнительных сведений выполните поиск по коду ошибки SQL в [ошибках ядра](/sql/relational-databases/errors-events/database-engine-events-and-errors)СУБД. Для получения дополнительной помощи обратитесь в службу поддержки Azure SQL. |
+    | Если это временная проблема (например, нестабильное сетевое подключение), добавьте повторную попытку в политике действий, чтобы устранить неполадки. | См. дополнительные сведения о [конвейерах и действиях в фабрике данных Azure](./concepts-pipelines-activities.md#activity-policy). |
+    | Если сообщение об ошибке содержит строку "клиент с IP-адресом"... " не разрешен доступ к серверу ", и вы пытаетесь подключиться к базе данных SQL Azure, то ошибка обычно вызвана проблемой с брандмауэром базы данных SQL Azure. | В конфигурации брандмауэра Azure SQL Server включите параметр **Разрешить службам Azure и ресурсам доступ к этому серверу** . Дополнительные сведения см. в статьях [база данных SQL Azure и правила брандмауэра IP-адресов Azure синапсе](../azure-sql/database/firewall-configure.md). |
     
 ### <a name="error-code-sqloperationfailed"></a>Код ошибки: Склоператионфаилед
 
@@ -231,9 +231,9 @@ ms.locfileid: "100366931"
 
     | Анализ причин                                               | Рекомендация                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | Если сообщение об ошибке содержит строку «SqlException», то база данных SQL выдает ошибку, указывающую на сбой некоторой конкретной операции. | Если ошибка SQL не была понятна, попробуйте изменить базу данных до последнего уровня совместимости "150". Это может вызвать ошибки SQL последней версии. Дополнительные сведения см. в этой [документации](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> Для получения дополнительных сведений об устранении неполадок SQL выполните поиск по коду ошибки SQL в [ошибках ядра](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)СУБД. Для получения дополнительной помощи обратитесь в службу поддержки Azure SQL. |
+    | Если сообщение об ошибке содержит строку «SqlException», то база данных SQL выдает ошибку, указывающую на сбой некоторой конкретной операции. | Если ошибка SQL не была понятна, попробуйте изменить базу данных до последнего уровня совместимости "150". Это может вызвать ошибки SQL последней версии. Дополнительные сведения см. в этой [документации](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> Для получения дополнительных сведений об устранении неполадок SQL выполните поиск по коду ошибки SQL в [ошибках ядра](/sql/relational-databases/errors-events/database-engine-events-and-errors)СУБД. Для получения дополнительной помощи обратитесь в службу поддержки Azure SQL. |
     | Если сообщение об ошибке содержит строку «Пдвманажедтонативеинтеропексцептион», это обычно вызвано несоответствием размеров столбцов источника и приемника. | Проверьте размер столбцов источника и приемника. Для получения дополнительной помощи обратитесь в службу поддержки Azure SQL. |
-    | Если сообщение об ошибке содержит строку "InvalidOperationException", это обычно вызвано недопустимыми входными данными. | Чтобы узнать, какая строка столкнулась с проблемой, включите функцию отказоустойчивости в действии копирования, которая может переназначать проблемные строки в хранилище для дальнейшего изучения. Дополнительные сведения см. [в статье отказоустойчивость действия копирования в фабрике данных Azure](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance). |
+    | Если сообщение об ошибке содержит строку "InvalidOperationException", это обычно вызвано недопустимыми входными данными. | Чтобы узнать, какая строка столкнулась с проблемой, включите функцию отказоустойчивости в действии копирования, которая может переназначать проблемные строки в хранилище для дальнейшего изучения. Дополнительные сведения см. [в статье отказоустойчивость действия копирования в фабрике данных Azure](./copy-activity-fault-tolerance.md). |
 
 
 ### <a name="error-code-sqlunauthorizedaccess"></a>Код ошибки: Склунаусоризедакцесс
@@ -265,7 +265,7 @@ ms.locfileid: "100366931"
 
 ### <a name="error-code-sqldatatypenotsupported"></a>Код ошибки: Склдататипенотсуппортед
 
-- **Сообщение**: `A database operation failed. Check the SQL errors.`
+- **Сообщение.** `A database operation failed. Check the SQL errors.`
 
 - **Причина**: Если проблема возникает в ИСТОЧНИКе SQL, а ошибка связана с переполнением SqlDateTime, значение данных превышает диапазон типов логики (1/1/1753 12:00:00 AM-12/31/9999 11:59:59 PM).
 
@@ -331,7 +331,7 @@ ms.locfileid: "100366931"
 
 - **Причина**: не удалось выполнить групповое копирование SQL из-за того, что в клиенте программы пакетного копирования (BCP) получена Недопустимая длина столбца.
 
-- **Рекомендация**: чтобы узнать, какая строка столкнулась с проблемой, включите функцию отказоустойчивости для действия копирования. Это позволяет перенаправлять проблемные строки в хранилище для дальнейшего изучения. Дополнительные сведения см. [в статье отказоустойчивость действия копирования в фабрике данных Azure](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
+- **Рекомендация**: чтобы узнать, какая строка столкнулась с проблемой, включите функцию отказоустойчивости для действия копирования. Это позволяет перенаправлять проблемные строки в хранилище для дальнейшего изучения. Дополнительные сведения см. [в статье отказоустойчивость действия копирования в фабрике данных Azure](./copy-activity-fault-tolerance.md).
 
 
 ### <a name="error-code-sqlconnectionisclosed"></a>Код ошибки: Склконнектионисклосед
@@ -470,7 +470,7 @@ ms.locfileid: "100366931"
 
 - **Сообщение.** `Error thrown from driver. Sql code: '%code;'`
 
-- **Причина**: Если сообщение об ошибке содержит строку "SQLSTATE = 51002 SQLCODE =-805", следуйте указаниям в подсказке в [Копировать данные из DB2 с помощью фабрики данных Azure](https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties).
+- **Причина**: Если сообщение об ошибке содержит строку "SQLSTATE = 51002 SQLCODE =-805", следуйте указаниям в подсказке в [Копировать данные из DB2 с помощью фабрики данных Azure](./connector-db2.md#linked-service-properties).
 
 - **Рекомендация**: попытайтесь задать "нуллид" в `packageCollection`  свойстве.
 
@@ -503,7 +503,7 @@ ms.locfileid: "100366931"
 
 ### <a name="error-code-dynamicscreateserviceclienterror"></a>Код ошибки: Динамикскреатесервицеклиентеррор
 
-- **Сообщение**: `This is a transient issue on Dynamics server side. Try to rerun the pipeline.`
+- **Сообщение.** `This is a transient issue on Dynamics server side. Try to rerun the pipeline.`
 
 - **Причина**: проблема является временной проблемой на стороне Dynamics Server.
 
@@ -532,7 +532,7 @@ ms.locfileid: "100366931"
 
 ### <a name="error-code-dynamicsinvalidtargetformultitargetlookupfield"></a>Код ошибки: Динамиксинвалидтаржетформултитаржетлукупфиелд
 
-- **Сообщение**: `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;'`
+- **Сообщение.** `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;'`
 
 - **Причина**: неправильное имя сущности указано в качестве целевой сущности для поля подстановки с несколькими целевыми адресами.
 
@@ -541,7 +541,7 @@ ms.locfileid: "100366931"
 
 ### <a name="error-code-dynamicsinvalidtypeformultitargetlookupfield"></a>Код ошибки: Динамиксинвалидтипеформултитаржетлукупфиелд
 
-- **Сообщение**: `The provided target type is not a valid string. Field: '%fieldName;'.`
+- **Сообщение.** `The provided target type is not a valid string. Field: '%fieldName;'.`
 
 - **Причина**: значение в целевом столбце не является строкой.
 
@@ -550,7 +550,7 @@ ms.locfileid: "100366931"
 
 ### <a name="error-code-dynamicsfailedtorequetserver"></a>Код ошибки: Динамиксфаиледторекуетсервер
 
-- **Сообщение**: `The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
+- **Сообщение.** `The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
 
 - **Причина**: сервер Dynamics нестабильн или недоступен, или в сети возникли проблемы.
 
@@ -647,7 +647,7 @@ ms.locfileid: "100366931"
 
 - **Причина**: формат Parquet не поддерживается в фабрике данных Azure.
 
-- **Рекомендация**: дважды проверьте исходные данные, перейдя к [поддерживаемым форматам файлов и кодекам сжатия по действию копирования в фабрике данных Azure](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
+- **Рекомендация**: дважды проверьте исходные данные, перейдя к [поддерживаемым форматам файлов и кодекам сжатия по действию копирования в фабрике данных Azure](./supported-file-formats-and-compression-codecs.md).
 
 
 ### <a name="error-code-parquetmisseddecimalprecisionscale"></a>Код ошибки: ПаркуетмисседдеЦималпреЦисионскале
@@ -683,7 +683,7 @@ ms.locfileid: "100366931"
 
 - **Причина**: данные не могут быть преобразованы в тип, указанный в поле сопоставления. источник.
 
-- **Рекомендация**: дважды проверьте исходные данные или укажите правильный тип данных для этого столбца в сопоставлении столбцов действия копирования. Дополнительные сведения см. [в разделе Поддерживаемые форматы файлов и кодеки сжатия по действию копирования в фабрике данных Azure](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
+- **Рекомендация**: дважды проверьте исходные данные или укажите правильный тип данных для этого столбца в сопоставлении столбцов действия копирования. Дополнительные сведения см. [в разделе Поддерживаемые форматы файлов и кодеки сжатия по действию копирования в фабрике данных Azure](./supported-file-formats-and-compression-codecs.md).
 
 
 ### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>Код ошибки: Паркуетдатакаунтнотматчколумнкаунт
@@ -831,7 +831,7 @@ ms.locfileid: "100366931"
 
     Если содержимое закрытого ключа находится в хранилище ключей, исходный файл ключа может работать при его передаче непосредственно в связанную службу SFTP.
 
-    Дополнительные сведения см. в статье [копирование данных с сервера SFTP и обратно с помощью фабрики данных Azure](https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication). Содержимое закрытого ключа — это содержимое закрытого ключа SSH в кодировке Base64.
+    Дополнительные сведения см. в статье [копирование данных с сервера SFTP и обратно с помощью фабрики данных Azure](./connector-sftp.md#using-ssh-public-key-authentication). Содержимое закрытого ключа — это содержимое закрытого ключа SSH в кодировке Base64.
 
     Кодирование *всего* исходного файла закрытого ключа в кодировке Base64 и сохранение закодированной строки в хранилище ключей. Исходный закрытый ключ является файлом, который может работать с связанной службой SFTP, если в файле выбрано значение **Отправить** .
 
@@ -902,7 +902,7 @@ ms.locfileid: "100366931"
     Если вы хотите повысить пропускную способность, обратитесь к администратору SFTP, чтобы увеличить число одновременных подключений, или выполните одно из следующих действий.
 
     * Если используется локальная среда IR, добавьте IP-адрес саморазмещенного ИНФРАКРАСного компьютера в список разрешений.
-    * Если вы используете Azure IR, добавьте [Azure Integration Runtime IP-адреса](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses). Если вы не хотите добавлять диапазон IP-адресов в список разрешенных серверов SFTP, используйте вместо этого локальную IR.
+    * Если вы используете Azure IR, добавьте [Azure Integration Runtime IP-адреса](./azure-integration-runtime-ip-addresses.md). Если вы не хотите добавлять диапазон IP-адресов в список разрешенных серверов SFTP, используйте вместо этого локальную IR.
 
 ## <a name="sharepoint-online-list"></a>Список SharePoint Online
 
@@ -961,7 +961,7 @@ ms.locfileid: "100366931"
 
 - **Причина**: локальная IR не может найти среду выполнения Java. Для чтения определенных источников требуется среда выполнения Java.
 
-- **Рекомендации**. Проверьте среду выполнения интеграции. см. раздел [Использование Integration Runtime с автономным размещением](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime).
+- **Рекомендации**. Проверьте среду выполнения интеграции. см. раздел [Использование Integration Runtime с автономным размещением](./format-parquet.md#using-self-hosted-integration-runtime).
 
 
 ### <a name="error-code-wildcardpathsinknotsupported"></a>Код ошибки: Вилдкардпассинкнотсуппортед

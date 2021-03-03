@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390408"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738231"
 ---
 # <a name="whats-new-in-computer-vision"></a>Новые возможности Компьютерного зрения
 
@@ -50,8 +50,8 @@ ms.locfileid: "100390408"
 * **Критическое изменение.** Событие *personZoneEvent* было переименовано в *personZoneEnterExitEvent*. Это событие вызывается операцией *personcrossingpolygon*, когда человек пересекает определенную зону или выходит из нее, и предоставляет сведения о направлении и сведения о пересеченной пронумерованной стороной зоны.
 * URL-адрес можно указать как частный параметр (замаскированный) во всех операциях. Обфускация является необязательной. Она будет работать, только если `KEY` и `IV` предоставляются в виде переменных среды.
 * Калибровка по умолчанию включена для всех операций. Чтобы отключить ее, укажите `do_calibration: false`.
-* Включена поддержка автоматической рекалибровки (по умолчанию отключена) с помощью параметра `enable_recalibration`. Дополнительные сведения см. в статье [Операции пространственного анализа](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
-* В `DETECTOR_NODE_CONFIG` добавлены параметры калибровки камеры. Дополнительные сведения см. в статье [Операции пространственного анализа](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
+* Включена поддержка автоматической рекалибровки (по умолчанию отключена) с помощью параметра `enable_recalibration`. Дополнительные сведения см. в статье [Операции пространственного анализа](./spatial-analysis-operations.md).
+* В `DETECTOR_NODE_CONFIG` добавлены параметры калибровки камеры. Дополнительные сведения см. в статье [Операции пространственного анализа](./spatial-analysis-operations.md).
 
 
 ## <a name="october-2020"></a>Октябрь 2020 г.

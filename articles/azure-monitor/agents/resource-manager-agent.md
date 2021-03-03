@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 9f8ad1e9a3c69d4ab629694fb18eab4bce95bb38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598219"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737347"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Примеры шаблонов Azure Resource Manager для агентов в Azure Monitor
-Эта статья содержит примеры [шаблонов Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) для развертывания и настройки [агента Log Analytics](../platform/log-analytics-agent.md) и [расширения системы диагностики](../platform/diagnostics-extension-overview.md) для виртуальных машин в Azure Monitor. Каждый пример включает файл шаблона и файл параметров с примерами значений для предоставления шаблона.
+Эта статья содержит примеры [шаблонов Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) для развертывания и настройки [агента Log Analytics](./log-analytics-agent.md) и [расширения системы диагностики](./diagnostics-extension-overview.md) для виртуальных машин в Azure Monitor. Каждый пример включает файл шаблона и файл параметров с примерами значений для предоставления шаблона.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -421,7 +421,7 @@ ms.locfileid: "100598219"
 В примерах в этом разделе устанавливается диагностическое расширение на виртуальных машинах Windows и Linux в Azure и настраивается для сбора данных.
 
 ### <a name="windows"></a>Windows
-В следующем примере выполняется включение и настройка расширения системы диагностики на виртуальной машине Azure под управлением Windows. Дополнительные сведения о конфигурации см. в статье [Схема расширения диагностики Windows](../platform/diagnostics-extension-schema-windows.md).
+В следующем примере выполняется включение и настройка расширения системы диагностики на виртуальной машине Azure под управлением Windows. Дополнительные сведения о конфигурации см. в статье [Схема расширения диагностики Windows](./diagnostics-extension-schema-windows.md).
 
 #### <a name="template-file"></a>Файл шаблона
 
@@ -807,6 +807,6 @@ ms.locfileid: "100598219"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Другие примеры шаблонов для Azure Monitor](../samples/resource-manager-samples.md).
-* [Общие сведения об агенте Log Analytics](../platform/log-analytics-agent.md).
-* [Общие сведения о расширении диагностики Azure ](../platform/diagnostics-extension-overview.md).
+* [Другие примеры шаблонов для Azure Monitor](../resource-manager-samples.md).
+* [Общие сведения об агенте Log Analytics](./log-analytics-agent.md).
+* [Общие сведения о расширении диагностики Azure ](./diagnostics-extension-overview.md).

@@ -3,12 +3,16 @@ title: Создание функции JavaScript с помощью Visual Studi
 description: Сведения о том, как создать функцию JavaScript, а затем опубликовать локальный проект Node.js в бессерверном размещении в Функциях Azure с помощью расширения Функций Azure в Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 79da3686310013d4af2acebe5c7c941a38df1a8a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-node_uiex
+ms.openlocfilehash: 6c32570c8ebea3c1d127fc26b0d78287dbeb817f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493623"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729289"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Краткое руководство. Создание функции JavaScript в Azure с помощью Visual Studio Code
 

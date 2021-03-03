@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: d5b5470b30848fd31be63f25c85c23f88cdaf0c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981397"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732230"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Проверка подлинности HMAC — Справочник по REST API
 
@@ -31,7 +31,7 @@ ms.locfileid: "99981397"
 | **Узел** | Узел Интернета и номер порта. Дополнительные сведения см. в разделе  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
 | **Дата** | Дата и время порождения запроса. Время от времени не может превышать 15 минут (среднее время по Гринвичу). Значением является дата HTTP-Date, как описано в разделе [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
 | **x-ms-date** | То же, что и ```Date``` выше. Его можно использовать, если агент не может напрямую получить доступ к ```Date``` заголовку запроса, или прокси-сервер изменяет его. Если ```x-ms-date``` ```Date``` указаны и, ```x-ms-date``` имеет приоритет. |
-| **x-MS-Content-SHA256** | хэш SHA256 в кодировке Base64 текста запроса. Он должен быть предоставлен, даже если текст отсутствует. ```base64_encode(SHA256(body))```|
+| **x-ms-content-sha256** | хэш SHA256 в кодировке Base64 текста запроса. Он должен быть предоставлен, даже если текст отсутствует. ```base64_encode(SHA256(body))```|
 | **Авторизация** | Сведения о проверке подлинности, необходимые для схемы HMAC-SHA256. Формат и сведения описаны далее в этой статье. |
 
 **Пример**.
@@ -103,7 +103,7 @@ string-To-Sign=
 ```
 
 
-### <a name="errors"></a>Ошибки
+### <a name="errors"></a>ошибки
 
 ```http
 HTTP/1.1 401 Unauthorized

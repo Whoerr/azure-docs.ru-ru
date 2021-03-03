@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: b-juche
-ms.openlocfilehash: f36a7827b9351b5565eab19abd4bfdb3d8b4a273
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 756cadd42e8cda557a90c39e2412f5d4f3290835
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741214"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Архитектура решений, использующих Azure NetApp Files
 В этой статье содержатся ссылки на рекомендации, которые помогут вам понять архитектуру решения для использования Azure NetApp Files.  
@@ -86,6 +86,7 @@ ms.locfileid: "100635410"
 ### <a name="sap-iq-nls"></a>SAP IQ — NLS
 
 *   [Развертывание решения с высоким уровнем доступности SAP IQ с помощью Azure NetApp Files на SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
+* [Как управлять лицензией SAP IQ в сценарии высокой доступности](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-manage-sap-iq-license-in-ha-scenario/ba-p/2052583)
 
 ### <a name="sap-tech-community-and-blog-posts"></a>Технические сообщества SAP и записи в блоге 
 
@@ -135,7 +136,7 @@ ms.locfileid: "100635410"
 * [Azure Циклеклауд: EDA HPC Lab с Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 * [Azure для полупроводниковой индустрии](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Аналитика
 
 * [Azure NetApp Files: Общая файловая система, используемая в сетке SAS на Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Рекомендации по использованию Microsoft Azure с SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)

@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d5a90909345599b2389d1752e00a7bc917d06822
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 97ce1fe43bc831661a8590921d8121a8a82ba7e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687181"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Проблемы при входе в приложения, настроенные для единого входа на основе SAML
 Чтобы устранить проблемы при входе ниже, рекомендуется выполнить следующие действия для оптимизации диагностики и автоматизации действий по устранению неполадок.
@@ -41,7 +41,8 @@ ms.locfileid: "99430417"
 1. Выберите параметр SAML-based SSO (Единый вход на основе SAML).
 
 ## <a name="application-not-found-in-directory"></a>Приложение не найдено в каталоге
-`Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
+
+`Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory.`
 
 **Возможные причины**
 
@@ -69,7 +70,7 @@ ms.locfileid: "99430417"
 После обновления значения URL-адреса ответа в Azure AD, которое соответствует значению, отправленному приложением в запросе SAML, вы сможете войти в приложение.
 
 ## <a name="user-not-assigned-a-role"></a>Не назначена роль пользователя
-`Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application.`
+`Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application.`
 
 **Возможные причины**
 

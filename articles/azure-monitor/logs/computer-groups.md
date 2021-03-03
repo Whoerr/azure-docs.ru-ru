@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624315"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734134"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Группы компьютеров в Azure Monitor запросы журналов
-Группы компьютеров в Azure Monitor позволяют выносить [запросы журналов](../log-query/log-query-overview.md) для определенного набора компьютеров.  Каждая группа заполняется компьютерами с помощью определяемого запроса или при импорте групп из разных источников.  Если в запрос к журналам включена группа, в результатах возвращаются только те записи, которые относятся к компьютерам в этой группе.
+Группы компьютеров в Azure Monitor позволяют выносить [запросы журналов](./log-query-overview.md) для определенного набора компьютеров.  Каждая группа заполняется компьютерами с помощью определяемого запроса или при импорте групп из разных источников.  Если в запрос к журналам включена группа, в результатах возвращаются только те записи, которые относятся к компьютерам в этой группе.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -134,6 +134,5 @@ let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Gro
 | `ManagementGroupName` |Имя группы управления для агентов SCOM.  Для других агентов это AOI-\<workspace ID\>. |
 | `TimeGenerated` |Дата и время создания или изменения группы компьютеров. |
 
-## <a name="next-steps"></a>Дальнейшие шаги
-* Узнайте больше о [запросах журнала](../log-query/log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений.  
-
+## <a name="next-steps"></a>Дальнейшие действия
+* Узнайте больше о [запросах журнала](./log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений.

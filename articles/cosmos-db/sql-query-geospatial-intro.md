@@ -5,23 +5,23 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/25/2021
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b20c72ae3ed8a8fffa02fc3a2c86f9f73ba2663b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336186"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692136"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Данные о геопространственном и географическом расположении в Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Эта статья содержит вводную информацию о геопространственной функциональности Azure Cosmos DB. В настоящее время хранение геопространственных данных и доступ к ним поддерживают только учетные записи API SQL Azure Cosmos DB. После ознакомления с нашей документацией по геопространственной индексации вы сможете ответить на следующие вопросы:
+Эта статья содержит вводную информацию о геопространственной функциональности Azure Cosmos DB. После ознакомления с нашей документацией по геопространственной индексации вы сможете ответить на следующие вопросы:
 
 * Как хранить пространственные данные в Azure Cosmos DB?
-* Как запрашивать геопространственные данные в Azure Cosmos DB с помощью SQL и LINQ?
+* Как запросить пространственные данные в Azure Cosmos DB в SQL и LINQ?
 * Как включить или отключить пространственное индексирование в Azure Cosmos DB?
 
 ## <a name="spatial-data-use-cases"></a>Варианты использования пространственных данных
@@ -121,9 +121,9 @@ Azure Cosmos DB поддерживает следующие пространст
     "type":"Polygon",
     "coordinates":[ [
         [ 31.8, -5 ],
-        [ 31.8, -4.7 ],
-        [ 32, -4.7 ],
         [ 32, -5 ],
+        [ 32, -4.7 ],
+        [ 31.8, -4.7 ],
         [ 31.8, -5 ]
     ] ]
 }
@@ -214,7 +214,7 @@ await container.CreateItemAsync( new UserProfile
 
 Если у вас нет информации широты и долготы, но у вас есть физические адреса или расположение, например город или страна или регион, можно найти фактические координаты, используя службу геокодирования, например службы Bing Maps для служб RESTFUL. Дополнительные сведения о геокодировании в Картах Bing можно найти [здесь](/bingmaps/rest-services/).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Теперь, когда вы ознакомились с предварительными сведениями о поддержке геопространственных данных в Azure Cosmos DB, вы можете сделать следующее:
 

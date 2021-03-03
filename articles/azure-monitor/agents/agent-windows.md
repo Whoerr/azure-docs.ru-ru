@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
-ms.openlocfilehash: abad5a0146f98993cd02425b33466c447f9d97ca
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 50bfed0ee4346955a9e478e7567f00610d8184f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613516"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708668"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Установка агента Log Analytics на компьютерах Windows
 В этой статье содержатся сведения об установке агента Log Analytics на компьютерах Windows с помощью следующих методов.
@@ -20,7 +20,7 @@ ms.locfileid: "100613516"
 * [Настройка требуемого состояния службы автоматизации Azure (DSC)](#install-agent-using-dsc-in-azure-automation). 
 
 >[!IMPORTANT]
-> Методы установки, описанные в этой статье, обычно используются для виртуальных машин в локальной среде или в других облаках. Дополнительные параметры, которые можно использовать для виртуальных машин Azure, см. в статье [варианты установки](../platform/log-analytics-agent.md#installation-options) .
+> Методы установки, описанные в этой статье, обычно используются для виртуальных машин в локальной среде или в других облаках. Дополнительные параметры, которые можно использовать для виртуальных машин Azure, см. в статье [варианты установки](./log-analytics-agent.md#installation-options) .
 
 > [!NOTE]
 > Если необходимо настроить агент для передачи отчетов в несколько рабочих областей, это невозможно сделать во время начальной установки. Но вы можете обновить параметры с помощью панели управления или PowerShell, как описано в разделе [Добавление или удаление рабочей области](agent-manage.md#adding-or-removing-a-workspace).  
@@ -42,12 +42,12 @@ ms.locfileid: "100613516"
 4. Рекомендуется настроить агент для [использования TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
 ## <a name="network-requirements"></a>Требования к сети
-Требования к сети для агента Windows см. в разделе [Общие сведения об агенте log Analytics](../platform/log-analytics-agent.md#network-requirements) .
+Требования к сети для агента Windows см. в разделе [Общие сведения об агенте log Analytics](./log-analytics-agent.md#network-requirements) .
 
 
    
 ## <a name="configure-agent-to-use-tls-12"></a>Настройка агента для использования TLS 1.2
-Протокол [TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) обеспечивает безопасность передаваемых данных для обмена данными между агентом Windows и службой log Analytics. При установке в [операционной системе без включенного по умолчанию tls 1,2](../platform/data-security.md#sending-data-securely-using-tls-12)необходимо настроить TLS 1,2, выполнив приведенные ниже действия.
+Протокол [TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) обеспечивает безопасность передаваемых данных для обмена данными между агентом Windows и службой log Analytics. При установке в [операционной системе без включенного по умолчанию tls 1,2](../logs/data-security.md#sending-data-securely-using-tls-12)необходимо настроить TLS 1,2, выполнив приведенные ниже действия.
 
 1. Найдите следующий подраздел реестра: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Создайте подраздел в разделе **Protocols** для TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**

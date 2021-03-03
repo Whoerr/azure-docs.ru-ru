@@ -1,20 +1,20 @@
 ---
-title: Устранение неполадок работоспособности гостевых виртуальных машин в Azure Monitor (предварительная версия)
-description: Описание действий по устранению неполадок, которые можно выполнить при возникновении проблем с Azure Monitor для виртуальных машин работоспособностью.
+title: Устранение неполадок работоспособности гостевых систем VM Insights (Предварительная версия)
+description: Описание действий по устранению неполадок, которые можно выполнить при возникновении проблем с работоспособностью VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: da8097341f8499be4e28fa37c06d963d057966ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6ae0a9e20d6aad7200729419ece333d80e652c3c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622173"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703925"
 ---
-# <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Устранение неполадок работоспособности гостевых виртуальных машин в Azure Monitor (предварительная версия)
-В этой статье описаны действия по устранению неполадок, которые можно выполнить при возникновении проблем с Azure Monitor для виртуальных машин работоспособностью.
+# <a name="troubleshoot-vm-insights-guest-health-preview"></a>Устранение неполадок работоспособности гостевых систем VM Insights (Предварительная версия)
+В этой статье описаны действия по устранению неполадок, которые можно выполнить при возникновении проблем с работоспособностью VM Insights.
 
 ## <a name="error-message-that-no-data-is-available"></a>Сообщение об ошибке, в котором нет доступных данных 
 
@@ -34,7 +34,7 @@ ms.locfileid: "100622173"
 ![Расширения виртуальных машин](media/vminsights-health-troubleshoot/extensions.png)
 
 ### <a name="verify-the-system-assigned-identity-is-enabled-on-the-virtual-machine"></a>Убедитесь, что на виртуальной машине включено удостоверение, назначенное системой.
-Убедитесь, что на виртуальной машине включено удостоверение, назначенное системой. Выберите **удостоверение** из меню виртуальной машины в портал Azure. 
+Убедитесь, что на виртуальной машине включено удостоверение, назначенное системой. Выберите **удостоверение** из меню виртуальной машины в портал Azure. Если включено удостоверение, управляемое пользователем, независимо от состояния управляемого системой удостоверения, Azure Monitor агент не сможет взаимодействовать со службой настройки, и расширение работоспособности гостевой системы не будет работать.
 
 ![Системное удостоверение](media/vminsights-health-troubleshoot/system-identity.png)
 
@@ -46,6 +46,6 @@ ms.locfileid: "100622173"
 
 ![Недопустимый запрос](media/vminsights-health-troubleshoot/bad-request.png)
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- [Ознакомьтесь с обзором функции работоспособности гостевой системы Azure Monitor для виртуальных машин](vminsights-health-overview.md)
+- [Ознакомьтесь с обзором функции работоспособности гостевой виртуальной машины.](vminsights-health-overview.md)

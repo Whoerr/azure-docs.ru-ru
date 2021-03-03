@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325140"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690971"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Начало работы с управляемым экземпляром SQL Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "96325140"
   > - Вы также можете использовать ExpressRoute или подключение типа "сеть — сеть" из локальной сети, но эти подходы не описаны в этих кратких руководствах.
   > - Если для срока хранения вместо 0 (неограниченный срок хранения) указать любое другое значение, то сохранение будет применяться только к журналам, записанным после изменения этого значения. Журналы, записанные в течение периода, когда был установлен неограниченный срок хранения, сохранятся даже после включения функции сохранения.
 
-Управляемый экземпляр SQL не обязательно создавать вручную. Можно использовать [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell с шаблоном Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) или [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create), чтобы автоматизировать этот процесс с помощью сценария.
+Управляемый экземпляр SQL не обязательно создавать вручную. Можно использовать [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell с шаблоном Resource Manager](./create-template-quickstart.md) или [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create), чтобы автоматизировать этот процесс с помощью сценария.
 
 ### <a name="migrate-your-databases"></a>Миграция баз данных
 

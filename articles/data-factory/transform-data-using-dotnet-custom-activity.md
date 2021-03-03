@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: ab49c294fb8923c9a1a47af016e5224a8bba846c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64588d5968df635c3bb017bd1ff1d10951968f32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576346"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724954"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Использование настраиваемых действий в конвейере фабрики данных Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "100576346"
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) со сведениями о создании пула пакетной службы Azure.
 
 > [!IMPORTANT]
-> При создании нового пула пакетной службы Azure необходимо использовать "VirtualMachineConfiguration", а не "CloudServiceConfiguration". Дополнительные сведения см. в [руководстве по миграции пула пакетной службы Azure](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration). 
+> При создании нового пула пакетной службы Azure необходимо использовать "VirtualMachineConfiguration", а не "CloudServiceConfiguration". Дополнительные сведения см. в [руководстве по миграции пула пакетной службы Azure](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
 ## <a name="azure-batch-linked-service"></a>Связанная пакетная служба Azure
 
@@ -301,7 +301,7 @@ Activity Error section:
 Если вы хотите использовать содержимое stdout.txt в последующих действиях, путь к файлу stdout.txt можно получить в значении выражения "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - Свойства activity.json, linkedServices.json и datasets.json хранятся в папке среды выполнения пакетной задачи. В этом примере activity.json, linkedServices.jsи datasets.jsв сохраняются по `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` пути. При необходимости их следует очищать отдельно.
+> - Свойства activity.json, linkedServices.json и datasets.json хранятся в папке среды выполнения пакетной задачи. В этом примере activity.json, linkedServices.jsи datasets.jsв сохраняются по `https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/` пути. При необходимости их следует очищать отдельно.
 > - Если связанные службы используют локальную среду выполнения интеграции, конфиденциальная информация, например ключи и пароли, шифруется локальной средой выполнения интеграции. Это гарантирует, что учетные данные останутся в пределах частных сетевых сред клиентов. Некоторые поля с конфиденциальными данными, на которые таким образом ссылается пользовательский код приложения, могут отсутствовать. При необходимости в extendedProperties используйте SecureString, а не ссылку на связанную службу.
 
 ## <a name="pass-outputs-to-another-activity"></a>Передача выходных данных в другое действие

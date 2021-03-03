@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737551"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Настройка технологии подключения приложений MSIX с использованием портала Azure
 
@@ -36,6 +36,7 @@ ms.locfileid: "100373476"
 - MSIX приложение, развернутое в образе MSIX, передаваемый в общую папку.
 - Файловый ресурс в развертывании виртуальных рабочих столов Windows, где будет храниться пакет MSIX.
 - Общая папка, в которую вы перегрузили образ MSIX, также должна быть доступна для всех виртуальных машин в пуле узлов. Для доступа к образу пользователям потребуются разрешения только на чтение.
+- Если сертификат не является общедоступным, следуйте инструкциям в [статье Установка сертификатов](app-attach.md#install-certificates).
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Отключение автоматического обновления для приложений, подключаемых к приложению MSIX
 
@@ -227,7 +228,7 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 
 4. Выберите приложение, которое необходимо удалить, а затем нажмите кнопку **Удалить**.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Запросите наши вопросы сообщества об этой функции в [Windows Virtual Desktop течкоммунити](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 

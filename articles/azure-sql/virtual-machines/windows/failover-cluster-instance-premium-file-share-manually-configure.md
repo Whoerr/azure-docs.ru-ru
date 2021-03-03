@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 86caf39e0d31a41ca454c65311ff2fab52b56f5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358084"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691167"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Создание FCI с общей папкой Premium (SQL Server на виртуальных машинах Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-В этой статье объясняется, как создать экземпляр отказоустойчивого кластера (FCI) с SQL Server на виртуальных машинах Azure с помощью [файлового ресурса](../../../storage/files/storage-how-to-create-premium-fileshare.md)уровня "Премиум".
+В этой статье объясняется, как создать экземпляр отказоустойчивого кластера (FCI) с SQL Server на виртуальных машинах Azure с помощью [файлового ресурса](../../../storage/files/storage-how-to-create-file-share.md)уровня "Премиум".
 
 Общие файловые ресурсы уровня "Премиум" — это Локальные дисковые пространстваные (SSD) согласованные файловые ресурсы с низкой задержкой, которые полностью поддерживаются для использования с экземплярами отказоустойчивого кластера для SQL Server 2012 или более поздней версии на Windows Server 2012 или более поздней версии. Общие папки уровня "Премиум" отличаются повышенной гибкостью: вы может менять их размеры и масштабировать их без простоя.
 
@@ -37,7 +37,7 @@ ms.locfileid: "97358084"
 - Подписка Azure.
 - учетная запись с разрешениями на создание объектов как на виртуальных машинах Azure, так и в Active Directory;
 - [Две или более подготовленные виртуальные машины Windows Azure](failover-cluster-instance-prepare-vm.md) в [группе доступности](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) или разных [зонах доступности](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
-- [общая папка уровня "Премиум"](../../../storage/files/storage-how-to-create-premium-fileshare.md), которая будет использоваться в качестве кластеризованного диска, с учетом квоты хранилища для вашей базы с файлами данных.
+- [общая папка уровня "Премиум"](../../../storage/files/storage-how-to-create-file-share.md), которая будет использоваться в качестве кластеризованного диска, с учетом квоты хранилища для вашей базы с файлами данных.
 - Последняя версия [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Подключить файловый ресурс Premium

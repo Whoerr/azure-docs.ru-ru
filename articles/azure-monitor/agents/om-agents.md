@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: f9418b9a4bac9c458c530b246f7400ac067f5623
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9c20994c27680aaccb68db2ff78deb6b6bf9f8cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718137"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Подключение Operations Manager к Azure Monitor
 
@@ -40,8 +40,8 @@ ms.locfileid: "100624141"
 * Azure Monitor поддерживает только System Center Operations Manager 2016 или более поздней версии, Operations Manager 2012 SP1 UR6 или более поздней версии и Operations Manager 2012 R2 UR2 или более поздней версии. Поддержка прокси-сервера была добавлена в Operations Manager 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления 7 (UR7) и в Operations Manager 2012 R2 с накопительным пакетом обновления 3 (UR3).
 * Для интеграции System Center Operations Manager 2016 с Cloud правительства США требуется обновленный пакет управления Advisor, входящий в состав накопительного пакета обновления 2 или более поздней версии. Для System Center Operations Manager 2012 R2 требуется обновленный пакет управления Advisor, входящий в состав накопительного пакета обновления 3 или более поздней версии.
 * Все агенты Operations Manager должны удовлетворять минимальным требованиям поддержки. Убедитесь, что агенты соответствуют минимальным требованиям, иначе взаимодействие с агентом Windows может завершиться сбоем и привести к созданию ошибок в журнале событий Operations Manager.
-* Рабочая область Log Analytics. Дополнительные сведения см. в статье [Управление рабочими областями](../platform/design-logs-deployment.md).
-* Вы прошли проверку подлинности в Azure с учетной записью, которая является членом [роли участника Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions).
+* Рабочая область Log Analytics. Дополнительные сведения см. в статье [Управление рабочими областями](../logs/design-logs-deployment.md).
+* Вы прошли проверку подлинности в Azure с учетной записью, которая является членом [роли участника Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions).
 
 * Поддерживаемые регионы. System Center Operations Manager для подключения к рабочей области Log Analytics поддерживаются только следующие регионы Azure:
     - центрально-западная часть США
@@ -53,7 +53,7 @@ ms.locfileid: "100624141"
     - южная часть Соединенного Королевства
     - Центральная Индия
     - Центральная Канада
-    - Западная часть США 2
+    - Западная часть США 2
 
 >[!NOTE]
 >Последние изменения в интерфейсах API Azure не позволят клиентам успешно настраивать интеграцию между группой управления и Azure Monitor в первый раз. Если вы уже интегрировали свою группу управления со службой, на вас это не воздействует, пока вам не потребуется перенастроить существующее подключение.  
@@ -95,7 +95,7 @@ ms.locfileid: "100624141"
 
 ### <a name="tls-12-protocol"></a>Протокол TLS 1.2
 
-Чтобы обеспечить безопасность передаваемых данных в Azure Monitor, мы настоятельно рекомендуем настроить агент и группу управления для использования по крайней мере протокола TLS 1,2. Более старые версии протоколов TLS/SSL оказались уязвимы. Хотя они все еще используются для обеспечения обратной совместимости, применять их **не рекомендуется**. См. дополнительные сведения о [безопасной отправке данных с помощью TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12).
+Чтобы обеспечить безопасность передаваемых данных в Azure Monitor, мы настоятельно рекомендуем настроить агент и группу управления для использования по крайней мере протокола TLS 1,2. Более старые версии протоколов TLS/SSL оказались уязвимы. Хотя они все еще используются для обеспечения обратной совместимости, применять их **не рекомендуется**. См. дополнительные сведения о [безопасной отправке данных с помощью TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Подключение Operations Manager к Azure Monitor
 
@@ -342,7 +342,6 @@ union *
 * В исходном носителе в папке `\ManagementPacks` для System Center Operations Manager 2016 и более поздних версий.
 * От последнего накопительного пакета обновления, примененного к вашей группе управления. Для Operations Manager 2012, исходная папка —, `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` а для 2012 R2 она находится в папке `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` .
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о добавлении функций и сборе данных см. в разделе [добавление Azure Monitor решений из коллекция решений](../insights/solutions.md).
-

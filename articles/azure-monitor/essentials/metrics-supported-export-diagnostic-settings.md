@@ -5,20 +5,20 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
 ms.subservice: metrics
-ms.openlocfilehash: 8f503623031b7071c5e0a206d078175e16a7e919
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d48dcb4e45bbaf3d516f2a45e14a6be0837b55c0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623520"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734389"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Метрики платформы Azure Monitor, которые можно экспортировать с помощью параметров диагностики
 
-Azure Monitor предоставляет [метрики платформы](../essentials/data-platform-metrics.md) по умолчанию без конфигурации. Она обеспечивает несколько способов взаимодействия с метриками платформы, включая создание диаграмм метрик на портале, доступ к метрикам через REST API или запрос метрик с помощью PowerShell или интерфейса командной строки. Полный список метрик платформы, доступных в настоящее время с помощью конвейера консолидированной метрики Azure Monitor, см. в разделе [метрики — поддерживаемые](../platform/metrics-supported.md). Чтобы запросить эти метрики и получить к ним доступ, воспользуйтесь [версией API 2018-01-01](/rest/api/monitor/metricdefinitions). Другие метрики могут быть доступны на портале или при использовании интерфейсов API прежних версий.
+Azure Monitor предоставляет [метрики платформы](../essentials/data-platform-metrics.md) по умолчанию без конфигурации. Она обеспечивает несколько способов взаимодействия с метриками платформы, включая создание диаграмм метрик на портале, доступ к метрикам через REST API или запрос метрик с помощью PowerShell или интерфейса командной строки. Полный список метрик платформы, доступных в настоящее время с помощью конвейера консолидированной метрики Azure Monitor, см. в разделе [метрики — поддерживаемые](./metrics-supported.md). Чтобы запросить эти метрики и получить к ним доступ, воспользуйтесь [версией API 2018-01-01](/rest/api/monitor/metricdefinitions). Другие метрики могут быть доступны на портале или при использовании интерфейсов API прежних версий.
 
 ## <a name="metrics-not-exportable-via-diagnostic-settings"></a>Метрики, которые не экспортируются с помощью параметров диагностики
 
-Содержимое, используемое в этом расположении, перемещено в [список поддерживаемых метрик Azure Monitor](../platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+Содержимое, используемое в этом расположении, перемещено в [список поддерживаемых метрик Azure Monitor](./metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 При экспорте метрик с помощью параметров диагностики существуют ограничения. Все метрики могут быть экспортированы с помощью REST API. 
 
@@ -548,5 +548,4 @@ Azure Monitor предоставляет [метрики платформы](../
 | Microsoft.Sql/servers/elasticPools | xtp_storage_percent | Процент хранилища выполняющейся в памяти OLTP | 
 | Microsoft.Sql/servers | dtu_consumption_percent | Процент использования DTU | 
 | Microsoft.Sql/servers | dtu_used | DTU used | 
-| Microsoft.Sql/managedInstances | avg_cpu_percent | Average CPU percentage (Средний процент использования ЦП) | 
-
+| Microsoft.Sql/managedInstances | avg_cpu_percent | Average CPU percentage (Средний процент использования ЦП) |

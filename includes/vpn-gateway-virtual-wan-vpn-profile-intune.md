@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8fc3ad3e1597d9b38bd095875c8a6f11260e8711
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f64bb0dd0841e89d05a4399db4373a9eaaec48a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750984"
 ---
 Профили для VPN-клиентов Azure (Windows 10) можно развернуть с помощью Microsoft Intune. Эта статья поможет вам создать профиль Intune с помощью пользовательских параметров.
 
@@ -30,7 +30,7 @@ ms.locfileid: "100515150"
 * Автоматическое подключение
 * Обнаружение доверенной сети включено.
 
-Другие поддерживаемые параметры см. в статье [Поддержка VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+Другие поддерживаемые параметры см. в статье [Поддержка VPNV2 CSP](/windows/client-management/mdm/vpnv2-csp) .
 
 1. Скачайте профиль VPN из портал Azure и извлеките файл *azurevpnconfig.xml* из пакета.
 1. Скопируйте приведенный ниже текст и вставьте его в новый файл текстового редактора.
@@ -73,7 +73,7 @@ ms.locfileid: "100515150"
     * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (эти сведения можно найти в файле azurevpnconfig.xml в <name></name> теге).
     * **Тип данных:** Строка (XML-файл).
 
-   Щелкните значок папки и выберите файл, сохраненный на шаге 6, в разделе [XML-](#xml) действия. Выберите **Добавить**.
+   Щелкните значок папки и выберите файл, сохраненный на шаге 6, в разделе [XML-](#xml) действия. Нажмите **Добавить**.
 
    :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/configuration-settings.png" alt-text="Параметры конфигурации" lightbox="./media/vpn-gateway-virtual-wan-vpn-profile-intune/configuration-settings.png":::
 1. Выберите **Далее**.
@@ -82,4 +82,4 @@ ms.locfileid: "100515150"
 1. На странице **Проверка и создание** нажмите кнопку **Создать**.
 
     :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/create-profile.png" alt-text="Создание профиля":::
-1. Теперь ваш настраиваемый профиль создан. Дополнительные Microsoft Intune действиях по развертыванию этого профиля см. в разделе [Назначение профилей пользователей и устройств](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+1. Теперь ваш настраиваемый профиль создан. Дополнительные Microsoft Intune действиях по развертыванию этого профиля см. в разделе [Назначение профилей пользователей и устройств](/mem/intune/configuration/device-profile-assign).

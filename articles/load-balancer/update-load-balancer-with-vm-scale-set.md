@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 1228462dc6437ecce7718c4747d2acb9ae7332cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593030"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721316"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Обновление или удаление подсистемы балансировки нагрузки, используемой масштабируемыми наборами виртуальных машин
 
@@ -112,6 +112,52 @@ az network lb inbound-nat-pool update
 1. Выполните [шаги 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) и [6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) этого руководства, если требуются новые правила балансировки нагрузки.
 1. При необходимости создайте новый набор правил NAT для входящего трафика с использованием вновь созданных IP-конфигураций внешнего интерфейса. Пример приведен в предыдущем разделе.
 
+## <a name="multiple-virtual-machine-scale-sets-behind-a-single-load-balancer"></a>Несколько масштабируемых наборов виртуальных машин за один Load Balancer
+
+Создайте пул NAT для входящего трафика в Load Balancer, сослаться на пул NAT для входящего трафика в сетевом профиле масштабируемого набора виртуальных машин и, наконец, обновите экземпляры, чтобы изменения вступили в силу. Повторите шаги для всех масштабируемых наборов виртуальных машин.
+
+Не забудьте создать отдельные пулы NAT для входящего трафика с непересекающимися диапазонами интерфейсных портов.
+  
+```azurecli-interactive
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
+          
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool2
+          --protocol Tcp 
+          --frontend-port-range-start 100 
+          --frontend-port-range-end 109 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig2
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS2 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS2
+```
+
 ## <a name="delete-the-front-end-ip-configuration-used-by-the-virtual-machine-scale-set"></a>Удаление IP-конфигурации внешнего интерфейса, используемой масштабируемым набором виртуальных машин
 
 Чтобы удалить конфигурацию внешнего IP-адреса, используемую масштабируемым набором, выполните следующие действия.
@@ -142,7 +188,7 @@ az network lb inbound-nat-pool update
 ```
 Наконец, удалите ресурс балансировщика нагрузки.
  
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о Azure Load Balancer и масштабируемых наборах виртуальных машин см. в статье о концепциях.
 

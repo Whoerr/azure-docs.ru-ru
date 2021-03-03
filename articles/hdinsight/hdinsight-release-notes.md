@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 1a0b1a0400ae3d43817921e8a336421aee35ccd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3ea5168641f233f2e9580612a2f245fd8fef860f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378151"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699357"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Заметки о выпуске Azure HDInsight
 
@@ -26,12 +26,12 @@ Azure HDInsight является одной из самых популярных
 
 Этот выпуск относится как к HDInsight 3,6, так и к HDInsight 4,0. Выпуск HDInsight предоставляется для разных регионов на протяжении нескольких дней. Указанная здесь дата выпуска обозначает дату выпуска для первого из регионов. Если вы не видите приведенных ниже изменений, дождитесь выхода выпуска в вашем регионе в течение нескольких дней.
 
-## <a name="new-features"></a>новые функции;
+## <a name="new-features"></a>Новые функции
 ### <a name="dav4-series-support"></a>Поддержка серии Dav4
-В этом выпуске добавлена поддержка Dav4 серии HDInsight. Дополнительные сведения о [серии Dav4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)см. здесь.
+В этом выпуске добавлена поддержка Dav4 серии HDInsight. Дополнительные сведения о [серии Dav4](/azure/virtual-machines/dav4-dasv4-series)см. здесь.
 
 ### <a name="kafka-rest-proxy-ga"></a>Прокси-сервер Kafka RESTFUL, общедоступный 
-Прокси-сервер Kafka RESTFUL позволяет взаимодействовать с кластером Kafka через REST API по протоколу HTTPS. Прокси-сервер Kafka RESTful является общедоступным, начиная с этого выпуска. Дополнительные сведения о [прокси-сервере KAFKA RESTful](https://docs.microsoft.com/azure/hdinsight/kafka/rest-proxy)см. здесь.
+Прокси-сервер Kafka RESTFUL позволяет взаимодействовать с кластером Kafka через REST API по протоколу HTTPS. Прокси-сервер Kafka RESTful является общедоступным, начиная с этого выпуска. Дополнительные сведения о [прокси-сервере KAFKA RESTful](/azure/hdinsight/kafka/rest-proxy)см. здесь.
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Переход на масштабируемые наборы виртуальных машин Azure
 Сейчас HDInsight использует для подготовки кластера виртуальные машины Azure. Служба постепенно переносится в [масштабируемые наборы виртуальных машин Azure](../virtual-machine-scale-sets/overview.md). Весь процесс может занять несколько месяцев. После переноса регионов и подписок вновь созданные кластеры HDInsight будут работать в масштабируемых наборах виртуальных машин без действий клиента. Критические изменения не требуются.
@@ -49,14 +49,14 @@ Azure HDInsight является одной из самых популярных
 
 
 ### <a name="breaking-change-for-net-for-apache-spark-100"></a>Критическое изменение для .NET для Apache Spark 1.0.0
-В последнем выпуске HDInsight представляет собой первую официальную версию 1.0.0 библиотеки [".NET для Apache Spark"](https://github.com/dotnet/spark) . Он обеспечивает полноту API кадров данных для Spark 2.4. x и Spark 3.0. x вместе с [другими функциями](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). В этой основной версии будут внесены критические изменения. Дополнительные сведения о шагах, необходимых для обновления кода и конвейеров, см. в [руководстве по миграции .NET для Apache Spark](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) . Дополнительные сведения см. в руководстве по [.NET для Apache Spark v 1.0 в Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+В последнем выпуске HDInsight представляет собой первую официальную версию 1.0.0 библиотеки [".NET для Apache Spark"](https://github.com/dotnet/spark) . Он обеспечивает полноту API кадров данных для Spark 2.4. x и Spark 3.0. x вместе с [другими функциями](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). В этой основной версии будут внесены критические изменения. Дополнительные сведения о шагах, необходимых для обновления кода и конвейеров, см. в [руководстве по миграции .NET для Apache Spark](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) . Дополнительные сведения см. в руководстве по [.NET для Apache Spark v 1.0 в Azure HDInsight](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
 
 
 ## <a name="upcoming-changes"></a>Предстоящие изменения
 В предстоящих выпусках будут внесены описанные ниже изменения.
 
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>Версия кластера по умолчанию будет изменена на 4,0
-Начиная с 2021 февраля, версия кластера HDInsight по умолчанию будет изменена с 3,6 на 4,0. Дополнительные сведения о доступных версиях см. в разделе [Доступные версии](./hdinsight-component-versioning.md#available-versions). Дополнительные сведения о новых возможностях в [HDInsight 4,0](./hdinsight-version-release.md).
+Начиная с 2021 февраля, версия кластера HDInsight по умолчанию будет изменена с 3,6 на 4,0. Дополнительные сведения о доступных версиях см. в разделе [Доступные версии](./hdinsight-component-versioning.md). Дополнительные сведения о новых возможностях в [HDInsight 4,0](./hdinsight-version-release.md).
 
 ### <a name="os-version-upgrade"></a>Обновление версии ОС
 HDInsight обновляет версию ОС с Ubuntu 16,04 до 18,04. Обновление будет выполнено до 2021 апреля.

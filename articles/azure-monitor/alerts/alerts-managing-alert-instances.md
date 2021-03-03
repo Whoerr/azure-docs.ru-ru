@@ -4,16 +4,16 @@ description: Управление экземплярами оповещений 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fece831266b19bb592c032e9125f781af83e31d1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 82905cba5f391365ada13f4e5df5ad139f4c121e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623265"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734814"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>Управление экземплярами предупреждений с помощью Объединенных предупреждений
 
-Используя [Объединенные оповещения](../platform/alerts-overview.md) в Azure Monitor, вы можете просматривать все различные типы оповещений в Azure. Это охватывает несколько подписок в одной области. В этой статье показано, как просмотреть экземпляры оповещений и найти конкретные экземпляры оповещений для устранения неполадок.
+Используя [Объединенные оповещения](./alerts-overview.md) в Azure Monitor, вы можете просматривать все различные типы оповещений в Azure. Это охватывает несколько подписок в одной области. В этой статье показано, как просмотреть экземпляры оповещений и найти конкретные экземпляры оповещений для устранения неполадок.
 
 > [!NOTE]
 > Вы можете получить доступ только к оповещениям, созданным за последние 30 дней.

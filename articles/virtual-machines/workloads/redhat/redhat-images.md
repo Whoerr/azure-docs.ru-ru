@@ -7,13 +7,14 @@ ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
-ms.openlocfilehash: 03c033ac5d0f20bbfd4f5dccfb5c2900596d2a41
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.author: mathapli
+ms.reviewer: cynthn
+ms.openlocfilehash: 42e0788a25efa5124f24a77b48469d6ed8265dfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673131"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694688"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Общие сведения об образах Red Hat Enterprise Linux
 
@@ -108,6 +109,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Сцепленные значения дополнительной версии RHEL и опубликованной даты (например, 8.0.20191023). | Эти образы представляют собой RHEL 8 LVM секционированных изображений, подключенных к стандартным репозиториям Red Hat.
 |RedHat | RHEL | 8 — Gen2 | Сцепленные значения дополнительной версии RHEL и опубликованной даты (например, 8.0.20191024). | Эти образы являются изображениями Hyper-V поколения 2 RHEL 8 LVM, подключенными к стандартным репозиториям Red Hat. Дополнительные сведения о виртуальных машинах поколения 2 в Azure см. в статье [Поддержка виртуальных](../../generation-2.md)машин поколения 2 в Azure.
+|RedHat | RHEL | RHEL-SAP-APPS | Сцепленные значения дополнительной версии RHEL и опубликованной даты (например, 8.1.2021012201). | Эти образы RHEL для образов приложений SAP. Они имеют право доступа к репозиториям приложений SAP и базовым репозиториям RHEL.
+|RedHat | RHEL | RHEL-SAP-HA | Сцепленные значения дополнительной версии RHEL и опубликованной даты (например, 8.1.2021010602). | Эти образы RHEL для SAP с высоким уровнем доступности и образами служб обновления. Они имеют право на доступ к репозиториям решений и приложений SAP, а также к репозиториям с высоким уровнем доступности и репозиториям RHEL E4S. Выставление счетов включает в себя RHEL Premium, SAP уровня "Премиум" и высокий уровень доступности на основе базовой платы вычислений.
 
 ## <a name="rhel-extended-support-add-ons"></a>Дополнительные компоненты расширенной поддержки RHEL
 

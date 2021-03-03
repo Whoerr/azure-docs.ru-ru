@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: b5d53ec6c6a8002c72a53d6928d56e55d520ef38
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698354"
 ---
 # <a name="data-source-schema-reference"></a>Справочник по схеме источника данных
 
@@ -23,7 +23,7 @@ ms.locfileid: "100390833"
 
 ## <a name="azure-data-sources"></a>Источники данных Azure
 
-| Type                             | Источник данных             | Log Analytics TableName | Справочник по схеме |
+| Тип                             | Источник данных             | Log Analytics TableName | Справочник по схеме |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
 | **Azure**                            | Azure Active Directory | сигниневентс           | [Свойства входа в отчеты о действиях Azure AD](/graph/api/resources/signin#properties) |
 | **Azure**                            | Azure Active Directory | AuditLogs              | [Справочник по Azure Monitor AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) |
@@ -34,7 +34,7 @@ ms.locfileid: "100390833"
 | **Network**                          | Журналы IIS               | W3CIISLog              | [Справочник по Azure Monitor W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Network**                          | вминсигхтс             | VMConnection           | [Справочник по Azure Monitor Вмконнектион](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | Решение "данные проводки"     | Данные передачи               | [Справочник по Azure Monitor WireData](/azure/azure-monitor/reference/tables/wiredata) |
-| **Network**                          | Журналы потоков NSG          | азуренетворканалитикс  | [Схема и агрегирование данных в Аналитика трафика](/azure/network-watcher/traffic-analytics-schema) |
+| **Network**                          | Журналы потоков NSG          | азуренетворканалитикс  | [Схема и агрегирование данных в Аналитика трафика](../network-watcher/traffic-analytics-schema.md) |
 | | | | |
 
 > [!NOTE]
@@ -44,7 +44,7 @@ ms.locfileid: "100390833"
 
 В следующей таблице перечислены поддерживаемые сторонние поставщики и их syslog-журналы или CEF. документация по сопоставлению для различных поддерживаемых типов журналов, которые содержат сопоставления полей CEF и примеры журналов для каждого типа категории.
 
-| Type |    Vendor |    Продукт | Log Analytics TableName | Справочник по сопоставлению полей CEF  |
+| Тип |    Vendor |    Продукт | Log Analytics TableName | Справочник по сопоставлению полей CEF  |
 | ----- | ----- | ----- | ----- |----- |
 | **Network** | Пало-Альто   | ПАНОРАМИРОВАНИЕ ОС    | CommonSecurityLog |   [Pan-OS 9,0. рекомендации по интеграции формата распространенных событий](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf) (поиск *форматов журнала в стиле CEF*) |
 | **Network** | Check Point  |ALL   | CommonSecurityLog | [Описание полей журнала](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |
@@ -62,7 +62,7 @@ ms.locfileid: "100390833"
 |**Узел** |Trend Micro |Все |CommonSecurityLog | [Сопоставление содержимого syslog-CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
 | | | | | |
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте больше о поддерживаемых соединителях Sentinel Azure, таких как CEF, syslog, Direct, Agent и Custom Connectors:
 

@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 0ab7d8548494e96b4a7570ef26ccde39456bf690
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613350"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731720"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Отправка метрик гостевой ОС в хранилище метрик Azure Monitor с помощью шаблона Azure Resource Manager для виртуальной машины Windows
-Данные о производительности из гостевых ОС виртуальных машин Azure не собираются автоматически, как другие [метрики платформы](../insights/monitor-azure-resource.md#monitoring-data). Установите [расширение диагностики](../agents/diagnostics-extension-overview.md) Azure Monitor, чтобы собирать метрики гостевой ОС в базу данных метрик и использовать их со всеми возможностями метрик Azure Monitor, включая оповещения почти в режиме реального времени, диаграммы, маршрутизацию и доступ из REST API. В этой статье описывается процесс отправки метрик производительности гостевой ОС с виртуальной машины под управлением Windows в базу данных метрик с использованием шаблона Resource Manager. 
+Данные о производительности из гостевых ОС виртуальных машин Azure не собираются автоматически, как другие [метрики платформы](./monitor-azure-resource.md#monitoring-data). Установите [расширение диагностики](../agents/diagnostics-extension-overview.md) Azure Monitor, чтобы собирать метрики гостевой ОС в базу данных метрик и использовать их со всеми возможностями метрик Azure Monitor, включая оповещения почти в режиме реального времени, диаграммы, маршрутизацию и доступ из REST API. В этой статье описывается процесс отправки метрик производительности гостевой ОС с виртуальной машины под управлением Windows в базу данных метрик с использованием шаблона Resource Manager. 
 
 > [!NOTE]
 > Дополнительные сведения о настройке расширения диагностики для сбора метрик гостевой ОС с помощью портала Azure см. в разделе [Установка и настройка расширения системы диагностики Windows Azure (WAD)](../agents/diagnostics-extension-windows-install.md).
@@ -29,7 +29,7 @@ ms.locfileid: "100613350"
 
 - Необходимо установить [Azure PowerShell](/powershell/azure) или [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Ресурс виртуальной машины должен находиться в [регионе, поддерживающем пользовательские метрики](../platform/metrics-custom-overview.md#supported-regions). 
+- Ресурс виртуальной машины должен находиться в [регионе, поддерживающем пользовательские метрики](./metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Настройка Azure Monitor в качестве приемника данных
@@ -250,7 +250,7 @@ ms.locfileid: "100613350"
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Не забывайте [использовать регион Azure, включенный для пользовательских метрик](../platform/metrics-custom-overview.md).
+   > Не забывайте [использовать регион Azure, включенный для пользовательских метрик](./metrics-custom-overview.md).
 
 1. Выполните следующие команды, чтобы развернуть виртуальную машину на основе шаблона Resource Manager.
    > [!NOTE]
@@ -285,4 +285,4 @@ ms.locfileid: "100613350"
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Дополнительные сведения о настраиваемых метриках см. в [этой статье](../platform/metrics-custom-overview.md).
+- Дополнительные сведения о настраиваемых метриках см. в [этой статье](./metrics-custom-overview.md).

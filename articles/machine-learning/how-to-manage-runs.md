@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ec006636ed7e975b696aa32300b32089e3209bb5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600478"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691507"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Запуск, отслеживание и отмена обучающих запусков в Python
 
@@ -76,7 +76,7 @@ ms.locfileid: "96600478"
         notebook_run.log(name="message", value="Hello from run!")
         ```
         
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     
     Чтобы начать выполнение эксперимента, выполните следующие действия.
     
@@ -112,17 +112,7 @@ ms.locfileid: "96600478"
         > Дополнительные примеры файлов runconfig см. в разделе [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
         См. дополнительные сведения о команде [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
-    
-    # <a name="studio"></a>[Студия](#tab/azure-studio)
-    
-    Чтобы запустить отправку конвейера в конструкторе, выполните следующие действия.
-    
-    1. Задайте целевой объект вычислений по умолчанию для конвейера.
-    
-    1. Выберите **выполнить** в верхней части холста конвейера.
-    
-    1. Выберите эксперимент, чтобы сгруппировать запуски конвейера.
-    
+
     ---
 
 * Наблюдение за состоянием запуска
@@ -158,7 +148,7 @@ ms.locfileid: "96600478"
         print(notebook_run.get_status())
         ```
     
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
     
     * Чтобы просмотреть список запусков для эксперимента, используйте следующую команду. Замените на `experiment` имя своего эксперимента:
     
@@ -183,24 +173,128 @@ ms.locfileid: "96600478"
     
     # <a name="studio"></a>[Студия](#tab/azure-studio)
     
-    Для просмотра числа активных запусков для эксперимента в студии.
+    Чтобы просмотреть свои запуски в студии, сделайте следующее: 
     
-    1. Перейдите к разделу **эксперименты** .
+    1. Перейдите на вкладку **эксперименты** .
     
-    1. Выберите эксперимент.
+    1. Выберите любой из **экспериментов** , чтобы просмотреть все запуски в эксперименте, или выберите **все запуски** , чтобы просмотреть все запуски, отправленные в рабочей области.
     
-        На странице эксперимента можно увидеть количество активных целевых объектов вычислений и длительность каждого запуска. 
+        На странице **все запуски** можно отфильтровать список запусков по тегам, экспериментам, целевым параметрам вычислений и многое другое для лучшего упорядочения и определения области работы.  
     
-    1. Внесите изменения в эксперимент, выбрав запуски для сравнения, добавляя диаграммы или применяя фильтры. Эти изменения можно сохранить в виде **пользовательского представления** , чтобы можно было легко вернуться к работе. Пользователи с разрешениями рабочей области могут изменять или просматривать пользовательское представление. Кроме того, предоставьте другим пользователям доступ к пользовательскому представлению, скопировав и вставляя URL-адрес в браузере.  
+    1. Внесите настройки на странице, выбрав запуски для сравнения, добавляя диаграммы или применяя фильтры. Эти изменения можно сохранить в виде **пользовательского представления** , чтобы можно было легко вернуться к работе. Пользователи с разрешениями рабочей области могут изменять или просматривать пользовательское представление. Кроме того, предоставьте общий доступ к пользовательскому представлению членам группы для расширенной совместной работы, выбрав **представление общего доступа**.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Снимок экрана: создание пользовательского представления":::
     
-    1. Выберите конкретный номер запуска.
-    
-    1. На вкладке **журналы** можно найти журналы диагностики и ошибок для выполнения конвейера.
+    1. Чтобы просмотреть журналы выполнения, выберите конкретный запуск и на вкладке **выходные данные + журналы** можно найти журналы диагностики и ошибок для выполнения.
     
     ---
+
+## <a name="run-description"></a>Описание запуска 
+
+Описание запуска можно добавить в выполнение, чтобы предоставить больше контекста и сведений для выполнения. Можно также выполнить поиск по этим описаниям из списка запусков и добавить описание запуска в качестве столбца в список запусков. 
+
+Перейдите на страницу **сведений о запуске** для выполнения и щелкните значок редактирования или карандаша, чтобы добавить, изменить или удалить описания для выполнения. Чтобы сохранить изменения в списке запуски, сохраните изменения в существующем настраиваемом представлении или в новом пользовательском представлении. Формат Markdown поддерживается для описаний запуска, что позволяет внедрять и глубокое связывание изображений, как показано ниже.
+
+:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="Снимок экрана: создание описания запуска"::: 
     
+
+## <a name="tag-and-find-runs"></a>Теги и поиск запусков
+
+В Машинное обучение Azure можно использовать свойства и теги для упорядочения и запроса своих запусков для получения важной информации.
+
+* Добавление свойств и тегов
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    Чтобы добавить метаданные для поиска в запуски, используйте [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) метод. Например, следующий код добавляет `"author"` свойство в Run:
+    
+    ```Python
+    local_run.add_properties({"author":"azureml-user"})
+    print(local_run.get_properties())
+    ```
+    
+    Свойства являются неизменяемыми, поэтому они создают постоянную запись для целей аудита. В следующем примере кода возникает ошибка, так как мы уже добавили в `"azureml-user"` качестве `"author"` значения свойства в приведенном выше коде:
+    
+    ```Python
+    try:
+        local_run.add_properties({"author":"different-user"})
+    except Exception as e:
+        print(e)
+    ```
+    
+    В отличие от свойств, теги являются изменяемыми. Чтобы добавить доступную для поиска и осмысленную информацию для потребителей вашего эксперимента, используйте [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) метод.
+    
+    ```Python
+    local_run.tag("quality", "great run")
+    print(local_run.get_tags())
+    
+    local_run.tag("quality", "fantastic run")
+    print(local_run.get_tags())
+    ```
+    
+    Можно также добавить простые строковые Теги. Если эти теги отображаются в словаре тегов в качестве ключей, они имеют значение `None` .
+    
+    ```Python
+    local_run.tag("worth another look")
+    print(local_run.get_tags())
+    ```
+    
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    > [!NOTE]
+    > С помощью интерфейса командной строки можно добавлять или обновлять только теги.
+    
+    Чтобы добавить или обновить тег, используйте следующую команду:
+    
+    ```azurecli-interactive
+    az ml run update -r runid --add-tag quality='fantastic run'
+    ```
+    
+    Дополнительные сведения см. в разделе [AZ ML Run Update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+    
+    # <a name="studio"></a>[Студия](#tab/azure-studio)
+    
+    В студии можно добавлять, изменять и удалять теги Run. Перейдите на страницу **сведений о запуске** для выполнения и щелкните значок редактирования или карандаша, чтобы добавить, изменить или удалить теги для выполнений. Вы также можете выполнять поиск и фильтрацию по этим тегам со страницы списка запусков.
+    
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Снимок экрана: Добавление, изменение или удаление тегов запуска":::
+    
+    ---
+
+* Свойства и Теги запроса
+
+    Вы можете запросить запуски в эксперименте, чтобы получить список запусков, соответствующих указанным свойствам и тегам.
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    ```Python
+    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+    ```
+    
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    
+    Azure CLI поддерживает запросы [JMESPath](http://jmespath.org) , которые можно использовать для фильтрации запусков на основе свойств и тегов. Чтобы использовать запрос JMESPath с Azure CLI, укажите его с помощью `--query` параметра. В следующих примерах показаны некоторые запросы, использующие свойства и теги.
+    
+    ```azurecli-interactive
+    # list runs where the author property = 'azureml-user'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+    # list runs where the tag contains a key that starts with 'worth another look'
+    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+    ```
+    
+    Дополнительные сведения о запросах Azure CLI результатов см. в разделе [запрос Azure CLI команды Output](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
+    
+    # <a name="studio"></a>[Студия](#tab/azure-studio)
+    
+    1. Перейдите к списку  **все запуски** .
+    
+    1. Используйте панель поиска для фильтрации по метаданным запуска, таким как теги, описания, имена экспериментов и имя отправителя. Фильтр тегов также можно использовать для фильтрации по тегам. 
+    
+    ---
+
+
 ## <a name="cancel-or-fail-runs"></a>Отмена или неудача выполнения
 
 Если вы заметили ошибку или если выполнение занимает слишком много времени, можно отменить запуск.
@@ -226,7 +320,7 @@ local_run.fail()
 print(local_run.get_status())
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Чтобы отменить запуск с помощью интерфейса командной строки, используйте следующую команду. Замените на `runid` идентификатор запуска
 
@@ -344,101 +438,6 @@ current_child_run = Run.get_context()
 root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
 
 ```
-
-
-## <a name="tag-and-find-runs"></a>Теги и поиск запусков
-
-В Машинное обучение Azure можно использовать свойства и теги для упорядочения и запроса своих запусков для получения важной информации.
-
-* Добавление свойств и тегов
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    Чтобы добавить метаданные для поиска в запуски, используйте [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) метод. Например, следующий код добавляет `"author"` свойство в Run:
-    
-    ```Python
-    local_run.add_properties({"author":"azureml-user"})
-    print(local_run.get_properties())
-    ```
-    
-    Свойства являются неизменяемыми, поэтому они создают постоянную запись для целей аудита. В следующем примере кода возникает ошибка, так как мы уже добавили в `"azureml-user"` качестве `"author"` значения свойства в приведенном выше коде:
-    
-    ```Python
-    try:
-        local_run.add_properties({"author":"different-user"})
-    except Exception as e:
-        print(e)
-    ```
-    
-    В отличие от свойств, теги являются изменяемыми. Чтобы добавить доступную для поиска и осмысленную информацию для потребителей вашего эксперимента, используйте [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) метод.
-    
-    ```Python
-    local_run.tag("quality", "great run")
-    print(local_run.get_tags())
-    
-    local_run.tag("quality", "fantastic run")
-    print(local_run.get_tags())
-    ```
-    
-    Можно также добавить простые строковые Теги. Если эти теги отображаются в словаре тегов в качестве ключей, они имеют значение `None` .
-    
-    ```Python
-    local_run.tag("worth another look")
-    print(local_run.get_tags())
-    ```
-    
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
-    
-    > [!NOTE]
-    > С помощью интерфейса командной строки можно добавлять или обновлять только теги.
-    
-    Чтобы добавить или обновить тег, используйте следующую команду:
-    
-    ```azurecli-interactive
-    az ml run update -r runid --add-tag quality='fantastic run'
-    ```
-    
-    Дополнительные сведения см. в разделе [AZ ML Run Update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
-    
-    # <a name="studio"></a>[Студия](#tab/azure-studio)
-    
-    Вы можете просматривать свойства и теги в студии, но не изменять их.
-    
-    ---
-
-* Свойства и Теги запроса
-
-    Вы можете запросить запуски в эксперименте, чтобы получить список запусков, соответствующих указанным свойствам и тегам.
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    ```Python
-    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
-    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
-    ```
-    
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
-    
-    Azure CLI поддерживает запросы [JMESPath](http://jmespath.org) , которые можно использовать для фильтрации запусков на основе свойств и тегов. Чтобы использовать запрос JMESPath с Azure CLI, укажите его с помощью `--query` параметра. В следующих примерах показаны некоторые запросы, использующие свойства и теги.
-    
-    ```azurecli-interactive
-    # list runs where the author property = 'azureml-user'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
-    # list runs where the tag contains a key that starts with 'worth another look'
-    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
-    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
-    ```
-    
-    Дополнительные сведения о запросах Azure CLI результатов см. в разделе [запрос Azure CLI команды Output](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
-    
-    # <a name="studio"></a>[Студия](#tab/azure-studio)
-    
-    1. Перейдите в раздел **конвейеры** .
-    
-    1. Используйте панель поиска для фильтрации конвейеров с помощью тегов, описаний, имен экспериментов и имени отправителя.
-    
-    ---
 
 ## <a name="example-notebooks"></a>Примеры записных книжек
 

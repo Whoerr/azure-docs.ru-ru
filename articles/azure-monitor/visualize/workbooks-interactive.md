@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: a70f2cff1df5d0f5d1d4a36bbc2a440518ce5ed4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2cb284e1978ad6c890835318c51c6095891397cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723016"
 ---
 # <a name="interactive-workbooks"></a>Интерактивные Workbooks
 
@@ -186,7 +186,7 @@ ms.locfileid: "100622905"
 
 Хотя в качестве поведения по умолчанию экспортируется параметр в виде текста, если известно, что это поле является подпиской или ИДЕНТИФИКАТОРом ресурса, используйте его в качестве типа параметра экспорта. Это позволит использовать параметр в местах, требующих таких типов параметров.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Узнайте](../platform/workbooks-overview.md#visualizations) больше о книгах с множеством разнообразных вариантов визуализации.
-* [Управление](../platform/workbooks-access-control.md) доступом к ресурсам книги и предоставление общего доступа к ним.
+* [Узнайте](./workbooks-overview.md#visualizations) больше о книгах с множеством разнообразных вариантов визуализации.
+* [Управление](./workbooks-access-control.md) доступом к ресурсам книги и предоставление общего доступа к ним.

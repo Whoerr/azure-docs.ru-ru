@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: dd20a76ebc833320050c87862ad5022e99cd453a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384968"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688371"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Создание контроллера данных ARC в Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "100384968"
 
 > [!IMPORTANT]
 > * Минимальная поддерживаемая версия Kubernetes — v 1.17. Дополнительные сведения см. в статье [Известные проблемы](./release-notes.md#known-issues) . 
-> * Минимальная поддерживаемая версия OCP — 4,3.
+> * Минимальная поддерживаемая версия OCP — 4,5.
 > * Ознакомьтесь с [требованиями к подключению](connectivity.md) , чтобы узнать, какое подключение требуется для вашей среды и Azure.
 > * Сведения о настройке постоянного хранилища см. в [руководстве по настройке хранилища](storage-configuration.md) .
 > * Если вы используете службу Azure Kubernetes, размер виртуальной машины рабочего узла кластера должен быть не менее **Standard_D8s_v3** и использовать диски уровня " **Премиум".** Кластер не должен охватывать несколько зон доступности. 
@@ -59,7 +59,7 @@ ms.locfileid: "100384968"
 - **Имя группы ресурсов Azure** — имя группы ресурсов, в которой должен быть создан ресурс контроллера данных в Azure.
 - **Расположение Azure** — расположение Azure, в котором будут храниться метаданные ресурсов контроллера данных в Azure. Список доступных регионов см. в статье [Глобальная инфраструктура и продукты Azure по регионам](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Существует несколько вариантов создания контроллера данных Arc Azure.
 

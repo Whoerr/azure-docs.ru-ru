@@ -6,18 +6,20 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: a81676b9985b134a8214f7f5f97d85d27259b71f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710198"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Преобразование "анализ" в потоке данных сопоставления
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Используйте преобразование «синтаксический анализ» для анализа столбцов данных в форме документа. Текущие поддерживаемые типы внедренных документов, которые могут быть проанализированы, — это JSON и текст с разделителями.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
 ## <a name="configuration"></a>Конфигурация
 
@@ -29,7 +31,7 @@ ms.locfileid: "100418012"
 
 Как и в случае с производными столбцами и статистическими выражениями, здесь можно изменить выходной столбец, выбрав его в раскрывающемся списке выбора. Также можно ввести имя нового столбца. Файл ADF будет хранить проанализированные исходные данные в этом столбце.
 
-### <a name="expression"></a>Expression
+### <a name="expression"></a>Выражение
 
 Используйте построитель выражений, чтобы задать источник для анализа. Это может быть просто просто выбором исходного столбца с автономными данными, которые необходимо проанализировать, или создавать сложные выражения для анализа.
 
@@ -116,7 +118,7 @@ parse(csv = csvString ? (id as integer,
                 documentForm: 'documentPerLine') ~> ParseCsv
 ```    
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Используйте [Преобразование «Сведение](data-flow-flatten.md) » для свертывания строк в столбцы.
 * Используйте [Преобразование «Производный столбец](data-flow-derived-column.md) » для сведения столбцов к строкам.

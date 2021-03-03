@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701456"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Службы Azure с поддержкой Зон доступности
 
@@ -51,7 +51,7 @@ Microsoft Azure Глобальная инфраструктура разраба
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
 | Центральная Канада     | Центральная Франция       | Южная Африка, Северный * | Japan East     |
-| Центральная часть США         | Центрально-Западная Германия |                     | Southeast Asia |
+| Центральная часть США         | Центрально-Западная Германия |                     | Юго-Восточная Азия |
 | Восточная часть США            | Северная Европа         |                     | Восточная Австралия |
 | восточная часть США 2          | южная часть Соединенного Королевства             |                     |                |
 | Юго-Центральный регион США | Западная Европа          |                     |                |
@@ -92,7 +92,7 @@ Microsoft Azure Глобальная инфраструктура разраба
 |     Центры событий                                                  | : large_blue_diamond:  |
 |     Key Vault                                                   | : large_blue_diamond:  |
 |     Load Balancer                                               | : large_blue_diamond:  |
-|     Служебная шина                                                 | : large_blue_diamond:  |
+|     Служебная шина Azure                                                 | : large_blue_diamond:  |
 |     Service Fabric                                            | : large_blue_diamond:  |
 |     Хранилище: уровни "горячий" и "холодного" хранилища BLOB-объектов                      | : large_blue_diamond:  |
 |     Хранилище: управляемые диски                                    | : large_blue_diamond:  |
@@ -106,6 +106,8 @@ Microsoft Azure Глобальная инфраструктура разраба
 |     Виртуальные машины: Dv3-Series                              | : large_blue_diamond:  |
 |     Виртуальные машины: ESv3-Series                             | : large_blue_diamond:  |
 |     Виртуальные машины: Ev3-Series                              | : large_blue_diamond:  |
+|     Виртуальные машины: серии F                                | : large_blue_diamond:  |
+|     Виртуальные машины: FS-Series                               | : large_blue_diamond:  |
 |     Виртуальная сеть                                           | : large_blue_diamond:  |
 |     VPN-шлюз                                                 | : large_blue_diamond:  |
 
@@ -117,7 +119,7 @@ Microsoft Azure Глобальная инфраструктура разраба
 | Среда службы приложений                        |      : large_blue_diamond:  |
 | Доменные службы Azure Active Directory          |      : large_blue_diamond:  |
 | Бастион Azure                                   |      : large_blue_diamond:  |
-| Кэш Redis для Azure                           |      : large_blue_diamond:  |
+| Кэш Azure для Redis                           |      : large_blue_diamond:  |
 | Azure Cognitive Services: Анализ текста        |      : large_blue_diamond:  |
 | Azure Data Explorer                             |      : large_blue_diamond:  |
 | База данных Azure для MySQL — гибкий сервер      |      : large_blue_diamond:  |
@@ -129,11 +131,18 @@ Microsoft Azure Глобальная инфраструктура разраба
 | Приватный канал Azure                              |      : large_blue_diamond:  |
 | Azure Red Hat OpenShift                         |      : large_blue_diamond:  |
 | Azure Site Recovery                             |      : large_blue_diamond:  |
+| Azure SQL: виртуальная машина                      |      : large_blue_diamond:  |
+| Поиск Azure                                    |      : large_blue_diamond:  |
+| Брандмауэр веб-приложения Azure                  |      : large_blue_diamond:  |
+| Cognitive Services: Анализ текста              |      : large_blue_diamond:  |
 | Реестр контейнеров                              |      : large_blue_diamond:  |
 | Сетка событий Azure                                      |      : large_blue_diamond:  |
 | Наблюдатель за сетями                                 |      : large_blue_diamond:  |
-| Power BI Embedded                               |      : large_blue_diamond:  |
+| Наблюдатель за сетями: Аналитика трафика              |      : large_blue_diamond:  |
+| Power BI Embedded                               |      : large_blue_diamond:  |
 | Хранилище BLOB-объектов класса Premium                            |      : large_blue_diamond:  |
+| Хранилище: файлы Azure Premium                    |      : large_blue_diamond:  |
+| Виртуальные машины: выделенный узел Azure          |      : large_blue_diamond:  |
 | Виртуальные машины: Ddsv4-Series                  |      : large_blue_diamond:  |
 | Виртуальные машины: Ddv4-Series                   |      : large_blue_diamond:  |
 | Виртуальные машины: Dsv4-Series                   |      : large_blue_diamond:  |
@@ -145,6 +154,9 @@ Microsoft Azure Глобальная инфраструктура разраба
 | Виртуальные машины: Fsv2-Series                   |      : large_blue_diamond:  |
 | Виртуальные машины: серия M                      |      : large_blue_diamond:  |
 | Виртуальная глобальная сеть                                     |      : large_blue_diamond:  |
+| Виртуальная глобальная сеть: ExpressRoute                       |      : large_blue_diamond:  |
+| Виртуальная глобальная сеть: VPN-шлюз типа "точка — сеть"          |      : large_blue_diamond:  |
+| Виртуальная глобальная сеть: VPN-шлюз типа "сеть — сеть"           |      : large_blue_diamond:  |
 
 
 **Не региональный**
@@ -153,21 +165,30 @@ Microsoft Azure Глобальная инфраструктура разраба
 |-----------------------------------------------|:-------------------:|
 |     Azure DNS                                 |     : globe_with_meridians:             |
 |     Azure Active Directory                  |     : globe_with_meridians:             |
+|     Расширенная защита от угроз Azure          |     : globe_with_meridians:             |
 |     Помощник по Azure                             |     : globe_with_meridians:             |
+|     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Служба Azure Bot                        |     : globe_with_meridians:             |
 |     Защитник Azure для IoT                  |     : globe_with_meridians:             |
+|     Azure Front Door                           |     : globe_with_meridians:             |
 |     Azure Information Protection            |     : globe_with_meridians:             |
 |     Azure Лигхсаусе                        |     : globe_with_meridians:             |
 |     Управляемые приложения Azure              |     : globe_with_meridians:             |
 |     Azure Maps                                |     : globe_with_meridians:             |
 |     Политика Azure                              |     : globe_with_meridians:             |
 |     Граф ресурсов Azure                    |     : globe_with_meridians:             |
+|     Azure Sentinel                            |     : globe_with_meridians:             |
 |     Azure Stack                               |     : globe_with_meridians:             |
 |     Azure Stackная граница                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
+|     Сеть доставки содержимого (CDN)                  |     : globe_with_meridians:             |
+|     Управление затратами                           |     : globe_with_meridians:             |
 |     защищенное хранилище для Microsoft Azure    |     : globe_with_meridians:             |
+|     Intune                                    |     : globe_with_meridians:             |
 |     Служба пиринга Microsoft Azure         |     : globe_with_meridians:             |
 |     портал Microsoft Azure                  |     : globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     : globe_with_meridians:             |
+|     Microsoft Graph                           |     : globe_with_meridians:             |
 |     Центр безопасности                         |     : globe_with_meridians:             |
 |     Диспетчер трафика                         |     : globe_with_meridians:             |
 

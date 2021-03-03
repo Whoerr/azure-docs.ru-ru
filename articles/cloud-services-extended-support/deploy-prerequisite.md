@@ -8,17 +8,17 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 42416b1fc06ff59a68a6f5044b8bcca5dc7f035f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880192"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728116"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Необходимые условия для развертывания облачных служб Azure (Расширенная поддержка)
 
 > [!IMPORTANT]
-> Облачные службы (Расширенная поддержка) в настоящее время находятся в общедоступной предварительной версии.
+> Облачные службы (расширенная поддержка) сейчас предоставляются в общедоступной предварительной версии.
 > Эта предварительная версия предоставляется без соглашения об уровне обслуживания и не рекомендована для использования рабочей среде. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Чтобы убедиться в успешном развертывании облачных служб (Расширенная поддержка), выполните описанные ниже действия и заполните каждый элемент до попыток развертывания. 
@@ -42,7 +42,7 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Обновления файлов требуемой конфигурации службы (. cscfg)
 
 ### <a name="1-virtual-network"></a>1) виртуальная сеть;
-Развертывания облачной службы (Расширенная поддержка) должны находиться в виртуальной сети. Виртуальную сеть можно создать с помощью шаблона [портал Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [Azure CLI](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) или [ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). На виртуальную сеть и подсети также необходимо ссылаться в конфигурации службы (cscfg) в разделе [NetworkConfiguration](schema-cscfg-networkconfiguration.md) . 
+Все развертывания облачной службы (расширенная поддержка) обязательно размещаются в виртуальной сети. Виртуальную сеть можно создать с помощью шаблона [портал Azure](../virtual-network/quick-create-portal.md), [PowerShell](../virtual-network/quick-create-powershell.md), [Azure CLI](../virtual-network/quick-create-cli.md) или [ARM](../virtual-network/quick-create-template.md). На виртуальную сеть и подсети также необходимо ссылаться в конфигурации службы (cscfg) в разделе [NetworkConfiguration](schema-cscfg-networkconfiguration.md) . 
 
 Для виртуальных сетей, принадлежащих к той же группе ресурсов, что и облачная служба, достаточно ссылаться только на имя виртуальной сети в файле конфигурации службы (cscfg). Если виртуальная сеть и облачная служба находятся в двух разных группах ресурсов, то полный идентификатор Azure Resource Manager виртуальной сети необходимо указать в файле конфигурации службы (cscfg).
  
@@ -88,7 +88,7 @@ CloudServices           Microsoft.Compute    Registered
 |---|---|
 | Очень малый | Standard_A0 | 
 | Малый | Standard_A1 |
-| Средний | Standard_A2 | 
+| Средн. | Standard_A2 | 
 | Большой | Standard_A3 | 
 | Очень большой | Standard_A4 | 
 | A5 | Standard_A5 | 
@@ -103,7 +103,7 @@ CloudServices           Microsoft.Compute    Registered
  Например, для `<WorkerRole name="WorkerRole1" vmsize="Medium"` это `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
 > [!NOTE]
-> Чтобы получить список доступных размеров, ознакомьтесь со [списком SKU ресурсов](https://docs.microsoft.com/rest/api/compute/resourceskus/list) и примените следующие фильтры: <br>
+> Чтобы получить список доступных размеров, ознакомьтесь со [списком SKU ресурсов](/rest/api/compute/resourceskus/list) и примените следующие фильтры: <br>
 `ResourceType = virtualMachines ` <br>
 `VMDeploymentTypes = PaaS `
 
@@ -120,10 +120,10 @@ CloudServices           Microsoft.Compute    Registered
 
 ## <a name="key-vault-creation"></a>Создание Key Vault 
 
-Key Vault используется для хранения сертификатов, связанных с облачными службами (Расширенная поддержка). Добавьте сертификаты в Key Vault, а затем сослаться на отпечатки сертификата в файле конфигурации службы. Также необходимо включить Key Vault для соответствующих разрешений, чтобы ресурс облачных служб (Расширенная поддержка) мог получить сертификат, хранящийся как секреты из Key Vault. Key Vault можно создать с помощью [портал Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)и  [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Key Vault должны быть созданы в том же регионе и в подписке, что и облачная служба. Дополнительные сведения см. в статье [Использование сертификатов с облачными службами Azure (Расширенная поддержка)](certificates-and-key-vault.md).
+Хранилище ключей используется для хранения сертификатов, связанных с Облачными службами (расширенная поддержка). Добавьте сертификаты в Key Vault, а затем сослаться на отпечатки сертификата в файле конфигурации службы. Также для хранилища ключей необходимо включить соответствующие разрешения, позволяющие ресурсу Облачных служб (расширенная поддержка) получить из хранилища ключей сертификат, хранимый в виде секрета. Key Vault можно создать с помощью [портал Azure](../key-vault/general/quick-create-portal.md)и  [PowerShell](../key-vault/general/quick-create-powershell.md). Key Vault должны быть созданы в том же регионе и в подписке, что и облачная служба. Дополнительные сведения см. в статье [Использование сертификатов с Облачными службами Azure (расширенная поддержка)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия 
 - Ознакомьтесь с [предварительными требованиями для развертывания](deploy-prerequisite.md) облачных служб (Расширенная поддержка).
-- Разверните облачную службу (расширенную поддержку) с помощью [портал Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), [шаблона](deploy-template.md) или [Visual Studio](deploy-visual-studio.md).
-- Ознакомьтесь с [часто задаваемыми вопросами](faq.md) о облачных службах (Расширенная поддержка).
-- Посетите [репозиторий с примерами облачных служб (Расширенная поддержка)](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Разверните Облачную службу (расширенная поддержка) с помощью [портала Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), [шаблона](deploy-template.md) или [Visual Studio](deploy-visual-studio.md).
+- Ознакомьтесь с [часто задаваемыми вопросами об Облачных службах (расширенная поддержка)](faq.md).
+- Перейдите в [репозиторий примеров для Облачных служб (расширенная поддержка) ](https://github.com/Azure-Samples/cloud-services-extended-support)

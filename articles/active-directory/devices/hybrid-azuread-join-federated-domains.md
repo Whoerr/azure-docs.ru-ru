@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636f209eeb74ada1b4c7c4232b6aba8738eee10a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e2a455e1ee6f8f714cf50ebdf6a59dab568489ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365860"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646305"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Руководство по Настройка гибридного присоединения к Azure Active Directory для федеративных доменов
 
@@ -95,7 +95,7 @@ ms.locfileid: "100365860"
 
 Если вашей организации требуется доступ в Интернет через аутентифицированный исходящий прокси-сервер, вы должны убедиться, что ваши компьютеры с Windows 10 могут успешно пройти аутентификацию на этом прокси-сервере. Так как компьютеры с Windows 10 выполняют регистрацию устройства с помощью контекста компьютера, необходимо настроить аутентификацию исходящего прокси-сервера с использованием контекста компьютера. Обратитесь к поставщику исходящего прокси-сервера, чтобы узнать требования к конфигурации.
 
-Проверить, имеет ли устройство доступ к указанным выше ресурсам Майкрософт под системной учетной записью, можно с помощью [скрипта для проверки подключения при регистрации устройств](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
+Проверить, имеет ли устройство доступ к указанным выше ресурсам Майкрософт под системной учетной записью, можно с помощью [скрипта для проверки подключения при регистрации устройств](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Настройка гибридного присоединения к Azure AD.
 

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: a83b570637d18fd0e92cd80ed87acbef8c7a9d77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b166e2f648446ac1672ead00a774d71d34699380
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368070"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724648"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Архитектура подключения в базе данных Azure для MariaDB
 В этой статье описывается архитектура подключения к базе данных Azure для MariaDB, а также сведения о том, как трафик направляется в базу данных Azure для экземпляра MariaDB от клиентов как внутри, так и за пределами Azure.
@@ -65,7 +65,7 @@ ms.locfileid: "100368070"
 | Центральная Индия | 104.211.96.159     | | |
 | Южная Индия | 104.211.224.146  | | |
 | Западная Индия | 104.211.160.80    | | |
-| Japan East | 40.79.192.23 | 13.78.61.196 | |
+| Japan East | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Западная Япония | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | Республика Корея, центральный регион | 52.231.17.13   | 52.231.32.42 | |
 | Республика Корея, южный регион | 52.231.145.3     | 52.231.200.86 | |
@@ -96,7 +96,7 @@ ms.locfileid: "100368070"
 > [!IMPORTANT]
 > Поддержка перенаправления в расширении PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) в настоящее время доступна в предварительной версии.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Создание правил брандмауэра MariaDB в Базе данных Azure для MariaDB и управление ими на портале Azure](./howto-manage-firewall-portal.md)
 * [Создание правил брандмауэра Базы данных Azure для MariaDB и управление ими с помощью Azure CLI](./howto-manage-firewall-cli.md)

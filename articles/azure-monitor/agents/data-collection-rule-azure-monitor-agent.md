@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 6e65b828e2cf86614707c8a859abc0c4f2395899
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723645"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Настройка сбора данных для агента Azure Monitor (Предварительная версия)
 
@@ -82,9 +82,9 @@ ms.locfileid: "100623073"
 
 ## <a name="create-association-using-resource-manager-template"></a>Создание связи с помощью шаблона диспетчер ресурсов
 
-Невозможно создать правило сбора данных с помощью шаблона диспетчер ресурсов, но можно создать связь между виртуальной машиной Azure или сервером с поддержкой ARC в Azure с помощью шаблона диспетчер ресурсов. Примеры шаблонов см. [в разделе Образцы шаблонов диспетчер ресурсов для правил сбора данных в Azure Monitor](../samples/resource-manager-data-collection-rules.md) .
+Невозможно создать правило сбора данных с помощью шаблона диспетчер ресурсов, но можно создать связь между виртуальной машиной Azure или сервером с поддержкой ARC в Azure с помощью шаблона диспетчер ресурсов. Примеры шаблонов см. [в разделе Образцы шаблонов диспетчер ресурсов для правил сбора данных в Azure Monitor](./resource-manager-data-collection-rules.md) .
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения об [агенте Azure Monitor](azure-monitor-agent-overview.md).
 - Дополнительные сведения о [правилах сбора данных](data-collection-rule-overview.md).

@@ -2,13 +2,13 @@
 title: Функции шаблона — строка
 description: Описывает функции, используемые в шаблоне Azure Resource Manager (шаблон ARM) для работы со строками.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 03/02/2021
+ms.openlocfilehash: e823acc07ce0618c064f30e103ec52b7133cea18
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920011"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731125"
 ---
 # <a name="string-functions-for-arm-templates"></a>Строковые функции для шаблонов ARM
 
@@ -306,6 +306,8 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 Объединяет несколько строковых значений и возвращает объединенную строку или объединяет несколько массивов и возвращает объединенный массив.
 
+Чтобы упростить объединение строк, Бицеп поддерживает синтаксис [интерполяции строк](https://en.wikipedia.org/wiki/String_interpolation#) .
+
 ### <a name="parameters"></a>Параметры
 
 | Параметр | Обязательно | Тип | Описание |
@@ -351,6 +353,14 @@ output toJsonOutput object = base64ToJson(base64Object)
 param prefix string = 'prefix'
 
 output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+```
+
+или диспетчер конфигурации служб
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---
@@ -421,9 +431,9 @@ output return array = concat(firstArray, secondArray)
 
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
-| return | Массив | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>содержит
 
 `contains (container, itemToFind)`
 
@@ -529,11 +539,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | Неверно |
+| stringFalse | Bool | False |
 | objectTrue | Bool | True |
-| objectFalse | Bool | Неверно |
+| objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | Неверно |
+| arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
 
@@ -830,10 +840,10 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | Неверно |
+| startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | Неверно |
+| endsFalse | Bool | False |
 
 ## <a name="first"></a>first
 
@@ -918,7 +928,7 @@ output stringOutput string = first('One Two Three')
 | arg1 | Да | Строка, целое число или логическое значение | Значение, включаемое в отформатированную строку. |
 | дополнительные аргументы | нет | Строка, целое число или логическое значение | Дополнительные значения для включения в отформатированную строку. |
 
-### <a name="remarks"></a>Remarks
+### <a name="remarks"></a>Комментарии
 
 Эта функция используется для форматирования строки в шаблоне. В нем используются те же параметры форматирования, что и в методе [System. String. Format](/dotnet/api/system.string.format) в .NET.
 
@@ -988,7 +998,7 @@ output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting
 | baseString |Да |строка |Значение, используемое в хэш-функции для создания GUID. |
 | Дополнительные параметры (если необходимы) |Нет |строка |Можно добавить столько строк, сколько необходимо для создания значения, которое задает уровень уникальности. |
 
-### <a name="remarks"></a>Remarks
+### <a name="remarks"></a>Комментарии
 
 Эта функция полезна, если нужно создать значение в формате глобального уникального идентификатора. Указываются значения параметров, которые ограничивают область уникальности результата. Можно указать, является ли уникальным имя в подписке, группе ресурсов или развертывании.
 
@@ -1425,13 +1435,13 @@ output objectLength int = length(objectToTest)
 
 Возвращает значение в формате глобального уникального идентификатора. **Эта функция может использоваться только в значении по умолчанию для параметра.**
 
-### <a name="remarks"></a>Remarks
+### <a name="remarks"></a>Комментарии
 
 Эту функцию можно использовать только в выражении для значения по умолчанию для параметра. Использование этой функции в любом месте шаблона возвращает ошибку. Функция не разрешена в других частях шаблона, поскольку она возвращает другое значение при каждом вызове. Развертывание одного и того же шаблона с теми же параметрами не будет уверенно давать одинаковые результаты.
 
 Функция newGuid отличается от функции [GUID](#guid) , так как она не принимает никаких параметров. При вызове идентификатора GUID с тем же параметром каждый раз возвращается один и тот же идентификатор. Используйте идентификатор GUID, если необходимо надежно создать тот же идентификатор GUID для конкретной среды. Используйте newGuid, если каждый раз требуется другой идентификатор, например развертывание ресурсов в тестовой среде.
 
-Функция newGuid использует [структуру GUID](/dotnet/api/system.guid) в .NET Framework для создания глобального уникального идентификатора.
+Функция newGuid использует [структуру GUID](/dotnet/api/system.guid) в платформа .NET Framework для создания глобального уникального идентификатора.
 
 Если вы используете [параметр для повторного развертывания предыдущего успешного развертывания](rollback-on-error.md), а предыдущее развертывание включает параметр, использующий newGuid, параметр не вычисляется повторно. Вместо этого значение параметра из предыдущего развертывания автоматически используется повторно в развертывании отката.
 
@@ -1530,7 +1540,7 @@ output guidOutput string = guidValue
 ```bicep
 param guidValue string = newGuid()
 
-var storageName = concat('storage', uniqueString(guidValue))
+var storageName = 'storage${uniqueString(guidValue)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: storageName
@@ -1766,7 +1776,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
-| arrayOutput | Массив | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | Строка | two three |
 
 ## <a name="split"></a>разделение
@@ -1844,8 +1854,8 @@ output secondOutput array = split(secondString, delimiters)
 
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
-| firstOutput | Массив | ["one", "two", "three"] |
-| secondOutput | Массив | ["one", "two", "three"] |
+| firstOutput | Array | ["one", "two", "three"] |
+| secondOutput | Array | ["one", "two", "three"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1923,7 +1933,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | Неверно |
+| startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
@@ -2040,7 +2050,7 @@ output intOutput string = string(testInt)
 
 Подстрока. Также может принимать значение пустой строки, когда длина равна нулю.
 
-### <a name="remarks"></a>Remarks
+### <a name="remarks"></a>Комментарии
 
 Если substring выходит за пределы строки или когда длина меньше нуля, происходит ошибка выполнения функции. Следующий пример завершается ошибкой "Параметры индекса и длины должны относиться к расположению в строке. Параметр индекса: 0, параметр длины: 11, параметр длины строкового параметра: 10".
 
@@ -2193,7 +2203,7 @@ output stringOutput string = take(testString, charactersToSkip)
 
 | Имя | Тип | Значение |
 | ---- | ---- | ----- |
-| arrayOutput | Массив | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | Строка | on |
 
 ## <a name="tolower"></a>toLower
@@ -2395,7 +2405,7 @@ output return string = trim(testString)
 | baseString |Да |строка |Значение, используемое в хэш-функции для создания уникальной строки. |
 | Дополнительные параметры (если необходимы) |Нет |строка |Можно добавить столько строк, сколько необходимо для создания значения, которое задает уровень уникальности. |
 
-### <a name="remarks"></a>Remarks
+### <a name="remarks"></a>Комментарии
 
 Эта функция полезна в тех случаях, когда необходимо создать уникальное имя ресурса. Указываются значения параметров, которые ограничивают область уникальности результата. Можно указать, является ли уникальным имя в подписке, группе ресурсов или развертывании.
 
@@ -2468,7 +2478,7 @@ uniqueString(resourceGroup().id, deployment().name)
 
 ```bicep
 resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
-  name: concat('storage, uniqueString(resourceGroup().id)')
+  name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
 ```
@@ -2535,7 +2545,7 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 
    * Если **baseUri** имеет несколько косых черт, но не заканчивается косой чертой, все, начиная с последней косой черты, удаляется из **baseUri** , а результатом является **baseUri** , за которым следует значение **relativeUri**.
 
-Ниже приводится несколько примеров.
+Ниже приведены некоторые примеры:
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh

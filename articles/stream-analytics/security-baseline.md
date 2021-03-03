@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6e6ad96da5f5c7901fda1f041c55075552edecde
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591433"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720347"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Базовый план безопасности Azure для Stream Analytics
 
@@ -168,7 +168,7 @@ ms.locfileid: "100591433"
 
 * [Azure Stream Analytics предоставляет журналы диагностики и данные о действиях для проверки](./stream-analytics-job-diagnostic-logs.md)
 
-* [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+* [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 * [Изменение срока хранения данных в Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -260,7 +260,7 @@ ms.locfileid: "100591433"
 
 **Руководство**. Создание плана безопасности для управления удостоверениями и ролей, соблюдение рекомендаций, включая принцип минимального привилегированного доступа для ролей администратора. Используйте Azure управление привилегированными пользователями (PIM), чтобы предоставить доступ к ресурсам Azure AD и Azure только в режиме доступа. Используйте оповещения и журнал аудита PIM Azure для отслеживания активности административных учетных записей. Используйте отчеты безопасности Azure AD, чтобы определить учетные записи администратора, которые могли быть скомпрометированы.
 
-* [Подробнее](../active-directory/privileged-identity-management/index.yml)
+* [Дополнительные сведения](../active-directory/privileged-identity-management/index.yml)
 
 **Мониторинг Центра безопасности Azure**: Да
 

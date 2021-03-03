@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833101"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726416"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Ограничения кода функции Orchestrator
 
@@ -28,10 +28,10 @@ ms.locfileid: "94833101"
 
 В следующей таблице приведены примеры интерфейсов API, которые следует избегать, поскольку они *не* являются детерминированными. Эти ограничения относятся только к функциям Orchestrator. Другие типы функций не имеют таких ограничений.
 
-| Категория API | Причина | Возможное решение |
+| Категория API | Причина | Обходной путь |
 | ------------ | ------ | ---------- |
 | Даты и время  | API, возвращающие текущую дату или время, являются недетерминированными, поскольку возвращаемое значение отличается для каждого воспроизведения. | Используйте свойство [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) в .NET, `currentUtcDateTime` API в JavaScript или `current_utc_datetime` API в Python, которые являются надежными для воспроизведения. |
-| Идентификаторы GUID и UUID  | API-интерфейсы, возвращающие случайный идентификатор GUID или UUID, являются недетерминированными, поскольку сформированное значение отличается для каждого воспроизведения. | Используйте [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) в .NET или `newGuid` JavaScript для безопасного создания случайных идентификаторов GUID. |
+| Идентификаторы GUID и UUID  | API-интерфейсы, возвращающие случайный идентификатор GUID или UUID, являются недетерминированными, поскольку сформированное значение отличается для каждого воспроизведения. | Используйте [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) в .NET, `newGuid` в JavaScript и `new_guid` в Python для безопасного создания случайных идентификаторов GUID. |
 | Случайные числа | API-интерфейсы, возвращающие случайные числа, являются недетерминированными, поскольку сформированное значение отличается для каждого воспроизведения. | Используйте функцию действия для возврата случайных чисел в согласование. Возвращаемые значения функций действий всегда являются надежными для воспроизведения. |
 | Привязки | Входные и выходные привязки обычно выполняют операции ввода-вывода и являются недетерминированными. Функция Orchestrator не должна напрямую использовать даже [клиент оркестрации](durable-functions-bindings.md#orchestration-client) и привязки [клиента сущности](durable-functions-bindings.md#entity-client) . | Используйте входные и выходные привязки внутри функций клиента или действия. |
 | Сеть | Сетевые вызовы содержат внешние системы и являются недетерминированными. | Используйте функции действий для выполнения сетевых вызовов. Если необходимо выполнить HTTP-вызов из функции Orchestrator, можно также использовать [устойчивые API HTTP](durable-functions-http-features.md#consuming-http-apis). |

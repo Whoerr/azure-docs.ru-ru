@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738707"
 ---
 # <a name="msix-app-attach-faq"></a>Часто задаваемые вопросы о присоединении приложения MSIX
 
@@ -61,7 +61,7 @@ API-интерфейсы, подключаемые к приложению Power
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>Можно ли использовать присоединение приложения MSIX для HTTP или HTTPs?
 
-Все виртуальные машины, которые являются частью пула узлов, использующего присоединение к приложению MSIX, должны иметь разрешения на чтение для общей папки, в которой хранятся образы MSIX. Если используются службы файлов Azure, необходимо предоставить разрешения RBAC и NTFS.
+Использование приложения MSIX с подключением по протоколу HTTP или HTTPs в настоящее время не поддерживается.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>Можно ли надержать одно и то же приложение MSIX?
 
@@ -69,7 +69,7 @@ API-интерфейсы, подключаемые к приложению Power
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>Поддерживает ли присоединение приложения MSIX самозаверяющие сертификаты?
 
-Использование приложения MSIX с подключением по протоколу HTTP или HTTPs в настоящее время не поддерживается.
+Да. Необходимо установить самозаверяющий сертификат на всех виртуальных машинах узла сеансов, где для размещения самозаверяющего приложения используется приложение MSIX Attach.
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

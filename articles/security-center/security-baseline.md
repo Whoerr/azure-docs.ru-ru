@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 195c264eca0c40712816495a09e1387fcaa2c910
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 330b466360cc5687f78db81fbb4545e1c3409098
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572929"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729884"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Базовый план безопасности Azure для центра безопасности
 
@@ -142,7 +142,7 @@ Azure PowerShell или Azure CLI можно использовать для п�
 
 - [Изменение срока хранения данных в Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Мониторинг Центра безопасности Azure**: Неприменимо
 

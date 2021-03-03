@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 35b3f4fe5703e9ce902553f992dfa44cea7db78f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5d847ac7ed805ad88bc24ed63896edc6f7596f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729782"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Нормализация в Azure Sentinel
 
@@ -130,7 +130,7 @@ Azure Sentinel соответствует общей информационно�
 > Вы можете использовать сохраненные функции вместо таблиц Sentinel Azure в любом запросе, включая запросы поиска и обнаружения. Дополнительные сведения см. в разделе:
 >
 > - [Нормализация данных в Azure Sentinel](normalization.md#parsers)
-> - [Анализ текста в журналах Azure Monitor](/azure/azure-monitor/log-query/parse-text)
+> - [Анализ текста в журналах Azure Monitor](../azure-monitor/logs/parse-text.md)
 >
 #### <a name="customizing-parsers"></a>Настройка средств синтаксического анализа
 
@@ -150,7 +150,7 @@ JSON, XML и CSV особенно удобны для анализа во вре
 Дополнительные сведения о [сохраненных запросах](../azure-monitor/logs/example-queries.md) (реализация анализаторов времени запросов) см. в log Analytics.
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 В этом документе вы узнали о схеме нормализации Azure Sentinel. Сведения о самой ссылочной схеме см. в статье [Справочник по схеме нормализации данных Sentinel в Azure](./normalization-schema.md).
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: cbff2e774fae1f71624aa3cdbd83bfb21e3a9586
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832051"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721469"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Руководство по изменению и созданию модулей шлюза для динамической видеоаналитики
 
@@ -25,11 +25,13 @@ ms.locfileid: "99832051"
 
 Для выполнения шагов из этого руководства требуется следующее:
 
-* [Node.js](https://nodejs.org/en/download/) версии 10 или более поздней;
-* [Visual Studio Code](https://code.visualstudio.com/Download) с установленным расширением [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin);
-* подсистема [Docker](https://www.docker.com/products/docker-desktop);
-* [Реестр контейнеров Azure](../../container-registry/index.yml) для размещения версий модулей;
-* учетная запись [Служб мультимедиа Azure](../../media-services/index.yml). Если вы уже прошли предыдущие руководства, вы можете использовать созданную учетную запись.
+
+> [!div class="checklist"]
+> * [Node.js](https://nodejs.org/en/download/) версии 10 или более поздней;
+> * [Visual Studio Code](https://code.visualstudio.com/Download) с установленным расширением [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin);
+> * подсистема [Docker](https://www.docker.com/products/docker-desktop);
+> * [Реестр контейнеров Azure](../../container-registry/index.yml) для размещения версий модулей;
+> * учетная запись [Служб мультимедиа Azure](../../media-services/index.yml). Если вы уже прошли предыдущие руководства, вы можете использовать созданную учетную запись.
 
 ## <a name="clone-the-repository"></a>Клонирование репозитория
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: a0efeaa3df0ecc69fa29dcb2cbb50874c4ab486a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6848b4e0463be803fb4f41797d933386cb575a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732111"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Сбор данных CollectD с помощью агентов Linux в Azure Monitor
 [CollectD](https://collectd.org/) — управляющая программа Linux с открытым исходным кодом, которая периодически собирает метрики производительности приложений и системные данные. К примерам таких приложений относятся виртуальная машина Java (JVM), сервер MySQL и Nginx. В этой статье приводятся сведения о сборе данных производительности CollectD в Azure Monitor.
@@ -123,14 +123,14 @@ LoadPlugin write_http
 | Поле метрики CollectD | Поле Azure Monitor |
 |:--|:--|
 | `host` | Компьютер |
-| `plugin` | None |
+| `plugin` | Нет |
 | `plugin_instance` | Имя экземпляра<br>Если **plugin_instance** имеет значение *null*, то InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Если **type_instance** имеет значение *null*, то CounterName=**blank** |
 | `dsnames[]` | CounterName |
-| `dstypes` | None |
+| `dstypes` | Нет |
 | `values[]` | CounterValue |
 
-## <a name="next-steps"></a>Дальнейшие шаги
-* Узнайте больше о [запросах журнала](../log-query/log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений. 
-* Используйте [настраиваемые поля](../platform/custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.
+## <a name="next-steps"></a>Дальнейшие действия
+* Узнайте больше о [запросах журнала](../logs/log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений. 
+* Используйте [настраиваемые поля](../logs/custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.

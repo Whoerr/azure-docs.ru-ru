@@ -2,13 +2,13 @@
 title: Выходные данные в шаблонах
 description: Описывает, как определить выходные значения в шаблоне Azure Resource Manager (шаблон ARM) и файле Бицеп.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: 0371a5293b302a2eb0febb010fc16caa8355eb18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 02/19/2021
+ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653804"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703840"
 ---
 # <a name="outputs-in-arm-templates"></a>Выходные данные в шаблонах ARM
 
@@ -35,7 +35,21 @@ ms.locfileid: "100653804"
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Для Бицеп используйте `output` ключевое слово.
+
+В следующем примере `publicIP` — это идентификатор общедоступного IP-адреса, развернутого в файле бицеп. Выходное значение получает полное доменное имя для общедоступного IP-адреса.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
 Если необходимо выводить свойство, имеющее дефис в имени, используйте квадратные скобки вокруг имени вместо точечной нотации. Например, используйте  `['property-name']` вместо `.property-name` .
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -58,16 +72,6 @@ ms.locfileid: "100653804"
 ```
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Для Бицеп используйте `output` ключевое слово.
-
-В следующем примере `publicIP` — это символическое имя общедоступного IP-адреса, развернутого в файле бицеп. Выходное значение получает полное доменное имя для общедоступного IP-адреса.
-
-```bicep
-output hostname string = publicIP.properties.dnsSettings.fqdn
-```
-
-Если необходимо выводить свойство, имеющее дефис в имени, используйте квадратные скобки вокруг имени вместо точечной нотации. Например, используйте  `['property-name']` вместо `.property-name` .
 
 ```bicep
 var user = {
@@ -99,9 +103,7 @@ output stringOutput string = user['user-name']
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-В настоящее время условный вывод недоступен для Бицеп.
-
-Однако можно использовать `?` оператор, чтобы вернуть одно из двух значений в зависимости от условия.
+Чтобы указать условный вывод в Бицеп, используйте `?` оператор. В следующем примере возвращается либо URL-адрес конечной точки, либо пустая строка в зависимости от условия.
 
 ```bicep
 param deployStorage bool = true

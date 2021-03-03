@@ -1,18 +1,18 @@
 ---
 title: Как отключить мониторинг гибридного кластера Kubernetes | Документация Майкрософт
-description: В этой статье описывается, как можно отключить мониторинг гибридного кластера Kubernetes с помощью Azure Monitor для контейнеров.
+description: В этой статье описывается, как можно отключить мониторинг гибридного кластера Kubernetes с помощью аналитики контейнера.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e8708d6b860683cc96a806160ccc7c8e33949ab2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625989"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713700"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Как отключить мониторинг гибридного кластера
 
-После включения мониторинга кластера Kubernetes можно отключить мониторинг кластера с Azure Monitor для контейнеров, если вы решите, что вы больше не хотите его отслеживать. В этой статье показано, как это сделать для следующих сред:
+После включения мониторинга кластера Kubernetes вы можете отключить мониторинг кластера с помощью Container Insights, если вы решите, что вы больше не хотите его отслеживать. В этой статье показано, как это сделать для следующих сред:
 
 - Подсистема AKS в Azure и Azure Stack
 - OpenShift версии 4 и выше
@@ -25,7 +25,7 @@ ms.locfileid: "100625989"
 - Подсистема AKS в Azure и Azure Stack
 - OpenShift версии 4 и выше
 
-1. Чтобы сначала найти Azure Monitor для контейнеров Helm, установленных в кластере, выполните следующую команду Helm.
+1. Чтобы сначала выяснить, что в кластере установлен выпуск Helm для Container Insights, выполните следующую команду Helm.
 
     ```
     helm list
@@ -38,7 +38,7 @@ ms.locfileid: "100625989"
     azmon-containers-release-1      default         3               2020-04-21 15:27:24.1201959 -0700 PDT   deployed        azuremonitor-containers-2.7.0   7.0.0-1
     ```
 
-    *Азмон-Containers-Release-1* представляет выпуск Helm chart для Azure Monitor для контейнеров.
+    *Азмон-Containers — Release-1* представляет выпуск Helm диаграммы для аналитики контейнера.
 
 2. Чтобы удалить выпуск диаграммы, выполните следующую команду Helm.
 
@@ -149,7 +149,7 @@ servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
 tenantId=$(echo $servicePrincipal | jq -r '.tenant')
 ```
 
-Пример:
+Например:
 
 ```bash
 bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId
@@ -157,4 +157,4 @@ bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-conte
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Если Рабочая область Log Analytics создана только для поддержки мониторинга кластера и больше не нужна, ее необходимо удалить вручную. Если вы не знакомы с удалением рабочей области, см. статью [удаление log Analytics рабочей области Azure](../platform/delete-workspace.md).
+Если Рабочая область Log Analytics создана только для поддержки мониторинга кластера и больше не нужна, ее необходимо удалить вручную. Если вы не знакомы с удалением рабочей области, см. статью [удаление log Analytics рабочей области Azure](../logs/delete-workspace.md).

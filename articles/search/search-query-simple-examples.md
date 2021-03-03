@@ -1,19 +1,19 @@
 ---
 title: Использование простого синтаксиса запроса Lucene
 titleSuffix: Azure Cognitive Search
-description: Изучите пример, запустив запросы на основе простого синтаксиса полнотекстового поиска, фильтра поиска, географического поиска и поиска по индексу Azure Когнитивный поиск.
+description: Примеры запросов, демонстрирующие простой синтаксис полнотекстового поиска, фильтрацию поиска и географический поиск по индексу Azure Когнитивный поиск.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/12/2020
-ms.openlocfilehash: ff9495e37a499b5502d8f8ced79b69608fa9552a
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 2abe19351c92bf9cea85c85dd55f47b5ee6d1625
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694042"
 ---
 # <a name="use-the-simple-search-syntax-in-azure-cognitive-search"></a>Использование синтаксиса "простого" поиска в Azure Когнитивный поиск
 
@@ -22,309 +22,508 @@ ms.locfileid: "97401752"
 > [!NOTE]
 > Альтернативный синтаксис запросов — это [полная Lucene](query-lucene-syntax.md), поддерживающая более сложные структуры запросов, например поиск нечетких и подстановочных знаков. Дополнительные сведения и примеры см. [в разделе Использование полного синтаксиса Lucene](search-query-lucene-examples.md).
 
-## <a name="nyc-jobs-examples"></a>Примеры заданий Нью
+## <a name="hotels-sample-index"></a>Индекс примера гостиниц
 
-В следующих примерах используется [индекс поиска заданий Нью](https://azjobsdemo.azurewebsites.net/) , состоящий из заданий, доступных на основе набора данных, предоставленного в городе Нью- [Йорк опендата](https://nycopendata.socrata.com/). Эти данные не являются текущими или завершенными. Индекс находится в службе "песочницы", предоставляемой корпорацией Майкрософт. Это означает, что для работы с этими запросами не требуется подписка Azure или Azure Когнитивный поиск.
+Следующие запросы основываются на гостиницах, которые можно создать, следуя инструкциям в этом [кратком руководстве](search-get-started-portal.md).
 
-Для отправки HTTP-запроса по запросу GET или POST требуется соответствующее средство. Если вы не знакомы с этими инструментами, см. статью [Краткое руководство. изучение Azure Когнитивный поиск REST API](search-get-started-rest.md).
+Примеры запросов обрабатываются с помощью запросов REST API и POST. Их можно вставить и запустить в [POST](search-get-started-rest.md) или в [Visual Studio Code с расширением когнитивный Поиск](search-get-started-vs-code.md).
 
-## <a name="set-up-the-request"></a>Настройка запроса
+Заголовки запроса должны иметь следующие значения:
 
-1. Заголовки запроса должны иметь следующие значения:
+| Клавиши | Значение |
+|-----|-------|
+| Content-Type | приложение/json|
+| api-key  | `<your-search-service-api-key>`, либо запрос, либо ключ администратора |
 
-   | Ключ | Значение |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (это фактический ключ API запроса для службы поиска "песочницы", в которой размещается индекс заданий Нью). |
-
-1. Задайте для команды значение **`GET`** .
-
-1. Задайте для URL-адреса значение **`https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&search=*&$count=true`** . 
-
-   + Коллекция Documents в индексе содержит все содержимое, доступное для поиска. Ключ API запроса, указанный в заголовке запроса, работает только для операций чтения, предназначенных для коллекции Documents.
-
-   + **`$count=true`** Возвращает количество документов, соответствующих условиям поиска. В пустой строке поиска счетчик будет содержать все документы в индексе (около 2558 в случае заданий Нью).
-
-   + **`search=*`** является неопределенным запросом, эквивалентным null или пустым поиском. Это не особенно полезно, но это самый простой поиск, который можно сделать, и Показать все доступные для получения поля в индексе со всеми значениями.
-
-1. В качестве шага проверки вставьте приведенный ниже запрос в раздел GET и щелкните **Отправить**. Будут возвращены результаты в виде подробных документов JSON.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-simple-query-parsing"></a>Как вызвать анализ простого запроса
-
-Для интерактивных запросов не нужно указывать дополнительные параметры: простой синтаксис используется по умолчанию. В коде, если был вызван ранее **`queryType=full`** , можно сбросить значение по умолчанию с помощью **`queryType=simple`** .
+Параметры URI должны включать конечную точку службы поиска с именем индекса, коллекциями документов, командой поиска и версией API, как показано в следующем примере:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "simple"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-full-text-search-on-specific-fields"></a>Пример 1. полнотекстовый поиск по конкретным полям
+Текст запроса должен быть сформирован как допустимый JSON:
 
-Первый пример не связан с синтаксическим анализатором, но мы начали с него, чтобы представить первое фундаментальное понятие запроса: автономность. Этот пример ограничивает как выполнение запроса, так и ответ на несколько конкретных полей. Знать, как структурировать читаемый ответ JSON, важно, если используется инструмент Postman или обозреватель поиска. 
-
-Этот запрос предназначен только для *business_title* в **`searchFields`** , указывая с помощью **`select`** параметра то же поле в ответе.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "simple",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-Результат запроса должен выглядеть, как на снимке экрана ниже.
++ для параметра "Search" задан `*` неопределенный запрос, эквивалентный null или пустому поиску. Это не особенно полезно, но это самый простой поиск, который можно сделать, и Показать все доступные для получения поля в индексе со всеми значениями.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Пример ответа Postman" border="false":::
++ для "queryType" задано значение "Simple" (по умолчанию), и его можно опустить, но он включен для дальнейшего изучения того, что примеры запросов в этой статье выражаются в простом синтаксисе.
 
-Вы могли заметить оценку поиска в ответе. Однородные баллы, равные **1** , происходят, когда нет ранга, так как поиск не является полнотекстовым поиском или не был предоставлен ни один критерий. Для пустого поиска строки возвращаются в произвольном порядке. Когда вы добавите условие поиска, вы увидите, как оценки поиска превратятся в понятные значения.
++ для композиции результатов поиска используется значение "Select", равное разделенному запятыми списку полей, включая только те поля, которые полезны в контексте результатов поиска.
+
++ "Count" возвращает количество документов, соответствующих условиям поиска. В пустой строке поиска счетчик будет содержать все документы в индексе (50 в случае использования гостиниц-Sample-index).
+
+## <a name="example-1-full-text-search"></a>Пример 1. полнотекстовый поиск
+
+Полнотекстовый поиск может быть любым числом отдельных терминов или заключенными в кавычки фразами с логическими операторами или без них. 
+
+```http
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
+{
+    "search": "pool spa +airport",
+    "searchMode": any,
+    "queryType": "simple",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+}
+```
+
+Поиск по ключевым словам, который состоит из важных терминов или фраз, обычно работает лучше всего. Строковые поля пропретерпевают анализ текста во время индексирования и запроса, удаляя неключевые слова, такие как «The», «and», «IT». Чтобы увидеть, как строка запроса размечена в индексе, передайте строку в индексе в текстовом вызове [анализа](/rest/api/searchservice/test-analyzer) .
+
+Параметр "searchMode" контролирует точность и отзыв. Если требуется более удачный отзыв, используйте значение по умолчанию Any, которое возвращает результат при сопоставлении какой-либо части строки запроса. Если вы предпочитаете точность, где все части строки должны быть сопоставлены, измените searchMode на "ALL". Попробуйте выполнить приведенный выше запрос обоими способами, чтобы увидеть, как searchMode изменяет результат.
+
+Ответ для запроса "защищено пулом" и "аэропорта" должен выглядеть примерно так, как показано в следующем примере, обрезанный для краткости.
+
+```json
+"@odata.count": 6,
+"value": [
+    {
+        "@search.score": 7.3617697,
+        "HotelId": "21",
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "pool",
+            "continental breakfast",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 2.5560288,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Description": "Newly Redesigned Rooms & airport shuttle.  Minutes from the airport, enjoy lakeside amenities, a resort-style pool & stylish new guestrooms with Internet TVs.",
+        "Category": "Luxury",
+        "Tags": [
+            "24-hour front desk service",
+            "continental breakfast",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 2.2988036,
+        "HotelId": "35",
+        "HotelName": "Suites At Bellevue Square",
+        "Description": "Luxury at the mall.  Located across the street from the Light Rail to downtown.  Free shuttle to the mall and airport.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "continental breakfast",
+            "air conditioning",
+            "24-hour front desk service"
+        ]
+    }
+```
+
+Обратите внимание на оценку поиска в ответе. Это показатель релевантности совпадения. По умолчанию служба поиска вернет первые 50 соответствий на основе этой оценки.
+
+Однородные баллы "1,0" возникают, если нет ранга, так как поиск не является полнотекстовым поиском или не был предоставлен ни один критерий. Например, в пустом поиске (Search = `*` ) строки возвращаются в произвольном порядке. Когда вы добавите условие поиска, вы увидите, как оценки поиска превратятся в понятные значения.
 
 ## <a name="example-2-look-up-by-id"></a>Пример 2. Поиск по идентификатору
 
-При возврате результатов поиска в запросе логический последующий шаг заключается в предоставлении страницы сведений, которая содержит больше полей из документа. В этом примере показано, как вернуть один документ с помощью [операции уточняющего запроса](/rest/api/searchservice/lookup-document) для передачи идентификатора документа.
-
-Все документы имеют уникальный идентификатор. Чтобы проверить синтаксис запроса поиска, сначала получите список идентификаторов документов, чтобы найти в нем нужный идентификатор. В индексе вакансий в Нью-Йорке идентификаторы хранятся в поле `id`.
+При возврате результатов поиска в запросе логический следующий шаг — предоставление страницы сведений, содержащей больше полей из документа. В этом примере показано, как вернуть один документ с помощью [документа подстановки](/rest/api/searchservice/lookup-document) , ПЕРЕДАВ ему идентификатор документа.
 
 ```http
-GET /indexes/nycjobs/docs?api-version=2020-06-30&search=*&$select=id&$count=true
+GET /indexes/hotels-sample-index/docs/41?api-version=2020-06-30
 ```
 
-Затем извлеките документ из коллекции на основе `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", который был первым в предыдущем ответе. Следующий запрос возвращает все доступные для получения поля для всего документа.
+Все документы имеют уникальный идентификатор. Если вы используете портал, выберите вкладку Индекс из **индексов** , а затем просмотрите определения полей, чтобы определить, какое поле является ключом. При использовании функции RESTFUL вызов [индекса Get](/rest/api/searchservice/get-index) Возвращает определение индекса в тексте ответа.
 
-```http
-GET /indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2020-06-30
+Ответ для приведенного выше запроса состоит из документа, ключ которого равен 41. Любое поле, помеченное в определении индекса как "извлекаемое", может быть возвращено в результатах поиска и визуализировано в приложении.
+
+```json
+{
+    "HotelId": "41",
+    "HotelName": "Ocean Air Motel",
+    "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
+    "Description_fr": "L'hôtel front de mer surplombant la plage dispose de chambres avec balcon privé et 2 piscines intérieures et extérieures. Divers commerces et animations artistiques sont sur la promenade, à quelques pas.",
+    "Category": "Budget",
+    "Tags": [
+        "pool",
+        "air conditioning",
+        "bar"
+    ],
+    "ParkingIncluded": true,
+    "LastRenovationDate": "1951-05-10T00:00:00Z",
+    "Rating": 3.5,
+    "Location": {
+        "type": "Point",
+        "coordinates": [
+            -157.846817,
+            21.295841
+        ],
+        "crs": {
+            "type": "name",
+            "properties": {
+                "name": "EPSG:4326"
+            }
+        }
+    },
+    "Address": {
+        "StreetAddress": "1450 Ala Moana Blvd 2238 Ala Moana Ctr",
+        "City": "Honolulu",
+        "StateProvince": "HI",
+        "PostalCode": "96814",
+        "Country": "USA"
+    },
 ```
 
-## <a name="example-3-filter-queries"></a>Пример 3. Фильтрация запросов
+## <a name="example-3-filter-on-text"></a>Пример 3. Фильтрация по тексту
 
-[Синтаксис фильтра](./search-query-odata-filter.md) — это выражение OData, которое можно использовать самостоятельно или с помощью **`search`** . Автономный фильтр без параметра поиска полезен, когда выражение фильтра может полностью определить интересующие документы. Без строки запроса не выполняется лексический или лингвистический анализ (все оценки имеют значение 1), нет оценки и рейтинга. Обратите внимание, что строка поиска пуста.
+[Синтаксис фильтра](search-query-odata-filter.md) — это выражение OData, которое можно использовать самостоятельно или с помощью поиска. Используется вместе, "Filter" сначала применяется ко всему индексу, а затем выполняется поиск по результатам фильтра. Поэтому фильтры могут повысить производительность запросов, так как они уменьшают количество документов, которые поисковый запрос должен обработать.
+
+Фильтры могут быть определены для любого поля, помеченного как "фильтруемое" в определении индекса. Для гостиниц-выборка — индекс, фильтруемые поля: Категория, теги, Паркингинклудед, оценка и большинство полей адресов.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "art tours",
+    "queryType": "simple",
+    "filter": "Category eq 'Resort and Spa'",
+    "select": "HotelId,HotelName,Description,Category",
+    "count": true
+}
+```
+
+Ответ для приведенного выше запроса ограничивается только теми гостиницами, которые отнесены к категории "отчет и SPA", включая термины "искусство" или "обзоры". В этом случае существует только одно совпадение.
+
+```json
+{
+    "@search.score": 2.8576312,
+    "HotelId": "31",
+    "HotelName": "Santa Fe Stay",
+    "Description": "Nestled on six beautifully landscaped acres, located 2 blocks from the Plaza. Unwind at the spa and indulge in art tours on site.",
+    "Category": "Resort and Spa"
+}
+```
+
+## <a name="example-4-filter-functions"></a>Пример 4. функции фильтров
+
+К выражениям фильтра могут относиться [функции "Search. исматчскоринг" и "Search."](search-query-odata-full-text-search-functions.md), позволяющие создавать поисковый запрос в фильтре. Это выражение фильтра использует подстановочный знак *для выбора* удобствами, включая бесплатный WiFi, бесплатную стоянку и т. д.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+  {
+    "search": "",
+    "filter": "search.ismatch('free*', 'Tags', 'full', 'any')",
+    "select": "HotelId, HotelName, Category, Description",
+    "count": true
+  }
+```
+
+Ответ для приведенного выше запроса соответствует в 19 гостиницам, предлагающим бесплатную удобствами. Обратите внимание, что оценка поиска — это единое значение "1,0" во всех результатах. Это обусловлено тем, что выражение поиска имеет значение null или является пустым, что приводит к совпадению точных фильтров, но не содержит полнотекстовый поиск. Оценки релевантности возвращаются только при полнотекстовом поиске. Если вы используете фильтры без "поиска", убедитесь, что у вас есть достаточное количество полей для сортировки, чтобы вы могли управлять рангом поиска.
+
+```json
+"@odata.count": 19,
+"value": [
     {
-      "count": true,
-      "search": "",
-      "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "job_id, business_title, agency, salary_range_from"
+        "@search.score": 1.0,
+        "HotelId": "31",
+        "HotelName": "Santa Fe Stay",
+        "Tags": [
+            "view",
+            "restaurant",
+            "free parking"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "27",
+        "HotelName": "Super Deluxe Inn & Suites",
+        "Tags": [
+            "bar",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Tags": [
+            "continental breakfast",
+            "free parking",
+            "free wifi"
+        ]
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+```
+
+## <a name="example-5-range-filters"></a>Пример 5. фильтры диапазона
+
+Фильтрация диапазона поддерживается через выражения фильтров для любого типа данных. В следующих примерах иллюстрируются числовые и строковые диапазоны. Типы данных важны в фильтрах диапазона и лучше всего работают, когда числовые данные находятся в числовых полях, а строковые данные — в строковых. Числовые данные в строковых полях не подходят для диапазонов, так как числовые строки несравнимы.
+
+Следующий запрос является числовым диапазоном. В гостиницах — пример — index — Оценка является единственным фильтруемым числовым полем.
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating ge 2 and Rating lt 4",
+    "select": "HotelId, HotelName, Rating",
+    "orderby": "Rating desc",
+    "count": true
+}
+```
+
+Ответ для этого запроса должен выглядеть примерно так, как показано в следующем примере, с укороченным для краткости.
+
+```json
+"@odata.count": 27,
+"value": [
+    {
+        "@search.score": 1.0,
+        "HotelId": "22",
+        "HotelName": "Stone Lion Inn",
+        "Rating": 3.9
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "25",
+        "HotelName": "Scottish Inn",
+        "Rating": 3.8
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "2",
+        "HotelName": "Twin Dome Motel",
+        "Rating": 3.6
     }
 ```
 
-Если они используются вместе, сначала ко всему индексу применяется фильтр, а затем в результатах фильтрации выполняется поиск. Поэтому фильтры могут повысить производительность запросов, так как они уменьшают количество документов, которые поисковый запрос должен обработать.
-
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Фильтр ответа на запрос" border="false":::
-
-Еще один эффективный способ объединения фильтра и поиска заключается **`search.ismatch*()`** в критерии фильтра, где можно использовать поисковый запрос в фильтре. Это выражение фильтра использует подстановочный знак для термина *план*, чтобы выбрать должность business_title, содержащую термины "план", "планировщик", "планирование" и т. д.
+Следующий запрос является фильтром диапазона для строкового поля (Address/StateProvince):
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "search.ismatch('plan*', 'business_title', 'full', 'any')",
-      "select": "job_id, business_title, agency, salary_range_from"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Address/StateProvince ge 'A*' and Address/StateProvince lt 'D*'",
+    "select": "HotelId, HotelName, Address/StateProvince",
+    "count": true
+}
 ```
 
-Дополнительные сведения о функции см. в [описании search.ismatch в разделе с примерами фильтров](./search-query-odata-full-text-search-functions.md#examples).
+Ответ для этого запроса должен выглядеть, как в приведенном ниже примере, обрезанном для краткости. В этом примере невозможно выполнить сортировку по StateProvince, так как поле не является атрибутом "Sorted" в определении индекса.
 
-## <a name="example-4-range-filters"></a>Пример 4. Фильтры диапазонов
+```json
+"@odata.count": 9,
+"value": [
+    {
+        "@search.score": 1.0,
+        "HotelId": "9",
+        "HotelName": "Smile Hotel",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "39",
+        "HotelName": "Whitefish Lodge & Suites",
+        "Address": {
+            "StateProvince": "CO"
+        }
+    },
+    {
+        "@search.score": 1.0,
+        "HotelId": "7",
+        "HotelName": "Countryside Resort",
+        "Address": {
+            "StateProvince": "CA "
+        }
+    },
+```
 
-Фильтрация диапазона поддерживается в **`$filter`** выражениях для любого типа данных. В следующих примерах выполняется поиск по числовым и строковым полям. 
+## <a name="example-6-geo-search"></a>Пример 6. Географический поиск
 
-Типы данных важны в фильтрах диапазона и лучше всего работают, когда числовые данные находятся в числовых полях, а строковые данные — в строковых. Числовые данные в строковых полях не подходят для диапазонов, так как числовые строки не сравнимы в Azure Когнитивный поиск.
-
-Следующий запрос является числовым диапазоном:
+Индекс гостиниц включает в себя geo_location поле с координатами широты и долготы. В этом примере используется [функция geo.distance](search-query-odata-geo-spatial-functions.md#examples), которая фильтрует документы в пределах окружности начальной точки до произвольного расстояния (в километрах), которое вы предоставляете. Вы можете настроить Последнее значение в запросе (10), чтобы уменьшить или увеличить контактную зону запроса.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "num_of_positions ge 5 and num_of_positions lt 10",
-      "select": "job_id, business_title, num_of_positions, agency",
-      "orderby": "agency"
-    }
-```
-Результат запроса должен выглядеть, как на снимке экрана ниже.
-
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Фильтр диапазона для числовых диапазонов" border="false":::
-
-В этом запросе диапазон находится над строковым полем (business_title):
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "business_title ge 'A*' and business_title lt 'C*'",
-      "select": "job_id, business_title, agency",
-      "orderby": "business_title"
-    }
+POST /indexes/v/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "geo.distance(Location, geography'POINT(-122.335114 47.612839)') le 10",
+    "select": "HotelId, HotelName, Address/City, Address/StateProvince",
+    "count": true
+}
 ```
 
-Результат запроса должен выглядеть, как на снимке экрана ниже.
+Ответ для этого запроса возвращает все гостиницы в 10-километрном расстоянии от указанных координат:
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Фильтр диапазона для текстовых диапазонов" border="false":::
-
-> [!NOTE]
-> В приложениях поиска часто используется фасетная навигация на основе диапазонов значений. Дополнительные сведения и примеры см. [в разделе Создание фильтра аспектов](search-filters-facets.md).
-
-## <a name="example-5-geo-search"></a>Пример 5. Геопространственный поиск
-
-Индекс выборки включает в себя поле geo_location с координатами широты и долготы. В этом примере используется [функция geo.distance](search-query-odata-geo-spatial-functions.md#examples), которая фильтрует документы в пределах окружности начальной точки до произвольного расстояния (в километрах), которое вы предоставляете. Вы можете отрегулировать последнее значение в запросе (4), чтобы уменьшить или увеличить площадь поверхности запроса.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "",
-      "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
-      "select": "business_title, work_location"
-    }
+```json
+{
+    "@odata.count": 3,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelId": "45",
+            "HotelName": "Arcadia Resort & Restaurant",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "24",
+            "HotelName": "Gacc Capital",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        },
+        {
+            "@search.score": 1.0,
+            "HotelId": "16",
+            "HotelName": "Double Sanctuary Resort",
+            "Address": {
+                "City": "Seattle",
+                "StateProvince": "WA"
+            }
+        }
+    ]
+}
 ```
-
-Для более удобочитаемых результатов результаты поиска будут обрезаны, чтобы они включали название задания и рабочий ресурс. Начальные координаты были получены из случайного документа в индексе (в данном случае для места работы в Статен-Айленде).
-
-  :::image type="content" source="media/search-query-simple-examples/geo-search.png" alt-text="Схема острова Стейтэн" border="false":::
-
-## <a name="example-6-search-precision"></a>Пример 6. Точность поиска
-
-Запросы терминов позволяют искать одиночные термины или наборы терминов, которые оцениваются независимо друг от друга. Запросы фраз заключаются кавычки и проверяются как буквальная строка. Точностью соответствия управляют операторы и параметр searchMode.
-
-Пример 1. `search=fire`  совпадение с результатами в 140, где все совпадения содержат слово Fire где-нибудь в документе.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire"
-    }
-```
-
-Пример 2. `search=fire department` возвращает 2002 результата. Возвращаются документы, содержащие слово "fire" или "department".
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "fire department"
-    }
-```
-
-Пример 3. `search="fire department"` возвращает 77 результатов. При заключении строки в кавычки создается Поиск по фразам, состоящий из обоих терминов, а совпадения обнаруживаются по маркерам в индексе, состоящим из Объединенных терминов. Это объясняет, почему поисковый запрос `search=+fire +department` не является эквивалентным. Оба термина являются обязательными, но их наличие проверяется независимо друг от друга. 
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-    "count": true,
-    "search": "\"fire department\""
-    }
-```
-
-> [!Note]
-> Поскольку запрос фразы задается в кавычках, в этом примере добавляется escape-символ ( `\` ) для сохранения синтаксиса.
 
 ## <a name="example-7-booleans-with-searchmode"></a>Пример 7. Логические операторы с параметром searchMode
 
-Простой синтаксис поддерживает логические операторы в виде знаков (`+, -, |`). Параметр searchMode информирует о компромиссах между точностью и отзывом, при **`searchMode=any`** этом при помощи вызова Call (Match для любого критерия определяется документ для результирующего набора) и **`searchMode=all`** точность (все условия должны быть сопоставлены). 
+Простой синтаксис поддерживает логические операторы в виде символов ( `+, -, |` ) для поддержки логики запросов and, OR и not. Логический поиск ведет себя так, как вы можете ожидать, с помощью нескольких значимых исключений. 
 
-Значение по умолчанию — **`searchMode=any`** , что может быть запутанным, если вы накладываете запрос с несколькими операторами и получаете более широкие вместо более узких результатов. Это особенно верно для оператора NOT, когда результаты включают в себя все документы, которые "не содержат" конкретный термин.
+В предыдущих примерах параметр "searchMode" появился в качестве механизма для возможного влияния на точность и отзыв, при этом "searchMode = Any" отпользующий отзыв (документ, удовлетворяющий любому критерию, считается совпадением) и "searchMode = ALL" (все условия должны быть сопоставлены в документе). 
 
-При использовании searchMode по умолчанию (Any) возвращаются документы 2800: те, которые содержат фразу «пожарный отдел», а также все документы, у которых нет фразы «Метротеч Center».
+В контексте логического поиска по умолчанию «searchMode = Any» может быть запутанным, если вы накладываете запрос с несколькими операторами и получаете более широкие вместо более узких результатов. Это особенно справедливо в случае ОТСУТСТВия, где результаты включают все документы "не содержащие" определенного термина или фразы.
 
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "any"
-    }
-```
+Ниже приведен пример. При выполнении следующего запроса с searchMode (Any) возвращаются документы 42: те, которые содержат термин "Ресторан", а также все документы, у которых нет фразы "кондиционирование воздуха". 
 
-Результат запроса должен выглядеть, как на снимке экрана ниже.
-
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="режим поиска &quot;любой&quot;" border="false":::
-
-Изменение для **`searchMode=all`** применения совокупного воздействия на критерии и возвращает меньший результирующий набор — 21 документ, состоящий из документов, содержащих целую фразу «пожарный отдел», за вычетом этих заданий по адресу Метротеч Center.
+Обратите внимание, что между логическим оператором ( `-` ) и фразой «кондиционирование воздуха» нет пробелов.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"-\"Metrotech Center\"",
-      "searchMode": "all"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "restaurant -\"air conditioning\"",
+    "searchMode": "any",
+    "searchFields": "Tags",
+    "select": "HotelId, HotelName, Tags",
+    "count": true
+}
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="режим поиска &quot;все&quot;" border="false":::
+Изменение на "searchMode = ALL" обеспечивает совокупное воздействие на критерии и возвращает меньший результирующий набор (7 совпадений), состоящий из документов, содержащих термин "Ресторан", минус те, которые содержат фразу "кондиционирование воздуха".
 
-## <a name="example-8-structuring-results"></a>Пример 8. Структурирование результатов
+Ответ для этого запроса теперь будет выглядеть примерно так, как в следующем примере, обрезанном для краткости.
 
-Несколько параметров управляют тем, какие поля добавляются в результаты поиска, числом документов, возвращаемых в каждом пакете, и порядком сортировки. В этом примере переводятся некоторые из предыдущих примеров, ограничивающие результаты конкретными полями с помощью **`$select`** оператора и условий поиска точных выражений, возвращая 82 соответствий.
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.5460577,
+        "HotelId": "11",
+        "HotelName": "Regal Orb Resort & Spa",
+        "Tags": [
+            "free wifi",
+            "restaurant",
+            "24-hour front desk service"
+        ]
+    },
+    {
+        "@search.score": 2.166792,
+        "HotelId": "10",
+        "HotelName": "Countryside Hotel",
+        "Tags": [
+            "24-hour front desk service",
+            "coffee in lobby",
+            "restaurant"
+        ]
+    },
+```
+
+## <a name="example-8-paging-results"></a>Пример 8. Результаты разбиения на страницы
+
+В предыдущих примерах вы узнали о параметрах, влияющих на композицию результатов поиска, включая "Select", который определяет, какие поля в результатах, порядок сортировки и как включить число совпадений. Этот пример является продолжением композиции результатов поиска в виде параметров подкачки, которые позволяют пакетировать количество результатов, отображаемых на данной странице. 
+
+По умолчанию служба поиска возвращает первые 50 соответствий. Чтобы управлять количеством совпадений на каждой странице, используйте "Top", чтобы определить размер пакета, а затем используйте "пропустить", чтобы выбрать последующие пакеты.
+
+В следующем примере используется фильтр и порядок сортировки для поля рейтинг (оценка является как фильтруемым, так и сортируемый), так как это позволяет увидеть результаты разбиения по страницам отсортированных результатов. В обычном поисковом запросе верхние соответствия ранжированы и размещаются на странице " @search.score ".
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description"
-    }
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "count": true
+}
 ```
 
-Они добавлены к предыдущему примеру, и их можно отсортировать по заголовку. Сортировка работает, так как поле civil_service_title является *сортируемым* в индексе.
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title"
-    }
-```
-
-Результаты разбиения на страницы реализуются с помощью **`$top`** параметра. в этом случае возвращаются пять первых документов:
-
-```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-    {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5"
-    }
-```
+Запрос находит 21 соответствующий документ, но, так как вы указали "Top", ответ возвращает только первые пять совпадений с оценками, начиная с 4,9 и заканчивая 4,7 с "хозяйкой & B". 
 
 Чтобы получить следующие 5 документов, пропустите первый пакет.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "*",
+    "filter": "Rating gt 4",
+    "select": "HotelName, Rating",
+    "orderby": "Rating desc",
+    "top": "5",
+    "skip": "5",
+    "count": true
+}
+```
+
+Ответ для второго пакета пропускает первые пять совпадений, возвращая следующие пять, начиная с "Пулл'р Инн Motel". Чтобы продолжить работу с дополнительными пакетами, можно сохранить "Top" в 5, а затем увеличить "Skip" на 5 для каждого нового запроса (Skip = 5, SKIP = 10, Skip = 15 и т. д.).
+
+```json
+"value": [
     {
-      "count": true,
-      "search": "\"fire department\"",
-      "searchMode": "any",
-      "select": "job_id,agency,business_title,civil_service_title,work_location,job_description",
-      "orderby": "civil_service_title",
-      "top": "5",
-      "skip": "5"
+        "@search.score": 1.0,
+        "HotelName": "Pull'r Inn Motel",
+        "Rating": 4.7
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Sublime Cliff Hotel",
+        "Rating": 4.6
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Antiquity Hotel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Nordick's Motel",
+        "Rating": 4.5
+    },
+    {
+        "@search.score": 1.0,
+        "HotelName": "Winter Panorama Resort",
+        "Rating": 4.5
     }
+]
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Попробуйте указать запросы в коде. Следующие ссылки содержат сведения о настройке поисковых запросов с помощью пакетов SDK для Azure.
+Теперь, когда у вас есть опыт использования базового синтаксиса запросов, попробуйте указать запросы в коде. Следующие ссылки содержат сведения о настройке поисковых запросов с помощью пакетов SDK для Azure.
 
 + [Запрос индекса с помощью пакета SDK для .NET](search-get-started-dotnet.md)
 + [Запрос индекса с помощью пакета SDK для Python](search-get-started-python.md)
@@ -334,6 +533,6 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 + [Примеры синтаксиса запросов Lucene для создания расширенных запросов](search-query-lucene-examples.md)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md) (Как выполняется полнотекстовый поиск в Когнитивном поиске Azure)
-+ [Простой синтаксис запросов](query-simple-syntax.md)
-+ [Полный синтаксис запроса Lucene](query-lucene-syntax.md)
++ [Синтаксис простых запросов](query-simple-syntax.md)
++ [Lucene query syntax in Azure Search](query-lucene-syntax.md) (Синтаксис запросов Lucene в службе поиска Azure)
 + [Синтаксис фильтра](search-query-odata-filter.md)

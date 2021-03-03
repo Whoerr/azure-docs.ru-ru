@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 02/21/2021
-ms.openlocfilehash: 7acb891cc887fb118a338cc837c5c5c4c98a63d8
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655944"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691915"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Сравнение функций: база данных SQL Azure и Управляемый экземпляр Azure SQL
 
@@ -48,7 +48,7 @@ Azure управляет вашими базами данных и гарант�
 | [BULK INSERT, инструкция](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Да, но только из хранилища BLOB-объектов Azure в качестве источника. | Да, но только из хранилища BLOB-объектов Azure в качестве источника — см. раздел [различия](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Сертификаты и асимметричные ключи](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Да, без доступа к файловой системе для `BACKUP` `CREATE` операций и. | Да, без доступа к файловой системе для `BACKUP` `CREATE` операций и — см. раздел [различия сертификатов](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
 | [Система отслеживания измененных данных — CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Нет | Да |
-| [Параметры сортировки сервера или экземпляра](/sql/relational-databases/collations/set-or-change-the-server-collation) | Нет, параметры сортировки сервера по умолчанию `SQL_Latin1_General_CP1_CI_AS` всегда используются. | Да, может быть задано при [создании экземпляра](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) и не может быть обновлено позже. |
+| [Параметры сортировки сервера или экземпляра](/sql/relational-databases/collations/set-or-change-the-server-collation) | Нет, параметры сортировки сервера по умолчанию `SQL_Latin1_General_CP1_CI_AS` всегда используются. | Да, может быть задано при [создании экземпляра](../managed-instance/create-template-quickstart.md) и не может быть обновлено позже. |
 | [Индексы columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) | Да — [уровень "Премиум", уровень "Стандартный" — S3 и выше, общего назначения уровень, критически важный для бизнеса и масштабируемые уровни](/sql/relational-databases/indexes/columnstore-indexes-overview) . |Да |
 | [Общеязыковая среда выполнения — CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Нет | Да, но без доступа к файловой системе в `CREATE ASSEMBLY` инструкции см. раздел [различия в среде CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) . |
 | [Учетные данные](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Да, но только [учетные данные уровня базы данных](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Да, но поддерживаются только **Azure Key Vault** и `SHARED ACCESS SIGNATURE` , см. [подробные сведения](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) . |

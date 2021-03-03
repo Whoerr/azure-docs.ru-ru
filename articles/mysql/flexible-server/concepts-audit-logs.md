@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591756"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718749"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Мониторинг активности базы данных с помощью журналов аудита в базе данных Azure для гибкого сервера MySQL
 
@@ -46,7 +46,7 @@ ms.locfileid: "100591756"
 | `DCL` | Запросы, например "предоставление разрешения" |
 | `ADMIN` | Такие запросы, как "ОТОБРАЗИТЬ состояние" |
 | `GENERAL` | Все в DML_SELECT, DML_NONSELECT, DML, DDL, ДКЛ и ADMIN |
-| `TABLE_ACCESS` | — Доступно только для MySQL 5,7 <br> — Инструкции чтения таблицы, такие как SELECT или INSERT INTO... МЕТЬТЕ <br> — Инструкции DELETE таблицы, такие как DELETE или TRUNCATE TABLE <br> — Табличные инструкции INSERT, такие как INSERT или Replace <br> -Табличные инструкции UPDATE, например UPDATE |
+| `TABLE_ACCESS` | — Инструкции чтения таблицы, такие как SELECT или INSERT INTO... МЕТЬТЕ <br> — Инструкции DELETE таблицы, такие как DELETE или TRUNCATE TABLE <br> — Табличные инструкции INSERT, такие как INSERT или Replace <br> -Табличные инструкции UPDATE, например UPDATE |
 
 ## <a name="access-audit-logs"></a>Доступ к журналам аудита
 
@@ -72,7 +72,7 @@ ms.locfileid: "100591756"
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Имя сервера |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (доступно только для MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | Уникальный идентификатор соединения, созданный MySQL |
 | `host_s` | Пусто |
 | `ip_s` | IP-адрес клиента, подключающегося к MySQL |
@@ -80,7 +80,7 @@ ms.locfileid: "100591756"
 | `db_s` | Имя базы данных, подключенной к |
 | `\_ResourceId` | Универсальный код ресурса (URI) |
 
-### <a name="general"></a>Общие сведения
+### <a name="general"></a>Общее
 
 Приведенная ниже схема относится к типам событий GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, ДКЛ и ADMIN.
 
@@ -116,7 +116,7 @@ ms.locfileid: "100591756"
 ### <a name="table-access"></a>Доступ к таблицам
 
 > [!NOTE]
-> Журналы доступа к таблицам выводятся только для MySQL 5,7.<br>Для `sql_text_s` Журнал будет обрезан, если его длина превышает 2048 символов.
+> Для `sql_text_s` Журнал будет обрезан, если его длина превышает 2048 символов.
 
 | **Свойство** | **Описание** |
 |---|---|
@@ -195,7 +195,7 @@ ms.locfileid: "100591756"
     | order by TimeGenerated asc nulls last
     ``` 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 - Дополнительные сведения о [журналах медленных запросов](concepts-slow-query-logs.md)
 - Настройка журналов запросов аудита из [портал Azure](how-to-configure-audit-logs-portal.md)
 <!-- - [How to configure audit logs in the Azure portal](howto-configure-audit-logs-portal.md)-->

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: 304a7adf69ed3622cf2031cfbebb920bff5238cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5589697771227c8105adcce61e4daeebdb315391
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622077"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714346"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Создание оповещения метрики с помощью шаблона Resource Manager
 
@@ -27,7 +27,7 @@ ms.locfileid: "100622077"
 
 1. Используйте один из приведенных ниже шаблонов в виде JSON-файла, описывающего создание оповещения.
 2. Измените и используйте соответствующий файл параметров как JSON, чтобы настроить оповещение.
-3. Сведения о `metricName` параметре см. в разделе Доступные метрики в [Azure Monitor поддерживаемые метрики](../platform/metrics-supported.md).
+3. Сведения о `metricName` параметре см. в разделе Доступные метрики в [Azure Monitor поддерживаемые метрики](../essentials/metrics-supported.md).
 4. Разверните шаблон с помощью [любого метода развертывания](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Шаблон для простого оповещения о метрике со статическим пороговым значением
@@ -1247,7 +1247,7 @@ az deployment group create \
 
 Приведенный ниже шаблон можно использовать для создания более сложного правила генерации оповещений метрики со статическим порогом для своей метрики.
 
-Дополнительные сведения о пользовательских метриках в Azure Monitor см. в разделе [Пользовательские метрики в Azure Monitor](../platform/metrics-custom-overview.md).
+Дополнительные сведения о пользовательских метриках в Azure Monitor см. в разделе [Пользовательские метрики в Azure Monitor](../essentials/metrics-custom-overview.md).
 
 При создании правила генерации оповещений для пользовательской метрики необходимо указать как имя метрики, так и пространство имен метрик. Также следует убедиться, что эта пользовательская метрика уже передает данные, так как невозможно создать правило генерации оповещений для пользовательской метрики, которая еще не существует.
 
@@ -1503,7 +1503,7 @@ az deployment group create \
 
 >[!NOTE]
 >
-> Пространство имен метрик определенной пользовательской метрики можно найти, [просмотрев пользовательские метрики на портале Azure](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
+> Пространство имен метрик определенной пользовательской метрики можно найти, [просмотрев пользовательские метрики на портале Azure](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Шаблон для оповещения метрики, отслеживающего несколько ресурсов
@@ -3622,9 +3622,8 @@ az deployment group create \
     --parameters @availabilityalert.parameters.json
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения об [оповещениях в Azure](../platform/alerts-overview.md)
+- Дополнительные сведения об [оповещениях в Azure](./alerts-overview.md)
 - Сведения о [создании группы действий с помощью шаблона Resource Manager](../alerts/action-groups-create-resource-manager-template.md)
 - Синтаксис и свойства JSON см. в справочнике по шаблонам [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts).
-

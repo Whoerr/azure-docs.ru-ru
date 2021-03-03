@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719786"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Настраиваемая коллекция метрик в .NET и .NET Core
 
@@ -33,7 +33,7 @@ ms.locfileid: "100584199"
 В сводке `GetMetric()` является рекомендуемым подходом, поскольку он выполняет предварительную статистическую обработку, он накапливает значения из всех вызовов Track () и отправляет сводку или статистическое выражение каждую минуту. Это может значительно снизить затраты и издержки на производительность, отправляя меньше точек данных, сохраняя все важные сведения.
 
 > [!NOTE]
-> Только пакеты SDK для .NET и .NET Core имеют метод-Metric (). При использовании Java можно использовать [метрики микрометер](./micrometer-java.md) или `TrackMetric()` . Для Python можно использовать [опенценсус. stats](./opencensus-python.md#metrics) для отправки пользовательских метрик. Для JavaScript и Node.js вы по-прежнему используете `TrackMetric()` , но помните о предупреждениях, описанных в предыдущем разделе.
+> Только пакеты SDK для .NET и .NET Core имеют метод-Metric (). При использовании Java можно использовать [метрики микрометер](./micrometer-java.md) или `TrackMetric()` . Для JavaScript и Node.js вы по-прежнему используете `TrackMetric()` , но помните о предупреждениях, описанных в предыдущем разделе. Для Python можно использовать [опенценсус. stats](./opencensus-python.md#metrics) для отправки пользовательских метрик, но реализация метрик отличается.
 
 ## <a name="getting-started-with-getmetric"></a>Приступая к работе с параметром Metric
 
@@ -69,7 +69,7 @@ namespace WorkerService3
             // Here "computersSold", a custom metric name, is being tracked with a value of 42 every second.
             while (!stoppingToken.IsCancellationRequested)
             {
-                _telemetryClient.GetMetric("computersSold").TrackValue(42);
+                _telemetryClient.GetMetric("ComputersSold").TrackValue(42);
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
@@ -89,7 +89,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 "ai.internal.sdkVersion":"m-agg2c:2.12.0-21496",
 "ai.internal.nodeName":"Test-Computer-Name"},
 "data":{"baseType":"MetricData",
-"baseData":{"ver":2,"metrics":[{"name":"computersSold",
+"baseData":{"ver":2,"metrics":[{"name":"ComputersSold",
 "kind":"Aggregation",
 "value":1722,
 "count":41,
@@ -101,6 +101,9 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 ```
 
 Этот единственный элемент телеметрии представляет собой совокупность 41 различных измерений метрик. Так как мы отправили одно и то же значение повторно, мы имеем *стандартное отклонение (stDev)* 0 с идентичным *максимальным (максимальным)* и *минимальным (min)* значениями. Свойство *value* представляет сумму всех отдельных значений, которые были агрегированы.
+
+> [!NOTE]
+> Параметр METRIC не поддерживает отслеживание последнего значения (т. е. "датчика"), а также гистограмм и распределений.
 
 Если изучить наш Application Insights ресурс в службе "журналы (аналитика)", этот отдельный элемент телеметрии будет выглядеть следующим образом:
 
@@ -283,7 +286,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` Максимальное количество временных рядов данных, которое может содержать метрика. По достижении этого ограничения вызывает метод `TrackValue()` .
+* `seriesCountLimit` Максимальное количество временных рядов данных, которое может содержать метрика. По достижении этого ограничения вызовы метода `TrackValue()` не будут относиться.
 * `valuesPerDimensionLimit` Аналогичным образом ограничивает количество уникальных значений на измерение.
 * `restrictToUInt32Values` Определяет, следует ли относиться к отслеживанию неотрицательных целочисленных значений.
 
@@ -298,7 +301,7 @@ SeverityLevel.Error);
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные [сведения ](./worker-service.md)о мониторинге приложений службы рабочей роли.
 * Дополнительные сведения о [метриках на основе журналов и предварительно агрегированных](./pre-aggregated-metrics-log-metrics.md)данных.

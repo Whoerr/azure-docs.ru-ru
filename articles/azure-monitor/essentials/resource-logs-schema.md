@@ -4,12 +4,12 @@ description: Узнайте о поддерживаемых службах и с
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b37535b67ed1873c5a492e28e6bf4da8c67c7e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623139"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717542"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Распространенная и зависящая от службы схема для журналов ресурсов Azure
 
@@ -38,7 +38,7 @@ ms.locfileid: "100623139"
 | callerIpAddress | Необязательно | IP-адрес вызывающего объекта, если операция соответствует вызову API, который будет приходить с объекта с общедоступным IP-адресом. |
 | correlationId | Необязательно | Идентификатор GUID, используемый для формирования набора связанных событий. Как правило, если два события имеют одну и ту же Имя_операции, но два разных состояния (например, "запущено" и "успешно"), они используют один и тот же идентификатор корреляции. Идентификатор может также представлять другие связи между событиями. |
 | удостоверение | Необязательно | BLOB-объект типа JSON, описывающий идентификацию пользователя или приложения, выполнившего операцию. Обычно это поле содержит маркер авторизации и утверждений/JWT из Active Directory. |
-| Уровень | Необязательно | Уровень серьезности события. Должен быть одним из следующих значений: "Информационное", "Предупреждение", "Ошибка" или "Критическое". |
+| Level | Необязательно | Уровень серьезности события. Должен быть одним из следующих значений: "Информационное", "Предупреждение", "Ошибка" или "Критическое". |
 | location | Необязательно | Регион ресурса, на который порождается событие, например "Восточная часть США" или "Французская Южная" |
 | properties | Необязательно | Любые расширенные свойства, связанные с этой конкретной категорией событий. Все пользовательские или уникальные свойства должны быть размещены внутри этой "части B" схемы. |
 
@@ -57,7 +57,7 @@ ms.locfileid: "100623139"
 | Пакетная служба Azure |[Ведение журнала пакетной службы Azure](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Ведение журнала для Cognitive Services Azure](../../cognitive-services/diagnostic-logging.md) |
 | Реестр контейнеров | [Ведение журнала для реестра контейнеров Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
-| Сеть доставки содержимого | [Журналы Azure для CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
+| Сеть доставки содержимого (CDN) | [Журналы Azure для CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Журнал ведения диагностики Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Фабрика данных | [Мониторинг фабрик данных с помощью Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Доступ к журналам для Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
@@ -73,7 +73,7 @@ ms.locfileid: "100623139"
 | Front Door | [Ведение журнала для передней дверцы](../../frontdoor/front-door-diagnostics.md) |
 | Центр Интернета вещей | [Использование Azure Monitor](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Ведение журнала хранилища ключей Azure](../../key-vault/general/logging.md) |
-| Служба Kubernetes |[Ведение журнала Kubernetes для Azure](../../aks/view-master-logs.md#log-event-schema) |
+| Служба Kubernetes |[Ведение журнала Kubernetes для Azure](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Служба анализа журналов для балансировщика нагрузки Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Настраиваемая схема отслеживания Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | группы сетевой безопасности; |[Аналитика журналов для групп безопасности сети](../../virtual-network/virtual-network-nsg-manage-log.md) |
@@ -81,7 +81,7 @@ ms.locfileid: "100623139"
 | Power BI (цен. категория "Выделенный") | [Ведение журнала для Power BI Embedded в Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Службы восстановления | [Модель данных для Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Поиск |[Включение и использование аналитики поискового трафика](../../search/search-traffic-analytics.md) |
-| Cлужебная шина |[Журналы служебной шины Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| Служебная шина Azure |[Журналы служебной шины Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | База данных SQL | [Ведение журнала базы данных SQL Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Журналы заданий](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Диспетчер трафика | [Схема журнала диспетчера трафика](../../traffic-manager/traffic-manager-diagnostic-logs.md) |

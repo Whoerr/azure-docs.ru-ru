@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699306"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight. Часто задаваемые вопросы
 
@@ -61,7 +61,7 @@ ms.locfileid: "98946029"
 
 - [Платформа приложений HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) для установки приложений.
 
-Список поддерживаемых компонентов см [. в статье что такое Apache Hadoop компоненты и версии, доступные в HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Список поддерживаемых компонентов см [. в статье что такое Apache Hadoop компоненты и версии, доступные в HDInsight?](./hdinsight-component-versioning.md)
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>Можно ли обновить отдельные компоненты, предварительно установленные в кластере?
 
@@ -234,7 +234,7 @@ LLAP включен по соображениям безопасности (Apac
 
 ### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>Как настроить аудит для учетной записи хранения BLOB-объектов?
 
-Для аудита учетных записей хранения BLOB-объектов Настройте мониторинг с помощью процедуры, описанной в разделе [мониторинг учетной записи хранения в портал Azure](../storage/common/storage-monitor-storage-account.md). Журнал аудита HDFS содержит только данные аудита только для локальной файловой системы HDFS (hdfs://mycluster).  Она не включает операции, выполняемые в удаленном хранилище.
+Для аудита учетных записей хранения BLOB-объектов Настройте мониторинг с помощью процедуры, описанной в разделе [мониторинг учетной записи хранения в портал Azure](../storage/common/manage-storage-analytics-logs.md). Журнал аудита HDFS содержит только данные аудита только для локальной файловой системы HDFS (hdfs://mycluster).  Она не включает операции, выполняемые в удаленном хранилище.
 
 ### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>Как передавать файлы между контейнером больших двоичных объектов и головным узлом HDInsight?
 

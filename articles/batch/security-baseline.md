@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d8ef3efcda55868abec188c10ef904ae40a56722
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593306"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728150"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Базовый план безопасности Azure для пакетной службы
 
@@ -140,7 +140,7 @@ ms.locfileid: "100593306"
 
 **Руководство**. Использование журнала действий Azure для мониторинга конфигураций сетевых ресурсов и обнаружения изменений сетевых ресурсов, связанных с пулами пакетной службы Azure. Создавайте оповещения в Azure Monitor, которые будут запускаться при изменении критических сетевых ресурсов.
 
-- [Как просматривать и извлекать события журнала действий Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [Как просматривать и извлекать события журнала действий Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
 - [Как создать оповещения в службе Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -516,7 +516,7 @@ ms.locfileid: "100593306"
 
 - [Создание оповещений для событий журнала действий Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Включение дополнительного ведения журнала и аудита для учетной записи хранения Azure](../storage/common/storage-monitor-storage-account.md)
+- [Включение дополнительного ведения журнала и аудита для учетной записи хранения Azure](../storage/common/manage-storage-analytics-logs.md)
 
 **Мониторинг Центра безопасности Azure**: Да
 
@@ -940,7 +940,7 @@ ms.locfileid: "100593306"
 
 - [См. публикацию NIST: руководство по тестированию, обучению и выполнению программ для ИТ-планов и возможностей](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+**Мониторинг Центра безопасности Azure**. Неприменимо
 
 **Ответственность**: Customer
 

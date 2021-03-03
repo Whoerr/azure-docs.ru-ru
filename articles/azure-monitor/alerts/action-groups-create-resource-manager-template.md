@@ -4,15 +4,15 @@ description: Узнайте, как создать группу действий
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 02/19/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 2275ea059b762e81330d3e6150c563e18a64b554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 978372481513f3d68fdc587ccc1148976640bc80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622155"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729136"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Создание группы действий с помощью шаблона Resource Manager
 В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) для настройки групп действий. С помощью шаблонов можно автоматически настроить группы действий, которые можно использовать повторно в определенных типах оповещений. С помощью этих групп действий обеспечивается уведомление соответствующих участников при активации оповещения.
@@ -50,7 +50,7 @@ ms.locfileid: "100622155"
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -71,21 +71,26 @@ ms.locfileid: "100622155"
         "emailReceivers": [
           {
             "name": "contosoEmail",
-            "emailAddress": "devops@contoso.com"
+            "emailAddress": "devops@contoso.com",
+            "useCommonAlertSchema": true
+
           },
           {
             "name": "contosoEmail2",
-            "emailAddress": "devops2@contoso.com"
+            "emailAddress": "devops2@contoso.com",
+            "useCommonAlertSchema": true
           }
         ],
         "webhookReceivers": [
           {
             "name": "contosoHook",
-            "serviceUri": "http://requestb.in/1bq62iu1"
+            "serviceUri": "http://requestb.in/1bq62iu1",
+            "useCommonAlertSchema": true
           },
           {
             "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu2"
+            "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -133,7 +138,7 @@ ms.locfileid: "100622155"
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -146,7 +151,8 @@ ms.locfileid: "100622155"
         "webhookReceivers": [
           {
             "name": "[parameters('webhookReceiverName')]",
-            "serviceUri": "[parameters('webhookServiceUri')]"
+            "serviceUri": "[parameters('webhookServiceUri')]",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -162,8 +168,7 @@ ms.locfileid: "100622155"
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
-* Дополнительные сведения о группах действий см. в статье [Создание групп действий и управление ими на портале Azure](../platform/action-groups.md).
-* Дополнительные сведения об [оповещениях](../platform/alerts-overview.md).
-* Узнайте, как добавить [оповещения с помощью шаблона Resource Manager](../platform/alerts-activity-log.md).
-
+## <a name="next-steps"></a>Дальнейшие действия
+* Дополнительные сведения о группах действий см. в статье [Создание групп действий и управление ими на портале Azure](./action-groups.md).
+* Дополнительные сведения об [оповещениях](./alerts-overview.md).
+* Узнайте, как добавить [оповещения с помощью шаблона Resource Manager](./alerts-activity-log.md).

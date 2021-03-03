@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.openlocfilehash: b1a249bac4a1a46e52bf52eccd56649153eefe8e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360930"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721350"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Руководство по созданию Azure Load Balancer между регионами с помощью Azure PowerShell
 
@@ -195,7 +195,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 В этом разделе вы проверите подсистему балансировки нагрузки в нескольких регионах. С помощью веб-браузера вы подключитесь к общедоступному IP-адресу.  Вы остановите работу виртуальных машин в одном из серверных пулов подсистемы балансировки нагрузки, а затем отследите выполнение отработки отказа.
 
-1. Используйте командлет [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress), чтобы получить сведения об общедоступном IP-адресе подсистемы балансировки нагрузки:
+1. Используйте командлет [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress), чтобы получить сведения об общедоступном IP-адресе подсистемы балансировки нагрузки:
 
 ```azurepowershell-interactive
 $ip = @{

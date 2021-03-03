@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675019"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694994"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Виртуальные машины Azure для масштабируемых наборов виртуальных машин 
 
@@ -68,13 +68,56 @@ ms.locfileid: "101675019"
 > Эта предварительная версия предоставляется без соглашения об уровне обслуживания и не рекомендована для использования рабочей среде. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Попробуйте & восстановить преимущества:
-- По умолчанию включено при развертывании виртуальной машины в масштабируемом наборе Azure.
 - Пытается восстановить виртуальные машины Azure, исключенные из-за емкости.
 - Ожидается, что восстановленные виртуальные машины Azure будут выполняться дольше, чем вероятность вытеснений с повышенной вероятностью.
 - Увеличивает время существования виртуальной машины в точке Azure, поэтому рабочие нагрузки выполняются дольше.
 - Помогает масштабируемым наборам виртуальных машин поддерживать целевое количество виртуальных машин Azure, аналогично функции "вести подсчет целевых объектов", которая уже существует для виртуальных машин с оплатой по мере использования.
 
 Попробуйте & восстановление отключено в масштабируемых наборах, использующих [Автомасштабирование](virtual-machine-scale-sets-autoscale-overview.md). Количество виртуальных машин в масштабируемом наборе определяется правилами автомасштабирования.
+
+### <a name="register-for-try--restore"></a>Регистрация для восстановления & try
+
+Перед использованием функции "попробовать & восстановление" необходимо зарегистрировать подписку для предварительной версии. Для завершения регистрации может потребоваться несколько минут. Для завершения регистрации компонентов можно использовать Azure CLI или PowerShell.
+
+
+**Использование CLI**
+
+Чтобы включить предварительную версию подписки, используйте команду [AZ Feature Register](/cli/azure/feature#az-feature-register) . 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Регистрация компонентов может занять до 15 минут. Чтобы проверить состояние регистрации, сделайте следующее: 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+После регистрации функции для подписки завершите процесс согласия, добавив изменения в поставщик ресурсов вычислений. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Использование PowerShell** 
+
+Используйте командлет [Register-азпровидерфеатуре](/powershell/module/az.resources/register-azproviderfeature) , чтобы включить предварительную версию для подписки. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Регистрация компонентов может занять до 15 минут. Чтобы проверить состояние регистрации, сделайте следующее: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+После регистрации функции для подписки завершите процесс согласия, добавив изменения в поставщик ресурсов вычислений. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>Группы размещения
 

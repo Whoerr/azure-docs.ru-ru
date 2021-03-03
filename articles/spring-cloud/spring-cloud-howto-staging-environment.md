@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574790"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738758"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Настройка промежуточной среды в облаке Azure весны
 
@@ -23,7 +23,7 @@ ms.locfileid: "99574790"
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Облачный экземпляр Azure весны в **ценовой** категории " *стандартный* ".
-* Azure CLI [облачное расширение Azure весны](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
+* Azure CLI [облачное расширение Azure весны](/cli/azure/azure-cli-extensions-overview)
 
 В этой статье используется приложение, построенное на основе пружинного инициализатора. Если вы хотите использовать другое приложение в этом примере, необходимо внести простое изменение в общедоступную часть приложения, чтобы отличать промежуточное развертывание от рабочей среды.
 
@@ -170,6 +170,6 @@ az spring-cloud app deploy  -g <resource-group-name> -s <service-instance-name> 
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [CI/CD для Azure Веснного облака](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-cicd?branch=pr-en-us-142929&pivots=programming-language-java)

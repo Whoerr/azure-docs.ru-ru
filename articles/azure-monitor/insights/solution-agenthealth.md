@@ -1,17 +1,16 @@
 ---
 title: Работоспособность агентов решение в Azure Monitor | Документация Майкрософт
 description: Эта статья поможет вам понять, как использовать это решение для отслеживания работоспособности агентов, которые отправляют отчеты непосредственно в Log Analytics или System Center Operations Manager.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: a498c229acce9359acfb4593ec5f833000ca2c39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573369"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711065"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Работоспособность агентов решение в Azure Monitor
 Решение Работоспособность агентов в Azure помогает понять, что для всех агентов, отправляющих отчеты непосредственно в рабочую область Log Analytics в Azure Monitor или группу управления System Center Operations Manager, подключенную к Azure Monitor, которая не отвечает и не отправляет операционные данные.  Вы также можете отслеживать число развернутых агентов и их географическое распределение, а также выполнять другие запросы, чтобы знать о распределении агентов, развернутых в Azure, других облачных средах или в локальной среде.    
@@ -34,7 +33,7 @@ ms.locfileid: "100573369"
 Добавьте решение для мониторинга работоспособности агентов в рабочую область Log Analytics, как описано в статье [Добавление решений](solutions.md). Дополнительная настройка не требуется.
 
 
-## <a name="data-collection"></a>сбор данных
+## <a name="data-collection"></a>Сбор данных
 ### <a name="supported-agents"></a>Поддерживаемые агенты
 В следующей таблице описаны подключенные источники, которые поддерживаются этим решением.
 
@@ -108,7 +107,7 @@ ms.locfileid: "100573369"
 
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о создании оповещений из запросов журналов см. [в Azure Monitor](../alerts/alerts-overview.md) . 
 

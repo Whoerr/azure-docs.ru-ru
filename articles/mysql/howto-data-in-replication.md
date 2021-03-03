@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709552"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Настройка Базы данных Azure для MySQL для репликации входных данных
 
@@ -80,7 +80,7 @@ ms.locfileid: "98250538"
       ping <output of step 2b>
       ```
 
-      Пример:
+      Пример.
 
       ```bash
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
@@ -101,9 +101,23 @@ ms.locfileid: "98250538"
    ```
 
    Если переменная [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) возвращается со значением "on", ведение двоичного журнала включено на сервере.
-
-   Если `log_bin` возвращается значение "OFF", включите ведение двоичного журнала, отредактировав файл My. cnf `log_bin=ON` и перезапустите сервер, чтобы изменения вступили в силу.
-
+   
+   Если `log_bin` возвращается со значением "OFF", 
+   1. На исходном сервере откройте файл конфигурации MySQL (My. cnf). Например:/ЕТК/ми.КНФ
+   2. Откройте файл конфигурации, чтобы изменить его и поместить раздел с **MySQL** в файл.
+   3.  В разделе с MySQL добавьте следующую строку.
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Перезапустите исходный сервер MySQL, чтобы изменения вступили в силу.
+   5. После перезапуска сервера убедитесь, что двоичное ведение журнала включено, выполнив тот же запрос, что и раньше:
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Параметры исходного сервера
 
    Для Репликация входных данных требуется `lower_case_table_names` согласованность параметров между сервером источника и реплики. По умолчанию этот параметр в Базе данных Azure для MySQL равен 1.

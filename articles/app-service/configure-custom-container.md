@@ -2,14 +2,14 @@
 title: Настройка пользовательского контейнера
 description: Узнайте, как настроить пользовательский контейнер в службе приложений Azure. В этой статье показаны наиболее распространенные задачи настройки.
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007642"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704877"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Настройка контейнера клиента в Службе приложений Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "97007642"
 
 Для пользовательского образа Windows необходимо выбрать правильный [родительский образ (базовый образ)](https://docs.docker.com/develop/develop-images/baseimages/) для нужной платформы:
 
-- Чтобы развернуть .NET Framework приложения, используйте родительский образ, основанный на выпуске Windows Server Core [Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . 
+- Чтобы развернуть платформа .NET Framework приложения, используйте родительский образ, основанный на выпуске Windows Server Core [Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . 
 - Для развертывания приложений .NET Core Используйте Родительский образ, основанный на выпуске Windows Server Nano [Channel Servicing (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
 
 Скачивание родительского образа во время запуска приложения занимает некоторое время. Но вы можете ускорить запуск, используя один из следующих родительских образов, уже кэшированных в службе приложений Azure:
@@ -111,10 +111,10 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB_HOST"="myownserver.mysql.database.azure.com"}
 ```
 
-При запуске приложения параметры приложения службы приложений вставляются в процесс как переменные среды автоматически. 
+При запуске приложения параметры приложения службы приложений вставляются в процесс как переменные среды автоматически. Вы можете проверить переменные среды контейнера с помощью URL-адреса `https://<app-name>.scm.azurewebsites.net/Env)` .
 
 ::: zone pivot="container-windows"
-Для контейнеров на основе IIS или .NET Framework (4,0 или выше) они внедряются в `System.ConfigurationManager` качестве параметров приложения .NET и строки подключения автоматически службой приложений. Для любого другого языка или платформы они предоставляются как переменные среды для процесса с одним из следующих соответствующих префиксов:
+Для контейнеров на основе IIS или платформа .NET Framework (4,0 или выше) они внедряются в `System.ConfigurationManager` качестве параметров приложения .NET и строки подключения автоматически службой приложений. Для любого другого языка или платформы они предоставляются как переменные среды для процесса с одним из следующих соответствующих префиксов:
 
 - `APPSETTING_`
 - `SQLCONTR_`
@@ -276,7 +276,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CO
 
 Возможные значения приведены в следующей таблице.
 
-| Значение | Описание |
+| Значение | Описания |
 | - | - |
 | **Чинить** | Перезапуск контейнера после трех последовательных проверок доступности |
 | **ReportOnly** | Значение по умолчанию. Не перезапускайте контейнер, но отчет в журналах DOCKER для контейнера после трех последовательных проверок доступности. |
@@ -292,44 +292,55 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CO
 
 ## <a name="enable-ssh"></a>Включение SSH
 
-SSH обеспечивает безопасный обмен данными между клиентом и контейнером. Чтобы пользовательский контейнер поддерживал SSH, его необходимо добавить в Dockerfile.
+SSH обеспечивает безопасный обмен данными между клиентом и контейнером. Чтобы пользовательский контейнер поддерживал SSH, его необходимо добавить в образ DOCKER.
 
 > [!TIP]
-> Все встроенные контейнеры Linux добавили инструкции SSH в свои репозитории образов. Чтобы увидеть, как он включен, можно выполнить приведенные ниже инструкции с [ репозиториемNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) .
+> Все встроенные контейнеры Linux в службе приложений добавили инструкции SSH в свои репозитории образов. Чтобы увидеть, как он включен, можно выполнить приведенные ниже инструкции с [ репозиториемNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) . Конфигурация в встроенном образе Node.js немного отличается, но аналогична.
 
-- Используйте инструкцию [Run](https://docs.docker.com/engine/reference/builder/#run) для установки сервера SSH и задайте для пароля учетной записи root значение `"Docker!"` . Например, для образа, основанного на [Alpine Linux](https://hub.docker.com/_/alpine), требуются следующие команды:
+- Добавьте [файл sshd_config](https://man.openbsd.org/sshd_config) в репозиторий, как показано в следующем примере.
 
-    ```Dockerfile
-    RUN apk add openssh \
-         && echo "root:Docker!" | chpasswd 
     ```
-
-    Эта конфигурация не допускает внешние подключения к контейнеру. SSH доступен только через `https://<app-name>.scm.azurewebsites.net` учетные данные публикации и проходит проверку подлинности.
-
-- Добавьте [этот файл sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) в репозиторий образов и скопируйте файл в каталог *каталог/etc/SSH/* с помощью инструкции [Copy](https://docs.docker.com/engine/reference/builder/#copy) . Дополнительные сведения о *sshd_config* файлах см. в [документации по OpenBSD](https://man.openbsd.org/sshd_config).
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
+    Port            2222
+    ListenAddress       0.0.0.0
+    LoginGraceTime      180
+    X11Forwarding       yes
+    Ciphers aes128-cbc,3des-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr
+    MACs hmac-sha1,hmac-sha1-96
+    StrictModes         yes
+    SyslogFacility      DAEMON
+    PasswordAuthentication  yes
+    PermitEmptyPasswords    no
+    PermitRootLogin     yes
+    Subsystem sftp internal-sftp
     ```
 
     > [!NOTE]
-    > Файл *sshd_config* должен содержать приведенные ниже элементы.
+    > Этот файл настраивает OpenSSH и должен включать следующие элементы:
+    > - `Port` необходимо задать значение 2222.
     > - `Ciphers` должен содержать по крайней мере один элемент в этом списке: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` должен содержать по крайней мере один элемент в этом списке: `hmac-sha1,hmac-sha1-96`.
 
-- Используйте инструкцию [предоставления](https://docs.docker.com/engine/reference/builder/#expose) , чтобы открыть порт 2222 в контейнере. Несмотря на то, что пароль root известен, порт 2222 недоступен из Интернета. Он доступен только контейнерам в сети моста частной виртуальной сети.
+- В Dockerfile добавьте следующие команды:
 
     ```Dockerfile
+    # Install OpenSSH and set the password for root to "Docker!". In this example, "apk add" is the install instruction for an Alpine Linux-based image.
+    RUN apk add openssh \
+         && echo "root:Docker!" | chpasswd 
+
+    # Copy the sshd_config file to the /etc/ssh/ directory
+    COPY sshd_config /etc/ssh/
+
+    # Open port 2222 for SSH access
     EXPOSE 80 2222
     ```
+
+    Эта конфигурация не допускает внешние подключения к контейнеру. Порт 2222 контейнера доступен только в сети моста частной виртуальной сети и недоступен для злоумышленника в Интернете.
 
 - В скрипте запуска для контейнера запустите SSH-сервер.
 
     ```bash
     /usr/sbin/sshd
     ```
-
-    Пример см. в разделе как [ контейнерNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) по умолчанию запускает сервер SSH.
 
 ## <a name="access-diagnostic-logs"></a>Доступ к журналам диагностики
 
@@ -353,7 +364,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 В файле *DOCKER-Compose. yml* сопоставьте `volumes` параметр с `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME` — это переменная среды в Службе приложений, которая сопоставляется с постоянным хранилищем для вашего приложения. Пример:
+`WEBAPP_STORAGE_HOME` — это переменная среды в Службе приложений, которая сопоставляется с постоянным хранилищем для вашего приложения. Пример.
 
 ```yaml
 wordpress:
@@ -402,7 +413,7 @@ wordpress:
 
 ::: zone-end
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
 > [Руководство. Миграция пользовательского программного обеспечения в службу приложений Azure с помощью пользовательского контейнера](tutorial-custom-container.md)

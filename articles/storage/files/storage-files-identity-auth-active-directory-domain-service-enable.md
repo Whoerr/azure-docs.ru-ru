@@ -8,16 +8,16 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 153ffd699b22a6379758bf66b896a2b37a19fdf3
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d75b60c715a758684e6f3a4b331c0b12d17eaf21
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883288"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705115"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Включение проверки подлинности доменных служб Azure Active Directory в службе файлов Azure
 
-Службы [файлов Azure](storage-files-introduction.md)   поддерживает проверку подлинности на основе удостоверений через протокол SMB с помощью двух типов доменных служб: локальных домен Active Directory служб (AD DS) и Azure Active Directory доменных служб (Azure AD DS). Мы настоятельно рекомендуем ознакомиться с [разделом "как работает](./storage-files-active-directory-overview.md#how-it-works) ", чтобы выбрать подходящую службу домена для проверки подлинности. Настройка зависит от выбранной службы домена. Эта статья посвящена включению и настройке Azure AD DS для проверки подлинности с помощью файловых ресурсов Azure.
+Службы [файлов Azure](storage-files-introduction.md)   поддерживает проверку подлинности на основе удостоверений через протокол SMB с помощью двух типов доменных служб: локальных домен Active Directory служб (AD DS) и Azure Active Directory доменных служб (Azure AD DS). Мы настоятельно рекомендуем ознакомиться с [разделом "как работает](./storage-files-active-directory-overview.md#how-it-works) ", чтобы выбрать подходящую службу домена для проверки подлинности. Программа установки различается в зависимости от выбранной службы домена. Эта статья посвящена включению и настройке Azure AD DS для проверки подлинности с помощью файловых ресурсов Azure.
 
 Если вы не знакомы с файловыми ресурсами Azure, рекомендуем ознакомиться с нашим [руководством по планированию](storage-files-planning.md) , прежде чем читать следующую серию статей.
 

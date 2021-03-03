@@ -1,17 +1,17 @@
 ---
-title: Отчеты в Azure Monitor для контейнеров
-description: Описывает отчеты, доступные для анализа данных, собранных Azure Monitor для контейнеров.
+title: Отчеты в контейнере аналитики
+description: Описывает отчеты, доступные для анализа данных, собираемых аналитикой контейнера.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704282"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>Отчеты в Azure Monitor для контейнеров
-Отчеты в Azure Monitor для контейнеров рекомендуются готовыми [книгами Azure](../visualize/workbooks-overview.md). В этой статье описываются различные доступные отчеты и способы доступа к ним.
+# <a name="reports-in-container-insights"></a>Отчеты в контейнере аналитики
+Отчеты в контейнере "аналитика" являются рекомендуемыми готовыми [книгами Azure](../visualize/workbooks-overview.md). В этой статье описываются различные доступные отчеты и способы доступа к ним.
 
 ## <a name="viewing-reports"></a>Просмотр отчетов
 В меню **Azure Monitor** в портал Azure выберите **контейнеры**. Выберите **Insights** в разделе **мониторинг** , выберите конкретный кластер, а затем щелкните страницу **отчеты (Предварительная версия)** . 
@@ -76,6 +76,6 @@ ms.locfileid: "100582321"
 
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о книгах в Azure Monitor см. в [Azure Monitor книгах](../visualize/workbooks-overview.md) .

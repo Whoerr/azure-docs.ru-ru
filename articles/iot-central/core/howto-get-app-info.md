@@ -2,17 +2,17 @@
 title: Получение сведений о версии приложения IoT Central Azure | Документация Майкрософт
 description: Как получить сведения о приложении IoT Central, которое вы используете
 services: iot-central
-author: dominicbetts
-ms.author: dobett
-ms.date: 06/26/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/26/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5118fa22a198ee6871a4cfb455e88d345d6a44e0
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: b4a44433a9761bd387b24164653c8ed1538713ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760853"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721599"
 ---
 # <a name="about-your-application"></a>Сведения о приложении
 
@@ -25,7 +25,7 @@ ms.locfileid: "98760853"
 
 ## <a name="get-information-about-your-application"></a>Получение сведений о приложении
 
-Чтобы получить сведения о приложении IoT Central:
+Чтобы получить сведения о приложении IoT Central: 
 
 1. Выберите ссылку **Справка** в верхнем меню.
 

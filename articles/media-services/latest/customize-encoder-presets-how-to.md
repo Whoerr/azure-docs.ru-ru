@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: c60aac675a76d8cb25463f8b0ca1b2dc563d1179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092292"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730326"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Кодирование с помощью пользовательского преобразования — .NET
 
@@ -36,15 +36,15 @@ ms.locfileid: "101092292"
 
 [Создание учетной записи Служб мультимедиа](./create-account-howto.md)
 
-## <a name="download-the-sample"></a>Скачивание примера
+## <a name="download-the-sample"></a>Скачивание примера приложения
 
 Клонируйте репозиторий GitHub, содержащий пример .NET Core, на компьютер с помощью следующей команды:  
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
  ```
  
-Пример настраиваемой предустановки находится в папке [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/).
+Образец настраиваемой предустановки находится в [кодировке с пользовательской предустановкой с помощью папки .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset) .
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Создание преобразования с помощью настраиваемой предустановки
 
@@ -56,8 +56,8 @@ ms.locfileid: "101092292"
 
 В следующем примере определяется набор выходов, которые нужно создать при использовании этого преобразования. Сначала мы добавим слой AacAudio для кодирования звука и два слоя H264Video для кодирования видео. В видеослоях мы присваиваем метки, чтобы их можно было использовать в именах выходных файлов. Далее мы хотим, чтобы выходные данные также включали эскизы. В приведенном ниже примере мы указываем изображения в формате PNG, созданные на 50% от разрешения входного видео и три метки времени — {25%, 50%, 75%} длиной входного видео. Наконец, мы указываем формат выходных файлов — один для видео + аудио, а другой — для эскизов. Так как у нас есть несколько H264Layers, необходимо использовать макросы, которые создают уникальные имена для каждого слоя. Можно использовать `{Label}` `{Bitrate}` макрос или, а в примере — первый.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Файлы потоковой передачи](stream-files-tutorial-with-api.md) 

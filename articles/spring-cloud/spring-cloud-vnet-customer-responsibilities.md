@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5ecf9e49887eb584269f724d5199cbfb014351e0
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 0c73d0394486472c2c3c92450aab6a1a0d329cf7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986859"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698218"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Обязанности клиента по запуску Azure Веснного облака в виртуальной сети
 В этом документе содержатся спецификации использования Azure Веснного облака в виртуальной сети.
@@ -34,13 +34,13 @@ ms.locfileid: "98986859"
 
   | Целевая конечная точка | Порт | Использование | Примечание |
   |------|------|------|
-  | *: 1194 *или* [сервицетаг](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -AzureCloud: 1194 | UDP: 1194 | Базовое управление кластерами Kubernetes. | |
-  | *: 443 *или* [сервицетаг](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -AzureCloud: 443 | TCP: 443 | Управление облачными службами Azure весны. | Сведения об экземпляре службы "Рекуиредтраффикс" могут быть известны в полезных данных ресурса в разделе "networkProfile". |
-  | *: 9000 *или* [сервицетаг](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -AzureCloud: 9000 | TCP: 9000 | Базовое управление кластерами Kubernetes. |
+  | *: 1194 *или* [сервицетаг](../virtual-network/service-tags-overview.md#available-service-tags) -AzureCloud: 1194 | UDP: 1194 | Базовое управление кластерами Kubernetes. | |
+  | *: 443 *или* [сервицетаг](../virtual-network/service-tags-overview.md#available-service-tags) -AzureCloud: 443 | TCP: 443 | Управление облачными службами Azure весны. | Сведения об экземпляре службы "Рекуиредтраффикс" могут быть известны в полезных данных ресурса в разделе "networkProfile". |
+  | *: 9000 *или* [сервицетаг](../virtual-network/service-tags-overview.md#available-service-tags) -AzureCloud: 9000 | TCP: 9000 | Базовое управление кластерами Kubernetes. |
   | *: 123 *или* NTP.Ubuntu.com:123 | UDP:123 | Синхронизация времени NTP на узлах Linux. | |
-  | *. azure.io:443 *или* [сервицетаг](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -азуреконтаинеррегистри: 443 | TCP: 443 | Реестр контейнеров Azure. | Можно заменить, включив [конечную точку службы](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) *реестра контейнеров Azure* в виртуальной сети. |
-  | *. core.windows.net:443 и *. core.windows.net:445 *или* [сервицетаг](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -Storage: 443 и хранилище: 445 | TCP: 443, TCP: 445 | Хранилище файлов Azure | Можно заменить, включив [конечную точку службы](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) *хранилища Azure* в виртуальной сети. |
-  | *. servicebus.windows.net:443 *или* [сервицетаг](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) -EventHub: 443 | TCP: 443 | Концентратор событий Azure. | Можно заменить, включив [конечную точку службы](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) *концентраторов событий Azure* в виртуальной сети. |
+  | *. azure.io:443 *или* [сервицетаг](../virtual-network/service-tags-overview.md#available-service-tags) -азуреконтаинеррегистри: 443 | TCP: 443 | Реестр контейнеров Azure. | Можно заменить, включив [конечную точку службы](../virtual-network/virtual-network-service-endpoints-overview.md) *реестра контейнеров Azure* в виртуальной сети. |
+  | *. core.windows.net:443 и *. core.windows.net:445 *или* [сервицетаг](../virtual-network/service-tags-overview.md#available-service-tags) -Storage: 443 и хранилище: 445 | TCP: 443, TCP: 445 | Хранилище файлов Azure | Можно заменить, включив [конечную точку службы](../virtual-network/virtual-network-service-endpoints-overview.md) *хранилища Azure* в виртуальной сети. |
+  | *. servicebus.windows.net:443 *или* [сервицетаг](../virtual-network/service-tags-overview.md#available-service-tags) -EventHub: 443 | TCP: 443 | Концентратор событий Azure. | Можно заменить, включив [конечную точку службы](../virtual-network/virtual-network-service-endpoints-overview.md) *концентраторов событий Azure* в виртуальной сети. |
   
 
 ## <a name="azure-spring-cloud-fqdn-requirements--application-rules"></a>Требования к полному доменному имени Azure весны в облаке/правила приложений
@@ -61,6 +61,6 @@ ms.locfileid: "98986859"
   | *crl.microsoft.com* | HTTPS: 80 | Требуются пути к цепочке сертификатов Майкрософт. |
   | *crl3.digicert.com* | HTTPS: 80 | Пути сторонних цепочек сертификатов SSL. |
 
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>См. также раздел
 * [Доступ к приложению в частной сети](spring-cloud-access-app-virtual-network.md)
-* [Предоставление приложений с помощью шлюза приложений и брандмауэра Azure](spring-cloud-expose-apps-gateway-azure-firewall.md) 
+* [Предоставление приложений с помощью шлюза приложений и брандмауэра Azure](spring-cloud-expose-apps-gateway-azure-firewall.md)

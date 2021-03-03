@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 0ab7cdfb3d699a8415739565aae5d4326002bc43
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c621584fa1dbed06873ac0867e20201e94c4a757
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699688"
 ---
 # <a name="manage-device-event-alert-notifications-on-azure-stack-edge-pro-resources"></a>Управление уведомлениями о событиях устройств на Azure Stack пограничных ресурсах Pro
 
@@ -23,7 +23,7 @@ ms.locfileid: "100389150"
 
 Правило действия может активировать или подавлять уведомления об оповещениях. Правило действия добавляется в *группу действий* — набор параметров уведомлений, которые используются для уведомления пользователей, которым необходимо действовать с оповещениями, активированными в разных контекстах для ресурса или набора ресурсов.
 
-Дополнительные сведения о правилах действий см. в разделе [Настройка правила действий](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule). Дополнительные сведения о группах действий см. [в разделе Создание групп действий и управление ими в портал Azure](/azure/azure-monitor/platform/action-groups).
+Дополнительные сведения о правилах действий см. в разделе [Настройка правила действий](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule). Дополнительные сведения о группах действий см. [в разделе Создание групп действий и управление ими в портал Azure](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
 > Функция правил действий доступна в предварительной версии. Некоторые экраны и шаги могут измениться по мере уточнения процесса.
@@ -34,7 +34,7 @@ ms.locfileid: "100389150"
 Выполните следующие действия в портал Azure, чтобы создать правило действия для устройства Azure Stackного периметра.
 
 > [!NOTE]
-> Эти действия создают правило действия, которое отправляет уведомления группе действий. Дополнительные сведения о создании правила действий для подавления уведомлений см. в разделе [Настройка правила действий](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
+> Эти действия создают правило действия, которое отправляет уведомления группе действий. Дополнительные сведения о создании правила действий для подавления уведомлений см. в разделе [Настройка правила действий](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
 1. Перейдите к Azure Stack пограничному устройству в портал Azure, а затем выберите **мониторинг > оповещения**. Выберите **Управление действиями**.
 
@@ -72,7 +72,7 @@ ms.locfileid: "100389150"
 
    2. В разделе **фильтры** добавьте каждый фильтр, который нужно применить. Для каждого фильтра выберите тип фильтра, **оператор** и **значение**.
    
-      Список параметров фильтра см. в разделе [критерии фильтра](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#filter-criteria).
+      Список параметров фильтра см. в разделе [критерии фильтра](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#filter-criteria).
 
       Приведенные ниже примеры фильтров применяются ко всем оповещениям с уровнями серьезности 2, 3 и 4, которые служба мониторинга вызывает для Azure Stack граничных ресурсов.
 
@@ -85,11 +85,11 @@ ms.locfileid: "100389150"
    ![Параметр группы действий для создания правила действия, отправляющего уведомления](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-01.png)
 
    > [!NOTE]
-   > Чтобы создать правило, которое подавляет уведомления, выберите **подавление**. Дополнительные сведения см. в разделе [Настройка правила действий](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule).
+   > Чтобы создать правило, которое подавляет уведомления, выберите **подавление**. Дополнительные сведения см. в разделе [Настройка правила действий](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule).
 
-6. Выберите группу действий, которую вы хотите использовать с этим правилом действий. Затем щелкните **Выбрать**. Новое правило действия будет добавлено в параметры уведомлений выбранной группы действий.
+6. Выберите группу действий, которую вы хотите использовать с этим правилом действий. Затем выберите **Выбрать**. Новое правило действия будет добавлено в параметры уведомлений выбранной группы действий.
 
-   Если необходимо создать новую группу действий, выберите **+ создать группу действий** и выполните действия, описанные в разделе [Создание группы действий с помощью портал Azure](/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal).
+   Если необходимо создать новую группу действий, выберите **+ создать группу действий** и выполните действия, описанные в разделе [Создание группы действий с помощью портал Azure](../azure-monitor/alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal).
 
    ![Выберите группу действий для использования с правилом, а затем нажмите кнопку Выбрать.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-action-group-02.png)
 
@@ -121,10 +121,10 @@ ms.locfileid: "100389150"
 ![Образец уведомления по электронной почте для правила действия](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/sample-action-rule-email-notification.png)
 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-<!-- - See [Create and manage action groups in the Azure portal](/azure/azure-monitor/platform/action-groups) for guidance on creating a new action group.
-- See [Configure an action rule](/azure/azure-monitor/platform/alerts-action-rules?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
+<!-- - See [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md) for guidance on creating a new action group.
+- See [Configure an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
 - Сведения о просмотре событий устройств, состояния оборудования и диаграмм метрик см. [в статье мониторинг Azure Stack пограничных Pro](azure-stack-edge-monitor.md) . 
 - Дополнительные сведения об оптимизации Azure Monitor для устройств с графическим процессором Azure Stack с поддержкой ребра см. [в разделе использование Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md) .
-- Сведения об управлении отдельными предупреждениями см. [в статье Создание и Просмотр оповещений метрик и управление ими с помощью Azure Monitor ссылки](/azure/azure-monitor/platform/alerts-metric) .
+- Сведения об управлении отдельными предупреждениями см. [в статье Создание и Просмотр оповещений метрик и управление ими с помощью Azure Monitor ссылки](../azure-monitor/alerts/alerts-metric.md) .

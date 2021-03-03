@@ -5,21 +5,21 @@ description: Проверка подлинности в конфигурации
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 483af51cbaeb8f7b295adb4231e65f742e3f53a1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b1de1a24a506c049782443e4d32039c28fece436
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185467"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718256"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Использование управляемых удостоверений для получения доступа к службе "Конфигурация приложений"
 
 Azure Active Directory [управляемые удостоверения](../active-directory/managed-identities-azure-resources/overview.md) упрощают управление секретами для облачного приложения. С помощью управляемого удостоверения ваш код может использовать субъект-службу, созданный для службы Azure, в которой она выполняется. Вы используете управляемое удостоверение, а не отдельные учетные данные, хранящиеся в Azure Key Vault, или локальную строку подключения.
 
-В конфигурации приложений Azure, а также в клиентских библиотеках .NET Core, .NET Framework и Java есть встроенная поддержка идентификации. Хотя это и не обязательно, управляемое удостоверение устраняет необходимость в маркере доступа, содержащем секреты. Код может получить доступ к хранилищу конфигураций приложений, используя только конечную точку службы. Этот URL-адрес можно внедрить в код напрямую без предоставления секрета.
+В конфигурации приложений Azure, а также в клиентских библиотеках .NET Core, платформа .NET Framework и Java есть встроенная поддержка идентификации. Хотя это и не обязательно, управляемое удостоверение устраняет необходимость в маркере доступа, содержащем секреты. Код может получить доступ к хранилищу конфигураций приложений, используя только конечную точку службы. Этот URL-адрес можно внедрить в код напрямую без предоставления секрета.
 
 В этой статье показано, как можно воспользоваться преимуществами управляемого удостоверения для доступа к конфигурации приложения. При этом в качестве основы используется код веб-приложения, представленный в кратких руководствах. Прежде чем продолжить, сначала  [Создайте приложение ASP.NET Core с конфигурацией приложения](./quickstart-aspnet-core-app.md) .
 
@@ -139,6 +139,15 @@ Azure Active Directory [управляемые удостоверения](../ac
     ```
     ---
 
+    > [!NOTE]
+    > Если вы хотите использовать **управляемое пользователем удостоверение**, обязательно укажите ClientID при создании [манажедидентитикредентиал](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true).
+    >```
+    >config.AddAzureAppConfiguration(options =>
+    >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
+    >```
+    >Как описано в разделах [управляемые удостоверения для ресурсов Azure: вопросы и ответы](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request), можно определить, какое управляемое удостоверение используется по умолчанию. В этом случае библиотека удостоверений Azure позволяет указать необходимое удостоверение, чтобы избежать проблем среды выполнения превысил допустимое в будущем (например, если Добавлено новое управляемое удостоверение, назначенное пользователем, или если включено управляемое системой удостоверение). Поэтому необходимо указать clientId, даже если определено только одно назначенное пользователем управляемое удостоверение, а управляемое удостоверение не назначено системой.
+
+
 1. Чтобы использовать значения конфигурации приложения и ссылки Key Vault, обновите *Program.CS* , как показано ниже. Этот код вызывает `SetCredential` как часть `ConfigureKeyVault` , чтобы сообщить поставщику конфигурации, какие учетные данные следует использовать при проверке подлинности в Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
@@ -193,6 +202,8 @@ Azure Active Directory [управляемые удостоверения](../ac
 
     > [!NOTE]
     > `ManagedIdentityCredential`Работает только в средах Azure служб, поддерживающих аутентификацию управляемого удостоверения. Он не работает в локальной среде. Используйте [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) , чтобы код работал как в локальных средах, так и в среде Azure, так как он будет возвращаться к некоторым вариантам проверки подлинности, включая управляемое удостоверение.
+    > 
+    > Если вы хотите использовать **управляемое удостоверение пользователя асигнед** с `DefaultAzureCredential` при развертывании в Azure, [Укажите ClientID](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -255,7 +266,7 @@ http://<app_name>.azurewebsites.net
 
 Поставщики службы "Конфигурация приложений" для платформы .NET Framework и Java Spring также имеют встроенную поддержку управляемых удостоверений. При настройке одного из этих поставщиков можно использовать конечную точку URL-адреса вашего хранилища вместо полной строки подключения.
 
-Например, можно обновить консольное приложение .NET Framework, созданное в кратком руководстве, чтобы указать следующие параметры в файле *App.config* :
+Например, можно обновить консольное приложение платформа .NET Framework, созданное в кратком руководстве, чтобы указать следующие параметры в файле *App.config* :
 
 ```xml
     <configSections>

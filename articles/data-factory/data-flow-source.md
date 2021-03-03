@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 72c36a60227c1f8598909c4e1888084c02b90c7b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/23/2021
+ms.openlocfilehash: d1baafb12302e10d264973f3f8442cbb4b4a022c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368036"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727878"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Преобразование источника в потоке данных сопоставления
 
@@ -42,13 +42,13 @@ ms.locfileid: "100368036"
 
 | Соединитель | Формат | Набор данных или встраивание |
 | --------- | ------ | -------------- |
-| [Хранилище BLOB-объектов Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Текст с разделителями](format-delimited-text.md#mapping-data-flow-properties)<br>[Разностная версия](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br>✓/-<br>-/✓<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
+| [Хранилище BLOB-объектов Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Текст с разделителями](format-delimited-text.md#mapping-data-flow-properties)<br>[Разностная версия](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure Data Lake Storage 1-го поколения](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Текст с разделителями](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br>✓/-<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
-| [Azure Data Lake Storage 2-го поколения](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Модель общих данных](format-common-data-model.md#source-properties)<br>[Текст с разделителями](format-delimited-text.md#mapping-data-flow-properties)<br>[Разностная версия](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br/>-/✓<br>✓/-<br>-/✓<br>✓/✓<br>✓/-<br/>✓/✓<br/>✓/-<br>✓/✓ |
+| [Azure Data Lake Storage 1-го поколения](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Текст с разделителями](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br/>✓/-<br>✓/✓<br/>✓/-<br>✓/✓ |
+| [Azure Data Lake Storage 2-го поколения](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Модель общих данных](format-common-data-model.md#source-properties)<br>[Текст с разделителями](format-delimited-text.md#mapping-data-flow-properties)<br>[Разностная версия](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br/>-/✓<br>✓/✓<br>✓/✓<br>✓/✓<br>✓/-<br/>✓/✓<br/>✓/-<br>✓/✓ |
 | [База данных Azure для PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
 | [База данных SQL Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
-| [Управляемый экземпляр Azure SQL (Предварительная версия)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
+| [Управляемый экземпляр SQL Azure](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
@@ -81,7 +81,7 @@ ms.locfileid: "100368036"
 
 **Пропустить число строк**: поле **пропустить число строк** указывает, сколько строк следует игнорировать в начале набора данных.
 
-**Выборка**. Включите **выборку** , чтобы ограничить количество строк в источнике. Используйте этот параметр при тестировании или выборки данных из источника для отладки.
+**Выборка**. Включите **выборку** , чтобы ограничить количество строк в источнике. Используйте этот параметр при тестировании или выборки данных из источника для отладки. Это очень полезно при выполнении потоков данных в режиме отладки из конвейера.
 
 Чтобы проверить правильность настройки источника, включите режим отладки и получите предварительную версию данных. Дополнительные сведения см. в разделе [режим отладки](concepts-data-flow-debug-mode.md).
 
@@ -120,6 +120,6 @@ ms.locfileid: "100368036"
 
 Дополнительные сведения о оптимизации в потоке данных сопоставления см. на [вкладке "оптимизация"](concepts-data-flow-overview.md#optimize).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Начните создавать поток данных с помощью [преобразования «Производный столбец](data-flow-derived-column.md) » и [преобразования «выбор](data-flow-select.md)».

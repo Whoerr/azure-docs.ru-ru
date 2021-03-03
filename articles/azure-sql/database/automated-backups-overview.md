@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690633"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Автоматическое резервное копирование базы данных SQL Azure & SQL Управляемый экземпляр
 
@@ -229,17 +229,15 @@ ms.locfileid: "98108081"
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Измените срок хранения резервной копии PITR с помощью портал Azure
 
-Чтобы изменить срок хранения резервной копии PITR для активных баз данных с помощью портал Azure, перейдите на сервер или управляемый экземпляр с базами данных, срок хранения которых требуется изменить. 
+Чтобы изменить срок хранения резервной копии PITR для активных баз данных с помощью портал Azure, перейдите на сервер или управляемый экземпляр с базами данных, срок хранения которых требуется изменить. На левой панели выберите **резервные копии** , а затем перейдите на вкладку **политики хранения** . Выберите базы данных, для которых необходимо изменить период хранения резервных копий PITR. Затем выберите **настроить хранение** на панели действий.
+
+
 
 #### <a name="sql-database"></a>[База данных SQL](#tab/single-database)
-
-Изменения в PITR хранения резервных копий для базы данных SQL выполняются на странице сервера на портале. Чтобы изменить срок хранения PITR для баз данных на сервере, перейдите в колонку Обзор сервера. Выберите **Управление резервными копиями** в левой области, выберите базы данных в области изменений, а затем щелкните **настроить хранение** в верхней части экрана:
 
 ![Изменение срока хранения PITR, уровень сервера](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### <a name="sql-managed-instance"></a>[Управляемый экземпляр SQL](#tab/managed-instance)
-
-Изменения в PITR хранения резервных копий для SQL Управляемый экземпляр выполняются на уровне отдельных баз данных. Чтобы изменить срок хранения резервной копии PITR для базы данных экземпляра из портал Azure, перейдите в колонку обзор отдельной базы данных. Затем выберите **Настройка хранения резервных копий** в верхней части экрана:
 
 ![Изменение срока хранения PITR, управляемый экземпляр](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 
@@ -308,7 +306,7 @@ Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -Instanc
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### <a name="request-body"></a>Тело запроса
+#### <a name="request-body"></a>Текст запроса
 
 ```json
 {
@@ -341,7 +339,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### <a name="request-body"></a>Тело запроса
+#### <a name="request-body"></a>Текст запроса
 
 ```json
 {

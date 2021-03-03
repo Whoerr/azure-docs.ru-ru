@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac4278c6ce03c43418e99978cd039e24dc01194
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448534"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719276"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Управление рабочей нагрузкой Kubernetes на устройстве Pro Azure Stack
 
@@ -54,6 +54,17 @@ ms.locfileid: "96448534"
 - **Kubernetes развертывание Azure с включенной** службой ARC. Kubernetes — это гибридное средство управления, которое позволит развертывать приложения в кластерах Kubernetes. Вы подключаетесь к кластеру Kubernetes на устройстве Azure Stack пограничной Pro через `azure-arc namespace` . Агенты, развернутые в этом пространстве имен, отвечают за подключение к Azure. Конфигурация развертывания применяется с помощью управления конфигурацией на основе Гитопс. 
     
     Kubernetes с поддержкой дуги Azure также позволяет использовать Azure Monitor для контейнеров для просмотра и мониторинга кластера. Дополнительные сведения см. в разделе [что такое служба "Azure Arc Enabled Kubernetes?](../azure-arc/kubernetes/overview.md)".
+    
+    Начиная с 2021 марта Azure с включенной службой Arc Kubernetes будет общедоступна для пользователей и стандартных расходов на использование. В качестве клиента для предварительного ознакомления Azure Kubernetes с поддержкой Arc будет доступен бесплатно для Azure Stack пограничных устройств. Чтобы воспользоваться предварительной версией предложения, создайте [Поддержка](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+    1. В разделе **Тип проблемы** выберите **Выставление счетов**.
+    2. В разделе **Подписка** выберите свою подписку.
+    3. В разделе **Служба** выберите **Мои службы**, а затем выберите **Azure Stack ребро**.
+    4. В разделе **ресурс** выберите свой ресурс.
+    5. В разделе **Сводка** введите описание проблемы.
+    6. В разделе **тип проблемы** выберите **непредвиденные расходы**.
+    7. В разделе **проблемный подтип** выберите **помощь в понимании расходов на бесплатную пробную версию**.
+
 
 ## <a name="choose-the-deployment-type"></a>Выбор типа развертывания
 

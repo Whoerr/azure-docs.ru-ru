@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
-ms.openlocfilehash: 4d7dcc829f25b7f1b7c6cb6b1d13a664d301bfe6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f319db76c8aee5a2a35ff8ca9670c42089350ede
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663654"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692476"
 ---
 # <a name="use-multi-document-transactions-in-azure-cosmos-db-api-for-mongodb"></a>Использование транзакций с несколькими документами в Azure Cosmos DB API для MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,11 +32,13 @@ ms.locfileid: "101663654"
 
 ## <a name="requirements"></a>Требования
 
-Транзакции с несколькими документами поддерживаются в несегментированной коллекции в версии 4,0. Транзакции с несколькими документами не поддерживаются в коллекциях или в сегментированных коллекциях.
+Транзакции с несколькими документами поддерживаются в несегментированной коллекции в API версии 4,0. Транзакции с несколькими документами не поддерживаются для коллекций или сегментированных коллекций в 4,0. Время ожидания транзакций составляет 5 секунд.
 
 Все драйверы, поддерживающие протокол проводной сети версии 4,0 или выше, будут поддерживать Azure Cosmos DB API для транзакций с несколькими документами MongoDB.
 
 ## <a name="run-multi-document-transactions-in-mongodb-shell"></a>Выполнение транзакций с несколькими документами в оболочке MongoDB
+> [!Note]
+> Этот пример не работает в бета-версии Монгош (оболочке), встроенной в MongoDB компас.
 
 1. Откройте командную строку и перейдите в каталог, где установлена оболочка Mongo версии 4,0 и выше:
 

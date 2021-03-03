@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: ginle
-ms.openlocfilehash: 6dff16f4a68f3db4ff841141e7d7025e794cca8f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: f810769529569309656193d41f28cca201a85c07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100105187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719225"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Настройка хранимых ключей, управляемых клиентом
 
@@ -140,4 +140,4 @@ New-AzResourceGroupDeployment `
 Из этой статьи вы узнали, как настроить управляемые клиентом ключи для хранения с помощью портала Azure, PowerShell, CLI и шаблона ARM. Если у вас есть дополнительные вопросы, ознакомьтесь с разделом вопросов и ответов по Azure Cosmos DB: 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: настройка ключей, управляемых клиентом](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
+>[Cosmos DB: настройка ключей, управляемых клиентом](../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

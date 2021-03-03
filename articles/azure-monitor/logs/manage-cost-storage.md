@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d4ead88fb34d6475dae66d9708d7203eb94eaef1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4e711eb70c1fa099dd67b1ec23a0e8014ee11e47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623502"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731397"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Управление использованием и затратами с помощью журналов Azure Monitor    
 
@@ -268,7 +268,7 @@ Usage
 - "Имя правила генерации оповещений" — "Достигнут ежедневный предел сбора данных";
 - "Уровень серьезности" — "Предупреждение (серьезность 1)"
 
-Как только будет определено оповещение и достигнут предел, активируется предупреждение и будет выполнен ответ, определенный в группе действий. Ваша команда может получать сообщение по электронной почте и текстовое сообщение, могут быть автоматизированы действия с помощью веб-перехватчиков, модулей Runbook службы автоматизации или же выполнена [интеграция с внешним решением ITSM](../platform/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+Как только будет определено оповещение и достигнут предел, активируется предупреждение и будет выполнен ответ, определенный в группе действий. Ваша команда может получать сообщение по электронной почте и текстовое сообщение, могут быть автоматизированы действия с помощью веб-перехватчиков, модулей Runbook службы автоматизации или же выполнена [интеграция с внешним решением ITSM](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Превышенный объем данных: причины и устранение
 
@@ -488,8 +488,8 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | AzureDiagnostics           | Изменить [коллекцию журналов ресурсов](../essentials/diagnostic-settings.md#create-in-azure-portal) на: <br> Уменьшить число ресурсов, отправляющих журналы в Log Analytics. <br> Выполнять сбор только необходимых журналов. |
 | Данные решений с компьютеров, которым не требуется решение | Используйте [нацеливание решений](../insights/solution-targeting.md), чтобы выполнять сбор данных только в нужных группах компьютеров. |
 | Application Insights | Параметры проверки [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [Аналитика SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Для настройки параметров аудита используйте [Set-азсклсервераудит](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) . |
-| Azure Sentinel | Проверьте все [Источники данных Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) , которые вы недавно включили в качестве источников дополнительного тома данных. |
+| [Аналитика SQL](../insights/azure-sql.md) | Для настройки параметров аудита используйте [Set-азсклсервераудит](/powershell/module/az.sql/set-azsqlserveraudit) . |
+| Azure Sentinel | Проверьте все [Источники данных Sentinel](../../sentinel/connect-data-sources.md) , которые вы недавно включили в качестве источников дополнительного тома данных. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Получение узлов с выставленным счетом в ценовой категории "За узел"
 

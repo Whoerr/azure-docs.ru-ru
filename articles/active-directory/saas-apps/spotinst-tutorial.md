@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 402b5a975b3ded8327edcea81b680e9990bac39e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181416"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686595"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Руководство по Интеграция единого входа Azure Active Directory со Spotinst
 
@@ -171,9 +171,9 @@ ms.locfileid: "96181416"
 
     ![Снимок экрана, на котором показан раздел добавления пользователя, где можно ввести описанные здесь значения.](./media/spotinst-tutorial/adduser2.png)
 
-    * В текстовом поле **Full Name** (Полное имя) введите полное имя, например **BrittaSimon**.
+    * В текстовом поле **Full Name** (Полное имя) введите полное имя, например `BrittaSimon`.
 
-    * В текстовом поле **Адрес электронной почты** введите адрес электронной почты пользователя, например `brittasimon\@contoso.com`.
+    * В текстовом поле **Адрес электронной почты** введите адрес электронной почты пользователя, например `brittasimon@contoso.com`.
 
     * Укажите сведения о своей организации с помощью раскрывающихся списков **Organization Role (Роль в организации), Account Role (Роль учетной записи) и Accounts (Учетные записи)**.
 

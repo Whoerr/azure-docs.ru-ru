@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 08b22af8743082bab1d547205e51917cb9d92a11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "96780218"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695776"
 ---
 # <a name="supported-data-stores"></a>Поддерживаемые хранилища данных
 
@@ -27,11 +27,15 @@ ms.locfileid: "96780218"
 ||[Azure Data Explorer](register-scan-azure-data-explorer.md)|Да| Да| Да| Да| Да| Да|
 ||[Azure Data Lake Storage 1-го поколения](register-scan-adls-gen1.md)|Да| Да| Да| Да| Да| Да|
 ||[Azure Data Lake Storage 2-го поколения](register-scan-adls-gen2.md)|Да| Да| Да| Да| Да| Да|
-||[База данных SQL Azure](register-scan-azure-sql-database.md)|Да| Да| нет| Да| Да| Да|
-||[Управляемый экземпляр Базы данных SQL Azure](register-scan-azure-sql-database-managed-instance.md)|Да| Да| нет| Да| Да| Да|
-||[Azure синапсе Analytics (ранее — хранилище данных SQL)](register-scan-azure-synapse-analytics.md)|Да| Да| нет| Да| Да| Да|
-|База данных|[SQL Server](register-scan-on-premises-sql-server.md)|Да| Да| нет| Да| Да| Да|
-|Power BI|[Power BI](register-scan-power-bi-tenant.md)|Да| Да| нет| нет| нет| Да|
+||[База данных SQL Azure](register-scan-azure-sql-database.md)|Да| Да| Нет| Да| Да| Да|
+||[Управляемый экземпляр Базы данных SQL Azure](register-scan-azure-sql-database-managed-instance.md)|Да| Да| Нет| Да| Да| Да|
+||[Azure синапсе Analytics (ранее — хранилище данных SQL)](register-scan-azure-synapse-analytics.md)|Да| Да| Нет| Да| Да| Да|
+|База данных|[Oracle DB](register-scan-oracle-source.md)|Да| Да| Нет| Нет| Нет| Да|
+||[SQL Server](register-scan-on-premises-sql-server.md)|Да| Да| Нет| Да| Да| Да|
+||[Teradata](register-scan-teradata-source.md)|Да| Да| Нет| Нет| Нет| Да|
+|Power BI|[Power BI](register-scan-power-bi-tenant.md)|Да| Да| Нет| Нет| Нет| Да|
+|Службы и приложения|[SAP ECC](register-scan-sapecc-source.md)|Да| Да| Нет| Да| Да| Да|
+||[S4HANA SAP](register-scan-saps4hana-source.md)|Да| Да| Нет| Да| Да| Да|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

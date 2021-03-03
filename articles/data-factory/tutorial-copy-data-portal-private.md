@@ -5,18 +5,18 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 002ceba60853908e381f084e95ec1ee58e8580cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3cc3686d4b256fc7b8702f34cdf393dc1b0e25f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375822"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740398"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Безопасное копирование данных из Хранилища BLOB-объектов Azure в Базу данных SQL с помощью частных конечных точек
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 В этом руководстве вы создадите фабрику данных с помощью пользовательского интерфейса фабрики данных Azure. *Конвейер в этой фабрике данных безопасно копирует данные из Хранилища BLOB-объектов Azure в службу "База данных SQL Azure" (где доступ к обоим хранилищам возможен только из определенных сетей) с помощью частных конечных точек в [управляемой виртуальной сети Фабрики данных Azure](managed-virtual-network-private-endpoint.md).* Шаблон конфигурации в этом руководстве применяется к копированию из файлового в реляционное хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников, см. в таблице [Поддерживаемые хранилища данных и форматы](./copy-activity-overview.md).
 

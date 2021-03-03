@@ -6,6 +6,8 @@
       href: overview.md
     - name: Заметки о выпуске
       href: release-notes.md
+    - name: Известные проблемы
+      href: known-issues.md
 - name: Краткие руководства
   items:
     - name: Создание контроллера данных
@@ -180,6 +182,8 @@
               href: configure-managed-instance.md
             - name: 'Мониторинг, анализ журналов, данные для выставления счетов, портал Azure'
               href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: Высокий уровень доступности
+              href: managed-instance-high-availability.md
             - name: DELETE
               href: delete-managed-instance.md
         - name: Миграция

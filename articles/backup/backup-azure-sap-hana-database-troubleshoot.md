@@ -3,12 +3,12 @@ title: Устранение ошибок резервного копирован
 description: Здесь описано, как устранить распространенные ошибки, которые могут возникнуть при использовании Azure Backup для резервного копирования баз данных SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411331"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713343"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Устранение ошибок резервного копирования баз данных SAP HANA в Azure
 
@@ -46,13 +46,6 @@ ms.locfileid: "95411331"
 | Сообщение об ошибке      | <span style="font-weight:normal">Указанная операция SAP HANA не поддерживается</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Возможные причины**    | Azure Backup для SAP HANA не поддерживает добавочное резервное копирование и действия, выполняемые на SAP HANA собственных клиентах (панель «Studio/панель» или «DBA») |
-| **Рекомендуемое действие** | Дополнительные сведения см. [здесь](./sap-hana-backup-support-matrix.md#scenario-support). |
-
-### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
-
-| Сообщение об ошибке      | <span style="font-weight:normal">This SAP HANA database doesn't support the requested backup type</span> (Эта база данных SAP HANA не поддерживает запрошенный тип резервного копирования)  |
-| ------------------ | ------------------------------------------------------------ |
-| **Возможные причины**    | Azure Backup не поддерживает добавочное резервное копирование и резервное копирование с помощью моментальных снимков |
 | **Рекомендуемое действие** | Дополнительные сведения см. [здесь](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure

@@ -1,103 +1,100 @@
 ---
-title: Базовый план безопасности графа ресурсов Azure для производительности системы безопасности Azure
+title: Базовый план безопасности Azure для графа ресурсов Azure
 description: Базовый план безопасности графа ресурсов Azure содержит рекомендации и ресурсы для реализации рекомендаций по безопасности, указанных в статье о производительности системы безопасности Azure.
 author: msmbaldwin
 ms.service: resource-graph
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a85fdf1e1e27b1ce5abb0c7890b717d48ba3bd3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e01c8d1ac16e5e8be405660a0726796789e645
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230455"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738979"
 ---
-# <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Базовый план безопасности графа ресурсов Azure для производительности системы безопасности Azure
+# <a name="azure-security-baseline-for-azure-resource-graph"></a>Базовый план безопасности Azure для графа ресурсов Azure
 
-Этот базовый план безопасности применяет рекомендации из [теста безопасности Azure](../../../security/benchmarks/overview.md) к графу ресурсов Azure. Тест производительности системы безопасности Azure содержит рекомендации по обеспечению безопасности облачных решений в Azure. Содержимое группируются по **элементам управления безопасностью** , определенным в тестовом производительности системы безопасности Azure, и связанным рекомендациям, применимым к графу ресурсов Azure. **Элементы управления** , неприменимые к графу ресурсов Azure, были исключены. Чтобы увидеть, как граф ресурсов Azure полностью соответствует тестовому производительности системы безопасности Azure, ознакомьтесь с [полным базовым файлом сопоставления безопасности виртуальной сети Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Этот базовый план безопасности применяет рекомендации из [тестового показателя безопасности Azure версии 1,0](../../../security/benchmarks/overview-v1.md) к графу ресурсов Azure. Azure Security Benchmark содержит рекомендации по обеспечению безопасности облачных решений в Azure.
+Содержимое группируются по **элементам управления безопасностью** , определенным в тестовом производительности системы безопасности Azure, и связанным рекомендациям, применимым к графу ресурсов Azure. **Элементы управления** , неприменимые к графу ресурсов Azure, были исключены.
 
+ 
+Чтобы увидеть, как граф ресурсов Azure полностью сопоставлен с тестовым показателем безопасности Azure, см. [полный базовый файл сопоставления базовых показателей безопасности графа ресурсов Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
+## <a name="identity-and-access-control"></a>Идентификатор и управление доступом
 
-## <a name="identity-and-access-control"></a>Идентификаторы и управление доступом
-
-*Дополнительные сведения см. в статье [Управление безопасностью: идентификаторы и управление доступом](../../../security/benchmarks/security-control-identity-access-control.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: идентификация и управление доступом](../../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10. Регулярная проверка и согласование доступа пользователей
 
-**Руководство**. граф ресурсов Azure предоставляет доступ к типам ресурсов и свойствам, основанным на управлении доступом на основе ролей в Azure (Azure RBAC). Регулярно проверяйте и просматривайте доступ, предоставленный субъектам безопасности (пользователям, группам и учетным записям служб), чтобы убедиться, что запросы возвращают результаты для соответствующих ресурсов.
+**Руководство**. граф ресурсов Azure предоставляет доступ к типам ресурсов и свойствам на основе элементов управления доступом на основе ролей Azure (Azure RBAC). Регулярно проверяйте и просматривайте доступ, предоставленный субъектам безопасности (пользователям, группам и учетным записям служб), чтобы убедиться, что запросы возвращают результаты для соответствующих ресурсов.
 
-* [Разрешения в Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
+- [Разрешения в Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
 
-* [Использование проверок доступа для идентификации Azure](../../../active-directory/governance/access-reviews-overview.md)
-
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Использование проверок доступа для идентификации Azure](../../../active-directory/governance/access-reviews-overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-protection"></a>Защита данных
 
-*Дополнительные сведения см. в статье [Управление безопасностью: защита данных](../../../security/benchmarks/security-control-data-protection.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: защита данных](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6. Контроль доступа к ресурсам с помощью RBAC
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6. Контроль доступа к ресурсам с помощью RBAC 
 
-**Руководство**. Использование управления доступом на основе ролей Azure (Azure RBAC) для управления доступом к данным и ресурсам. Чтобы использовать граф ресурсов Azure, необходимо иметь соответствующий доступ к ресурсам, к которым необходимо выполнить запрос. Этот доступ должен быть ограничен только чтением и предоставлен только требуемому персоналу.
+**Руководство**. Использование Azure RBAC для управления доступом к данным и ресурсам. Чтобы использовать граф ресурсов Azure, необходимо иметь соответствующий доступ к ресурсам, к которым необходимо выполнить запрос. Этот доступ должен быть ограничен только чтением и предоставлен только требуемому персоналу.
 
-* [Разрешения в Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
+- [Разрешения в Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
 
-* [Настройка Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
-
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Настройка Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="inventory-and-asset-management"></a>Инвентаризация и управление ресурсами
 
-*Дополнительные сведения см. в статье [Управление безопасностью: инвентаризация и управление ресурсами](../../../security/benchmarks/security-control-inventory-asset-management.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Инвентаризация и управление активами](../../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1. Использование автоматизированного решения для обнаружения ресурсов
 
 **Руководство**. Использование графа ресурсов Azure для запроса и обнаружения всех поддерживаемых ресурсов в подписках, группах управления и клиентах. Убедитесь, что у вас есть соответствующие разрешения в клиенте и вы можете перечислить все подписки Azure, а также ресурсы в ваших подписках.
 
-* [Как создавать запросы с помощью Azure Resource Graph](../first-query-portal.md)
+- [Как создавать запросы с помощью Azure Resource Graph](../first-query-portal.md)
 
-* [Общие сведения об Azure RBAC](../../../role-based-access-control/overview.md)
-
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Общие сведения об Azure RBAC](../../../role-based-access-control/overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: определение и обслуживание инвентаризации утвержденных ресурсов Azure
 
 **Руководство**. Создание инвентаризации утвержденных ресурсов Azure и утвержденного программного обеспечения для ресурсов вычислений в соответствии с потребностями Организации. Используйте граф ресурсов Azure для запроса утвержденных ресурсов Azure и журнала изменений (Предварительная версия), чтобы просмотреть моментальные снимки и просмотреть изменения.
 
-* [Запрос ресурсов Azure с помощью графа ресурсов Azure](../first-query-portal.md)
+- [Запрос ресурсов Azure с помощью графа ресурсов Azure](../first-query-portal.md)
 
-* [Получение данных об изменении ресурса](../how-to/get-resource-changes.md)
-
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Получение данных об изменении ресурса](../how-to/get-resource-changes.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5. Отслеживание неутвержденных ресурсов Azure
 
 **Руководство**. Использование графа ресурсов Azure для запроса и обнаружения ресурсов в подписках, группах управления и клиентах. Убедитесь, что все ресурсы Azure в окружении утверждены.
 
-* [Запрос ресурсов Azure с помощью графа ресурсов Azure](../first-query-portal.md)
+- [Запрос ресурсов Azure с помощью графа ресурсов Azure](../first-query-portal.md)
 
-* [Примеры: начальные запросы для графа ресурсов Azure](../samples/starter.md)
-
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Примеры: начальные запросы для графа ресурсов Azure](../samples/starter.md)
 
 **Ответственность**: Customer
 
-## <a name="next-steps"></a>Дальнейшие действия
+**Мониторинг центра безопасности Azure**: нет
 
-- Ознакомьтесь со статьей [Тесты производительности системы безопасности Azure](../../../security/benchmarks/overview.md).
-- Дополнительные сведения о [базовой конфигурации безопасности Azure](../../../security/benchmarks/security-baselines-overview.md).
+## <a name="next-steps"></a>Следующие шаги
+
+- См. [Обзор Azure Security Benchmark версии 2](/azure/security/benchmarks/overview)
+- Дополнительные сведения о [базовой конфигурации безопасности Azure](/azure/security/benchmarks/security-baselines-overview).

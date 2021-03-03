@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 5bf1877edaa6c13cb0c645eb2d1c7ec2dc53ad00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/26/2021
+ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392448"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719413"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Система управления версиями в Фабрике данных Azure
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -61,13 +61,13 @@ ms.locfileid: "100392448"
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Метод конфигурации 2. Создание холста
 
-На холсте разработки Фабрики данных Azure выберите раскрывающееся меню **Data Factory** (Фабрика данных), а затем выберите пункт **Set up Code Repository** (Настроить репозиторий кода).
+На холсте разработки фабрики данных Azure выберите в раскрывающемся меню **фабрика данных** пункт **настроить репозиторий кода**.
 
 ![Настройка параметров репозитория кода из разработки](media/author-visually/configure-repo-2.png)
 
 ### <a name="configuration-method-3-management-hub"></a>Метод конфигурации 3. Центр управления
 
-Перейдите в центр управления в интерфейсе ADF. Выберите **Конфигурация Git** в разделе **система управления версиями** . Если нет подключенного репозитория, щелкните **настроить репозиторий кода**.
+Перейдите в центр управления в интерфейсе ADF. Выберите **Конфигурация Git** в разделе **система управления версиями** . Если нет подключенного репозитория, нажмите кнопку **настроить**.
 
 ![Настройка параметров репозитория кода из центра управления](media/author-visually/configure-repo-3.png)
 

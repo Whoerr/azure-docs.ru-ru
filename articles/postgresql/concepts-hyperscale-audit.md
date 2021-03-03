@@ -6,12 +6,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: d8a21a5583ec4655a2ee8593e50be5c7b5f702b7
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227610"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702119"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Ведение журнала аудита в базе данных Azure для PostgreSQL — масштабирование (Цитус)
 
@@ -20,7 +20,7 @@ ms.locfileid: "99227610"
 > [!IMPORTANT]
 > Пгаудит находится на этапе предварительной версии в базе данных Azure для PostgreSQL-Scale (Цитус)
 
-Если вы хотите, чтобы журналы уровня ресурсов Azure для таких операций, как вычисление и масштабирование хранилища, см. в [журнале действий Azure](../azure-monitor/platform/platform-logs-overview.md).
+Если вы хотите, чтобы журналы уровня ресурсов Azure для таких операций, как вычисление и масштабирование хранилища, см. в [журнале действий Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Особенности использования
 По умолчанию выписки из журналов pgAudit создаются вместе с регулярными выписками с использованием стандартного средства ведения журнала Postgres. В базе данных Azure для PostgreSQL-Scale (Цитус) можно настроить отправку всех журналов в Azure Monitor хранилище журналов для последующей аналитики в Log Analytics. Если вы включаете Azure Monitor ведение журнала ресурсов, журналы автоматически отправляются (в формате JSON) в хранилище Azure, концентраторы событий и (или) Azure Monitor журналы в зависимости от вашего выбора.
@@ -54,9 +54,9 @@ ms.locfileid: "99227610"
 Чтобы быстро приступить к работе, присвойте параметру значение `pgaudit.log` `WRITE` и откройте журналы сервера для просмотра выходных данных. 
 
 ## <a name="viewing-audit-logs"></a>Просмотр журналов аудита
-Способ доступа к журналам зависит от выбранной конечной точки. Сведения о службе хранилища Azure см. в статье [учетная запись хранения журналов](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Сведения о концентраторах событий см. в статье [Streaming Azure Logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+Способ доступа к журналам зависит от выбранной конечной точки. Сведения о службе хранилища Azure см. в статье [учетная запись хранения журналов](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) . Сведения о концентраторах событий см. в статье [Streaming Azure Logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-Для журналов Azure Monitor журналы отправляются в выбранную рабочую область. Журналы postgres используют режим сбора **AzureDiagnostics** , поэтому их можно запрашивать из таблицы AzureDiagnostics. Поля в таблице описаны ниже. Дополнительные сведения о запросах и предупреждениях см. в статье о [запросах Azure Monitor журналов](../azure-monitor/log-query/log-query-overview.md) .
+Для журналов Azure Monitor журналы отправляются в выбранную рабочую область. Журналы postgres используют режим сбора **AzureDiagnostics** , поэтому их можно запрашивать из таблицы AzureDiagnostics. Поля в таблице описаны ниже. Дополнительные сведения о запросах и предупреждениях см. в статье о [запросах Azure Monitor журналов](../azure-monitor/logs/log-query-overview.md) .
 
 Этот запрос можно использовать для начала работы. Можно настроить оповещения на основе запросов.
 

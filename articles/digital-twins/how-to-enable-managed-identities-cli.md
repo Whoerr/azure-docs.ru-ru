@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 32cbe31f95c03f9b0b5eb1a31a28033dce18b112
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418322"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716131"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Включение управляемого удостоверения для маршрутизации событий цифровых двойников Azure (Предварительная версия): Azure CLI
 
@@ -80,15 +80,14 @@ az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identit
 | Назначение | Роль Azure |
 | --- | --- |
 | Центры событий Azure | Отправитель данных Центров событий Azure |
-| Azure Service Bus | Отправитель данных Служебной шины Azure |
+| Служебная шина Azure | Отправитель данных Служебной шины Azure |
 | Контейнер хранилища Azure | Участник данных BLOB-объектов хранилища |
 
 Дополнительные сведения о конечных точках, маршрутах и типах назначений, поддерживаемых для маршрутизации в Azure Digital двойников, см. в разделе [*Основные понятия: маршруты событий*](concepts-route-events.md).
 
 ### <a name="assign-the-role"></a>Назначение роли
 
->[!NOTE]
-> Этот раздел должен быть выполнен пользователем Azure с разрешениями на управление доступом пользователей к ресурсам Azure (включая предоставление и делегирование разрешений). Общие роли, отвечающие этому требованию, являются *владельцами*, администратором *учетной записи* или сочетанием администратора и *участника* *доступа пользователей* . Дополнительные сведения о требованиях к разрешениям для ролей Azure Digital двойников см. [*в разделе как настроить экземпляр и проверку подлинности*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Можно добавить `--scopes` параметр `az dt create` в команду, чтобы назначить удостоверение одной или нескольким областям с указанной ролью. Его можно использовать при первом создании экземпляра или позже, передав имя уже существующего экземпляра.
 
@@ -102,7 +101,7 @@ az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "
 
 Кроме того, для создания ролей и управления ими можно также использовать группу команд с [**назначением ролей AZ**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) . Это можно использовать для поддержки дополнительных сценариев, когда не нужно группировать назначение ролей с помощью команды Create.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Создание конечной точки с авторизацией на основе удостоверений
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Создание конечной точки с проверкой подлинности на основе удостоверений
 
 После настройки управляемого системой удостоверения для своего экземпляра Azure Digital двойников и назначения ему соответствующих ролей можно создать [конечные точки](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) цифровых двойников Azure, которые могут использовать удостоверение для проверки подлинности. Этот параметр доступен только для конечных точек концентратора событий и служебной шины (он не поддерживается для службы "Сетка событий").
 
@@ -123,7 +122,7 @@ az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resour
 
 Чтобы продолжить использовать конечную точку, настроенную с управляемым удостоверением, который теперь отключен, необходимо удалить конечную точку и [создать ее повторно](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) с другим типом проверки подлинности. Возобновление доставки в конечную точку после этого изменения может занять до часа.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об управляемых удостоверениях в Azure AD: 
 * [*Управляемые удостоверения для ресурсов Azure*](../active-directory/managed-identities-azure-resources/overview.md)

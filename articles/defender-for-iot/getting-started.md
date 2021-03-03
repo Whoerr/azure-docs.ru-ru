@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522569"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712765"
 ---
 # <a name="get-started-with-defender-for-iot"></a>Начало работы с защитником для Интернета вещей
 
@@ -69,6 +69,8 @@ ms.locfileid: "100522569"
 1. Выберите **Встроенная подписка**.
 1. На странице **цены** выберите подписку или создайте новую и добавьте число зафиксированных устройств.
 1. Перейдите на вкладку **Загрузка локальной консоли управления** и сохраните скачанный файл активации. Этот файл содержит определяемые вами совокупные зафиксированные устройства. Файл будет отправлен в консоль управления после первоначального входа в систему.
+
+Сведения о том, как отключение подписку, см. в разделе [Отключение a Subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
 ## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. Установите и настройте локальную консоль управления.
 
@@ -126,8 +128,9 @@ ms.locfileid: "100522569"
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. Заполнение Sentinel Azure сведениями о предупреждении (необязательно)
 
 Отправьте сведения об оповещении в Azure Sentinel, настроив метку Azure. См. статью [подключение данных из защитника для Интернета вещей к Azure Sentinel](how-to-configure-with-sentinel.md).
-## <a name="next-steps"></a>Дальнейшие шаги
 
-[Добро пожаловать в защитник Azure для IoT](overview.md)
+## <a name="see-also"></a>См. также раздел
 
-[Архитектура защитника Azure для Интернета вещей](architecture.md)
+- [Добро пожаловать в защитник Azure для IoT](overview.md)
+
+- [Архитектура защитника Azure для Интернета вещей](architecture.md)

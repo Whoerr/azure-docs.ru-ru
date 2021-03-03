@@ -3,14 +3,14 @@ title: Развертывание гибридной рабочей роли Run
 description: В этой статье рассказывается, как установить гибридную рабочую роль Runbook службы автоматизации Azure для запуска модулей Runbook на компьютерах под управлением Linux в локальном центре обработки данных или в облачной среде.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708923"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Развертывание гибридной рабочей роли Runbook для Linux
 
@@ -43,12 +43,15 @@ ms.locfileid: "100581193"
 Гибридная функция Runbook Worker поддерживает следующие дистрибутивы. Предполагается, что все операционные системы имеют версию x64. Архитектура x86 не поддерживается для любой операционной системы.
 
 * Amazon Linux 2012,09 – 2015,09
-* CentOS Linux 5, 6 и 7;
+* CentOS Linux 5, 6, 7 и 8
 * Oracle Linux 5, 6 и 7;
-* Red Hat Enterprise Linux Server 5, 6 и 7
+* Red Hat Enterprise Linux Server 5, 6, 7 и 8
 * Debian GNU/Linux 6, 7 и 8;
 * Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS и 18,04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 и 15
+
+> [!IMPORTANT]
+> Перед включением функции Управление обновлениями, которая зависит от роли Гибридная Рабочая роль Runbook системы, подтвердите дистрибутивы, которые [она поддерживает.](update-management/overview.md#supported-operating-systems)
 
 ### <a name="minimum-requirements"></a>Минимальные требования
 
@@ -85,7 +88,7 @@ ms.locfileid: "100581193"
 
 Гибридные рабочие роли Runbook Linux поддерживают ограниченный набор типов Runbook в службе автоматизации Azure, и они описаны в следующей таблице.
 
-|Тип Runbook | Поддерживаются: |
+|Тип Runbook | Поддерживается |
 |-------------|-----------|
 |Python 2; |Да |
 |PowerShell |Да<sup>1</sup> |

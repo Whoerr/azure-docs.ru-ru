@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: 5c5650d896442f10846e16903a1231010d032a44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694875"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Создание общедоступного IP-адреса с помощью портал Azure
 
@@ -74,7 +74,6 @@ ms.locfileid: "101675201"
     | Версия IP-адреса              | Выберите IPv4                 |    
     | номер SKU                     | Выберите **Базовый**.         |
     | Имя                    | Введите *мибасикпублиЦип*          |
-    | Параметры маршрутизации      | Оставьте значение по умолчанию для **сети Microsoft**. </br> Дополнительные сведения о параметрах маршрутизации см. в разделе [что такое маршрутизация предпочтения (Предварительная версия)?](./routing-preference-overview.md). |
     | Назначение IP-адресов   | Выбрать **статический** (см. Примечание ниже)                                     |
     | Время ожидания простоя (в минутах)  | Оставьте значение по умолчанию **4**.       |
     | Метка DNS-имени          | Оставьте значение пустым    |
@@ -82,7 +81,7 @@ ms.locfileid: "101675201"
     | Группа ресурсов          | Выберите **создать**, введите **myResourceGroup**. </br> Щелкните **ОК**. |
     | Расположение                | Выберите регион **Восточная часть США 2**      |
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Создание стандартного IP-адреса в портал Azure" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Создание стандартного IP-адреса в портал Azure" border="false":::
 
 Если IP-адрес может измениться со временем, можно выбрать **динамическое** назначение IP-адресов.
 

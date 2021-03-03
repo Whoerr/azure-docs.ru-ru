@@ -1,17 +1,16 @@
 ---
 title: Емкость и производительность решение в Azure Monitor | Документация Майкрософт
 description: Используйте решение Емкость и производительность в мониторе, чтобы получить представление о емкости серверов Hyper-V.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 9fce67c0ffe1951b0bfc325603b6d8f985dd804d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: aa08b9f5db5e6371bcd20b473a0c755db3199e7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704299"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Планирование емкости виртуальных машин Hyper-V с помощью решения Емкость и производительность (не рекомендуется)
 
@@ -128,6 +127,6 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 | Показатель общей задержки на всех общих томах кластера | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Read Latency" or CounterName == "CSV Write Latency") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](../logs/log-query-overview.md), чтобы просмотреть подробные сведения о емкости и производительности.
 

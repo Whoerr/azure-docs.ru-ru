@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 926bbfba172e90e3d03fb61eda7d6a5fd30fb0b6
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: d723bf1ce82e6d443dfa55dda7d33a3a9bfc16b6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095075"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647026"
 ---
 # <a name="tutorial-integrate-secret-server-on-premises-with-azure-active-directory"></a>Руководство по Интеграция Secret Server (On-Premises) с Azure Active Directory
 
@@ -151,8 +151,8 @@ ms.locfileid: "100095075"
 
 * На портале Azure выберите **Тестировать приложение**, и вы автоматически войдете в приложение Secret Server (On-Premises), для которого настроен единый вход. 
 
-Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку Secret Server (On-Premises) на портале "Мои приложения", вы перейдете на страницу входа в приложение для инициации потока входа (при настройке в режиме поставщика службы) или автоматически войдете в приложение Secret Server (On-Premises), для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку Secret Server (On-Premises) на портале "Мои приложения", вы перейдете на страницу входа в приложение для инициации потока входа (при настройке в режиме поставщика службы) или автоматически войдете в приложение Secret Server (On-Premises), для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Secret Server (On-Premises) вы можете применить функцию управления сеансами, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Secret Server (On-Premises) вы можете применить функцию управления сеансами, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

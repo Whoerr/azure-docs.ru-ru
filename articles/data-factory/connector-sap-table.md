@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: e4f756631b51ce9c5fba32939d1c6651e7b328d0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: c3c874b2e6362ceb5b4746f67614b5d85991efbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378525"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712986"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Копирование данных из таблицы SAP с помощью фабрики данных Azure
 
@@ -66,7 +66,7 @@ ms.locfileid: "100378525"
 - Пользователь SAP, используемый в соединителе таблиц SAP фабрики данных, должен иметь следующие разрешения:
 
   - Авторизация для использования назначений удаленного вызова функций (RFC).
-  - Разрешения на действие выполнение объекта авторизации S_SDSAUTH.
+  - Разрешения на действие Execute объекта авторизации S_SDSAUTH или разрешения на выполнение действия S_RFC: ФУГР-RFC1, пере, СИСУ FUNC-РФКПИНГ, RFC_FUNCTION_SEARCH АКТВТ – 16 Authorization. 
 
 ## <a name="get-started"></a>Начало работы
 

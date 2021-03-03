@@ -1,18 +1,18 @@
 ---
-title: Настройка Azure Monitor для Prometheus интеграции контейнеров | Документация Майкрософт
-description: В этой статье описывается настройка Azure Monitor для агента контейнеров для сбора метрик из Prometheus в кластере Kubernetes.
+title: Настройка интеграции Prometheus контейнеров | Документация Майкрософт
+description: В этой статье описывается, как настроить агент контейнеров аналитики для сбора метрик из Prometheus в кластере Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624516"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731737"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Настройка очистки метрик Prometheus с помощью Azure Monitor для контейнеров
+# <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Настройка брака/отхода метрик Prometheus с помощью аналитики контейнеров
 
-[Prometheus](https://prometheus.io/) — это популярное решение для мониторинга метрик с открытым исходным кодом, которое входит в состав [облачной среды вычислений машинного](https://www.cncf.io/)кода. Azure Monitor для контейнеров обеспечивает простой процесс адаптации для сбора метрик Prometheus. Как правило, для использования Prometheus необходимо настроить сервер Prometheus и управлять им с помощью магазина. При интеграции с Azure Monitor сервер Prometheus не требуется. Вам нужно просто предоставить конечную точку метрик Prometheus с помощью средств экспорта или модулей (приложения), а контейнерный агент для Azure Monitor контейнеров может поцарапать метрики за вас. 
+[Prometheus](https://prometheus.io/) — это популярное решение для мониторинга метрик с открытым исходным кодом, которое входит в состав [облачной среды вычислений машинного](https://www.cncf.io/)кода. Контейнерная аналитика обеспечивает простой процесс адаптации для сбора метрик Prometheus. Как правило, для использования Prometheus необходимо настроить сервер Prometheus и управлять им с помощью магазина. При интеграции с Azure Monitor сервер Prometheus не требуется. Вам нужно просто предоставить конечную точку метрик Prometheus с помощью средств экспорта или модулей (приложения), а контейнерный агент для аналитики контейнера может отбракировать метрики за вас. 
 
 ![Архитектура мониторинга контейнеров для Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -42,20 +42,20 @@ ms.locfileid: "100624516"
 | Служба Kubernetes | На уровне кластера | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | URL-адрес или конечная точка | На узел или на уровне кластера | `http://myurl:9101/metrics` |
 
-Если указан URL-адрес, Azure Monitor для контейнеров только перемещается в конечную точку. Если указана служба Kubernetes, имя службы разрешается с помощью DNS-сервера кластера для получения IP-адреса, а затем разрешенная служба переводится в отходы.
+Если указан URL-адрес, то контейнерная аналитика будет передаваться только в конечную точку. Если указана служба Kubernetes, имя службы разрешается с помощью DNS-сервера кластера для получения IP-адреса, а затем разрешенная служба переводится в отходы.
 
-|Область | Ключ | Тип данных | Значение | Описание |
+|Область | Клавиши | Тип данных | Значение | Описание |
 |------|-----|-----------|-------|-------------|
 | На уровне кластера | | | | Укажите один из следующих трех методов, чтобы отбракировать конечные точки для метрик. |
-| | `urls` | Строка | Массив с разделителями-запятыми | Конечная точка HTTP (указан IP-адрес или допустимый путь URL-адреса). Например: `urls=[$NODE_IP/metrics]`. ($NODE _IP — это конкретная Azure Monitor для параметра Containers, которую можно использовать вместо IP-адреса узла. Необходимо использовать все прописные буквы.) |
+| | `urls` | Строка | Массив с разделителями-запятыми | Конечная точка HTTP (указан IP-адрес или допустимый путь URL-адреса). Например: `urls=[$NODE_IP/metrics]`. ($NODE _IP — это конкретный параметр Container Insights. его можно использовать вместо IP-адреса узла. Необходимо использовать все прописные буквы.) |
 | | `kubernetes_services` | Строка | Массив с разделителями-запятыми | Массив Kubernetes служб для сбора метрик из KUBE-State-метрик. Например, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Логическое | true или false | Если задано значение `true` в параметрах на уровне кластера, Azure Monitor для агента контейнеров будет наделять модули Pod Kubernetes по всему кластеру на наличие следующих заметок Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `monitor_kubernetes_pods` | Логическое | true или false | Если задано значение `true` в параметрах на уровне кластера, агент контейнера аналитики будет наделять модули Pod Kubernetes по всему кластеру на наличие следующих заметок Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Логическое | true или false | Включает брак/отход модуля Pod. Для параметра `monitor_kubernetes_pods` нужно задать значение `true`. |
 | | `prometheus.io/scheme` | Строка | HTTP или HTTPS | По умолчанию используется отработка отказа по протоколу HTTP. При необходимости задайте значение `https` . | 
 | | `prometheus.io/path` | Строка | Массив с разделителями-запятыми | Путь HTTP-ресурса, из которого извлекать метрики. Если путь метрик не равен `/metrics` , определите его с помощью этой заметки. |
 | | `prometheus.io/port` | Строка | 9102 | Укажите порт, из которого будет списано значение. Если параметр port не установлен, по умолчанию будет 9102. |
-| | `monitor_kubernetes_pods_namespaces` | Строка | Массив с разделителями-запятыми | Список разрешенных пространств имен для брака метрики из модулей Kubernetes.<br> Например, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| На уровне узла | `urls` | Строка | Массив с разделителями-запятыми | Конечная точка HTTP (указан IP-адрес или допустимый путь URL-адреса). Например: `urls=[$NODE_IP/metrics]`. ($NODE _IP — это конкретная Azure Monitor для параметра Containers, которую можно использовать вместо IP-адреса узла. Необходимо использовать все прописные буквы.) |
+| | `monitor_kubernetes_pods_namespaces` | Строка | Массив с разделителями-запятыми | Список разрешенных пространств имен для брака метрики из модулей Kubernetes.<br> Например `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`. |
+| На уровне узла | `urls` | Строка | Массив с разделителями-запятыми | Конечная точка HTTP (указан IP-адрес или допустимый путь URL-адреса). Например: `urls=[$NODE_IP/metrics]`. ($NODE _IP — это конкретный параметр Container Insights. его можно использовать вместо IP-адреса узла. Необходимо использовать все прописные буквы.) |
 | На уровне узла или на уровне кластера | `interval` | Строка | 60 | Интервал сбора по умолчанию равен одной минуте (60 секунд). Коллекцию можно изменить для *[prometheus_data_collection_settings. Node]* и (или) *[prometheus_data_collection_settings. Cluster]* на единицы времени, например s, m, h. |
 | На уровне узла или на уровне кластера | `fieldpass`<br> `fielddrop`| Строка | Массив с разделителями-запятыми | Можно указать метрики, которые должны быть собраны или не включены в конечную точку, задав `fieldpass` список разрешений () и запретить ( `fielddrop` ). Сначала необходимо задать список разрешений. |
 
@@ -124,7 +124,7 @@ ms.locfileid: "100624516"
         ```
 
         >[!NOTE]
-        >$NODE _IP — это конкретный Azure Monitor для параметра Containers, который можно использовать вместо IP-адреса узла. Оно должно быть в верхнем регистре. 
+        >$NODE _IP — это конкретный параметр Container Insights. его можно использовать вместо IP-адреса узла. Оно должно быть в верхнем регистре. 
 
     - Чтобы настроить отходы метрик Prometheus, указав аннотацию Pod, выполните следующие действия.
 
@@ -147,11 +147,11 @@ ms.locfileid: "100624516"
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Если вы хотите ограничить мониторинг определенными пространствами имен для модулей Pod с заметками, например, включайте только модули памяти, выделенные для рабочих нагрузок, установите для параметра значение `monitor_kubernetes_pod` `true` в ConfigMap и добавьте фильтр пространства имен, `monitor_kubernetes_pods_namespaces` указывающий пространства имен, из которых следует избавиться. Например, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Если вы хотите ограничить мониторинг определенными пространствами имен для модулей Pod с заметками, например, включайте только модули памяти, выделенные для рабочих нагрузок, установите для параметра значение `monitor_kubernetes_pod` `true` в ConfigMap и добавьте фильтр пространства имен, `monitor_kubernetes_pods_namespaces` указывающий пространства имен, из которых следует избавиться. Например `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`.
 
 3. Выполните следующую команду kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
     
-    Пример: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
+    Например, `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
 До вступления в силу изменение конфигурации может занять несколько минут, и все omsagent Pod в кластере будут перезапущены. Перезагрузка является пошаговым перезапуском для всех модулей omsagent Pod, а не всех перезапусков одновременно. После завершения перезагрузки отображается сообщение, похожее на следующее и содержащее результат: `configmap "container-azm-ms-agentconfig" created` .
 
@@ -241,7 +241,7 @@ container-azm-ms-agentconfig   4         56m
         ```
 
         >[!NOTE]
-        >$NODE _IP — это конкретный Azure Monitor для параметра Containers, который можно использовать вместо IP-адреса узла. Оно должно быть в верхнем регистре. 
+        >$NODE _IP — это конкретный параметр Container Insights. его можно использовать вместо IP-адреса узла. Оно должно быть в верхнем регистре. 
 
     - Чтобы настроить отходы метрик Prometheus, указав аннотацию Pod, выполните следующие действия.
 
@@ -264,7 +264,7 @@ container-azm-ms-agentconfig   4         56m
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Если вы хотите ограничить мониторинг определенными пространствами имен для модулей Pod с заметками, например, включайте только модули памяти, выделенные для рабочих нагрузок, установите для параметра значение `monitor_kubernetes_pod` `true` в ConfigMap и добавьте фильтр пространства имен, `monitor_kubernetes_pods_namespaces` указывающий пространства имен, из которых следует избавиться. Например, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Если вы хотите ограничить мониторинг определенными пространствами имен для модулей Pod с заметками, например, включайте только модули памяти, выделенные для рабочих нагрузок, установите для параметра значение `monitor_kubernetes_pod` `true` в ConfigMap и добавьте фильтр пространства имен, `monitor_kubernetes_pods_namespaces` указывающий пространства имен, из которых следует избавиться. Например `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`.
 
 2. Сохраните изменения в редакторе.
 
@@ -330,7 +330,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 ## <a name="view-prometheus-metrics-in-grafana"></a>Просмотр метрик Prometheus в Grafana
 
-Azure Monitor для контейнеров поддерживает просмотр метрик, хранящихся в рабочей области Log Analytics, на панелях мониторинга Grafana. Мы создали шаблон, который можно скачать из [репозитория Grafana для панелей мониторинга](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker), чтобы начать работу или уточнить, как выполнять запросы дополнительных данных из включенных в мониторинг кластеров для визуализации на пользовательских панелях мониторинга Grafana. 
+Аналитика контейнеров поддерживает просмотр метрик, хранящихся в рабочей области Log Analytics, на панелях мониторинга Grafana. Мы создали шаблон, который можно скачать из [репозитория Grafana для панелей мониторинга](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker), чтобы начать работу или уточнить, как выполнять запросы дополнительных данных из включенных в мониторинг кластеров для визуализации на пользовательских панелях мониторинга Grafana. 
 
 ## <a name="review-prometheus-data-usage"></a>Проверка использования данных Prometheus
 
@@ -364,8 +364,8 @@ InsightsMetrics
 
 ![Регистрация результатов запроса для тома приема данных](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-Дополнительные сведения о мониторинге использования данных и анализе затрат см. в руководствах по [управлению использованием и затратами Azure Monitor журналов](../platform/manage-cost-storage.md).
+Дополнительные сведения о мониторинге использования данных и анализе затрат см. в руководствах по [управлению использованием и затратами Azure Monitor журналов](../logs/manage-cost-storage.md).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения о настройке параметров коллекции агентов для stdout, stderr и переменных среды из рабочих нагрузок контейнера см. [здесь](container-insights-agent-config.md). 
+Дополнительные сведения о настройке параметров коллекции агентов для stdout, stderr и переменных среды из рабочих нагрузок контейнера см. [здесь](container-insights-agent-config.md).

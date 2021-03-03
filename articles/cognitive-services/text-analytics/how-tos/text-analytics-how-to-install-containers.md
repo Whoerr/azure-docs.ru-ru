@@ -9,20 +9,20 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 02/10/2021
 ms.author: aahi
 keywords: локальный, Docker, контейнер, анализ тональности, обработка на естественном языке
-ms.openlocfilehash: f785a5e6749e46b34723af11b4d61a98b5d94384
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: e815ecafe5d00f92a5430fdb71bcf952bc8984c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862497"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736718"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Установка и запуск контейнеров API анализа текста
 
 > [!NOTE]
-> * Контейнер для анализ тональности версии 3 теперь является общедоступным. Контейнеры для извлечения ключевых фраз и определения языка доступны в виде общедоступной предварительной версии.
+> * Контейнер для анализ тональности и обнаружения языков теперь общедоступен. Контейнер извлечения ключевых фраз доступен в виде общедоступной предварительной версии.
 > * Связывание сущностей и NER в настоящее время недоступны в качестве контейнера.
 > * Для доступа к Анализ текста контейнеру работоспособности требуется [Форма запроса](https://aka.ms/csgate). В настоящее время плата за использование не взимается.
 > * Расположения образов контейнеров могли быть недавно изменены. Ознакомьтесь с этой статьей, чтобы увидеть обновленное расположение для этого контейнера.
@@ -46,7 +46,7 @@ ms.locfileid: "97862497"
 |--|--|
 |Модуль Docker| На [главном компьютере](#the-host-computer) должен быть установлен модуль Docker. Docker предоставляет пакеты, которые настраивают среду Docker в ОС [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) и [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Ознакомьтесь с [общими сведениями о Docker и контейнерах](https://docs.docker.com/engine/docker-overview/).<br><br> Docker нужно настроить таким образом, чтобы контейнеры могли подключать и отправлять данные о выставлении счетов в Azure. <br><br> **В ОС Windows** для Docker нужно также настроить поддержку контейнеров Linux.<br><br>|
 |Опыт работы с Docker | Требуется базовое представление о понятиях Docker, включая реестры, репозитории, контейнеры и образы контейнеров, а также знание основных команд `docker`.| 
-|Ресурс API анализа текста |Для использования контейнера необходимо следующее:<br><br>Ресурс Azure [анализ текста](../../cognitive-services-apis-create-account.md) для получения соответствующего ключа API и URI конечной точки. Оба значения доступны на страницах "Обзор" и "Ключи" API анализа текста на портале Azure и необходимы для запуска контейнера.<br><br>**{API_KEY}**: один из двух доступных ключей ресурсов на странице " **ключи** "<br><br>**{ENDPOINT_URI}**: конечная точка, указанная на странице **обзора**|
+|Ресурс API анализа текста |Для использования контейнера необходимо следующее:<br><br>Ресурс Azure [анализ текста](../../cognitive-services-apis-create-account.md) с [ценовой категорией](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Free (F0) или Standard (S). Необходимо получить соответствующий ключ API и URI конечной точки, перейдя на страницу **ключа и конечной точки** ресурса в портал Azure. <br><br>**{API_KEY}**: один из двух доступных ключей ресурсов. <br><br>**{ENDPOINT_URI}**: конечная точка для ресурса. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -61,7 +61,7 @@ ms.locfileid: "97862497"
 |  | Минимальные спецификации узла | Рекомендуемые спецификации узла | Минимальная Техническая спецификация | Максимальная техническая спецификация|
 |---|---------|-------------|--|--|
 | **Определение языка, извлечение ключевых фраз**   | 1 ядро, 2 ГБ памяти | 1 ядро, 4 ГБ памяти |15 | 30|
-| **Анализ тональности версии 3**   | 1 ядро, 2 ГБ памяти | 4 ядра, память 8 ГБ |15 | 30|
+| **анализ тональности**;   | 1 ядро, 2 ГБ памяти | 4 ядра, память 8 ГБ |15 | 30|
 | **Анализ текста для документа/запроса о работоспособности 1**   |  4 ядра, 10 ГБ памяти | 6 ядер, 12 ГБ памяти |15 | 30|
 | **Анализ текста для документов и запросов Health-10**   |  6 ядер, 16 ГБ памяти | 8 ядер, память 20 ГБ |15 | 30|
 
@@ -73,7 +73,7 @@ ms.locfileid: "97862497"
 
 Образы контейнеров для Анализ текста доступны в реестре контейнеров Microsoft.
 
-# <a name="sentiment-analysis-v3"></a>[Анализ тональности версии 3](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[анализ тональности ](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -81,7 +81,7 @@ ms.locfileid: "97862497"
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection-preview"></a>[Распознавание языка (Предварительная версия)](#tab/language)
+# <a name="language-detection"></a>[распознавание языка](#tab/language);
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
@@ -89,7 +89,7 @@ ms.locfileid: "97862497"
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
-**_
+***
 
 ## <a name="how-to-use-the-container"></a>Использование контейнера
 
@@ -103,11 +103,11 @@ ms.locfileid: "97862497"
 Используйте команду [DOCKER Run](https://docs.docker.com/engine/reference/commandline/run/) для запуска контейнеров. Контейнер продолжит работу, пока вы не завершите его работу.
 
 > [!IMPORTANT]
-> _ Команды DOCKER в следующих разделах используют обратную косую черту в `\` качестве символа продолжения строки. Замените или удалите ее в соответствии с требованиями вашей операционной системы. 
+> * В командах Docker в следующих разделах используется обратная косая черта (`\`) как символ продолжения строки. Замените или удалите ее в соответствии с требованиями вашей операционной системы. 
 > * Для запуска контейнера необходимо указать параметры `Eula`, `Billing` и `ApiKey`. В противном случае контейнер не запустится.  Дополнительные сведения см. в [разделе о выставлении счетов](#billing).
-> * Контейнер тональности Analysis v3 теперь общедоступен, что возвращает [метки тональности](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) в ответе. Контейнеры для извлечения ключевых фраз и определения языка используют версию 2 API и доступны в предварительной версии.
+> * Контейнеры "Анализ тональности" и "язык обнаружения" являются общедоступными. Контейнер извлечения ключевых фраз использует v2 API и находится в режиме предварительной версии.
 
-# <a name="sentiment-analysis-v3"></a>[Анализ тональности версии 3](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[анализ тональности](#tab/sentiment);
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
@@ -115,7 +115,7 @@ ms.locfileid: "97862497"
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detection-preview"></a>[Распознавание языка (Предварительная версия)](#tab/language)
+# <a name="language-detection"></a>[распознавание языка](#tab/language);
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
@@ -155,14 +155,14 @@ ms.locfileid: "97862497"
 
 Дополнительные сведения об этих параметрах см. в статье [Настройка контейнеров](../text-analytics-resource-container-config.md).
 
-## <a name="summary"></a>Сводка
+## <a name="summary"></a>Итоги
 
 В этой статье вы узнали основные понятия и рабочий процесс для скачивания, установки и выполнения контейнеров Анализа текста. В разделе "Сводка" сделайте следующее.
 
 * Анализ текста предоставляет три контейнера Linux для DOCKER, включая различные возможности:
    * *анализ тональности*;
    * *Извлечение ключевых фраз (Предварительная версия)* 
-   * *Распознавание языка (Предварительная версия)*
+   * *распознавание языка*;
    * *Анализ текста для здравоохранения (предварительная версия).*
 * Образы контейнеров загружаются из реестра контейнеров Майкрософт (мкр) или из репозитория предварительной версии.
 * Образы контейнеров выполняются в Docker.

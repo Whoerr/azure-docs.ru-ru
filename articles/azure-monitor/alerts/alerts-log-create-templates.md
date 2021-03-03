@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b1403b12c05420c6296cbafd0d4ee0bc02f8dd4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 665137688a000433a9101a77342fa6f9350d7141
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624126"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714329"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Создание оповещения журнала с помощью шаблона Resource Manager
 
-Оповещения журнала позволяют пользователям использовать [log Analytics](../log-query/log-analytics-tutorial.md) запрос для проверки журнала ресурсов каждые заданные частоты и запуска предупреждения на основе результатов. Правила могут активировать выполнение одного или нескольких действий с помощью [групп действий](../platform/action-groups.md). [Дополнительные сведения о функциональности и терминологии оповещений журнала](../platform/alerts-unified-log.md).
+Оповещения журнала позволяют пользователям использовать [log Analytics](../logs/log-analytics-tutorial.md) запрос для проверки журнала ресурсов каждые заданные частоты и запуска предупреждения на основе результатов. Правила могут активировать выполнение одного или нескольких действий с помощью [групп действий](./action-groups.md). [Дополнительные сведения о функциональности и терминологии оповещений журнала](./alerts-unified-log.md).
 
-В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) для настройки [оповещений журнала](../platform/alerts-unified-log.md) в Azure Monitor. Шаблоны Resource Manager позволяют программно настроить оповещения согласованным и воспроизводимым образом в разных средах. Оповещения журнала создаются в `Microsoft.Insights/scheduledQueryRules` поставщике ресурсов. См. Справочник по API для [запланированных правил запросов](/rest/api/monitor/scheduledqueryrules/).
+В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) для настройки [оповещений журнала](./alerts-unified-log.md) в Azure Monitor. Шаблоны Resource Manager позволяют программно настроить оповещения согласованным и воспроизводимым образом в разных средах. Оповещения журнала создаются в `Microsoft.Insights/scheduledQueryRules` поставщике ресурсов. См. Справочник по API для [запланированных правил запросов](/rest/api/monitor/scheduledqueryrules/).
 
 Основными шагами являются следующие:
 
@@ -26,15 +26,15 @@ ms.locfileid: "100624126"
 4. Разверните шаблон с помощью любого метода развертывания.
 
 > [!NOTE]
-> Данные журнала из [log Analytics рабочей области](../log-query/log-analytics-tutorial.md) можно отправить в хранилище метрик Azure Monitor. Поведение оповещений метрик [отличается от поведения](../platform/alerts-metric-overview.md), которое может быть более желательным в зависимости от данных, с которыми вы работаете. Сведения о том, что и как можно направить журналы в метрики, см. в разделе [метрики оповещений для журналов](../platform/alerts-metric-logs.md).
+> Данные журнала из [log Analytics рабочей области](../logs/log-analytics-tutorial.md) можно отправить в хранилище метрик Azure Monitor. Поведение оповещений метрик [отличается от поведения](./alerts-metric-overview.md), которое может быть более желательным в зависимости от данных, с которыми вы работаете. Сведения о том, что и как можно направить журналы в метрики, см. в разделе [метрики оповещений для журналов](./alerts-metric-logs.md).
 
 > [!NOTE]
-> Оповещения журнала для Log Analytics, которыми можно управлять с помощью [API предупреждений](../platform/api-alerts.md) устаревших log Analytics и устаревших шаблонов [log Analytics сохраненных поисков и предупреждений](../insights/solutions.md). Дополнительные [сведения о переключении на текущий API счедуледкуерирулес](alerts-log-api-switch.md).
+> Оповещения журнала для Log Analytics, которыми можно управлять с помощью [API предупреждений](./api-alerts.md) устаревших log Analytics и устаревших шаблонов [log Analytics сохраненных поисков и предупреждений](../insights/solutions.md). Дополнительные [сведения о переключении на текущий API счедуледкуерирулес](alerts-log-api-switch.md).
 
 
 ## <a name="simple-template-up-to-api-version-2018-04-16"></a>Простой шаблон (до API версии 2018-04-16)
 
-Шаблон [создания правил запросов](/rest/api/monitor/scheduledqueryrules/createorupdate) на основе [числа оповещений журнала результатов](../platform/alerts-unified-log.md#count-of-the-results-table-rows) (образец набора данных в качестве переменных):
+Шаблон [создания правил запросов](/rest/api/monitor/scheduledqueryrules/createorupdate) на основе [числа оповещений журнала результатов](./alerts-unified-log.md#count-of-the-results-table-rows) (образец набора данных в качестве переменных):
 
 ```json
 {
@@ -109,7 +109,7 @@ ms.locfileid: "100624126"
 
 ## <a name="template-with-cross-resource-query-up-to-api-version-2018-04-16"></a>Шаблон с запросом перекрестных ресурсов (до API версии 2018-04-16)
 
-Шаблон [создания правил запросов](/rest/api/monitor/scheduledqueryrules/createorupdate) на основе [измерения метрики](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) , которое запрашивает [перекрестные ресурсы](../log-query/cross-workspace-query.md) (образцы наборов данных как переменные):
+Шаблон [создания правил запросов](/rest/api/monitor/scheduledqueryrules/createorupdate) на основе [измерения метрики](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) , которое запрашивает [перекрестные ресурсы](../logs/cross-workspace-query.md) (образцы наборов данных как переменные):
 
 ```json
 {
@@ -430,9 +430,9 @@ ms.locfileid: "100624126"
 
 Этот JSON можно сохранить и развернуть с помощью [Azure Resource Manager в портал Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* Дополнительные сведения об [оповещениях журнала](../platform/alerts-unified-log.md)
-* Дополнительные сведения об [управлении оповещениями журнала](../platform/alerts-log.md)
-* Общие сведения о [действиях веб-перехватчика для оповещений журнала](../platform/alerts-log-webhook.md)
-* Дополнительные сведения о [запросах журналов](../log-query/log-query-overview.md).
+* Дополнительные сведения об [оповещениях журнала](./alerts-unified-log.md)
+* Дополнительные сведения об [управлении оповещениями журнала](./alerts-log.md)
+* Общие сведения о [действиях веб-перехватчика для оповещений журнала](./alerts-log-webhook.md)
+* Дополнительные сведения о [запросах журналов](../logs/log-query-overview.md).

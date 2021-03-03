@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d5c8ad0c4d9995a36b95ad2e67878f678887bfd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701983"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Настройка отправляемых по электронной почте уведомлений для оповещений системы безопасности 
 
@@ -61,7 +61,7 @@ ms.locfileid: "99988568"
 1. Нажмите кнопку **Сохранить**, чтобы сохранить сведения о контактных лицах по вопросам безопасности в своей подписке.
 
 ## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Настройка параметров уведомлений с помощью API
-Вы также можете управлять уведомлениями по электронной почте с помощью указанного REST API. Полные сведения см. в [документации по API SecurityContacts](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
+Вы также можете управлять уведомлениями по электронной почте с помощью указанного REST API. Полные сведения см. в [документации по API SecurityContacts](/rest/api/securitycenter/securitycontacts).
 
 Вот пример текста запроса PUT при создании конфигурации для контактного лица по вопросам безопасности:
 

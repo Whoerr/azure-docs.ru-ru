@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2444ec28a2618b638f78926e214de468f56c5e52
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2f867fa6d4b7e1d864a85106b5d957a53d38eb76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95995499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732554"
 ---
 # <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Включение многоканального SMB в учетной записи Филестораже (Предварительная версия) 
 
@@ -28,7 +28,7 @@ ms.locfileid: "95995499"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- [Создайте учетную запись филестораже](storage-how-to-create-premium-fileshare.md).
+- [Создайте учетную запись филестораже](./storage-how-to-create-file-share.md).
 - Если вы планируете использовать модуль Azure PowerShell, [установите версию модуля 3.0.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview).
 
 ## <a name="getting-started"></a>Начало работы
@@ -81,7 +81,7 @@ Get-AzProviderFeature -FeatureName AllowSMBMultichannel -ProviderNamespace Micro
 Update-AzStorageFileServiceProperty -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -EnableSmbMultichannel $true 
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Azure CLI пока не поддерживает настройку многоканального SMB. См. инструкции по настройке многоканального SMB в учетной записи хранения в инструкциях портала.
 
 ---
@@ -90,7 +90,7 @@ Azure CLI пока не поддерживает настройку многок
 > Любые изменения параметров конфигурации многоканального протокола SMB будут применены ко всем общим папкам в учетной записи хранения. Однако необходимо будет повторно подключить общую папку на клиенте, чтобы изменения вступили в силу.
 
 
-## <a name="next-steps"></a>Следующие шаги 
+## <a name="next-steps"></a>Дальнейшие действия 
 
 - Повторно [Подключите файловый ресурс](storage-how-to-use-files-windows.md) , чтобы воспользоваться преимуществами многоканального SMB.
 - [Устраните все проблемы, связанные с многоканальным SMB](storage-troubleshooting-files-performance.md#smb-multichannel-option-not-visible-under-file-share-settings).

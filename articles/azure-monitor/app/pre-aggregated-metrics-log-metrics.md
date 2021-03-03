@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c419411b0956cdc42055f0e97a47fc8e4ddb38c9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: acbe535d740eb527d165be1675f31e759851a987
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717831"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Метрики на основе журналов и предварительно агрегированные метрики в Application Insights
 
@@ -48,16 +48,18 @@ ms.locfileid: "100589732"
 | .NET Core и платформа .NET Framework | Поддерживается (V 2.13.1 +)| Поддерживается через [TrackMetric](api-custom-events-metrics.md#trackmetric)| Поддерживается (V 2.7.2 +) через- [Metric](get-metric.md) |
 | Java                         | Не поддерживается       | Поддерживается через [TrackMetric](api-custom-events-metrics.md#trackmetric)| Не поддерживается                           |
 | Node.js                      | Не поддерживается       | Поддерживается через  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Не поддерживается                           |
-| Python                       | Не поддерживается       | Поддерживается                                 | Поддерживается через [опенценсус. stats](opencensus-python.md#metrics) |  
+| Python                       | Не поддерживается       | Поддерживается                                 | Частично поддерживается через [опенценсус. stats](opencensus-python.md#metrics) |  
 
+> [!NOTE]
+>  Реализация метрик для Python с использованием Опенценсус. stats отличается от функции-метрики. Дополнительные сведения см. [в документации по Python по метрикам](./opencensus-python.md#metrics).
 
 ### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Таблица с предварительно агрегированными метриками без поддержки кода
 
 | Текущие рабочие пакеты SDK | Стандартные метрики (Предварительная агрегация пакета SDK) | Пользовательские метрики (без предварительного агрегирования пакета SDK) | Пользовательские метрики (предварительное агрегирование пакета SDK)|
 |-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
 | ASP.NET                 | Поддерживается <sup> 1<sup>    | Не поддерживается                             | Не поддерживается                           |
-| ASP.NET Core            | Поддерживается <sup> 2<sup>    | Не поддерживается                             | Не поддерживается                           |
-| Java                    | Не поддерживается            | Не поддерживается                             | [Поддерживаются](java-in-process-agent.md#metrics) |
+| ASP.NET Core            | Поддерживается <sup> 2<sup>    | Не поддерживается                             | Не поддерживается                           |
+| Java                    | Не поддерживается            | Не поддерживается                             | [Поддерживается](java-in-process-agent.md#metrics) |
 | Node.js                 | Не поддерживается            | Не поддерживается                             | Не поддерживается                           |
 
 1. ASP.NET. присоединение несамостоятельного кода в службе приложений создает метрики только в режиме полного мониторинга. ASP.NET без кода подключается к службе приложений, ВМ, VMSS и локальной сети выдает стандартные метрики, не имеющие измерений. Для всех измерений требуется пакет SDK.
@@ -91,7 +93,7 @@ ms.locfileid: "100589732"
 
 Если выбрать параметр [включить предупреждения для настраиваемых измерений метрик](#custom-metrics-dimensions-and-pre-aggregation) для хранения всех измерений предварительно агрегированных метрик в хранилище метрик, может создать **Дополнительные** затраты на основе [цен на настраиваемые метрики](https://azure.microsoft.com/pricing/details/monitor/).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Создание оповещений в режиме практически реального времени](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric и TrackValue](./api-custom-events-metrics.md#getmetric)

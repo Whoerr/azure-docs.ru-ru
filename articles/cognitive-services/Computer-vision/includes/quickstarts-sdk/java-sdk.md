@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6eec9cf199068db6b87e69dd97dd0e105f629a14
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8435d250f95f861f2a84e91d673eb59c3a6d44b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948057"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750210"
 ---
 <a name="HOLTop"></a>
 
@@ -105,7 +105,7 @@ mkdir -p src/main/java
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
 > [!div class="nextstepaction"]
-> [Мной настроен клиент](?success=set-up-client#object-model) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Мной настроен клиент](?success=set-up-client#object-model) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## <a name="object-model"></a>Объектная модель
 
@@ -132,7 +132,7 @@ mkdir -p src/main/java
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [Мной аутентифицирован клиент](?success=authenticate-client#analyze-an-image) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Мной аутентифицирован клиент](?success=authenticate-client#analyze-an-image) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Анализ изображения
 
@@ -215,7 +215,7 @@ mkdir -p src/main/java
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 > [!div class="nextstepaction"]
-> [Мной проанализировано изображение](?success=analyze-image#read-printed-and-handwritten-text) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [Мной проанализировано изображение](?success=analyze-image#read-printed-and-handwritten-text) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Чтение печатного и рукописного текста
 
@@ -261,7 +261,7 @@ mkdir -p src/main/java
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 > [!div class="nextstepaction"]
-> [Мной считан текст](?success=read-printed-handwritten-text#run-the-application) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Мной считан текст](?success=read-printed-handwritten-text#run-the-application) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Выполнение приложения
 
@@ -278,7 +278,7 @@ gradle run
 ```
 
 > [!div class="nextstepaction"]
-> [Мной запущено приложение](?success=run-the-application#clean-up-resources) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [Мной запущено приложение](?success=run-the-application#clean-up-resources) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
@@ -288,7 +288,7 @@ gradle run
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Мной очищены ресурсы](?success=clean-up-resources#next-steps) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Мной очищены ресурсы](?success=clean-up-resources#next-steps) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

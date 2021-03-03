@@ -1,26 +1,23 @@
 ---
-title: Подключение к виртуальной машине под управлением Linux в Azure с помощью удаленного рабочего стола
+title: Использование xrdp с Linux
 description: Узнайте, как установить и настроить удаленный рабочий стол (xrdp) для подключения к виртуальной машине Linux в Azure с помощью графических средств.
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/12/2019
+ms.date: 03/01/2021
 ms.author: cynthn
-ms.openlocfilehash: bea7e38c35ceddafb64937d6e1a6f69d7c727f44
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196390"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695181"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Установка и настройка удаленного рабочего стола для подключения к виртуальной машине Linux в Azure
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Установка и настройка xrdp для использования удаленный рабочий стол с виртуальной машиной Linux
+
 Управление виртуальными машинами Linux в Azure обычно осуществляется из командной строки с помощью подключения Secure Shell (SSH). Если вы только начинаете работу с Linux или хотите быстро устранить неполадки, проще всего использовать удаленный рабочий стол. В этой статье описывается установка и настройка среды рабочего стола ([xfce](https://www.xfce.org)) и удаленного рабочего стола ([xrdp](http://xrdp.org)) для виртуальной машины Linux с помощью модели развертывания Resource Manager.
 
 
@@ -32,6 +29,7 @@ ms.locfileid: "98196390"
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Установка среды рабочего стола на виртуальной машине Linux
+
 На большинстве виртуальных машин Linux в Azure по умолчанию не установлена среда рабочего стола. Управление виртуальными машинами Linux обычно осуществляется через SSH-подключения, а не с помощью рабочего стола. В Linux можно использовать различные среды рабочего стола. Выбранная среда рабочего стола может занимать 1–2 ГБ места на диске, а для установки и настройки всех необходимых пакетов может потребоваться 5–10 минут.
 
 С помощью приведенного ниже примера кода можно установить упрощенную среду рабочего стола [xfce4](https://www.xfce.org/) на виртуальной машине Ubuntu 18.04 LTS. Команды для других дистрибутивов незначительно отличаются. Например, для установки на виртуальной машине Red Hat Enterprise Linux используйте `yum` и настройте соответствующие правила `selinux`, а для установки на виртуальной машине SUSE используйте `zypper`.
@@ -94,9 +92,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Подключение к виртуальной машине Linux с помощью клиента удаленного рабочего стола
-Откройте локальный клиент удаленного рабочего стола и подключитесь с помощью IP-адреса или DNS-имени виртуальной машины Linux. Введите имя пользователя и пароль для учетной записи пользователя на виртуальной машине:
 
-![Подключение к xrdp с помощью клиента удаленного рабочего стола](./media/use-remote-desktop/remote-desktop-client.png)
+Откройте локальный клиент удаленного рабочего стола и подключитесь с помощью IP-адреса или DNS-имени виртуальной машины Linux. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Снимок экрана клиента удаленного рабочего стола.":::
+
+Введите имя пользователя и пароль для учетной записи пользователя на виртуальной машине:
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Снимок экрана: экран входа в xrdp.":::
 
 После проверки подлинности загрузится среда рабочего стола xfce. Она будет выглядеть примерно так:
 

@@ -5,30 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/22/2021
+ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380140"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699102"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Экспорт потоков из Power Automate и их развертывание в Azure Logic Apps
 
-> Для последовательностей, созданных после октября 2020, вы больше не сможете экспортировать из Power Автоматизация и выполнить развертывание в Azure Logic Apps.
-
 Чтобы расширить и расширить возможности потока, можно перенести этот поток из [Power Автоматизация](https://flow.microsoft.com) в [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Вы можете экспортировать последовательность в качестве шаблона Azure Resource Manager для приложения логики, развернуть шаблон приложения логики в группе ресурсов Azure, а затем открыть это приложение логики в конструкторе приложений логики.
 
-> [!NOTE]
-> В Azure Logic Apps доступны не все соединители Power автоматизиру. Можно выполнить миграцию только тех потоков автоматизации, которые имеют эквивалентные соединители в Azure Logic Apps. Например, триггер кнопки, соединитель утверждения и соединитель уведомлений относятся только к автоматизации питания. В настоящее время потоки на основе OpenAPI в Power автоматизировать не поддерживаются для экспорта и развертывания в качестве шаблонов приложений логики.
->
-> * Чтобы узнать, какие соединители Power автоматизировать не имеют Logic Apps эквивалентов, см. раздел [Power автоматизиру Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
->
-> * Чтобы узнать, какие соединители Logic Apps не имеют эквивалентов Power автоматизировать, см. раздел [Logic Apps Connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
+> [!IMPORTANT]
+> Экспорт в Logic Apps недоступен для потоков Power автоматизиру, созданных после августа 2020. В октябре 2020, Power автоматизирует стандартизованное создание новых потоков по [протоколу OpenAPI 2,0](https://swagger.io/specification/v2/). Новые потоки, основанные на этом протоколе, несовместимы с рабочими процессами Logic Apps, поэтому экспорт этих потоков в Logic Apps был отключен. Вместо этого необходимо вручную [создать приложения логики](quickstart-create-first-logic-app-workflow.md) для этих потоков.
+
+В Azure Logic Apps доступны не все соединители Power автоматизиру. Можно выполнить миграцию только тех потоков автоматизации, которые имеют эквивалентные соединители в Azure Logic Apps. Например, триггер кнопки, соединитель утверждения и соединитель уведомлений относятся только к автоматизации питания. 
+
+* Чтобы узнать, какие соединители Power автоматизировать не имеют Logic Apps эквивалентов, см. раздел [Power автоматизиру Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+
+* Чтобы узнать, какие соединители Logic Apps не имеют эквивалентов Power автоматизировать, см. раздел [Logic Apps Connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Подписка Azure. Если у вас еще нет подписки Azure, [зарегистрируйтесь для получения бесплатной учетной записи Azure](https://azure.microsoft.com/free/).
+* Учетная запись и подписка Azure. Если у вас еще нет подписки Azure, [зарегистрируйтесь для получения бесплатной учетной записи Azure](https://azure.microsoft.com/free/).
 
 * Последовательность, которую требуется экспортировать из Power автоматизирующие
 
@@ -78,7 +78,7 @@ ms.locfileid: "100380140"
       | <*имя соединения*> | Одно или несколько имен для ранее созданных подключений, которые может использовать приложение логики <p><p>**Примечание**. Если это приложение логики является первым, все подключения создаются как новые, поэтому можно принять имена по умолчанию. В противном случае можно указать имена для ранее созданных подключений, которые можно использовать в нескольких приложениях логики. |
       |||
 
-      Пример:
+      Пример.
 
       ![Укажите входные параметры для шаблона](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -158,7 +158,7 @@ ms.locfileid: "100380140"
 
    ![Изменить параметры развертывания](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   При запуске развертывания его состояние отобразится в окне **Выходные данные** Visual Studio. Если состояние не отображается, откройте список **Показать вывод из** и выберите свою группу ресурсов Azure. Пример:
+   При запуске развертывания его состояние отобразится в окне **Выходные данные** Visual Studio. Если состояние не отображается, откройте список **Показать вывод из** и выберите свою группу ресурсов Azure. Пример.
 
    ![Окно вывода](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 
@@ -174,7 +174,7 @@ ms.locfileid: "100380140"
 
 Дополнительные сведения об этих шагах развертывания см [. в разделе Краткое руководство. Создание автоматизированных задач, процессов и рабочих процессов с помощью Azure Logic Apps — Visual Studio.](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о [соединителях для Azure Logic Apps](../connectors/apis-list.md)
 * Дополнительные сведения о [Azure Logic Apps](../logic-apps/logic-apps-overview.md)

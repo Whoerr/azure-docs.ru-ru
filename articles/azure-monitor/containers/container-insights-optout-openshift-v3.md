@@ -1,14 +1,14 @@
 ---
 title: Как отключить мониторинг кластера Azure Red Hat OpenShift v3 | Документация Майкрософт
-description: В этой статье описывается, как можно отключить мониторинг кластера OpenShift для Azure Red Hat с помощью Azure Monitor для контейнеров.
+description: В этой статье описывается, как можно отключить мониторинг кластера Azure Red Hat OpenShift с помощью Container Insights.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a278898942e40d3347791d31a3c38341df01f7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625980"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731822"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Как отключить мониторинг кластера Azure Red Hat OpenShift v3
 
@@ -21,7 +21,7 @@ ms.locfileid: "100625980"
 > Следуйте указаниям этого руководством, чтобы [создать кластер Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
 > Если у вас есть определенные вопросы, [свяжитесь с нами](mailto:aro-feedback@microsoft.com).
 
-После включения мониторинга кластера Azure Red Hat OpenShift версии 3. x можно отключить мониторинг кластера с Azure Monitor для контейнеров, если вы решите, что вы больше не хотите его отслеживать. В этой статье показано, как это сделать с помощью предоставленного шаблона Azure Resource Manager.  
+После включения мониторинга кластера Azure Red Hat OpenShift версии 3. x вы можете отключить мониторинг кластера с помощью Container Insights, если вы решите, что вы больше не хотите его отслеживать. В этой статье показано, как это сделать с помощью предоставленного шаблона Azure Resource Manager.  
 
 ## <a name="azure-resource-manager-template"></a>Шаблон Azure Resource Manager
 
@@ -135,6 +135,6 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 ProvisioningState       : Succeeded
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-Если рабочая область была создана только для мониторинга кластера и больше не требуется, ее необходимо удалить вручную. Если вы не знакомы с удалением рабочей области, см. статью [удаление log Analytics рабочей области Azure](../platform/delete-workspace.md).
+Если рабочая область была создана только для мониторинга кластера и больше не требуется, ее необходимо удалить вручную. Если вы не знакомы с удалением рабочей области, см. статью [удаление log Analytics рабочей области Azure](../logs/delete-workspace.md).

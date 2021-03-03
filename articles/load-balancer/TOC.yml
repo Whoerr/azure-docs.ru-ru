@@ -160,8 +160,6 @@
           href: load-balancer-troubleshoot-health-probe-status.md
         - name: Трафик серверного пула (виртуальной машины)
           href: load-balancer-troubleshoot-backend-traffic.md
-        - name: Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager
-          href: load-balancer-common-deployment-errors.md
         - name: Распространенные проблемы с исходящим подключением
           href: troubleshoot-outbound-connection.md
         - name: Проблемы с работоспособностью ресурсов и доступностью входящего трафика
@@ -191,6 +189,8 @@
       displayName: ARM
     - name: Распространенные коды ошибок для Службы метаданных экземпляров (IMDS) Azure
       href: troubleshoot-load-balancer-imds.md
+    - name: Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager
+      href: load-balancer-common-deployment-errors.md
 - name: Ресурсы
   items:
     - name: Развитие навыков с помощью Microsoft Learn

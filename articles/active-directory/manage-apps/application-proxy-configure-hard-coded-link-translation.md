@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44266f7a7485b44ba60a27aadd7422e8d1c3acf4
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: bb1935242790333a91b47ccecc19d934b8145085
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259412"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688337"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Перенаправление жестко запрограммированных ссылок для приложений, опубликованных с помощью Azure AD Application Proxy
 
@@ -63,6 +63,9 @@ ms.locfileid: "99259412"
 Чтобы использовать эту возможность, пользователю необходимо скачать расширение и выполнить вход. Выполнять другие настройки не требуется. 
 
 Дополнительные сведения, включая настройку этого параметра, см. в документации по [расширению обозревателя MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) .
+
+> [!NOTE]
+> Расширение браузера MyApps не поддерживает преобразование ссылок для URL-адресов с подстановочными знаками.
 
 ### <a name="option-3-link-translation-setting"></a>Вариант 3. Параметр преобразования ссылок 
 
@@ -145,7 +148,7 @@ ms.locfileid: "99259412"
 
 Теперь, когда пользователи получают доступ к этому приложению, прокси будет автоматически проверять внутренние ссылки, которые были опубликованы через прокси приложения на вашем клиенте.
 
-## <a name="send-feedback"></a>Отправить отзыв
+## <a name="send-feedback"></a>Отправка отзывов
 
 Нам нужна ваша помощь, чтобы обеспечить работу функции во всех ваших приложениях. Мы поддерживаем поиск более 30 тегов в HTML и CSS. Если у вас есть пример созданных ссылок, которые не были преобразованы, отправьте фрагмент кода [сюда](mailto:aadapfeedback@microsoft.com). 
 

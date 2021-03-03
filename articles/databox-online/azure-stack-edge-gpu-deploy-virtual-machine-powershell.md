@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d4a4a2e6e04f8f6247df663aba033d387e66c437
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1ee0ba89ef56d819fdc7553959a8a37fdbd6f7fe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546896"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730660"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Развертывание виртуальных машин на пограничном устройстве Azure Stack с помощью Azure PowerShell
 
-В этой статье описывается, как создать виртуальную машину на Azure Stack пограничном устройстве и управлять ею с помощью Azure PowerShell. Эта статья относится к Azure Stackным графическим процессорам версии Pro, Azure Stackм пограничных Pro R и Azure Stack пограничных устройств R.
+В этой статье описывается, как создать виртуальную машину на Azure Stack пограничном устройстве и управлять ею с помощью Azure PowerShell. Эти сведения относятся к Azure Stack пограничному Pro с графическим процессором (графический процессор), Azure Stack пограничных Pro R и Azure Stack пограничных устройств R.
 
 ## <a name="vm-deployment-workflow"></a>Рабочий процесс развертывания виртуальной машины
 
-Вот как выглядит рабочий процесс развертывания:
+Рабочий процесс развертывания отображается на следующей схеме:
 
 ![Схема рабочего процесса развертывания виртуальной машины.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
@@ -30,24 +30,24 @@ ms.locfileid: "100546896"
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 
-## <a name="query-for-built-in-subscription-on-the-device"></a>Запрос встроенной подписки на устройстве
+## <a name="query-for-a-built-in-subscription-on-the-device"></a>Запрос встроенной подписки на устройстве
 
-Для Azure Resource Manager поддерживается только одна фиксированная подписка, видимая пользователю. Эта подписка уникальна для каждого устройства, и имя подписки или идентификатор подписки нельзя изменить.
+Для Azure Resource Manager поддерживается только одна фиксированная подписка, видимая пользователю. Эта подписка уникальна для каждого устройства, и имя подписки и идентификатор подписки нельзя изменить.
 
-Эта подписка содержит все ресурсы, необходимые для создания виртуальной машины. 
+Подписка содержит все ресурсы, необходимые для создания виртуальной машины. 
 
 > [!IMPORTANT]
-> Эта подписка создается при включении виртуальных машин из портал Azure и находится локально на устройстве.
+> Подписка создается при включении виртуальных машин из портал Azure и находится локально на устройстве.
 
-Эта подписка используется для развертывания виртуальных машин.
+Подписка используется для развертывания виртуальных машин.
 
-1.  Чтобы получить список подписок, введите:
+1.  Чтобы получить список подписок, выполните следующую команду:
 
     ```powershell
     Get-AzureRmSubscription
     ```
     
-    Ниже приведен пример выходных данных:
+    Вот пример выходных данных:
 
     ```powershell
     PS C:\windows\system32> Get-AzureRmSubscription
@@ -59,7 +59,7 @@ ms.locfileid: "100546896"
     PS C:\windows\system32>
     ```
         
-1. Получите список зарегистрированных поставщиков ресурсов, выполняющихся на устройстве. Этот список обычно содержит ресурсы для вычислений, сети и хранения.
+1. Получение списка зарегистрированных поставщиков ресурсов, которые выполняются на устройстве. Список обычно включает в себя вычисление, сеть и хранилище.
 
     ```powershell
     Get-AzureRMResourceProvider
@@ -68,7 +68,7 @@ ms.locfileid: "100546896"
     > [!NOTE]
     > Поставщики ресурсов предварительно зарегистрированы и не могут быть изменены или изменены.
     
-    Ниже приведен пример выходных данных:
+    Вот пример выходных данных:
 
     ```powershell
     Get-AzureRmResourceProvider
@@ -109,7 +109,7 @@ ms.locfileid: "100546896"
 New-AzureRmResourceGroup -Name <Resource group name> -Location DBELocal
 ```
 
-Ниже приведен пример выходных данных:
+Вот пример выходных данных:
 
 ```powershell
 New-AzureRmResourceGroup -Name rg191113014333 -Location DBELocal 
@@ -125,9 +125,9 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> С помощью Azure Resource Manager можно создавать только локальные учетные записи хранения, например локально избыточное хранилище ("Стандартный" или "Премиум"). Сведения о создании многоуровневых учетных записей хранения см. в статье [учебник. Перенос данных с помощью учетных записей хранения с помощью Azure Stack ребра Pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> С помощью Azure Resource Manager можно создавать только локальные учетные записи хранения, например локально избыточное хранилище ("Стандартный" или "Премиум"). Сведения о создании многоуровневых учетных записей хранения см. в статье [учебник. Перенос данных с помощью учетных записей хранения с помощью Azure Stack ребра Pro с графическим процессором](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
-Ниже приведен пример выходных данных:
+Вот пример выходных данных:
 
 ```powershell
 New-AzureRmStorageAccount -Name sa191113014333  -ResourceGroupName rg191113014333 -SkuName Standard_LRS -Location DBELocal
@@ -158,7 +158,7 @@ Context                : Microsoft.WindowsAzure.Commands.Common.Storage.LazyAzur
 ExtendedProperties     : {}
 ```
 
-Чтобы получить ключ учетной записи хранения, выполните `Get-AzureRmStorageAccountKey` команду. Ниже приведен пример выходных данных этой команды:
+Чтобы получить ключ учетной записи хранения, выполните `Get-AzureRmStorageAccountKey` команду. Вот пример выходных данных:
 
 ```powershell
 PS C:\Users\Administrator> Get-AzureRmStorageAccountKey
@@ -177,19 +177,19 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-the-blob-uri-to-the-host-file"></a>Добавление URI BLOB-объекта в файл узла
 
-Вы уже добавили URI большого двоичного объекта в файл hosts для клиента, который вы используете для подключения к хранилищу BLOB-объектов Azure, в разделе [изменение файла узла для разрешения имен конечных точек](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Эта запись была использована для добавления URI большого двоичного объекта:
+Вы уже добавили URI большого двоичного объекта в файл hosts для клиента, который вы используете для подключения к хранилищу BLOB-объектов Azure, в "шаг 5. изменение файла узла для разрешения имен конечных точек" [развертывания виртуальных машин на Azure Stack пограничном устройстве с помощью Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Эта запись была использована для добавления URI большого двоичного объекта:
 
 \<Azure consistent network services VIP \>\<storage name\>. BLOB. \<appliance name\> .\<dnsdomain\>
 
 ## <a name="install-certificates"></a>Установка сертификатов
 
-Если вы используете *протокол HTTPS*, необходимо установить на устройстве соответствующие сертификаты. В этом случае установите сертификат конечной точки большого двоичного объекта. Дополнительные сведения см. в статье Создание и передача сертификатов в [use Certificates with Azure Stack Device Pro GPU](azure-stack-edge-gpu-manage-certificates.md).
+Если вы используете протокол HTTPS, необходимо установить на устройстве соответствующие сертификаты. Здесь вы устанавливаете сертификат конечной точки BLOB-объекта. Дополнительные сведения см. в статье [Использование сертификатов с помощью Azure Stack ребра Pro на устройстве GPU](azure-stack-edge-gpu-manage-certificates.md).
 
 ## <a name="upload-a-vhd"></a>Отправка VHD
 
-Скопируйте все образы дисков, которые будут использоваться, в страничные BLOB-объекты в локальной учетной записи хранения, созданной на предыдущих шагах. Для передачи виртуального жесткого диска в учетную запись хранения можно использовать такой инструмент, как [AzCopy](../storage/common/storage-use-azcopy-v10.md) . 
+Скопируйте все образы дисков, которые будут использоваться, в страничные BLOB-объекты в учетной записи локального хранилища, созданной ранее. Для передачи виртуального жесткого диска (VHD) в учетную запись хранения можно использовать такой инструмент, как [AzCopy](../storage/common/storage-use-azcopy-v10.md) . 
 
-<!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
+<!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you're using with your Azure Stack Edge Pro device.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -198,9 +198,9 @@ AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storag
 > [!NOTE]
 > Set `BlobType` to `page` for creating a managed disk out of VHD. Set `BlobType` to `block` when you're writing to tiered storage accounts by using AzCopy.
 
-You can download the disk images from Azure Marketplace. For detailed steps, see [Get the virtual disk image from Azure Marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
+You can download the disk images from Azure Marketplace. For more information, see [Get the virtual disk image from Azure Marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
 
-Here's a sample output using AzCopy 7.3. For more information on this command, see [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
+Here's some example output that uses AzCopy 7.3. For more information about this command, see [Upload VHD file to storage account by using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
 
 
 ```powershell
@@ -220,7 +220,7 @@ $StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Ta
 <AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
 ```
 
-Ниже приведен пример выходных данных: 
+Вот пример выходных данных: 
 
 ```powershell
 $ContainerName = <ContainerName>
@@ -240,14 +240,14 @@ $StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Ta
 C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"
 ```
 
-## <a name="create-managed-disks-from-the-vhd"></a>Создание управляемых дисков из VHD.
+## <a name="create-a-managed-disk-from-the-vhd"></a>Создание управляемого диска из VHD
 
-Создайте управляемый диск на основе отправленного виртуального жесткого диска.
+Чтобы создать управляемый диск на основе переданного виртуального жесткого диска, выполните следующую команду:
 
 ```powershell
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
-Ниже приведен пример выходных данных: 
+Вот пример выходных данных: 
 
 <code>
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
@@ -256,7 +256,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Ниже приведен пример выходных данных. Дополнительные сведения об этом командлете см. в подразделе [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
+Ниже приведен пример выходных данных. Дополнительные сведения об этом командлете см. в разделе [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -282,7 +282,7 @@ Tags               : {}
 
 ## <a name="create-a-vm-image-from-the-image-managed-disk"></a>Создание образа виртуальной машины на основе управляемого диска образа.
 
-Используйте следующую команду, чтобы создать образ виртуальной машины на основе управляемого диска. Замените значения в \< \> именах выбранными.
+Чтобы создать образ виртуальной машины на основе управляемого диска, выполните следующую команду. Замените *\<Disk name>* , *\<OS type>* и *\<Disk size>* на реальные значения.
 
 ```powershell
 $imageConfig = New-AzureRmImageConfig -Location DBELocal
@@ -296,7 +296,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Ниже приведен пример выходных данных. Дополнительные сведения об этом командлете см. в подразделе [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
+Ниже приведен пример выходных данных. Дополнительные сведения об этом командлете см. в разделе [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -312,9 +312,9 @@ Location             : dbelocal
 Tags                 : {}
 ```
 
-## <a name="create-vm-with-previously-created-resources"></a>Создание виртуальной машины с ранее созданными ресурсами.
+## <a name="create-your-vm-with-previously-created-resources"></a>Создание виртуальной машины с ранее созданными ресурсами
 
-Перед созданием и развертыванием виртуальной машины необходимо создать одну виртуальную сеть и связать ее с виртуальным сетевым интерфейсом.
+Перед созданием и развертыванием виртуальной машины необходимо создать одну виртуальную сеть и связать с ней виртуальный сетевой интерфейс.
 
 > [!IMPORTANT]
 > Применяются следующие правила.
@@ -324,7 +324,9 @@ Tags                 : {}
 
 ### <a name="query-the-automatically-created-virtual-network"></a>Запрос автоматически созданной виртуальной сети
 
-При включении вычислений из локального пользовательского интерфейса устройства в `ASEVNET` группе ресурсов автоматически создается виртуальная сеть с именем `ASERG` . Для запроса существующей виртуальной сети используйте следующую команду:
+При включении вычислений из локального пользовательского интерфейса устройства в `ASEVNET` группе ресурсов автоматически создается виртуальная сеть с именем `ASERG` . 
+
+Для запроса существующей виртуальной сети используйте следующую команду:
 
 ```powershell
 $aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
@@ -337,14 +339,14 @@ $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Nam
 
 ### <a name="create-a-virtual-network-interface-card"></a>Создание виртуального сетевого интерфейса
 
-Ниже приведена команда для создания карты виртуального сетевого интерфейса с помощью идентификатора подсети виртуальной сети.
+Чтобы создать виртуальную сетевую карту с помощью идентификатора подсети виртуальной сети, выполните следующую команду:
 
 ```powershell
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId $aRmVN.Subnets[0].Id -PrivateIpAddress <Private IP>
 $Nic = New-AzureRmNetworkInterface -Name <Nic name> -ResourceGroupName <Resource group name> -Location DBELocal -IpConfiguration $ipConfig
 ```
 
-Ниже приведен пример выходных данных команд.
+Вот пример выходных данных:
 
 ```powershell
 PS C:\Users\Administrator> $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name my-ase-subnet -AddressPrefix "5.5.0.0/16"
@@ -406,7 +408,7 @@ Primary                     : True
 MacAddress                  : 00155D18E432                :
 ```
 
-При необходимости при создании виртуальной сетевой карты для виртуальной машины можно передать общедоступный IP-адрес. В этом случае общедоступный IP-адрес возвращает частный IP-адрес. 
+Кроме того, при создании виртуальной сетевой карты для виртуальной машины можно передать общедоступный IP-адрес. В этом случае общедоступный IP-адрес возвращает частный IP-адрес. 
 
 ```powershell
 New-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
@@ -421,9 +423,11 @@ $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <ConfigName> -PublicIpAddr
 ```powershell
 $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
 $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
+```
 
-You will use this username, password to login to the VM, once it is created and powered up.
+После создания и включения виртуальной машины для входа в нее будет использоваться следующее имя пользователя и пароль.
 
+```powershell
 $VirtualMachine = New-AzureRmVMConfig -VMName <VM name> -VMSize "Standard_D1_v2"
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -<OS type> -ComputerName <Your computer Name> -Credential $cred
@@ -441,19 +445,19 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -Id $image
 New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $VirtualMachine -Verbose
 ```
 
-## <a name="connect-to-a-vm"></a>Подключение к виртуальной машине
+## <a name="connect-to-the-vm"></a>Подключение к виртуальной машине
 
-В зависимости от того, была создана виртуальная машина Windows или Linux, действия для подключения могут отличаться.
+В зависимости от того, была ли создана виртуальная машина Windows или виртуальная машина Linux, инструкции по подключению могут отличаться.
 
-### <a name="connect-to-linux-vm"></a>Подключение к виртуальной машине Linux
+### <a name="connect-to-a-linux-vm"></a>Подключение к виртуальной машине Linux
 
-Выполните следующие действия, чтобы подключиться к виртуальной машине Linux.
+Чтобы подключиться к виртуальной машине Linux, выполните следующие действия.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-### <a name="connect-to-windows-vm"></a>Подключение к виртуальной машине Windows
+### <a name="connect-to-a-windows-vm"></a>Подключение к виртуальной машине Windows
 
-Выполните следующие действия, чтобы подключиться к виртуальной машине Windows.
+Чтобы подключиться к виртуальной машине Windows, выполните следующие действия.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
@@ -475,14 +479,14 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case is the same as the private IP that you passed during the virtual network interface creation.-->
+The public IP in this instance is the same as the private IP that you passed during the virtual network interface creation.-->
 
 
 ## <a name="manage-the-vm"></a>Управление виртуальной машиной
 
 В следующих разделах описаны некоторые распространенные операции, которые можно создать на устройстве Azure Stack пограничной Pro.
 
-### <a name="list-vms-running-on-the-device"></a>Вывод списка виртуальных машин, работающих на устройстве
+### <a name="list-vms-that-are-running-on-the-device"></a>Вывод списка виртуальных машин, работающих на устройстве
 
 Чтобы получить список всех виртуальных машин, работающих на Azure Stack пограничном устройстве, выполните следующую команду:
 
@@ -492,27 +496,26 @@ The public IP in this case is the same as the private IP that you passed during 
 
 ### <a name="turn-on-the-vm"></a>Включение виртуальной машины
 
-Выполните следующий командлет, чтобы включить виртуальную машину, работающую на устройстве:
-
+Чтобы включить виртуальную машину, работающую на устройстве, выполните следующий командлет:
 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
-Дополнительные сведения об этом командлете см. в подразделе [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+Дополнительные сведения об этом командлете см. в разделе [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Приостановка или завершение работы виртуальной машины
 
-Выполните следующий командлет, чтобы остановить или завершить работу виртуальной машины, запущенной на устройстве:
+Чтобы остановить или завершить работу виртуальной машины, запущенной на устройстве, выполните следующий командлет:
 
 
 ```powershell
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
-Дополнительные сведения об этом командлете см. в подразделе [командлета AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+Дополнительные сведения об этом командлете см. в разделе [командлет AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="add-a-data-disk"></a>Добавление диска данных
 
-При увеличении требований к рабочей нагрузке на виртуальную машину может потребоваться добавить диск данных.
+Если требования к рабочей нагрузке увеличиваются на виртуальной машине, может потребоваться добавить диск данных. Для этого выполните следующую команду:
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" -VhdUri "https://contoso.blob.core.windows.net/vhds/diskstandard03.vhd" -LUN 0 -Caching ReadOnly -DiskSizeinGB 1 -CreateOption Empty 
@@ -522,14 +525,14 @@ Update-AzureRmVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualM
 
 ### <a name="delete-the-vm"></a>Удаление виртуальной машины
 
-Выполните следующий командлет, чтобы удалить виртуальную машину с устройства:
+Чтобы удалить виртуальную машину с устройства, выполните следующий командлет:
 
 ```powershell
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Чтобы получить дополнительные сведения об этом командлете, перейдите к [командлету Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+Дополнительные сведения об этом командлете см. в разделе [командлет Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Командлеты Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

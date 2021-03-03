@@ -10,8 +10,6 @@
   items:
     - name: Технические возможности обеспечения безопасности
       href: technical-capabilities.md
-    - name: Встроенные средства управления безопасностью
-      href: security-controls.md
 - name: Платформа и инфраструктура Azure
   items:
     - name: Безопасность инфраструктуры

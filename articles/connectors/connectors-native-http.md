@@ -3,16 +3,16 @@ title: Вызов конечных точек службы с помощью HTT
 description: Отправка исходящих запросов HTTP или HTTPS в конечные точки службы из Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/18/2021
 tags: connectors
-ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063001"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719446"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Вызов конечных точек службы по HTTP или HTTPS из Azure Logic Apps
 
@@ -249,8 +249,8 @@ ms.locfileid: "99063001"
 
 * `Accept-*` заголовки, за исключением `Accept-version`
 * `Allow`
-* `Content-*` заголовки, за исключением `Content-Disposition` , `Content-Encoding` и `Content-Type` при использовании операций POST и постановки, но не включаемых в операции Get.
-* `Cookie`
+* `Content-*` заголовки, за исключением `Content-Disposition` , `Content-Encoding` и `Content-Type` , которые учитываются при использовании операций POST и постановки. Однако Logic Apps удаляет эти заголовки при использовании операции GET.
+* `Cookie` , но Logic Apps учитывает любое значение, заданное с помощью свойства **cookie** .
 * `Expires`
 * `Host`
 * `Last-Modified`

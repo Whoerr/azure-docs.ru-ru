@@ -4,14 +4,14 @@ description: Узнайте, как настроить управление до
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/02/2021
 ms.author: thweiss
-ms.openlocfilehash: 49bf67a6703147ed31279e7af8145192d996c1cb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663168"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690912"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Настройка управления доступом на основе ролей с помощью Azure Active Directory для учетной записи Azure Cosmos DB (Предварительная версия)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -101,6 +101,11 @@ Azure Cosmos DB плоскость данных RBAC построена на о�
     - `/` (уровень учетной записи),
     - `/dbs/<database-name>` (уровень базы данных),
     - `/dbs/<database-name>/colls/<container-name>` (на уровне контейнера).
+
+> [!NOTE]
+> Приведенные ниже операции в настоящее время доступны в.
+> - Azure PowerShell: [AZ. CosmosDB версии 2.0.1-Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: [расширение "cosmosdb-Preview" версии 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### <a name="using-azure-powershell"></a>Использование Azure PowerShell
 
@@ -279,6 +284,11 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 > [!NOTE]
 > Если вы хотите создать назначение роли для субъекта-службы, обязательно используйте **идентификатор объекта** , который находится в разделе **корпоративные приложения** в колонке **Azure Active Directory** портале.
 
+> [!NOTE]
+> Приведенные ниже операции в настоящее время доступны в.
+> - Azure PowerShell: [AZ. CosmosDB версии 2.0.1-Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: [расширение "cosmosdb-Preview" версии 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+
 ### <a name="using-azure-powershell"></a>Использование Azure PowerShell
 
 Назначить роль удостоверению:
@@ -354,6 +364,12 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
 
 - `aadPrincipalId_g` Показывает идентификатор субъекта для удостоверения AAD, который использовался для проверки подлинности запроса.
 - `aadAppliedRoleAssignmentId_g` показывает [назначение роли](#role-assignments) , которое было соблюдаться при авторизации запроса.
+
+## <a name="limits"></a>Ограничения
+
+- Можно создать до 100 определений ролей и 2 000 назначений ролей для каждой учетной записи Azure Cosmos DB.
+- Разрешение группы Azure AD в настоящее время не поддерживается для удостоверений, относящихся к более чем 200 группам.
+- Маркер Azure AD в настоящее время передается в виде заголовка с каждым отдельным запросом, отправленным в службу Azure Cosmos DB, увеличивая общий размер полезных данных.
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 

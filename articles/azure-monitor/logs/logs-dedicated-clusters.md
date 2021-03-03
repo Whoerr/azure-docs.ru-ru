@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 818cf97a640952de79e84184c52c20575a0cc92b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621681"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707648"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor журналов выделенных кластеров
 
@@ -34,7 +34,7 @@ Azure Monitor журналов выделенные кластеры — это 
 
 Данные, принимаемые в выделенные кластеры, шифруются дважды — один раз на уровне службы с помощью ключей, управляемых корпорацией Майкрософт или [управляемым клиентом ключом](../logs/customer-managed-keys.md), и один раз на уровне инфраструктуры с использованием двух разных алгоритмов шифрования и двух разных ключей. [Двойное шифрование](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) защищает от ситуации, когда один из алгоритмов или ключей шифрования может быть скомпрометирован. В этом случае дополнительный уровень шифрования продолжит защищать ваши данные. Выделенный кластер также позволяет защищать данные с помощью элемента управления [защищенным хранилищем](../logs/customer-managed-keys.md#customer-lockbox-preview) .
 
-Для всех операций на уровне кластера требуется `Microsoft.OperationalInsights/clusters/write` разрешение Action в кластере. Это разрешение можно предоставить с помощью владельца или участника, который содержит `*/write` действие, или с помощью роли участника log Analytics, которая содержит `Microsoft.OperationalInsights/*` действие. Дополнительные сведения о Log Analytics разрешений см. [в разделе Управление доступом к данным и рабочим областям журнала в Azure Monitor](../platform/manage-access.md). 
+Для всех операций на уровне кластера требуется `Microsoft.OperationalInsights/clusters/write` разрешение Action в кластере. Это разрешение можно предоставить с помощью владельца или участника, который содержит `*/write` действие, или с помощью роли участника log Analytics, которая содержит `Microsoft.OperationalInsights/*` действие. Дополнительные сведения о Log Analytics разрешений см. [в разделе Управление доступом к данным и рабочим областям журнала в Azure Monitor](./manage-access.md). 
 
 
 ## <a name="cluster-pricing-model"></a>Ценовая модель кластера
@@ -77,7 +77,7 @@ Authorization: Bearer <token>
 - **Имя_кластера**: используется для административных целей. Пользователи не предоставляются по этому имени.
 - **ResourceGroupName**. как и для любого ресурса Azure, кластеры принадлежат к группе ресурсов. Мы рекомендуем использовать центральную группу ресурсов ИТ, так как кластеры обычно являются общими для многих команд в Организации. Дополнительные рекомендации по проектированию см. [в разделе Разработка развертывания журналов Azure Monitor](../logs/design-logs-deployment.md)
 - **Расположение**: кластер находится в определенном регионе Azure. Только рабочие области, расположенные в этом регионе, могут быть связаны с этим кластером.
-- **СкукапаЦити**: при создании ресурса *кластера* необходимо указать уровень *резервирования емкости* (SKU). Уровень *резервирования емкости* может быть в диапазоне от 1 000 гб до 3 000 ГБ в день. При необходимости его можно обновить, выполнив шаги, описанные в 100. Если требуется уровень резервирования емкости более 3 000 ГБ в день, свяжитесь с нами по адресу LAIngestionRate@microsoft.com . Дополнительные сведения о расходах на кластер см. в статье [Управление затратами для log Analytics кластеров](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) .
+- **СкукапаЦити**: при создании ресурса *кластера* необходимо указать уровень *резервирования емкости* (SKU). Уровень *резервирования емкости* может быть в диапазоне от 1 000 гб до 3 000 ГБ в день. При необходимости его можно обновить, выполнив шаги, описанные в 100. Если требуется уровень резервирования емкости более 3 000 ГБ в день, свяжитесь с нами по адресу LAIngestionRate@microsoft.com . Дополнительные сведения о расходах на кластер см. в статье [Управление затратами для log Analytics кластеров](./manage-cost-storage.md#log-analytics-dedicated-clusters) .
 
 После создания ресурса *кластера* можно изменить дополнительные свойства, такие как *SKU*, * кэйваултпропертиес или *биллингтипе*. Дополнительные сведения см. ниже.
 
@@ -88,7 +88,7 @@ Authorization: Bearer <token>
 
 Учетная запись пользователя, которая создает кластеры, должна иметь стандартное разрешение на создание ресурсов Azure: `Microsoft.Resources/deployments/*` и разрешение на запись в кластере `Microsoft.OperationalInsights/clusters/write` , используя назначения ролей для этого конкретного действия или `Microsoft.OperationalInsights/*` `*/write` .
 
-### <a name="create"></a>Создать 
+### <a name="create"></a>Создание 
 
 **PowerShell**
 
@@ -101,7 +101,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Вызов* 
+*Call* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
@@ -254,7 +254,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 
 **REST**
 
-*Вызов*
+*Call*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
@@ -300,7 +300,7 @@ Authorization: Bearer <token>
 - **кэйваултпропертиес** — обновляет ключ в Azure Key Vault. См. раздел [Обновление кластера с подробными сведениями об идентификаторе ключа](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Он содержит следующие параметры: *KeyVaultUri*, *keyName*, *кэйверсион*. 
 - **биллингтипе** — свойство *биллингтипе* определяет атрибуты выставления счетов для ресурса *кластера* и его данных:
   - **Кластер** (по умолчанию). затраты на резервирование емкости кластера приводятся к ресурсу *кластера* .
-  - **Рабочие области** . затраты на резервирование ресурсов для кластера настраиваются пропорционально рабочим областям кластера, при этом ресурс *кластера* выставляет счет за использование, если общее количество принимаемых данных за день находится под резервированием емкости. Дополнительные сведения о модели ценообразования кластера см. в разделе [log Analytics выделенные кластеры](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) . 
+  - **Рабочие области** . затраты на резервирование ресурсов для кластера настраиваются пропорционально рабочим областям кластера, при этом ресурс *кластера* выставляет счет за использование, если общее количество принимаемых данных за день находится под резервированием емкости. Дополнительные сведения о модели ценообразования кластера см. в разделе [log Analytics выделенные кластеры](./manage-cost-storage.md#log-analytics-dedicated-clusters) . 
 
 > [!NOTE]
 > Свойство *биллингтипе* не поддерживается в PowerShell.
@@ -321,7 +321,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 **REST**
 
-*Вызов*
+*Call*
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -379,7 +379,7 @@ Get-AzOperationalInsightsCluster
 
 **REST**
 
-*Вызов*
+*Call*
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -410,7 +410,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST**
 
-*Вызов*
+*Call*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -433,7 +433,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST**
 
-*Вызов*
+*Call*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -571,7 +571,7 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-nam
   -  404--Рабочая область не найдена. Указанная Рабочая область не существует или была удалена.
   -  409--ссылка на рабочую область или отмена связи в процессе.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения о [log Analytics выставлении счетов за выделенный кластер](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Дополнительные сведения о [log Analytics выставлении счетов за выделенный кластер](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Сведения о [правильном проектировании рабочих областей log Analytics](../logs/design-logs-deployment.md)

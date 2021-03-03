@@ -3,15 +3,15 @@ title: Создание групп действий и управление им
 description: Узнайте, как создавать группы действий и управлять ими на портале Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/25/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8905c3e4dfa1053646ede5c0b62149844e21ee7d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623604"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701167"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Создание групп действий и управление ими на портале Azure
 Группа действий — это коллекция параметров уведомлений, которые определены владельцем подписки Azure. Оповещения служб Azure Monitor и "Работоспособность служб" используют группы действий для уведомления пользователей о том, что оповещение активировано. Для разных оповещений может использоваться как одна группа действий, так разные. Это зависит от требований пользователя. 
@@ -118,6 +118,8 @@ ms.locfileid: "100623604"
 В группе действий может быть ограниченное число действий runbook. 
 
 ### <a name="azure-app-push-notifications"></a>Push-уведомления приложения Azure
+Включите push-уведомления в [мобильное приложение Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/) , указав адрес электронной почты, который вы используете в качестве идентификатора учетной записи при настройке мобильное приложение Azure.
+
 В группе действий может быть ограниченное число действий приложения Azure.
 
 ### <a name="email"></a>Email
@@ -139,11 +141,11 @@ ms.locfileid: "100623604"
 2. Щелкните все пользователи (в левой области), и вы увидите список пользователей (в правой области).
 3. Выберите пользователя, для которого необходимо ознакомиться с основной информацией *электронной почты* .
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Пример проверки профиля пользователя."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Пример проверки профиля пользователя." border="true":::
 
 4. В профиле пользователя в разделе Контактные данные, если вкладка "Электронная почта" пуста, нажмите кнопку " *изменить* " вверху и добавьте *основной адрес электронной почты* и нажмите кнопку " *сохранить* " вверху.
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Пример добавления основного адреса электронной почты."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Пример добавления основного адреса электронной почты." border="true":::
 
 В группе действий может быть ограниченное число действий электронной почты. Дополнительные сведения см. в статье [Ограничение частоты отправки для голосовых сообщений, SMS-сообщений, сообщений электронной почты, push-уведомлений приложений Azure и записей веб-перехватчиков](./alerts-rate-limiting.md).
 
@@ -153,7 +155,7 @@ ms.locfileid: "100623604"
 В группе действий может быть ограниченное число действий Функций.
 
 ### <a name="itsm"></a>ITSM
-Действие ITSM требует подключения ITSM. Дополнительные сведения о создании подключения ITSM см. в статье [Централизованное управление рабочими элементами ITSM с помощью соединителя управления ИТ-службами (предварительная версия)](../platform/itsmc-overview.md).
+Действие ITSM требует подключения ITSM. Дополнительные сведения о создании подключения ITSM см. в статье [Централизованное управление рабочими элементами ITSM с помощью соединителя управления ИТ-службами (предварительная версия)](./itsmc-overview.md).
 
 В группе действий может быть ограниченное число действий ITSM. 
 
@@ -191,7 +193,7 @@ ms.locfileid: "100623604"
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
     
 # This is your Azure AD Application's ObjectId. 
-$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
+$myAzureADApplicationObjectId = "<the Object ID of your Azure AD Application>"
     
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
@@ -297,7 +299,7 @@ Write-Host $myApp.AppRoles
 | 1 | Пуэрто-Рико |
 | 40 | Румыния |
 | 65 | Сингапур |
-| 27 | Южно-Африканская Республика |
+| 27 | ЮАР |
 | 82 | Южная Корея |
 | 34 | Испания |
 | 41 | Швейцария |
@@ -334,7 +336,7 @@ Write-Host $myApp.AppRoles
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о поведении SMS-оповещений в группе действий см. в [этой статье](./alerts-sms-behavior.md).  
 * Узнайте о [схеме веб-перехватчика для оповещений журнала действий](./activity-log-alerts-webhook.md).  
-* Дополнительные сведения о [соединитель ITSM](../platform/itsmc-overview.md).
+* Дополнительные сведения о [соединитель ITSM](./itsmc-overview.md).
 * Дополнительные сведения о лимитах для оповещений см. в статье [Ограничение частоты отправки для SMS, сообщений электронной почты и вызовов Webhook](./alerts-rate-limiting.md).
-* Изучите [обзор оповещений журнала действий](../platform/alerts-overview.md) и узнайте, как получать оповещения.  
+* Изучите [обзор оповещений журнала действий](./alerts-overview.md) и узнайте, как получать оповещения.  
 * Узнайте, как [настроить оповещения при поступлении уведомлений о работоспособности службы](../../service-health/alerts-activity-log-service-notifications-portal.md).

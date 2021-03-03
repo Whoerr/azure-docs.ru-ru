@@ -1,25 +1,26 @@
 ---
-title: Использование управляемых удостоверений в службах связи
+title: Использование управляемых удостоверений в службах связи (.NET)
 titleSuffix: An Azure Communication Services quickstart
 description: Управляемые удостоверения позволяют авторизовать доступ к службам связи Azure из приложений, работающих на виртуальных машинах Azure, в приложениях функций и других ресурсах.
 services: azure-communication-services
-author: peiliu
+author: stefang931
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 2/24/2021
-ms.author: peiliu
+ms.date: 12/04/2020
+ms.author: gistefan
 ms.reviewer: mikben
-ms.openlocfilehash: 0d25e5dc97c700daf6655ecd270bfda469a9d353
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7e8d9b56077819fc404d6c2bdc39f9f697224136
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657660"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692187"
 ---
-# <a name="use-managed-identities"></a>Использование управляемых удостоверений
-Приступая к работе со службами связи Azure с помощью управляемых удостоверений. Удостоверения служб связи и клиентские библиотеки SMS поддерживают проверку подлинности Azure Active Directory (Azure AD) с помощью [управляемых удостоверений для ресурсов Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+# <a name="use-managed-identities-net"></a>Использование управляемых удостоверений (.NET)
 
-В этом кратком руководстве показано, как авторизовать доступ к клиентским библиотекам удостоверений и SMS из среды Azure, которая поддерживает управляемые удостоверения. В нем также описывается тестирование кода в среде разработки.
+Приступая к работе со службами связи Azure с помощью управляемых удостоверений в .NET. Администрирование служб Communication Services и клиентские библиотеки SMS поддерживают проверку подлинности Azure Active Directory (Azure AD) с помощью [управляемых удостоверений для ресурсов Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+
+В этом кратком руководстве показано, как авторизовать доступ к клиентским библиотекам администрирования и SMS из среды Azure, которая поддерживает управляемые удостоверения. В нем также описывается тестирование кода в среде разработки.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -53,18 +54,77 @@ ms.locfileid: "101657660"
 
 Сведения о назначении ролей и разрешений с помощью PowerShell см. в статье [Добавление и удаление назначений ролей Azure с помощью Azure PowerShell](../../../articles/role-based-access-control/role-assignments-powershell.md)
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/managed-identity-net.md)]
-::: zone-end
+## <a name="add-managed-identity-to-your-communication-services-solution"></a>Добавление управляемого удостоверения в решение служб связи
 
-::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/managed-identity-java.md)]
-::: zone-end
+### <a name="install-the-client-library-packages"></a>Установка пакетов клиентской библиотеки
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/managed-identity-js.md)]
-::: zone-end
+```console
+dotnet add package Azure.Communication.Identity
+dotnet add package Azure.Communication.Configuration
+dotnet add package Azure.Communication.Sms
+dotnet add package Azure.Identity
+```
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/managed-identity-python.md)]
-::: zone-end
+### <a name="use-the-client-library-packages"></a>Использование пакетов клиентских библиотек
+
+Добавьте следующие `using` директивы в код для использования Azure Identity и клиентских библиотек службы хранилища Azure.
+
+```csharp
+using Azure.Identity;
+using Azure.Communication.Identity;
+using Azure.Communication.Configuration;
+using Azure.Communication.Sms;
+```
+
+В приведенных ниже примерах используется [дефаултазурекредентиал](/dotnet/api/azure.identity.defaultazurecredential). Эти учетные данные подходят для сред рабочей среды и разработки.
+
+### <a name="create-an-identity-and-issue-a-token"></a>Создание удостоверения и выдача маркера
+
+В следующем примере кода показано, как создать объект клиента службы с токенами Azure Active Directory, а затем использовать клиент для выдаче маркера для нового пользователя:
+
+```csharp
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
+     {
+          TokenCredential credential = new DefaultAzureCredential();
+     
+          var client = new CommunicationIdentityClient(resourceEndpoint, credential);
+          var identityResponse = await client.CreateUserAsync();
+     
+          var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+
+          return tokenResponse;
+     }
+```
+
+### <a name="send-an-sms-with-azure-active-directory-tokens"></a>Отправка SMS с маркерами Azure Active Directory
+
+В следующем примере кода показано, как создать объект клиента службы с маркерами Azure Active Directory, а затем использовать клиент для отправки SMS-сообщения:
+
+```csharp
+
+     public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     {
+          TokenCredential credential = new DefaultAzureCredential();
+     
+          SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
+          smsClient.Send(
+               from: from,
+               to: to,
+               message: message,
+               new SendSmsOptions { EnableDeliveryReport = true } // optional
+          );
+     }
+```
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+> [!div class="nextstepaction"]
+> [Сведения о проверке подлинности](../concepts/authentication.md)
+
+Возможно, вы также захотите выполнить такие задачи:
+
+- [Дополнительные сведения об управлении доступом на основе ролей в Azure](../../../articles/role-based-access-control/index.yml)
+- [Дополнительные сведения о библиотеке удостоверений Azure для .NET](/dotnet/api/overview/azure/identity-readme)
+- [Создание маркеров доступа пользователей](../quickstarts/access-tokens.md)
+- [Отправка SMS](../quickstarts/telephony-sms/send.md)
+- [Дополнительные сведения об SMS](../concepts/telephony-sms/concepts.md)

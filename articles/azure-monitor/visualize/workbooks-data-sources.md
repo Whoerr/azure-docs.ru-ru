@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: ee4436d2b8445f2a1d368fb6c76e04d1ec790d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625692"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700581"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Источники данных Azure Monitor книг
 
@@ -34,7 +34,7 @@ ms.locfileid: "100625692"
 
 ## <a name="metrics"></a>Метрики
 
-Ресурсы Azure выдают [метрики](../platform/data-platform-metrics.md) , доступ к которым можно получить с помощью книг. Доступ к метрикам можно получить в книгах с помощью специализированного элемента управления, который позволяет указать целевые ресурсы, требуемые метрики и их статистическую обработку. Затем эти данные можно построить на диаграммах или в сетках.
+Ресурсы Azure выдают [метрики](../essentials/data-platform-metrics.md) , доступ к которым можно получить с помощью книг. Доступ к метрикам можно получить в книгах с помощью специализированного элемента управления, который позволяет указать целевые ресурсы, требуемые метрики и их статистическую обработку. Затем эти данные можно построить на диаграммах или в сетках.
 
 ![Снимок экрана: диаграммы метрик использования ЦП](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -143,8 +143,8 @@ Azure Monitor обладает функциональными возможнос
 
 Этот поставщик поддерживает [JSONPath](workbooks-jsonpath.md).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Узнайте](../platform/workbooks-overview.md#visualizations) больше о книгах с множеством разнообразных вариантов визуализации.
-* [Управление](../platform/workbooks-access-control.md) доступом к ресурсам книги и предоставление общего доступа к ним.
-* [Советы по оптимизации запросов Log Analytics](../log-query/query-optimization.md)
+* [Узнайте](./workbooks-overview.md#visualizations) больше о книгах с множеством разнообразных вариантов визуализации.
+* [Управление](./workbooks-access-control.md) доступом к ресурсам книги и предоставление общего доступа к ним.
+* [Советы по оптимизации запросов Log Analytics](../logs/query-optimization.md)

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99521a746a16a2d0de310fc6cfb2d2272e7b2593
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712612"
 ---
 # <a name="azure-importexport-system-requirements"></a>Требования к системе для импорта и экспорта Azure
 
@@ -43,7 +43,10 @@ ms.locfileid: "98706750"
 
 - Стандартные учетные записи хранения общего назначения v2 (рекомендуется для большинства сценариев)
 - Учетные записи хранилища BLOB-объектов
-- Учетные записи хранения общего назначения версии 1 (как классическое развертывание, так и развертывание с помощью Azure Resource Manager)
+- Учетные записи хранения общего назначения версии 1 (как классическое развертывание, так и развертывание с помощью Azure Resource Manager).
+
+> [!IMPORTANT]
+> Поддержка протокола NFS 3,0 в хранилище BLOB-объектов Azure не поддерживается при импорте и экспорте Azure.
 
 Дополнительные сведения об учетных записях хранения см. в [этой статье](../storage/common/storage-account-overview.md).
 
@@ -92,6 +95,6 @@ ms.locfileid: "98706750"
 
 Во время подготовки жестких дисков и копирования данных с помощью инструмента WAImportExport можно использовать внешние адаптеры USB. Большинство стандартных адаптеров USB 3.0 или более поздних версий должны работать.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Перенос данных с помощью служебной программы командной строки AzCopy](../storage/common/storage-use-azcopy-v10.md)

@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: f90709431ea54a640554b642b96a63c7edac472e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623292"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704401"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Действия веб-перехватчика для правил оповещений журнала
 
-[Оповещение журнала](alerts-log.md) поддерживает [настройку групп действий веб-перехватчика](../platform/action-groups.md#webhook). В этой статье мы расскажем о доступных свойствах и настройке пользовательского веб-перехватчика JSON.
+[Оповещение журнала](alerts-log.md) поддерживает [настройку групп действий веб-перехватчика](./action-groups.md#webhook). В этой статье мы расскажем о доступных свойствах и настройке пользовательского веб-перехватчика JSON.
 
 > [!NOTE]
 > Пользовательский веб-перехватчик на основе JSON в настоящее время не поддерживается в версии API `2020-05-01-preview`
@@ -47,7 +47,7 @@ ms.locfileid: "100623292"
 | *SearchQuery* |#searchquery |Запрос поиска журналов, используемый правилом генерации оповещений. |
 | *SearchResults* |"IncludeSearchResults": true|Записи, возвращаемые запросом в виде таблицы JSON, ограничены первыми записями 1 000. "IncludeSearchResults": значение true добавляется в определение пользовательского веб-перехватчика JSON в качестве свойства верхнего уровня. |
 | *Измерения* |"Инклудедименсионс": true|Сочетания значений измерений, которые активируют предупреждение как раздел JSON. "Инклудедименсионс": значение true добавляется в определение пользовательского веб-перехватчика JSON в качестве свойства верхнего уровня. |
-| *Тип оповещения*| #alerttype | Тип правила оповещения журнала, настроенного как [измерение метрик или количество результатов](../platform/alerts-unified-log.md#measure).|
+| *Тип оповещения*| #alerttype | Тип правила оповещения журнала, настроенного как [измерение метрик или количество результатов](./alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |Идентификатор рабочей области Log Analytics. |
 | *Идентификатор приложения* |#applicationid |Идентификатор приложения Application Insights. |
 | *Идентификатор подписки* |#subscriptionid |ИДЕНТИФИКАТОР используемой подписки Azure. |
@@ -84,7 +84,7 @@ ms.locfileid: "100623292"
 Ниже приведен пример полезных данных для стандартного действия веб-перехватчика, используемого для оповещений на основе Log Analytics:
 
 > [!NOTE]
-> Значение поля "серьезность" изменяется, если вы [перешли на текущий API счедуледкуерирулес](../alerts/alerts-log-api-switch.md) из [устаревшего api предупреждений log Analytics](../platform/api-alerts.md).
+> Значение поля "серьезность" изменяется, если вы [перешли на текущий API счедуледкуерирулес](../alerts/alerts-log-api-switch.md) из [устаревшего api предупреждений log Analytics](./api-alerts.md).
 
 ```json
 {
@@ -317,9 +317,9 @@ ms.locfileid: "100623292"
     }
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
-- Сведения об [оповещениях журнала в оповещениях Azure](../platform/alerts-unified-log.md).
+## <a name="next-steps"></a>Дальнейшие действия
+- Сведения об [оповещениях журнала в оповещениях Azure](./alerts-unified-log.md).
 - Узнайте, как [управлять оповещениями журнала в Azure](alerts-log.md).
-- Создание [групп действий в Azure](../platform/action-groups.md)и управление ими.
-- Дополнительные сведения об [Application Insights](../log-query/log-query-overview.md).
-- Дополнительные сведения о [запросах журналов](../log-query/log-query-overview.md). 
+- Создание [групп действий в Azure](./action-groups.md)и управление ими.
+- Дополнительные сведения об [Application Insights](../logs/log-query-overview.md).
+- Дополнительные сведения о [запросах журналов](../logs/log-query-overview.md).

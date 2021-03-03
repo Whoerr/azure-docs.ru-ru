@@ -3,12 +3,12 @@ title: Функции шаблонов
 description: Описывает функции, используемые в шаблоне Azure Resource Manager (шаблон ARM) для извлечения значений, работы со строками и числовыми значениями и получения сведений о развертывании.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931713"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707325"
 ---
 # <a name="arm-template-functions"></a>Функции шаблонов ARM
 
@@ -33,6 +33,10 @@ ms.locfileid: "96931713"
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
+
+## <a name="any-function"></a>Любая функция
+
+[Функция Any](template-functions-any.md) доступна в бицеп для устранения проблем, связанных с предупреждениями типа данных.
 
 ## <a name="array-functions"></a>Функции массива
 

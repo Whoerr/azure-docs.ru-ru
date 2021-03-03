@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: lagayhar
 ms.custom: include file
-ms.openlocfilehash: eda50bb9f65591cd837b7e74e9d783464de43367
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1c4f6b876a4aa80c7e51f2bb3ca88234203d0daa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520699"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726189"
 ---
 Число метрик и событий, используемых в приложении (то есть на ключ инструментирования), ограничено. Ограничения зависят от выбранного [ценового плана](https://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -21,8 +21,8 @@ ms.locfileid: "100520699"
 | --- | --- | --- |
 | Общий объем данных в день | 100 ГБ | Объем данных можно сократить, задав ограничение. Если требуется больше данных, на портале можно увеличить граничное значение до 1000 ГБ. Если требуется объем более 1000 ГБ, отправьте сообщение электронной почты на адрес AIDataCap@microsoft.com.
 | Регулирование | 32 000 событий в секунду | Ограничение измеряется каждую минуту.
-| Журналы хранения данных | [30–730 дней](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period)  | Этот ресурс предназначен для [журналов](../articles/azure-monitor/log-query/log-query-overview.md).
-| Метрики хранения данных | 90 дней| Этот ресурс предназначен для [обозревателя метрик](../articles/azure-monitor/platform/metrics-charts.md).
+| Журналы хранения данных | [30–730 дней](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period)  | Этот ресурс предназначен для [журналов](../articles/azure-monitor/logs/log-query-overview.md).
+| Метрики хранения данных | 90 дней| Этот ресурс предназначен для [обозревателя метрик](../articles/azure-monitor/essentials/metrics-charts.md).
 | Хранение подробных результатов [многошагового теста доступности](../articles/azure-monitor/app/availability-multistep.md) | 90 дней | Этот ресурс предоставляет подробные результаты каждого шага.
 | Максимальный размер элемента телеметрии | 64 КБ |
 | Максимальное количество элементов телеметрии на пакет | 64 000 |

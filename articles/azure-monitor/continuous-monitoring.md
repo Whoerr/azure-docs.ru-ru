@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 89ce214ef9686d2704878304b8b324871ad9473f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ca6185d829e5941145905e1bc63cc2fb9ac781e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579488"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731652"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Непрерывный мониторинг с помощью Azure Monitor
 
@@ -36,7 +36,7 @@ ms.locfileid: "100579488"
 Приложения надежны настолько, насколько и их базовая инфраструктура. Включение мониторинга по всей инфраструктуре поможет вам достичь полной наблюдаемости и упростит обнаружение потенциальной первопричины в случае сбоя. Azure Monitor помогает отслеживать работоспособность и производительность всей гибридной инфраструктуры, включая такие ресурсы, как виртуальные машины, контейнеры, хранилище и сеть.
 
 - Вы автоматически получаете [метрики платформы, журналы активности и журналы диагностики](agents/data-sources.md) из большинства ресурсов Azure без настройки.
-- Включите более глубокий мониторинг для виртуальных машин с помощью [Azure Monitor для виртуальных машин](vm/vminsights-overview.md).
+- Включите более глубокий мониторинг виртуальных машин с помощью [VM Insights](vm/vminsights-overview.md).
 -  Включите более глубокий мониторинг для кластеров службы Azure Kubernetes с помощью [Azure Monitor для контейнеров](containers/container-insights-overview.md).
 - Добавление [решений мониторинга](./monitor-reference.md) для разных приложений и служб в вашей среде.
 

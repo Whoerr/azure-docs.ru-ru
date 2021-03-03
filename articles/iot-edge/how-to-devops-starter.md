@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 933ddfb5fa5d58231e954dfd54bcc069b53dfe56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437003"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721520"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Создание конвейера CI/CD для IoT Edge с помощью Azure DevOps Starter
 
@@ -29,6 +29,16 @@ DevOps Starter позволяет создать конвейер CI/CD в Azure
 1. В левой области выберите **создать ресурс**, а затем выполните поиск по запросу **DevOps Starter**.  
 
 1. Нажмите кнопку **создания**.
+
+1. По умолчанию DevOps Starter настроен с GitHub. Чтобы использовать функции из этого руководства, переключитесь на DevOps Starter для настройки с помощью Azure DevOps. Перейдите по ссылке **изменить параметры** .
+
+   ![Выберите Изменить параметры здесь, чтобы переключиться с GitHub на Azure DevOps.](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. На правой панели выберите плитку **Azure DevOps** и нажмите кнопку **Готово**.
+
+   ![Выберите Azure DevOps для настройки DevOps Starter](./media/how-to-devops-starter/select-azure-devops.png)
+
+   Теперь вы увидите, что DevOps Starter настраивается с помощью Azure DevOps.
 
 ## <a name="create-a-new-application-pipeline"></a>Конвейер создания приложения
 

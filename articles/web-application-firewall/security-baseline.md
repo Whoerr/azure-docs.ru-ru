@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581255"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737415"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Базовые показатели безопасности Azure для брандмауэра веб-приложения Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "100581255"
 
 Используйте рекомендации с высоким уровнем серьезности в центре безопасности для любых ресурсов с поддержкой веб-доступа, которые не защищены с помощью WAF.  
 
-- [Группы правил и правила CR брандмауэра веб-приложения](ag/application-gateway-crs-rulegroups-rules.md) 
+- [Правила и группы правил CRS Брандмауэра веб-приложений](ag/application-gateway-crs-rulegroups-rules.md) 
 
 - [Режимы WAF в шлюзе приложений](ag/ag-overview.md#waf-modes)
 
@@ -164,7 +164,7 @@ ms.locfileid: "100581255"
 ### <a name="25-configure-security-log-storage-retention"></a>2.5. Настройка хранения журнала безопасности
 
 **Руководство**. отправка журналов брандмауэра веб-приложения Azure (WAF) в настраиваемую учетную запись хранения и определение политики хранения. Используйте Azure Monitor, чтобы задать срок хранения Log Analytics рабочей области в соответствии с требованиями Организации к соответствию.
-- [Настройка мониторинга учетной записи хранения](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Настройка мониторинга учетной записи хранения](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Мониторинг Центра безопасности Azure**: Неприменимо
 
@@ -320,7 +320,7 @@ Azure WAF обеспечивает централизованную защиту
 
 - [Как интегрировать журналы действий Azure в Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+**Мониторинг Центра безопасности Azure**. Неприменимо
 
 **Ответственность**: Customer
 

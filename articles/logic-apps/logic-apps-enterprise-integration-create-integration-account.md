@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
-ms.openlocfilehash: 191832ab227e854b40938183e335c1b6ea52199c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51059dd1c4c5c93e155cd7a2d34c3cbaf29db6e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000065"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705591"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Создание корпоративных учетных записей интеграции и управление ими для корпоративных интеграций B2B в Azure Logic Apps.
 
@@ -21,21 +21,29 @@ ms.locfileid: "96000065"
 
 Например, можно создавать, хранить артефакты B2B, а также управлять ими, например торговыми партнерами, соглашениями, картами, схемами, сертификатами и пакетными конфигурациями. Кроме того, прежде чем приложение логики сможет работать с этими артефактами и использовать соединители Logic Apps B2B, необходимо [связать учетную запись интеграции](#link-account) с приложением логики. Учетная запись интеграции и приложение логики должны находиться в *одном* расположении или регионе.
 
-> [!TIP]
-> Сведения о создании учетной записи интеграции в [среде службы Integration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)Services см. [в разделе Создание учетных записей интеграции в ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+> [!IMPORTANT]
+> В зависимости от выбранного типа учетной записи интеграции создание учетной записи интеграции влечет за собой затраты. Дополнительные сведения см. в разделе [Logic Apps цены и модели выставления счетов](logic-apps-pricing.md#integration-accounts) и [Logic Apps цен](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 В этом разделе показано, как выполнять следующие задачи:
 
 * создание учетной записи интеграции;
+
+  > [!TIP]
+  > Сведения о создании учетной записи интеграции в [среде службы Integration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)Services см. [в разделе Создание учетных записей интеграции в ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+
 * привязка учетной записи интеграции к приложению логики;
+
 * Измените ценовую категорию для учетной записи интеграции.
+
 * Отменить связь учетной записи интеграции с приложением логики.
+
 * перемещение учетной записи интеграции в другую подписку или группу ресурсов Azure;
+
 * удаление учетной записи интеграции.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Подписка Azure. Если у вас еще нет подписки Azure, [зарегистрируйтесь для получения бесплатной учетной записи Azure](https://azure.microsoft.com/free/).
+* Учетная запись и подписка Azure. Если у вас еще нет подписки Azure, [зарегистрируйтесь для получения бесплатной учетной записи Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-integration-account"></a>Создание учетной записи интеграции
 
@@ -64,7 +72,7 @@ ms.locfileid: "96000065"
    | **Группа ресурсов** | Да | <*имя_группы_ресурсов_Azure*> | Имя [группы ресурсов Azure](../azure-resource-manager/management/overview.md) , используемой для организации связанных ресурсов. В этом примере создайте новую группу ресурсов с именем "Фабрикаминтегратион-RG". |
    | **Ценовая категория** | Да | <*уровень цен*> | Ценовая категория для учетной записи интеграции, которую можно изменить позже. В этом примере выберите **Free (бесплатный**). Дополнительные сведения см. в следующих статьях: <p>- [Модель ценообразования Logic Apps](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Ограничения и конфигурация Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Цены на Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Расположение** | Да | <*Azure-region*> | Регион, в котором хранятся метаданные учетной записи интеграции. Выберите то же расположение, что и приложение логики, или создайте приложения логики в том же расположении, что и учетная запись интеграции. В этом примере используйте "Западная часть США". <p>**Примечание**. чтобы создать учетную запись интеграции в [среде службы интеграции (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), выберите эту интегрированную среду сценариев в качестве расположения. Дополнительные сведения см. [в разделе Создание учетных записей интеграции в интегрированной среде сценариев](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
-   | **Служба Log Analytics** | нет | Выкл., вкл. | Для этого примера не устанавливайте параметр **Off** . |
+   | **Служба Log Analytics** | Нет | Выкл., вкл. | Для этого примера не устанавливайте параметр **Off** . |
    |||||
 
 1. По завершении нажмите кнопку **Создать**.
@@ -75,7 +83,7 @@ ms.locfileid: "96000065"
 
 1. Прежде чем приложение логики сможет использовать учетную запись интеграции, выполните следующие действия, чтобы связать учетную запись интеграции и приложение логики вместе.
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Учетную запись интеграции можно создать с помощью команд Azure CLI в этом разделе.
 
@@ -207,7 +215,7 @@ az logic integration-account delete --name integration_account_01 --resource-gro
 
 <a name="upgrade-tier-azure-cli"></a>
 
-#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli);
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Установите Azure CLI необходимые компоненты](/cli/azure/get-started-with-azure-cli), если это еще не сделано.
 
@@ -285,7 +293,7 @@ az logic integration-account delete --name integration_account_01 --resource-gro
    },
    ```
 
-   Пример:
+   Пример.
 
    ![Найти объект "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
@@ -355,7 +363,7 @@ az logic integration-account delete --name integration_account_01 --resource-gro
 
    ![Чтобы подтвердить удаление, выберите "Да".](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Создание торговых партнеров в учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * [Создание соглашений между партнерами в учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-agreements.md)

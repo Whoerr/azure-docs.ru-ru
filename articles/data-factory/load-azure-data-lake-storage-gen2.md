@@ -6,17 +6,17 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: 61e34d41d9f7a60b6ad74e12331864e6ba08e4f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 4e2bbe6f0c3b9ff1ffd913365ce21e534208123b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699731"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Загрузка данных в Azure Data Lake Storage 2-го поколения с помощью Фабрики данных Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage 2-го поколения — это набор возможностей аналитики больших данных, созданных на основе [хранилища BLOB-объектов Azure](../storage/blobs/storage-blobs-introduction.md). Она позволяет работать с данными с использованием как файловой системы, так и парадигмы хранения объектов.
 
@@ -124,7 +124,7 @@ Azure Data Lake Storage 2-го поколения — это набор воз�
 
 16. Убедитесь, что данные скопированы в Data Lake Storage Gen2.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Действие копирования в фабрике данных Azure](copy-activity-overview.md)
 * [Copy data to or from Azure Data Lake Storage Gen2 Preview using Azure Data Factory (Preview)](connector-azure-data-lake-storage.md) (Копирование данных в Azure Data Lake Storage Gen2 (предварительная версия) или из него с помощью фабрики данных Azure)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: f87ea1e1c9f43de4e9e0f94d1cd855615a0a880c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747179"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712051"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Обзор управления безопасностью Azure и ее мониторинга
 Эта статья содержит обзор функций безопасности и служб, предоставляемых Azure для упрощения управления облачными службами Azure и виртуальными машинами, а также их мониторинга.
@@ -48,7 +48,7 @@ Azure также поддерживает продукт Symantec Endpoint Prote
 
 * [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](antimalware.md)
-* [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](../../virtual-machines/extensions/trend.md)
+* [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../../virtual-machines/extensions/symantec.md)
 * [Новые возможности защиты виртуальных машин Azure от вредоносных программ](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
@@ -141,7 +141,7 @@ Intelligent Security Graph в реальном времени предостав
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Next Steps
 Сведения об [общей модели ответственности](shared-responsibility.md) , а также о том, какие задачи безопасности обрабатываются корпорацией Майкрософт и какие задачи обрабатываются вами.
 
 Дополнительные сведения об управлении безопасностью см. в статье [Управление безопасностью в Azure](management.md).

@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: ef9cb083c9bbe6eae5c34cd3799debde771231b6
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 509d1dc0b94bdfa9be5185df0bad793f7702eb26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558222"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731040"
 ---
 # <a name="correct-misspelled-words-with-bing-resource"></a>Исправление слов с ошибками в ресурсе Bing
 
-API прогнозирования версии 3 теперь поддерживает [API Bing для проверки орфографии](https://docs.microsoft.com/bing/search-apis/bing-spell-check/overview). Добавьте проверку орфографии в приложение, включив ключ к ресурсу поиска Bing в заголовке запросов. Вы можете использовать существующий ресурс Bing, если вы уже являетесь его владельцем, или [создать новый](https://portal.azure.com/#create/Microsoft.BingSearch) , чтобы использовать эту функцию. 
+API прогнозирования версии 3 теперь поддерживает [API Bing для проверки орфографии](/bing/search-apis/bing-spell-check/overview). Добавьте проверку орфографии в приложение, включив ключ к ресурсу поиска Bing в заголовке запросов. Вы можете использовать существующий ресурс Bing, если вы уже являетесь его владельцем, или [создать новый](https://portal.azure.com/#create/Microsoft.BingSearch) , чтобы использовать эту функцию. 
 
 Пример результата прогнозирования для запроса с ошибками:
 

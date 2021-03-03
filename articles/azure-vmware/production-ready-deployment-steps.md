@@ -2,13 +2,13 @@
 title: Планирование развертывания Решения Azure VMware
 description: В этой статье описывается рабочий процесс развертывания Решения Azure VMware.  Его конечным результатом будет среда, готовая к созданию виртуальной машины и миграции.
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762860"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733672"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Планирование развертывания Решения Azure VMware
 
@@ -51,12 +51,6 @@ ms.locfileid: "98762860"
 Определите число узлов, которые требуется развернуть в частном облаке Решения Azure VMware.  Минимальное число узлов равно трем, а максимальное — 16 на кластер.  Дополнительные сведения см. в документации по [частному облаку и кластерам Решения Azure VMware](concepts-private-clouds-clusters.md#clusters) документации.
 
 Вы всегда можете расширить кластер позже, если вам потребуется больше узлов, чем было развернуто изначально.
-
-## <a name="vcenter-admin-password"></a>Пароль администратора vCenter
-Задайте пароль администратора vCenter.  Во время развертывания вы создадите пароль администратора vCenter. Пароль относится к учетной записи администратора cloudadmin@vsphere.local, используемой в процессе сборки vCenter. Вы будете использовать его для входа в vCenter.
-
-## <a name="nsx-t-admin-password"></a>Пароль администратора NSX-T
-Задайте пароль администратора NSX-T.  Во время развертывания вы создадите пароль администратора NSX-T. Пароль назначается администратору в учетной записи NSX во время сборки NSX. Он будет использоваться для входа в NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Сегмент IP-адреса
 

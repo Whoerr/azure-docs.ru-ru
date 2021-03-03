@@ -3,12 +3,12 @@ title: Руководство по непрерывной записи виде�
 description: Из этого руководства мы узнаем, как с помощью службы Аналитики видеотрансляции Azure в Azure IoT Edge осуществлять непрерывную запись видео в облако и транслировать произвольные фрагменты этого видео в режиме потоковой передачи с помощью Служб мультимедиа Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 8659bd2e029da13870b50dd6535e959bc90c81a7
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2dde1c9d917881d7a16dbc853e4af416dffe5d7b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551065"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702425"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Руководство по Непрерывная запись видео в облако и его воспроизведение
 
@@ -108,8 +108,8 @@ ms.locfileid: "99551065"
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      

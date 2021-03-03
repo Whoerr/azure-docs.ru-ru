@@ -2,13 +2,13 @@
 title: Переменные в шаблонах
 description: Описывает, как определять переменные в шаблоне Azure Resource Manager (шаблон ARM) и файле Бицеп.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364466"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700343"
 ---
 # <a name="variables-in-arm-templates"></a>Переменные в шаблонах ARM
 
@@ -70,10 +70,6 @@ var concatToParam = '${inputValue}-addtoparam'
 
 Для создания значения переменной можно использовать [функции шаблонов](template-functions.md) .
 
-В шаблонах JSON нельзя использовать функцию [Reference](template-functions-resource.md#reference) или любые функции [List](template-functions-resource.md#list) в объявлении переменной. Эти функции получают состояние среды выполнения ресурса и не могут быть выполнены до развертывания при разрешении переменных.
-
-Функции Reference и List допустимы при объявлении переменной в файле Бицеп.
-
 В следующем примере создается строковое значение для имени учетной записи хранения. Он использует несколько функций шаблона для получения значения параметра и объединяет его в уникальную строку.
 
 # <a name="json"></a>[JSON](#tab/json)
@@ -92,6 +88,10 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 
 ---
 
+В шаблонах JSON нельзя использовать функцию [Reference](template-functions-resource.md#reference) или любые функции [List](template-functions-resource.md#list) в объявлении переменной. Эти функции получают состояние среды выполнения ресурса и не могут быть выполнены до развертывания при разрешении переменных.
+
+В файлах Бицеп функции Reference и List являются допустимыми при объявлении переменной.
+
 ## <a name="use-variable"></a>Использование переменной
 
 В следующем примере показано, как использовать переменную для свойства ресурса.
@@ -101,6 +101,9 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 В шаблоне JSON вы ссылаетесь на значение переменной с помощью функции [Variables](template-functions-deployment.md#variables) .
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -115,6 +118,8 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 В файле Бицеп вы ссылаетесь на значение переменной, указав имя переменной.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```
@@ -151,7 +156,7 @@ resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 ---
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о доступных свойствах переменных см. в разделе Общие сведения о [структуре и синтаксисе шаблонов ARM](template-syntax.md).
 * Рекомендации по созданию переменных см. в разделе рекомендации [— переменные](template-best-practices.md#variables).

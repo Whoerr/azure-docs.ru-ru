@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900468"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690691"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Руководство по Настройка репликации между двумя управляемыми экземплярами
 
@@ -51,7 +51,7 @@ ms.locfileid: "92900468"
 - Управляемый экземпляр издателя должен находиться в той же виртуальной сети, что и распространитель и подписчик, или между [шлюзами виртуальных сетей](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) всех трех сущностей должен быть настроен пиринг. 
 - При подключении используется аутентификация SQL между участниками репликации.
 - Общий ресурс учетной записи хранения Azure для рабочей папки репликации.
-- Открытый порт 445 (исходящее TCP-подключение) в правилах безопасности, настроенных для группы безопасности сети, чтобы управляемые экземпляры могли получить доступ к общей папке Azure.  Если возникает ошибка `failed to connect to azure storage \<storage account name> with os error 53`, значит нужно добавить правило исходящего трафика в NSG подсети соответствующего Управляемого экземпляра SQL.
+- Открытый порт 445 (исходящее TCP-подключение) в правилах безопасности, настроенных для группы безопасности сети, чтобы управляемые экземпляры могли получить доступ к общей папке Azure.  Если возникает ошибка `failed to connect to azure storage <storage account name> with os error 53`, значит нужно добавить правило исходящего трафика в NSG подсети соответствующего Управляемого экземпляра SQL.
 
 ## <a name="1---create-a-resource-group"></a>1\. Создание группы ресурсов
 

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f19f8fb3811435e9bbc207d2d130c0655a6dee02
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386549"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706085"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Формат JSON в фабрике данных Azure
 
@@ -218,7 +218,7 @@ ms.locfileid: "100386549"
 
 ### <a name="source-format-options"></a>Параметры формата источника
 
-Использование набора данных JSON в качестве источника в потоке данных позволяет задать пять дополнительных параметров. Эти параметры можно найти в разделе **Параметры JSON** на вкладке **Параметры источника** .  
+Использование набора данных JSON в качестве источника в потоке данных позволяет задать пять дополнительных параметров. Эти параметры можно найти в разделе **Параметры JSON** на вкладке **Параметры источника** . Для параметра **форма документа** можно выбрать один из **отдельных документов**, **документ в строке**  и массив типов **документов** .
 
 ![Параметры JSON](media/data-flow/json-settings.png "Параметры JSON")
 
@@ -368,7 +368,7 @@ SELECT **содержит комментарии** , если в данных JS
 )
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Действие копирования в фабрике данных Azure](copy-activity-overview.md)
 - [Поток данных для сопоставления](concepts-data-flow-overview.md)

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: a693761bcecab87e343014127ad37077c2569e21
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553548"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694503"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Создание, импорт и экспорт терминов глоссария
 
@@ -89,6 +89,10 @@ ms.locfileid: "96553548"
 
 2. Выберите **Экспорт** , чтобы скачать выбранные термины.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+ > [!Important]
+   > Если термины в иерархии принадлежат разным шаблонам, их необходимо разделить на разные. CSV-файлы для импорта. Кроме того, обновление родителя термина в настоящее время не поддерживается при использовании процесса импорта.
+
+
+## <a name="next-steps"></a>Дальнейшие действия
 
 Чтобы узнать больше, следуйте указаниям в [руководстве по созданию и импорту терминов глоссария](tutorial-import-create-glossary-terms.md) .

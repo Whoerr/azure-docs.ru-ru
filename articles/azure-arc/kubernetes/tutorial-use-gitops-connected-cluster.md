@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0ff300a90876841e5a25e4e44ffdaecab2eaee95
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cf079c009e5f6c3ef1ba6f8b22636b9a53b51348
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658859"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689238"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Руководство. Развертывание конфигураций с помощью GitOps в кластерах Kubernetes с поддержкой Azure Arc 
 
@@ -26,7 +26,7 @@ ms.locfileid: "101658859"
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- Учетная запись Azure с активной подпиской. [Создайте учетную запись бесплатно] (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Учетная запись Azure с активной подпиской. [Создайте учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) бесплатно.
 - Существующий подключенный кластер Kubernetes с поддержкой Azure Arc.
     - Если вы еще не подключили кластер, выполните инструкции из пошагового руководства [Подключение кластера Kubernetes с поддержкой Azure Arc](quickstart-connect-cluster.md).
 - Понимание преимуществ и архитектуры этой возможности. Дополнительные сведения см. в статье [Конфигурации и GitOps — Kubernetes с поддержкой Azure Arc](conceptual-configurations.md).
@@ -152,7 +152,7 @@ ms.locfileid: "101658859"
 | ------------- | ------------- |
 | `--enable-helm-operator`| Параметр для включения поддержки развертываний чартов Helm. |
 | `--helm-operator-params` | Значения чарта для оператора Helm (если включено). Например, `--set helm.versions=v3`. |
-| `--helm-operator-version` | Версия чарта для оператора Helm (если включено). Используйте версию 1.2.0 или выше. По умолчанию: 1.2.0. |
+| `--helm-operator-chart-version` | Версия чарта для оператора Helm (если включено). Используйте версию 1.2.0 или выше. По умолчанию: 1.2.0. |
 | `--operator-namespace` | Имя для пространства имен оператора. По умолчанию: default. Длина не более 23 символов. |
 | `--operator-params` | Параметры для оператора. Должны быть заданы в одинарных кавычках. Например ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'```. 
 

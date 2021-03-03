@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054963"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726399"
 ---
 # <a name="azure-functions-http-trigger"></a>Триггер HTTP в Функциях Azure
 
@@ -751,7 +751,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 При использовании параметров маршрута `invoke_URL_template` автоматически создается для функции. Клиенты могут использовать шаблон URL-адреса, чтобы понять, какие параметры необходимы для передачи URL-адреса при вызове функции с помощью ее URL-адреса. Перейдите к одной из функций, активируемых с помощью HTTP, в [портал Azure](https://portal.azure.com) и выберите **получить URL-адрес функции**.
 
-Доступ к можно получить программным `invoke_URL_template` путем с помощью Azure Resource Manager API-интерфейсов для [функций списка](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) или [функции Get](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+Доступ к можно получить программным `invoke_URL_template` путем с помощью Azure Resource Manager API-интерфейсов для [функций списка](/rest/api/appservice/webapps/listfunctions) или [функции Get](/rest/api/appservice/webapps/getfunction).
 
 ## <a name="working-with-client-identities"></a>Работа с удостоверениями клиентов
 

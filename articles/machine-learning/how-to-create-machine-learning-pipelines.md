@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 12/10/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 18d93a1a6ac9661b18054611015b02e41219bc14
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 75d241840ecfc8520989342d9def8186de922c0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659653"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691864"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Создание и запуск конвейеров машинного обучения с помощью пакета SDK для Машинное обучение Azure
 
-Из этой статьи вы узнаете, как создавать и запускать [конвейеры машинного обучения](concept-ml-pipelines.md) с помощью [пакета SDK для машинное обучение Azure](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Используйте **конвейеры машинного обучения** для создания рабочего процесса, который объединяет различные фазы машинного обучения. Затем опубликуйте этот конвейер для последующего доступа или совместного использования с другими пользователями. Отслеживайте конвейеры машинного обучения, чтобы узнать, как модель работает в реальном мире и как обнаружить смещение данных. Конвейеры машинного обучения идеально подходят для сценариев пакетной оценки с использованием различных вычислений, повторного использования действий вместо их перезапуска, а также совместного использования рабочих процессов машинного обучения с другими пользователями.
+Из этой статьи вы узнаете, как создавать и запускать [конвейеры машинного обучения](concept-ml-pipelines.md) с помощью [пакета SDK для машинное обучение Azure](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Используйте **конвейеры машинного обучения** для создания рабочего процесса, который объединяет различные фазы машинного обучения. Затем опубликуйте этот конвейер для последующего доступа или совместного использования с другими пользователями. Отслеживайте конвейеры машинного обучения, чтобы узнать, как модель работает в реальном мире и как обнаружить смещение данных. Конвейеры машинного обучения идеально подходят для сценариев пакетной оценки с использованием различных вычислений, повторного использования действий вместо их перезапуска и совместного использования рабочих процессов машинного обучения с другими пользователями.
 
 Эта статья не является учебником. Рекомендации по созданию первого конвейера см. в разделе [учебник. создание конвейера машинное обучение Azure для пакетной оценки](tutorial-pipeline-batch-scoring-classification.md) или [Использование автоматизированного ML в конвейере машинное обучение Azure в Python](how-to-use-automlstep-in-pipelines.md). 
 
@@ -53,10 +53,7 @@ ws = Workspace.from_config()
 
 * Настройте хранилище данных для хранения данных, необходимых для выполнения шагов конвейера.
 
-* Настройте `Dataset` объект так, чтобы он указывал на постоянные данные, которые находятся в или доступны в хранилище данных. Настройте `PipelineData` объект для временных данных, передаваемых между этапами конвейера. 
-
-    > [!TIP]
-    > Улучшенный интерфейс передачи временных данных между этапами конвейера доступен в общедоступном классе предварительной версии  [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) .  Этот класс является [экспериментальной](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) функцией предварительной версии и может измениться в любое время.
+* Настройте `Dataset` объект так, чтобы он указывал на постоянные данные, которые находятся в или доступны в хранилище данных. Настройте `OutputFileDatasetConfig` объект для временных данных, передаваемых между этапами конвейера. 
 
 * Настройте [целевые объекты вычислений](concept-azure-machine-learning-architecture.md#compute-targets) для выполнения шагов вашего конвейера.
 
@@ -80,10 +77,9 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 Действия обычно потребляют данные и создают выходные данные. Шаг может создать данные, такие как модель, каталог с моделью и зависимыми файлами или временные данные. Эти данные становятся доступными для последующих шагов в конвейере. Дополнительные сведения о подключении конвейера к данным см. в статьях [как получить доступ к данным](how-to-access-data.md) и [как зарегистрировать наборы](how-to-create-register-datasets.md)данных. 
 
-### <a name="configure-data-with-dataset-and-pipelinedata-objects"></a>Настройка данных с `Dataset` помощью `PipelineData` объектов и
+### <a name="configure-data-with-dataset-and-outputfiledatasetconfig-objects"></a>Настройка данных с `Dataset` помощью `OutputFileDatasetConfig` объектов и
 
 Предпочтительный способ передачи данных в конвейер — это объект [DataSet](/python/api/azureml-core/azureml.core.dataset.Dataset) . `Dataset`Объект указывает на данные, которые находятся в или доступны из хранилища данных или URL-адреса. `Dataset`Класс является абстрактным, поэтому вы создадите экземпляр `FileDataset` (ссылающийся на один или несколько файлов) или объект `TabularDataset` , созданный из одного или нескольких файлов с разделенными столбцами данных.
-
 
 Вы создаете `Dataset` с помощью таких методов, как [from_files](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) или [from_delimited_files](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
@@ -93,20 +89,21 @@ from azureml.core import Dataset
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
 
-Промежуточные данные (или выходные данные шага) представляет объект [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py). `output_data1` создается как выходные данные шага и используется в качестве входных данных одного шага или нескольких последующих шагов. `PipelineData` представляет зависимость данных между шагами и неявно определяет порядок выполнения шагов в конвейере. Этот объект будет использоваться позже при создании шагов конвейера.
+Промежуточные данные (или выходные данные шага) представлены объектом [аутпутфиледатасетконфиг](/python/api/azureml-pipeline-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . `output_data1` создается в качестве выходных данных шага. При необходимости эти данные можно зарегистрировать в качестве набора данных, вызвав `register_on_complete` . Если вы создаете `OutputFileDatasetConfig` на одном шаге и используете его в качестве входных данных для другого шага, зависимость данных между шагами создает неявный порядок выполнения в конвейере.
+
+`OutputFileDatasetConfig` объекты возвращают каталог, а по умолчанию записывают выходные данные в хранилище данных по умолчанию рабочей области.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
-output_data1 = PipelineData(
-    "output_data1",
-    datastore=def_blob_store,
-    output_name="output_data1")
+output_data1 = OutputFileDatasetConfig(destination = (datastore, 'outputdataset/{run-id}'))
+output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_data')
 
 ```
 
-> [!TIP]
-> Сохранение промежуточных данных между этапами конвейера также возможно благодаря общедоступному классу предварительной версии [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Пример кода с использованием `OutputFileDatasetConfig` класса см. в разделе [создание конвейера машинного обучения на два этапа](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> [!IMPORTANT]
+> Промежуточные данные, сохраненные с помощью `OutputFileDatasetConfig` , не удаляются автоматически Azure.
+> Следует либо программно удалить промежуточные данные в конце выполнения конвейера, либо хранилище данных с короткой политикой хранения, либо регулярно выполнять очистку вручную.
 
 > [!TIP]
 > Отправляйте только файлы, относящиеся к заданию. Любые изменения в файлах в каталоге данных будут рассматриваться как причины для повторного выполнения шага при следующем запуске конвейера, даже если указано повторное использование. 
@@ -121,7 +118,7 @@ output_data1 = PipelineData(
 
 ### <a name="azure-machine-learning-compute"></a>Вычислительная среда Машинного обучения Azure
 
-Для выполнения шагов конвейера можно создать вычислительную среду Машинного обучения Azure. Код для других целевых объектов вычислений очень похож на, в зависимости от типа, несколько других параметров. 
+Для выполнения шагов конвейера можно создать вычислительную среду Машинного обучения Azure. Код для других целевых объектов вычислений схож с различными параметрами, в зависимости от типа. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -177,7 +174,7 @@ else:
         pin_sdk_version=False)
 ```
 
-В приведенном выше коде показаны два варианта обработки зависимостей. Как было представлено, `USE_CURATED_ENV = True` Конфигурация основана на проверенной среде. Проверенные среды — "пребакед" с общими взаимозависимыми библиотеками, и их можно значительно ускорить, чтобы перевести в режим «в сети». Проверенные среды имеют предварительно созданные образы DOCKER в [реестре контейнеров Microsoft](https://hub.docker.com/publishers/microsoftowner). Дополнительные сведения см. в разделе [машинное обучение Azure проверенные среды](resource-curated-environments.md).
+В приведенном выше коде показаны два варианта обработки зависимостей. Как было представлено, `USE_CURATED_ENV = True` Конфигурация основана на проверенной среде. Проверенные среды — "пребакед" с общими взаимозависимыми библиотеками, и их можно быстрее перевести в режим "в сети". Проверенные среды имеют предварительно созданные образы DOCKER в [реестре контейнеров Microsoft](https://hub.docker.com/publishers/microsoftowner). Дополнительные сведения см. в разделе [машинное обучение Azure проверенные среды](resource-curated-environments.md).
 
 Путь, полученный при изменении `USE_CURATED_ENV` , чтобы `False` Показать шаблон для явного задания зависимостей. В этом случае новый пользовательский образ DOCKER будет создан и зарегистрирован в реестре контейнеров Azure в группе ресурсов (см. статью [Введение в частные реестры контейнеров DOCKER в Azure](../container-registry/container-registry-intro.md)). Создание и регистрация этого образа может занять несколько минут.
 
@@ -197,8 +194,6 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
-    inputs=[ds_input],
-    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -207,9 +202,7 @@ data_prep_step = PythonScriptStep(
 
 В приведенном выше коде показан типичный этап начального конвейера. Код подготовки данных находится в подкаталоге (в этом примере — в `"prepare.py"` каталоге `"./dataprep.src"` ). В рамках процесса создания конвейера этот каталог загружается в ZIP-архив и передается в, `compute_target` а на шаге выполняется скрипт, указанный в качестве значения параметра `script_name` .
 
-`arguments`Значения, `inputs` и `outputs` определяют входные и выходные данные шага. В приведенном выше примере базовые данные представляют собой `my_dataset` набор данных. Соответствующие данные будут скачаны в ресурс вычислений, так как в коде указано значение `as_download()` . Сценарий `prepare.py` выполняет любые задачи преобразования данных, подходящие для выполняемой задачи, и выводит данные в `output_data1` тип `PipelineData` . Дополнительные сведения см. [в разделе Перемещение данных в и между этапами конвейера машинного обучения (Python)](how-to-move-data-in-out-of-pipelines.md). 
-
-Этот шаг будет выполняться на компьютере, определенном с `compute_target` помощью конфигурации `aml_run_config` . 
+`arguments`Значения указывают входные и выходные данные шага. В приведенном выше примере базовые данные представляют собой `my_dataset` набор данных. Соответствующие данные будут скачаны в ресурс вычислений, так как в коде указано значение `as_download()` . Сценарий `prepare.py` выполняет любые задачи преобразования данных, подходящие для выполняемой задачи, и выводит данные в `output_data1` тип `OutputFileDatasetConfig` . Дополнительные сведения см. [в разделе Перемещение данных в и между этапами конвейера машинного обучения (Python)](how-to-move-data-in-out-of-pipelines.md). Этот шаг будет выполняться на компьютере, определенном с `compute_target` помощью конфигурации `aml_run_config` . 
 
 Повторное использование предыдущих результатов ( `allow_reuse` ) является ключом при использовании конвейеров в среде совместной работы, поскольку устранение ненужных повторов обеспечивает гибкость. Используется по умолчанию, когда script_name, входные и параметры шага остаются неизменными. Если разрешено повторное использование, результаты предыдущего выполнения немедленно отправляются на следующий шаг. Если параметр `allow_reuse` имеет значение `False` , то во время выполнения конвейера для этого шага всегда будет создаваться новый запуск.
 
@@ -219,9 +212,8 @@ data_prep_step = PythonScriptStep(
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = PipelineData(name = "training_results", 
-                                datastore=def_blob_store,
-                                output_name="training_results")
+training_results = OutputFileDatasetConfig(name = "training_results",
+    destination = def_blob_store)
 
     
 train_step = PythonScriptStep(
@@ -234,11 +226,9 @@ train_step = PythonScriptStep(
 )
 ```
 
-Приведенный выше код очень похож на этап подготовки данных. Обучающий код находится в каталоге, отдельном от кода подготовки данных. `PipelineData`Выходные данные шага подготовки данных `output_data1` используются в качестве _входных данных_ для этапа обучения. Создается новый `PipelineData` объект `training_results` для хранения результатов последующего сравнения или шага развертывания. 
+Приведенный выше код похож на код на этапе подготовки данных. Обучающий код находится в каталоге, отдельном от кода подготовки данных. `OutputFileDatasetConfig`Выходные данные шага подготовки данных `output_data1` используются в качестве _входных данных_ для этапа обучения. Создается новый `OutputFileDatasetConfig` объект `training_results` для хранения результатов последующего сравнения или шага развертывания. 
 
-
-> [!TIP]
-> Для повышения производительности и возможности записи промежуточных данных обратно в хранилища в конце выполнения конвейера Используйте общедоступный класс предварительной версии [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Примеры кода см. в статьях [создание конвейера машинного обучения на основе двух шагов](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) и [запись данных обратно в хранилища после завершения выполнения](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
+Другие примеры кода см. в статьях [создание конвейера машинного обучения на основе двух шагов](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) и [запись данных обратно в хранилища после завершения выполнения](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
 После определения шагов следует создать конвейер, добавив в него некоторые созданные шаги (или все).
 
@@ -255,26 +245,12 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
-### <a name="how-python-environments-work-with-pipeline-parameters"></a>Как среды Python работают с параметрами конвейера
-
-Как обсуждалось ранее в разделе [Настройка среды обучающего выполнения](#configure-the-training-runs-environment), зависимости состояния среды и библиотеки Python указываются с помощью `Environment` объекта. Как правило, можно указать существующий объект `Environment` , обратившись к его имени и (необязательно) версию:
-
-```python
-aml_run_config = RunConfiguration()
-aml_run_config.environment.name = 'MyEnvironment'
-aml_run_config.environment.version = '1.0'
-```
-
-Однако, если вы решили использовать `PipelineParameter` объекты для динамического задания переменных в среде выполнения для шагов конвейера, этот метод нельзя использовать для ссылки на существующий объект `Environment` . Вместо этого, если необходимо использовать `PipelineParameter` объекты, необходимо задать `environment` `RunConfiguration` для поля объекта значение `Environment` . Ответственность за то, чтобы такой объект получил свои `Environment` зависимости от внешних пакетов Python, должен быть установлен правильно.
-
 ### <a name="use-a-dataset"></a>Использование набора данных 
 
-Наборы данных, созданные из хранилища BLOB-объектов Azure, службы "файлы Azure", Azure Data Lake Storage 1-го поколения, Azure Data Lake Storage 2-го поколения, базу Azure SQL и базу данных Azure для PostgreSQL, можно использовать в качестве входных данных для любого этапа конвейера. Вы можете записывать выходные данные в [дататрансферстеп](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py), [датабрикксстеп](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py)или, если вы хотите записать данные в определенное хранилище данных, используя [пипелинедата](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py). 
+Наборы данных, созданные из хранилища BLOB-объектов Azure, службы "файлы Azure", Azure Data Lake Storage 1-го поколения, Azure Data Lake Storage 2-го поколения, базу Azure SQL и базу данных Azure для PostgreSQL, можно использовать в качестве входных данных для любого этапа конвейера. Вы можете записывать выходные данные в [дататрансферстеп](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py), [датабрикксстеп](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py)или, если вы хотите записать данные в определенное хранилище данных, используя [аутпутфиледатасетконфиг](/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). 
 
 > [!IMPORTANT]
-> Записывать выходные данные обратно в хранилище данных с помощью Пипелинедата поддерживается только для больших двоичных объектов Azure и хранилищ данных файловых ресурсов Azure. 
->
-> Чтобы записать выходные данные обратно в большой двоичный объект Azure, файловый ресурс Azure, ADLS Gen 1 и ADLS поколения 2, используйте общедоступный класс предварительной версии [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) .
+> Записывать выходные данные обратно в хранилище данных с помощью `OutputFileDatasetConfig` поддерживается только для больших двоичных объектов Azure, файловых ресурсов Azure, ADLS Gen 1 и Gen 2. 
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -345,7 +321,7 @@ pipeline_run1.wait_for_completion()
 * Скачивает моментальный снимок проекта из хранилища BLOB-объектов, связанного с рабочей областью, на целевой объект вычислений.
 * Создает образ Docker, соответствующий каждому шагу в конвейере.
 * Скачивает образ DOCKER для каждого шага в целевом объекте вычислений из реестра контейнеров.
-* Настраивает доступ к `Dataset` `PipelineData` объектам и. Для `as_mount()` режима доступа AS используется предохранитель для обеспечения виртуального доступа. Если подключение не поддерживается или пользователь указал параметр доступа как `as_download()` , данные копируются в целевой объект вычислений.
+* Настраивает доступ к `Dataset` `OutputFileDatasetConfig` объектам и. Для `as_mount()` режима доступа предохранитель используется для предоставления виртуального доступа. Если подключение не поддерживается или пользователь указал параметр доступа как `as_upload()` , данные копируются в целевой объект вычислений.
 
 * Выполняет шаг на целевом объекте вычислений, указанном в определении этого шага. 
 * Создает артефакты (журналы, stdout и stderr, метрики и выходные данные), указанные в шаге. Затем эти артефакты передаются и сохраняются в хранилище данных пользователя по умолчанию.
@@ -355,6 +331,31 @@ pipeline_run1.wait_for_completion()
 Дополнительные сведения см. в справочнике по [классу эксперимента](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) .
 
 ## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Использовать параметры конвейера для аргументов, которые изменяются во время вывода
+
+Иногда аргументы для отдельных шагов в конвейере связаны с периодом разработки и обучения: такими, как темпы обучения и время, или путями к файлам данных или конфигурации. Однако при развертывании модели необходимо динамически передавать аргументы, на которые происходит выборка (то есть запрос, в котором была построена модель для ответа!). Следует использовать эти типы аргументов конвейера. Чтобы сделать это в Python, используйте `azureml.pipeline.core.PipelineParameter` класс, как показано в следующем фрагменте кода:
+
+```python
+from azureml.pipeline.core import PipelineParameter
+
+pipeline_param = PipelineParameter(name="pipeline_arg", default_value="default_val")
+train_step = PythonScriptStep(script_name="train.py",
+                            arguments=["--param1", pipeline_param],
+                            target=compute_target,
+                            source_directory=project_folder)
+```
+
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Как среды Python работают с параметрами конвейера
+
+Как обсуждалось ранее в разделе [Настройка среды учебного запуска](#configure-the-training-runs-environment), состояния среды и зависимостей библиотеки Python, указываются с помощью `Environment` объекта. Как правило, можно указать существующий объект `Environment` , обратившись к его имени и (необязательно) версию:
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+Однако, если вы решили использовать `PipelineParameter` объекты для динамического задания переменных в среде выполнения для шагов конвейера, этот метод нельзя использовать для ссылки на существующий объект `Environment` . Вместо этого, если необходимо использовать `PipelineParameter` объекты, необходимо задать `environment` `RunConfiguration` для поля объекта значение `Environment` . Ответственность за то, чтобы такой объект получил свои `Environment` зависимости от внешних пакетов Python, должен быть установлен правильно.
+
 
 ## <a name="view-results-of-a-pipeline"></a>Просмотр результатов конвейера
 

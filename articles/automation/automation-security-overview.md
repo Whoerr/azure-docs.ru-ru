@@ -4,14 +4,14 @@ description: Эта статья содержит общие сведения о
 keywords: безопасность в службе автоматизации, обеспечение безопасности в службе автоматизации, проверка подлинности в службе автоматизации
 services: automation
 ms.subservice: process-automation
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255005"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708906"
 ---
 # <a name="automation-account-authentication-overview"></a>Общие сведения о проверке подлинности учетной записи службы автоматизации
 
@@ -44,6 +44,8 @@ ms.locfileid: "99255005"
 >Подписки Поставщика облачных речений Azure (CSP) поддерживают только модель Azure Resource Manager. Службы, не являющиеся частью Azure Resource Manager, недоступны в программе. При использовании подписки CSP создается не классическая учетная запись запуска от имени Azure, а учетная запись запуска от имени Azure. Дополнительные сведения о подписках CSP см. в разделе [Доступные службы в подписках CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 При создании учетной записи службы автоматизации по умолчанию создается учетная запись запуска от имени. Если вы решили не создавать его вместе с учетной записью службы автоматизации, его можно создать по отдельности. Классическая учетная запись запуска от имени Azure является необязательной и создается отдельно, если требуется управлять классическими ресурсами.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### <a name="run-as-account"></a>учетная запись запуска от имени
 

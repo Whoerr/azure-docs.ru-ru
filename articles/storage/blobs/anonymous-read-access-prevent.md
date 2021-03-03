@@ -10,12 +10,12 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: b0003384676f420c5ece043b1eb6120ed8ee2435
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 53f29c2b8f7a17ac2a23cc081660e8dcb4b9f387
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701864"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Запретить анонимный общий доступ на чтение к контейнерам и BLOB-объектам
 
@@ -78,7 +78,6 @@ ms.locfileid: "100574906"
 
 Чтобы записывать данные службы хранилища Azure с Azure Monitor и анализировать их с помощью Log Analytics Azure, необходимо сначала создать параметр диагностики, который указывает, какие типы запросов и какие услуги хранилища будут записывать данные. Чтобы создать параметр диагностики в портал Azure, выполните следующие действия.
 
-1. Зарегистрируйтесь в [журнале службы хранилища Azure в Azure Monitor предварительной версии](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Создайте новую рабочую область Log Analytics в подписке, которая содержит вашу учетную запись хранения Azure. После настройки ведения журнала для учетной записи хранения журналы будут доступны в рабочей области Log Analytics. Дополнительные сведения см. в статье [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md) (Создание рабочей области Log Analytics на портале Azure).
 1. Войдите в свою учетную запись хранения на портале Azure.
 1. В разделе Мониторинг выберите **параметры диагностики (Предварительная версия)**.
@@ -305,7 +304,7 @@ resources
 > [!NOTE]
 > Администратор службы роли администратора классической подписки и Co-Administrator включает в себя эквивалент роли [владельца](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Роль **владелец** включает все действия, поэтому пользователь с одной из этих административных ролей может также создавать учетные записи хранения и управлять ими. Дополнительные сведения см. в статье [Роли классического администратора подписки, роли Azure и роли администратора Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Настройка анонимного общего доступа на чтение для контейнеров и больших двоичных объектов](anonymous-read-access-configure.md)
 - [Анонимный доступ к открытым контейнерам и BLOB-объектам с помощью .NET](anonymous-read-access-client.md)

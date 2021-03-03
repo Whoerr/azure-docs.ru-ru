@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: c42eb8cac283ce096c42c9e5d4b7eac9a3e12625
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 44f093f96d0f4653a6fcca94aaa97264c93e3c7d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364381"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727946"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Подключение фабрики данных к Azure зрения (Предварительная версия)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -40,16 +40,16 @@ Azure зрения — это новая облачная служба, кото
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Снимок экрана для тегов регистрации учетной записи зрения.":::
 
-2. Проверьте, предоставлено ли разрешение на регистрацию учетной записи Azure зрения в фабрике данных. См. статью [Подключение фабрики данных Azure и Azure зрения](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection) .
+2. Проверьте, предоставлено ли разрешение на регистрацию учетной записи Azure зрения в фабрике данных. См. статью [Подключение фабрики данных Azure и Azure зрения](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection) .
 
 ### <a name="register-data-factory-in-azure-purview"></a>Регистрация фабрики данных в Azure зрения
-Сведения о регистрации фабрики данных в Azure зрения см. в статье [Подключение фабрики данных Azure и Azure зрения](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
+Сведения о регистрации фабрики данных в Azure зрения см. в статье [Подключение фабрики данных Azure и Azure зрения](../purview/how-to-link-azure-data-factory.md). 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Отчет о данных журнала преобразований в Azure зрения
 Когда клиенты выполняют операции копирования, потока данных или выполнения пакетов служб SSIS в фабрике данных Azure, клиенты могут получить отношение зависимости и иметь общий обзор всего процесса рабочего процесса между источниками данных и назначением.
 Сведения о том, как получить журнал обращений и преобразований из фабрики данных Azure, см. в разделе [Журнал преобразований](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 [Пользовательская структура журнала преобразований каталога](../purview/catalog-lineage-user-guide.md)
 
 [Руководство. Отправка данных журнала преобразований в фабрике данных в Azure зрения](turorial-push-lineage-to-purview.md)

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 940f7efc7130ef80817be3b42e3c0eff83588a90
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587988"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737568"
 ---
 # <a name="monitoring-time-series-insights"></a>Мониторинг анализа временных рядов
 
@@ -63,7 +63,7 @@ ms.locfileid: "100587988"
 
 ## <a name="analyzing-metrics"></a>Анализ метрик
 
-Вы можете анализировать метрики для службы "аналитика временных рядов Azure" вместе с метриками из других служб Azure, открыв метрики из меню Azure Monitor. Подробные сведения об использовании этого средства см. в статье [Начало работы с обозревателем метрик Azure](../azure-monitor/platform/metrics-getting-started.md).
+Вы можете анализировать метрики для службы "аналитика временных рядов Azure" вместе с метриками из других служб Azure, открыв метрики из меню Azure Monitor. Подробные сведения об использовании этого средства см. в статье [Начало работы с обозревателем метрик Azure](../azure-monitor/essentials/metrics-getting-started.md).
 
 Список собранных метрик платформы см. в разделе [мониторинг справочника по данным Azure Time Series Insights](how-to-monitor-tsi-reference.md#metrics) .
 
@@ -115,7 +115,7 @@ ms.locfileid: "100587988"
 
 ## <a name="alerts"></a>видны узлы
 
-Оповещения Azure Monitor заблаговременно уведомляют вас при обнаружении важных условий в данных мониторинга. Они позволяют выявлять и устранять проблемы в системе до того, как ваши клиенты заметят их. Оповещения можно настроить для [метрик](../azure-monitor/platform/alerts-metric-overview.md), [журналов](../azure-monitor/platform/alerts-unified-log.md) и [журнала действий](../azure-monitor/platform/activity-log-alerts.md). Различные типы оповещений имеют преимущества и недостатки.
+Оповещения Azure Monitor заблаговременно уведомляют вас при обнаружении важных условий в данных мониторинга. Они позволяют выявлять и устранять проблемы в системе до того, как ваши клиенты заметят их. Оповещения можно настроить для [метрик](../azure-monitor/alerts/alerts-metric-overview.md), [журналов](../azure-monitor/alerts/alerts-unified-log.md) и [журнала действий](../azure-monitor/alerts/activity-log-alerts.md). Различные типы оповещений имеют преимущества и недостатки.
 
 При создании правила генерации оповещений на основе метрик платформы имейте в виду, что для метрик платформы "аналитика временных рядов", собранных в единицах счетчика, некоторые агрегаты могут быть недоступны или использоваться.
 

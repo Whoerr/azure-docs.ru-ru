@@ -3,12 +3,12 @@ title: Мониторинг и ведение журналов — Azure
 description: В этой статье приводятся общие сведения о мониторинге и ведении журналов в службе Live Video Analytics на IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507828"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730252"
 ---
 # <a name="monitoring-and-logging"></a>Мониторинг и ведение журнала
 
@@ -210,7 +210,7 @@ Fragments(video=143039375031270,format=m3u8-aapl)
 
 |Имя класса|Описание|
 |---|---|
-|Analytics  |События, создаваемые как часть анализа содержимого.|
+|Аналитика  |События, создаваемые как часть анализа содержимого.|
 |Диагностика    |События, помогающие в диагностике проблем и производительности.|
 |Операционный    |События, создаваемые как часть операции с ресурсами.|
 
@@ -232,7 +232,7 @@ Fragments(video=143039375031270,format=m3u8-aapl)
 
 |Имя метрики|Тип|Метка|Описание|
 |-----------|----|-----|-----------|
-|lva_active_graph_instances|Индикаторная диаграмма|iothub, edge_device, module_name, graph_topology|Общее число активных графиков на топологию.|
+|lva_active_graph_instances|Датчик|iothub, edge_device, module_name, graph_topology|Общее число активных графиков на топологию.|
 |lva_received_bytes_total|Счетчик|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Общее число байтов, полученных узлом. Поддерживается только для источников RTSP.|
 |lva_data_dropped_total|Счетчик|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node, data_kind|Счетчик любых удаленных данных (событий, носителей и т. д.).|
 
@@ -305,27 +305,70 @@ Fragments(video=143039375031270,format=m3u8-aapl)
      `AZURE_CLIENT_SECRET`: Указывает секрет приложения для использования.  
      
      >[!TIP]
-     > Субъекту-службе можно назначить роль **издателя метрики мониторинга** . Выполните действия, описанные в разделе **[Создание субъекта-службы](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** , чтобы создать субъект-службу и назначить роль.
+     > Субъекту-службе можно назначить роль **издателя метрики мониторинга** . Выполните действия, описанные в разделе **[Создание субъекта-службы](../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** , чтобы создать субъект-службу и назначить роль.
 
 1. После развертывания модулей в Azure Monitor в одном пространстве имен будут отображаться метрики. Имена метрик будут совпадать с именами, порожденными Prometheus. 
 
    В этом случае в портал Azure перейдите в центр Интернета вещей и выберите **метрики** в левой области. Вы должны увидеть метрики там.
 
-Используя Prometheus вместе с [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), можно создавать и [отслеживать такие метрики](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , как используемые cpupercent присутствуют, меморюседперцент и т. д. С помощью языка запросов Kusto можно создавать запросы, как показано ниже, и получать процент загрузки ЦП, используемый модулями IoT ребра.
-```kusto
-let cpu_metrics = promMetrics_CL
-| where Name_s == "edgeAgent_used_cpu_percent"
-| extend dimensions = parse_json(Tags_s)
-| extend module_name = tostring(dimensions.module_name)
-| where module_name in ("lvaEdge","yolov3","tinyyolov3")
-| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
-cpu_metrics
-| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
-| extend module_name = "Total"
-| union cpu_metrics
-```
+### <a name="log-analytics-metrics-collection"></a>Коллекция метрик Log Analytics
+Используя [конечную точку Prometheus](https://prometheus.io/docs/practices/naming/) вместе с [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), можно создавать и [отслеживать такие метрики](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , как используемые cpupercent присутствуют, меморюседперцент и т. д.   
 
-[![Схема, на которой показаны метрики с помощью запроса Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
+> [!NOTE]
+> Приведенная ниже конфигурация не выполняет сбора журналов, а **только метрик**. Можно расширить модуль сборщика для сбора и отправки журналов.
+
+[![Схема, на которой показана коллекция метрик с использованием log Analytics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
+
+1. Узнайте, как выполнять [Получение метрик](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
+1. Используйте команды DOCKER CLI, чтобы создать [файл DOCKER](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) и опубликовать образ в реестре контейнеров Azure.
+    
+   Дополнительные сведения об использовании DOCKER CLI для отправки в реестр контейнеров см. в разделе [Отправка и извлечение образов DOCKER](../../container-registry/container-registry-get-started-docker-cli.md). Дополнительные сведения о реестре контейнеров Azure см. в [документации](../../container-registry/index.yml).
+
+1. После завершения отправки в реестр контейнеров Azure в манифест развертывания вставляется следующее:
+    ```json
+    "azmAgent": {
+      "settings": {
+        "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_METRICS_COLLECTOR}"
+      },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": {
+        "LogAnalyticsWorkspaceId": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_ID}" },
+        "LogAnalyticsSharedKey": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_SECRET}" },
+        "LogAnalyticsLogType": { "value": "IoTEdgeMetrics" },
+        "MetricsEndpointsCSV": { "value": "http://edgeHub:9600/metrics,http://edgeAgent:9600/metrics,http://lvaEdge:9600/metrics" },
+        "ScrapeFrequencyInSecs": { "value": "30 " },
+        "UploadTarget": { "value": "AzureLogAnalytics" }
+      }
+    }
+    ```
+    > [!NOTE]
+    > Модули `edgeHub` `edgeAgent` и — это `lvaEdge` имена модулей, определенных в файле манифеста развертывания. Убедитесь, что имена модулей совпадают.   
+
+    Чтобы получить `LogAnalyticsWorkspaceId` `LogAnalyticsSharedKey` значения и, выполните следующие действия.
+    1. Перейдите на портал Azure.
+    1. Поиск рабочих областей Log Analytics
+    1. Найдя рабочую область Log Analytics, перейдите к `Agents management` параметру в левой области навигации.
+    1. Вы увидите идентификатор рабочей области и секретные ключи, которые можно использовать.
+
+1. Затем создайте книгу, щелкнув `Workbooks` вкладку в левой области навигации.
+1. С помощью языка запросов Kusto можно создавать запросы, как показано ниже, и получать процент загрузки ЦП, используемый модулями IoT Edge.
+    ```kusto
+    let cpu_metrics = IoTEdgeMetrics_CL
+    | where Name_s == "edgeAgent_used_cpu_percent"
+    | extend dimensions = parse_json(Tags_s)
+    | extend module_name = tostring(dimensions.module_name)
+    | where module_name in ("lvaEdge","yolov3","tinyyolov3")
+    | summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+    cpu_metrics
+    | summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+    | extend module_name = "Total"
+    | union cpu_metrics
+    ```
+
+    [![Схема, на которой показаны метрики с помощью запроса Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Ведение журнала
 
 Как и в случае с другими IoT Edgeными модулями, вы также можете [изучить журналы контейнеров](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) на пограничном устройстве. Сведения, записываемые в журналы, можно настроить с помощью [следующих свойств модуля двойника](module-twin-configuration-schema.md) :
@@ -342,7 +385,7 @@ cpu_metrics
 * `logCategories`
 
    * Список с разделителями-запятыми одного или нескольких следующих значений: `Application` , `Events` , `MediaPipeline` .
-   * По умолчанию используется значение `Application, Events`.
+   * Значение по умолчанию — `Application, Events`.
    * `Application`: Сведения высокого уровня из модуля, например сообщения о запуске модуля, ошибки среды и вызовы прямых методов.
    * `Events`: Все события, описанные ранее в этой статье.
    * `MediaPipeline`: Журналы низкого уровня, которые могут предоставлять аналитические сведения при устранении неполадок, например проблемы с подключением к камере с поддержкой RTSP.

@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653320"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715162"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Заметки о выпуске индексатора видео служб мультимедиа Azure
 
@@ -47,7 +47,7 @@ ms.locfileid: "100653320"
 
 Тип событий **аплодисменты** , включенный в предыдущую модель звуковых эффектов, теперь извлекается из типа события « **реакция на публика** ».
 
-Если вы решили просмотреть **сайты** видео на веб-сайте [индексатора видео](https://www.videoindexer.ai/) , звуковые эффекты отобразятся на странице.
+Если вы решили просмотреть **информацию** о видео на веб-сайте [индексатора видео](https://www.videoindexer.ai/) , звуковые эффекты отобразятся на странице.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Обнаружение звуковых событий":::
 
@@ -141,7 +141,7 @@ ms.locfileid: "100653320"
 
 Средство создания тегов меток Обновлено и теперь содержит больше визуальных меток, которые можно определить.
 
-## <a name="may-2020"></a>Май 2020 г.
+## <a name="may-2020"></a>Май 2020 г.
 
 ### <a name="video-indexer-deployed-in-the-east-us"></a>Индексатор видео, развернутый в восточной части США
 
@@ -248,7 +248,7 @@ ms.locfileid: "100653320"
 
 Код состояния 409 будет возвращен из статьи [повторный индексирование видео](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) и [обновление API индекса видео](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) в случае, если видео активно индексируется, чтобы предотвратить переопределение текущих изменений при повторном индексировании.
 
-## <a name="november-2019"></a>Ноябрь 2019 г.
+## <a name="november-2019"></a>Ноябрь 2019 г.
  
 * Поддержка пользовательских языковых моделей на корейском языке
 
@@ -285,7 +285,7 @@ ms.locfileid: "100653320"
     
     Модель, в которой описывается тема, теперь поддерживает более глубокую детализацию таксономии IPTC. Ознакомьтесь с полными сведениями о [новых нововведениях на основе искусственного интеллекта в службах мультимедиа Azure](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## <a name="august-2019"></a>август 2019 г.
+## <a name="august-2019"></a>Август 2019 г.
  
 ### <a name="video-indexer-deployed-in-uk-south"></a>Индексатор видео, развернутый в южная часть Соединенного Королевства
 

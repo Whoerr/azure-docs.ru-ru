@@ -1,17 +1,16 @@
 ---
 title: Отправка данных из расширения системы диагностики Microsoft Azure в концентраторы событий Azure
 description: Настройте расширение системы диагностики в Azure Monitor для отправки данных в концентратор событий Azure, чтобы их можно было перенаправить в расположения за пределами Azure.
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19c39632a1ed040636372d6bad53bf6859960b94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624153"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732043"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Отправка данных из расширения системы диагностики Microsoft Azure в концентраторы событий Azure
 Расширение "Диагностика Microsoft Azure" — это агент в Azure Monitor, собирающий данные мониторинга из операционной системы на виртуальной машине и рабочих нагрузок виртуальных машин Azure и других вычислительных ресурсов. В этой статье описывается, как отправлять данные из расширения системы диагностики Microsoft Azure (WAD) в [концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/) , чтобы вы могли пересылать их в расположения за пределами Azure.
@@ -174,7 +173,7 @@ ms.locfileid: "100624153"
 
 - Убедитесь в том, что концентратор событий успешно подготовлен. Все сведения о соединении в разделе **PrivateConfig** конфигурации должны соответствовать значениям ресурса, как показано на портале. Убедитесь, что на портале определена политика SAS (*SendRule* в примере) и что предоставлено разрешение *Send* .  
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Общие сведения о Центрах событий](../../event-hubs/event-hubs-about.md)
 * [Создание концентратора событий](../../event-hubs/event-hubs-create.md)

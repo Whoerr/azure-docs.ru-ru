@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708685"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Использование модуля схем помещений Azure Maps
 
 > [!IMPORTANT]
-> Службы Creator Azure Maps в настоящее время доступны в общедоступной предварительной версии.
+> Службы Создателя Azure Maps в настоящее время предоставляются в общедоступной предварительной версии.
 > Эта предварительная версия предоставляется без соглашения об уровне обслуживания и не рекомендована для использования рабочей среде. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Веб-пакет SDK Azure Maps включает модуль *схем помещений*. Модуль  *Azure Mapsной* части позволяет визуализировать карты, созданные в службах Azure Maps Creator (Предварительная версия) 
@@ -27,7 +27,7 @@ ms.locfileid: "96905287"
 ## <a name="prerequisites"></a>Предварительные требования
 
 1. [Создайте учетную запись службы Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Создание ресурса создателя (Предварительная версия)](how-to-manage-creator.md)
+2. [Создание ресурса Создателя (предварительная версия)](how-to-manage-creator.md)
 3. [Получите первичный ключ подписки](quick-demo-map-app.md#get-the-primary-key-for-your-account), который иногда называется первичным ключом или ключом подписки.
 4. Получите `tilesetId` и `statesetId`, выполнив инструкции из [руководства по созданию схем помещений](tutorial-creator-indoor-maps.md).
  Эти идентификаторы вам потребуются для отрисовки схем помещений в модуле схем помещений Azure Maps.
@@ -67,7 +67,7 @@ const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
 const map = new atlas.Map("map-id", {
   //use your facility's location
-  center: [-122.13315, 47.63637],
+  center: [-122.13203, 47.63645],
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
@@ -84,24 +84,24 @@ const map = new atlas.Map("map-id", {
 Чтобы загрузить фрагменты карты помещений и стили карты для этих фрагментов, вам потребуется экземпляр *диспетчера схем помещений*. Создайте экземпляр *диспетчера схем помещений*, предоставив ему *объект Map* и соответствующий `tilesetId`. Если вам нужна поддержка [динамических стилей карты](indoor-map-dynamic-styling.md), передайте также `statesetId`. В имени переменной `statesetId` учитывается регистр. Вы получите такой код JavaScript, как показано ниже.
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 ```
 
 Чтобы разрешить получение предоставляемых данных о состоянии, передайте `statesetId` и вызовите `indoorManager.setDynamicStyling(true)`. Опрос для получения данных о состоянии позволяет динамически обновлять состояние динамических свойств (*состояний*). Например, для компонента комнаты может существовать динамическое свойство (*состояние*) с именем `occupancy`. Приложение может выполнять опрос для получения сведений об изменениях *состояния*, чтобы отражать изменения на визуальной карте. Следующий пример кода демонстрирует поддержку опроса состояний:
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 
 if (statesetId.length > 0) {
@@ -218,9 +218,9 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
         });
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
-          levelControl, //level picker
-          tilesetId,
-          statesetId, //optional
+          levelControl: levelControl, //level picker
+          tilesetId: tilesetId,
+          statesetId: statesetId // Optional
         });
 
         if (statesetId.length > 0) {
@@ -244,6 +244,8 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 Чтобы просмотреть созданную схему, загрузите ее в веб-браузер. Она должна выглядеть так, как на изображении ниже. Если щелкнуть компонент лестницы, справа в верхнем углу появится *средство выбора этажа*.
 
   ![Изображение схемы помещения](media/how-to-use-indoor-module/indoor-map-graphic.png)
+
+[Ознакомьтесь с демонстрацией в реальном времени](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

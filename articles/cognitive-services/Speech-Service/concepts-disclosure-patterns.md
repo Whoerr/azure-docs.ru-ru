@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537346"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716624"
 ---
 # <a name="disclosure-design-patterns"></a>Конструктивные шаблоны для раскрытия информации
 Теперь, когда вы&#39;, определили верный [уровень разглашения](concepts-disclosure-guidelines.md#disclosure-assessment) искусственного голоса, он&#39;, чтобы исследовать потенциальные конструктивные шаблоны.
@@ -243,8 +243,8 @@ ms.locfileid: "99537346"
 - [Рекомендации по проектированию речи Microsoft Windows UWP](/windows/uwp/design/input/speech-interactions)
 - [Рекомендации по голосовым командам Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>См. также раздел
 
-* [Раскрытие голоса для речи](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Раскрытие голоса для речи](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Рекомендации для ответственного развертывания технологии искусственного голоса](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Как раскрывать](concepts-disclosure-guidelines.md)

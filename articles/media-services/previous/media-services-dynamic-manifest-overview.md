@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266924"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727334"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Фильтры и динамические манифесты
 
@@ -77,22 +77,22 @@ ms.locfileid: "89266924"
 ```
 
 ### <a name="dynamic-manifests"></a>Динамические манифесты
-Существуют [сценарии](media-services-dynamic-manifest-overview.md#scenarios) , когда клиенту требуется больше гибкости, чем описано в файле манифеста актива по умолчанию. Пример:
+Существуют [сценарии](media-services-dynamic-manifest-overview.md#scenarios) , когда клиенту требуется больше гибкости, чем описано в файле манифеста актива по умолчанию. Пример.
 
 * Для определенного устройства: доставка только указанных представлений и (или) языков дорожек, поддерживаемых устройством, на котором воспроизводится содержимое ("фильтрация представлений"). 
 * Сокращение манифеста для отображения субклипа текущего события ("фильтрация субклипов").
 * Обрезка начала видео ("обрезка видео").
 * Настройка окна представления (DVR) для предоставления ограниченной длительности окна DVR в проигрывателе ("настройка окна представления").
 
-Для достижения такой гибкости службы мультимедиа предоставляют **динамические манифесты** на основе предварительно определенных [фильтров](media-services-dynamic-manifest-overview.md#filters).  После определения фильтров клиенты могут использовать их для потоковой передачи определенного представления или субклипов видео. Фильтры указываются в URL-адресе потоковой передачи. Фильтры можно применять к протоколам потоковой передачи с переменной скоростью, которые поддерживаются [динамической упаковкой](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH и Smooth Streaming. Пример:
+Для достижения такой гибкости службы мультимедиа предоставляют **динамические манифесты** на основе предварительно определенных [фильтров](media-services-dynamic-manifest-overview.md#filters).  После определения фильтров клиенты могут использовать их для потоковой передачи определенного представления или субклипов видео. Фильтры указываются в URL-адресе потоковой передачи. Фильтры можно применять к протоколам потоковой передачи с переменной скоростью, которые поддерживаются [динамической упаковкой](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH и Smooth Streaming. Пример.
 
 URL-адрес MPEG DASH с фильтром
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
 
 URL-адрес Smooth Streaming с фильтром
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
 
 
 Дополнительные сведения о способах доставки содержимого и построения URL-адресов потоковой передачи см. в статье [Доставка содержимого клиентам](media-services-deliver-content-overview.md).

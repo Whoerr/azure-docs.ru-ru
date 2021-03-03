@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 02/18/2021
+ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104507"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702561"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Безопасный доступ и данные в Azure Logic Apps
 
@@ -349,9 +349,9 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 В шаблоне ARM укажите разрешенные диапазоны входящих IP-адресов в определении ресурса приложения логики с помощью `accessControl` раздела. В этом разделе используйте `triggers` , `actions` и необязательные разделы в `contents` соответствии с указанием `allowedCallerIpAddresses` раздела со `addressRange` свойством и задайте для свойства значение разрешенного диапазона IP-адресов в формате *x. x.* x. x/x или *x.* x. x. x-x. x. x. x.
 
-* Если во вложенном приложении логики используется **единственный параметр Logic Apps** , который разрешает входящие вызовы только из других приложений логики, использующих действие Azure Logic Apps, установите `addressRange` для свойства пустой массив (**[]**).
+* Если во вложенном приложении логики используется **единственный параметр Logic Apps** , который разрешает входящие вызовы только из других приложений логики, использующих встроенное действие Azure Logic Apps, задайте `allowedCallerIpAddresses` для свойства пустой массив (**[]**) и *Опустите* `addressRange` свойство.
 
-* Если во вложенном приложении логики используется параметр **определенные диапазоны IP-адресов** для других входящих вызовов, например для других приложений логики, использующих действие HTTP, задайте `addressRange` для свойства значение разрешенный диапазон IP-адресов.
+* Если вложенное приложение логики использует для других входящих вызовов параметр **определенные диапазоны IP-адресов** , например другие приложения логики, ИСПОЛЬЗУЮЩИЕ действие HTTP, включите `allowedCallerIpAddresses` раздел и задайте `addressRange` для свойства значение разрешенный диапазон IP-адресов.
 
 В этом примере показано определение ресурса для вложенного приложения логики, которое разрешает входящие вызовы только из приложений логики, использующих встроенное действие Azure Logic Apps:
 
@@ -378,18 +378,14 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -1130,7 +1126,7 @@ Authorization: OAuth realm="Photos",
 
    **Триггеры и действия управляемых соединителей**
 
-   | Свойство (конструктор) | Обязательно | Значение | Description |
+   | Свойство (конструктор) | Обязательно | Значение | Описание |
    |---------------------|----------|-------|-------------|
    | **Имя соединения** | Да | <*имя соединения*> ||
    | **Управляемое удостоверение** | Да | **Управляемое удостоверение, назначаемое системой** <br>или диспетчер конфигурации служб <br> <*назначенное пользователем удостоверение-имя*> | Тип проверки подлинности |
@@ -1172,7 +1168,7 @@ Authorization: OAuth realm="Photos",
 * [Изоляция в общедоступном облаке Azure](../security/fundamentals/isolation-choices.md)
 * [Безопасность для приложений IaaS с высоким уровнем безопасности в Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Базовый план безопасности Azure для Azure Logic Apps](../logic-apps/security-baseline.md)
 * [Автоматизация развертывания для Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

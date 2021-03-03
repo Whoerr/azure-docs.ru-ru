@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 12/04/2020
+ms.date: 02/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 14e3991c7a9c24ea8fa2a619dc7100af2cd8617c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: da973cf377ceace4a92d1cdd1e956321a5592e6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362766"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692221"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Использование автоматизированного ML в конвейере Машинное обучение Azure в Python
 
@@ -136,8 +136,6 @@ from azureml.core import Run
 
 import pandas as pd 
 import numpy as np 
-import pyarrow as pa
-import pyarrow.parquet as pq
 import argparse
 
 RANDOM_SEED=42
@@ -188,10 +186,9 @@ titanic_ds = Run.get_context().input_datasets['titanic_ds']
 df = titanic_ds.to_pandas_dataframe().drop(['PassengerId', 'Name', 'Ticket', 'Cabin'], axis=1)
 df = prepare_embarked(prepare_genders(prepare_fare(prepare_age(df))))
 
-os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
-pq.write_table(pa.Table.from_pandas(df), args.output_path)
+df.to_csv(os.path.join(args.output_path,"prepped_data.csv"))
 
-print(f"Wrote test to {args.output_path} and train to {args.output_path}")
+print(f"Wrote prepped data to {args.output_path}/prepped_data.csv")
 ```
 
 Приведенный выше фрагмент кода является полным, но минимальным примером подготовки данных для Титанике данных. Фрагмент кода начинается с Jupyter "Magic Command", чтобы вывести код в файл. Если вы не используете записную книжку Jupyter, удалите эту строку и создайте файл вручную.
@@ -200,33 +197,30 @@ print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 
 После того как код определит функции подготовки данных, код анализирует входной аргумент, который представляет собой путь, по которому нужно записать наши данные.  (Эти значения будут определяться `OutputFileDatasetConfig` объектами, которые будут обсуждаться на следующем шаге.) Код извлекает зарегистрированный `'titanic_cs'` `Dataset` , преобразует его в Pandas `DataFrame` и вызывает различные функции подготовки данных. 
 
-Так как параметр `output_path` является полным, функция `os.makedirs()` используется для подготовки структуры каталогов. На этом этапе можно использовать `DataFrame.to_csv()` для записи выходных данных, но Parquet файлы более эффективны. Эта эффективность может быть непростой для такого небольшого набора данных, но использование функций и **PyArrow** пакета является лишь еще несколькими `from_pandas()` `write_table()` нажатиями `to_csv()` .
-
-Файлы Parquet изначально поддерживаются автоматическим этапом ML, описанным ниже, поэтому для их использования специальная обработка не требуется. 
+Так как объект `output_path` является каталогом, в вызове `to_csv()` указывается имя файла `prepped_data.csv` .
 
 ### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>Создание этапа конвейера подготовки данных ( `PythonScriptStep` )
 
-Приведенный выше код подготовки данных должен быть связан с `PythonScripStep` объектом, который будет использоваться в конвейере. Путь, по которому записываются выходные данные подготовки данных Parquet, создается `OutputFileDatasetConfig` объектом. Ресурсы, подготовленные ранее, такие как `ComputeTarget` , `RunConfig` и, `'titanic_ds' Dataset` используются для завершения спецификации.
+Приведенный выше код подготовки данных должен быть связан с `PythonScripStep` объектом, который будет использоваться в конвейере. Путь, по которому записываются выходные данные CSV, создается `OutputFileDatasetConfig` объектом. Ресурсы, подготовленные ранее, такие как `ComputeTarget` , `RunConfig` и, `'titanic_ds' Dataset` используются для завершения спецификации.
 
-Пользователи Пипелинедата
 ```python
 from azureml.data import OutputFileDatasetConfig
 from azureml.pipeline.steps import PythonScriptStep
 
-prepped_data_path = OutputFileDatasetConfig(name="titanic_train", (destination=(datastore, 'outputdataset')))
+prepped_data_path = OutputFileDatasetConfig(name="output_path")
 
 dataprep_step = PythonScriptStep(
     name="dataprep", 
     script_name="dataprep.py", 
     compute_target=compute_target, 
     runconfig=aml_run_config,
-    arguments=[titanic_ds.as_named_input('titanic_ds').as_mount(), prepped_data_path],
-    inputs=[titanic_ds.as_named_input("titanic_ds")],
-    outputs=[prepped_data_path],
+    arguments=["--output_path", prepped_data_path],
+    inputs=[titanic_ds.as_named_input('titanic_ds')],
     allow_reuse=True
 )
 ```
-`prepped_data_path`Объект имеет тип `OutputFileDatasetConfig` , указывающий на каталог.  Обратите внимание, что он указан в `arguments` параметре. Если просмотреть предыдущий шаг, вы увидите, что в коде подготовки данных значение аргумента `'--output_path'` — это путь к файлу, в который был записан файл Parquet. 
+
+`prepped_data_path`Объект имеет тип `OutputFileDatasetConfig` , указывающий на каталог.  Обратите внимание, что он указан в `arguments` параметре. Если просмотреть предыдущий шаг, вы увидите, что в коде подготовки данных значение аргумента `'--output_path'` — это путь к каталогу, в котором был ЗАПИСАН CSV-файл. 
 
 ## <a name="train-with-automlstep"></a>Обучение с помощью Аутомлстеп
 
@@ -237,7 +231,6 @@ dataprep_step = PythonScriptStep(
 В конвейере машинного обучения входные данные должны быть `Dataset` объектом. Самый эффективный способ — предоставить входные данные в виде `OutputTabularDatasetConfig` объектов. Вы создаете объект этого типа с объектом в  `read_delimited_files()` `OutputFileDatasetConfig` , например `prepped_data_path` , `prepped_data_path` объектом.
 
 ```python
-# type(prepped_data_path) == OutputFileDatasetConfig
 # type(prepped_data) == OutputTabularDatasetConfig
 prepped_data = prepped_data_path.read_delimited_files()
 ```
@@ -253,7 +246,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 | Метод | Преимущества и недостатки | 
 |-|-|
 |`OutputTabularDatasetConfig`| Более высокая производительность | 
-|| Естественный маршрут от `PipelineData` | 
+|| Естественный маршрут от `OutputFileDatasetConfig` | 
 || Данные не сохраняются после выполнения конвейера |
 || [Записная книжка с `OutputTabularDatasetConfig` методом](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
 | Буферизаци `Dataset` | Снижение производительности. |
@@ -267,7 +260,6 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 Выходные данные `AutoMLStep` являются окончательными показателями модели с более высокой производительностью и самой моделью. Чтобы использовать эти выходные данные в дальнейших шагах конвейера, подготавливайте `OutputFileDatasetConfig` объекты для их получения.
 
 ```python
-
 from azureml.pipeline.core import TrainingOutput
 
 metrics_data = PipelineData(name='metrics_data',
@@ -311,6 +303,7 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
+    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
     enable_default_model_output=False,
     enable_default_metrics_output=False,
@@ -325,7 +318,7 @@ train_step = AutoMLStep(name='AutoML_Classification',
 - `compute_target` ранее определено `compute_target` , что в этом примере является недорогым компьютером на основе ЦП. Если вы используете средства глубокого обучения Аутомл, необходимо изменить целевой объект вычислений так, чтобы он был основан на GPU
 - Параметру `featurization` задается значение `auto`. Дополнительные сведения см. в разделе [Data Добавление признаков](./how-to-configure-auto-train.md#data-featurization) документа автоматической настройки ml. 
 - `label_column_name` Указывает, какой столбец нам нужен для прогнозирования 
-- `training_data` задается для `PipelineOutputTabularDataset` объектов, сделанных из выходных файлов этапа подготовки данных 
+- `training_data` задается для `OutputTabularDatasetConfig` объектов, сделанных из выходных файлов этапа подготовки данных 
 
 `AutoMLStep`Сам по себе принимает `AutoMLConfig` и имеет, как выходные данные, `PipelineData` объекты, созданные для хранения метрик и данных модели. 
 

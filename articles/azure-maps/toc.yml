@@ -160,10 +160,10 @@
               href: create-data-source-web-sdk.md
             - name: Добавление слоя символов
               href: map-add-pin.md
-            - name: Добавление контекстного меню
-              href: map-add-popup.md
             - name: Добавление слоя пузырьков
               href: map-add-bubble-layer.md
+            - name: Добавление контекстного меню
+              href: map-add-popup.md
             - name: Добавление маркеров HTML
               href: map-add-custom-html.md
             - name: Добавление слоя линий
@@ -250,14 +250,14 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Добавление слоя пузырьков
           href: map-add-bubble-layer-android.md
-        - name: Добавление фигур
+        - name: Отображение сведений о компоненте
+          href: display-feature-information-android.md
+        - name: Добавление слоя линий
+          href: android-map-add-line-layer.md
+        - name: Добавление слоя многоугольников
           href: how-to-add-shapes-to-android-map.md
         - name: Добавление слоя тепловой карты
           href: map-add-heat-map-layer-android.md
-        - name: Добавление слоя линий
-          href: android-map-add-line-layer.md
-        - name: Отображение сведений о компоненте
-          href: display-feature-information-android.md
         - name: Добавление слоя фрагментов
           href: how-to-add-tile-layer-android-map.md
         - name: Отображение данных о трафике

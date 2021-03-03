@@ -1,20 +1,20 @@
 ---
-title: Подключение и управление датчиками в защитнике для портала IoT
+title: Подключение и управление датчиками и подписками в защитнике для портала IoT
 description: Узнайте, как подключать и просматривать датчики, а также управлять ими в защитнике для портала IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526874"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733267"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Подключение и управление датчиками в защитнике для портала IoT
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Подключение и управление датчиками и подписками в защитнике для портала IoT
 
 В этой статье описывается подключение и просмотр датчиков в [защитнике для портала Интернета вещей](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)и управление ими.
 
@@ -64,7 +64,7 @@ ms.locfileid: "100526874"
 
 ## <a name="manage-onboarded-sensors"></a>Управление встроенными датчиками
 
-Для управления задачами, связанными с датчиками, используется [защитник для портала Интернета вещей](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) .
+Используйте [защитник для портала Интернета вещей](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) для задач управления, связанных с датчиками.
 
 Встроенные датчики можно просмотреть на странице **сайты и датчики** . Сведения о датчиках также можно изменить на этой странице.
 
@@ -78,8 +78,8 @@ ms.locfileid: "100526874"
 
 Для изменения:
 
-1. Щелкните правой кнопкой мыши многоточие (**...**) для датчика, который требуется изменить.
-1. Выберите Изменить.
+1. Нажмите **кнопку с многоточием** (**...**) для датчика, который требуется изменить.
+1. Выберите **Изменить**.
 1. Обновите зону датчика или создайте новую зону.
 
 ### <a name="delete-a-sensor"></a>Удаление датчика
@@ -123,6 +123,24 @@ ms.locfileid: "100526874"
 
 9. Выберите **Активировать**.
 
-## <a name="see-also"></a>См. также
+## <a name="offboard-a-subscription"></a>Отключение подписку
+
+Управление подписками осуществляется ежемесячно. Если вы отключениеи подписку, вам будет выставлен счет за эту подписку до конца месяца. 
+
+Удалите все датчики, связанные с подпиской, до отключения подписки. Дополнительные сведения об удалении датчика см. в разделе [Удаление датчика](#delete-a-sensor). 
+
+Чтобы отключение подписку, сделайте следующее:
+
+1. Перейдите на страницу **цен** .
+1. Выберите подписку, а затем щелкните значок **удаления** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
+1. В всплывающем окне подтверждения установите флажок, чтобы подтвердить удаление всех датчиков, связанных с подпиской.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Установите флажок и выберите отключение, чтобы отключение свой датчик.":::
+
+1. Нажмите кнопку **Отключение** . 
+
+Локальная среда не затрагивается, но следует удалить датчик из локальной среды или переназначить датчик другой подписке, чтобы предотвратить передачу связанных данных в локальную консоль управления. 
+
+## <a name="see-also"></a>См. также раздел
 
 [Активация и настройка датчика](how-to-activate-and-set-up-your-sensor.md)

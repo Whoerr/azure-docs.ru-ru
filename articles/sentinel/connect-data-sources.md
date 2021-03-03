@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: aeb92dce41c12ada41175964835d9c89a634a6e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3df78d6b53f8e8739307e9b870aa03d76bfd6771
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590257"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718613"
 ---
 # <a name="connect-data-sources"></a>Подключение источников данных
 
@@ -56,7 +56,7 @@ Azure Sentinel поддерживает следующие методы подк
     - [Брандмауэр веб-приложения Azure (WAF)](connect-azure-waf.md) (прежнее название — Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Сервер доменных имен](connect-dns.md)
-    - [Защитник Microsoft 365](connect-microsoft-365-defender.md) — включает необработанные данные мдатп
+    - [Защитник Microsoft 365](connect-microsoft-365-defender.md) — включает инциденты M365D и необработанные данные MDE.
     - [Защитник Майкрософт для конечной точки](connect-microsoft-defender-advanced-threat-protection.md) (прежнее название — Advanced Threat Protection в защитнике Майкрософт)
     - [Защитник Майкрософт для идентификации](connect-azure-atp.md) (ранее — Azure Advanced Threat protection)
     - [Защитник Microsoft для office 365](connect-office-365-advanced-threat-protection.md) (прежнее название — Office 365 Advanced Threat protection)
@@ -76,6 +76,9 @@ Azure Sentinel поддерживает следующие методы подк
     - [Citrix Analytics (модуль безопасности)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Google Workspace (ранее G Suite)](connect-google-workspace.md)
+    - [Журналы DNS Нкслог (Windows)](connect-nxlog-dns.md)
+    - [Нкслог Линуксаудит](connect-nxlog-linuxaudit.md)
     - [Okta SSO](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Журналы Perimeter 81](connect-perimeter-81-logs.md)
@@ -83,6 +86,7 @@ Azure Sentinel поддерживает следующие методы подк
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
     - [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
+    - [Sophos Cloud Оптикс](connect-sophos-cloud-optix.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
@@ -98,6 +102,8 @@ Azure Sentinel поддерживает следующие методы подк
     - **Брандмауэры, прокси-серверы и конечные точки — CEF:**
         - [Vectra AI Detect](connect-ai-vectra-detect.md)
         - [Akamai Security Events](connect-akamai-security-events.md)
+        - [Aruba Клеарпасс](connect-aruba-clearpass.md)
+        - [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -118,6 +124,7 @@ Azure Sentinel поддерживает следующие методы подк
         - [Другие устройства на основе CEF](connect-common-event-format.md)
     - **Брандмауэры, прокси-серверы и конечные точки — syslog:**
         - [Alsid for Active Directory](connect-alsid-active-directory.md)
+        - [Cisco Meraki](connect-cisco-meraki.md)
         - [Унифицированная вычислительная система Cisco (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
@@ -126,6 +133,7 @@ Azure Sentinel поддерживает следующие методы подк
         - [Squid Proxy](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
+        - [VMware ESXi](connect-vmware-esxi.md)
         - [Другие устройства на основе системного журнала](connect-syslog.md)
     - [HTTP-сервер Apache](connect-apache-http-server.md)
     - Решения DLP

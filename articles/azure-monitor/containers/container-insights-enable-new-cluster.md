@@ -1,19 +1,19 @@
 ---
 title: Мониторинг нового кластера Azure Kubernetes Service (AKS) | Документация Майкрософт
-description: Узнайте, как включить мониторинг для нового кластера Azure Kubernetes Service (AKS) с Azure Monitor для подписки на контейнеры.
+description: Узнайте, как включить мониторинг для нового кластера Azure Kubernetes Service (AKS) с подпиской Container Insights.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717576"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Включение мониторинга нового кластера Azure Kubernetes Service (AKS)
 
-В этой статье описывается, как настроить Azure Monitor для контейнеров, чтобы отслеживать управляемый кластер Kubernetes, размещенный в [службе Kubernetes Azure](../../aks/index.yml) , которая готовится к развертыванию в вашей подписке.
+В этой статье описывается, как настроить контейнерную аналитику для мониторинга управляемого кластера Kubernetes, размещенного в [службе Kubernetes Azure](../../aks/index.yml) , которая готовится к развертыванию в вашей подписке.
 
 Мониторинг кластера AKS можно включить с помощью одного из поддерживаемых методов:
 
@@ -34,14 +34,14 @@ ms.locfileid: "100625287"
 >[!NOTE]
 >Если вы решили использовать Terraform, необходимо запустить Terraform Azure RM Provider версии 1.17.0 или выше.
 
-Чтобы добавить Azure Monitor для контейнеров в рабочую область, просмотрите [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html), заполните профиль, включив [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) и укажите **oms_agent**. 
+Сведения о добавлении в рабочую область сведений о контейнере см. в разделе [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) и завершение профиля путем включения [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) и указания **oms_agent**. 
 
 После включения мониторинга и успешного выполнения всех задач настройки можно отслеживать производительность кластера одним из двух способов:
 
 * Непосредственно в кластере AKS, выбрав **Работоспособность** в левой области.
 * Выбрав плитку **Monitor Container insights** (Мониторинг аналитических сведений о контейнере) на странице кластеров AKS для выбранного кластера. В Azure Monitor выберите **Работоспособность** в левой области. 
 
-  ![Параметры для выбора Azure Monitor для контейнеров в AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Параметры для выбора контейнера аналитики в AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 После включения мониторинга может пройти около 15 минут, прежде чем вы сможете просмотреть метрики работоспособности кластера. 
 
@@ -113,9 +113,9 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
   }
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Если при попытке подключить решение у вас возникли проблемы, ознакомьтесь с [руководством по устранению неполадок](container-insights-troubleshoot.md).
 
-* С включенным наблюдением для получения сведений о работоспособности и использовании ресурсов кластером AKS и рабочими нагрузками, которые выполняются на них, Узнайте, [как использовать](container-insights-analyze.md) Azure Monitor для контейнеров.
+* С включенным наблюдением для получения сведений о работоспособности и использовании ресурсов кластером AKS и рабочими нагрузками, которые выполняются на них, Узнайте, [как использовать](container-insights-analyze.md) аналитику контейнера.
 

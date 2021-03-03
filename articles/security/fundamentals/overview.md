@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f1e56c38353b43faf600fdd8e6405eced7f1b8a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580468"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720568"
 ---
 # <a name="introduction-to-azure-security"></a>Введение в систему безопасности Azure
 ## <a name="overview"></a>Обзор
@@ -53,7 +53,7 @@ Azure — общедоступная облачная платформа, кот
 | [Обязательное обучение безопасности, наведение справок](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Управление расположением данных](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/trustcenter/Common-Controls-Hub) |[Как корпорация Майкрософт управляет расположением данных в службах Azure](https://azuredatacentermap.azurewebsites.net/)|
 | [Выполнение тестов на проникновение](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [обнаружение вторжений и атак DDoS](https://www.microsoft.com/trustcenter/Security/ThreatManagement), [аудит и ведение журнала](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging) | [Предоставление доступа к данным на ваших условиях](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Контрольный список комплексной экспертизы облачных служб](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist) |[Кто в корпорации Майкрософт имеет доступ к вашим данным и на каких условиях](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Современный центр обработки данных](https://www.microsoft.com/cloud-platform/global-datacenters), физическая безопасность, [безопасная сеть](network-overview.md) | [Реагирование на запросы правоохранительных органов](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Соответствие служб, расположений и отрасли](https://www.microsoft.com/trustcenter/Compliance/default.aspx) |[Как корпорация Майкрософт защищает данные клиентов в службах Azure](https://www.microsoft.com/trustcenter/Transparency/default.aspx)|
-|  [Реагирование на инциденты безопасности](https://aka.ms/SecurityResponsepaper), [разделение ответственности](./shared-responsibility.md) |[Строгие стандарты конфиденциальности](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Проверка сертификации для служб Azure, центр обеспечения прозрачности](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
+|  [Реагирование на инциденты безопасности](/samples/browse/?redirectedfrom=TechNet-Gallery), [разделение ответственности](./shared-responsibility.md) |[Строгие стандарты конфиденциальности](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Проверка сертификации для служб Azure, центр обеспечения прозрачности](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
 
 ### <a name="features-to-secure-data-and-application"></a>Функции защиты данных и приложений
 В зависимости от модели облачной изменяется ответственность за управление безопасностью приложения или службы. В платформе Azure доступны возможности для упрощения выполнения этих обязанностей с помощью встроенных функций и решений партнеров, которые могут быть развернуты в подписке Azure.

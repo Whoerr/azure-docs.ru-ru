@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0dda015d820d81fdd13eced384f97362e2ee3339
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ead123338a410daf53569ff577dfc8c728a8ddf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587566"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708498"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Что такое автоматическое инструментирование или Application Insights присоединения Azure Monitor?
 
@@ -45,27 +45,27 @@ Application Insights интегрированы с различными пост
 Наблюдение за приложениями в службе приложений Azure в Windows доступно для [приложений .NET](./azure-web-apps.md?tabs=net) .NET и включено по умолчанию.
 
 #### <a name="netcore"></a>. NETCore
-Мониторинг для [. Приложения NETCore](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) можно включить одним щелчком.
+Мониторинг для [. Приложения NETCore](./azure-web-apps.md?tabs=netcore) можно включить одним щелчком.
 
 #### <a name="java"></a>Java
-Интеграция портала для мониторинга приложений Java в службе приложений в Windows в настоящее время недоступна. Однако вы можете добавить Application Insights [автономный агент Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) в приложение без каких-либо изменений кода перед развертыванием приложений в службе приложений. Application Insights агент Java 3,0 является общедоступным.
+Интеграция портала для мониторинга приложений Java в службе приложений в Windows в настоящее время недоступна. Однако вы можете добавить Application Insights [автономный агент Java 3,0](./java-in-process-agent.md) в приложение без каких-либо изменений кода перед развертыванием приложений в службе приложений. Application Insights агент Java 3,0 является общедоступным.
 
 #### <a name="nodejs"></a>Node.js
-В настоящее время наблюдение за Node.js приложениями в Windows невозможно включить на портале. Для мониторинга Node.js приложений используйте [пакет SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+В настоящее время наблюдение за Node.js приложениями в Windows невозможно включить на портале. Для мониторинга Node.js приложений используйте [пакет SDK](./nodejs.md).
 
 ### <a name="linux"></a>Linux
 
 #### <a name="netcore"></a>. NETCore
-Для мониторинга. Приложения NETCore, работающие в Linux, используют [пакет SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+Для мониторинга. Приложения NETCore, работающие в Linux, используют [пакет SDK](./asp-net-core.md).
 
 #### <a name="java"></a>Java 
-Включение мониторинга приложений Java для службы приложений на платформе Linux с портала недоступно, но вы можете добавить [Application Insights агент Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) в приложение перед развертыванием приложений в службе приложений. Application Insights агент Java 3,0 является общедоступным.
+Включение мониторинга приложений Java для службы приложений на платформе Linux с портала недоступно, но вы можете добавить [Application Insights агент Java 3,0](./java-in-process-agent.md) в приложение перед развертыванием приложений в службе приложений. Application Insights агент Java 3,0 является общедоступным.
 
 #### <a name="nodejs"></a>Node.js
-[Наблюдение за Node.js приложениями в службе приложений на платформе Linux](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=nodejs) доступно в общедоступной предварительной версии. их можно включить в портал Azure, доступном во всех регионах. 
+[Наблюдение за Node.js приложениями в службе приложений на платформе Linux](./azure-web-apps.md?tabs=nodejs) доступно в общедоступной предварительной версии. их можно включить в портал Azure, доступном во всех регионах. 
 
 #### <a name="python"></a>Python
-Использование пакета SDK для [мониторинга приложения Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python) 
+Использование пакета SDK для [мониторинга приложения Python](./opencensus-python.md) 
 
 ## <a name="azure-functions"></a>Функции Azure
 
@@ -77,7 +77,7 @@ Application Insights интегрированы с различными пост
 
 ## <a name="azure-windows-vms-and-virtual-machine-scale-set"></a>Виртуальные машины Azure и масштабируемый набор виртуальных машин Windows
 
-Автоматическое инструментирование для виртуальных машин Azure и масштабируемых наборов виртуальных машин доступно для [.NET](./azure-vm-vmss-apps.md) и [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).  
+Автоматическое инструментирование для виртуальных машин Azure и масштабируемых наборов виртуальных машин доступно для [.NET](./azure-vm-vmss-apps.md) и [Java](./java-in-process-agent.md).  
 
 ## <a name="on-premises-servers"></a>Локальные серверы
 Вы можете легко включить мониторинг для [локальных серверов Windows для приложений .NET](./status-monitor-v2-overview.md) и приложений [Java](./java-in-process-agent.md).
@@ -85,9 +85,8 @@ Application Insights интегрированы с различными пост
 ## <a name="other-environments"></a>Другие среды
 Универсальный автономный агент Java работает в любой среде, нет необходимости выполнять инструментирование кода. [Следуйте указаниям по](./java-in-process-agent.md) включению Application Insights и прочитайте о невероятных возможностях агента Java. Агент находится в общедоступной предварительной версии и доступен во всех регионах. 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Обзор Application Insights](./app-insights-overview.md)
 * [Сопоставление приложений](./app-map.md)
 * [Поиск и диагностика проблем производительности с помощью Azure Application Insights](../app/tutorial-performance.md)
-

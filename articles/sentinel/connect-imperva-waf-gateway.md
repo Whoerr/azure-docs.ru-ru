@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3094d20a921f9aa13e111e7af60955ce934b91db
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a37abf369d1f34dc8f4a27802dfad88dab79be44
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566801"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698439"
 ---
 # <a name="connect-your-imperva-waf-gateway-appliance-to-azure-sentinel"></a>Подключение устройства шлюза Imperva WAF к Azure Sentinel
 
@@ -35,7 +35,7 @@ ms.locfileid: "99566801"
 
 - У вас должны быть разрешения на чтение и запись в рабочей области Sentinel Azure.
 
-- Необходимо иметь разрешения на чтение общих ключей для рабочей области. Дополнительные [сведения о ключах рабочих областей](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Необходимо иметь разрешения на чтение общих ключей для рабочей области. Дополнительные [сведения о ключах рабочих областей](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-imperva-waf-gateway-logs-to-azure-sentinel"></a>Отправка журналов шлюза Imperva WAF в Azure Sentinel
 
@@ -74,7 +74,7 @@ CommonSecurityLog
 
 Более полезные примеры запросов см. на вкладке **дальнейшие действия** на странице соединителя.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 В этом документе вы узнали, как подключить шлюз Imperva WAF к Azure Sentinel. Ознакомьтесь с дополнительными сведениями об Azure Sentinel в соответствующих статьях.
 
 - Узнайте, как [получить представление о данных и потенциальных угрозах](quickstart-get-visibility.md).

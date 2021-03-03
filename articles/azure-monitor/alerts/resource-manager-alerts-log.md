@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598003"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714126"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Примеры шаблонов Resource Manager для правил генерации оповещений журналов в Azure Monitor
 В этой статье представлены примеры [шаблонов Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) для создания и настройки оповещений о запросах к журналу в Azure Monitor. Каждый пример включает файл шаблона и файл параметров с примерами значений для предоставления в шаблоне.
@@ -479,4 +479,4 @@ ms.locfileid: "100598003"
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Другие примеры шаблонов для Azure Monitor](../resource-manager-samples.md)
-* [Дополнительные сведения о правилах генерации оповещений](../platform/alerts-overview.md)
+* [Дополнительные сведения о правилах генерации оповещений](./alerts-overview.md)

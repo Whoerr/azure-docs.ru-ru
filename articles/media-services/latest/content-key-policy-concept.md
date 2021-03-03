@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 29907a12f7edf7439f9bcfae0a1ad46b395d9ecf
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1333bbcc7e2ea9219d28fcc1e63f21a833c2bc6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897213"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709569"
 ---
 # <a name="content-key-policies"></a>Политики ключа содержимого
 
@@ -55,7 +55,7 @@ ms.locfileid: "98897213"
 
 Ознакомьтесь с разделом [Фильтрация, упорядочивание и разбиение по страницам сущностей Служб мультимедиа](entities-overview.md).
 
-## <a name="additional-notes"></a>Дополнительные замечания
+## <a name="additional-notes"></a>Дополнительные сведения
 
 * Свойства политик ключей содержимого, имеющие `Datetime` тип, всегда имеют формат UTC.
 * Widevine — это служба, которая предоставляется компанией Google Inc. и подпадает под условия предоставления услуг и политику конфиденциальности Google Inc.
@@ -64,4 +64,4 @@ ms.locfileid: "98897213"
 
 * [Использование динамического шифрования AES-128 и службы доставки ключей](protect-with-aes128.md)
 * [Использование динамического шифрования DRM и службы доставки лицензий](protect-with-drm.md)
-* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)
+* [Пример кода простого шифрования AES с открытым ключом и потоковой передачи](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/BasicAESClearKey)

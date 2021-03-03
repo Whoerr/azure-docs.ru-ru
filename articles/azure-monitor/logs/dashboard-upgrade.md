@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 139241d679007bf72680f91a1518a1ef90cc7efc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621729"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700632"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Обновление визуализаций панели мониторинга Log Analytics
 
@@ -80,6 +80,6 @@ Log Analytics визуализации, закрепленные на панел
 
 Панели мониторинга обновляются после загрузки. Все запросы, связанные с панелью мониторинга — закрепленные Log Analytics визуализации выполняются, и панель мониторинга обновляется после загрузки. Если страница панели мониторинга остается открытой, данные на панели мониторинга обновляются каждые 60 минут.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Создание панелей мониторинга и общий доступ к ним в Log Analytics](../learn/tutorial-logs-dashboards.md)
+[Создание панелей мониторинга и общий доступ к ним в Log Analytics](../visualize/tutorial-logs-dashboards.md)

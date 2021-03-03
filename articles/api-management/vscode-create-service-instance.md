@@ -7,18 +7,18 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3105b6f34d7ece81e8145fdd9e89568e66360ddb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400409"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649518"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Краткое руководство. Создание экземпляра службы "Управление API Azure" с помощью Visual Studio Code
 
 Служба управления API Azure помогает организациям публиковать API-интерфейсы для внешних пользователей, партнеров и собственных разработчиков, раскрывая таким образом потенциал своих данных и услуг. Служба управления API предоставляет базовые возможности для успешного выполнения программы API за счет привлечения разработчиков, бизнес-аналитики, анализа, безопасности и защищенности. Служба управления API позволяет создавать современные шлюзы API для существующих серверных служб, размещенных в любом месте, и управлять ими. Дополнительные сведения см. в разделе [общих сведений](api-management-key-concepts.md).
 
-В этом кратком руководстве описаны шаги по созданию экземпляра службы "Управление API" с помощью *предварительной версии расширения службы "Управление API Azure"* для Visual Studio Code. Кроме того, расширение можно использовать для выполнения общих операций управления в экземпляре службы "Управление API".
+В этом кратком руководстве описаны шаги по созданию экземпляра службы "Управление API" с помощью *расширения службы "Управление API Azure"* для Visual Studio Code. Кроме того, расширение можно использовать для выполнения общих операций управления в экземпляре службы "Управление API".
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -28,7 +28,7 @@ ms.locfileid: "97400409"
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Расширение службы "Управление API Azure" для Visual Studio Code (предварительная версия)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Расширение службы "Управление API Azure" для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## <a name="sign-in-to-azure"></a>Вход в Azure
 

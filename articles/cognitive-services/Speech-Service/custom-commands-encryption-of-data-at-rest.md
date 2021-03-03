@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021904"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716590"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Пользовательские команды для шифрования неактивных данных
 
 Пользовательские команды автоматически шифруют данные при их сохранении в облаке. Шифрование службы пользовательских команд защищает данные и помогает удовлетворить ваши обязательства по обеспечению безопасности и соответствия требованиям Организации.
 
 > [!NOTE]
-> Служба настраиваемых команд не включает автоматическое шифрование для ресурсов LUIS, связанных с вашим приложением. При необходимости необходимо включить шифрование для ресурса LUIS [отсюда](./../LUIS/luis-encryption-of-data-at-rest.md).
+> Служба настраиваемых команд не включает автоматическое шифрование для ресурсов LUIS, связанных с вашим приложением. При необходимости необходимо включить шифрование для ресурса LUIS [отсюда](../luis/encrypt-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>Сведения о шифровании Cognitive Services
 Данные шифруются и расшифровываются с помощью [fips 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) , совместимого с [256-БИТНЫМ](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) шифрованием AES. Шифрование и расшифровка прозрачны, то есть Управление шифрованием и доступом осуществляется за вас. Данные безопасны по умолчанию, и вам не нужно изменять код или приложения, чтобы воспользоваться преимуществами шифрования.
@@ -152,5 +152,5 @@ ms.locfileid: "95021904"
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Форма запроса ключа Customer-Managed речи](https://aka.ms/cogsvc-cmk)
-* [Дополнительные сведения о Azure Key Vault](../../key-vault/general/overview.md)
+* [Дополнительные сведения об Azure Key Vault](../../key-vault/general/overview.md)
 * [Что такое управляемые удостоверения](../../active-directory/managed-identities-azure-resources/overview.md)

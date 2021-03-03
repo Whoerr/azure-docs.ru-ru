@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: cade888d951c2071f8f40c145e28eed3c3a5d27c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d23df80a3f80ed96779297bac12ef0ed8d2927d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384254"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687929"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Создание управляемого экземпляра SQL Azure с помощью средств Kubernetes
 
@@ -93,10 +93,10 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### <a name="customizing-the-name"></a>Настройка имени
@@ -167,6 +167,6 @@ kubectl describe po/<pod name> --namespace arc
 
 Если у вас возникли роняли с созданием, ознакомьтесь с [руководством по устранению неполадок](troubleshoot-guide.md).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Подключение к SQL Управляемый экземпляр с включенной службой Arc](connect-managed-instance.md)

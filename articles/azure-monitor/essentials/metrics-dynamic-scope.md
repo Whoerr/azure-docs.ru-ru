@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 23507a01f3ed0015690d9655fde92a875f89c2da
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: a321361a7624f2b9016d6303df63501fd0d7e7c5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095485"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734474"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Просмотр нескольких ресурсов в обозревателе метрик Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "101095485"
 ![Снимок экрана, показывающий меню ресурсов, совместимых с несколькими ресурсами.](./media/metrics-dynamic-scope/020.png)
 
 > [!WARNING] 
-> Для визуализации метрик в нескольких ресурсах, группах ресурсов или подписке необходимо иметь разрешение Monitoring Reader на уровне подписки. Дополнительные сведения см. [в статье назначение ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md).
+> Для визуализации метрик в нескольких ресурсах, группах ресурсов или подписке необходимо иметь разрешение Monitoring Reader на уровне подписки. Дополнительные сведения см. в статье [Назначение ролей Azure с помощью портала Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Чтобы визуализировать метрики по нескольким ресурсам, начните с выбора нескольких ресурсов в средстве выбора области ресурсов. 
 
@@ -81,12 +81,12 @@ ms.locfileid: "101095485"
 
 ## <a name="pin-multiple-resource-charts"></a>Закрепление диаграмм с несколькими ресурсами 
 
-Для диаграмм с несколькими ресурсами, которые визуализируют метрики в группах ресурсов и подписках, пользователю требуется разрешение *Monitoring Reader* на уровне подписки. Убедитесь, что все пользователи панелей мониторинга, для которых закреплено несколько ресурсов, имеют достаточные разрешения. Дополнительные сведения см. [в статье назначение ролей Azure с помощью портал Azure](../../role-based-access-control/role-assignments-portal.md).
+Для диаграмм с несколькими ресурсами, которые визуализируют метрики в группах ресурсов и подписках, пользователю требуется разрешение *Monitoring Reader* на уровне подписки. Убедитесь, что все пользователи панелей мониторинга, для которых закреплено несколько ресурсов, имеют достаточные разрешения. Дополнительные сведения см. в статье [Назначение ролей Azure с помощью портала Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Чтобы закрепить диаграмму с несколькими ресурсами на панели мониторинга, см. раздел [закрепление на панелях мониторинга](../essentials/metrics-charts.md#pinning-to-dashboards). 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Устранение неполадок в обозревателе метрик](../essentials/metrics-troubleshoot.md)
-* [Список доступных метрик для служб Azure](../platform/metrics-supported.md)
+* [Список доступных метрик для служб Azure](./metrics-supported.md)
 * [Примеры настроенных диаграмм](../essentials/metric-chart-samples.md)

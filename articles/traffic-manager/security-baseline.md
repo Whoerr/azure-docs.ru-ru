@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f8f9da1b9c0b2df4e353b90538d52d9cb9b9e241
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 62be64f3134bbbbbe2b18bef384654168f958287
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701609"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Базовый план безопасности Azure для диспетчера трафика Azure
 
@@ -62,7 +62,7 @@ ms.locfileid: "101093923"
 
 - [Изменение срока хранения данных в Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Мониторинг Центра безопасности Azure**: Неприменимо
 
@@ -114,7 +114,7 @@ ms.locfileid: "101093923"
 
 В Resource Manager в диспетчер трафика можно добавить конечные точки из любой подписки при условии, что у пользователя, настраивающего профиль диспетчера трафика, есть доступ на чтение к этим конечным точкам.
 
-- [Назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md)
+- [Назначение ролей Azure с помощью портала Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Как получить роль каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -272,7 +272,7 @@ ms.locfileid: "101093923"
 
 У диспетчера трафика Azure есть предопределенная роль Azure с именем "участник диспетчера трафика", которую можно назначить пользователям.
 
-- [Назначение ролей Azure с помощью портал Azure](../role-based-access-control/role-assignments-portal.md)
+- [Назначение ролей Azure с помощью портала Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Роль участника диспетчера трафика](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 

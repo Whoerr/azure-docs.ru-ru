@@ -9,16 +9,16 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575489"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712459"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Подключение к системам SAP из Azure Logic Apps
 
-В этой статье объясняется, как можно получить доступ к ресурсам SAP из Logic Apps с помощью [соединителя SAP](https://docs.microsoft.com/connectors/sap/).
+В этой статье объясняется, как можно получить доступ к ресурсам SAP из Logic Apps с помощью [соединителя SAP](/connectors/sap/).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -547,14 +547,14 @@ E2EDP19   300                16    E2EDP19   0     3   00AAAA-11111</idocData>
 
 При использовании [локального шлюза данных для Logic Apps](../logic-apps/logic-apps-gateway-install.md)можно настроить расширенный файл журнала для соединителя SAP. Локальный шлюз данных можно использовать для перенаправления событий трассировки событий Windows (ETW) в файлы журнала, включенные в ZIP-файлы вашего шлюза. 
 
-Вы можете [экспортировать все журналы конфигурации и служб шлюза](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) в ZIP-файл в с помощью параметров приложения шлюза.
+Вы можете [экспортировать все журналы конфигурации и служб шлюза](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) в ZIP-файл в с помощью параметров приложения шлюза.
 
 > [!NOTE]
 > Расширенное ведение журнала может повлиять на производительность приложений логики при постоянном включении. Рекомендуется отключить расширенные файлы журнала после завершения анализа и устранения неполадок.
 
 #### <a name="capture-etw-events"></a>Запись событий ETW
 
-Кроме того, опытные пользователи могут собирать события ETW напрямую. Затем вы можете [использовать данные в система диагностики Azure в концентраторах событий](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) или [собирайте данные для Azure Monitor журналов](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). Дополнительные сведения см. в [рекомендациях по сбору и хранению данных](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) можно использовать для работы с полученными файлами ETL, или можно написать собственную программу. В этом пошаговом руководстве используется PerfView:
+Кроме того, опытные пользователи могут собирать события ETW напрямую. Затем вы можете [использовать данные в система диагностики Azure в концентраторах событий](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) или [собирайте данные для Azure Monitor журналов](/azure/azure-monitor/agents/diagnostics-extension-logs). Дополнительные сведения см. в [рекомендациях по сбору и хранению данных](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). [PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) можно использовать для работы с полученными файлами ETL, или можно написать собственную программу. В этом пошаговом руководстве используется PerfView:
 
 1. В меню PerfView выберите **собрать** &gt; **сбор** , чтобы записать события.
 
@@ -709,7 +709,7 @@ E2EDP19   300                16    E2EDP19   0     3   00AAAA-11111</idocData>
 
 1. Чтобы открыть **средство тестирования для параметров обработки iDoc** , в интерфейсе SAP используйте код транзакции **we19** (T-Code) с префиксом **/n** .
 
-1. В разделе **шаблон для теста** выберите **тип сообщения** и введите тип сообщения, например **кремас**. Щелкните **Создать**.
+1. В разделе **шаблон для теста** выберите **тип сообщения** и введите тип сообщения, например **кремас**. Нажмите кнопку **создания**.
 
 1. Подтвердите, **какой тип iDoc?** сообщение, выбрав **продолжить**.
 
@@ -729,7 +729,7 @@ E2EDP19   300                16    E2EDP19   0     3   00AAAA-11111</idocData>
 
 1. Прежде чем начать, вам потребуется приложение логики с триггером SAP. Если у вас еще нет этого приложения логики, выполните описанные выше действия в этом разделе, чтобы [настроить приложение логики с помощью триггера SAP](#receive-message-from-sap).
 
-   Пример:
+   Пример.
 
    ![Добавление триггера SAP в приложение логики](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -1336,7 +1336,7 @@ https://docs.microsoft.com/connectors/sap/#call-bapi-(preview)) вызывает
 
 ### <a name="send-idoc-action"></a>Отправить действие IDoc
 
-Действие [Send iDoc ( `SendIDoc` )](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) отправляет сообщение iDoc на сервер SAP.
+Действие [Send iDoc ( `SendIDoc` )](/connectors/sap/) отправляет сообщение iDoc на сервер SAP.
 
 При вызове необходимо использовать следующие параметры: 
 
@@ -1350,7 +1350,7 @@ https://docs.microsoft.com/connectors/sap/#call-bapi-(preview)) вызывает
 
 Сведения о том, как использовать необязательный параметр **Confirm TID** ( `confirmTid` ), см. в [пошаговом руководстве по явному подтверждению транзакции](#confirm-transaction-explicitly).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Подключитесь к локальным системам](../logic-apps/logic-apps-gateway-connection.md) с Azure Logic Apps.
 

@@ -3,18 +3,18 @@ title: Использование оповещения для активации
 description: В этой статье рассказывается, как активировать модуль runbook при появлении оповещения Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2019
+ms.date: 02/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: add2bbb7b8f9eeb72c8c58b8c54b070a6b14d8e6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0483b171ee65ac55d65261140738bc5c1838873f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586058"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732298"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Использование оповещения для активации runbook службы автоматизации Azure
 
-С помощью [Azure Monitor](../azure-monitor/overview.md) можно отслеживать метрики и журналы базового уровня большинства служб Microsoft Azure. Модули runbook службы автоматизации Azure можно вызывать с помощью [групп действий](../azure-monitor/alerts/action-groups.md) или с помощью классических оповещений, чтобы автоматизировать задачи на основе оповещений. В этой статье показано, как настроить и запустить runbook с помощью оповещений.
+С помощью [Azure Monitor](../azure-monitor/overview.md) можно отслеживать метрики и журналы базового уровня большинства служб Microsoft Azure. Вы можете вызывать модули Runbook службы автоматизации Azure, используя [группы действий](../azure-monitor/platform/action-groups.md) для автоматизации задач на основе предупреждений. В этой статье показано, как настроить и запустить runbook с помощью оповещений.
 
 ## <a name="alert-types"></a>Типы оповещений
 

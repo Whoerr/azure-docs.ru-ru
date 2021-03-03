@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: e12b96883ae26b6c10e3622c35914ce498afca48
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f909f5714a049f63032c8a23ca1731777a40d332
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944426"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702867"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Устранение сбоев при создании кластера с помощью Azure HDInsight
 
@@ -65,7 +65,7 @@ ms.locfileid: "98944426"
 
 ## <a name="unsupported-component-versions"></a>Неподдерживаемые версии компонентов
 
-Убедитесь, что вы используете [поддерживаемую версию Azure HDInsight](../hdinsight-component-versioning.md) и все [компоненты Apache Hadoop](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) в решении.  
+Убедитесь, что вы используете [поддерживаемую версию Azure HDInsight и Apache Hadoop компонент](../hdinsight-component-versioning.md) в решении.  
 
 ## <a name="storage-account-name-restrictions"></a>Ограничения имен учетных записей хранения
 

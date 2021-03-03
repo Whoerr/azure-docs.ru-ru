@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/19/2021
+ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519394"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712221"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Варианты вычислений и хранения в базе данных Azure для PostgreSQL-гибкого сервера
 
@@ -65,7 +65,7 @@ ms.locfileid: "100519394"
 | E48s_v3              | 48     | 384 гиб     | 18000              | 750 МиБ/с                 |
 | E64s_v3              | 64     | 432 ГиБ     | 18000              | 750 МиБ/с                 |
 
-## <a name="storage"></a>Служба хранилища
+## <a name="storage"></a>Память
 
 Хранилище, которое вы подготавливаете, определяет объем доступной емкости хранилища для сервера службы "База данных Azure для PostgreSQL". Хранилище используется для файлов базы данных, временных файлов, журналов транзакций и журналов сервера PostgreSQL. Общий объем хранилища, который вы подготовили, также определяет доступную производительность операций ввода-вывода для сервера.
 
@@ -120,6 +120,9 @@ ms.locfileid: "100519394"
 
 При пометке операции \* ввода-вывода в секунду ограничиваются выбранным типом виртуальной машины. В противном случае операции ввода-вывода ограничиваются выбранным размером хранилища.
 
+>[!NOTE]
+> В метриках можно увидеть более высокие числа операций ввода-вывода в связи с разбивкой на дисковый уровень. Дополнительные сведения см. в [документации](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) . 
+
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Максимальная пропускная способность ввода-вывода (MiB/с) для конфигурации
 
 |Имя SKU            |Размер хранилища, гиб                             |32 |64 |128 |256 |512  |1024|2048|4096|8192 |16 384|
@@ -160,7 +163,7 @@ ms.locfileid: "100519394"
 
 Автоматическое увеличение хранилища еще не доступно для гибкого сервера.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Резервное копирование
 
 В службе автоматически создаются резервные копии сервера. Можно выбрать срок хранения в диапазоне от 7 до 35 дней. Дополнительные сведения о резервном копировании см. в [статье основные понятия](concepts-backup-restore.md).
 
@@ -179,7 +182,7 @@ ms.locfileid: "100519394"
 
 Наиболее актуальные сведения о стоимости см. в статье [Цены на Базу данных Azure для PostgreSQL](https://azure.microsoft.com/pricing/details/PostgreSQL/). Расходы на вашу конфигурацию можно посмотреть на [портале Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer). На вкладке **Ценовая категория** отображается ежемесячная стоимость выбранных параметров. Если у вас нет подписки Azure, для расчета цены можно воспользоваться калькулятором цен Azure. На сайте с [калькулятором цен Azure](https://azure.microsoft.com/pricing/calculator/) нажмите кнопку **Добавить элементы**, разверните категорию **Базы данных** и выберите **База данных Azure для PostgreSQL**, чтобы настроить параметры.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Руководство по проектированию службы "База данных Azure для PostgreSQL" с помощью портала Azure](how-to-manage-server-portal.md).
 - Дополнительные сведения см. в статье [Ограничения в базе данных Azure для PostgreSQL](concepts-limits.md).

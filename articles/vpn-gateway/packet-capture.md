@@ -2,17 +2,17 @@
 title: 'VPN-шлюз Azure: Настройка записи пакетов'
 description: Узнайте о функциях записи пакетов, которые можно использовать на VPN-шлюзах, чтобы упростить причину проблемы.
 services: vpn-gateway
-author: radwiv
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/2/2020
-ms.author: radwiv
-ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.date: 02/22/2021
+ms.author: alzam
+ms.openlocfilehash: 0983139d1c9af235eba4c9f99da7bc9dea3f231b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726620"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Настройка записи пакетов для VPN-шлюзов
 
@@ -27,6 +27,7 @@ ms.locfileid: "97733812"
 При изоляции проблем с большим объемом трафика полезно использовать фильтр с пятью кортежами (исходная подсеть, конечная подсеть, порт источника, порт назначения, протокол) и флаги TCP (SYN, ACK, FIN, УРГ, КОМАНДНОМ PSH, RST).
 
 В следующих примерах JSON и схемы JSON содержится объяснение каждого свойства. Ниже приведены некоторые ограничения, которые следует учитывать при выполнении записи пакетов.
+
 - В приведенной здесь схеме фильтр является массивом, но в настоящее время можно использовать только один фильтр.
 - Одновременное выполнение нескольких захватов пакетов на уровне шлюза невозможно.
 - Невозможно одновременно запустить несколько записей пакетов для одного подключения. Одновременно можно запустить несколько записей пакетов для разных подключений.
@@ -317,7 +318,13 @@ ms.locfileid: "97733812"
 }
 ```
 
-## <a name="set-up-packet-capture-by-using-powershell"></a>Настройка записи пакетов с помощью PowerShell
+## <a name="packet-capture---portal"></a>Запись пакетов — портал
+
+Запись пакетов можно настроить в портал Azure.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Снимок экрана: запись пакетов на портале." lightbox="./media/packet-capture/portal.jpg":::
+
+## <a name="packet-capture---powershell"></a>Запись пакетов — PowerShell
 
 В следующих примерах показаны команды PowerShell, которые запускают и останавливают запись пакетов. Дополнительные сведения о параметрах параметров см. в разделе [Start-азвиртуалнетворкгатевайпаккеткаптуре](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 

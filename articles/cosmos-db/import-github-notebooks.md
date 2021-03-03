@@ -6,13 +6,13 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/22/2021
+ms.openlocfilehash: f7002b3968e91447a26315f31347ad469aa5daca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690657"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Импорт записных книжек из репозитория GitHub в Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "93339807"
 
 После интеграции с учетной записью GitHub только вы сможете видеть список репозиториев и записных книжек в учетной записи Azure Cosmos. Это справедливо, даже если несколько пользователей войдут в учетную запись Azure Cosmos DB и добавят собственные учетные записи. Иными словами, несколько пользователей могут использовать одну учетную запись Azure Cosmos для подключения рабочей области записных книжек к репозиторию GitHub. Но каждый из этих пользователей видит в списке только те репозитории и записные книжки, которые он сам импортировал. Записные книжки, импортированные другими пользователями, не будут вам видны.
 
-Чтобы отключить учетную запись GitHub от рабочей области записных книжек, откройте вкладку **Data Explorer** , щелкните `…` рядом с элементом **Репозитории GitHub** и выберите **Отключиться от GitHub**.
+Чтобы отключить учетную запись GitHub от рабочей области записных книжек, откройте вкладку **Data Explorer**, щелкните `…` рядом с элементом **Репозитории GitHub** и выберите **Отключиться от GitHub**.
 
 ## <a name="edit-a-notebook-and-push-changes-to-github"></a>Редактирование записной книжки и отправка изменений в GitHub
 
@@ -57,7 +57,12 @@ ms.locfileid: "93339807"
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Изменение записных книжек и фиксация изменений в GitHub":::
 
+После изменения записной книжки [ее можно опубликовать в коллекции записных книжек](publish-notebook-gallery.md). 
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Сведения о преимуществах записных книжек Jupyter в Azure Cosmos DB см. [здесь](cosmosdb-jupyter-notebooks.md).
-
+* [Обзор коллекции примеров записных книжек](https://cosmos.azure.com/gallery.html)
+* [Публикация записных книжек в коллекцию записных книжек Azure Cosmos DB](publish-notebook-gallery.md)
+* [Использование функций и команд записной книжки Python](use-python-notebook-features-and-commands.md)
+* [Использование функций и команд записной книжки C#](use-csharp-notebook-features-and-commands.md)

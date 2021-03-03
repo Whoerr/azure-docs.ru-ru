@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27d962a2cf1a1c453d942d320d65b3e9b9a4b959
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e9436a9ec7db660fa2d7012df98188b96ea8ee16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357799"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694314"
 ---
-# <a name="azure-disk-encryption-for-windows-vms"></a>Шифрование дисков Azure для виртуальных машин Windows 
+# <a name="azure-disk-encryption-for-windows-vms"></a>Шифрование дисков Azure для виртуальных машин Windows
 
-Шифрование дисков Azure помогает защитить данные согласно корпоративным обязательствам по обеспечению безопасности и соответствия. Он использует функцию [BitLocker](https://en.wikipedia.org/wiki/BitLocker) в Windows, чтобы обеспечить шифрование томов для дисков ОС и данных виртуальных машин Azure, а также интегрировано с [Azure Key Vault](../../key-vault/index.yml) для управления ключами и секретами шифрования диска и их администрирования. 
+Шифрование дисков Azure помогает защитить данные согласно корпоративным обязательствам по обеспечению безопасности и соответствия. Он использует функцию [BitLocker](https://en.wikipedia.org/wiki/BitLocker) в Windows, чтобы обеспечить шифрование томов для дисков ОС и данных виртуальных машин Azure, а также интегрировано с [Azure Key Vault](../../key-vault/index.yml) для управления ключами и секретами шифрования диска и их администрирования.
+
+Шифрование дисков Azure является отказоустойчивой зоной, так же как и виртуальными машинами. Дополнительные сведения см. в статье [службы Azure, поддерживающие зоны доступности](../../availability-zones/az-region.md).
 
 Если вы используете [центр безопасности Azure](../../security-center/index.yml), он оповестит вас при наличии незашифрованных виртуальных машин. Вы получите оповещение высокого уровня серьезности вместе c рекомендацией о шифровании таких виртуальных машин.
 
@@ -27,19 +29,15 @@ ms.locfileid: "94357799"
 > - Если вы уже использовали шифрование дисков Azure c Azure AD для шифрования виртуальной машины, сохраняйте и далее этот способ шифрования виртуальной машины. Подробнее см. в разделе [Шифрование дисков Azure с использованием приложения Azure AD (предыдущий выпуск)](disk-encryption-overview-aad.md). 
 > - Выполнение некоторых приведенных рекомендаций может привести к более интенсивному использованию данных, сети или вычислительных ресурсов, а следовательно к дополнительным затратам на лицензии или подписки. Необходима действующая подписка Azure, которая позволяет создавать ресурсы Azure в поддерживаемых регионах.
 
-Вы можете изучить основы шифрования дисков Azure для Windows всего за несколько минут с помощью [краткого руководства создание и шифрование виртуальной машины Windows с Azure CLI](disk-encryption-cli-quickstart.md) или [Создание и шифрование виртуальной машины Windows с помощью Azure PowerShell](disk-encryption-powershell-quickstart.md).
+Вы можете изучить основы шифрования дисков Azure для Windows всего за несколько минут с помощью [краткого руководства создание и шифрование виртуальной машины Windows с Azure CLI](disk-encryption-cli-quickstart.md) или [Создание и шифрование виртуальной машины windows с помощью Azure PowerShell](disk-encryption-powershell-quickstart.md)быстрого запуска.
 
 ## <a name="supported-vms-and-operating-systems"></a>Поддерживаемые виртуальные машины и операционные системы
 
 ### <a name="supported-vms"></a>Поддерживаемые виртуальные машины
 
-Виртуальные машины Windows доступны в [различных размерах](../sizes-general.md). Шифрование дисков Azure недоступно на виртуальных машинах [уровня "базовый", "серия](https://azure.microsoft.com/pricing/details/virtual-machines/series/)" или на виртуальных машинах с объемом памяти менее 2 ГБ.
+Виртуальные машины Windows доступны в [различных размерах](../sizes-general.md). Шифрование дисков Azure поддерживается на виртуальных машинах поколения 1 и 2. Шифрование дисков Azure также доступно для виртуальных машин с хранилищем класса Рremium.
 
-Шифрование дисков Azure также доступно для виртуальных машин с хранилищем класса Рremium.
-
-Шифрование дисков Azure недоступно на [виртуальных машинах поколения 2](../generation-2.md#generation-1-vs-generation-2-capabilities). Дополнительные сведения об исключениях см. в статье [Шифрование дисков Azure. Неподдерживаемые сценарии](disk-encryption-windows.md#unsupported-scenarios).
-
-Шифрование дисков Azure недоступно в образах виртуальных машин без временных дисков (dv4, Dsv4, Ev4 и Esv4).  См. раздел [размеры виртуальных машин Azure без локального временного диска](../azure-vms-no-temp-disk.md).
+Шифрование дисков Azure недоступно на виртуальных машинах [уровня "базовый", "серия](https://azure.microsoft.com/pricing/details/virtual-machines/series/)" или на виртуальных машинах с объемом памяти менее 2 ГБ.  Шифрование дисков Azure также недоступно в образах виртуальных машин без временных дисков (dv4, Dsv4, Ev4 и Esv4).  См. раздел [размеры виртуальных машин Azure без локального временного диска](../azure-vms-no-temp-disk.md).  Дополнительные сведения об исключениях см. в статье [Шифрование дисков Azure. Неподдерживаемые сценарии](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Поддерживаемые операционные системы
 
@@ -47,7 +45,7 @@ ms.locfileid: "94357799"
 - Windows Server: Windows Server 2008 R2 и более поздние версии.  
  
 > [!NOTE]
-> Windows Server 2008 R2 требует установки .NET Framework 4,5 для шифрования; Установите его из Центр обновления Windows с помощью необязательного обновления Microsoft .NET Framework 4.5.2 для 64-разрядных систем Windows Server 2008 R2 x64 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+> Windows Server 2008 R2 требует установки платформа .NET Framework 4,5 для шифрования; Установите его из Центр обновления Windows с помощью необязательного обновления Microsoft .NET Framework 4.5.2 для 64-разрядных систем Windows Server 2008 R2 x64 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
 > Windows Server 2012 R2 Core и Windows Server 2016 Core требуют, чтобы компонент BdeHdCfg был установлен на виртуальной машине для шифрования.
 
@@ -85,12 +83,11 @@ ms.locfileid: "94357799"
 | Ключ шифрования ключей (KEK) | Асимметричный ключ (RSA 2048), который применяется для защиты секрета или помещения его в оболочку. Вы можете использовать защищенный HSM ключ или ключ с программной защитой. Дополнительные сведения см. в документации по [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) и в статье [Создание и настройка хранилища ключей для шифрования дисков Azure](disk-encryption-key-vault.md). |
 | Командлеты PowerShell | Дополнительные сведения см. в статье [Общие сведения об Azure PowerShell](/powershell/azure/). |
 
-
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [Краткое руководство. Создание и шифрование виртуальной машины Windows с помощью Azure CLI ](disk-encryption-cli-quickstart.md)
 - [Краткое руководство. Создание и шифрование виртуальной машины Windows с помощью Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Сценарии шифрования дисков Azure для виртуальных машин Windows](disk-encryption-windows.md)
-- [Скрипт CLI для подготовки необходимых компонентов для службы "Шифрование дисков Azure"](https://github.com/ejarvi/ade-cli-getting-started)
+- [Скрипт CLI для подготовки необходимых компонентов для службы "Шифрование дисков Azure"](https://github.com/ejarvi/ade-cli-getting-started) 
 - [Скрипт PowerShell для подготовки предварительных требований для шифрования дисков Azure](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Создание и настройка хранилища ключей для шифрования дисков Azure](disk-encryption-key-vault.md)

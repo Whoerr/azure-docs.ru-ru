@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e103bb3cce364aeb5c25dcc2b54bf78c6993ca0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2dda18232e0cf3afa63a01814e776b90988e0b10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624462"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704350"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Решение по управлению Соединителем Application Insights (устарело)
 
@@ -22,7 +22,7 @@ ms.locfileid: "100624462"
 >
 >Существующие соединения будут работать до 30 июня 2019 года.  В связи с устареванием портала OMS на нем невозможно настроить или удалить существующие подключения. Чтобы получить сведения о сценарии для удаления существующих соединителей с помощью PowerShell см. раздел [Удаление соединителя с помощью PowerShell](#removing-the-connector-with-powershell) указанный ниже.
 >
->Рекомендации по запросах журнала Application Insights для нескольких приложений см. в статье [Объединение нескольких ресурсов Azure Monitor Application Insights](../log-query/unify-app-resource-data.md). Дополнительные сведения об устаревании портала OMS см. в статье [Перемещение портала OMS в Azure](../platform/oms-portal-transition.md).
+>Рекомендации по запросах журнала Application Insights для нескольких приложений см. в статье [Объединение нескольких ресурсов Azure Monitor Application Insights](./unify-app-resource-data.md). Дополнительные сведения об устаревании портала OMS см. в статье [Перемещение портала OMS в Azure](./oms-portal-transition.md).
 >
 > 
 
@@ -176,7 +176,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | Свойство | Описание |
 | --- | --- |
-| Type | ApplicationInsights |
+| Тип | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Время создания записи |
 | ApplicationId | Ключ инструментирования приложения Application Insights |
@@ -187,7 +187,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | Continent | Континент, на котором создан запрос |
 | Страна или регион | Страна или регион, где был создан запрос |
 | Province | Провинция, область или район, в котором создан запрос |
-| City | Город, в котором создан запрос |
+| Город | Город, в котором создан запрос |
 | isSynthetic | Указывает, был ли запрос создан пользователем или автоматически. True = автоматизированный метод или False = пользователь создан |
 | SamplingRate | Процентная доля данных телеметрии, созданных с помощью пакета SDK, отправленного на портал. Диапазон 0,0–100,0. |
 | SampledCount | 100/(частота выборки). Например, 4 = &gt; 25 %. |
@@ -225,7 +225,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>Поля со сведениями об исключениях
 
-| Type | ApplicationInsights |
+| Тип | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Исключение |
 | ExceptionType | Тип исключения |
@@ -244,7 +244,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | Свойство | Описание |
 | --- | --- |
-| Type | ApplicationInsights |
+| Тип | ApplicationInsights |
 | TelemetryType | Запрос |
 | ResponseCode | HTTP-отклик, отправленный клиенту. |
 | RequestSuccess | Указывает успешное или неудачное выполнение. True или False. |
@@ -316,7 +316,6 @@ $ConnectionsJson = $Connections | ConvertTo-Json
 ApplicationInsights | summarize by ApplicationName
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Используйте [поиск по журналам](../log-query/log-query-overview.md), чтобы просматривать подробные сведения о приложениях Application Insights.
-
+- Используйте [поиск по журналам](./log-query-overview.md), чтобы просматривать подробные сведения о приложениях Application Insights.

@@ -7,27 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 90a873b7de6ccc1ba21a05bf4c0e288ed668cac0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694781"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694467"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Управление источниками данных в Azure зрения (Предварительная версия)
 
-В этой статье вы узнаете, как регистрировать новые источники данных, управлять коллекциями источников данных и просматривать источники в Azure зрения (Предварительная версия). Azure зрения поддерживает следующие источники данных:
-
-* Локальная среда SQL Server
-* Хранилище Azure Data Lake Storage 1-го поколения 
-* Azure Data Lake Storage 2-го поколения
-* хранилище BLOB-объектов Azure
-* Azure Data Explorer
-* БД SQL Azure
-* Управляемый экземпляр базы данных SQL Azure
-* Azure Synapse Analytics (ранее — Хранилище данных SQL)
-* Azure Cosmos DB
-* Power BI
+В этой статье вы узнаете, как регистрировать новые источники данных, управлять коллекциями источников данных и просматривать источники в Azure зрения (Предварительная версия).
 
 ## <a name="register-a-new-source"></a>Регистрация нового источника
 

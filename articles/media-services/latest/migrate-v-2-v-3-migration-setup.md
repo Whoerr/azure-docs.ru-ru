@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1f9e0816a3533008a01f26ca7c0e712abfa23e8e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 779a52b44a5dc4e81dc7910da12c5cfb91c1c3ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946244"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705387"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Шаг 3. Настройка миграции на версии 3 REST API или клиентский пакет SDK
 
@@ -50,8 +50,8 @@ API V3 — на основе Azure Resource Management (ARM). Он исполь�
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Скачайте клиентский пакет SDK и настройте среду.
 
-- Пакеты SDK доступны [для .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true), .NET Core, [Node.js](https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management?view=azure-node-latest&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/mediaservices/management?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices/management?view=azure-java-stable&preserve-view=true), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)и [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
-- [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest&preserve-view=true)   интеграция для простой поддержки сценариев.
+- Пакеты SDK доступны [для .NET](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-node-latest), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-java-stable), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)и [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- [Azure CLI](/cli/azure/ams?preserve-view=true&view=azure-cli-latest)   интеграция для простой поддержки сценариев.
 
 > [!NOTE]
 > Пакет SDK для PHP сообщества больше не доступен для служб мультимедиа Azure на v3. Если вы используете PHP в версии 2, необходимо выполнить миграцию в REST API непосредственно в коде.
@@ -66,8 +66,8 @@ API V3 — на основе Azure Resource Management (ARM). Он исполь�
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Используйте [POST](https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman) для вызовов служб мультимедиа v3 REST API.
-Ознакомьтесь со [страницами со ссылками на REST API](https://docs.microsoft.com/rest/api/media/).
+Используйте [POST](./media-rest-apis-with-postman.md) для вызовов служб мультимедиа v3 REST API.
+Ознакомьтесь со [страницами со ссылками на REST API](/rest/api/media/).
 
 Следует использовать строку версии 2020-05-01 в коллекции POST.
 

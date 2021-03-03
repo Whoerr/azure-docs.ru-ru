@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/18/2020
 ms.author: lagayhar
-ms.openlocfilehash: 0c657d84144ee7bd69a6de1d5d2e1e769dc59f4d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c91912f711b912c54c1673f2f92e998b4d9ea9db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621522"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736939"
 ---
 # <a name="honey-comb-visualizations"></a>Honeytoken объединение визуализаций
 
@@ -80,7 +80,7 @@ ms.locfileid: "100621522"
 
 ## <a name="node-coloring-types"></a>Типы цветов узлов
 
-| Тип цвета | Объяснение |
+| Тип цвета | Описание |
 |:------------- |:-------------|
 | `None` | Все узлы имеют одинаковый цвет. |
 | `Categorical` | Узлам присваиваются цвета на основе значения или категории из столбца в результирующем наборе. В приведенном выше примере цветовое выделение основано на _типе_ столбца результирующего набора. Поддерживаемые палитры: `Default` , `Pastel` и `Cool tone` .  |
@@ -92,7 +92,7 @@ ms.locfileid: "100621522"
 
 Авторы honeytokenного объединение могут указать, какое содержимое будет передано в различные части узла: сверху, слева, по центру, справа и снизу. Авторы могут использовать любую из книг, поддерживающих модули подготовки отчетов (текст, большое число, строки Spark, значок и т. д.).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Сведения о создании [визуализатора составных линейчатых диаграмм в книгах](workbooks-composite-bar.md).
-- Узнайте, как [импортировать данные журнала Azure Monitor в Power BI](../platform/powerbi.md).
+- Узнайте, как [импортировать данные журнала Azure Monitor в Power BI](./powerbi.md).

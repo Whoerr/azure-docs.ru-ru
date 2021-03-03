@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273206"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687980"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Настройка безопасности для группы серверов Гипермасштабирования PostgreSQL с поддержкой Azure Arc
 
@@ -23,6 +23,7 @@ ms.locfileid: "91273206"
 - Управление пользователями
    - Общие перспективы
    - Изменение пароля администратора _postgres_
+- Аудит
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -117,7 +118,7 @@ select * from mysecrets;
 - USERname: Me
 - USERpassword: $1 $ Uc7jzZOp $ NTfcGo7F10zGOkXOwjHy31
 
-Когда я подключаюсь к моему приложению и передаем пароль, он будет искать в `mysecrets` таблице и будет возвращать имя пользователя, если существует совпадение между паролем, предоставленным приложению, и паролями, хранящимися в таблице. Пример:
+Когда я подключаюсь к моему приложению и передаем пароль, он будет искать в `mysecrets` таблице и будет возвращать имя пользователя, если существует совпадение между паролем, предоставленным приложению, и паролями, хранящимися в таблице. Пример.
 
 - Я передаем неправильный пароль:
    ```console
@@ -159,18 +160,19 @@ select * from mysecrets;
 azdata arc postgres server edit --name <server group name> --admin-password
 ```
 
-Где--Admin-Password — это логическое значение, связанное с присутствием значения в переменной среды **сеанса**AZDATA_PASSWORD.
-Если переменная среды **сеанса**AZDATA_PASSWORD существует и имеет значение, выполнение приведенной выше команды установит для пароля пользователя postgres значение этой переменной среды.
+Где `--admin-password` — это логическое значение, связанное с присутствием значения в переменной среды **сеанса** AZDATA_PASSWORD.
+Если переменная среды **сеанса** AZDATA_PASSWORD существует и имеет значение, выполнение приведенной выше команды установит для пароля пользователя postgres значение этой переменной среды.
 
-Если переменная среды **сеанса**AZDATA_PASSWORD существует, но не имеет значения или переменная среды **сеанса**AZDATA_PASSWORD не существует, то при выполнении указанной выше команды пользователю будет предложено ввести пароль в интерактивном режиме.
+Если переменная среды **сеанса** AZDATA_PASSWORD существует, но не имеет значения или переменная среды AZDATA_PASSWORD **сеанса** не существует, то при выполнении указанной выше команды пользователю будет предложено ввести пароль в интерактивном режиме.
 
-#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Изменение пароля пользователя postgres с помощью интерактивного способа:
-1. Удалите переменную среды **сеанса**AZDATA_PASSWORD или удалите ее значение
+#### <a name="change-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Изменение пароля пользователя postgres с помощью интерактивного способа
+
+1. Удалите AZDATA_PASSWORD переменную среды **сеанса** или удалите ее значение.
 2. Выполните приведенную ниже команду.
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Например.
+   Например:
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -186,13 +188,13 @@ azdata arc postgres server edit --name <server group name> --admin-password
    postgres01 is Ready
    ```
    
-#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Изменение пароля администратора postgres с помощью переменной среды **сеанса**AZDATA_PASSWORD:
-1. Задайте для переменной среды **сеанса**AZDATA_PASSWORD значение, которое вы хотите использовать для пароля.
-2. Выполните команду .
+#### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>Измените пароль администратора postgres с помощью переменной среды **сеанса** AZDATA_PASSWORD.
+1. Задайте для переменной среды **сеанса** AZDATA_PASSWORD значение, которое вы хотите использовать для пароля.
+2. Выполните команду:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Например.
+   Например:
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -216,9 +218,12 @@ azdata arc postgres server edit --name <server group name> --admin-password
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## <a name="audit"></a>Аудит
+
+Для сценариев аудита Настройте группу серверов для использования `pgaudit` расширений postgres. Дополнительные сведения `pgaudit` см. в разделе [ `pgAudit` проект GitHub](https://github.com/pgaudit/pgaudit/blob/master/README.md). Чтобы включить `pgaudit` расширение в группе серверов, [Используйте расширения PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md).
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
-- Дополнительные сведения о `pgcrypto` расширении см. [здесь](https://www.postgresql.org/docs/current/pgcrypto.html).
-- Дополнительные сведения об использовании расширений postgres см. [здесь](using-extensions-in-postgresql-hyperscale-server-group.md).
+## <a name="next-steps"></a>Дальнейшие действия
+- См. [ `pgcrypto` расширение](https://www.postgresql.org/docs/current/pgcrypto.html)
+- См. раздел [Использование расширений PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md) .
 

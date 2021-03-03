@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: de54e179c6972ca1f79dbcd6e210ff64ee3480bb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0ff799c2cb01eedd7b5c03dc7208e9e727d17688
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378896"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647172"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Руководство по интеграции единого входа Azure Active Directory с OpenAthens
 
@@ -168,8 +168,8 @@ ms.locfileid: "100378896"
 
 * На портале Azure щелкните "Тестировать приложение", и вы автоматически войдете в приложение OpenAthens, для которого настроен единый вход.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку OpenAthens на портале "Мои приложения", вы автоматически войдете в приложение OpenAthens, для которого настроили единый вход. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку OpenAthens на портале "Мои приложения", вы автоматически войдете в приложение OpenAthens, для которого настроили единый вход. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки OpenAthens вы можете применить управление сеансами, которое в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки OpenAthens вы можете применить управление сеансами, которое в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

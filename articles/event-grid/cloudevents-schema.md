@@ -4,12 +4,12 @@ description: В этой статье описана установка схем
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 93e514e0eac40cfaa51d410a446608deca3cbd6d
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 484f118791d57c082a9f4383b1af4a22c04849c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901408"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737908"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Использование схемы CloudEvents версии 1.0 со службой "Сетка событий"
 В дополнение к [схеме событий по умолчанию](event-schema.md), служба "Сетка событий Azure" поддерживает события в [реализации JSON схемы CloudEvents версии 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) и [привязку протокола HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) — [открытая спецификация](https://github.com/cloudevents/spec/blob/v1.0/spec.md) для описания данных о событиях.
@@ -60,11 +60,11 @@ ms.locfileid: "97901408"
 
  Ресурс сетки событий | Схема ввода       | Схема доставки
 |---------------------|-------------------|---------------------
-| Разделы о системе       | Схема службы "Сетка событий" | Схема сетки событий или схема Клаудевент
-| Разделы и домены пользователя | Схема службы "Сетка событий" | Схема службы "Сетка событий"
-| Разделы и домены пользователя | Схема CloudEvent | Схема CloudEvent
-| Разделы и домены пользователя | Пользовательская схема     | Пользовательская схема, Схема сетки событий или схема Клаудевент
-| партнертопикс       | Схема CloudEvent | Схема CloudEvent
+| Разделы о системе       | Схема службы "Сетка событий" | Схема сетки событий или схема Клаудевентс
+| Разделы и домены пользователя | Схема службы "Сетка событий" | Схема сетки событий или схема Клаудевентс
+| Разделы и домены пользователя | Схема CloudEvents | Схема CloudEvents
+| Разделы и домены пользователя | Пользовательская схема     | Пользовательская схема, Схема сетки событий или схема Клаудевентс
+| партнертопикс       | Схема CloudEvents | Схема CloudEvents
 
 Для всех схем событий сетка событий требует проверки при публикации в разделе сетки событий и при создании подписки на события.
 

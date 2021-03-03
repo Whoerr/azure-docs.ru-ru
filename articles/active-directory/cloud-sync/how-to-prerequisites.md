@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83c9b0ece933ad71810c50e89ae296aa218ec75
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614156"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689323"
 ---
-# <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Необходимые условия для Azure AD Connect облачной синхронизации
+# <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Предварительные требования для облачной синхронизации Azure AD Connect
 В этой статье приводятся рекомендации по выбору и использованию Azure Active Directory (Azure AD) Connect Cloud Sync в качестве решения для идентификации.
 
 ## <a name="cloud-provisioning-agent-requirements"></a>Требования к агенту облачной подготовки
@@ -26,16 +26,16 @@ ms.locfileid: "98614156"
 
 - Учетные данные администратора домена или администратора предприятия для создания Azure AD Connect Cloud Sync gMSA (групповая управляемая учетная запись службы) для запуска службы агента. 
 - Учетная запись гибридного администратора удостоверений для клиента Azure AD, который не является гостевым пользователем.
-- Локальный сервер для агента подготовки с Windows 2012 R2 или более поздней версии.  Этот сервер должен быть сервером уровня 0 на основе [модели административного уровня Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Локальный сервер для агента подготовки с Windows 2016 или более поздней версии.  Этот сервер должен быть сервером уровня 0 на основе [модели административного уровня Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Конфигурации для локального брандмауэра.
 
 ## <a name="group-managed-service-accounts"></a>Групповые управляемые учетные записи служб
 Групповая управляемая учетная запись службы — это управляемая Доменная учетная запись, которая обеспечивает автоматическое управление паролями, упрощенное управление именами участников-служб, возможность делегировать управление другим администраторам, а также расширяет эту функциональность на нескольких серверах.  Azure AD Connect Cloud Sync поддерживает и использует gMSA для запуска агента.  Для создания этой учетной записи вам будет предложено ввести учетные данные администратора во время установки.  Учетная запись будет отображаться как (Домаин\проважентгмса $).  Дополнительные сведения о gMSA см. в разделе [групповые управляемые учетные записи служб](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) . 
 
 ### <a name="prerequisites-for-gmsa"></a>Необходимые компоненты для gMSA:
-1.  Схема Active Directory в лесу домена gMSA должна быть обновлена до Windows Server 2012
+1.  Схема Active Directory в лесу домена gMSA должна быть обновлена до Windows Server 2012.
 2.  [Модули POWERSHELL RSAT](/windows-server/remote/remote-server-administration-tools) на контроллере домена
-3.  По крайней мере один контроллер домена в домене должен работать под Windows Server 2012.
+3.  По крайней мере один контроллер домена в домене должен работать под Windows Server 201.
 4.  Сервер, присоединенный к домену, на котором устанавливается агент, должен быть либо Windows Server 2012, либо более поздней версии.
 
 ### <a name="custom-gmsa-account"></a>Настраиваемая учетная запись gMSA
@@ -65,7 +65,7 @@ ms.locfileid: "98614156"
 
 ### <a name="in-your-on-premises-environment"></a>В локальной среде
 
-1. Выберите присоединенный к домену сервер узла под управлением Windows Server 2012 R2 или более поздней версии, на котором есть не менее 4 ГБ ОЗУ и среда выполнения .NET 4.7.1 или более поздней версии.
+1. Выявление присоединенного к домену сервера узла под управлением Windows Server 2016 или более поздней версии с 4 ГБ ОЗУ и .NET 4.7.1 + Runtime.
 
 2. Политика выполнения PowerShell на локальном сервере должна иметь значение Undefined или RemoteSigned.
 
@@ -130,4 +130,4 @@ ms.locfileid: "98614156"
 ## <a name="next-steps"></a>Дальнейшие действия 
 
 - [Что собой представляет подготовка?](what-is-provisioning.md)
-- [Что такое Azure AD Connect синхронизации в облаке?](what-is-cloud-sync.md)
+- [Что представляет собой облачная синхронизация Azure AD Connect?](what-is-cloud-sync.md)

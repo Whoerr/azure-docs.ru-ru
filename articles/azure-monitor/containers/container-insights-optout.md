@@ -1,24 +1,24 @@
 ---
 title: Как остановить мониторинг кластера Службы Azure Kubernetes | Документация Майкрософт
-description: В этой статье описывается, как остановить мониторинг кластера Azure AKS с помощью Azure Monitor для контейнеров.
+description: В этой статье описывается, как можно прекратить наблюдение за кластером Azure AKS с помощью Container Insights.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 476934d84d8ffc63336ec620432db3507b2cbb34
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: eab34f27d1e33b166971203082cce99fb2b0e106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622968"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723543"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Как остановить мониторинг кластера Службы Azure Kubernetes (AKS) с помощью Azure Monitor для контейнеров
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>Как отключить мониторинг службы Kubernetes Azure (AKS) с помощью аналитики контейнера
 
 Если после включения мониторинга вашего кластера AKS вы решите, что больше не хотите его отслеживать, вы можете остановить мониторинг. В этой статье показано, как это сделать с помощью Azure CLI или предоставленных шаблонов Azure Resource Manager.  
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Используйте команду [​az aks disable-addons](/cli/azure/aks#az-aks-disable-addons), чтобы отключить Azure Monitor для контейнеров. Команда удаляет агент из узлов кластера, не удаляет решение или данные, которые уже собраны и хранятся в ресурсе Azure Monitor.  
+Чтобы отключить аналитику контейнера, используйте команду [AZ AKS Disable-надстроек](/cli/azure/aks#az-aks-disable-addons) . Команда удаляет агент из узлов кластера, не удаляет решение или данные, которые уже собраны и хранятся в ресурсе Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -163,6 +163,6 @@ ProvisioningState       : Succeeded
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-Если рабочая область была создана только для мониторинга кластера и больше не требуется, ее необходимо удалить вручную. Если вам неизвестно, как удалить рабочую область, прочитайте раздел [Удаление рабочей области Azure Log Analytics на портале Azure](../platform/delete-workspace.md). Не забывайте о том, что **идентификатор ресурса рабочей области** , скопированный ранее на шаге 4, вам понадобится.
+Если рабочая область была создана только для мониторинга кластера и больше не требуется, ее необходимо удалить вручную. Если вам неизвестно, как удалить рабочую область, прочитайте раздел [Удаление рабочей области Azure Log Analytics на портале Azure](../logs/delete-workspace.md). Не забывайте о том, что **идентификатор ресурса рабочей области** , скопированный ранее на шаге 4, вам понадобится.

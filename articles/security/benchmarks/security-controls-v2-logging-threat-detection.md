@@ -4,19 +4,21 @@ description: Ведение журнала и обнаружение угроз 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720687"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Управление безопасностью v2: ведение журнала и обнаружение угроз
 
-Ведение журналов и обнаружение угроз охватывает элементы управления для обнаружения угроз в Azure и включения, сбора и хранения журналов аудита для служб Azure. Сюда входят процессы обнаружения, исследования и исправления с помощью элементов управления для создания высококачественных оповещений с помощью встроенного обнаружения угроз в службах Azure. Кроме того, он включает сбор журналов с Azure Monitor, централизованный анализ безопасности с помощью маркеров Azure, синхронизации времени и срока хранения журнала. 
+Ведение журналов и обнаружение угроз охватывает элементы управления для обнаружения угроз в Azure и включения, сбора и хранения журналов аудита для служб Azure. Сюда входят процессы обнаружения, исследования и исправления с помощью элементов управления для создания высококачественных оповещений с помощью встроенного обнаружения угроз в службах Azure. Кроме того, он включает сбор журналов с Azure Monitor, централизованный анализ безопасности с помощью маркеров Azure, синхронизации времени и срока хранения журнала.
+
+Чтобы просмотреть подходящую встроенную политику Azure, ознакомьтесь с [подробными сведениями о встроенной инициативе по обеспечению безопасности в Azure: ведение журнала и обнаружение угроз](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Включение обнаружения угроз для ресурсов Azure
 
@@ -46,11 +48,11 @@ ms.locfileid: "100576812"
 
 - [Операции безопасности](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Управление состоянием](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Управление состоянием](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Анализ угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Аналитика угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: включение обнаружения угроз для управления удостоверениями и доступом Azure
 
@@ -83,11 +85,11 @@ Azure AD предоставляет следующие журналы польз
 
 - [Операции безопасности](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Управление состоянием](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Управление состоянием](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Анализ угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Аналитика угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: включение ведения журнала для сетевых операций Azure
 
@@ -95,7 +97,9 @@ Azure AD предоставляет следующие журналы польз
 |--|--|--|--|
 | LT-3 | 9,3, 12,2, 12,5, 12,8 | AU-3, AU-6, AU-12, SI-4 |
 
-Включение и получение журналов ресурсов группы безопасности сети (NSG), журналов потоков NSG, журналов брандмауэра Azure и брандмауэра веб-приложения (WAF) для анализа безопасности с целью поддержки исследований инцидентов, обнаружения угроз и создания предупреждений системы безопасности. Журналы потоков можно отправить в рабочую область Azure Monitor Log Analytics, а затем использовать Аналитика трафика для получения ценных сведений. Убедитесь, что вы собираете журналы запросов DNS для помощи в корреляции других сетевых данных.
+Включение и получение журналов ресурсов группы безопасности сети (NSG), журналов потоков NSG, журналов брандмауэра Azure и брандмауэра веб-приложения (WAF) для анализа безопасности с целью поддержки исследований инцидентов, обнаружения угроз и создания предупреждений системы безопасности. Журналы потоков можно отправить в рабочую область Azure Monitor Log Analytics, а затем использовать Аналитика трафика для получения ценных сведений.
+
+Убедитесь, что вы собираете журналы запросов DNS для помощи в корреляции других сетевых данных.
 
 - [Включение журналов потоков для групп безопасности сети](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,11 +121,11 @@ Azure AD предоставляет следующие журналы польз
 
 - [Операции безопасности](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Управление состоянием](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Управление состоянием](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Анализ угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Аналитика угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: включение ведения журнала для ресурсов Azure
 
@@ -131,7 +135,7 @@ Azure AD предоставляет следующие журналы польз
 
 Включите ведение журнала для ресурсов Azure в соответствии с требованиями к соответствию, обнаружению угроз, поиску и исследованию инцидентов. 
 
-Вы можете использовать центр безопасности Azure и политику Azure, чтобы включить журналы ресурсов и сбор данных журналов в ресурсах Azure для доступа к журналам аудита, безопасности и ресурсов. Автоматически доступны журналы действий, включающие источник событий, дату, пользователя, метку времени, исходные адреса, адреса назначения и другие полезные элементы. 
+Вы можете использовать центр безопасности Azure и политику Azure, чтобы включить журналы ресурсов и сбор данных журналов в ресурсах Azure для доступа к журналам аудита, безопасности и ресурсов. Автоматически доступны журналы действий, включающие источник событий, дату, пользователя, метку времени, исходные адреса, адреса назначения и другие полезные элементы.
 
 - [Общие сведения о ведении журналов и различных типах журналов в Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
@@ -145,9 +149,9 @@ Azure AD предоставляет следующие журналы польз
 
 Безопасность инфраструктуры и конечных точек 
 
-- [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Анализ угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Аналитика угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5: централизованные управление журналом безопасности и анализ
 
@@ -161,7 +165,7 @@ Azure AD предоставляет следующие журналы польз
 
 Кроме того, включите и подключите данные к Azure Sentinel или сторонним SIEM.
 
-Многие организации предпочитают использовать метку Azure для "горячих" данных, которые часто используются, а служба хранилища Azure — для "холодного" данных, которые используются реже. 
+Многие организации предпочитают использовать метку Azure для "горячих" данных, которые часто используются, а служба хранилища Azure — для "холодного" данных, которые используются реже.
 
 - [Как получить журналы и метрики платформы с помощью Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -189,7 +193,7 @@ Azure AD предоставляет следующие журналы польз
 
 - [Изменение срока хранения данных в Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Настройка политики хранения для журналов учетных записей хранения Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Настройка политики хранения для журналов учетных записей хранения Azure](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Экспорт оповещений и рекомендаций центра безопасности Azure](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ Azure AD предоставляет следующие журналы польз
 
 - [Архитектура безопасности](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Безопасность приложений и DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Операции безопасности](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Операции безопасности](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Управление соответствием требованиям безопасности](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ Azure AD предоставляет следующие журналы польз
 |--|--|--|--|
 | LT – 7 | 6.1 | AU-8 |
 
-Корпорация Майкрософт поддерживает источники времени для большинства служб Azure PaaS и SaaS. Для виртуальных машин используйте Microsoft по умолчанию NTP-сервер для синхронизации по времени, если нет конкретных требований.  Если необходимо установить собственный сервер NTP, убедитесь, что вы защищаете порт службы UDP 123.
+Корпорация Майкрософт поддерживает источники времени для большинства служб Azure PaaS и SaaS. Для виртуальных машин используйте Microsoft по умолчанию NTP-сервер для синхронизации по времени, если нет конкретных требований. Если необходимо установить собственный сервер NTP, убедитесь, что вы защищаете порт службы UDP 123.
 
 Все журналы, созданные ресурсами в Azure, содержат отметки времени с часовым поясом, указанным по умолчанию.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: f0bf99748363505e362d3c35e53a51be3a03e938
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 433303bf0d51eff3bd3ab37726c9e98e8a766d25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Руководство. Интеграция Azure Active Directory с Marketo
 
@@ -82,7 +82,7 @@ ms.locfileid: "98728707"
 
     а. В текстовом поле **Идентификатор** введите URL-адрес `https://saml.marketo.com/sp`.
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в формате `https://login.marketo.com/saml/assertion/\<munchkinid\>`.
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в формате `https://login.marketo.com/saml/assertion/<munchkinid>`.
 
     c. В текстовом поле **Состояние ретранслятора** введите URL-адрес в формате `https://<munchkinid>.marketo.com/`.
 

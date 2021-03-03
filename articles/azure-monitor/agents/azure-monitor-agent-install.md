@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f0d062766f0a5d58fbcaaa32b1df5a5e40c783b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 17c7609afeef8b5129e3bfe252def74b45cb4208
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613492"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719956"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Установка агента Azure Monitor (Предварительная версия)
 В этой статье представлены различные варианты установки [агента Azure Monitor](azure-monitor-agent-overview.md) на виртуальных машинах Azure и серверах с поддержкой Arc, а также параметры для создания [взаимосвязей с правилами сбора данных](data-collection-rule-azure-monitor-agent.md) , которые определяют, какие данные должен собирать агент.
@@ -28,8 +28,8 @@ ms.locfileid: "100613492"
 | Свойство | Windows | Linux |
 |:---|:---|:---|
 | Publisher | Microsoft. Azure. Monitor  | Microsoft. Azure. Monitor |
-| Type      | азуремониторвиндовсажент | азуремониторлинуксажент  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| Тип      | азуремониторвиндовсажент | азуремониторлинуксажент  |
+| TypeHandlerVersion  | 1,0 | 1.5 |
 
 
 ## <a name="install-with-azure-portal"></a>Установка с помощью портала Azure
@@ -42,7 +42,7 @@ ms.locfileid: "100613492"
 Получите примеры шаблонов для установки агента и создания связи из следующего: 
 
 - [Шаблон для установки агента Azure Monitor (Azure и служба "Дуга Azure")](../agents/resource-manager-agent.md#azure-monitor-agent-preview) 
-- [Шаблон для создания связи с правилом сбора данных](../samples/resource-manager-data-collection-rules.md)
+- [Шаблон для создания связи с правилом сбора данных](./resource-manager-data-collection-rules.md)
 
 Установите шаблоны с помощью [любого метода развертывания для Диспетчер ресурсов шаблонов](../../azure-resource-manager/templates/deploy-powershell.md) , таких как следующие команды.
 
@@ -110,6 +110,6 @@ az connectedmachine machine-extension create --name AzureMonitorLinuxAgent --pub
 ---
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Создайте правило сбора данных](data-collection-rule-azure-monitor-agent.md) для сбора данных от агента и их отправки в Azure Monitor.

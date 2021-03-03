@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 43f07bc26e75b440cde6d26db8ac8fb80aa3e39c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: a19d1f26616697e15ae4c39a63c44bdaf83f78f9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796911"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675771"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Краткое руководство. Создание рабочей области Azure Synapse с помощью Azure PowerShell
 
@@ -27,7 +27,7 @@ Azure PowerShell — это набор командлетов для управ
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- [Учетная запись хранения Azure Data Lake Storage 2-го поколения](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Учетная запись хранения Azure Data Lake Storage 2-го поколения](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > В рабочей области Azure Synapse должна быть возможность считывать данные в выбранной учетной записи ADLS 2-го поколения и выполнять запись в нее. Для любой учетной записи хранения, связываемой в качестве основной учетной записи хранения, при создании учетной записи хранения необходимо включить **иерархическое пространство имен**, как описано на странице [Создание учетной записи хранения](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account).

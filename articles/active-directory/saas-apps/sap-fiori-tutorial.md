@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ab21c6dc95ef39e6273dac405ba58e748890fc1a
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 547d96a9591b99318a74977106e99511c9c80507
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968438"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687113"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Руководство по Интеграции единого входа Azure Active Directory с SAP Fiori
 
@@ -146,7 +146,7 @@ ms.locfileid: "97968438"
 
     ![Выбор файла метаданных](common/browse-upload-metadata.png)
 
-    c. После успешной передачи файла метаданных значения параметров **Идентификатор** и **URL-адрес ответа** в области **Базовая конфигурация SAML** будут заполнены автоматически. В поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https:\//\<your company instance of SAP Fiori\>`.
+    c. После успешной передачи файла метаданных значения параметров **Идентификатор** и **URL-адрес ответа** в области **Базовая конфигурация SAML** будут заполнены автоматически. В поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<your company instance of SAP Fiori>`.
 
     > [!NOTE]
     > Несколько клиентов сообщают об ошибках, связанных с неправильной настройкой значений **URL-адрес ответа**. Если вы видите сообщение об этой ошибке, с помощью следующего сценария PowerShell укажите правильный URL-адрес ответа для своего экземпляра.

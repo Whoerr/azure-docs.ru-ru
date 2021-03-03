@@ -2,79 +2,143 @@
 title: Условное развертывание с помощью шаблонов
 description: Описание условного развертывания ресурса в шаблоне Azure Resource Manager (шаблон ARM).
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 5650f7fb9f1483f2dc7059607732ecc68cbb7b9d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 409d258d7dfe3ed186e5cf97cc0dbe6dc149b849
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934787"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741180"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Условное развертывание в шаблонах ARM
 
-Иногда при необходимости можно развернуть ресурс в шаблоне Azure Resource Manager (шаблон ARM). Используйте `condition` элемент, чтобы указать, развернут ли ресурс. Этот элемент возвращает значение True или False. Если значение true, ресурс создан. Если значение false, ресурс не создан. Значение может применяться только ко всему ресурсу.
+Иногда при необходимости можно развернуть ресурс в шаблоне Azure Resource Manager (шаблон ARM) или в файле Бицеп. Для шаблонов JSON используйте элемент, `condition` чтобы указать, развернут ли ресурс. Для Бицеп используйте `if` ключевое слово, чтобы указать, развернут ли ресурс. Значение условия разрешается в true или false. Если значение true, ресурс создан. Если значение false, ресурс не создан. Значение может применяться только ко всему ресурсу.
 
 > [!NOTE]
 > Условное развертывание не распространяется каскадом на [дочерние ресурсы](child-resource-name-type.md). Если требуется условно развернуть ресурс и его дочерние ресурсы, необходимо применить одно и то же условие к каждому типу ресурсов.
 
-## <a name="new-or-existing-resource"></a>Новый или существующий ресурс
+## <a name="deploy-condition"></a>Условие развертывания
 
-Условное развертывание можно использовать для создания нового ресурса или использования существующего. В следующем примере показано, как использовать `condition` для развертывания новой учетной записи хранения или использования существующей учетной записи хранения.
+Можно передать значение параметра, указывающее, развернут ли ресурс. В следующем примере выполняется условное развертывание зоны DNS.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "condition": "[equals(parameters('newOrExisting'),'new')]",
-  "type": "Microsoft.Storage/storageAccounts",
-  "apiVersion": "2017-06-01",
-  "name": "[variables('storageAccountName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "[variables('storageAccountType')]"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deployZone": {
+      "type": "bool"
+    }
   },
-  "kind": "Storage",
-  "properties": {}
+  "functions": [],
+  "resources": [
+    {
+      "condition": "[parameters('deployZone')]",
+      "type": "Microsoft.Network/dnsZones",
+      "apiVersion": "2018-05-01",
+      "name": "myZone",
+      "location": "global"
+    }
+  ]
 }
 ```
 
-Если для параметра `newOrExisting` задано значение **New**, условие принимает значение true. Учетная запись хранения будет развернута. Однако если параметр `newOrExisting` имеет значение **existing**, условие принимает значение false, а учетная запись хранения не развернута.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-Полный пример шаблона с использованием элемента `condition` см. по адресу [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Виртуальная машина с новой или существующей виртуальной сетью, хранилищем и общедоступным IP-адресом).
+```bicep
+param deployZone bool
 
-## <a name="allow-condition"></a>Разрешить условие
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+  name: 'myZone'
+  location: 'global'
+}
+```
 
-Можно передать значение параметра, указывающее, разрешено ли условие. В следующем примере выполняется развертывание SQL Server и при необходимости разрешены IP-адреса Azure.
+---
+
+Более сложный пример см. в статье [логический сервер SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+
+## <a name="new-or-existing-resource"></a>Новый или существующий ресурс
+
+Условное развертывание можно использовать для создания нового ресурса или использования существующего. В следующем примере показано, как либо развернуть новую учетную запись хранения, либо использовать существующую учетную запись хранения.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "type": "Microsoft.Sql/servers",
-  "apiVersion": "2015-05-01-preview",
-  "name": "[parameters('serverName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "administratorLogin": "[parameters('administratorLogin')]",
-    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-    "version": "12.0"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "newOrExisting": {
+      "type": "string",
+      "defaultValue": "new",
+      "allowedValues": [
+        "new",
+        "existing"
+      ]
+    }
   },
+  "functions": [],
   "resources": [
     {
-      "condition": "[parameters('allowAzureIPs')]",
-      "type": "firewallRules",
-      "apiVersion": "2015-05-01-preview",
-      "name": "AllowAllWindowsAzureIps",
+      "condition": "[equals(parameters('newOrExisting'), 'new')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
-      ],
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
       "properties": {
-        "endIpAddress": "0.0.0.0",
-        "startIpAddress": "0.0.0.0"
+        "accessTier": "Hot"
       }
     }
   ]
 }
 ```
 
-Полный шаблон см. на странице [логический сервер SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string
+param location string = resourceGroup().location
+
+@allowed([
+  'new'
+  'existing'
+])
+param newOrExisting string = 'new'
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+```
+
+---
+
+Если для параметра `newOrExisting` задано значение **New**, условие принимает значение true. Учетная запись хранения будет развернута. Однако если параметр `newOrExisting` имеет значение **existing**, условие принимает значение false, а учетная запись хранения не развернута.
+
+Полный пример шаблона с использованием элемента `condition` см. по адресу [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Виртуальная машина с новой или существующей виртуальной сетью, хранилищем и общедоступным IP-адресом).
 
 ## <a name="runtime-functions"></a>Функции среды выполнения
 

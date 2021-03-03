@@ -4,12 +4,12 @@ description: Как использовать службу сообщений Jav
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b7e4bf0ad69b6cd183296a7245ad3f720ced76c5
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652623"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698405"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Использование API службы сообщений Java 2,0 с помощью служебной шины Azure Premium
 
@@ -34,7 +34,7 @@ ms.locfileid: "100652623"
    * JDK или JRE добавляется в путь сборки и соответствующие системные переменные.
    * Для использования JDK или JRE устанавливается Java IDE. Например, Eclipse или IntelliJ.
 
-Чтобы узнать больше о том, как подготовить среду разработки для Java в Azure, используйте [это руководство](https://docs.microsoft.com/azure/developer/java/fundamentals/).
+Чтобы узнать больше о том, как подготовить среду разработки для Java в Azure, используйте [это руководство](/azure/developer/java/fundamentals/).
 
 ## <a name="what-jms-features-are-supported"></a>Какие функции JMS поддерживаются?
 
@@ -143,7 +143,7 @@ JMSConsumer sharedDurableConsumer = jmsContext.createSharedDurableConsumer(topic
 Message msg = (Message) sharedDurableConsumer.receive();
 ```
 
-## <a name="summary"></a>Сводка
+## <a name="summary"></a>Итоги
 
 В этом руководство показано, как клиентские приложения Java, использующие службу сообщений Java (JMS) через AMQP 1,0, могут взаимодействовать с служебной шиной Azure.
 

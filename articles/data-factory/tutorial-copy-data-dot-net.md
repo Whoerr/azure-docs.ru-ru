@@ -4,18 +4,18 @@ description: В этом руководстве приведены пошаго�
 author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 11/08/2019
+ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: b2ec4a65f1001d6d1c93a23964d59972419f651e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a9e19f24c4889a194c85e33317860db1d3a68d2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380888"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736565"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Копирование данных из хранилища BLOB-объектов Azure в Базу данных SQL Azure с помощью фабрики данных Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 В этом руководстве вы создадите фабрику данных с конвейером, который перемещает данные из хранилища BLOB-объектов Azure в Базу данных SQL Azure. Шаблон конфигурации в этом руководстве применяется к копированию из файлового в реляционное хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников, см. в разделе [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 

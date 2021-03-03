@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29164bbb205e9f3ad59ac28200b5c6cd1e47bf39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589418"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707580"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Визуализация данных из Azure Monitor
 В этой статье приводится обзор доступных методов для визуализации метрик и данных журналов, хранящихся в Azure Monitor.
@@ -138,7 +138,7 @@ ms.locfileid: "100589418"
 - Размер ответа запроса ограничен 8 МБ, а время выполнения запроса — 110 секундами.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Дополнительные сведения о [данных, собранных Azure Monitor](/data-platform.md).
+- Дополнительные сведения о [данных, собранных Azure Monitor](data-platform.md).
 - Дополнительные сведения о [панелях мониторинга Azure](../azure-portal/azure-portal-dashboards.md).
 - Дополнительные сведения о [Обозреватель метрик](essentials/metrics-getting-started.md)
 - Дополнительные сведения о [Книгах](./visualize/workbooks-overview.md).

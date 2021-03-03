@@ -4,18 +4,18 @@ description: Узнайте, как включить и просмотреть �
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 7fce3db6f3636a5ee984c8be44f877c5636f4e16
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4027b2ca66b4d4319f7df347df6d671e6d48b772
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948924"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735137"
 ---
 # <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Включение и проверка журналов Kubernetes управления уровнями в службе Kubernetes Azure (AKS)
 
 С помощью службы Azure Kubernetes Service (AKS) компоненты плоскости управления, такие как *KUBE-аписервер* и *KUBE-Controller-Manager* , предоставляются как управляемая служба. Вы создадите узлы, где будут запущены *kubelet* и среда выполнения контейнера, и сможете управлять ими, а также развернете свои приложения через управляемый сервер API Kubernetes. Чтобы помочь в устранении неполадок приложения и служб, может потребоваться просмотреть журналы, созданные этими компонентами плоскости управления. В этой статье показано, как использовать журналы Azure Monitor для включения и запроса журналов из компонентов плоскости управления Kubernetes.
 
-## <a name="before-you-begin"></a>Подготовка к работе
+## <a name="before-you-begin"></a>Перед началом
 
 Для работы с этой статьей у вас должен быть кластер AKS, выполняющийся в учетной записи Azure. Если у вас еще нет кластера AKS, создайте его с помощью [Azure CLI][cli-quickstart] или [портала Azure][portal-quickstart]. Журналы Azure Monitor работают с кластерами AKS Kubernetes RBAC, Azure RBAC и без RBAC.
 
@@ -171,8 +171,8 @@ AKS регистрирует следующие события:
 <!-- LINKS - internal -->
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
-[log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
-[analyze-log-analytics]: ../azure-monitor/log-query/log-analytics-tutorial.md
+[log-analytics-overview]: ../azure-monitor/logs/log-query-overview.md
+[analyze-log-analytics]: ../azure-monitor/logs/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

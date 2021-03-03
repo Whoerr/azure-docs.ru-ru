@@ -4,19 +4,21 @@ description: Безопасность конечных точек системы
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368959"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718647"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Управление безопасностью v2: безопасность конечных точек
 
 Безопасность конечных точек охватывает элементы управления при обнаружении и отклике конечных точек. Сюда входит использование функции обнаружения конечных точек и реагирования (ЕДР) и службы защиты от вредоносных программ для конечных точек в средах Azure.
+
+Чтобы просмотреть подходящую встроенную политику Azure, ознакомьтесь с [подробными сведениями о встроенной инициативе по обеспечению безопасности в Azure: безопасность конечных точек.](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1. Использование обнаружения конечных точек и ответа (ЕДР)
 
@@ -26,13 +28,13 @@ ms.locfileid: "97368959"
 
 Включите возможности обнаружения конечных точек и реагирования (ЕДР) для серверов и клиентов, а также Интегрируйте процессы SIEM и операций безопасности.
 
-Усовершенствованная защита от угроз Microsoft Defender предоставляет возможности ЕДР в составе корпоративной платформы безопасности конечных точек для предотвращения, обнаружения, исследования и реагирования на сложные угрозы. 
+Защитник Майкрософт для конечной точки предоставляет возможности ЕДР в составе корпоративной платформы безопасности, чтобы предотвратить, обнаруживать, исследовать и реагировать на сложные угрозы.
 
-- [Обзор расширенной защиты от угроз Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+- [Обзор защитника Майкрософт для конечных точек](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
 
-- [Служба ATP в защитнике Майкрософт для серверов Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
+- [Защитник Майкрософт для конечных точек для серверов Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
 
-- [Служба ATP в защитнике Майкрософт для серверов, отличных от Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
+- [Защитник Майкрософт для конечных точек для серверов, отличных от Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
 **Ответственность**: Customer
 
@@ -40,7 +42,7 @@ ms.locfileid: "97368959"
 
 - [Безопасность инфраструктуры и конечных точек](/azure/cloud-adoption-framework/organize/cloud-security)
 
-- [Анализ угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Аналитика угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 - [Управление соответствием требованиям безопасности](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -56,7 +58,7 @@ ms.locfileid: "97368959"
 
 Центр безопасности Azure может автоматически обнаруживать использование ряда популярных решений для защиты от вредоносных программ для виртуальных машин, а также сообщать о состоянии запуска Endpoint Protection и делать рекомендации. 
 
-Антивредоносное по Майкрософт для облачных служб Azure — это антивредоносное по по умолчанию для виртуальных машин Windows (ВМ). Для виртуальных машин Linux используйте стороннее решение для защиты от вредоносных программ.  Кроме того, для обнаружения вредоносных программ, отправленных в учетные записи хранения Azure, можно использовать обнаружение угроз центра безопасности Azure для служб данных. 
+Антивредоносное по Майкрософт для облачных служб Azure — это антивредоносное по по умолчанию для виртуальных машин Windows (ВМ). Для виртуальных машин Linux используйте стороннее решение для защиты от вредоносных программ. Кроме того, для обнаружения вредоносных программ, отправленных в учетные записи хранения Azure, можно использовать обнаружение угроз центра безопасности Azure для служб данных. 
 
 - [Настройка антивредоносного по Майкрософт для облачных служб и виртуальных машин](../fundamentals/antimalware.md)
 
@@ -68,7 +70,7 @@ ms.locfileid: "97368959"
 
 - [Безопасность инфраструктуры и конечных точек](/azure/cloud-adoption-framework/organize/cloud-security)
 
-- [Анализ угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Аналитика угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 - [Управление соответствием требованиям безопасности](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -80,9 +82,9 @@ ms.locfileid: "97368959"
 |--|--|--|--|
 | ES-3 | 8.2 | SI-2, SI-3 |
 
-Регулярное обновление подписей для защиты от вредоносных программ. 
+Регулярное обновление подписей для защиты от вредоносных программ.
 
-Следуйте рекомендациям в центре безопасности Azure: "вычисление &amp; приложений", чтобы обеспечить актуальность всех конечных точек с последними сигнатурами. Антивредоносная программа Майкрософт автоматически устанавливает последние сигнатуры и обновления антивирусного по по умолчанию. Для Linux используйте стороннее решение для защиты от вредоносных программ.
+Следуйте рекомендациям в центре безопасности Azure: "вычисление & приложений", чтобы обеспечить актуальность всех конечных точек с последними сигнатурами. Антивредоносная программа Майкрософт автоматически устанавливает последние сигнатуры и обновления антивирусного по по умолчанию. Для Linux убедитесь, что подписи обновлены в решении для защиты от вредоносных программ стороннего производителя.
 
 - [Развертывание антивредоносного по Майкрософт для облачных служб и виртуальных машин Azure](../fundamentals/antimalware.md)
 
@@ -92,7 +94,7 @@ ms.locfileid: "97368959"
 
 - [Безопасность инфраструктуры и конечных точек](/azure/cloud-adoption-framework/organize/cloud-security)
 
-- [Анализ угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Аналитика угроз](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 - [Управление соответствием требованиям безопасности](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 

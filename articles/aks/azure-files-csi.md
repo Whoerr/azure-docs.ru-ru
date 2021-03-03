@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0fc291403997cdccbfa190fcd5739e97c47eab6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636986"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729442"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Использование драйверов службы файлов хранилища контейнера Azure (CSI) в службе Kubernetes Azure (AKS) (Предварительная версия)
 
@@ -33,13 +33,13 @@ CSI является стандартом для предоставления п
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Динамическое создание файлов Azure постоянного хранилища версий с помощью встроенных классов хранения
 
-Класс хранения используется для определения способа создания общей папки службы файлов Azure. Учетная запись хранения автоматически создается в [группе ресурсов узла][node-resource-group] для использования с классом хранения для хранения общих папок службы файлов Azure. Выберите один из следующих [номеров SKU избыточности службы хранилища Azure][storage-skus] для *skuName* :
+Класс хранения используется для определения способа создания общей папки службы файлов Azure. Учетная запись хранения автоматически создается в [группе ресурсов узла][node-resource-group] для использования с классом хранения для хранения общих папок службы файлов Azure. Выберите один из следующих [номеров SKU избыточности службы хранилища Azure][storage-skus] для *skuName*:
 
-* **Standard_LRS** : стандартное локально избыточное хранилище
-* **Standard_GRS** : стандартное геоизбыточное хранилище
-* **Standard_ZRS** : хранилище, избыточное в стандартном поясе
-* **Standard_RAGRS** : стандартное геоизбыточное хранилище с доступом для чтения
-* **Premium_LRS** : локально избыточное хранилище уровня "Премиум"
+* **Standard_LRS**: стандартное локально избыточное хранилище
+* **Standard_GRS**: стандартное геоизбыточное хранилище
+* **Standard_ZRS**: хранилище, избыточное в стандартном поясе
+* **Standard_RAGRS**: стандартное геоизбыточное хранилище с доступом для чтения
+* **Premium_LRS**: локально избыточное хранилище уровня "Премиум"
 
 > [!NOTE]
 > Служба файлов Azure поддерживает хранилище Azure класса Premium. Минимальная общая папка Premium составляет 100 ГБ.
@@ -226,7 +226,7 @@ az provider register --namespace Microsoft.Storage
 
 ### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Создание учетной записи хранения для файлового ресурса NFS
 
-[Создайте `Premium_LRS` Учетная запись хранения Azure](../storage/files/storage-how-to-create-premium-fileshare.md) со следующими конфигурациями для поддержки общих папок NFS:
+[Создайте `Premium_LRS` Учетная запись хранения Azure](../storage/files/storage-how-to-create-file-share.md) со следующими конфигурациями для поддержки общих папок NFS:
 - Тип учетной записи: Филестораже
 - требуется безопасное перемещение (только включение HTTPS-трафика): false
 - Выберите виртуальную сеть узлов агента в окне брандмауэры и виртуальные сети. Поэтому вы можете создать учетную запись хранения в MC_ группе ресурсов.

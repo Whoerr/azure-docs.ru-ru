@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 77464ccfb5b80c84f091d8e6bc491908baed6486
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1fc21b6338accef8e22b2e41ad2017d24ab8bd38
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955009"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710470"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services и машинное обучение
 
@@ -20,7 +20,7 @@ Cognitive Services предоставляет возможности машин�
 
 [Cognitive Services](./what-are-cognitive-services.md) — это группа служб, каждая из которых поддерживает различные обобщенные возможности прогнозирования. Службы делятся на разные категории, которые помогут найти нужную службу. 
 
-|Категория службы|Цель|
+|Категория службы|Назначение|
 |--|--|
 |[Решение](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Создавайте приложения, которые предоставят рекомендации для информированного и эффективного принятия решения.|
 |[Язык](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Реализуйте в приложениях обработку естественного языка на основе готовых скриптов, распознавание тональности и определение намерений пользователей.|
@@ -97,7 +97,7 @@ Cognitive Services как группа служб, для обученной м�
 |[Распознавание лиц](./Face/Overview.md)|x|x||
 |[Распознаватель документов](./form-recognizer/overview.md)||x||
 |[Иммерсивное средство чтения](./immersive-reader/overview.md)|x|||
-|[Распознаватель рукописного текста](./Ink-recognizer/overview.md)|x|x||
+|[Распознаватель рукописного текста](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Распознавание речи (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Персонализатор](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
@@ -127,7 +127,7 @@ Cognitive Services, которые предоставляют экспортир
 
 |Служба для переприятия|Сведения о модели|
 |--|--|
-|[Пользовательское визуальное распознавание](./custom-vision-service/overview.md)|[Экспорт](./Custom-Vision-Service/export-model-python.md) для Tensorflow для Android, CoreML для IOS11, ONNX для Windows ml|
+|[Пользовательское визуальное распознавание](./custom-vision-service/overview.md)|[Экспорт](./custom-vision-service/export-model-python.md) для Tensorflow для Android, CoreML для IOS11, ONNX для Windows ml|
 
 ## <a name="learn-more"></a>Дополнительные сведения
 

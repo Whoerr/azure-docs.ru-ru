@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c833d87b8d85c75c4f050f0130ddfd74342f4c52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 8aa5a52a06713b4f00b43205a57148049a8ef8da
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711966"
 ---
 # <a name="connect-your-akamai-security-events-collector-to-azure-sentinel"></a>Подключение сборщика событий безопасности Akamai к Azure Sentinel
 
@@ -35,7 +35,7 @@ ms.locfileid: "99566871"
 
 - У вас должны быть разрешения на чтение и запись в рабочей области Sentinel Azure.
 
-- Необходимо иметь разрешения на чтение общих ключей для рабочей области. Дополнительные [сведения о ключах рабочих областей](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Необходимо иметь разрешения на чтение общих ключей для рабочей области. Дополнительные [сведения о ключах рабочих областей](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-akamai-security-events-logs-to-azure-sentinel"></a>Отправка журналов событий безопасности Akamai в Azure Sentinel
 
@@ -176,7 +176,7 @@ ms.locfileid: "99566871"
 
 Дополнительные примеры запросов см. на вкладке **дальнейшие действия** на странице соединителя.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 В этом документе вы узнали, как подключить события безопасности Akamai к Azure Sentinel. Ознакомьтесь с дополнительными сведениями об Azure Sentinel в соответствующих статьях.
 

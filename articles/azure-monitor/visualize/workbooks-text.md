@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: d064b69f25ada4edf478f9c8b70d7aaad83754a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 22078f242ddeb882b39b85769537b9a282741250
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613648"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725532"
 ---
 # <a name="workbook-text-parameters"></a>Текстовые параметры книги
 
@@ -83,7 +83,7 @@ ms.locfileid: "100613648"
 > [!NOTE]
 > Хотя в этом примере запрашиваются Application Insights данные, подход можно использовать для любого источника данных на основе журналов — Log Analytics, графа ресурсов Azure и т. д.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Узнайте](../platform/workbooks-overview.md#visualizations) больше о книгах с множеством разнообразных вариантов визуализации.
-* [Управление](../platform/workbooks-access-control.md) доступом к ресурсам книги и предоставление общего доступа к ним.
+* [Узнайте](./workbooks-overview.md#visualizations) больше о книгах с множеством разнообразных вариантов визуализации.
+* [Управление](./workbooks-access-control.md) доступом к ресурсам книги и предоставление общего доступа к ним.

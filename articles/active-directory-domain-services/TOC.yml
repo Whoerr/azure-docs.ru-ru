@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: Настройка синхронизации хэша паролей
       href: tutorial-configure-password-hash-sync.md
-    - name: Создание набора реплик (предварительная версия)
+    - name: Создание набора реплик
       href: tutorial-create-replica-set.md
     - name: Создание настроенного управляемого домена
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: Распространенные сценарии развертывания
       href: scenarios.md
-    - name: Наборы реплик (предварительная версия)
+    - name: Наборы реплик
       href: concepts-replica-sets.md
     - name: Леса и отношения доверия
       items:

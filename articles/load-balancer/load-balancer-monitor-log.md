@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596811"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709824"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Журналы Azure Monitor для Azure Load Balancer (цен. категория "Стандартный")
 
@@ -74,7 +74,7 @@ ms.locfileid: "100596811"
 
 ## <a name="view-and-analyze-the-activity-log"></a>Просмотр и анализ журнала действий
 
-Журнал действий создается по умолчанию. Его можно настроить для экспорта на уровне подписки, следуя [инструкциям в этой статье](../azure-monitor/platform/activity-log.md). Дополнительные сведения об этих журналах см. в статье [Просмотр журналов действий для отслеживания действий с ресурсами](../azure-resource-manager/management/view-activity-logs.md) .
+Журнал действий создается по умолчанию. Его можно настроить для экспорта на уровне подписки, следуя [инструкциям в этой статье](../azure-monitor/essentials/activity-log.md). Дополнительные сведения об этих журналах см. в статье [Просмотр журналов действий для отслеживания действий с ресурсами](../azure-resource-manager/management/view-activity-logs.md) .
 
 Просмотреть и проанализировать данные журнала действий можно одним из следующих способов.
 
@@ -111,6 +111,6 @@ ms.locfileid: "100596811"
 * Размерность метрик не сохраняется. Например, с такими метриками, как **дипаваилабилити** (состояние проверки работоспособности), вы не сможете разбивать или просматривать по внутреннему IP-адресу.
 * Метрики для используемых портов SNAT и выделенных портов SNAT в настоящее время недоступны для экспорта в качестве журналов.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * [Проверка доступных метрик для балансировщика нагрузки](./load-balancer-standard-diagnostics.md)
-* [Создавайте и тестируйте запросы, следуя инструкциям Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Создавайте и тестируйте запросы, следуя инструкциям Azure Monitor](../azure-monitor/logs/log-query-overview.md)

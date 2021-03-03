@@ -6,12 +6,12 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333262"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711422"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Устранение неполадок при загрузке пакета SDK для веб-приложений JavaScript
 
@@ -68,7 +68,7 @@ Editor Note: This link name above "SDK Load Failure" has a direct references by 
  
 ## <a name="application-insights-cdn-outage"></a>Сбой Application Insights CDN
 
-Вы можете убедиться в отсутствии Application Insights CDN, пытаясь получить доступ к конечной точке CDN непосредственно из браузера (например, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) из расположения, отличного от того, что конечные пользователи, вероятно, из вашего собственного компьютера разработки (при условии, что ваша организация не блокирует этот домен).
+Вы можете убедиться в отсутствии Application Insights CDN, пытаясь получить доступ к конечной точке CDN непосредственно из браузера (например, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js или https://js.monitor.azure.com/scripts/b/ai.2.min.js) из расположения, отличного от конечного пользователя, вероятного на вашем компьютере разработки (предполагая, что ваша организация не блокирует этот домен).
 
 Если вы подтвердите сбой, можно [создать новый запрос в службу поддержки](https://azure.microsoft.com/support/create-ticket/) или попробовать изменить URL-адрес, используемый для загрузки пакета SDK.
 
@@ -106,7 +106,7 @@ Editor Note: This link name above "SDK Load Failure" has a direct references by 
 
 Чтобы проверить конфигурацию с ошибками, измените конфигурацию, переданную в фрагмент (если это еще не сделано), чтобы он включал в себя только ключ инструментирования в виде строкового значения.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > CFG: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY"<br />
 > }});<br />
@@ -134,7 +134,7 @@ Editor Note: This link name above "SDK Load Failure" has a direct references by 
 > [!WARNING]
 > Этот параметр предназначен только для разработчиков и никогда не должен включаться в полной рабочей среде, так как данные телеметрии будут потеряны.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > CFG: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY",<br />
 > Енабледебуг: true<br />
@@ -207,6 +207,6 @@ Editor Note: This link name above "SDK Load Failure" has a direct references by 
 Как и в случае с фрагментом, также возможно, что ваши собственные скрипты (с использованием пакетов SDK NPM или без них) могут быть затронуты теми же проблемами блокировки, которые перечислены здесь, поэтому в зависимости от приложения, пользователей и вашей инфраструктуры может потребоваться реализовать нечто вроде логики в фрагменте для обнаружения и сообщения этих проблем.
 
 
-## <a name="next-steps"></a>Дальнейшие шаги 
+## <a name="next-steps"></a>Дальнейшие действия 
 - [Получение дополнительной справки за счет регистрации проблемы на GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues)
 - [Отслеживать использование веб-страниц](javascript.md)

@@ -7,16 +7,16 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0a740b4c6c6e89c9a4990651779ea4f0b376c971
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734355"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Краткое руководство. Отправка журнала действий Azure в рабочую область Log Analytics с помощью шаблона ARM
 
-Журнал действий — это журнал платформы в Azure, который предоставляет аналитические сведения о событиях уровня подписки, например об изменении ресурса или запуске виртуальной машины. Вы можете просмотреть журнал действий на портале Azure или получить записи с помощью PowerShell и CLI. В этом кратком руководстве показано, как использовать шаблоны Azure Resource Manager (шаблоны ARM) для создания параметра диагностики и рабочей области Log Analytics и отправки журнала действий в журналы Azure Monitor. Там их можно анализировать с помощью [запросов журнала](../log-query/log-query-overview.md) и включать другие возможности, такие как [оповещения журнала](../alerts/alerts-log-query.md) и [книги](../visualize/workbooks-overview.md).
+Журнал действий — это журнал платформы в Azure, который предоставляет аналитические сведения о событиях уровня подписки, например об изменении ресурса или запуске виртуальной машины. Вы можете просмотреть журнал действий на портале Azure или получить записи с помощью PowerShell и CLI. В этом кратком руководстве показано, как использовать шаблоны Azure Resource Manager (шаблоны ARM) для создания параметра диагностики и рабочей области Log Analytics и отправки журнала действий в журналы Azure Monitor. Там их можно анализировать с помощью [запросов журнала](../logs/log-query-overview.md) и включать другие возможности, такие как [оповещения журнала](../alerts/alerts-log-query.md) и [книги](../visualize/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Из этого краткого руководства вы узнали, как настроить отправку журнала действий в рабочую область Log Analytics. Теперь вы можете настроить сбор других данных в рабочую область, где их можно анализировать с помощью [запросов к журналам](../log-query/log-query-overview.md) в Azure Monitor, и применять другие возможности, например [оповещения журналов](../alerts/alerts-log-query.md) и [книги](../visualize/workbooks-overview.md). Затем вам нужно собрать [журналы ресурсов](../essentials/resource-logs.md) из ресурсов Azure, которые дополняют данные в журнале действий. Так вы сможете получить представление об операциях, выполненных в пределах каждого ресурса.
+Из этого краткого руководства вы узнали, как настроить отправку журнала действий в рабочую область Log Analytics. Теперь вы можете настроить сбор других данных в рабочую область, где их можно анализировать с помощью [запросов к журналам](../logs/log-query-overview.md) в Azure Monitor, и применять другие возможности, например [оповещения журналов](../alerts/alerts-log-query.md) и [книги](../visualize/workbooks-overview.md). Затем вам нужно собрать [журналы ресурсов](../essentials/resource-logs.md) из ресурсов Azure, которые дополняют данные в журнале действий. Так вы сможете получить представление об операциях, выполненных в пределах каждого ресурса.
 
 > [!div class="nextstepaction"]
 > [Получение и анализ журналов ресурсов с помощью Azure Monitor](../essentials/tutorial-resource-logs.md)

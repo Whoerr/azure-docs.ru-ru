@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
-ms.openlocfilehash: 95b721f12e4818a77f18d01c99a5c6d60b881169
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089709"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691218"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Краткое руководство. Создание Управляемого экземпляра SQL Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -113,7 +113,7 @@ ms.locfileid: "99089709"
 
 ### <a name="tags"></a>Теги
 
-- Добавьте теги к ресурсам в шаблоне ARM. [Теги](/azure/azure-resource-manager/management/tag-resources) помогают логически упорядочивать ресурсы. Значения тегов отображаются в отчетах о затратах и поддерживают другие действия управления с применением тегов. 
+- Добавьте теги к ресурсам в шаблоне ARM. [Теги](../../azure-resource-manager/management/tag-resources.md) помогают логически упорядочивать ресурсы. Значения тегов отображаются в отчетах о затратах и поддерживают другие действия управления с применением тегов. 
 
 - По меньшей мере добавьте к новому Управляемому экземпляру SQL тег Owner (Владелец), который будет обозначать создателя экземпляра, и тег Environment (Среда) с набором значений "Рабочая", "Разработка" и т. д. Дополнительные сведения см. в статье [Разработка стратегии именования и присвоения тегов для ресурсов Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
  

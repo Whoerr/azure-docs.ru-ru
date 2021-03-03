@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916513"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711847"
 ---
 # <a name="azure-file-share-protocols"></a>Протоколы файловых ресурсов Azure
 
@@ -21,11 +21,12 @@ ms.locfileid: "97916513"
 
 ## <a name="differences-at-a-glance"></a>Краткий обзор различий
 
-|Компонент  |NFS (Предварительная версия)  |SMB  |
+|Функция  |NFS (Предварительная версия)  |SMB  |
 |---------|---------|---------|
 |Протоколы доступа     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Рекомендуемая ОС     |Ядро Linux версии 4.3 +         |Windows 2008 R2 +, ядро Linux версии 4.11 +         |
 |[Доступные уровни](storage-files-planning.md#storage-tiers)     |Хранилище уровня "Премиум"         |Хранилище класса Premium, оптимизированное, неактивное, холодное         |
+|Модель выставления счетов         |[Оплата подготовленной емкости](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Оплата подготовленной емкости для уровня "Премиум](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)" с [оплатой по мере использования для уровня "Стандартный"](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
 |[Избыточность](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Аутентификация     |Только проверка подлинности на основе узла        |Аутентификация на основе удостоверений, проверка подлинности на основе пользователей         |
 |Разрешения     |Разрешения в стиле UNIX         |Разрешения в стиле NTFS         |
@@ -64,7 +65,7 @@ ms.locfileid: "97916513"
 - [Частная конечная точка](storage-files-networking-overview.md#private-endpoints)
 - [VPN-шлюз Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [VPN типа "точка — сеть" (P2S)](../../vpn-gateway/point-to-site-about.md)
-    - [Сеть — сеть](../../vpn-gateway/design.md#s2smulti)
+    - [Подключение "сеть — сеть"](../../vpn-gateway/design.md#s2smulti) .
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Ограниченная общедоступная конечная точка](storage-files-networking-overview.md#storage-account-firewall-settings)
 

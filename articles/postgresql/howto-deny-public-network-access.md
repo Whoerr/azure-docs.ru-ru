@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e195c005676df27385e5e00736b04bdb689fafc5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240330"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727113"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Запрет доступа к общедоступной сети в базе данных Azure для PostgreSQL с помощью портал Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "93240330"
 
 Вот что вам нужно, чтобы выполнить инструкции, приведенные в этом руководстве:
 
-* [Один сервер базы данных Azure для PostgreSQL](quickstart-create-server-database-portal.md)
+* [База данных Azure для PostgreSQL с одним сервером](quickstart-create-server-database-portal.md) с общего назначения или ценовой категорией, оптимизированной для памяти.
 
 ## <a name="set-deny-public-network-access"></a>Установка запрета доступа к общедоступной сети
 
@@ -39,7 +39,7 @@ ms.locfileid: "93240330"
 
 1. Уведомление подтверждает успешное включение параметра безопасности подключения.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Сервер базы данных Azure для PostgreSQL запрещает доступ к сети":::
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Служба &quot;база данных Azure для PostgreSQL&quot; запрещает доступ к сети":::
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

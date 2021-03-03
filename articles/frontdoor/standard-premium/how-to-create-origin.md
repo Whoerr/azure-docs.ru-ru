@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
-ms.openlocfilehash: 47134712bb953d9194bd943e228bae681877dcaa
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ebc71ea2d354caf0c8f31b1231ecc1487237dd29
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099446"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741894"
 ---
 # <a name="set-up-an-azure-front-door-standardpremium-preview-origin"></a>Настройка источника передней дверцы Azure уровня "Стандартный" или "Премиум" (Предварительная версия)
 
@@ -60,21 +60,21 @@ ms.locfileid: "101099446"
     > [!IMPORTANT]
     > Во время настройки интерфейсы API не проверяют, недоступен ли источник из сред передней дверцы. Убедитесь, что передняя дверца может достигнуть вашего источника.
 
-1. Выберите **Добавить** , чтобы создать новый источник. Созданный источник должен появиться в списке источников с группой
+1. Выберите **Добавить** , чтобы создать новый источник. Созданный источник должен появиться в списке источников с группой.
   
-    :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Снимок экрана: Добавление исходной страницы.":::
+    :::image type="content" source="../media/how-to-create-origin/origin-list-view.png" alt-text="Снимок экрана источника в представлении списка.":::
 
 1. Выберите **Добавить** , чтобы добавить исходную группу в текущую конечную точку. Исходная группа должна отображаться на панели «исходная группа».
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 Чтобы удалить группу источника, если она больше не нужна, щелкните **...** и выберите **Удалить** из раскрывающегося списка.
 
-:::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Снимок экрана, посвященный удалению исходной группы.":::
+:::image type="content" source="../media/how-to-create-origin/delete-origin-group.png" alt-text="Снимок экрана, посвященный удалению исходной группы.":::
 
 Чтобы удалить источник, когда он больше не нужен, нажмите кнопку **...** и выберите **Удалить** из раскрывающегося списка. 
 
 :::image type="content" source="../media/how-to-create-origin/delete-origin-view.png" alt-text="Снимок экрана, посвященный удалению источника.":::
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о пользовательских доменах см. в статье [Добавление личного домена](how-to-add-custom-domain.md) в конечную точку "Стандартный" или "Премиум" для передней дверцы Azure.

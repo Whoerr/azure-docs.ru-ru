@@ -1,17 +1,16 @@
 ---
 title: Устранение неполадок расширения для Системы диагностики Azure
 description: Устранение неполадок при использовании системы диагностики Azure на виртуальных машинах, в Service Fabric или в облачных службах.
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 431b19595fbe2f5bc1f989e712c9c104af8e839b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623649"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711524"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Устранение неполадок с помощью системы диагностики Azure
 Данная статья содержит сведения об устранении неполадок, относящихся к средствами диагностики Azure. Дополнительные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](diagnostics-extension-overview.md).

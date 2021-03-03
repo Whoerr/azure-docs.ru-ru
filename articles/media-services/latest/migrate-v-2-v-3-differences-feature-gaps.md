@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2fa827bc2841a0bae4c9646c8a70e42dc2b500e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898415"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702459"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Разрывы функций между службами мультимедиа Azure версии 2 и v3
 
@@ -42,7 +42,7 @@ ms.locfileid: "98898415"
     - Мы добавили поддержку сопоставления звуковых каналов со стандартным кодировщиком.  См. статью о [звуках в документации по параметрам кодирования служб мультимедиа Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - Если вы использовали дополнительные функции или выходные форматы стороннего лицензионного продукта, например MXF или ProRes, используйте решение Azure Partner из телепотока, который будет транзакционным в соответствии со временем выхода v2. Кроме того, вы можете использовать представимую связь или [битмовин](http://bitmovin.com).
 
-- Свойство "Группа доступности" в конечной точке потоковой передачи в версии 2 больше не поддерживается. См. Пример проекта и руководство по доставке [VOD высокого уровня доступности](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding) в API V3.
+- Свойство "Группа доступности" в конечной точке потоковой передачи в версии 2 больше не поддерживается. См. Пример проекта и руководство по доставке [VOD высокого уровня доступности](./media-services-high-availability-encoding.md) в API V3.
 
 - В службах мультимедиа v3 невозможно указать FairPlay IV. Хотя это и не влияет на клиентов, использующих службы мультимедиа как для упаковки, так и для доставки лицензий, это может быть проблемой при использовании сторонней системы DRM для доставки лицензий FairPlay (гибридный режим).
 

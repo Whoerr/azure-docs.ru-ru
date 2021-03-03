@@ -6,12 +6,12 @@ ms.author: brjones
 ms.service: notification-hubs
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: b532dca6ceba44a32132bf64b322e1b4764fd5fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b98a04a70062461cec603bea83052c4f1224819e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418145"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736242"
 ---
 # <a name="enable-diagnostics-logs-for-notification-hubs"></a>Включение журналов диагностики для концентраторов уведомлений
 
@@ -138,11 +138,10 @@ ms.locfileid: "100418145"
 
 Новые параметры вступят в силу примерно через 10 минут. Журналы отображаются в настроенном целевом объекте архивации в области **журналы диагностики** .
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о настройке параметров диагностики см. в следующих статьях:
-* [Обзор журналов системы диагностики Azure](../azure-monitor/platform/platform-logs-overview.md).
+* [Обзор журналов системы диагностики Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 Дополнительные сведения о центрах уведомлений Azure см. в следующих статьях:
 * [Что такое Центры уведомлений Azure?](notification-hubs-push-notification-overview.md)
-

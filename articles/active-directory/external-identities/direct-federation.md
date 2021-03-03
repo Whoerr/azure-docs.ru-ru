@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649428"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687249"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Прямая федерация с AD FS и сторонними поставщиками для гостевых пользователей (предварительная версия)
 
@@ -42,13 +42,7 @@ ms.locfileid: "101649428"
 
 ## <a name="sign-in-endpoints"></a>Конечные точки входа
 
-Гостевые пользователи Федерации могут входить в приложения с несколькими клиентами или сторонними приложениями Майкрософт, используя [общую конечную точку](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (иными словами, общий URL-адрес приложения, не включающий контекст клиента). Ниже приведены примеры распространенных конечных точек.
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-В процессе входа гостевой пользователь выбирает **Параметры входа**, а затем выбирает **Вход в организацию**. Затем пользователь вводит имя Организации и возобновляет вход с помощью собственных учетных данных.
+Гостевые пользователи Федерации могут входить в приложения с несколькими клиентами или сторонними приложениями Майкрософт, используя [общую конечную точку](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (иными словами, общий URL-адрес приложения, не включающий контекст клиента). В процессе входа гостевой пользователь выбирает **Параметры входа**, а затем выбирает **Вход в организацию**. Затем пользователь вводит имя Организации и возобновляет вход с помощью собственных учетных данных.
 
 Гостевые пользователи Федерации могут также использовать конечные точки приложений, содержащие сведения о клиенте, например:
 

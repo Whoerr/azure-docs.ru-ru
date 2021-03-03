@@ -10,84 +10,136 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: d1bd3c5796658663b6111723829cbe620346002c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58c0f408e3ad80109efd3db79d6e4a0d881aed78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016247"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724190"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Проверка подлинности и авторизация для API Azure Time Series Insights
 
-В этом документе описывается порядок регистрации приложения в Azure Active Directory с помощью новой колонки Azure Active Directory. Приложения, зарегистрированные в Azure Active Directory позволяют пользователям проходить проверку подлинности и иметь право использовать API анализа временных рядов Azure, связанный с средой "аналитика временных рядов Azure".
+В зависимости от потребностей вашего бизнеса ваше решение может включать одно или несколько клиентских приложений, которые используются для взаимодействия с [API](https://docs.microsoft.com/en-us/rest/api/time-series-insights/reference-data-access-overview)среды службы "аналитика временных рядов Azure". Служба "аналитика временных рядов Azure" выполняет проверку подлинности с помощью [маркеров безопасности Azure AD на основе OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Для проверки подлинности клиентов необходимо получить маркер носителя с нужными разрешениями и передать его вместе с вызовами API. В этом документе описаны несколько методов получения учетных данных, которые можно использовать для получения токена носителя и проверки подлинности.
 
-## <a name="service-principal"></a>Субъект-служба
 
-В следующих разделах описывается настройка приложения для доступа к API службы "аналитика временных рядов Azure" от имени приложения. Затем приложение может запрашивать или публиковать эталонные данные в среде службы "аналитика временных рядов Azure" с помощью собственных учетных данных приложения с помощью Azure Active Directory.
+  как зарегистрировать приложение в Azure Active Directory с помощью новой колонки Azure Active Directory. Приложения, зарегистрированные в Azure Active Directory позволяют пользователям проходить проверку подлинности и иметь право использовать API анализа временных рядов Azure, связанный с средой "аналитика временных рядов Azure".
 
-## <a name="summary-and-best-practices"></a>Сводка и рекомендации
+## <a name="managed-identities"></a>Управляемые удостоверения
 
-Процесс регистрации приложения Azure Active Directory состоит из трех основных этапов.
+В следующих разделах описано, как использовать управляемое удостоверение из Azure Active Directory (Azure AD) для доступа к API службы "аналитика временных рядов Azure". В Azure управляемые удостоверения устраняют необходимость в управлении учетными данными для разработчиков, предоставляя идентификатор для ресурса Azure в Azure AD и используя его для получения маркеров Azure Active Directory (Azure AD). Ниже приведены некоторые преимущества использования управляемых удостоверений.
 
-1. [Регистрация приложения](#azure-active-directory-app-registration) в Azure Active Directory.
-1. Авторизация приложения для [доступа к данным в среде службы "аналитика временных рядов Azure"](#granting-data-access).
-1. Использование **идентификатора приложения** и **секрета клиента** для получения маркера от `https://api.timeseries.azure.com/` в [клиентском приложении](#client-app-initialization). Затем маркер можно использовать для вызова API службы "аналитика временных рядов Azure".
+- Управление учетными данными не требуется. Учетные данные даже недоступны.
+- Управляемые удостоверения можно использовать для проверки подлинности в любой службе Azure, которая поддерживает проверку подлинности Azure AD, включая Azure Key Vault.
+- Управляемые удостоверения можно использовать без дополнительных затрат.
 
-В **шаге 3** разделение учетных данных приложения и пользователя позволяет выполнить следующее:
+Дополнительные сведения о двух типах управляемых удостоверений см. в статье [что такое управляемые удостоверения для ресурсов Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-* Назначить удостоверению приложения разрешения, которые отличаются от ваших разрешений. Как правило, приложение получает именно те разрешения, которые требуются для его работы. Например, можно разрешить приложению считывать данные только из определенной среды службы "аналитика временных рядов Azure".
-* Изолировать безопасность приложения от создания учетных данных для проверки подлинности пользователя, используя **секрет клиента** или сертификат безопасности. В результате учетные данные приложения не зависят от учетных данных конкретного пользователя. При изменении роли пользователя приложению не обязательно потребуются новые учетные данные или дальнейшая настройка. Если пользователь изменит пароль, для доступа к приложению не требуются новые учетные данные или ключи.
-* Запустить автоматический сценарий, используя **секрет клиента** или сертификат безопасности, а не учетные данные конкретного пользователя (требование их наличия).
-* Используйте сертификат безопасности, а не пароль для защиты доступа к API Аналитики временных рядов Azure.
+Вы можете использовать управляемые удостоверения из:
 
-> [!IMPORTANT]
-> Следуйте принципу **разделения проблем** (описанных выше в этом сценарии) при настройке политики безопасности Аналитики временных рядов Azure
+- Виртуальные машины Azure
+- Службы приложений Azure
+- Функции Azure
+- Экземпляры контейнеров Azure
+- и многое другое...
 
-> [!NOTE]
+Полный список см. в статье [службы Azure, которые поддерживают управляемые удостоверения для ресурсов Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources) .
 
-> * В статье рассматривается однотенантное приложение — решение, используемое в пределах одной организации.
-> * Обычно однотенантная архитектура используется для создания бизнес-приложений в рамках организации.
+## <a name="azure-active-directory-app-registration"></a>Регистрация приложения в Azure Active Directory
 
-## <a name="detailed-setup"></a>Подробная настройка
+При возможности рекомендуется использовать управляемые удостоверения, чтобы не нужно было управлять учетными данными. Если клиентское приложение не размещено в службе Azure, которая поддерживает управляемые удостоверения, вы можете зарегистрировать приложение в клиенте Azure AD. При регистрации приложения в Azure AD создается конфигурация удостоверений для приложения, которая позволяет интегрировать его с Azure AD. При регистрации приложения в [портал Azure](https://portal.azure.com/)вы выбираете, является ли он единственным клиентом (доступным в вашем клиенте) или несколькими клиентами (доступным в других клиентах), и при необходимости может задать универсальный код ресурса (URI) перенаправления (куда отправляются маркеры доступа).
 
-### <a name="azure-active-directory-app-registration"></a>Регистрация приложения в Azure Active Directory
+После завершения регистрации приложения вы получите глобальный уникальный экземпляр приложения (объект приложения), который находится в вашем домашнем клиенте или каталоге. У вас также есть глобальный уникальный идентификатор приложения (идентификатор приложения или клиента). Затем на портале можно добавить секреты или сертификаты и области, чтобы обеспечить работу приложения, настроить фирменную символику приложения в диалоговом окне входа и многое другое.
+
+При регистрации приложения на портале в домашнем клиенте автоматически создаются объект приложения, а также объект субъекта-службы. Если вы регистрируете или создаете приложение с помощью Microsoft Graph API, создание объекта субъекта-службы выполняется на отдельном шаге. Для запроса токенов необходим объект субъекта-службы.
+
+Обязательно ознакомьтесь с контрольным списком [безопасности](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist#security) для своего приложения. Рекомендуется использовать [учетные данные сертификата](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials), а не учетные данные пароля (секреты клиента).
+
+Дополнительные сведения см. [в разделе объекты приложения и субъекта-службы в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) .
+
+## <a name="step-1-create-your-managed-identity-or-app-registration"></a>Шаг 1. Создание управляемого удостоверения или регистрация приложения
+
+После определения того, будет ли использоваться управляемое удостоверение или регистрация приложения, ваш следующий шаг будет готов к его подготовке.
+
+### <a name="managed-identity"></a>Управляемое удостоверение
+
+Действия, которые будут использоваться для создания управляемого удостоверения, зависят от того, где размещается код, а также от того, создаете ли вы назначенное системой или пользовательское удостоверение. Прочитайте [управляемые типы удостоверений](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) , чтобы понять разницу. Выбрав тип удостоверения, перейдите и следуйте указаниям в [документации](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)по удостоверениям, управляемым Azure AD. Здесь вы найдете инструкции по настройке управляемых удостоверений для:
+
+- [Виртуальные машины Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-during-creation-of-a-vm)
+- [Служба приложений и функции Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [Экземпляры контейнеров Azure](https://docs.microsoft.com/azure/container-instances/container-instances-managed-identity);
+- и многое другое...
+
+### <a name="application-registration"></a>Регистрация приложения
+
+Выполните действия, описанные в разделе [Регистрация приложения](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application).
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-### <a name="granting-data-access"></a>Предоставление доступа к данным
+## <a name="step-2-grant-access"></a>Шаг 2. предоставление доступа
 
-1. Для среды "аналитика временных рядов Azure" выберите **политики доступа к данным** и нажмите кнопку **Добавить**.
+Когда среда службы "аналитика временных рядов Azure" получает запрос, сначала проверяется токен носителя вызывающей стороны. Если проверка пройдена, то вызывающая сторона прошла проверку подлинности, а затем выполняется другая проверка, чтобы убедиться, что вызывающая сторона авторизована для выполнения запрошенного действия. Для авторизации любого пользователя или субъекта-службы необходимо сначала предоставить им доступ к среде, назначив их роли читателя или участника.
 
-   [![Добавление новой политики доступа к данным в среду "аналитика временных рядов Azure"](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+- Чтобы предоставить доступ через пользовательский интерфейс [портал Azure](https://portal.azure.com/) , следуйте инструкциям, приведенным в статье [предоставление доступа к данным в среде](https://docs.microsoft.com/azure/time-series-insights/concepts-access-policies) . При выборе пользователя можно искать управляемое удостоверение или регистрацию приложения по его имени или ИДЕНТИФИКАТОРу.
 
-1. В диалоговом окне **Выбор пользователя** вставьте **имя приложения** или **идентификатор приложения**, скопированные в разделе регистрации приложения Azure Active Directory.
+- Чтобы предоставить доступ с помощью Azure CLI, выполните следующую команду. Полный список команд, доступных для управления доступом, см. [в документации.](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/access-policy?view=azure-cli-latest)
 
-   [![Поиск приложения в диалоговом окне "Выбор пользователя"](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   ```azurecli-interactive
+   az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"
+   ```
 
-1. Выберите роль. Выберите **Читатель**, чтобы предоставить разрешение на запрос данных, или **Участник**, чтобы предоставить разрешение на запрос данных и изменение эталонных данных. Щелкните **ОК**.
+> [!Note]
+> Для расширения timeseriesinsights для Azure CLI требуется версия 2.11.0 или более поздняя. Расширение будет автоматически установлено при первом запуске команды AZ TSI Access-Policy. Дополнительные [сведения](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) о расширениях.
 
-   [![Выбор роли "Читатель" или "Участник" в диалоговом окне "Выбор роли"](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+## <a name="step-3-requesting-tokens"></a>Шаг 3. запрос маркеров
 
-1. Сохраните политику, нажав кнопку **ОК**.
+После того как управляемое удостоверение или регистрация приложения подготовлены и назначена роль, вы можете начать использовать ее для запроса токенов носителя OAuth 2,0. Метод, используемый для получения маркера, будет отличаться в зависимости от того, где размещается код, и от выбранного языка. При указании ресурса (также известного как "аудитория" маркера) можно определить аналитику временных рядов Azure по его URL-адресу или GUID:
 
-   > [!TIP]
-   > Сведения о дополнительных параметрах доступа к данным см. в разделе, посвященном [предоставлению доступа к данным](./concepts-access-policies.md).
+* `https://api.timeseries.azure.com/`
+* `120d688d-1518-4cf7-bd38-182f158850b6`
 
-### <a name="client-app-initialization"></a>Инициализация клиентского приложения
+> [!IMPORTANT]
+> При использовании URL-адреса в качестве идентификатора ресурса маркер должен быть полностью выдан `https://api.timeseries.azure.com/` . Требуется завершающая косая черта.
 
-* Разработчики могут использовать [библиотеку проверки подлинности Майкрософт (MSAL) для проверки подлинности с помощью службы "аналитика временных рядов Azure".
+> * Если вы используете [POST](https://www.getpostman.com/) , **аусурл** будет следующим образом: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
+> * `https://api.timeseries.azure.com/` является действительным адресом, а `https://api.timeseries.azure.com` — нет.
 
-* Проверка подлинности с помощью MSAL:
+### <a name="managed-identities"></a>Управляемые удостоверения
 
-   1. Используйте **идентификатор приложения** и **секрет клиента** (ключ приложения) из раздела регистрации приложения Azure Active Directory, чтобы получить маркер от имени приложения.
+При доступе из службы приложений Azure или функций следуйте указаниям в статье [получение маркеров для ресурсов Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity).
 
-   1. В C# маркер безопасности от имени приложения можно получить с помощью следующего кода. Полный пример запроса данных из среды Gen1 см. в статье [запрос данных с помощью C#](time-series-insights-query-data-csharp.md).
+> [!TIP]
+> Для приложений и функций .NET самым простым способом работы с управляемым удостоверением является [Клиентская библиотека удостоверений Azure](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme) для .NET. 
 
-        Чтобы получить доступ к коду C#, см. репозиторий [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)].
+Самый простой способ для приложений и функций .NET работать с управляемыми удостоверениями заключается в использовании пакета Microsoft.Azure.Services.AppAuthentication. Этот пакет является популярным из-за простоты и безопасности. Разработчики могут написать код один раз и позволить клиентской библиотеке определять способ проверки подлинности в зависимости от среды приложения — будь то Рабочая станция разработчика, использующая учетная запись разработчика, или развернутая в Azure с помощью управляемого удостоверения службы. Руководство по миграции из библиотеки предшественников AppAuthentication [AppAuthentication в Azure. Руководство по миграции удостоверений](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration?view=azure-dotnet).
 
-   1. После этого маркер можно передать в заголовок, `Authorization` когда приложение вызовет API службы "аналитика временных рядов Azure".
+Запрос маркера для службы "аналитика временных рядов Azure" с помощью C# и клиентской библиотеки Azure Identity для .NET:
+
+    ```csharp
+    using Azure.Identity;
+    // ...
+    var credential = new DefaultAzureCredential();
+    var token = credential.GetToken(
+    new Azure.Core.TokenRequestContext(
+        new[] { "https://api.timeseries.azure.com/" }));
+   var accessToken = Token. Лекс
+    ```
+
+### <a name="app-registration"></a>Регистрация приложений
+
+* Разработчики могут использовать [библиотеку проверки подлинности Майкрософт](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) (MSAL) для получения маркеров для регистрации приложений.
+
+MSAL можно использовать во многих сценариях приложений, включая, но не только:
+
+* [Одностраничные приложения (JavaScript)](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview.md)
+* [веб-приложения, в которые могут входить пользователи и которые могут вызывать веб-API от имени пользователя;](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-overview.md)
+* [веб-API, вызывающий другой подчиненный веб-API от имени выполнившего вход пользователя;](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-overview.md)
+* [Классическое приложение, вызывающее веб-API от имени пользователя, выполнившего вход](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview.md)
+* [Мобильное приложение, вызывающее веб-API от имени пользователя, выполнившего вход в интерактивном режиме](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-overview.md).
+* [классическая управляющая программа / управляющая программа службы, вызывающая веб-API от своего имени.](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-overview.md)
+
+Пример кода на C#, демонстрирующий получение маркера в качестве регистрации приложения и запрос данных из среды Gen2, см. в примере приложения на сайте [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs) .
 
 > [!IMPORTANT]
 > Если вы используете [библиотеку Azure Active Directory для проверки подлинности (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) , см. статью о [миграции на MSAL](../active-directory/develop/msal-net-migration.md).
@@ -99,26 +151,16 @@ ms.locfileid: "95016247"
 > [!TIP]
 > Дополнительные сведения об использовании интерфейсов REST API, а также о HTTP-запросах и обработке HTTP-ответов см. в [справочнике по Azure REST API](/rest/api/azure/)
 
-### <a name="authentication"></a>Аутентификация
-
-Для выполнения запросов с проверкой подлинности к [API-интерфейсам службы "аналитика временных рядов Azure](/rest/api/time-series-insights/)" допустимый токен носителя OAuth 2,0 должен быть передан в [заголовок авторизации](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) с помощью произвольного клиента (POST, JavaScript, C#).
-
-> [!TIP]
-> Ознакомьтесь с [примером визуализации клиентского пакета SDK](https://tsiclientsample.azurewebsites.net/) для службы "аналитика временных рядов Azure", чтобы узнать, как выполнять аутентификацию с помощью API-интерфейсов службы "аналитика временных рядов Azure" программным способом с помощью [клиентского пакета SDK для JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) и диаграмм и графиков.
-
 ### <a name="http-headers"></a>HTTP-заголовки
 
 Обязательные заголовки запроса описаны ниже.
 
 | Обязательный заголовок запроса | Описание |
 | --- | --- |
-| Авторизация | Для аутентификации с помощью службы "аналитика временных рядов Azure" в заголовке **авторизации** должен быть передан допустимый токен носителя OAuth 2,0. |
+| Авторизация | Для аутентификации с помощью службы "аналитика временных рядов Azure" в [заголовке авторизации](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate)должен быть передан допустимый токен носителя OAuth 2,0. |
 
-> [!IMPORTANT]
-> Маркер должен быть выдан ресурсу `https://api.timeseries.azure.com/` (известному как "аудитория" маркера).
-
-> * Результирующий **AuthURL** [Postman](https://www.getpostman.com/) будет следующим: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
-> * `https://api.timeseries.azure.com/` является действительным адресом, а `https://api.timeseries.azure.com` — нет.
+> [!TIP]
+> Ознакомьтесь с [примером визуализации клиентского пакета SDK](https://tsiclientsample.azurewebsites.net/) для службы "аналитика временных рядов Azure", чтобы узнать, как выполнять аутентификацию с помощью API-интерфейсов службы "аналитика временных рядов Azure" программным способом с помощью [клиентского пакета SDK для JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) и диаграмм и графиков.
 
 Дополнительные заголовки запроса описаны ниже.
 
@@ -144,14 +186,10 @@ ms.locfileid: "95016247"
 
 Обязательные параметры строки запроса URL-адреса зависят от версии API.
 
-| Release | Возможные значения версии API |
+| Release | Значения версий API |
 | --- |  --- |
 | Поколение 1 | `api-version=2016-12-12`|
-| Поколение 2 | `api-version=2020-07-31` и `api-version=2018-11-01-preview`|
-
-> [!IMPORTANT]
->
-> В `api-version=2018-11-01-preview` ближайшее время версия будет устаревшей. Мы рекомендуем пользователям переключаться на более новую версию.
+| Поколение 2 | `api-version=2020-07-31`|
 
 Необязательные параметры строки запроса URL-адреса включают установку времени ожидания для времени выполнения HTTP-запроса.
 
@@ -166,6 +204,4 @@ ms.locfileid: "95016247"
 
 * Пример кода, который вызывает примеры кода API Gen2 для службы "аналитика временных рядов Azure", — чтение [данных запроса Gen2 с помощью C#](./time-series-insights-update-query-data-csharp.md).
 
-* Справочные сведения об API см. в [справочной документации по API запроса](/rest/api/time-series-insights/gen1-query-api).
-
-* Узнайте подробнее о [создании субъекта-службы](../active-directory/develop/howto-create-service-principal-portal.md).
+* Справочные сведения об API см. в [справочной документации по API запроса](/rest/api/time-series-insights/reference-query-apis).

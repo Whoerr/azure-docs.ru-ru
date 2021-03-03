@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 89a2a659e195afcae336c930a101ed0c0b470cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944851"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715417"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Миграция локальных Apache Hadoop кластеров в Azure HDInsight
 
@@ -75,7 +75,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 - [Целевые показатели масштабируемости и производительности для хранилища BLOB-объектов](../../storage/blobs/scalability-targets.md)
 - [Производительность хранилища Microsoft Azure и контрольный список масштабируемости](../../storage/blobs/storage-performance-checklist.md)
 - [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [Мониторинг учетной записи хранения на портале Azure](../../storage/common/storage-monitor-storage-account.md)
+- [Мониторинг учетной записи хранения на портале Azure](../../storage/common/manage-storage-analytics-logs.md)
 
 ### <a name="azure-data-lake-storage-gen1"></a>Хранилище Azure Data Lake Storage 1-го поколения
 

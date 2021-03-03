@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/29/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430363"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691490"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Настройка параметров модели с помощью Машинное обучение Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "99430363"
 1. определение пространства поиска параметров;
 1. Указание основной метрики для оптимизации  
 1. Укажите политику раннего завершения для выполнения с низким уровнем выполнения
-1. Выделение ресурсов
+1. Создание и назначение ресурсов
 1. Запуск эксперимента с заданной конфигурацией
 1. визуализация учебных запусков;
 1. Выберите оптимальную конфигурацию для модели
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 [Выборка по сетке](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) поддерживает дискретные параметры. Использование выборки по сетке можно использовать, если вы можете выполнять поиск в области поиска по бюджету. Поддерживает раннее завершение низкоуровневых запусков.
 
-Выполняет простой поиск в сетке по всем возможным значениям. Выборка по сетке может использоваться только с `choice` параметрами. Например, в следующем пространстве имеется шесть выборок:
+Выборка по сетке выполняет простой поиск по всем возможным значениям. Выборка по сетке может использоваться только с `choice` параметрами. Например, в следующем пространстве имеется шесть выборок:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -133,7 +133,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Байесовская выборка
 
-[Выборка Байеса](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) основана на алгоритме оптимизации Байеса. Выборка выбирается в зависимости от того, как выполнялись предыдущие выборки, чтобы новые примеры могли улучшить основную метрику.
+[Выборка Байеса](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) основана на алгоритме оптимизации Байеса. Выборка зависит от того, как выполнялись предыдущие примеры, чтобы новые примеры могли улучшить основную метрику.
 
 Выборка Байеса рекомендуется при наличии достаточного бюджета для изучения пространства параметров. Для получения наилучших результатов рекомендуется, чтобы максимальное число запусков, большее или равное 20, превышало количество настраиваемых параметров. 
 
@@ -187,7 +187,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Укажите политику раннего завершения
 
-Автоматическое завершение плохо выполняемых запусков с помощью политики раннего завершения. Раннее завершение улучшает вычислительную эффективность.
+Автоматическое завершение плохо выполняемых запусков с политикой раннего завершения. Раннее завершение улучшает вычислительную эффективность.
 
 Можно настроить следующие параметры, определяющие, когда применяется политика.
 
@@ -203,7 +203,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 ### <a name="bandit-policy"></a>Политика Bandit
 
-[Политика бандит](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) основана на значении коэффициента времени и времени резерва и интервале оценки. Бандит завершает работу, когда основная метрика не попадает в указанный коэффициент временного резерва или сумму временного резерва по сравнению с наилучшим выполнением.
+[Политика бандит](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) основана на значении коэффициента времени и времени резерва и интервале оценки. Бандит завершает работу, когда основная метрика не попадает в указанный коэффициент временного резерва или сумму временного резерва для наиболее успешного выполнения.
 
 > [!NOTE]
 > Выборка Байеса не поддерживает раннее завершение. При использовании выборки Байеса задайте `early_termination_policy = None` .
@@ -226,7 +226,7 @@ early_termination_policy = BanditPolicy(slack_factor = 0.1, evaluation_interval=
 
 ### <a name="median-stopping-policy"></a>Политика медианной остановки
 
-[Средняя остановка](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) — это политика раннего завершения, основанная на средних показателях основных метрик, сообщаемых выполнениями. Эта политика вычисляет среднее выполнение всех обучающих запусков и завершает работу с основными значениями метрик, которые хуже медианы средних значений.
+[Средняя остановка](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) — это политика раннего завершения, основанная на средних показателях основных метрик, сообщаемых выполнениями. Эта политика вычисляет среднее выполнение всех учебных запусков и останавливает выполнение, для которых значение первичной метрики хуже медианы средних значений.
 
 Она принимает следующие параметры конфигурации:
 * `evaluation_interval`: частота применения политики (необязательный параметр).
@@ -238,7 +238,7 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-В этом примере политика раннего завершения применяется в каждом интервале, начиная с оценочного интервала 5. Выполнение прерывается в интервале 5, если его лучшая основная метрика хуже медианы скользящего среднего по интервалам 1:5 во всех учебных запусках.
+В этом примере политика раннего завершения применяется в каждом интервале, начиная с оценочного интервала 5. Выполнение останавливается в интервале 5, если его лучшая основная метрика хуже, чем медиана скользящего среднего с интервалом в 1:5 во всех учебных запусках.
 
 ### <a name="truncation-selection-policy"></a>Политика выбора усечения
 
@@ -271,7 +271,7 @@ policy=None
 * Для консервативной политики, которая обеспечивает экономию без завершения планирования заданий, рассмотрим политику среднего преостановки с `evaluation_interval` 1 и `delay_evaluation` 5. Это консервативные настройки, которые могут обеспечить экономию приблизительно 25–35 % без потерь по основной метрике (на основе наших оценочных данных).
 * Для более агрессивной экономии используйте политику бандит с меньшим допустимым параметром резерва или с более крупным процентом усечения.
 
-## <a name="allocate-resources"></a>Выделение ресурсов
+## <a name="create-and-assign-resources"></a>Создание и назначение ресурсов
 
 Контролируйте бюджет ресурсов, указав максимальное количество обучающих запусков.
 
@@ -302,18 +302,28 @@ max_concurrent_runs=4
 * Политика раннего завершения
 * Основная метрика
 * Параметры выделения ресурсов
-* скриптрунконфиг `src`
+* скриптрунконфиг `script_run_config`
 
 Скриптрунконфиг — это обучающий сценарий, который будет выполняться с примерами параметров. Он определяет ресурсы на задание (один или несколько узлов) и целевой объект вычислений для использования.
 
 > [!NOTE]
->Целевой объект вычислений, указанный в, `src` должен иметь достаточно ресурсов для удовлетворения вашего уровня параллелизма. Дополнительные сведения о Скриптрунконфиг см. в статье [Настройка обучающих запусков](how-to-set-up-training-targets.md).
+>Целевой объект вычислений, используемый в, `script_run_config` должен иметь достаточно ресурсов для удовлетворения вашего уровня параллелизма. Дополнительные сведения о Скриптрунконфиг см. в статье [Настройка обучающих запусков](how-to-set-up-training-targets.md).
 
 Конфигурация эксперимента по настройке гиперпараметров:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hd_config = HyperDriveConfig(run_config=src,
+from azureml.train.hyperdrive import RandomParameterSampling, BanditPolicy, uniform, PrimaryMetricGoal
+
+param_sampling = RandomParameterSampling( {
+        'learning_rate': uniform(0.0005, 0.005),
+        'momentum': uniform(0.9, 0.99)
+    }
+)
+
+early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
+
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              primary_metric_name="accuracy",
@@ -321,6 +331,36 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_total_runs=100,
                              max_concurrent_runs=4)
 ```
+
+`HyperDriveConfig`Задает параметры, передаваемые в `ScriptRunConfig script_run_config` . `script_run_config`, В свою очередь, передает параметры в сценарий обучения. Приведенный выше фрагмент кода взят из примера записной книжки [обучение, Настройка параметров и развертывание с помощью PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). В этом примере `learning_rate` `momentum` будут настроены параметры и. Раннее прекращение выполнения будет определяться `BanditPolicy` , что останавливает выполнение, основная метрика которого выходит за пределы `slack_factor` (см. [Справочник по классу бандитполици](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)). 
+
+В следующем коде из примера показано, как задаваемые значения получаются, анализируются и передаются в функцию обучающего скрипта `fine_tune_model` :
+
+```python
+# from pytorch_train.py
+def main():
+    print("Torch version:", torch.__version__)
+
+    # get command-line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=25,
+                        help='number of epochs to train')
+    parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float,
+                        default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    args = parser.parse_args()
+
+    data_dir = download_data()
+    print("data directory is: " + data_dir)
+    model = fine_tune_model(args.num_epochs, data_dir,
+                            args.learning_rate, args.momentum)
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
+```
+
+> [!Important]
+> Все параметры запуска перезапускают обучение с нуля, включая перестроение модели и _всех загрузчиков данных_. Эту стоимость можно сокращать с помощью конвейера Машинное обучение Azure или ручного процесса, чтобы максимально подготовить данные до выполнения обучения. 
 
 ## <a name="submit-hyperparameter-tuning-experiment"></a>Отправка эксперимента по настройке параметров
 
@@ -335,7 +375,6 @@ hyperdrive_run = experiment.submit(hd_config)
 ## <a name="warm-start-hyperparameter-tuning-optional"></a>Настройка параметров теплого запуска (необязательно)
 
 Для поиска лучших значений параметров в модели можно использовать итеративный процесс. Вы можете повторно использовать знания из пяти предыдущих запусков, чтобы ускорить настройку параметров.
-
 
 Горячий запуск обрабатывается по-разному в зависимости от метода выборки:
 - **Выборка Байеса**: пробные версии из предыдущего запуска используются в качестве предыдущих знаний для выбора новых примеров и для улучшения основной метрики.
@@ -368,7 +407,7 @@ child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hd_config = HyperDriveConfig(run_config=src,
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              resume_from=warmstart_parents_to_resume_from,

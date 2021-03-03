@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903451"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726325"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Реализация динамического стиля для карт создателя (Предварительная версия)
 
 > [!IMPORTANT]
-> Службы Creator Azure Maps в настоящее время доступны в общедоступной предварительной версии.
+> Службы Создателя Azure Maps в настоящее время предоставляются в общедоступной предварительной версии.
 > Эта предварительная версия предоставляется без соглашения об уровне обслуживания и не рекомендована для использования рабочей среде. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Служба состояния признаков](/rest/api/maps/featurestate) Azure Maps Creator позволяет применять стили на основе динамических свойств признаков схем помещений.  Например, можно отобразить конференц-залы в определенном цвете в зависимости от состояния заполнения. В этой статье мы покажем, как динамически преобразовывать для просмотра признаки схемы с помощью [службы состояния признаков](/rest/api/maps/featurestate) и [веб-модуля схем помещений](how-to-use-indoor-module.md).
@@ -27,7 +27,7 @@ ms.locfileid: "96903451"
 
 1. [Создайте учетную запись службы Azure Maps.](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Получите первичный ключ подписки](quick-demo-map-app.md#get-the-primary-key-for-your-account), который иногда называется первичным ключом или ключом подписки.
-3. [Создание ресурса создателя (Предварительная версия)](how-to-manage-creator.md)
+3. [Создание ресурса Создателя (предварительная версия)](how-to-manage-creator.md)
 4. Скачайте [пример пакета рисунков](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Создайте схему помещения](tutorial-creator-indoor-maps.md), чтобы получить `tilesetId` и `statesetId`.
 6. Выполните сборку веб-приложения по инструкциям, описанным в статье [Использование модуля схем помещений](how-to-use-indoor-module.md).
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ map.events.add("click", function(e){
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. В **заголовках** запроса **POST** установите для параметра `Content-Type` значение `application/json`. В **тексте** запроса **POST** напишите следующий код JSON с обновлениями признаков. Обновление будет сохранено только в том случае, если отметка времени публикации будет позже метки времени, используемой в предыдущих запросах на обновление состояния признака для того же значения `ID` признака. Передайте значение occupied для параметра `keyName`, чтобы обновить его.
+3. В **заголовках** запроса **POST** установите для параметра `Content-Type` значение `application/json`. В **тексте** запроса **POST** Напишите следующий необработанный JSON с обновлениями компонентов. Обновление будет сохранено только в том случае, если отметка времени публикации будет позже метки времени, используемой в предыдущих запросах на обновление состояния признака для того же значения `ID` признака. Передайте значение occupied для параметра `keyName`, чтобы обновить его.
 
     ```json
     {
@@ -108,9 +108,11 @@ map.events.add("click", function(e){
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Визуализация динамических стилей на схеме
 
-Веб-приложение, которое вы ранее открыли в браузере, теперь должно отображать обновленное состояние для признаков схемы. Объект `UNIT27`(151) должен отображаться зеленым цветом, а `UNIT26`(157) — красным.
+Веб-приложение, которое вы ранее открыли в браузере, теперь должно отображать обновленное состояние для признаков схемы. `UNIT27`(142) должно отобразиться зеленым цветом, а `UNIT26` (143) — красным.
 
 ![Свободное помещение выделено зеленым, а занятое помещение — красным](./media/indoor-map-dynamic-styling/room-state.png)
+
+[Ознакомьтесь с демонстрацией в реальном времени](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

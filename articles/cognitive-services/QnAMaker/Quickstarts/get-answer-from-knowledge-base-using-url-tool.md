@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
 ms.date: 07/16/2020
-ms.openlocfilehash: c934aca046ada07e0d6cda44221cc81a8eb4e57d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4ed4ec7bfaa6a6099d9017f08375698c62faa36c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345755"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722421"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>Краткое руководство. Получение ответов из базы знаний
 
@@ -35,7 +35,7 @@ ms.locfileid: "96345755"
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Тестирование базы знаний с использованием пакетного файла](../index.yml)
+> [Тестирование базы знаний с использованием пакетного файла](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 Узнайте больше о метаданных:
 * [Разработка: добавление метаданных в пару "вопрос-ответ"](../How-To/edit-knowledge-base.md#add-metadata)

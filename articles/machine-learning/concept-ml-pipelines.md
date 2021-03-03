@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 01/12/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8b5e74d12af92b5d300e638bee27020a5af5383c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871559"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690385"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Что такое Машинное обучение Azure конвейеров?
 
@@ -95,22 +95,27 @@ experiment = Experiment(ws, 'MyExperiment')
 
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
+prepped_data_path = OutputFileDatasetConfig(name="output_path")
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
-    compute_target=cluster,
-    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
-    )
-output_data = OutputFileDatasetConfig()
-input_named = input_data.as_named_input('input')
-
-steps = [ PythonScriptStep(
-    script_name="train.py",
-    arguments=["--input", input_named.as_download(), "--output", output_data],
+    source_directory="prep_src",
     compute_target=compute_target,
-    source_directory="myfolder"
-) ]
+    arguments=["--prepped_data_path", prepped_data_path],
+    inputs=[input_dataset.as_named_input('raw_data').as_mount() ]
+    )
+
+prepped_data = prepped_data_path.read_delimited_files()
+
+train_step = PythonScriptStep(
+    name="train",
+    script_name="train.py",
+    compute_target=compute_target,
+    arguments=["--prepped_data", prepped_data],
+    source_directory="train_src"
+)
+steps = [ dataprep_step, train_step ]
 
 pipeline = Pipeline(workspace=ws, steps=steps)
 
@@ -118,9 +123,13 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Фрагмент кода начинается с общих Машинное обучение Azure объектов,, a, `Workspace` `Datastore` [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)и `Experiment` . Затем код создает объекты для хранения `input_data` и `output_data` . `input_data`Является экземпляром [филедатасет](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) , а `output_data` — экземпляром [аутпутфиледатасетконфиг](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Для `OutputFileDatasetConfig` поведения по умолчанию необходимо скопировать выходные данные в хранилище данных по `workspaceblobstore` пути `/dataset/{run-id}/{output-name}` , где `run-id` — идентификатор выполнения, а `output-name` — автоматически сформированное значение, если оно не указано разработчиком.
+Фрагмент кода начинается с общих Машинное обучение Azure объектов,, a, `Workspace` `Datastore` [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)и `Experiment` . Затем код создает объекты для хранения `input_data` и `prepped_data_path` . `input_data`Является экземпляром [филедатасет](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) , а `prepped_data_path` — экземпляром [аутпутфиледатасетконфиг](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Для `OutputFileDatasetConfig` поведения по умолчанию необходимо скопировать выходные данные в хранилище данных по `workspaceblobstore` пути `/dataset/{run-id}/{output-name}` , где `run-id` — идентификатор выполнения, а `output-name` — автоматически сформированное значение, если оно не указано разработчиком.
 
-Массив `steps` содержит один элемент, `PythonScriptStep` который будет использовать объекты данных и выполняется в `compute_target` . Затем код создает экземпляр `Pipeline` самого объекта, передавая в него рабочую область и массив шагов. Вызов начинается с `experiment.submit(pipeline)` запуска конвейера машинного обучения Azure. Вызов `wait_for_completion()` блокируется до завершения конвейера. 
+Код подготовки данных (не показан) записывает файлы с разделителями в `prepped_data_path` . Эти выходные данные этапа подготовки данных передаются в качестве `prepped_data` этапа обучения. 
+
+Массив `steps` содержит два массива `PythonScriptStep` : `dataprep_step` и `train_step` . Машинное обучение Azure проанализирует зависимость данных и будет `prepped_data` выполняться `dataprep_step` раньше `train_step` . 
+
+Затем код создает экземпляр `Pipeline` самого объекта, передавая в него рабочую область и массив шагов. Вызов начинается с `experiment.submit(pipeline)` запуска конвейера машинного обучения Azure. Вызов `wait_for_completion()` блокируется до завершения конвейера. 
 
 Дополнительные сведения о подключении конвейера к данным см. в статьях [доступ к данным в машинное обучение Azure](concept-data.md) и [Перемещение данных между этапами конвейера ml (Python)](how-to-move-data-in-out-of-pipelines.md). 
 

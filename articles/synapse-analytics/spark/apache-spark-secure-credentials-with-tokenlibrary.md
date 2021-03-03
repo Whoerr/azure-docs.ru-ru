@@ -10,12 +10,12 @@ ms.date: 11/19/2020
 ms.author: martinle
 ms.reviewer: nirav
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 8c2e2327667ccb9284a22e65418a80f3066d22df
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a588b37b270917524453419619fdad6f88f92338
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510800"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693583"
 ---
 # <a name="secure-credentials-with-linked-services-using-the-tokenlibrary"></a>Защита учетных данных с помощью связанных служб с использованием библиотеки TokenLibrary
 
@@ -275,7 +275,7 @@ Console.WriteLine(connectionString);
 
 getConnectionStringAsMap — это вспомогательная функция, доступная в Scala и Python для анализа конкретных значений из пар _ключ=значение_ в строке подключения, например следующих:
 
-_`DefaultEndpointsProtocol=https;AccountName=\<ACCOUNT NAME>;AccountKey=\<ACCOUNT KEY>`_
+_`DefaultEndpointsProtocol=https;AccountName=<ACCOUNT NAME>;AccountKey=<ACCOUNT KEY>`_
 
 используйте функцию **getConnectionStringAsMap** и передайте ключ, чтобы вернуть значение.  В приведенном выше примере строки подключения 
 

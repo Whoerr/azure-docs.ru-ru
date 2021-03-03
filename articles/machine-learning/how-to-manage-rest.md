@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf1d6f5838e467c5f44a0090a4f1a15cd9d4ac77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692459"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Создание, запуск и удаление ресурсов машинного обучения Azure с помощью функции "ОСТАВШАЯся"
 
@@ -79,7 +79,7 @@ curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
 Запишите маркер, так как он будет использоваться для проверки подлинности всех последующих административных запросов. Это можно сделать, задав заголовок Authorization во всех запросах:
 
 ```bash
-curl -h "Authentication: Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
 Обратите внимание, что значение начинается со строки "Bearer", включающей в себя один пробел перед добавлением маркера.
@@ -202,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Обратите внимание, что для перечисления экспериментов путь начинается с `history/v1.0` , когда для вывода списка моделей путь начинается с `modelmanagement/v1.0` . REST API разделена на несколько операционных групп, каждый из которых имеет отдельный путь. 
 
-|Область|путь|
+|Область|Путь|
 |-|-|
 |Artifacts|/рест/апи/азуремл|
 |Хранилища данных|/азуре/мачине-леарнинг/хов-то-акцесс-дата|

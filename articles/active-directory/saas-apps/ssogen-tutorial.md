@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: f9c09dbef072ff1d006603cbc3d0767fc530a99b
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 9eeafaf0f5fbfaff9394ced0a0623f2fb462ed4d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558360"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647002"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Учебник. Интеграция единого входа Azure Active Directory с приложением "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE"
 
@@ -148,8 +148,8 @@ ms.locfileid: "100558360"
 
 * Выберите **Тестировать приложение** на портале Azure, и вы автоматически войдете в приложение "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE", для которого настроен единый вход. 
 
-Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку приложения "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE" на портале "Мои приложения", вы будете перенаправлены на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика услуг) или автоматически войдете в приложение "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE", для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку приложения "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE" на портале "Мои приложения", вы будете перенаправлены на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика услуг) или автоматически войдете в приложение "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE", для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки приложения "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE" вы сможете применять средства управления сеансами, которые защищают от хищения и несанкционированного доступа к конфиденциальным данным вашей организации в режиме реального времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки приложения "Шлюз единого входа Azure AD SSOGEN для Oracle E-Business Suite (EBS), PeopleSoft и JDE" вы сможете применять средства управления сеансами, которые защищают от хищения и несанкционированного доступа к конфиденциальным данным вашей организации в режиме реального времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

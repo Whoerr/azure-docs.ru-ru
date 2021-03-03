@@ -6,18 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 25572a4cc342277289459891c9bee2fa7f1cccd7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0656a9eabb692453331c5c4b229ce26f41ecfdf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589086"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730207"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Создание и администрирование проектов Миграции Azure
 
 В этой статье описывается создание, Администрирование и удаление проектов службы " [Миграция Azure](migrate-services-overview.md) ". 
 
-Классическая миграция Azure в течение февраля 2024. После февраля 2024, классическая версия службы "миграция Azure" больше не будет поддерживаться, и метаданные инвентаризации в классическом проекте будут удалены. Если вы используете классические проекты службы "миграция Azure", удалите эти проекты и следуйте инструкциям по созданию проекта службы "миграция Azure". Вы не можете обновить классические проекты или компоненты службы "миграция Azure" в службу "миграция Azure". Просмотрите [вопросы и ответы](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) перед началом процесса создания.
+В феврале 2024 г. поддержка классической версии Миграции Azure будет прекращена. После февраля 2024, классическая версия службы "миграция Azure" больше не будет поддерживаться, и метаданные инвентаризации в классическом проекте будут удалены. Если вы используете классические проекты службы "миграция Azure", удалите эти проекты и следуйте инструкциям по созданию проекта службы "миграция Azure". Вы не можете обновить классические проекты или компоненты службы "миграция Azure" в службу "миграция Azure". Просмотрите [вопросы и ответы](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) перед началом процесса создания.
 
 Проект Миграции Azure используется для хранения метаданных обнаружения, оценки и миграции, собранных из среды, для которой выполняется оценка или миграция. В проекте можно контролировать обнаруженные ресурсы, создавать оценки и управлять миграцией в Azure.  
 
@@ -129,6 +129,6 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
        
 2. [Следуйте инструкциям](../azure-monitor/logs/delete-workspace.md) , чтобы удалить рабочую область.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Добавление средств [оценки](how-to-assess.md) или [миграции](how-to-migrate.md) в проекты службы "миграция Azure".

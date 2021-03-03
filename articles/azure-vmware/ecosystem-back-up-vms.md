@@ -3,12 +3,12 @@ title: Решения резервного копирования для вир�
 description: Узнайте о ведущих решениях резервного копирования и восстановления для виртуальных машин Azure VMware.
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.openlocfilehash: 650272a28a7b7639941c30d8d81c6de5a13bcdb3
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6a404f6e57f6e278f60dd63df36a90bb5f6664f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738469"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Решения резервного копирования для виртуальных машин Azure VMware (ВМ)
 
@@ -20,5 +20,6 @@ ms.locfileid: "98119073"
 
 Дополнительные сведения об этих решениях резервного копирования можно найти здесь:
 - [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
-- [Компанию](https://vrt.as/nb4avs)
+- [Veritas](https://vrt.as/nb4avs)
 - [Veeam](https://www.veeam.com/kb4012)
+- [Cohesity](https://www.cohesity.com/resource-assets/solution-brief/Cohesity-Azure-Solution-Brief.pdf)

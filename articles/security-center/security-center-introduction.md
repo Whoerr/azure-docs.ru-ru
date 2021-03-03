@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c4861192c7f2bbfb2a51e19b88daee45b501949b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806180"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634776"
 ---
 # <a name="what-is-azure-security-center"></a>Что такое Центр безопасности Azure?
 
@@ -101,7 +101,7 @@ ms.locfileid: "98806180"
 
 Защита от угроз Центра безопасности включает объединение анализа цепочки отказов, который автоматически сопоставляет оповещения в среде на основе анализа цепочки отказов в киберсреде, чтобы помочь лучше понять полную историю кампании атаки, откуда она была запущена и какое влияние имела на ваши ресурсы.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Оповещения безопасности":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Список оповещений системы безопасности в Центре безопасности Azure":::
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Интеграция с Microsoft Defender для конечной точки
 

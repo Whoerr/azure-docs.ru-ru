@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d029f033a3c452587dbeeadf69c46cc99f604031
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053861"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646135"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Руководство по настройке BlueJeans для автоматической подготовки пользователей
 
@@ -27,7 +27,7 @@ ms.locfileid: "99053861"
 > * Создание пользователей в BlueJeans.
 > * Удаление пользователей в BlueJeans, когда доступ им больше не нужен.
 > * Синхронизация атрибутов пользователей в Azure AD и BlueJeans.
-> * [Единый вход](https://docs.microsoft.com/azure/active-directory/saas-apps/bluejeans-tutorial) в BlueJeans (рекомендуется).
+> * [Единый вход](./bluejeans-tutorial.md) в BlueJeans (рекомендуется).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -141,7 +141,7 @@ ms.locfileid: "99053861"
 После настройки подготовки используйте следующие ресурсы для мониторинга развертывания.
 
 1. Используйте [журналы подготовки](../reports-monitoring/concept-provisioning-logs.md), чтобы определить, какие пользователи были подготовлены успешно или неудачно.
-2. Используйте [индикатор выполнения](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), чтобы узнать состояние цикла подготовки и приблизительное время до его завершения.
+2. Используйте [индикатор выполнения](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), чтобы узнать состояние цикла подготовки и приблизительное время до его завершения.
 3. Если конфигурация подготовки, вероятно, находится в неработоспособном состоянии, приложение перейдет в карантин. Дополнительные сведения о режимах карантина см. [здесь](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Ограничения соединителя

@@ -1,22 +1,21 @@
 ---
 title: Часто задаваемые вопросы о ценообразовании для Монитора производительности сети Azure | Документация Майкрософт
 description: Часто задаваемые вопросы. Монитор производительности сети Azure
-ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 56163d3267a69099cbf6a18266168e9198ea04c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832884"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717440"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Изменения в ценообразовании для Монитора производительности сети Azure
 
 > [!IMPORTANT]
-> Начиная с 1 июля 2021 вы не сможете добавлять новые тесты в существующую рабочую область или включать новую рабочую область в Монитор производительности сети. Вы можете продолжать использовать тесты, созданные до 1 июля 2021. Чтобы минимизировать перерыв в работе службы для текущих рабочих нагрузок, [перенесите тесты из монитор производительности сети в новый монитор подключений](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) в наблюдатель за сетями Azure до 29 февраля 2024.
+> Начиная с 1 июля 2021 вы не сможете добавлять новые тесты в существующую рабочую область или включать новую рабочую область в Монитор производительности сети. Вы можете продолжать использовать тесты, созданные до 1 июля 2021. Чтобы минимизировать перерыв в работе службы для текущих рабочих нагрузок, [перенесите тесты из монитор производительности сети в новый монитор подключений](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) в наблюдатель за сетями Azure до 29 февраля 2024.
 
 Прислушавшись к вашим отзывам, недавно мы представили [изменения в ценообразовании](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) для различных служб мониторинга в Azure. В этой статье описываются изменения в ценообразовании, связанные с [Монитором производительности сети](../../networking/network-monitoring-overview.md) Azure (NPM), в легко читаемом формате вопросов и ответов.
 

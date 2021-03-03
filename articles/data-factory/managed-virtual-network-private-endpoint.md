@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379579"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699664"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Управляемая виртуальная сеть фабрики данных Azure (Предварительная версия)
 
@@ -102,19 +102,21 @@ ms.locfileid: "100379579"
 - Северная Европа
 - Западная Европа
 - южная часть Соединенного Королевства
-- Southeast Asia
+- Юго-Восточная Азия
 - Восточная Австралия
 - Юго-Восточная часть Австралии
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Исходящие подключения через общедоступную конечную точку от управляемой виртуальной сети ADF
 - Для исходящих подключений открыт только порт 443.
-- Служба хранилища Azure и Azure Data Lake Gen2 не поддерживают подключение через общедоступную конечную точку из управляемой виртуальной сети ADF.
+- Службу хранилища Azure и Azure Data Lake Storage 2-го поколения нельзя соединить через общедоступную конечную точку из управляемой виртуальной сети ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Создание Azure Key Vault для связанной службы 
 - При создании связанной службы для Azure Key Vault ссылка на Azure Integration Runtime отсутствует. Поэтому нельзя создать частную конечную точку во время создания связанной службы Azure Key Vault. Но когда вы создаете связанную службу для хранилищ данных, ссылающихся Azure Key Vault связанную службу, и эта связанная служба ссылается Azure Integration Runtime с включенной управляемой виртуальной сетью, вы можете создать частную конечную точку для связанной службы Azure Key Vault во время создания. 
 - **Проверка подключения** для связанной службы Azure Key Vault только проверяет формат URL-адреса, но не выполняет никаких сетевых операций.
+- Столбец, **использующий закрытую конечную точку** , всегда отображается как пустой, даже если для Azure Key Vault создается частная конечная точка.
+![Частная конечная точка для AKV](./media/managed-vnet/akv-pe.png)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Руководство. [создание конвейера копирования с помощью управляемой виртуальной сети и частных конечных точек](tutorial-copy-data-portal-private.md) 
 - Учебник. [создание конвейера для сопоставления потоков данных с помощью управляемой виртуальной сети и частных конечных точек](tutorial-data-flow-private.md)

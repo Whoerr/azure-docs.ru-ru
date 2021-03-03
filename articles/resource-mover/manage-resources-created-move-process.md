@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3c4c4e86e2461ea1d05af284e724a5a2991f040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727045"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Управление ресурсами, созданными для перемещения виртуальной машины
 
@@ -24,7 +24,7 @@ ms.locfileid: "100388487"
 
 Вручную удалите коллекцию перемещения и Site Recovery ресурсы, созданные для перемещения виртуальной машины.
 
-1. Изучите ресурсы в группе ресурсов ```ResourceMoverRG-<sourceregion>-<target-region>``` .
+1. Изучите ресурсы в группе ресурсов ```ResourceMoverRG-<sourceregion>-<target-region>-<metadataRegionShortName>``` .
 2. Убедитесь, что виртуальная машина и все другие исходные ресурсы в коллекции перемещения перемещены или удалены. Это гарантирует, что у вас отсутствуют ресурсы, ожидающие использования.
 2. Удалите эти ресурсы.
 

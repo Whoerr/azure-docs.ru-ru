@@ -3,12 +3,12 @@ title: Устранение неполадок при восстановлени
 description: Устранение неполадок при восстановлении файлов и папок из резервной копии виртуальной машины Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735883"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700309"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Устранение неполадок при восстановлении файлов резервной копии виртуальной машины Azure
 
@@ -36,7 +36,7 @@ ms.locfileid: "98735883"
 
 **Рекомендуемое действие**: 12 часов после скачивания скрипта становятся недействительными и не могут быть запущены. Перейдите на портал и Скачайте новый скрипт, чтобы продолжить восстановление файлов.
 
-### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>не удается загрузить модуль iscsi_tcp (или) iscsi_tcp_module не найден
+### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>iscsi_tcp module can’t be loaded (or) iscsi_tcp_module not found (Не удается загрузить модуль iscsi_tcp или iscsi_tcp_module не найден).
 
 **Рекомендуемое действие**. чтобы устранить эту проблему, выполните действия, описанные в разделе [Загрузка скрипта успешно, но не удается запустить](#the-script-downloads-successfully-but-fails-to-run).
 
@@ -51,7 +51,7 @@ ms.locfileid: "98735883"
 
    `nslookup download.microsoft.com`
 
-    или
+    или диспетчер конфигурации служб
 
     `ping download.microsoft.com`
 
@@ -72,7 +72,7 @@ ms.locfileid: "98735883"
 
    `nslookup download.microsoft.com`
 
-   или
+   или диспетчер конфигурации служб
 
    `ping download.microsoft.com`
 1. Обеспечьте доступ к исходящему порту iSCSI 3260.
@@ -88,7 +88,7 @@ ms.locfileid: "98735883"
 При первом запуске сценария в Windows Server 2012 R2 и Windows Server 2016 (с пулами носителей) пул носителей может быть подключен к виртуальной машине только для чтения.
 
 >[!Tip]
-> Убедитесь, что у вас есть [правильный компьютер для выполнения скрипта](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+> Убедитесь, что у вас есть [правильный компьютер для выполнения скрипта](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 Чтобы устранить эту проблему, вручную назначьте доступ для чтения и записи пулу носителей и Подключите виртуальные диски:
 
@@ -108,7 +108,7 @@ ms.locfileid: "98735883"
 
 При восстановлении файлов служба архивации обнаруживает тома и автоматически подключает их. Однако если резервные диски имеют необработанные разделы, эти диски не будут подключаться и диск данных не будет подключен к восстановлению.
 
-Чтобы устранить эту проблему, перейдите к разделу [Восстановление файлов из резервной копии виртуальной машины Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Чтобы устранить эту проблему, перейдите к разделу [Восстановление файлов из резервной копии виртуальной машины Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 #### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>Восстановление файлов Linux завершается сбоем, так как ОС не удалось опознать файловую систему.
 
@@ -122,7 +122,7 @@ ms.locfileid: "98735883"
 
    ![Снимок экрана, показывающий результаты команды для вывода списка блочных устройств.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Проверьте файловую систему и шифрование. Если том зашифрован, восстановление файлов не поддерживается. Дополнительные сведения см. в статье [Матрица поддержки для резервного копирования виртуальных машин Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Проверьте файловую систему и шифрование. Если том зашифрован, восстановление файлов не поддерживается. Дополнительные сведения см. в статье [Матрица поддержки для резервного копирования виртуальных машин Azure](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>Диски подключены, но тома не подключены
 
@@ -139,7 +139,7 @@ ms.locfileid: "98735883"
 Чтобы определить и устранить эту проблему, выполните следующие действия.
 
 >[!Tip]
->Убедитесь, что у вас есть [правильный компьютер для выполнения скрипта](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Убедитесь, что у вас есть [правильный компьютер для выполнения скрипта](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 1. В окне **cmd** запустите **diskmgmt** , чтобы открыть **оснастку "Управление дисками**".
 1. Найдите дополнительные диски. В следующем примере **диск 2** является дополнительным диском.
@@ -159,9 +159,9 @@ ms.locfileid: "98735883"
 #### <a name="linux"></a>Linux
 
 >[!Tip]
->Убедитесь, что у вас есть [правильный компьютер для выполнения скрипта](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Убедитесь, что у вас есть [правильный компьютер для выполнения скрипта](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-Если защищенная виртуальная машина Linux использует массивы LVM или RAID, выполните действия, описанные в статье [Восстановление файлов из резервной копии виртуальной машины Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Если защищенная виртуальная машина Linux использует массивы LVM или RAID, выполните действия, описанные в статье [Восстановление файлов из резервной копии виртуальной машины Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>Невозможно скопировать файлы из подключенных томов
 
@@ -169,6 +169,6 @@ ms.locfileid: "98735883"
 
 Проверьте, включена ли Дедупликация дисков на исходном сервере. Если это так, убедитесь, что на сервере восстановления также включено Дедупликация на дисках. Вы можете оставить дедупликацию ненастроенной, чтобы не дублировать диски на сервере восстановления.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Восстановление файлов и папок из резервной копии виртуальной машины Azure](backup-azure-restore-files-from-vm.md)

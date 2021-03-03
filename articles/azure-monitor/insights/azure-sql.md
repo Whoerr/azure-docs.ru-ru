@@ -1,18 +1,17 @@
 ---
 title: Аналитика SQL Azure решение в Azure Monitor | Документация Майкрософт
 description: Как решение "Аналитика SQL Azure" поможет вам управлять базами данных SQL Azure
-ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: fbe506dc3f5738f0ef639695ded980a24536993e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 54ef88e65925ba9c7e9fe2e44ef0c76fbc9ceb04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577470"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717491"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Мониторинг базы данных SQL Azure с помощью решения "Аналитика SQL Azure" (предварительная версия)
 
@@ -295,7 +294,7 @@ AzureDiagnostics
 
 Хотя Аналитика SQL Azure свободно для использования, использование данных телеметрии диагностики выше количества свободных единиц, выделяемых за каждый месяц, применяется, см. [log Analytics цены](https://azure.microsoft.com/pricing/details/monitor). Бесплатные единицы приема данных позволяют осуществлять бесплатный мониторинг нескольких баз данных каждый месяц. Большее количество активных баз данных с более требовательными рабочими нагрузками применяет больше данных и бездействующих баз данных. Вы можете легко отслеживать потребление данных в Аналитика SQL Azure, выбрав рабочую область OMS в меню навигации Аналитика SQL Azure, а затем выбрав использование и предполагаемые затраты.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Используйте [запросы журналов](../logs/log-query-overview.md) в Azure Monitor для просмотра подробных данных SQL Azure.
 - [Создавайте пользовательские панели мониторинга](../visualize/tutorial-logs-dashboards.md), отображающие данные SQL Azure.

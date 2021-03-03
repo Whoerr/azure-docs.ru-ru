@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259344"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687674"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Публикация удаленного рабочего стола с помощью прокси приложения Azure AD
 
@@ -57,7 +57,7 @@ ms.locfileid: "99259344"
 ### <a name="publish-the-rd-host-endpoint"></a>Публикация конечной точки узла удаленных рабочих столов
 
 1. [Опубликуйте новое приложение прокси приложения](application-proxy-add-on-premises-application.md) с приведенными ниже значениями.
-   - Внутренний URL-адрес: `https://\<rdhost\>.com/`, где `\<rdhost\>` — общий корень, совместно используемый веб-сайтом удаленных рабочих столов и шлюзом удаленных рабочих столов.
+   - Внутренний URL-адрес: `https://<rdhost>.com/`, где `<rdhost>` — общий корень, совместно используемый веб-сайтом удаленных рабочих столов и шлюзом удаленных рабочих столов.
    - Внешний URL-адрес: это поле заполняется автоматически на основе имени приложения, но его можно изменить. Ваши пользователи будут переходить по этому URL-адресу при обращении к RDS.
    - Метод предварительной аутентификации: выберите Azure Active Directory.
    - Преобразование URL-адреса в заголовок: выберите значение "Нет".
@@ -69,7 +69,7 @@ ms.locfileid: "99259344"
 
 4. Выберите **Azure Active Directory**, а затем — **Регистрация приложений**. Выберите приложение из списка.
 5. В разделе **Управление** выберите **фирменная символика**.
-6. Обновите поле **URL-адрес домашней страницы** , чтобы указать конечную точку веб-сайта удаленных рабочих столов (например `https://\<rdhost\>.com/RDWeb` ,).
+6. Обновите поле **URL-адрес домашней страницы** , чтобы указать конечную точку веб-сайта удаленных рабочих столов (например `https://<rdhost>.com/RDWeb` ,).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Направление трафика RDS в прокси приложения
 
@@ -91,7 +91,7 @@ ms.locfileid: "99259344"
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Например:**
+   **Пример.**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```

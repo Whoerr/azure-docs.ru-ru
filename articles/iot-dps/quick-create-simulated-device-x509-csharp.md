@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 06f1d34e7d8da9a3ece206fc1ff804accf9454ff
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493860"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705549"
 ---
 # <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Краткое руководство. Создание и подготовка устройства X.509 с помощью пакета SDK для устройства C# для Службы подготовки устройств к добавлению в Центр Интернета вещей
 
@@ -22,7 +22,9 @@ ms.locfileid: "99493860"
 
 Здесь приведены инструкции по инициализации устройства X.509 с помощью кода устройств из [примеров Интернета вещей Azure для C#](https://github.com/Azure-Samples/azure-iot-samples-csharp). При работе с этой статьей вы запустите пример кода устройства на компьютере разработки, чтобы подключиться к Центру Интернета вещей с помощью Службы подготовки устройств.
 
-Если вы не знакомы с процессом автоматической подготовки, см. раздел [Роли и учетные записи Azure](about-iot-dps.md#provisioning-process). Кроме того, прежде чем продолжить, выполните инструкции по [настройке службы "Подготовка устройств к добавлению в Центр Интернета вещей" на портале Azure](./quick-setup-auto-provision.md). 
+## <a name="prerequisites"></a>Предварительные требования
+
+Если вы не знакомы с процессом автоматической подготовки, см. раздел [Роли и учетные записи Azure](about-iot-dps.md#provisioning-process). Кроме того, прежде чем продолжить, выполните инструкции по [настройке службы "Подготовка устройств к добавлению в Центр Интернета вещей" на портале Azure](./quick-setup-auto-provision.md).
 
 Служба подготовки устройств Интернета вещей Azure поддерживает два типа регистрации:
 - [Группы регистрации](concepts-service.md#enrollment-group). Используются для регистрации нескольких связанных устройств.
@@ -48,8 +50,6 @@ ms.locfileid: "99493860"
     ```bash
     dotnet --info
     ```
-
-
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Создание самозаверяющего сертификата для устройства X.509
 

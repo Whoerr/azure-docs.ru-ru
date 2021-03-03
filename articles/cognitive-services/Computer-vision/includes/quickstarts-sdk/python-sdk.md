@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f1fe99cab46f8d3b87a5c1ef8397cf5f305b11c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2ae65cc8799fd507952120129ecef83655a465b7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947977"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750833"
 ---
 <a name="HOLTop"></a>
 
@@ -68,7 +68,7 @@ pip install pillow
 > Не забудьте удалить ключ из кода, когда закончите, и никогда не публикуйте его в открытом доступе. Для рабочей среды рекомендуется использовать безопасный способ хранения и доступа к учетным данным. Например, [хранилище ключей Azure](../../../../key-vault/general/overview.md).
 
 > [!div class="nextstepaction"]
-> [Мной настроен клиент](?success=set-up-client#object-model) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Мной настроен клиент](?success=set-up-client#object-model) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=set-up-client)
 
 ## <a name="object-model"></a>Объектная модель
 
@@ -95,7 +95,7 @@ pip install pillow
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [Мной аутентифицирован клиент](?success=authenticate-client#analyze-an-image) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Мной аутентифицирован клиент](?success=authenticate-client#analyze-an-image) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Анализ изображения
 
@@ -173,7 +173,7 @@ pip install pillow
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [Мной проанализировано изображение](?success=analyze-image#read-printed-and-handwritten-text) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [Мной проанализировано изображение](?success=analyze-image#read-printed-and-handwritten-text) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Чтение печатного и рукописного текста
 
@@ -195,7 +195,7 @@ pip install pillow
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 
 > [!div class="nextstepaction"]
-> [Мной считан текст](?success=read-printed-handwritten-text#run-the-application) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Мной считан текст](?success=read-printed-handwritten-text#run-the-application) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Выполнение приложения
 
@@ -206,7 +206,7 @@ python quickstart-file.py
 ```
 
 > [!div class="nextstepaction"]
-> [Мной запущено приложение](?success=run-the-application#clean-up-resources) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [Мной запущено приложение](?success=run-the-application#clean-up-resources) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
@@ -216,7 +216,7 @@ python quickstart-file.py
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Мной очищены ресурсы](?success=clean-up-resources#next-steps) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Мной очищены ресурсы](?success=clean-up-resources#next-steps) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

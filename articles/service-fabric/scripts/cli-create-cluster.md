@@ -13,18 +13,18 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 675f6b9ac3ebb05539432b5febc279275f9de7f6
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8a6f23a5f4ce497c38358f06394f0f0aa97f9889
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785774"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739667"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Создание защищенного кластера Service Fabric под управлением Linux в Azure
 
 Эта команда создает самозаверяющий сертификат, добавляет его в хранилище ключей и скачивает сертификат на локальный компьютер.  Новый сертификат используется для защиты кластера во время развертывания.  Вы также можете использовать уже существующий сертификат.  В любом случае имя субъекта сертификата должно совпадать с доменным именем, которое используется для обращения к кластеру Service Fabric. Это необходимо, чтобы предоставить TLS-протокол конечным точкам управления HTTPS в кластере и Service Fabric Explorer. Не удается получить TLS/SSL-сертификат из ЦС для домена `.cloudapp.azure.com`. Необходимо получить имя личного домена для кластера. При запросе сертификата из ЦС имя субъекта сертификата должно совпадать с именем личного домена, используемого для кластера.
 
-При необходимости установите [Azure CLI](/en-us/cli/azure/install-azure-cli).
+При необходимости установите [Azure CLI](cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Пример скрипта
 

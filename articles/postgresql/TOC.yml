@@ -113,6 +113,9 @@
       items:
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
+        - name: Встроенные компоненты Политики Azure
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
     - name: Основные понятия
       items:
         - name: Серверы
@@ -572,14 +575,6 @@
         - name: Проектирование панели мониторинга в реальном времени
           href: tutorial-design-database-hyperscale-realtime.md
           displayName: 'hyperscale, tutorial, real-time'
-    - name: Примеры
-      items:
-        - name: Azure CLI
-          href: sample-scripts-azure-cli.md
-          displayName: 'samples, azure cli'
-        - name: Встроенные компоненты Политики Azure
-          displayName: 'samples, policies, definitions'
-          href: ./policy-reference.md
     - name: Основные понятия
       items:
         - name: Распределенные данные

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623796"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717746"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Расширенная настройка автомасштабирования с помощью шаблонов Resource Manager для набора масштабирования виртуальных машин
 Масштабируемые наборы виртуальных машин можно свертывать и развертывать на основе пороговых значений метрик производительности по расписанию или на определенную дату. Можно также настроить уведомления с помощью электронной почты и webhook для действий масштабирования. В этом пошаговом руководстве показан пример настройки всех этих объектов для масштабируемого набора виртуальных машин с помощью шаблона Resource Manager.
@@ -243,9 +243,9 @@ ms.locfileid: "100623796"
 
 [Рекомендации по автомасштабированию Azure Insights](autoscale-best-practices.md)
 
-[Создание параметров автомасштабирования и управление ими](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Создание параметров автомасштабирования и управление ими](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Автомасштабирование](../samples/cli-samples.md#autoscale)
+[Автомасштабирование](../cli-samples.md#autoscale)
 
 [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](autoscale-webhook-email.md)
 

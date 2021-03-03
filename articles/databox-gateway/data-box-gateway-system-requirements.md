@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e7c8653b39a3e0333ff6e98783a6e9a1437dba22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583181"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739217"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Шлюз Azure Data Box требования к системе
 
@@ -32,7 +32,7 @@ ms.locfileid: "96583181"
 | Спецификации                                          | Описание              |
 |---------------------------------------------------------|--------------------------|
 | Виртуальные процессоры (ядра)   | Минимум 4 |
-| Память  | Минимум 8 ГБ|
+| Память  | Минимум 8 ГБ. Мы настоятельно рекомендуем не менее 16 ГБ. |
 | Доступность|Один узел|
 | Диски| Диск ОС: 250 ГБ <br> Диск данных: минимум 2 ТБ, с тонкой подготовкой, с использованием дисков SSD|
 | Сетевые интерфейсы|Один или несколько виртуальных сетевых интерфейсов|
@@ -51,7 +51,7 @@ ms.locfileid: "96583181"
 | **Операционная система и (или) платформа**  |**Версии**   |**Примечания**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
-|VMware ESXi     | 6.0 <br> 6,5 <br> 6.7       |Средства VMware не поддерживаются.         |
+|VMware ESXi     | 6,0 <br> 6,5 <br> 6.7       |Средства VMware не поддерживаются.         |
 
 
 ## <a name="supported-storage-accounts"></a>Учетные записи хранилища BLOB-объектов
@@ -93,7 +93,7 @@ ms.locfileid: "96583181"
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
-## <a name="next-step"></a>Следующий этап
+## <a name="next-step"></a>Следующий шаг
 
 * [Tutorial: Prepare to deploy Azure Data Box Gateway (Preview)](data-box-gateway-deploy-prep.md) (Руководство. Подготовка к развертыванию шлюза Azure Data Box)
 

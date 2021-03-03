@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a9b93cf05141442901531e745971ee16348cdaae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d83ee4b53d4ccda9cb2af21fa0cb4c91822ec7c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622584"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732026"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Подключение компьютеров без доступа к Интернету с помощью шлюза Log Analytics в Azure Monitor
 
@@ -89,7 +89,7 @@ ms.locfileid: "100622584"
 
 Шлюз Log Analytics поддерживает только протоколы TLS 1,0, 1,1 и 1,2.  Он не поддерживает SSL (SSL).  Чтобы обеспечить безопасность передаваемых данных в Log Analytics, настройте шлюз на использование по крайней мере TLS 1,2. Более старые версии TLS или SSL уязвимы. Хотя в настоящее время они допускают обратную совместимость, не используйте их.  
 
-См. дополнительные сведения о [безопасной отправке данных с помощью TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12). 
+См. дополнительные сведения о [безопасной отправке данных с помощью TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Поддерживаемое число подключений агента
 
@@ -114,7 +114,7 @@ ms.locfileid: "100622584"
  
    ![Снимок экрана с инструкциями по скачиванию шлюза Log Analytics](./media/gateway/download-gateway.png)
 
-или 
+или диспетчер конфигурации служб 
 
 1. В колонке рабочей области в разделе **Параметры** щелкните **Дополнительные параметры**.
 1. Перейдите в раздел **подключенные источники**  >  **серверы Windows** и выберите **Скачать log Analytics шлюз**.
@@ -141,7 +141,7 @@ ms.locfileid: "100622584"
    ![Снимок экрана настройки прокси-сервера шлюза](./media/gateway/gateway-wizard02.png)
 
 1. Если Центр обновления Майкрософт не включены, отображается страница Центр обновления Майкрософт, и вы можете включить ее. Сделайте выбор и нажмите кнопку **Далее**. В противном случае перейдите к следующему шагу.
-1. На странице **Конечная папка** оставьте папку по умолчанию C:\Program c:\programfiles\oms Gateway или укажите расположение, в котором вы хотите установить шлюз. Нажмите кнопку **Далее**.
+1. На странице **Конечная папка** оставьте папку по умолчанию C:\Program c:\programfiles\oms Gateway или укажите расположение, в котором вы хотите установить шлюз. Выберите **Далее**.
 1. На странице **все готово для установки** нажмите кнопку **установить**. Если контроль учетных записей пользователей запрашивает разрешение на установку, выберите **Да**.
 1. После завершения установки нажмите кнопку **Готово**. Чтобы убедиться, что служба запущена, откройте оснастку Services. msc и убедитесь, что **шлюз OMS** отображается в списке служб и находится в состоянии **выполняется**.
 
@@ -305,13 +305,13 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 
 Если компьютер зарегистрирован в качестве гибридной рабочей роли Runbook автоматически, например, если Управление обновлениями решение включено для одной или нескольких виртуальных машин, выполните следующие действия.
 
-1. Добавьте URL-адреса службы Job Runtime Data в список разрешенных узлов в шлюзе Log Analytics. Пример: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Добавьте URL-адреса службы Job Runtime Data в список разрешенных узлов в шлюзе Log Analytics. Например: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Перезапустите службу шлюза Log Analytics, используя командлет PowerShell `Restart-Service OMSGatewayService`.
 
 Если компьютер присоединен к службе автоматизации Azure с помощью командлета регистрации гибридной рабочей роли Runbook, выполните следующие действия.
 
-1. Добавьте URL-адрес для внесения службы агента в список разрешенных узлов в шлюзе Log Analytics. Пример: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Добавьте URL-адреса службы Job Runtime Data в список разрешенных узлов в шлюзе Log Analytics. Пример: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Добавьте URL-адрес для внесения службы агента в список разрешенных узлов в шлюзе Log Analytics. Например: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Добавьте URL-адреса службы Job Runtime Data в список разрешенных узлов в шлюзе Log Analytics. Например: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Перезапустите службу шлюза Log Analytics.
     `Restart-Service OMSGatewayService`
 
@@ -329,7 +329,7 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 
 | **Командлет** | **Параметры** | **Описание** | **Пример** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Ключ |Получает конфигурацию службы |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |Клавиши |Получает конфигурацию службы |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Ключ (обязательно) <br> Значение |Изменяет конфигурацию службы |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Получает адрес (и учетные данные) прокси-сервера ретрансляции (вышестоящего) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Адрес<br> Имя пользователя<br> Пароль (защищенная строка) |Задает адрес (и учетные данные) прокси-сервера ретрансляции (вышестоящего) |1. Задайте прокси-сервер ретрансляции и учетные данные:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Укажите прокси-сервер ретрансляции, для которого не требуется проверка подлинности: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Очистите параметр прокси-сервера ретрансляции:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
@@ -370,7 +370,7 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 
 В следующей таблице приведены счетчики производительности, доступные для шлюза Log Analytics. Используйте системный монитор для добавления счетчиков.
 
-| **имя**; | **Описание** |
+| **Имя** | **Описание** |
 | --- | --- |
 | Шлюз Log Analytics — Active Client Connection (Активные клиентские подключения) |Количество активных сетевых подключений клиента (TCP) |
 | Шлюз Log Analytics — Error Count (Количество ошибок) |Количество ошибок |
@@ -386,6 +386,6 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 
 ![Снимок экрана с новым запросом на поддержку](./media/gateway/support.png)
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Добавьте источники данных](./../agents/agent-data-sources.md) для получения данных из подключенных источников и сохраните их в рабочей области log Analytics.

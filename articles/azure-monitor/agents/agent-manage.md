@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: e8ee45a1bf6a45be1fd976d3fb1b8aba60d2b989
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca36c35d859e651c0d949f4b7fbb28137d01af90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734967"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Обслуживание агента Log Analytics для Windows и Linux и управление им
 
@@ -164,7 +164,7 @@ $mma.ReloadConfiguration()
 Службу агента не нужно перезапускать, чтобы изменения вступили в силу.
 
 ## <a name="update-proxy-settings"></a>Обновление параметров прокси-сервера
-Чтобы после развертывания настроить взаимодействие агента со службой через прокси-сервер или [шлюз Log Analytics](../platform/gateway.md), используйте один из приведенных ниже способов.
+Чтобы после развертывания настроить взаимодействие агента со службой через прокси-сервер или [шлюз Log Analytics](./gateway.md), используйте один из приведенных ниже способов.
 
 ### <a name="windows-agent"></a>Агент Windows
 
@@ -290,7 +290,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 3. Перезапустите сервер OMI: `sudo /opt/omi/bin/service_control restart`.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Ознакомьтесь [с разрешениями по устранению неполадок агента Linux в](agent-linux-troubleshoot.md) случае возникновения проблем при установке агента Linux или управлении им.
 

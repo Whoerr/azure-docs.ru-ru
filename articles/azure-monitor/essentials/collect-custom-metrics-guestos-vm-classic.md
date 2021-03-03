@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 48c7323a630f5c79c7ecb16e26c9ec79ec2014a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f0c97d128837e77325e68ae28161a98938510ff8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613339"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723288"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Отправка метрик гостевой ОС в базу данных метрик Azure Monitor для виртуальной машины Windows (классическая модель)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Расширение диагностики](../agents/diagnostics-extension-overview.md) Azure Monitor (также известное как WAD или "Диагностика") позволяет собирать метрики и журналы из гостевой операционной системы (гостевой ОС), работающей на виртуальной машине, в облачной службе или в кластере Service Fabric. Это расширение может отправлять данные телеметрии во [множество различных расположений](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json).
+[Расширение диагностики](../agents/diagnostics-extension-overview.md) Azure Monitor (также известное как WAD или "Диагностика") позволяет собирать метрики и журналы из гостевой операционной системы (гостевой ОС), работающей на виртуальной машине, в облачной службе или в кластере Service Fabric. Это расширение может отправлять данные телеметрии во [множество различных расположений](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
 В этой статье описывается процесс отправки метрик производительности гостевой ОС для виртуальной машины Windows (классической) в базу данных метрик Azure Monitor. Начиная с версии 1.11 расширение диагностики позволяет записывать метрики напрямую в хранилище метрик Azure Monitor, где уже собраны стандартные метрики платформы. 
 
@@ -34,7 +34,7 @@ ms.locfileid: "100613339"
 
 - Необходимо установить [Azure PowerShell](/powershell/azure) или [Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- Ресурс виртуальной машины должен находиться в [регионе, поддерживающем пользовательские метрики](../platform/metrics-custom-overview.md#supported-regions).
+- Ресурс виртуальной машины должен находиться в [регионе, поддерживающем пользовательские метрики](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Создание классической виртуальной машины и учетной записи хранения
 
@@ -203,4 +203,4 @@ ms.locfileid: "100613339"
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Дополнительные сведения о настраиваемых метриках см. в [этой статье](../platform/metrics-custom-overview.md).
+- Дополнительные сведения о настраиваемых метриках см. в [этой статье](./metrics-custom-overview.md).

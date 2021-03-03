@@ -11,16 +11,37 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225485"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687334"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Документация по платформе Microsoft Identity: новые возможности
 
 Добро пожаловать в документацию по платформе удостоверений Майкрософт. В этой статье перечислены новые документы, которые были добавлены, а также важные обновления за последние три месяца.
+
+## <a name="february-2021"></a>Февраль 2021 года
+
+### <a name="new-articles"></a>Новые статьи
+
+- [Краткое руководство. Получение маркера доступа и вызов API Microsoft Graph из классического приложения Electron](quickstart-v2-nodejs-desktop.md)
+- [Учебник. Вход пользователей и вызов API Microsoft Graph в классическом приложении Electron](tutorial-v2-nodejs-desktop.md)
+- [Краткое руководство. Получение маркера и вызов API Microsoft Graph из консольного приложения Node.js с помощью удостоверения приложения](quickstart-v2-nodejs-console.md)
+- [Руководство. Вызов API Microsoft Graph в консольном приложении Node.js](tutorial-v2-nodejs-console.md)
+- [Руководство. вход пользователей в веб-приложение Node.js & Express](tutorial-v2-nodejs-webapp-msal.md)
+- [Поддержка проверки подлинности без пароля с помощью ключей FIDO2 в разрабатываемых приложениях](support-fido2-authentication.md)
+
+### <a name="updated-articles"></a>Обновленные статьи
+
+- [Новые возможности для проверки подлинности.](reference-breaking-changes.md)
+- [Использование MSAL.NET для входа пользователей с удостоверениями социальных сетей](msal-net-aad-b2c-considerations.md)
+- [Примеры кода для платформы удостоверений Майкрософт (конечная точка версии 2.0)](sample-v2-code.md)
+- [Видео по платформе удостоверений Майкрософт](identity-videos.md)
+- [Краткое руководство. Настройка клиента](quickstart-create-new-tenant.md)
+- [Краткое руководство. Регистрация приложения с помощью платформы удостоверений Майкрософт](quickstart-register-app.md)
+- [Краткое руководство. Получение маркера и вызов API Microsoft Graph из консольного приложения Java с помощью удостоверения приложения](quickstart-v2-java-daemon.md)
 
 ## <a name="january-2021"></a>Январь 2021 г.
 
@@ -66,17 +87,3 @@ ms.locfileid: "99225485"
 - [Маркеры доступа платформы удостоверений Майкрософт](access-tokens.md)
 - [Веб-API, вызывающий веб-API: получение маркера для приложения](scenario-web-api-call-api-acquire-token.md)
 
-
-## <a name="november-2020"></a>Ноябрь 2020 г.
-
-### <a name="new-articles"></a>Новые статьи
-
-- [Использование интерфейсов API с поддержкой оценки непрерывного доступа в приложениях](app-resilience-continuous-access-evaluation.md)
-
-### <a name="updated-articles"></a>Обновленные статьи
-
-- [Маркеры доступа платформы удостоверений Майкрософт](access-tokens.md)
-- [Параметры конфигурации приложения (MSAL)](msal-client-application-configuration.md)
-- [Как предоставить приложению необязательные утверждения](active-directory-optional-claims.md)
-- [Публикация приложения в коллекции приложений Azure AD](v2-howto-app-gallery-listing.md)
-- [Как добавить роли приложения в приложение и получить их в токене](howto-add-app-roles-in-azure-ad-apps.md)

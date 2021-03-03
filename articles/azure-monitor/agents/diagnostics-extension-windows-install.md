@@ -3,17 +3,16 @@ title: Установка и настройка расширения "Диагн
 description: Сведения об установке и настройке расширения системы диагностики Windows. Кроме того, ознакомьтесь с описанием того, как хранятся данные в учетной записи хранения Azure и.
 services: azure-monitor
 author: bwren
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 865590ce67acee128863a7913aa844b951d07d56
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708566"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Установка и настройка расширения "Диагностика Microsoft Azure" (WAD)
 [Расширение "Диагностика Microsoft Azure"](diagnostics-extension-overview.md) — это агент в Azure Monitor, собирающий данные мониторинга из операционной системы на виртуальной машине и рабочих нагрузок виртуальных машин Azure и других вычислительных ресурсов. В этой статье приводятся сведения об установке и настройке расширения диагностики Windows, а также описание того, как данные хранятся в учетной записи хранения и Azure.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 3c5a528ada9e7239f5c53da1cae6df7ceffac918
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4161f2f4ced848eb02d395dfb2da35d64f0c0fb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623739"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723067"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Использование управляемых клиентом учетных записей хранения в Azure Monitor Log Analytics
 
@@ -51,6 +51,7 @@ Log Analytics полагается на хранилище Azure в различ
 * Разрешить Azure Monitor доступ к учетной записи хранения. Если вы решили разрешить доступ к учетной записи хранения только для выбранных сетей, следует выбрать исключение: "разрешить доверенным службам Майкрософт доступ к этой учетной записи хранения".
 ![Изображение доверенных служб MS для учетной записи хранения](./media/private-storage/storage-trust.png)
 * Если Рабочая область обрабатывает трафик из других сетей, необходимо настроить учетную запись хранения, чтобы разрешить входящий трафик, исходящий из соответствующих сетей и Интернета.
+* Координировать версию TLS между агентами и учетной записью хранения. рекомендуется отправить данные в Log Analytics с помощью TLS 1,2 или более поздней версии. Ознакомьтесь [с рекомендациями для конкретной платформы](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12)и при необходимости [Настройте агенты для использования TLS 1,2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Если по какой именно причинам это невозможно, настройте учетную запись хранения для приема TLS 1,0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Использование управляемой клиентом учетной записи хранения для шифрования данных CMK
 Служба хранилища Azure шифрует все неактивных данных в учетной записи хранения. По умолчанию для шифрования данных используются ключи, управляемые корпорацией Майкрософт (ММК). Однако служба хранилища Azure также позволяет использовать CMK из хранилища ключей Azure для шифрования данных хранилища. Вы можете либо импортировать собственные ключи в Azure Key Vault, либо использовать Azure Key Vault API для создания ключей.
@@ -106,7 +107,7 @@ Log Analytics полагается на хранилище Azure в различ
 На учетные записи хранения начисляются объем хранимых данных, тип хранилища и тип избыточности. Дополнительные сведения см. в статьях [Цены на хранение блочных BLOB-объектов](https://azure.microsoft.com/pricing/details/storage/blobs) и [Цены на хранилище таблиц Azure](https://azure.microsoft.com/pricing/details/storage/tables).
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте [, как использовать частную ссылку Azure для безопасного подключения сетей к Azure Monitor](private-link-security.md)
 - Дополнительные сведения о [Azure Monitor управляемых клиентом ключах](../logs/customer-managed-keys.md)

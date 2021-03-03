@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698745"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Устранение неполадок в Live Video Analytics на IoT Edge
 
@@ -105,7 +105,7 @@ az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device 
 * **Не удалось выполнить развертывание шаблона из-за нарушения политики.**
     * Чтобы устранить эту проблему, обратитесь к ИТ-администратору, чтобы убедиться, что в вызовах для создания виртуальной машины обойти блокирование проверки подлинности SSH. Это не потребуется, так как мы используем защищенную сеть бастиона, для взаимодействия с ресурсами Azure требуется имя пользователя и пароль. Эти учетные данные будут храниться в файле **~/клауддриве/лва-сампле/vm-edge-device-credentials.txt** в Cloud Shell, после того как виртуальная машина будет успешно создана, развернута и подключена к центру Интернета вещей.
 * Скрипт установки не может создать субъект-службу или ресурсы Azure.
-    * Чтобы устранить эту ошибку, убедитесь, что ваша подписка и клиент Azure не достигли максимального предела службы. Дополнительные сведения об ограничениях и ограничениях [службы Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) , а так: [ограничениях, квотах и ограничениях для подписок Azure и служб.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+    * Чтобы устранить эту ошибку, убедитесь, что ваша подписка и клиент Azure не достигли максимального предела службы. Дополнительные сведения об ограничениях и ограничениях [службы Azure AD](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) , а так: [ограничениях, квотах и ограничениях для подписок Azure и служб.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 > [!TIP]
 > Если имеются дополнительные проблемы, с которыми может потребоваться помощь, **[собирайте журналы и отправьте запрос в службу поддержки](#collect-logs-for-submitting-a-support-ticket)**. Вы также можете обратиться к нам, отправив нам электронное письмо по адресу **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .
@@ -223,12 +223,12 @@ az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device 
     > [!NOTE] 
     > Эта команда привязывает папки журналов между граничным устройством и контейнером. Чтобы сохранить журналы в другом расположении, используйте следующую команду, заменив **$LOG _LOCATION_ON_EDGE_DEVICE** на расположение, которое вы хотите использовать. `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
-1. Выберите **Обновить**.
+1. Щелкните **Обновить**.
 1. Выберите **Review + Create** (Просмотреть и создать). Сообщение об успешной проверке публикуется под зеленым баннером.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **создания**.
 1. Обновите **двойника удостоверений модуля** , чтобы он указывал на параметр дебуглогсдиректори, указывающий на каталог, в котором собираются журналы.
 
-    a. В таблице **модули** выберите **лваедже**.  
+    а. В таблице **модули** выберите **лваедже**.  
     b. В верхней части панели выберите **модуль удостоверение двойника**. Откроется Редактируемая панель.  
     c. В разделе **требуемый ключ** добавьте следующую пару "ключ-значение":  
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`

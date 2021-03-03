@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 1d22a992ac4ae69c8541b6efbaee58340f48caa4
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 4ed2458b09d200542ce8789d90250027a07a970d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517881"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735477"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Использование Azure Data Lake Storage 2-ого поколения для обеспечения соответствия требованиям больших данных
 
@@ -52,7 +52,7 @@ ms.locfileid: "100517881"
 
 Ниже приведен список инструментов, которые можно использовать для приема потоковых данных.
 
-|Средство | Руководство |
+|Инструмент | Руководство |
 |---|--|
 |Azure Stream Analytics|[Краткое руководство. по созданию задания Stream Analytics с помощью портала Azure](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Исходящий трафик в Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Azure HDInsight Storm | [Запись данных в Apache Hadoop HDFS из Apache Storm в HDInsight](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
@@ -63,7 +63,7 @@ ms.locfileid: "100517881"
 
 Ниже приведен список инструментов, которые можно использовать для приема реляционных данных.
 
-|Средство | Руководство |
+|Инструмент | Руководство |
 |---|--|
 |Фабрика данных Azure | [Действие копирования в Фабрике данных Azure](../../data-factory/copy-activity-overview.md) |
 
@@ -73,10 +73,10 @@ ms.locfileid: "100517881"
 
 Ниже приведен список инструментов, которые можно использовать для приема данных журнала веб-сервера.
 
-|Средство | Руководство |
+|Инструмент | Руководство |
 |---|--|
 |Фабрика данных Azure | [Действие копирования в Фабрике данных Azure](../../data-factory/copy-activity-overview.md)  |
-|Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md);|
+|Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
 Отличным способом отправки данных журналов веб-сервера и других типов данных (например данных общественных мнений) является использование собственных написанных сценариев или приложений, поскольку вы можете включить компонент отправки данных в состав более масштабного приложения по работе с большими объемами данных. В одних случаях этот код может иметь форму сценария или простой программы командной строки. В других случаях код может использоваться для интеграции обработки больших данных в бизнес-приложение или решение.
@@ -87,7 +87,7 @@ ms.locfileid: "100517881"
 
 Ниже приведен список инструментов, которые можно использовать для приема данных, связанных с кластерами HDInsight.
 
-|Средство | Руководство |
+|Инструмент | Руководство |
 |---|--|
 |Apache DistCp | [Использование средства DistCp для копирования данных между Azure Storage Blob и Azure Data Lake Storage 2-го поколения](./data-lake-storage-use-distcp.md) |
 |Инструмент AzCopy | [Передача данных с помощью AzCopy](../common/storage-use-azcopy-v10.md) |
@@ -116,10 +116,10 @@ Azure ExpressRoute позволяет создавать закрытые под
 
 Ниже приведен список инструментов, которые можно использовать для выполнения заданий анализа данных, хранящихся в Azure Data Lake Storage 2-го поколения.
 
-|Средство | Руководство |
+|Инструмент | Руководство |
 |---|--|
 |Azure HDInsight | [Использование Azure Data Lake Storage Gen2 с кластерами Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-|Azure Databricks | [Azure Data Lake Storage 2-го поколения](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[Краткое руководство. анализ данных в Azure Data Lake Storage 2-го поколения с помощью Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Руководство. Извлечение, преобразование и загрузка данных с помощью Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage 2-го поколения](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[Краткое руководство. анализ данных в Azure Data Lake Storage 2-го поколения с помощью Azure Databricks](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Руководство. Извлечение, преобразование и загрузка данных с помощью Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Визуализация данных
 
@@ -137,7 +137,7 @@ Azure ExpressRoute позволяет создавать закрытые под
 
 Ниже приведен список инструментов, которые можно использовать для загрузки данных из Data Lake Storage 2-го поколения.
 
-|Средство | Руководство |
+|Инструмент | Руководство |
 |---|--|
 |Фабрика данных Azure | [Действие копирования в Фабрике данных Azure](../../data-factory/copy-activity-overview.md) |
 |Apache DistCp | [Использование средства DistCp для копирования данных между Azure Storage Blob и Azure Data Lake Storage 2-го поколения](./data-lake-storage-use-distcp.md) |

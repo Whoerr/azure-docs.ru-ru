@@ -4,19 +4,19 @@ description: Узнайте, как создать классическое оп
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 418dde8311c2555f8df5929dd96ce72611422ee9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0923be317d497e471724b7611fe6b831a4be6f37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100624135"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718052"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Создание классического оповещения метрики с помощью шаблона Resource Manager
 
 > [!WARNING]
-> В этой статье объясняется, как создавать классические оповещения метрик прежней версии. Azure Monitor теперь поддерживает новые [оповещения метрик практически в реальном времени и новые возможности оповещений](../platform/alerts-overview.md). Классические оповещения отключаются для пользователей общедоступного облака, но по-прежнему [используются для ресурсов](../platform/monitoring-classic-retirement.md) , которые еще не поддерживают новые оповещения.
+> В этой статье объясняется, как создавать классические оповещения метрик прежней версии. Azure Monitor теперь поддерживает новые [оповещения метрик практически в реальном времени и новые возможности оповещений](./alerts-overview.md). Классические оповещения выпускают [для пользователей](./monitoring-classic-retirement.md) общедоступных облаков, но в ограниченном объеме использования до **31 мая 2021**. Классические оповещения для облачных служб Azure для государственных организаций и Azure для Китая, истечение **29 февраля 2024**.
 >
 
 В этой статье показано, как можно использовать [шаблон Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) , чтобы настроить классические оповещения метрик Azure. Это позволяет автоматически настраивать оповещения для ресурсов при их создании, чтобы обеспечить правильный мониторинг всех ресурсов.
@@ -399,6 +399,6 @@ ms.locfileid: "100624135"
 ```
 
 ## <a name="next-steps"></a>Next Steps
-* [Узнайте больше об оповещениях](../platform/alerts-overview.md)
-* [Добавьте параметры диагностики](../samples/resource-manager-diagnostic-settings.md) в шаблон Resource Manager.
+* [Узнайте больше об оповещениях](./alerts-overview.md)
+* [Добавьте параметры диагностики](../essentials/resource-manager-diagnostic-settings.md) в шаблон Resource Manager.
 * Синтаксис и свойства JSON см. в справочнике по шаблонам [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/alertrules).

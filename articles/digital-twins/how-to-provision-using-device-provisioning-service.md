@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044396"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736548"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Автоматическое управление устройствами в цифровом двойников Azure с помощью службы подготовки устройств (DPS)
 
@@ -22,7 +22,7 @@ ms.locfileid: "98044396"
 
 Дополнительные сведения о стадиях _подготовки_ и _снятия с учета_ и ознакомлении с набором общих стадий управления устройствами, общих для всех корпоративных проектов IOT, см. в [разделе *жизненный цикл устройства*](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) документации по управлению устройствами в центре Интернета вещей.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 Перед настройкой подготовки необходимо иметь **экземпляр Digital двойников для Azure** , содержащий модели и двойников. Этот экземпляр также должен быть настроен с возможностью обновлять сведения о цифровом двойника на основе данных. 
 
@@ -174,7 +174,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 
 ### <a name="create-an-azure-function"></a>Создание функции Azure
 
-Далее вы создадите функцию, активируемую концентраторами событий, в приложении-функции. Вы можете использовать приложение-функцию, созданное в комплексном учебнике ([*руководство по подключению комплексного решения*](tutorial-end-to-end.md)) или к своему собственному интерфейсу. 
+Затем в приложении-функции вы создадите функцию, активируемую Центрами событий. Вы можете использовать приложение-функцию, созданное в комплексном учебнике ([*руководство по подключению комплексного решения*](tutorial-end-to-end.md)) или к своему собственному интерфейсу. 
 
 Назовите триггер концентратора событий *лифецикливентс* и подключите триггер концентратора событий к концентратору событий, созданному на предыдущем шаге. Если вы использовали другое имя концентратора событий, измените его в соответствии с именем триггера ниже.
 
@@ -223,7 +223,7 @@ az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Eve
 
 В [первой половине этой статьи](#auto-provision-device-using-device-provisioning-service)вы создали устройство в центре Интернета вещей и соответствующий цифровой двойника. 
 
-Теперь перейдите в центр Интернета вещей и удалите это устройство (это можно сделать с помощью [команды Azure CLI](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) или в [портал Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Теперь перейдите в центр Интернета вещей и удалите это устройство (это можно сделать с помощью [команды Azure CLI](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) или в [портал Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 Устройство будет автоматически удалено из Azure Digital двойников. 
 

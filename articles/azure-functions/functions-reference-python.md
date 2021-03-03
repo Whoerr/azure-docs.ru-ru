@@ -4,12 +4,12 @@ description: Сведения о разработке функций на язы
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 78965a1a09272663c52469b8ccd91988f30b53cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735849"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708702"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Справочник разработчика Python. Функции Azure
 
@@ -20,6 +20,9 @@ ms.locfileid: "98735849"
 | Начало работы | Основные понятия| Сценарии и примеры |
 | -- | -- | -- | 
 | <ul><li>[Функция Python, использующая Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Функция Python с терминалом/Командная строка](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Руководство для разработчиков](functions-reference.md)</li><li>[Сравнение вариантов размещения](functions-scale.md)</li><li>[&nbsp;Вопросы производительности](functions-best-practices.md)</li></ul> | <ul><li>[Классификация изображений с помощью PyTorch](machine-learning-pytorch.md)</li><li>[Пример службы автоматизации Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Машинное обучение с помощью TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Обзор примеров Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+
+> [!NOTE]
+> Хотя вы можете [разрабатывать функции Azure на основе Python локально в Windows](./azure-functions/create-first-function-vs-code-python#run-the-function-locally), Python поддерживается только в плане размещения на основе Linux при работе в Azure. См. список поддерживаемых сочетаний [операционных систем и среды выполнения](./azure-functions/functions-scale#operating-systemruntime) .
 
 ## <a name="programming-model"></a>Модель программирования
 
@@ -615,8 +618,8 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 
 |  Среда выполнения функций  | Версия Debian | Версии Python |
 |------------|------------|------------|
-| Версия 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Версия 3.x | бустер | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+| Версия 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Версия 3.x | бустер | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## <a name="cross-origin-resource-sharing"></a>Предоставление общего доступа к ресурсам независимо от источника
 

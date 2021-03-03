@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475545"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719021"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Получение журналов из IoT Edge развертываний
 
@@ -33,7 +33,18 @@ ms.locfileid: "99475545"
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` должен соответствовать [формату уровня серьезности системного журнала](https://wikipedia.org/wiki/Syslog#Severity_level) и `{Timestamp}` должен быть отформатирован в формате `yyyy-MM-dd hh:mm:ss.fff zzz` .
+`{Timestamp}` следует отформатировать как `yyyy-MM-dd hh:mm:ss.fff zzz` и `{Log Level}` следовать таблице ниже, которая извлекает уровни серьезности из [кода серьезности в стандарте системного журнала](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Значение | Severity |
+|-|-|
+| 0 | Аварийный режим |
+| 1 | Оповещение |
+| 2 | Critical |
+| 3 | Error |
+| 4 | Предупреждение |
+| 5 | Уведомление |
+| 6 | Informational |
+| 7 | Отладка |
 
 [Класс Logger в IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) выступает в качестве канонической реализации.
 
@@ -69,10 +80,10 @@ ms.locfileid: "99475545"
 | items | Массив JSON | Массив с `id` `filter` кортежами и. |
 | ID | строка | Регулярное выражение, предоставляющее имя модуля. Он может сопоставлять несколько модулей на пограничном устройстве. Ожидается формат [регулярных выражений .NET](/dotnet/standard/base-types/regular-expressions) . |
 | фильтр | Раздел JSON | Фильтры журналов, применяемые к модулям, соответствующим `id` регулярному выражению в кортеже. |
-| односторонне | целочисленный | Число строк журнала в прошлом для получения, начиная с последнего. OPTIONAL. |
+| односторонне | Целое число | Число строк журнала в прошлом для получения, начиная с последнего. OPTIONAL. |
 | since | строка | Возвращать только журналы, начиная с этого времени, как продолжительность (1 d, 90 м, 2 дня 3 часа, 2 минуты), rfc3339 отметка времени или отметка времени UNIX.  Если `tail` указаны и `since` , и, журналы извлекаются с использованием `since` значения First. Затем `tail` значение применяется к результату, и возвращается окончательный результат. OPTIONAL. |
 | until | строка | Возвращать журналы только до указанного времени, в виде метки времени rfc3339, метки времени UNIX или длительности (1 d, 90 м, 2 дня 3 часа 2 минуты). OPTIONAL. |
-| уровень ведения журнала | целочисленный | Фильтровать строки журнала, которые меньше или равны указанному уровню ведения журнала. Строки журнала должны следовать рекомендуемому формату ведения журнала и использовать стандарт [уровня серьезности syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPTIONAL. |
+| уровень ведения журнала | Целое число | Фильтровать строки журнала, которые меньше или равны указанному уровню ведения журнала. Строки журнала должны следовать рекомендуемому формату ведения журнала и использовать стандарт [уровня серьезности syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPTIONAL. |
 | regex | строка | Фильтрация строк журнала, имеющих содержимое, совпадающее с указанным регулярным выражением, с использованием формата [регулярных выражений .NET](/dotnet/standard/base-types/regular-expressions) . OPTIONAL. |
 | encoding | строка | `gzip` или `none`. Значение по умолчанию — `none`. |
 | сontentType | строка | `json` или `text`. Значение по умолчанию — `text`. |
@@ -82,7 +93,7 @@ ms.locfileid: "99475545"
 
 Успешный выбор журналов возвращает **"Status": 200** , за которыми следуют полезные данные, содержащие журналы, полученные из модуля, отфильтрованные по параметрам, указанным в запросе.
 
-Пример:
+Пример.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +134,7 @@ az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <
 
 ![Вызов прямого метода "Жетмодулелогс" в портал Azure](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-Вы также можете передать выходные данные CLI в служебные программы Linux, например [gzip](https://en.wikipedia.org/wiki/Gzip), для обработки сжатого ответа. Пример:
+Вы также можете передать выходные данные CLI в служебные программы Linux, например [gzip](https://en.wikipedia.org/wiki/Gzip), для обработки сжатого ответа. Пример.
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -192,7 +203,7 @@ az iot hub invoke-module-method \
 | message | строка | Сообщение, если ошибка, пустая строка в противном случае. |
 | correlationId | строка   | Идентификатор для запроса состояния запроса на отправку. |
 
-Пример:
+Пример.
 
 Следующий вызов передает последние строки журнала 100 из всех модулей в сжатом формате JSON:
 
@@ -295,7 +306,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 | sasURL | строка (URI) | [URL-адрес подписи общего доступа с доступом на запись к контейнеру хранилища BLOB-объектов Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | since | строка | Возвращать только журналы, начиная с этого времени, как продолжительность (1 d, 90 м, 2 дня 3 часа, 2 минуты), rfc3339 отметка времени или отметка времени UNIX. OPTIONAL. |
 | until | строка | Возвращать журналы только до указанного времени, в виде метки времени rfc3339, метки времени UNIX или длительности (1 d, 90 м, 2 дня 3 часа 2 минуты). OPTIONAL. |
-| еджерунтимеонли | boolean | Если значение — true, возвращаются только журналы из агента ребра, пограничной концентратора и управляющей программы пограничной системы безопасности. По умолчанию: false.  OPTIONAL. |
+| еджерунтимеонли | Логическое | Если значение — true, возвращаются только журналы из агента ребра, пограничной концентратора и управляющей программы пограничной системы безопасности. По умолчанию: false.  OPTIONAL. |
 
 > [!IMPORTANT]
 > Пакет поддержки IoT Edge может содержать персональные данные.
@@ -316,7 +327,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 | message | строка | Сообщение, если ошибка, пустая строка в противном случае. |
 | correlationId | строка   | Идентификатор для запроса состояния запроса на отправку. |
 
-Пример:
+Пример.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -374,7 +385,7 @@ az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name
 | message | строка | Сообщение, если ошибка, пустая строка в противном случае. |
 | correlationId | строка   | Идентификатор для запроса состояния запроса на отправку. |
 
-Пример:
+Пример.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \

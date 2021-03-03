@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704435"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Обновление с Application Insights пакета SDK для Java 2. x
 
@@ -220,3 +220,16 @@ ms.locfileid: "96601073"
 Ранее в пакете SDK для 2. x имя операции из телеметрии запроса было также задано в телеметрии зависимостей.
 Application Insights Java 3,0 больше не заполняет имя операции в телеметрии зависимостей.
 Если необходимо просмотреть имя операции для запроса, который является родительским по отношению к телеметрии зависимостей, можно написать запрос журналов (Kusto) для объединения из таблицы зависимостей в таблицу запроса.
+
+## <a name="2x-sdk-logging-appenders"></a>Добавление в журнал пакета SDK для 2. x
+
+Агент 3,0 выполняет [Автоматический сбор данных журнала](./java-standalone-config#auto-collected-logging) без необходимости настраивать какие-либо дописывать журналы.
+Если вы используете дополнение к ведению журнала пакета SDK 2. x, их можно удалить, так как в любом случае они будут подавлены агентом 3,0.
+
+## <a name="2x-sdk-spring-boot-starter"></a>2. x пакет SDK для пружинной загрузки
+
+Начальная загрузка с пружиной 3,0 отсутствует.
+Программа установки и настройки агента 3,0 выполняет те же [простые действия](./java-in-process-agent.md#quickstart) , что и при использовании пружинной загрузки.
+
+При обновлении с версии 2. x пакета SDK для начальной загрузки Обратите внимание, что имя роли облака больше не будет использоваться по умолчанию `spring.application.name` .
+Сведения о настройке имени облачной роли в 3,0 с помощью JSON config или переменной среды см. в документации по [конфигурации 3,0](./java-standalone-config.md#cloud-role-name) .

@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: 3ca776a1869874042a6a97cdd59dc00d3a917d33
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98558c2b1525094277dd6c165349f25ce5cd3b23
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717882"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Поведение SMS-оповещений в группе действий
 
@@ -42,7 +42,6 @@ ms.locfileid: "100621957"
 >Если пользователь отменил подписку на SMS-оповещения, но затем был добавлен в новую группу действий, то он будет получать SMS-оповещения для этой группы действий, но не для прежних групп.
 
 ## <a name="next-steps"></a>Next Steps
-Изучите [обзор оповещений журнала действий](../platform/alerts-overview.md) и узнайте, как получать оповещения.  
+Изучите [обзор оповещений журнала действий](./alerts-overview.md) и узнайте, как получать оповещения.  
 Узнайте больше об [ограничении частоты отправки SMS](alerts-rate-limiting.md).  
-Дополнительные сведения о [группах действий](../platform/action-groups.md)
-
+Дополнительные сведения о [группах действий](./action-groups.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662759"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689034"
 ---
 # <a name="two-way-sms-unsupported"></a>Двусторонний SMS не поддерживается
 
@@ -27,7 +27,7 @@ ms.locfileid: "101662759"
 ## <a name="required-actions"></a>Необходимые действия
 
 1. Включите мобильное приложение для пользователей, если это еще не сделано. Дополнительные сведения см. [в статье Включение проверки подлинности мобильных приложений с помощью сервера MFA](howto-mfaserver-deploy-mobileapp.md).
-1. Сообщите конечным пользователям о необходимости посетить [Пользовательский портал](howto-mfaserver-deploy-userportal.md) сервера MFA, чтобы активировать мобильное приложение. [Microsoft Authenticatorное приложение](https://www.microsoft.com/account/authenticator) является рекомендуемым вариантом проверки, так как оно более безопасно, чем двусторонний SMS. Дополнительные сведения см. [в разделе время ожидания для проверки подлинности при транспортировке телефона](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
+1. Сообщите конечным пользователям о необходимости посетить [Пользовательский портал](howto-mfaserver-deploy-userportal.md) сервера MFA, чтобы активировать мобильное приложение. [Microsoft Authenticatorное приложение](https://www.microsoft.com/en-us/account/authenticator) является рекомендуемым вариантом проверки, так как оно более безопасно, чем двусторонний SMS. Дополнительные сведения см. [в разделе время ожидания для проверки подлинности при транспортировке телефона](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
 1. Изменение пользовательских параметров из двустороннего текстового сообщения на мобильное приложение в качестве метода по умолчанию.
 
 ## <a name="faq"></a>ВОПРОСЫ И ОТВЕТЫ

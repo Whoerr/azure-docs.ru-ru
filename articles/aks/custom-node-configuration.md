@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 7b39242a7d7208b33a070e86088b25e9414ead04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559442"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714635"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Настройка конфигурации узла для пулов узлов Azure Kubernetes Service (AKS) (Предварительная версия)
 
@@ -62,7 +62,7 @@ az extension update --name aks-preview
 | Параметр | Допустимые значения и интервал | По умолчанию | Описание |
 | --------- | ----------------------- | ------- | ----------- |
 | `cpuManagerPolicy` | нет, статический | нет | Статическая политика позволяет контейнерам в [гарантированно гарантировать](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) использование ЦЕЛОЧИСЛЕННЫХ ресурсов ЦП для доступа к эксклюзивным ЦП узла. |
-| `cpuCfsQuota` | true, false | Да |  Включение и отключение использования квоты CFS ЦП для контейнеров, задающих ограничения ЦП. | 
+| `cpuCfsQuota` | true, false | true |  Включение и отключение использования квоты CFS ЦП для контейнеров, задающих ограничения ЦП. | 
 | `cpuCfsQuotaPeriod` | Интервал в миллисекундах (МС) | `100ms` | Задает значение периода квоты CFS ЦП. | 
 | `imageGcHighThreshold` | 0-100 | 85 | Процент использования дискового пространства, по истечении которого всегда выполняется сборка мусора образа. Минимальное использование **диска,** запускающее сборку мусора. Для отключения сборки мусора образа установите значение 100. | 
 | `imageGcLowThreshold` | 0-100, не выше `imageGcHighThreshold` | 80 | Процент использования диска, до которого сборка мусора образа никогда не выполняется. Минимальный объем использования дискового пространства, который **может** активировать сбор мусора. |
@@ -184,7 +184,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-con
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте [, как настроить кластер AKS](cluster-configuration.md).
 - Узнайте [, как обновить образы узлов](node-image-upgrade.md) в кластере.
@@ -198,7 +198,7 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
-[aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
+[aks-view-master-logs]: ./view-control-plane-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show

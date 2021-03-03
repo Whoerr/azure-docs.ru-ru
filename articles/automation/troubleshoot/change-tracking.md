@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9fe53a343a9f6675519b60d37d077886adaf8a9d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651171"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723832"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Устранение неполадок с Отслеживанием изменений и инвентаризации
 
@@ -34,7 +34,7 @@ Unable to Register Machine for Change Tracking, Registration Failed with Excepti
 
 ### <a name="resolution"></a>Решение
 
-1. Убедитесь, что компьютер отправляет отчеты в правильную рабочую область. Инструкции по проверке см. в разделе [Проверка подключения агента к Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Также убедитесь, что эта рабочая область связана с учетной записью службы автоматизации Azure. Для подтверждения перейдите на страницу учетной записи службы автоматизации и в разделе **Связанные ресурсы** выберите **Связанная рабочая область**.
+1. Убедитесь, что компьютер отправляет отчеты в правильную рабочую область. Инструкции по проверке см. в разделе [Проверка подключения агента к Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Также убедитесь, что эта рабочая область связана с учетной записью службы автоматизации Azure. Для подтверждения перейдите на страницу учетной записи службы автоматизации и в разделе **Связанные ресурсы** выберите **Связанная рабочая область**.
 
 1. Убедитесь, что компьютеры отображаются в рабочей области Log Analytics, связанной с вашей учетной записью службы автоматизации. Выполните следующий запрос в рабочей области Log Analytics.
 

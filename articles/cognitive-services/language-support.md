@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369194"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706288"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Поддержка естественного языка в Azure Cognitive Services
 
@@ -24,15 +24,15 @@ Azure Cognitive Services позволяет создавать приложен�
 Эти Cognitive Services не зависят от языка и не имеют ограничений, основанных на языке человека.
 
 * [Детектор аномалий (Предварительная версия)](./anomaly-detector/index.yml)
-* [Пользовательское визуальное распознавание](./Custom-Vision-Service/index.yml)
+* [Пользовательское визуальное распознавание](./custom-vision-service/index.yml)
 * [Распознавание лиц](./face/index.yml)
 * [Персонализатор](./personalizer/index.yml)
 
-## <a name="vision"></a>Зрение
+## <a name="vision"></a>Компьютерное зрение
 
 * [Компьютерное зрение](./computer-vision/language-support.md)
 * [Распознаватель форм (Предварительная версия)](./form-recognizer/language-support.md)
-* [Распознаватель рукописного текста (предварительная версия)](./ink-recognizer/language-support.md)
+* [Распознаватель рукописного текста (предварительная версия)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Индексатор видео](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>Язык
@@ -63,7 +63,7 @@ Azure Cognitive Services позволяет создавать приложен�
 
 * [Content Moderator](./content-moderator/language-support.md)
 
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>См. также раздел
 
 * [Что такое Cognitive Services?](./what-are-cognitive-services.md)
 * [Создание учетной записи](cognitive-services-apis-create-account.md)

@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: fc49e923676b63e301b2d63b4274ae11b3043906
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 717f4087dabbb3286607498ab7f04bcbcce663dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621999"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737279"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Ограничение частоты отправки для голосовых сообщений, SMS-сообщений, сообщений электронной почты, push-уведомлений приложений Azure и записей веб-перехватчиков
 Ограничение частоты означает приостановку уведомлений, которые слишком часто отправляются на указанный номер телефона, адрес электронной почты или устройство. Ограничение скорости гарантирует управляемость и действенность оповещений.
@@ -31,5 +31,5 @@ ms.locfileid: "100621999"
 
 ## <a name="next-steps"></a>Дальнейшие действия ##
 * Дополнительные сведения о поведении SMS-оповещений в группе действий см. в [этой статье](alerts-sms-behavior.md).
-* Изучите [обзор оповещений журнала действий](../platform/alerts-overview.md) и узнайте, как получать оповещения.  
+* Изучите [обзор оповещений журнала действий](./alerts-overview.md) и узнайте, как получать оповещения.  
 * Узнайте, как [настроить оповещения при поступлении уведомлений о работоспособности службы](../../service-health/alerts-activity-log-service-notifications-portal.md).

@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 17a2d04fd6519dfdaf3c97c4ef56e87e162c9e9c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4aa4e0566093f01e5f14691158f37c630c753b00
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591576"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714754"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Настройка брандмауэров службы хранилища Azure и виртуальных сетей
 
@@ -417,7 +417,7 @@ install-Module PowerShellGet –Repository PSGallery –Force
 Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
 ```
 
-Дополнительные сведения об установке модулей PowerShell см. [в статье Установка модуля Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) .
+Дополнительные сведения об установке модулей PowerShell см. [в статье Установка модуля Azure PowerShell](/powershell/azure/install-az-ps) .
 
 #### <a name="grant-access"></a>Предоставление доступа
 
@@ -583,7 +583,7 @@ az storage account network-rule list \
 
 | Служба                        | Имя поставщика ресурсов                 | Назначение            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Служба "Управление API Azure"           | Microsoft.ApiManagement/service        | Включает доступ службы управления API к учетным записям хранения за брандмауэром с помощью политик. [Подробнее](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Служба "Управление API Azure"           | Microsoft.ApiManagement/service        | Включает доступ службы управления API к учетным записям хранения за брандмауэром с помощью политик. [Подробнее.](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy) |
 | Когнитивный поиск Azure         | Microsoft.Search/searchServices        | Разрешает службам Когнитивного поиска доступ к учетным записям хранения для индексирования, обработки и выполнения запросов. |
 | Azure Cognitive Services       | Microsoft. Когнитивесервице/учетные записи    | Разрешает Cognitive Services доступ к учетным записям хранения. |
 | Задачи Реестра контейнеров Azure | Microsoft.ContainerRegistry/registries | Задачи Реестра контейнеров Azure могут получать доступ к учетным записям хранения при создании образов контейнеров. |
@@ -594,7 +594,7 @@ az storage account network-rule list \
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Позволяет приложениям логики получать доступ к учетным записям хранения. [Подробнее](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Служба "Машинное обучение Azure" | Microsoft.MachineLearningServices      | Авторизованные рабочие области Машинного обучения Azure записывают выходные данные эксперимента, модели и журналы в хранилище BLOB-объектов и читают данные. [Подробнее](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Службы мультимедиа Azure           | Microsoft.Media/mediaservices          | Разрешает доступ к учетным записям хранения через службы мультимедиа. |
-| Служба "Миграция Azure"                  | Microsoft. Migrate/мигратепрожектс      | Разрешает доступ к учетным записям хранения с помощью службы "миграция Azure". |
+| Миграция Azure                  | Microsoft. Migrate/мигратепрожектс      | Разрешает доступ к учетным записям хранения с помощью службы "миграция Azure". |
 | Azure Purview                  | Microsoft. зрения/учетные записи             | Разрешает зрения доступ к учетным записям хранения. |
 | Удаленная отрисовка Azure         | Microsoft. Микседреалити/Ремотерендерингаккаунтс | Разрешает доступ к учетным записям хранения через удаленную визуализацию. |
 | Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Разрешает доступ к учетным записям хранения с помощью Site Recovery. |

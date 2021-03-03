@@ -1,18 +1,18 @@
 ---
 title: Развертывание ресурсов с помощью Azure CLI и шаблона
-description: Используйте Azure Resource Manager и Azure CLI для развертывания ресурсов в Azure. Эти ресурсы определяются в шаблоне Resource Manager.
+description: Используйте Azure Resource Manager и Azure CLI для развертывания ресурсов в Azure. Ресурсы определяются в шаблоне диспетчер ресурсов или в файле Бицеп.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 6a8efcebcd6ae18eaf91c6ec1e7df184db8c244c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/02/2021
+ms.openlocfilehash: 547b860869738f3cfe12d6a22262829ef132a671
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378678"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741129"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Развертывание ресурсов с помощью шаблонов ARM и Azure CLI
 
-В этой статье объясняется, как использовать Azure CLI с шаблонами Azure Resource Manager (шаблоны ARM) для развертывания ресурсов в Azure. Если вы не знакомы с концепциями развертывания и управления решениями Azure, см. раздел [Общие сведения о развертывании шаблонов](overview.md).
+В этой статье объясняется, как использовать Azure CLI с шаблонами Azure Resource Manager (шаблоны ARM) или файлом Бицеп для развертывания ресурсов в Azure. Если вы не знакомы с концепциями развертывания и управления решениями Azure, см. статью [Общие сведения о развертывании шаблонов](overview.md) или [бицеп](bicep-overview.md).
 
 Команды развертывания изменились в Azure CLI версии 2.2.0. Для использования примеров в этой статье требуется Azure CLI версии 2.2.0 или более поздней.
 
@@ -27,13 +27,13 @@ ms.locfileid: "100378678"
 * Для развертывания в **группе ресурсов** используйте команду [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
   ```
 
 * Для развертывания в **подписке** используйте команду [AZ Deployment подсоздание](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template>
+  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Дополнительные сведения о развертываниях на уровне подписки см. в статье [Создание групп ресурсов и ресурсов на уровне подписки](deploy-to-subscription.md).
@@ -41,7 +41,7 @@ ms.locfileid: "100378678"
 * Для развертывания в **группе управления** используйте команду [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template>
+  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Дополнительные сведения о развертываниях на уровне групп управления см. в статье [Создание ресурсов на уровне группы управления](deploy-to-management-group.md).
@@ -49,14 +49,14 @@ ms.locfileid: "100378678"
 * Чтобы выполнить развертывание в **клиенте**, используйте [AZ Deployment клиент Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template>
+  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Дополнительные сведения о развертываниях на уровне клиента см. в статье [Создание ресурсов на уровне клиента](deploy-to-tenant.md).
 
-Для каждой области пользователь, развертывающий шаблон, должен иметь необходимые разрешения для создания ресурсов.
+Для каждой области пользователь, развертывающий шаблон или файл Бицеп, должен иметь необходимые разрешения для создания ресурсов.
 
-## <a name="deploy-local-template"></a>Развертывание локального шаблона
+## <a name="deploy-local-template-or-bicep-file"></a>Развертывание локального шаблона или файла Бицеп
 
 Вы можете развернуть шаблон с локального компьютера или из него, который хранится извне. В этом разделе описывается развертывание локального шаблона.
 
@@ -66,13 +66,13 @@ ms.locfileid: "100378678"
 az group create --name ExampleGroup --location "Central US"
 ```
 
-Чтобы развернуть локальный шаблон, используйте `--template-file` параметр в команде развертывания. В следующем примере также показано, как задать значение параметра, поступающих из шаблона.
+Чтобы развернуть локальный шаблон или файл Бицеп, используйте `--template-file` параметр в команде Deployment. В следующем примере также показано, как задать значение параметра.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file azuredeploy.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -83,6 +83,9 @@ az deployment group create \
 ```
 
 ## <a name="deploy-remote-template"></a>Развертывание удаленного шаблона
+
+> [!NOTE]
+> В настоящее время Azure CLI не поддерживает развертывание файлов Remove Бицеп.
 
 Вместо того чтобы хранить шаблоны ARM на локальном компьютере, вы можете хранить их во внешнем расположении. Вы можете хранить шаблоны в репозитории системы управления версиями (например, GitHub). А также их можно хранить в учетной записи хранения Azure для общего доступа в организации.
 
@@ -144,6 +147,9 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 
 ## <a name="deploy-template-spec"></a>Развертывание спецификации шаблона
 
+> [!NOTE]
+> В настоящее время Azure CLI не поддерживает создание спецификаций шаблонов, предоставляя файлы Бицеп. Однако можно создать шаблон ARM или Бицеп-файл с ресурсом [Microsoft. Resources/темплатеспекс](/azure/templates/microsoft.resources/templatespecs) , чтобы развернуть спецификацию шаблона. Ниже приведен [Пример](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
+
 Вместо развертывания локального или удаленного шаблона можно создать [спецификацию шаблона](template-specs.md). Спецификация шаблона — это ресурс в подписке Azure, который содержит шаблон ARM. Это позволяет легко обеспечить безопасный общий доступ к шаблону для пользователей в вашей организации. Используйте управление доступом на основе ролей Azure (Azure RBAC), чтобы предоставить доступ к спецификации шаблона. Сейчас эта функция доступна в предварительной версии.
 
 В следующих примерах показано, как создать и развернуть спецификацию шаблона.
@@ -186,7 +192,7 @@ az deployment group create \
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -197,7 +203,7 @@ az deployment group create \
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -236,7 +242,7 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 
 ### <a name="parameter-files"></a>Файлы параметров
 
-Вместо передачи параметров в виде встроенных значений в сценарии вам может быть проще использовать JSON-файл, содержащий значения параметров. Файл параметров должен находиться в локальной среде. Внешние файлы параметров не поддерживаются в Azure CLI.
+Вместо передачи параметров в виде встроенных значений в сценарии вам может быть проще использовать JSON-файл, содержащий значения параметров. Файл параметров должен находиться в локальной среде. Внешние файлы параметров не поддерживаются в Azure CLI. Как шаблон ARM, так и файл Бицеп используют файлы параметров JSON.
 
 Дополнительные сведения о файле параметров см. в статье [Создание файла параметров Resource Manager](parameter-files.md).
 
@@ -252,7 +258,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Обработку расширенного формата JSON
 
-Чтобы развернуть шаблон с многострочными строками или комментариями с помощью Azure CLI с версией 2.3.0 или более ранней, необходимо использовать `--handle-extended-json-format` параметр.  Пример:
+Чтобы развернуть шаблон с многострочными строками или комментариями с помощью Azure CLI с версией 2.3.0 или более ранней, необходимо использовать `--handle-extended-json-format` параметр.  Например:
 
 ```json
 {
@@ -274,7 +280,7 @@ az deployment group create \
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- Если возникнет ошибка при развертывании, выполните откат по инструкциям из статьи [Откат к работоспособному развертыванию в случае ошибки](rollback-on-error.md).
-- Сведения о том, как указать способ обработки ресурсов, которые существуют в группе ресурсов, но не определены в шаблоне, см. в [описании режимов развертывания с помощью Azure Resource Manager](deployment-modes.md).
-- Сведения о том, как определить параметры в шаблоне, см. [в разделе Общие сведения о структуре и синтаксисе шаблонов ARM](template-syntax.md).
-- Советы по устранению распространенных ошибок развертывания см. в разделе [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](common-deployment-errors.md).
+* Если возникнет ошибка при развертывании, выполните откат по инструкциям из статьи [Откат к работоспособному развертыванию в случае ошибки](rollback-on-error.md).
+* Сведения о том, как указать способ обработки ресурсов, которые существуют в группе ресурсов, но не определены в шаблоне, см. в [описании режимов развертывания с помощью Azure Resource Manager](deployment-modes.md).
+* Сведения о том, как определить параметры в шаблоне, см. [в разделе Общие сведения о структуре и синтаксисе шаблонов ARM](template-syntax.md).
+* Советы по устранению распространенных ошибок развертывания см. в разделе [Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager](common-deployment-errors.md).

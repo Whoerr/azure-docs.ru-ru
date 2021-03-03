@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2c69cea7055476bcc4c4a28cea0a0cf8c8f66f88
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bbb42a4955ff0b4fbbac58830ec5c8aecf04915d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686739"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Веб-API, вызывающий веб-API: вызов API
 
@@ -29,9 +29,15 @@ ms.locfileid: "98753450"
 
 При использовании *Microsoft. Identity. Web* у вас есть три сценария использования:
 
-- [Вариант 1. вызов Microsoft Graph с помощью пакета SDK для Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
-- [Вариант 2. вызов подчиненного веб-API с помощью вспомогательного класса](#option-2-call-a-downstream-web-api-with-the-helper-class)
-- [Вариант 3. вызов подчиненного веб-интерфейса API без вспомогательного класса](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Веб-API, вызывающий веб-API: вызов API](#a-web-api-that-calls-web-apis-call-an-api)
+  - [Код контроллера](#controller-code)
+- [ASP.NET Core](#aspnet-core)
+      - [Вариант 1. вызов Microsoft Graph с помощью пакета SDK](#option-1-call-microsoft-graph-with-the-sdk)
+      - [Вариант 2. вызов подчиненного веб-API с помощью вспомогательного класса](#option-2-call-a-downstream-web-api-with-the-helper-class)
+      - [Вариант 3. вызов подчиненного веб-интерфейса API без вспомогательного класса](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Java](#java)
+- [Python](#python)
+  - [Дальнейшие действия](#next-steps)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Вариант 1. вызов Microsoft Graph с помощью пакета SDK
 
@@ -159,10 +165,10 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # <a name="python"></a>[Python](#tab/python)
-Пример, демонстрирующий этот поток с помощью MSAL Python, пока недоступен.
+Пример, демонстрирующий этот поток с помощью MSAL Python, доступен на странице [MS-Identity-Python-On-My-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к следующей статье в этом сценарии, [перейдите в рабочую среду](scenario-web-api-call-api-production.md).

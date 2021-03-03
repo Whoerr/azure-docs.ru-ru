@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183385"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733216"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Руководство по Создание новой дочерней зоны DNS
 
@@ -81,7 +81,8 @@ ms.locfileid: "96183385"
 1.  По завершении выберите **Next: Теги** , а затем **Далее: Отзыв и создание**.
 1.  На вкладке **Просмотр и создание** проверьте сводную информацию, устраните возможные ошибки и щелкните **Создать**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Снимок экрана с выбранной дочерней зоной" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Снимок экрана с выбранной дочерней зоной" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## <a name="verify-child-dns-zone"></a>Проверка дочерней зоны DNS
 Итак, вы создали новую дочернюю зону DNS с именем *subdomain.contoso.com*. Чтобы проверить успешность делегирования, попробуйте обратиться к записям NS сервера имен о дочерней зоне, размещенным в родительской зоне, как описано ниже.  
 

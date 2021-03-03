@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b9c3c66e58ae51773a959aba0b2c76d97b44445
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6586375d7db71274f40eb62aeb24f9daad0d7c2e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688303"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Использование расширений PostgreSQL в службе "Дуга Azure", в которой включена PostgreSQLная группа серверов
 
@@ -24,44 +24,59 @@ PostgreSQL лучше использовать с расширениями. На
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="list-of-extensions"></a>Список расширений
-Помимо расширений в [`contrib`](https://www.postgresql.org/docs/12/contrib.html) , список расширений, имеющихся в контейнерах для группы серверов PostgreSQL в службе "Дуга Azure", включает:
-- `citus`, v: 9,4
-- `pg_cron`, v: 1,2
-- `plpgsql`, v: 1,0
-- `postgis`, v: 3.0.2
-- `plv8`, v: 2.3.14
+## <a name="supported-extensions"></a>Поддерживаемые расширения
+Стандартные [`contrib`](https://www.postgresql.org/docs/12/contrib.html) расширения и следующие расширения уже развернуты в контейнерах группы серверов PostgreSQL в службе "Дуга", включенной в дугу Azure.
+- [`citus`](https://github.com/citusdata/citus), v: 9,4. Расширение Цитус по [данным Цитус](https://www.citusdata.com/) загружается по умолчанию, так как в него передается возможность масштабирования в подсистему PostgreSQL. Удаление расширения Цитус из группы серверов Microsoft Azure Arc PostgreSQL не поддерживается.
+- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1,2
+- [`pgaudit`](https://www.pgaudit.org/), v: 1,4
+- плпгскл, v: 1,0
+- [`postgis`](https://postgis.net), v: 3.0.2
+- [`plv8`](https://plv8.github.io/), v: 2.3.14
 
-Этот список будет развиваться за сверхурочные работы, и в этом документе будут опубликованы обновления. Вы еще не можете добавить расширения, которые выходят за рамки перечисленных выше.
+Обновления для этого списка будут публиковаться по мере развития со временем.
+
+> [!IMPORTANT]
+> Хотя в этой предварительной версии вы можете подключить к группе серверов расширение, отличное от перечисленных выше, оно не будет сохранено в системе. Это означает, что он будет недоступен после перезагрузки системы, и его потребуется снова подключить.
 
 В этом руководство будет использоваться два из следующих расширений:
-- [PostGIS](https://postgis.net/)
+- [`PostGIS`](https://postgis.net/)
 - [`pg_cron`](https://github.com/citusdata/pg_cron)
 
+## <a name="which-extensions-need-to-be-added-to-the-shared_preload_libraries-and-created"></a>Какие расширения необходимо добавить в shared_preload_libraries и создать?
 
-## <a name="manage-extensions"></a>Управление расширениями
+|Модули   |Необходимо добавить в shared_preload_libraries  |Необходимо создать |
+|-------------|--------------------------------------------------|---------------------- |
+|`pg_cron`      |Нет       |Да        |
+|`pg_audit`     |Да       |Да        |
+|`plpgsql`      |Да       |Да        |
+|`postgis`      |Нет       |Да        |
+|`plv8`      |Нет       |Да        |
 
-### <a name="enable-extensions"></a>Включить расширения
-Этот шаг не требуется для расширений, входящих в состав `contrib` .
-Общий формат команды для включения расширений:
+## <a name="add-extensions-to-the-shared_preload_libraries"></a>Добавление расширений в shared_preload_libraries
+Дополнительные сведения о [shared_preload_libraries см. в документации по](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES)PostgreSQL:
+- Этот шаг не требуется для расширений, входящих в состав `contrib`
+- Этот шаг не требуется для расширений, которые не требуются для предварительной загрузки с помощью shared_preload_libraries. Для этих расширений вы можете перейти к следующему абзацу [Создание расширений](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group#create-extensions).
 
-#### <a name="enable-an-extension-at-the-creation-time-of-a-server-group"></a>Включить расширение во время создания группы серверов:
+### <a name="add-an-extension-at-the-creation-time-of-a-server-group"></a>Добавление расширения во время создания группы серверов
 ```console
 azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
 ```
-#### <a name="enable-an-extension-on-an-instance-that-already-exists"></a>Включить расширение в уже существующем экземпляре:
+### <a name="add-an-extension-to-an-instance-that-already-exists"></a>Добавление расширения в уже существующий экземпляр
 ```console
 azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
-#### <a name="get-the-list-of-extensions-enabled"></a>Получить список включенных расширений:
+
+
+
+## <a name="show-the-list-of-extensions-added-to-shared_preload_libraries"></a>Отображение списка расширений, добавленных в shared_preload_libraries
 Выполните одну из приведенных ниже команд.
 
-##### <a name="with-azure-data-cli-azdata"></a>С добавлением [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+### <a name="with-an-azdata-cli-command"></a>С помощью команды CLI аздата
 ```console
 azdata arc postgres server show -n <server group name>
 ```
-Прокрутите выходные данные и обратите внимание на разделы енгине\екстенсионс в спецификациях вашей группы серверов. Пример:
+Прокрутите выходные данные и обратите внимание на разделы енгине\екстенсионс в спецификациях вашей группы серверов. Пример.
 ```console
 "engine": {
       "extensions": [
@@ -74,11 +89,11 @@ azdata arc postgres server show -n <server group name>
       ]
     },
 ```
-##### <a name="with-kubectl"></a>С kubectl
+### <a name="with-kubectl"></a>С kubectl
 ```console
 kubectl describe postgresql-12s/postgres02
 ```
-Прокрутите выходные данные и обратите внимание на разделы енгине\екстенсионс в спецификациях вашей группы серверов. Пример:
+Прокрутите выходные данные и обратите внимание на разделы енгине\екстенсионс в спецификациях вашей группы серверов. Пример.
 ```console
 Engine:
     Extensions:
@@ -87,59 +102,34 @@ Engine:
 ```
 
 
-### <a name="create-extensions"></a>Создание расширений:
+## <a name="create-extensions"></a>Создание расширений
 Подключитесь к группе серверов с помощью выбранного клиентского средства и выполните стандартный запрос PostgreSQL:
 ```console
 CREATE EXTENSION <extension name>;
 ```
 
-### <a name="get-the-list-of-extension-created-in-your-server-group"></a>Получите список расширений, созданных в группе серверов.
+## <a name="show-the-list-of-extensions-created"></a>Отображение списка созданных расширений
 Подключитесь к группе серверов с помощью выбранного клиентского средства и выполните стандартный запрос PostgreSQL:
 ```console
 select * from pg_extension;
 ```
 
-### <a name="drop-an-extension-from-your-server-group"></a>Удалите расширение из группы серверов:
+## <a name="drop-an-extension"></a>Удалить расширение
 Подключитесь к группе серверов с помощью выбранного клиентского средства и выполните стандартный запрос PostgreSQL:
 ```console
 drop extension <extension name>;
 ```
 
-## <a name="use-the-postgis-and-the-pg_cron-extensions"></a>Использование PostGIS и расширений Pg_cron
-
-### <a name="the-postgis-extension"></a>Расширение PostGIS
-
-Можно либо включить расширение PostGIS в существующую группу серверов, либо создать новую с уже включенным расширением:
-
-**Включение расширения во время создания группы серверов:**
-```console
-azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
-
-#Example:
-azdata arc postgres server create -n pg2 -w 2 --extensions postgis
-```
-
-**Включение расширения в уже существующем экземпляре:**
-```console
-azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
-
-#Example:
-azdata arc postgres server edit --extensions postgis -n pg2
-```
-
-Чтобы проверить, какие расширения установлены, используйте приведенную ниже стандартную команду PostgreSQL после подключения к экземпляру с помощью вашего любимого клиентского средства PostgreSQL, например Azure Data Studio.
-```console
-select * from pg_extension;
-```
-
-Для примера PostGIS сначала получите [демонстрационные данные](http://duspviz.mit.edu/tutorials/intro-postgis/) из подразделения MIT, & планирования. Может потребоваться выполнить команду `apt-get install unzip` , чтобы установить распаковку при использовании виртуальной машины для тестирования.
+## <a name="the-postgis-extension"></a>`PostGIS`Расширение
+Нет необходимости добавлять `PostGIS` расширение в `shared_preload_libraries` .
+Получите [демонстрационные данные](http://duspviz.mit.edu/tutorials/intro-postgis/) из отдела MIT, & планирования. Выполните команду `apt-get install unzip` , чтобы установить распаковку по мере необходимости.
 
 ```console
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
 unzip intro-postgis-datasets.zip
 ```
 
-Давайте подключимся к нашей базе данных и создадим расширение PostGIS:
+Давайте подключимся к нашей базе данных и создадим `PostGIS` расширение:
 
 ```console
 CREATE EXTENSION postgis;
@@ -165,7 +155,7 @@ CREATE TABLE coffee_shops (
 CREATE INDEX coffee_shops_gist ON coffee_shops USING gist (geom);
 ```
 
-Теперь можно объединить PostGIS с функциональностью Scale out, сделав таблицу coffee_shops распределенной:
+Теперь можно сочетаться `PostGIS` с возможностями горизонтального масштабирования, сделав coffee_shopsную таблицу распределенной:
 
 ```sql
 SELECT create_distributed_table('coffee_shops', 'id');
@@ -177,7 +167,7 @@ SELECT create_distributed_table('coffee_shops', 'id');
 \copy coffee_shops(id,name,address,city,state,zip,lat,lon) from cambridge_coffee_shops.csv CSV HEADER;
 ```
 
-И заполните `geom` поле правильно закодированной широтой и долготой в `geometry` типе данных PostGIS:
+И заполните `geom` поле правильно закодированной широтой и долготой в `PostGIS` `geometry` типе данных:
 
 ```sql
 UPDATE coffee_shops SET geom = ST_SetSRID(ST_MakePoint(lon,lat),4326);
@@ -190,15 +180,15 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 ```
 
 
-### <a name="the-pg_cron-extension"></a>Расширение pg_cron
+## <a name="the-pg_cron-extension"></a>`pg_cron`Расширение
 
-Давайте развернемся в `pg_cron` нашей группе серверов PostgreSQL в дополнение к PostGIS:
+Теперь давайте развернемся `pg_cron` к нашей группе серверов PostgreSQL, добавив ее в shared_preload_libraries:
 
 ```console
-azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
+azdata postgres server update -n pg2 -ns arc --extensions pg_cron
 ```
 
-Обратите внимание, что это приведет к перезапуску узлов и установке дополнительных расширений, что может занять 2-3 минут.
+Группа серверов перезапускает завершение установки расширений. Может потребоваться от 2 до 3 минут.
 
 Теперь можно подключиться снова и создать `pg_cron` расширение:
 
@@ -206,7 +196,7 @@ azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
 CREATE EXTENSION pg_cron;
 ```
 
-В целях тестирования позволяет создать таблицу `the_best_coffee_shop` , которая принимает случайное имя из предыдущей `coffee_shops` таблицы и задает содержимое таблицы:
+В целях тестирования позволяет создать таблицу `the_best_coffee_shop` , которая принимает случайное имя из предыдущей `coffee_shops` таблицы и вставляет содержимое таблицы:
 
 ```sql
 CREATE TABLE the_best_coffee_shop(name text);
@@ -238,10 +228,8 @@ SELECT * FROM the_best_coffee_shop;
 
 Полные сведения о синтаксисе см. в [PG_CRON файле сведений](https://github.com/citusdata/pg_cron) .
 
->[!NOTE]
->Удаление расширения не поддерживается `citus` . `citus`Расширение является обязательным для обеспечения возможности масштабирования.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Ознакомьтесь с документацией по [plv8](https://plv8.github.io/)
-- Ознакомьтесь с документацией по [PostGIS](https://postgis.net/)
+- Ознакомьтесь с документацией по [`plv8`](https://plv8.github.io/)
+- Ознакомьтесь с документацией по [`PostGIS`](https://postgis.net/)
 - Ознакомьтесь с документацией по [`pg_cron`](https://github.com/citusdata/pg_cron)

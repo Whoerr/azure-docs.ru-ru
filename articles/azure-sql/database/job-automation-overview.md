@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 942698e5c42e1f46ff05dacdacdb0d124135a6c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390765"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690436"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Автоматизация задач управления с помощью Заданий обработки эластичных баз данных (предварительная версия)
 
@@ -56,7 +56,7 @@ ms.locfileid: "100390765"
 
 Для автоматизации заданий выполнения скриптов T-SQL в SQL Server и Управляемом экземпляре SQL Azure рекомендуем использовать [Агент SQL](job-automation-managed-instances.md). 
 
-Для автоматизации заданий выполнения скриптов T-SQL в Azure Synapse Analytics рекомендуем использовать [конвейеры с повторяющимися триггерами](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), которые [работают на основе Фабрики данных Azure](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+Для автоматизации заданий выполнения скриптов T-SQL в Azure Synapse Analytics рекомендуем использовать [конвейеры с повторяющимися триггерами](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), которые [работают на основе Фабрики данных Azure](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
 Стоит отметить различия между Агентом SQL (доступным в SQL Server и как часть Управляемого экземпляра SQL) и агентом Заданий обработки эластичных баз данных (который может выполнять T-SQL в Базе данных SQL Azure или базах данных в SQL Server и Управляемом экземпляре SQL Azure, Azure Synapse Analytics).
 

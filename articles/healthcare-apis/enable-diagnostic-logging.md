@@ -7,23 +7,30 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
-author: CaitlinV39
-ms.date: 02/03/2021
-ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+author: zxue
+ms.date: 02/24/2021
+ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581965"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712782"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Включение ведения журнала диагностики в Azure API для FHIR
 
 В этой статье вы узнаете, как включить ведение журнала диагностики в Azure API для FHIR и получить возможность просматривать примеры запросов для этих журналов. Доступ к журналам диагностики важен для любой службы здравоохранения, где соответствие нормативным требованиям (например, HIPAA) является обязательным. Функция в API Azure для FHIR, которая включает журналы диагностики, — это [**параметры диагностики**](../azure-monitor/essentials/diagnostic-settings.md) в портал Azure. 
 
+## <a name="view-and-download-fhir-metrics-data"></a>Просмотр и скачивание данных метрик FHIR
+
+Вы можете просмотреть метрики в разделе Мониторинг | Метрики с портала. Метрики включают число запросов, среднюю задержку, число ошибок, размер данных, используемый протокол RUs, число запросов, превышающих емкость, и доступность (в%). На следующем снимке экрана показана поддержка, которая используется для примера среды с очень небольшими действиями за последние семь дней. Данные можно скачать в формате JSON.
+
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Azure API для метрик FHIR на портале" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+
 ## <a name="enable-audit-logs"></a>Включить журналы аудита
 1. Чтобы включить ведение журнала диагностики в Azure API для FHIR, выберите службу API Azure для службы FHIR в портал Azure 
-2. Выберите параметры диагностики **параметры диагностики**  
- ![](media/diagnostic-logging/diagnostic-settings-screen.png) 
+2. Перейдите к **параметрам диагностики** . 
+
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Добавьте параметры диагностики Azure FHIR." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Выберите **+ Добавить параметр диагностики**
 
@@ -35,7 +42,7 @@ ms.locfileid: "100581965"
     2. **Поток в концентратор событий** для приема от сторонней службы или пользовательского аналитического решения. Прежде чем можно будет настроить этот шаг, необходимо создать пространство имен концентратора событий и политику концентратора событий.
     3. **Поток** в рабочую область Log Analytics в Azure Monitor. Чтобы выбрать этот параметр, необходимо создать рабочую область журналы Analytics.
 
-6. Выберите **AuditLogs** и (или) **аллметрикс**. Метрики включают имя службы, доступность, размер данных, общую задержку, общее количество запросов, общее число ошибок и отметку времени.
+6. Выберите **AuditLogs** и (или) **аллметрикс**. Метрики включают имя службы, доступность, размер данных, общую задержку, общее количество запросов, общее число ошибок и отметку времени. Дополнительные сведения о [поддерживаемых метриках](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices)см. здесь. 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Параметры диагностики Azure FHIR. Выберите AuditLogs и (или) Аллметрикс." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
@@ -50,7 +57,7 @@ ms.locfileid: "100581965"
 ## <a name="audit-log-details"></a>Сведения о журнале аудита
 В настоящее время API Azure для службы FHIR возвращает следующие поля в журнале аудита: 
 
-|Имя поля  |Type  |Примечания  |
+|Имя поля  |Тип  |Примечания  |
 |---------|---------|---------|
 |каллеридентити|Динамический|Контейнер универсальных свойств, содержащий сведения об удостоверении
 |каллеридентитиссуер|Строка|Издатель 
@@ -102,7 +109,7 @@ MicrosoftHealthcareApisAuditLogs
  
 FHIR — это зарегистрированная торговая марка организации HL7, которая используется с разрешения HL7.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы узнали, как включить журналы аудита для Azure API для FHIR. Далее вы узнаете о других дополнительных параметрах, которые можно настроить в API Azure для FHIR.
  
 >[!div class="nextstepaction"]

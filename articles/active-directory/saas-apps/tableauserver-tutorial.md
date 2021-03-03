@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 7ee22121fd023f3942eed64bd605bf87b961d893
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 810f57afceda10c10cf5919a0c50ca6be2950703
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429844"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650606"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Руководство по интеграции единого входа Azure Active Directory с Tableau Server
 
@@ -165,8 +165,8 @@ ms.locfileid: "99429844"
 
 * Перейдите по URL-адресу для входа в Tableau Server и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Tableau Server на портале "Мои приложения", вы перейдете по URL-адресу для входа в Tableau Server. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Tableau Server на портале "Мои приложения", вы перейдете по URL-адресу для входа в Tableau Server. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Tableau Server вы можете применить управление сеансами, которое в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Tableau Server вы можете применить управление сеансами, которое в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

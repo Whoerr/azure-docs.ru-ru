@@ -3,12 +3,12 @@ title: Мониторинг производительности на вирту
 description: Мониторинг производительности приложений для ВИРТУАЛЬНОЙ машины Azure и масштабируемых наборов виртуальных машин Azure. Загрузка диаграммы и время отклика, сведения о зависимостях и Настройка оповещений о производительности.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 48441711c8c6209b25974108fd91d1023fd6e6be
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0951d1d622f59de4780735fad78ac73649ea2369
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493742"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711487"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Развертывание агента Azure Monitor Application Insights на виртуальных машинах Azure и масштабируемых наборах виртуальных машин Azure
 
@@ -16,7 +16,7 @@ ms.locfileid: "99493742"
 
 В этой статье описывается включение мониторинга Application Insights с помощью агента Application Insights и предоставляются предварительные рекомендации по автоматизации процесса для крупномасштабных развертываний.
 > [!IMPORTANT]
-> Приложения на основе **Java** , работающие на виртуальных машинах Azure и VMSS, отслеживаются с помощью **[Application Insights агента Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)**, который является общедоступным.
+> Приложения на основе **Java** , работающие на виртуальных машинах Azure и VMSS, отслеживаются с помощью **[Application Insights агента Java 3,0](./java-in-process-agent.md)**, который является общедоступным.
 
 > [!IMPORTANT]
 > Агент Application Insights Azure для приложений ASP.NET, работающих на **виртуальных машинах Azure и VMSS** , в настоящее время находится в общедоступной предварительной версии. Для мониторинга приложений ASP.Net, работающих **в локальной среде**, используйте [Агент Azure Application Insights для локальных серверов](./status-monitor-v2-overview.md), который является общедоступным и полностью поддерживаемым.
@@ -42,7 +42,7 @@ ms.locfileid: "99493742"
   * Агент Application Insights выполняет автоматическую сбор одинаковых зависимых сигналов в виде пакета SDK для .NET. Дополнительные сведения см. в разделе [Автоматическая коллекция зависимостей](./auto-collect-dependencies.md#net) .
         
 #### <a name="java"></a>Java
-  * Для Java предпочтительным подходом является **[Application Insights агента java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** . Самые популярные библиотеки и платформы, а также журналы и зависимости [собираются](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#auto-collected-requests-dependencies-logs-and-metrics)с множеством [дополнительных конфигураций](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config) .
+  * Для Java предпочтительным подходом является **[Application Insights агента java 3,0](./java-in-process-agent.md)** . Самые популярные библиотеки и платформы, а также журналы и зависимости [собираются](./java-in-process-agent.md#auto-collected-requests-dependencies-logs-and-metrics)с множеством [дополнительных конфигураций](./java-standalone-config.md) .
 
 ### <a name="code-based-via-sdk"></a>Пакет SDK на основе кода
     
@@ -55,19 +55,19 @@ ms.locfileid: "99493742"
     > Только для приложений .NET — при обнаружении средств мониторинга на основе агента и ручного инструментирования на основе пакета SDK будут учитываться только параметры инструментирования вручную. Это позволяет предотвратить отправку повторяющихся данных. Чтобы узнать больше об этом, ознакомьтесь с [разделом устранение неполадок](#troubleshooting) ниже.
 
 #### <a name="net-core"></a>.NET Core
-Для мониторинга приложений .NET Core используйте [пакет SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 
+Для мониторинга приложений .NET Core используйте [пакет SDK](./asp-net-core.md) 
 
 #### <a name="java"></a>Java 
 
-Если вам требуются дополнительные пользовательские данные телеметрии для приложений Java, см. статью [доступность](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application), добавление [пользовательских измерений](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions)или использование [обработчиков данных телеметрии](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors). 
+Если вам требуются дополнительные пользовательские данные телеметрии для приложений Java, см. статью [доступность](./java-in-process-agent.md#send-custom-telemetry-from-your-application), добавление [пользовательских измерений](./java-standalone-config.md#custom-dimensions)или использование [обработчиков данных телеметрии](./java-standalone-telemetry-processors.md). 
 
 #### <a name="nodejs"></a>Node.js
 
-Для инструментирования приложения Node.js используйте [пакет SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+Для инструментирования приложения Node.js используйте [пакет SDK](./nodejs.md).
 
 #### <a name="python"></a>Python
 
-Для мониторинга приложений Python используйте [пакет SDK](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+Для мониторинга приложений Python используйте [пакет SDK](./opencensus-python.md).
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Управление агентом Application Insights для приложений .NET на виртуальных машинах Azure с помощью PowerShell
 
@@ -189,7 +189,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVmssName>/extensions/ApplicationMonitoringWindows
 ```
 
-## <a name="troubleshooting"></a>Диагностика
+## <a name="troubleshooting"></a>Устранение неполадок
 
 Найдите советы по устранению неполадок для Application Insights расширения агента мониторинга для приложений .NET, выполняющихся на виртуальных машинах Azure и в масштабируемых наборах виртуальных машин.
 

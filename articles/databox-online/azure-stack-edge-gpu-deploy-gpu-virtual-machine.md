@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804933"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730717"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Виртуальные машины GPU для устройства Azure Stack ребра Pro
 
@@ -39,7 +39,7 @@ ms.locfileid: "98804933"
 
 | Distribution | Версия |
 |---|---|
-| Windows Server 2019 | Основные сведения |
+| Windows Server 2019 | Основные сведения |
 | Windows Server 2016 | Основные сведения |
 
 ### <a name="supported-os-for-gpu-extension-for-linux"></a>Поддерживаемая ОС для расширения GPU для Linux
@@ -110,8 +110,8 @@ ms.locfileid: "98804933"
 1. После создания виртуальной машины разверните расширение GPU с помощью шаблона расширения. Сведения об установке [расширения GPU для](#gpu-extension-for-linux) виртуальных машин Linux см. в [статье Установка расширения GPU для Windows](#gpu-extension-for-windows).
 
 1. Чтобы проверить установку расширения GPU, подключитесь к виртуальной машине GPU:
-    1. Если используется виртуальная машина Windows, выполните действия, описанные в разделе [Подключение к виртуальной машине Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Проверьте установку](#verify-windows-driver-installation).
-    1. Если используется виртуальная машина Linux, выполните действия, описанные в статье [Подключение к виртуальной машине Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Проверьте установку](#verify-linux-driver-installation).
+    1. Если используется виртуальная машина Windows, выполните действия, описанные в разделе [Подключение к виртуальной машине Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Проверьте установку](#verify-windows-driver-installation).
+    1. Если используется виртуальная машина Linux, выполните действия, описанные в статье [Подключение к виртуальной машине Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Проверьте установку](#verify-linux-driver-installation).
 
 1. При необходимости можно переключить вычисленную сеть на любую необходимую. 
 
@@ -545,7 +545,7 @@ PS C:\WINDOWS\system32>
 
 Чтобы проверить установку драйвера, выполните следующие действия.
 
-1. Подключитесь к виртуальной машине GPU. Следуйте инструкциям в статье [Подключение к виртуальной машине Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). 
+1. Подключитесь к виртуальной машине GPU. Следуйте инструкциям в статье [Подключение к виртуальной машине Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
 
     Пример выходных данных:
 

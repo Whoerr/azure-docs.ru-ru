@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c3e5ca30b7f0f00b6d647f5fdaeb772900996adc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736210"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720245"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Доступ к хранилищу Azure (Предварительная версия) в качестве сетевой папки из контейнера в службе приложений
 
 ::: zone pivot="container-windows"
 
-В этом руководство показано, как подключить файлы службы хранилища Azure в качестве сетевой папки к контейнеру Windows в службе приложений. Поддерживаются только общие папки службы [файлов Azure](../storage/files/storage-how-to-use-files-cli.md) и [файлы Premium](../storage/files/storage-how-to-create-premium-fileshare.md) . Преимущества включают защищенное содержимое, его переносимость, доступ к нескольким приложениям и несколько методов для передачи.
+В этом руководство показано, как подключить файлы службы хранилища Azure в качестве сетевой папки к контейнеру Windows в службе приложений. Поддерживаются только общие папки службы [файлов Azure](../storage/files/storage-how-to-use-files-cli.md) и [файлы Premium](../storage/files/storage-how-to-create-file-share.md) . Преимущества включают защищенное содержимое, его переносимость, доступ к нескольким приложениям и несколько методов для передачи.
 
 > [!NOTE]
 >Служба хранилища Azure в службе приложений доступна **в режиме предварительной версии** и **не поддерживается** в **рабочих сценариях**.
@@ -33,7 +33,7 @@ ms.locfileid: "98736210"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 ::: zone pivot="container-windows"
 
@@ -117,7 +117,7 @@ az webapp config storage-account add --resource-group <group-name> --name <app-n
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 ::: zone pivot="container-windows"
 

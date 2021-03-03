@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: abadacebac38a2cd777bf71e41452ed583106474
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 2c711188343be5ee52e1bac217f8b31dc6756d3d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056711"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654397"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-olfeo-saas"></a>Руководство. Интеграция единого входа Azure Active Directory с Olfeo SAAS
 
@@ -129,9 +129,9 @@ ms.locfileid: "99056711"
 
 * Перейдите по URL-адресу для входа в Olfeo SAAS и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Olfeo SAAS на портале "Мои приложения", вы перейдете по URL-адресу для входа в Olfeo SAAS. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Olfeo SAAS на портале "Мои приложения", вы перейдете по URL-адресу для входа в Olfeo SAAS. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Olfeo SAAS вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Olfeo SAAS вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

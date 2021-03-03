@@ -7,25 +7,44 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391462"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686688"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Заметки о выпуске — службы данных с поддержкой ARC в Azure (Предварительная версия)
 
+В этой статье описываются возможности, функции и усовершенствования, недавно выпущенные или улучшенные для служб данных, поддерживающих службу Arc Azure. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="february-2021"></a>Февраль 2021 года
+
+### <a name="new-capabilities-and-features"></a>Новые возможности и возможности
+
+Номер версии Azure Data CLI ( `azdata` ): 20.3.1. Скачайте по адресу [https://aka.ms/azdata](https://aka.ms/azdata) . Вы можете установить `azdata` из программы [установки Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+К дополнительным обновлениям относятся:
+
+- Управляемый экземпляр SQL с поддержкой Azure Arc
+   - Высокий уровень доступности с группы доступности Always On
+
+- Azure Data Studio "геомасштабирование" в службе "Дуга Azure" PostgreSQL: 
+   - Теперь на странице "Обзор" отображается состояние группы серверов, сгруппированных по узлам.
+   - Теперь доступны новые страницы свойств для отображения дополнительных сведений о группе серверов.
+   - Настройка параметров ядра Postgres на странице **параметров узла** =
+
+Сведения о проблемах, связанных с этим выпуском, см. в статье [Известные проблемы: службы данных с поддержкой Arc Azure (Предварительная версия)](known-issues.md) .
 
 ## <a name="january-2021"></a>Январь 2021 г.
 
 ### <a name="new-capabilities-and-features"></a>Новые возможности и возможности
 
 Номер версии Azure Data CLI ( `azdata` ): 20.3.0. Скачайте по адресу [https://aka.ms/azdata](https://aka.ms/azdata) . Вы можете установить `azdata` из программы [установки Azure Data CLI ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
-
 
 К дополнительным обновлениям относятся:
 - Доступ к локализованному порталу для 17 новых языков

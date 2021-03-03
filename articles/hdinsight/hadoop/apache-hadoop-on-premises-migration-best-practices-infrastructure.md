@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 309053c2d7a0f9482016f1bd83e0c61dcd31bec5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740670"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Миграция локальных кластеров Apache Hadoop в HDInsight Azure — рекомендации по использованию инфраструктуры
 
@@ -36,7 +36,7 @@ ms.locfileid: "98932141"
 
 ## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Использование рекомендованного типа виртуальной машины для кластера
 
-Сведения о рекомендуемых типах виртуальных машин для каждого типа кластера HDInsight см. в статье [Конфигурация узлов и размеры виртуальных машин по умолчанию для кластеров](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Сведения о рекомендуемых типах виртуальных машин для каждого типа кластера HDInsight см. в статье [Конфигурация узлов и размеры виртуальных машин по умолчанию для кластеров](../hdinsight-supported-node-configuration.md).
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>Проверка доступности компонентов Hadoop в HDInsight
 
@@ -46,7 +46,7 @@ ms.locfileid: "98932141"
 
 Приложения или компоненты, которые были доступны в локальных кластерах, но не входят в состав кластеров HDInsight, могут быть добавлены на пограничном узле или виртуальной машине в той же виртуальной сети, что и кластер HDInsight. Стороннее приложение Hadoop, которое недоступно на Azure HDInsight, может быть установлено с помощью опции "Приложение" в кластере HDInsight. Пользовательские приложения Hadoop могут быть установлены на кластере HDInsight с помощью "действий сценариев". В следующей таблице перечислены некоторые из распространенных приложений и их возможности интеграции с HDInsight.
 
-|**Приложение**|**Интеграция**
+|**Приложения**|**Интеграция**
 |---|---|
 |Воздушный поток|Узел IaaS или HDInsight
 |Alluxio|IaaS  
@@ -73,7 +73,7 @@ ms.locfileid: "98932141"
 |Palantir|IaaS 
 |Sailpoint|IaaS 
 
-Дополнительные сведения см. в статье [Компоненты Hadoop, доступные в разных версиях HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Дополнительные сведения см. в статье [Компоненты Hadoop, доступные в разных версиях HDInsight](../hdinsight-component-versioning.md)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Настройка кластеров HDInsight с помощью действий сценариев
 

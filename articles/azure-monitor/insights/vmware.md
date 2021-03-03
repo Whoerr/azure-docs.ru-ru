@@ -1,17 +1,16 @@
 ---
 title: Мониторинг VMware решение в Azure Monitor | Документация Майкрософт
 description: Узнайте о том, как решение для мониторинга VMware помогает управлять журналами событий и отслеживать узлы ESXi.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: 9dc31cd4f492a4e95ce8232a8df28f07206e23b1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ade5a51e2251669daee6fbaca9aa4c50f7e9bfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587162"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704367"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Мониторинг VMware (не рекомендуется) решение в Azure Monitor
 
@@ -75,13 +74,13 @@ vSphere ESXi Host версий 5.5, 6.0 и 6.5
 
 В следующей таблице содержатся методы сбора данных и другие связанные сведения.
 
-| platform | Агент Log Analytics для Linux | Агент System Center Operations Manager | Служба хранилища Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
+| platform | Агент Log Analytics для Linux | Агент System Center Operations Manager | Хранилище Azure | Нужен ли Operations Manager? | Отправка данных агента Operations Manager через группу управления | Частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |Каждые 3 минуты |
 
 В следующей таблице приведены примеры типов данных, собираемых решением для мониторинга VMware.
 
-| Имя поля | description |
+| Имя поля | description; |
 | --- | --- |
 | Device_s |Запоминающие устройства VMware |
 | ESXIFailure_s |Типы сбоев |
@@ -190,13 +189,13 @@ vSphere ESXi Host версий 5.5, 6.0 и 6.5
 
     а. Убедитесь, что агент Log Analytics запущен, с помощью `ps -ef | grep oms`. Если это не так, запустите его, выполнив команду `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b. Откройте файл `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+     b. Откройте файл `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
      c. Убедитесь, что настройки пользователей и группы допустимы. Они должны выглядеть следующим образом: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
      d. Если файл не существует или настройки пользователя и группы неправильны, выполните действия по исправлению, приведенные в разделе [Подготовка сервера под управлением Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [запросы журналов в Log Analytics](../logs/log-query-overview.md) для просмотра подробных данных об узле VMware.
 * [Создавайте собственные панели мониторинга](../visualize/tutorial-logs-dashboards.md), отображающие данные об узле VMware.
 * [Создавайте оповещения](../alerts/alerts-overview.md), информирующие о возникновении определенных событий узла VMware.

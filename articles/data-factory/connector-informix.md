@@ -4,16 +4,17 @@ description: Узнайте, как копировать данные из IBM I
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
-ms.openlocfilehash: 95ecb44f154ab84a60a1ee673826d83fc51305b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 23fc5cabb947f579177a26afc6baec873f2df154
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383506"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727912"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Копирование данных из IBM Informix и обратно с помощью фабрики данных Azure
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 В этой статье описано, как с помощью действия копирования в фабрике данных Azure копировать данные из хранилища данных IBM Informix. Это продолжение [статьи об обзоре действия копирования](copy-activity-overview.md), в которой представлены общие сведения о действии копирования.
@@ -27,12 +28,13 @@ ms.locfileid: "100383506"
 
 Данные из источника Informix можно скопировать в любое поддерживаемое хранилище данных в качестве приемника или скопировать из любого поддерживаемого исходного хранилища данных в приемник Informix. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, приведен в таблице [Поддерживаемые хранилища данных и форматы](copy-activity-overview.md#supported-data-stores-and-formats).
 
+
 ## <a name="prerequisites"></a>Предварительные требования
 
 Чтобы использовать этот соединитель Informix, необходимо выполнить следующие действия:
 
 - Настроить локальную среду выполнения интеграции. Дополнительные сведения см. в статье [Создание и настройка локальной среды выполнения интеграции](create-self-hosted-integration-runtime.md).
-- Установите драйвер ODBC Informix для хранилища данных на компьютере Integration Runtime. Например, можно использовать драйвер «драйвер IBM INFORMIX Informix (64-bit)».
+- Установите драйвер ODBC Informix для хранилища данных на компьютере Integration Runtime. Сведения об установке и настройке драйвера см. в статье [руководство по драйверам ODBC для Informix](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) в центре базы знаний IBM для получения дополнительных сведений или обратитесь в службу поддержки IBM за инструкциями по установке драйверов.
 
 ## <a name="getting-started"></a>Начало работы
 

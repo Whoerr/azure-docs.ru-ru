@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: 5196b03ccd513e4afd93b8b8fcf18f7c2580024a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 9ec217cefb05929ed6f5c7395df5e68891e823ac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519224"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739786"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Получение метаданных подсистемы балансировки нагрузки с помощью службы метаданных экземпляра Azure (IMDS)
 
@@ -29,7 +29,9 @@ ms.locfileid: "100519224"
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254:80/metadata/loadbalancer?api-version=2020-10-01" | ConvertTo-Json
 ```
-
+> [!NOTE]
+> Параметр--proxy появился в PowerShell 6,0. Если вы используете более раннюю версию PowerShell, удалите прокси-сервер в тексте запроса и убедитесь, что вы не используете прокси-сервер при получении сведений о IMDS. Дополнительные сведения см. [здесь](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
+> 
 ### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash

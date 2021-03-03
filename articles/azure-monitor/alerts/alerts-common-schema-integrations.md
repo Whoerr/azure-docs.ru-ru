@@ -4,12 +4,12 @@ description: Узнайте, как создать приложение логи
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 4553ecc8d2df20ffdf9b76d381ecf3b88d84ef38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4824c5ab1826260ee1eb3639712d7138c7c85bfe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622125"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738673"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Как интегрировать общую схему предупреждений с Logic Apps
 
@@ -23,8 +23,8 @@ ms.locfileid: "100622125"
 ## <a name="prerequisites"></a>Предварительные требования 
 
 В этой статье предполагается, что читатель знаком с 
-* Настройка правил оповещений ([Метрика](../alerts/alerts-metric.md), [Журнал](../platform/alerts-log.md), [Журнал действий](../platform/alerts-activity-log.md))
-* Настройка [групп действий](../platform/action-groups.md)
+* Настройка правил оповещений ([Метрика](../alerts/alerts-metric.md), [Журнал](./alerts-log.md), [Журнал действий](./alerts-activity-log.md))
+* Настройка [групп действий](./action-groups.md)
 * Включение [общей схемы предупреждений](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) из групп действий
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Создание приложения логики, использующего общую схему предупреждений
@@ -135,7 +135,7 @@ ms.locfileid: "100622125"
     
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* [Узнайте о группах действий.](../platform/action-groups.md)
+* [Узнайте о группах действий.](./action-groups.md)
 * Дополнительные [сведения о схеме общих предупреждений](./alerts-common-schema.md).

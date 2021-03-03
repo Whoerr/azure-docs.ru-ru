@@ -1,22 +1,21 @@
 ---
 title: Монитор производительности сети подключения службы решений Azure Log Analytics
 description: С помощью монитора подключений службы в Мониторе производительности сети вы можете отслеживать сетевые подключения к любой конечной точке с открытым TCP-портом.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: a980c0987106a80751a98c48dfc5780708e6f889
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5b42e61af398e111b2014f3734a0011a4bee778
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573414"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734168"
 ---
 # <a name="service-connectivity-monitor"></a>Монитор подключений службы
 
 > [!IMPORTANT]
-> Начиная с 1 июля 2021 вы не сможете добавлять новые тесты в существующую рабочую область или включать новую рабочую область в Монитор производительности сети. Вы можете продолжать использовать тесты, созданные до 1 июля 2021. Чтобы минимизировать перерыв в работе службы для текущих рабочих нагрузок, [перенесите тесты из монитор производительности сети в новый монитор подключений](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) в наблюдатель за сетями Azure до 29 февраля 2024.
+> Начиная с 1 июля 2021 вы не сможете добавлять новые тесты в существующую рабочую область или включать новую рабочую область в Монитор производительности сети. Вы можете продолжать использовать тесты, созданные до 1 июля 2021. Чтобы минимизировать перерыв в работе службы для текущих рабочих нагрузок, [перенесите тесты из монитор производительности сети в новый монитор подключений](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) в наблюдатель за сетями Azure до 29 февраля 2024.
 
 С помощью монитора подключений службы в [Мониторе производительности сети](network-performance-monitor.md) можно отслеживать сетевые подключения к любой конечной точке с открытым TCP-портом. К таким конечным точкам относятся веб-сайты, приложения SaaS, приложения PaaS и базы данных SQL. 
 
@@ -135,6 +134,5 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 | Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
 | MS Teams | gov.teams.microsoft.us | 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 [Выполните поиск по журналам](../logs/log-query-overview.md), чтобы просмотреть подробные записи данных о производительности сети.
-

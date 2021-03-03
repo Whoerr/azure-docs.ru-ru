@@ -3,12 +3,12 @@ title: Создание частного облака Решения Azure VMwar
 description: Сведения о том, как создать частное облако для Решения Azure VMware с помощью портала Azure.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725410"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -26,8 +26,6 @@ ms.locfileid: "100653150"
    | **Имя ресурса** | Имя частного облака Решения Azure VMware. |
    | **SKU** | Выберите следующее значение SKU: AV36 |
    | **Узлы** | Обозначает количество узлов, которые будут добавлены в кластер частного облака. Значение по умолчанию (3) можно увеличить или уменьшить после развертывания.  |
-   | **Пароль администратора vCenter** | Введите пароль администратора облака. |
-   | **Пароль диспетчера NSX-T** | Введите пароль администратора NSX-T. |
    | **Блок адресов** | Введите блок IP-адресов для сети CIDR частного облака, например 10.175.0.0/22. |
    | **Виртуальная сеть** | Выберите виртуальную сеть или создайте новую для частного облака Решения Azure VMware.  |
 

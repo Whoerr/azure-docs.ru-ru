@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 449fc686fb30cde0d15759036b58fea3bcfc6723
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 69234d7c22f1725f6f21fe52a455e64d743f052e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596898"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709858"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Базовый план безопасности Azure для Azure Лигхсаусе
 
@@ -406,7 +406,7 @@ Azure Active Directory (Azure AD) предоставляет следующие 
 
 - [Изменение срока хранения данных в Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - Служба " [оповещения и рекомендации" центра безопасности Azure](../security-center/continuous-export.md) настраивают настройку, и клиент не может задать срок хранения журнала.
 

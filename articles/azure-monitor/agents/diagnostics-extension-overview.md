@@ -1,17 +1,16 @@
 ---
 title: Обзор расширения "Диагностика Azure"
 description: Диагностику Azure можно использовать для отладки, оценки производительности, мониторинга, а также анализа трафика в облачных службах, на виртуальных машинах и в Service Fabric.
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: f3cde32178449169b07f57d4abbc346d8ca89df4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623661"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726229"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Обзор расширения "Диагностика Azure"
 Расширение "Диагностика Azure" — это [агент в Azure Monitor](../agents/agents-overview.md), собирающий данные мониторинга из гостевой операционной системы на вычислительных ресурсах Azure, включая виртуальные машины. В этой статье представлен обзор расширения "Диагностика Azure", в том числе его специальных функциональных возможностей и параметров установки и настройки. 
@@ -33,8 +32,8 @@ ms.locfileid: "100623661"
 Основные различия:
 
 - Расширение "Диагностика Azure" может работать только с виртуальными машинами Azure. Агент Log Analytics совместим с виртуальными машинами в Azure, других облачных и локальной среде.
-- Расширение "Диагностика Azure" отправляет данные в службу хранилища Azure, в [метрики мониторинга Azure](../platform/data-platform-metrics.md) (только для ОС Windows) и в Центры событий. Агент Log Analytics собирает данные в [журналы Azure Monitor](../platform/data-platform-logs.md).
-- Агент Log Analytics является обязательным компонентом [решений](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor для виртуальных машин](../insights/vminsights-overview.md) и других служб, например [Центра безопасности Azure](../../security-center/index.yml).
+- Расширение "Диагностика Azure" отправляет данные в службу хранилища Azure, в [метрики мониторинга Azure](../essentials/data-platform-metrics.md) (только для ОС Windows) и в Центры событий. Агент Log Analytics собирает данные в [журналы Azure Monitor](../logs/data-platform-logs.md).
+- Агент Log Analytics необходим для [решений](../monitor-reference.md#insights-and-core-solutions), [Azure Insights](../vm/vminsights-overview.md)и других служб, таких как [Центр безопасности Azure](../../security-center/index.yml).
 
 ## <a name="costs"></a>Затраты
 Плата за расширение "Диагностика Azure" не взимается, но, возможно, вам придется оплатить получение данных. На странице [Цены на Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) указаны назначения для сбора данных.
@@ -74,7 +73,7 @@ ms.locfileid: "100623661"
 
 | Назначение | Описание |
 |:---|:---|
-| Метрики Azure Monitor | Сбор данных о производительности в метрики Azure Monitor. Подробнее см. в статье [Отправка метрик гостевой ОС в хранилище метрик Azure Monitor с помощью шаблона Azure Resource Manager для виртуальной машины Windows](../platform/collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Метрики Azure Monitor | Сбор данных о производительности в метрики Azure Monitor. Подробнее см. в статье [Отправка метрик гостевой ОС в хранилище метрик Azure Monitor с помощью шаблона Azure Resource Manager для виртуальной машины Windows](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Центры событий | Центры событий Azure применяются для отправки данных за пределы Azure. Подробные сведения см. в статье [Потоковая передача данных Диагностики Azure в Центры событий](diagnostics-extension-stream-event-hubs.md). |
 | Большие двоичные объекты службы хранилища Azure | Запись данных в большие двоичные объекты в службе хранилища Azure в дополнение к таблицам. |
 | Application Insights | Сбор данных из приложений, выполняющихся на виртуальной машине, в Application Insights для интеграции с другими средствами мониторинга приложений. Дополнительные сведения см. в статье [Отправка в Application Insights диагностических данных](diagnostics-extension-to-application-insights.md). |
@@ -89,7 +88,7 @@ ms.locfileid: "100623661"
 |:---|:---|
 | Центры событий | Центры событий Azure применяются для отправки данных за пределы Azure. |
 | Большие двоичные объекты службы хранилища Azure | Запись данных в большие двоичные объекты в службе хранилища Azure в дополнение к таблицам. |
-| Метрики Azure Monitor | Установите агент Telegraf в дополнение к LAD. Дополнительные сведения см. в статье [Сбор пользовательских метрик для виртуальной машины Linux с помощью агента Telegraf InfluxData](../platform/collect-custom-metrics-linux-telegraf.md).
+| Метрики Azure Monitor | Установите агент Telegraf в дополнение к LAD. Дополнительные сведения см. в статье [Сбор пользовательских метрик для виртуальной машины Linux с помощью агента Telegraf InfluxData](../essentials/collect-custom-metrics-linux-telegraf.md).
 
 
 ## <a name="installation-and-configuration"></a>Установка и настройка

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587820"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735528"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Таблица поддержки аварийного восстановления локальных виртуальных машин Hyper-V в Azure
 
@@ -33,10 +33,10 @@ Hyper-V без Virtual Machine Manager | Вы можете выполнять а
 **Server** | **Требования** | **Сведения**
 --- | --- | ---
 Hyper-V (без Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 с последними обновлениями <br/><br/> **Примечание.** Также поддерживаются установки основных серверных компонентов этих операционных систем. | Если вы уже настроили Windows Server 2012 R2 или SCVMM 2012 R2 с помощью Azure Site Recovery и планируете обновить операционную систему, следуйте указаниям в [документации.](upgrade-2012R2-to-2016.md)
-Hyper-V (с Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Примечание.** Также поддерживаются установки основных серверных компонентов этих операционных систем.  | Если используется Virtual Machine Manager, узлы Windows Server 2019 должны управляться в Virtual Machine Manager 2019. Аналогичным образом узлы Windows Server 2016 должны управляться в Virtual Machine Manager 2016.
+Hyper-V (с Virtual Machine Manager) | Диспетчер виртуальных машин 2019, диспетчер виртуальных машин 2016, диспетчер виртуальных машин 2012 R2 <br/><br/> **Примечание.** Также поддерживаются установки основных серверных компонентов этих операционных систем.  | Если используется диспетчер виртуальных машин, узлы Windows Server 2019 должны управляться в диспетчер виртуальных машин 2019. Аналогичным образом узлы Windows Server 2016 должны управляться в диспетчер виртуальных машин 2016.
 
 > [!NOTE]
-> Убедитесь, что на локальном сервере имеется .NET Framework 4.6.2 или более поздней версии.
+> Убедитесь, что на локальном сервере имеется платформа .NET Framework 4.6.2 или более поздней версии.
 
 ## <a name="replicated-vms"></a>Реплицированные виртуальные машины
 
@@ -58,7 +58,7 @@ Hyper-V (с Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Mac
 
 ## <a name="hyper-v-network-configuration"></a>Конфигурация сети Hyper-V
 
-**Компонент** | **Hyper-V с Virtual Machine Manager** | **Hyper-V без Virtual Machine Manager**
+**Компонент** | **Hyper-V с диспетчер виртуальных машин** | **Hyper-V без диспетчер виртуальных машин**
 --- | --- | ---
 Сеть узла: объединение сетевых карт | Да | Да
 Сеть узла: виртуальная локальная сеть | Да | Да
@@ -71,16 +71,16 @@ Hyper-V (с Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Mac
 Сеть гостевой виртуальной машины: статический IP-адрес (Linux) | Нет | Нет
 Сеть гостевой виртуальной машины: несколько сетевых карт | Да | Да
 Прокси-сервер HTTPS | Нет | Нет
-Доступ к службе Site Recovery с закрытыми ссылками | Да. [Подробнее](hybrid-how-to-enable-replication-private-endpoints.md). | Да. [Подробнее](hybrid-how-to-enable-replication-private-endpoints.md).
+Доступ к службе Site Recovery с закрытыми ссылками | Да. [Подробнее.](hybrid-how-to-enable-replication-private-endpoints.md) | Да. [Подробнее.](hybrid-how-to-enable-replication-private-endpoints.md)
 
 
 
 
 ## <a name="azure-vm-network-configuration-after-failover"></a>Конфигурация сети виртуальных машин Azure (после отработки отказа)
 
-**Компонент** | **Hyper-V с Virtual Machine Manager** | **Hyper-V без Virtual Machine Manager**
+**Компонент** | **Hyper-V с диспетчер виртуальных машин** | **Hyper-V без диспетчер виртуальных машин**
 --- | --- | ---
-Azure ExpressRoute | Да | Да
+Azure ExpressRoute. | Да | Да
 Внутренний балансировщик нагрузки | Да | Да
 Внешний балансировщик нагрузки | Да | Да
 Диспетчер трафика Azure | Да | Да
@@ -94,7 +94,7 @@ IPv4 | Да | Да
 
 ## <a name="hyper-v-host-storage"></a>Хранилище узла Hyper-V
 
-**Хранилище** | **Hyper-V с Virtual Machine Manager** | **Hyper-V без Virtual Machine Manager**
+**Память** | **Hyper-V с диспетчер виртуальных машин** | **Hyper-V без диспетчер виртуальных машин**
 --- | --- | --- 
 NFS | Н/Д | Н/Д
 SMB 3.0 | Да | Да
@@ -103,7 +103,7 @@ SMB 3.0 | Да | Да
 
 ## <a name="hyper-v-vm-guest-storage"></a>Гостевое хранилище виртуальной машины Hyper-V
 
-**Хранилище** | **Hyper-V с Virtual Machine Manager** | **Hyper-V без Virtual Machine Manager**
+**Память** | **Hyper-V с диспетчер виртуальных машин** | **Hyper-V без диспетчер виртуальных машин**
 --- | --- | ---
 VMDK | Н/Д | Н/Д
 VHD (VHDX) | Да | Да
@@ -126,7 +126,7 @@ RDM | Н/Д | Н/Д
 
 ## <a name="azure-storage"></a>Хранилище Azure
 
-**Компонент** | **Hyper-V с Virtual Machine Manager** | **Hyper-V без Virtual Machine Manager**
+**Компонент** | **Hyper-V с диспетчер виртуальных машин** | **Hyper-V без диспетчер виртуальных машин**
 --- | --- | ---
 Локально избыточное хранилище | Да | Да
 Геоизбыточное хранилище | Да | Да
@@ -143,12 +143,12 @@ Blob-блоки | Нет | Нет
 Служба импорта и экспорта | Нет | Нет
 Учетные записи хранения Azure с включенным брандмауэром | Да. Для целевого хранилища и кэша. | Да. Для целевого хранилища и кэша.
 Изменение учетной записи хранилища | Нет. Невозможно изменить целевую учетную запись хранения Azure после включения репликации. Чтобы изменить, отключите и снова включите аварийное восстановление. | Нет
-Параметр безопасной пересылки | Да
+Параметр безопасной пересылки | Да | Да
 
 
 ## <a name="azure-compute-features"></a>Вычислительные компоненты Azure
 
-**Компонент** | **Hyper-V с Virtual Machine Manager** | **Hyper-V без Virtual Machine Manager**
+**Компонент** | **Hyper-V с диспетчер виртуальных машин** | **Hyper-V без диспетчер виртуальных машин**
 --- | --- | ---
 Группы доступности | Да | Да
 Концентратор | Да | Да  
@@ -172,7 +172,7 @@ Blob-блоки | Нет | Нет
 Формат жесткого диска | VHD  <br/><br/>  VHDX | Служба Site Recovery автоматически преобразует формат VHDX в VHD при отработке отказа в Azure. При восстановлении до локальной системы виртуальные машины продолжают использовать формат VHDX.
 BitLocker | Не поддерживается | Прежде чем включать репликацию для виртуальной машины, необходимо отключить BitLocker.
 имя виртуальной машины; | От 1 до 63 символов, при этом допустимы только буквы, цифры и дефисы Имя виртуальной машины должно начинаться и заканчиваться буквой или цифрой. | Обновите значение в свойствах виртуальной машины в службе Site Recovery.
-Тип виртуальной машины | Поколение 1<br/><br/> Поколение 2 — Windows | Поддерживаются виртуальные машины второго поколения с диском ОС типа "Базовый" (включая один или два тома данных в формате VHDX) и объемом менее 300 ГБ.<br></br>Виртуальные машины Linux второго поколения не поддерживаются. [Подробнее](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+Тип виртуальной машины | Поколение 1<br/><br/> Поколение 2 — Windows | Поддерживаются виртуальные машины второго поколения с диском ОС типа "Базовый" (включая один или два тома данных в формате VHDX) и объемом менее 300 ГБ.<br></br>Виртуальные машины Linux второго поколения не поддерживаются. [Подробнее.](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="recovery-services-vault-actions"></a>Действия хранилища служб восстановления
 

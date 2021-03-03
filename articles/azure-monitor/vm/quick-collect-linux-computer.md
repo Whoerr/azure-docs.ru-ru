@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: ef6e31968f85407e8055315becdc1337b474ad70
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dbe51930ec92ec4f89738dc5d543003f45acebf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626363"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733828"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Краткое руководство. Сбор данных с компьютера Linux в гибридной среде с помощью Azure Monitor
 
-[Azure Monitor](../overview.md) может собирать данные напрямую c физических компьютеров или виртуальных машин Linux в вашей среде в рабочую область Log Analytics для подробного анализа и корреляции. [Агент Log Analytics](../agents/log-analytics-agent.md) позволяет Azure Monitor собирать данные из центра обработки данных или другой облачной среды. В этом кратком руководстве показано, как настроить и собирать данные c сервера Linux с помощью нескольких простых действий. Сведения о виртуальных машинах Linux в Azure см. в статье [Сбор данных о виртуальных машинах Azure](../learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) может собирать данные напрямую c физических компьютеров или виртуальных машин Linux в вашей среде в рабочую область Log Analytics для подробного анализа и корреляции. [Агент Log Analytics](../agents/log-analytics-agent.md) позволяет Azure Monitor собирать данные из центра обработки данных или другой облачной среды. В этом кратком руководстве показано, как настроить и собирать данные c сервера Linux с помощью нескольких простых действий. Сведения о виртуальных машинах Linux в Azure см. в статье [Сбор данных о виртуальных машинах Azure](./quick-collect-azurevm.md).  
 
 Дополнительные сведения о поддерживаемой конфигурации см. в разделах о [поддерживаемых операционных системах](../agents/agents-overview.md#supported-operating-systems) и [конфигурации сетевых брандмауэров](../agents/log-analytics-agent.md#network-requirements).
  
@@ -166,4 +166,4 @@ Azure Monitor может собирать события из системног
 Чтобы узнать, как просматривать и анализировать данные, перейдите к следующему руководству.
 
 > [!div class="nextstepaction"]
-> [Просмотр и анализ данных, собранных с помощью поиска по журналам Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Просмотр и анализ данных, собранных с помощью поиска по журналам Log Analytics](../logs/log-analytics-tutorial.md)

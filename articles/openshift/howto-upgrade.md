@@ -7,20 +7,20 @@ ms.date: 1/10/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 2c2c8607374493aa4e1135bbef0156b9c0b66fa6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 742da12bd3a10cd1f541e9c43f654cfe7df04340
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634981"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720891"
 ---
 # <a name="upgrade-an-azure-red-hat-openshift-aro-cluster"></a>Обновление кластера Azure Red Hat OpenShift (АТО)
 
 В рамках жизненного цикла кластера АТО выполняется периодическое обновление до последней версии OpenShift. Важно установить последние версии системы безопасности или обновить, чтобы получить новейшие функции. В этой статье показано, как обновить все компоненты в кластере OpenShift с помощью веб-консоли OpenShift.
 
-## <a name="before-you-begin"></a>Подготовка к работе
+## <a name="before-you-begin"></a>Перед началом
 
-В этой статье предполагается, что вы используете Azure CLI версии 2.0.65 более поздней. Чтобы узнать, какая версия используется сейчас, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, ознакомьтесь со статьей [Установка Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+В этой статье предполагается, что вы используете Azure CLI версии 2.0.65 более поздней. Чтобы узнать, какая версия используется сейчас, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, ознакомьтесь со статьей [Установка Azure CLI](/cli/azure/install-azure-cli).
 
 В этой статье предполагается, что у вас есть доступ к существующему кластеру Azure Red Hat OpenShift в качестве пользователя с `admin` привилегиями.
 
@@ -39,4 +39,3 @@ ms.locfileid: "100634981"
 ## <a name="next-steps"></a>Дальнейшие действия
 - [Сведения об обновлении кластера АТО с помощью интерфейса командной строки OC](https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-between-minor.html)
 - Сведения о доступных рекомендациях и обновлениях для платформы контейнеров OpenShift см. в [разделе ошибок](https://access.redhat.com/downloads/content/290/ver=4.6/rhel---8/4.6.0/x86_64/product-errata) на портале клиента.
-  

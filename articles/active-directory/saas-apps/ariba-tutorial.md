@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 2b03c093a871c8a662d45b257e6feb95c4945a8e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3ecbe96e0385bff6199094af7138017df500175b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374564"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Руководство. Интеграция Azure Active Directory с Ariba
 
@@ -143,8 +143,8 @@ ms.locfileid: "100374564"
 
 * Перейдите по URL-адресу для входа в Ariba и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Ariba на портале "Мои приложения", вы перейдете по URL-адресу для входа в Ariba. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Ariba на портале "Мои приложения", вы перейдете по URL-адресу для входа в Ariba. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Ariba вы сможете применить функцию управления сеансами, чтобы в реальном времени защищать конфиденциальные данные своей организации от кражи и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Ariba вы сможете применить функцию управления сеансами, чтобы в реальном времени защищать конфиденциальные данные своей организации от кражи и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

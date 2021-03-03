@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 040c487df83c117e177b8a8b0e8fddde8682c67f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621669"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700649"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Архивация данных из рабочей области Log Analytics в службу хранилища Azure с помощью приложения логики
 В этой статье описывается метод использования [Azure Logic Apps](../../logic-apps/index.yml) для запроса данных из log Analytics рабочей области в Azure Monitor и их отправки в службу хранилища Azure. Используйте этот процесс, если необходимо экспортировать данные журнала Azure Monitor для сценариев аудита и соответствия или разрешить другой службе получать эти данные.  
@@ -118,7 +118,7 @@ AzureActivity
     ResourceId = _ResourceId 
 ```
 
-**Диапазон времени** определяет записи, которые будут включены в запрос на основе столбца **timegenerated** . Для него должно быть установлено значение, равное или превышающее диапазон времени, выбранный в запросе. Поскольку этот запрос не использует столбец **timegenerated** , параметр **задать в запросе** недоступен. Дополнительные сведения о диапазоне времени см. в разделе [область запроса](../log-query/scope.md) . 
+**Диапазон времени** определяет записи, которые будут включены в запрос на основе столбца **timegenerated** . Для него должно быть установлено значение, равное или превышающее диапазон времени, выбранный в запросе. Поскольку этот запрос не использует столбец **timegenerated** , параметр **задать в запросе** недоступен. Дополнительные сведения о диапазоне времени см. в разделе [область запроса](./scope.md) . 
 
 Выберите **последние 4 часа** для **диапазона времени**. Это обеспечит включение в результаты всех записей с временем приема, превышающим **timegenerated** .
    
@@ -208,8 +208,8 @@ subtractFromTime(formatDateTime(utcNow(),'yyyy-MM-ddTHH:00:00'), 1,'Hour')
 
 [![Данные большого двоичного объекта](media/logs-export-logic-app/blob-data.png)](media/logs-export-logic-app/blob-data.png#lightbox)
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения о запросах журнала в Azure Monitor см. в [этой статье](../log-query/log-query-overview.md).
+- Дополнительные сведения о запросах журнала в Azure Monitor см. в [этой статье](./log-query-overview.md).
 - Дополнительные сведения о [Logic Apps](../../logic-apps/index.yml)
 - Дополнительные сведения о [Power автоматизируются](https://flow.microsoft.com).

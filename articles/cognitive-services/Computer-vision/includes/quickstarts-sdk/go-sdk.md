@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: df171b74014179c36466a2683a8d0d7c0c3b5e90
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 37c1b81f2396eff1613a6af604b2490b18b93ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560888"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750817"
 ---
 <a name="HOLTop"></a>
 
@@ -89,7 +89,7 @@ touch sample-app.go
 Далее вы начнете добавлять код для выполнения различных операций службы "Компьютерное зрение".
 
 > [!div class="nextstepaction"]
-> [Мной настроен клиент](?success=set-up-client#object-model) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Мной настроен клиент](?success=set-up-client#object-model) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client)
 
 ## <a name="object-model"></a>Объектная модель
 
@@ -120,7 +120,7 @@ touch sample-app.go
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [Мной аутентифицирован клиент](?success=authenticate-client#analyze-an-image) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Мной аутентифицирован клиент](?success=authenticate-client#analyze-an-image) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Анализ изображения
 
@@ -214,7 +214,7 @@ API "Компьютерное зрение" может использовать 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [Мной проанализировано изображение](?success=analyze-image#read-printed-and-handwritten-text) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [Мной проанализировано изображение](?success=analyze-image#read-printed-and-handwritten-text) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Чтение печатного и рукописного текста
 
@@ -246,7 +246,7 @@ API "Компьютерное зрение" может использовать 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
 > [!div class="nextstepaction"]
-> [Мной считан текст](?success=read-printed-handwritten-text#run-the-application) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Мной считан текст](?success=read-printed-handwritten-text#run-the-application) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Выполнение приложения
 
@@ -257,7 +257,7 @@ go run sample-app.go
 ```
 
 > [!div class="nextstepaction"]
-> [Мной запущено приложение](?success=run-the-application#clean-up-resources) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [Мной запущено приложение](?success=run-the-application#clean-up-resources) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
@@ -267,7 +267,7 @@ go run sample-app.go
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Мной очищены ресурсы](?success=clean-up-resources#next-steps) [Возникла проблема](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Мной очищены ресурсы](?success=clean-up-resources#next-steps) [Возникла проблема](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

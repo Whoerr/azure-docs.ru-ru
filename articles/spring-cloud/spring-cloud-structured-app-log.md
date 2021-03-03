@@ -4,15 +4,15 @@ description: В этой статье объясняется, как созда�
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/05/2021
 ms.author: brendanm
 ms.custom: devx-track-java
-ms.openlocfilehash: c5c35fe8a352a1bc3467e9512a7fcbc068375bfb
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e846da81444ae1632cb7f9a4cd413bc3f9b7b232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056182"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701949"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Журнал структурированных приложений для Azure Веснного облака
 
@@ -237,5 +237,5 @@ AppPlatformLogsforSpring
 | sort by AppTimestamp
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
-* Дополнительные сведения о запросе журнала см. в статье [Приступая к работе с запросами журналов в Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+## <a name="next-steps"></a>Next Steps
+* Дополнительные сведения о запросе журнала см. в статье [Приступая к работе с запросами журналов в Azure Monitor](../azure-monitor/logs/get-started-queries.md)

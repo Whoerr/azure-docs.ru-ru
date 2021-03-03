@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: a98ab9ea347ba4d9ec53c80626f97b429e083cb1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b6fd5b5f70eb813792be003836790752db1d071f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242387"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732825"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Запрет доступа к общедоступной сети в базе данных Azure для MySQL с помощью портал Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "93242387"
 
 Вот что вам нужно, чтобы выполнить инструкции, приведенные в этом руководстве:
 
-* [База данных Azure для MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+* [База данных Azure для MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) с общего назначения или ценовой категорией, оптимизированной для памяти
 
 ## <a name="set-deny-public-network-access"></a>Установка запрета доступа к общедоступной сети
 
@@ -29,7 +29,7 @@ ms.locfileid: "93242387"
 
 1. В [портал Azure](https://portal.azure.com/)выберите существующий сервер базы данных Azure для MySQL.
 
-1. На странице "сервер MySQL" в разделе " **Параметры** " щелкните **Безопасность подключения** , чтобы открыть страницу настройки безопасности подключения.
+1. На странице "сервер MySQL" в разделе " **Параметры**" щелкните **Безопасность подключения** , чтобы открыть страницу настройки безопасности подключения.
 
 1. В списке **запретить доступ к общедоступной сети** выберите **Да** , чтобы включить запрет общего доступа для сервера MySQL.
 

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 51cf396fb6f1fcc86a0187e9f3be6b81487b86c2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 615fb1b9f5a9d87a8d69778930b7359823e1ec39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738027"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Действие функции Azure в Фабрике данных Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "100383410"
 | **Свойство**  | **Описание** | **Допустимые значения** | **Обязательное** |
 | --- | --- | --- | --- |
 | name  | Имя действия в конвейере.  | Строка | да |
-| тип  | Тип действия – "AzureFunctionActivity" | Строка | да |
+| type  | Тип действия – "AzureFunctionActivity" | Строка | да |
 | linked service | Связанная служба функции Azure для соответствующего приложения-функции Azure  | Ссылка на связанную службу | да |
 | имя функции  | Имя функции, которую вызывает это действие в приложении-функции Azure | Строка | да |
 | method  | Метод REST API для вызова функции | Поддерживаемые строковые типы: "GET", "POST", "постановка"   | да |
@@ -65,6 +65,6 @@ ms.locfileid: "100383410"
 
 Образец фабрики данных, который использует функцию Azure для извлечения содержимого tar-файла, можно найти [здесь](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о действиях в Фабрике данных см. в статье [Конвейеры и действия в фабрике данных Azure](concepts-pipelines-activities.md).

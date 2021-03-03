@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650164"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689340"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Руководство. Разработка образца конечной точки SCIM
 
@@ -57,6 +57,8 @@ ms.locfileid: "101650164"
     ![Снимок экрана, показывающий создание новой службы приложений.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. Выберите группу ресурсов для использования и нажмите кнопку **опубликовать**.
+
+    ![Снимок экрана, показывающий публикацию новой службы приложений.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-4.png)
 
 1. Перейдите к приложению в конфигурации **службы приложений Azure**  >   и выберите **новый параметр приложения** , чтобы добавить параметр *Token__TokenIssuer* со значением `https://sts.windows.net/<tenant_id>/` . Замените `<tenant_id>` идентификатором клиента Azure AD. Если вы хотите протестировать конечную точку SCIM с помощью [процедуры POST](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), добавьте параметр *ASPNETCORE_ENVIRONMENT* со значением `Development` .
 

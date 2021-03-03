@@ -5,15 +5,17 @@ ms.author: nihurt
 author: hurtn
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/04/2020
-ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: a00ec8698b188b8fa87935e498e8cfab3aeab5aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391275"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724988"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Добавочная загрузка данных из управляемого экземпляра SQL Azure в хранилище Azure с использованием технологии "Отслеживание измененных данных" (CDC)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Из этого руководства вы узнаете, как создать фабрику данных Azure с конвейером, который копирует разностные данные на основе сведений об **отслеживании измененных данных (CDC)** в базе данных SQL Azure управляемого экземпляра в хранилище BLOB-объектов Azure.  
 

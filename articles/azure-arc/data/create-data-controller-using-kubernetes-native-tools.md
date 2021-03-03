@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: e8d00055d9a4d7355ccd8a33c8a9b811b852f5c8
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 45ba08193d4907126bd51412805f04b7aec4fce0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686399"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Создание контроллера данных ARC в Azure с помощью средств Kubernetes
 
@@ -175,16 +175,27 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 **РЕКОМЕНДУЕТСЯ ДЛЯ ПРОСМОТРА И, ВОЗМОЖНО, ИЗМЕНЕНИЯ ЗНАЧЕНИЙ ПО УМОЛЧАНИЮ**
 - **хранилище.. className**: класс хранения, используемый для файлов данных и журналов контроллера данных.  Если вы не знаете доступных классов хранения в кластере Kubernetes, можно выполнить следующую команду: `kubectl get storageclass` .  По умолчанию `default` предполагается, что существует класс хранения с именем, а `default` не существует класс хранения, который _является_ значением по умолчанию.  Примечание. в качестве требуемого класса хранения можно задать два параметра className — один для данных и один для журналов.
 - **serviceType**. Измените тип службы на, `NodePort` если не используется балансировщик нагрузки.  Примечание. необходимо изменить два параметра serviceType.
+- На платформе контейнеров Azure Red Hat OpenShift или Red Hat OpenShift необходимо применить ограничение контекста безопасности перед созданием контроллера данных. Следуйте инструкциям в разделе [применение ограничения контекста безопасности для служб данных, включенных в службу "Дуга Azure" на OpenShift](how-to-apply-security-context-constraint.md).
+- **Безопасность** Для платформы контейнеров Azure Red Hat OpenShift или Red Hat OpenShift замените `security:` параметры следующими значениями в файле YAML контроллера данных. 
+
+```yml
+  security:
+    allowDumps: true
+    allowNodeMetricsCollection: false
+    allowPodMetricsCollection: false
+    allowRunAsRoot: false
+```
 
 **ИСПОЛЬЗУЕМЫХ**
 - **имя**. имя по умолчанию контроллера данных — `arc` , но при необходимости его можно изменить.
 - **DisplayName**: задает то же значение, что и атрибут Name в верхней части файла.
 - **Реестр**. Реестр контейнеров Майкрософт используется по умолчанию.  Если вы извлекаете образы из реестра контейнеров Майкрософт и отправляете [их в частный реестр контейнеров](offline-deployment.md), введите здесь IP-адрес или DNS-имя реестра.
 - **доккеррегистри**: секрет для извлечения образа, используемый для извлечения образов из закрытого реестра контейнеров, если это необходимо.
-- **репозиторий**. репозиторий по умолчанию в реестре контейнеров Майкрософт — `arcdata` .  Если вы используете частный реестр контейнеров, введите путь к папке или репозиторию, содержащему образы контейнеров служб данных с поддержкой Azure arr.
+- **репозиторий**. репозиторий по умолчанию в реестре контейнеров Майкрософт — `arcdata` .  Если вы используете частный реестр контейнеров, введите путь к папке или репозиторию, содержащему образы контейнеров служб данных с поддержкой дуги Azure.
 - **имажетаг**: в шаблоне используется новый тег последней версии, но его можно изменить, если вы хотите использовать более старую версию.
 
-Пример завершенного файла YAML контроллера данных:
+В следующем примере показан завершенный файл YAML контроллера данных. Обновите пример для своей среды в соответствии с вашими требованиями и приведенными выше сведениями.
+
 ```yaml
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: datacontroller
@@ -194,7 +205,7 @@ metadata:
 spec:
   credentials:
     controllerAdmin: controller-login-secret
-    #dockerRegistry: mssql-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
+    #dockerRegistry: arc-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always

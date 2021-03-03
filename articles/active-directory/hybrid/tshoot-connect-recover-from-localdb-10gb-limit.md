@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e10aa5d96722b414d7384ceb81f393575d57e2a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858405"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688779"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: восстановление из LocalDB с ограничением в 10 ГБ
 Azure AD Connect требуется база данных SQL Server для хранения учетных данных. Можно использовать выпуск SQL Server 2012 Express LocalDB по умолчанию, установленный с помощью Azure AD Connect, или полную версию SQL Server. SQL Server Express налагает ограничение в размере 10 ГБ. Если при использовании LocalDB достигнут этот предел, служба синхронизации Azure AD Connect больше не сможет запускаться или выполнять синхронизацию должным образом. Эта статья содержит рекомендации по восстановлению.
@@ -36,7 +36,7 @@ Azure AD Connect требуется база данных SQL Server для хр
 ## <a name="short-term-recovery-steps"></a>Краткосрочные действия по восстановлению
 В этом разделе описаны действия для освобождения места базы данных, необходимого для возобновления работы службы синхронизации Azure AD Connect. Для этого нужно выполнить следующие действия:
 1. [Определите состояние службы синхронизации](#determine-the-synchronization-service-status).
-2. [Сжатие базы данных](#shrink-the-database)
+2. [Выполните сжатие базы данных](#shrink-the-database).
 3. [Удалите данные журнала выполнения](#delete-run-history-data).
 4. [Сократите срок хранения данных журнала выполнения](#shorten-retention-period-for-run-history-data).
 
@@ -74,7 +74,7 @@ Azure AD Connect требуется база данных SQL Server для хр
 
 4. Запустите служебную программу **sqlcmd** с помощью команды `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, используя учетные данные системного администратора или владельца базы данных.
 
-5. Чтобы сжать базу данных, в командной строке sqlcmd (1>) введите `DBCC Shrinkdatabase(ADSync,1);`, а затем `GO` в следующей строке.
+5. Чтобы сжать базу данных, в командной строке sqlcmd ( `1>` ) введите `DBCC Shrinkdatabase(ADSync,1);` , а затем `GO` в следующей строке.
 
 6. Если операция выполнена успешно, попробуйте снова запустить службу синхронизации. Если удалось запустить службу синхронизации, перейдите к шагу [удаления данных журнала выполнения](#delete-run-history-data). В противном случае обратитесь в службу поддержки.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: db410133bab530db731eee58048d1f9d26a1a3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 65f18a21be48b6f78605b10950a2b38709b66f2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613340"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713666"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Отправка метрик гостевой ОС в хранилище метрик Azure Monitor с помощью шаблона Azure Resource Manager для масштабируемого набора виртуальных машин Windows
 
@@ -30,7 +30,7 @@ ms.locfileid: "100613340"
 
 - Требуется установить [Azure PowerShell](/powershell/azure) или использовать [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-- Ресурс виртуальной машины должен находиться в [регионе, поддерживающем пользовательские метрики](../platform/metrics-custom-overview.md#supported-regions).
+- Ресурс виртуальной машины должен находиться в [регионе, поддерживающем пользовательские метрики](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Настройка Azure Monitor в качестве приемника данных 
 Расширение система диагностики Azure использует функцию, называемую **приемниками данных** , для маршрутизации метрик и журналов в разные расположения. Ниже показано, как с помощью шаблона Resource Manager и PowerShell развернуть виртуальную машину, используя новый приемник данных Azure Monitor. 
@@ -245,14 +245,14 @@ ms.locfileid: "100613340"
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Создайте группу ресурсов для развертываемой виртуальной машины. Выполните следующую команду. 
+1. Создайте группу ресурсов для развертываемой виртуальной машины. Выполните следующую команду: 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
-   > Не забывайте использовать регион Azure, включенный для пользовательских метрик. Не забывайте использовать [регион Azure, включенный для пользовательских метрик](../platform/metrics-custom-overview.md#supported-regions).
+   > Не забывайте использовать регион Azure, включенный для пользовательских метрик. Не забывайте использовать [регион Azure, включенный для пользовательских метрик](./metrics-custom-overview.md#supported-regions).
  
 1. Выполните следующие команды, чтобы развернуть виртуальную машину.  
 
@@ -292,4 +292,4 @@ ms.locfileid: "100613340"
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Дополнительные сведения о настраиваемых метриках см. в [этой статье](../platform/metrics-custom-overview.md).
+- Дополнительные сведения о настраиваемых метриках см. в [этой статье](./metrics-custom-overview.md).

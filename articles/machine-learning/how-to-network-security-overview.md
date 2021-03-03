@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980581"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691830"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Общие сведения о изоляции и конфиденциальности виртуальной сети
 
@@ -34,7 +34,7 @@ ms.locfileid: "99980581"
 + [Виртуальные сети Azure](../virtual-network/virtual-networks-overview.md)
 + [IP-сети](../virtual-network/public-ip-addresses.md)
 + [Приватный канал Azure](how-to-configure-private-link.md)
-+ [Группы безопасности сети (NSG)](../virtual-network/network-security-groups-overview.md)
++ [Группы безопасности сети](../virtual-network/network-security-groups-overview.md)
 + [Сетевые брандмауэры](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Пример сценария
@@ -71,7 +71,7 @@ ms.locfileid: "99980581"
 1. Создайте [рабочую область с поддержкой частной связи](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) , чтобы обеспечить взаимодействие между виртуальной сетью и рабочей областью.
 1. Добавьте Azure Key Vault в виртуальную сеть с [конечной точкой службы](../key-vault/general/overview-vnet-service-endpoints.md) или [частной конечной точкой](../key-vault/general/private-link-service.md). Задайте для параметра Key Vault значение ["разрешить доверенным службам Майкрософт обход этого брандмауэра"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
 1. Добавьте учетную запись хранения Azure в виртуальную сеть с [конечной точкой службы](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) или [частной конечной точкой](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Настройте реестр контейнеров Azure для использования частной конечной точки](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) и [включите делегирование подсети в службе "экземпляры контейнеров Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci)".
+1. [Настройка реестра контейнеров Azure для использования частной конечной точки](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ![Схема архитектуры, показывающая, как Рабочая область и связанные ресурсы взаимодействуют друг с другом через конечные точки службы или частные конечные точки в виртуальной сети.](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

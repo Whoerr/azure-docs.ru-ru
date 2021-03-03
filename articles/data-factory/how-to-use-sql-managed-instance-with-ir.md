@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 43b118b8f3f7444cd3c4d0cfa31b72a3522d6d84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c268dba51ecf2c2b246c54574ecf3838533b017e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392584"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710215"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Использование Управляемый экземпляр Azure SQL с SQL Server Integration Services (SSIS) в фабрике данных Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "100392584"
 - [Подготавливает Azure-SSIS IR с помощью каталога SSIS (SSISDB), размещенного в Azure SQL Управляемый экземпляр](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Выполнение пакетов служб интеграции SQL Server с помощью задания агента Управляемого экземпляра SQL Azure](how-to-invoke-ssis-package-managed-instance-agent.md).
 - [Очистка журналов SSISDB с помощью задания агента Управляемого экземпляра SQL Azure](#clean-up-ssisdb-logs).
-- [Azure-SSIS IR отработки отказа с помощью Управляемый экземпляр SQL Azure](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Azure-SSIS IR отработки отказа с помощью Управляемый экземпляр SQL Azure](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Перенос локальных рабочих нагрузок служб SSIS в службы SSIS в ADF с помощью Управляемый экземпляр Azure SQL в качестве назначения рабочей нагрузки базы данных](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Подготавливайте Azure-SSIS IR с SSISDB, размещенной в Azure SQL Управляемый экземпляр

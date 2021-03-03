@@ -8,19 +8,19 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: e4b5372a2b6e9b833f3a0213d69649b75ae2589b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97e68d338580132b6927c4cc8b206db60fe93ba2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578194"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703513"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Включение система диагностики Azure в облачных службах Azure (классическая модель)
 
 > [!IMPORTANT]
 > [Облачные службы Azure (Расширенная поддержка)](../cloud-services-extended-support/overview.md) — это новая модель развертывания на основе Azure Resource Manager для продукта облачных служб Azure.После этого изменения облачные службы Azure, работающие в модели развертывания на основе Service Manager Azure, были переименованы как облачные службы (классические), и все новые развертывания должны использовать [облачные службы (Расширенная поддержка)](../cloud-services-extended-support/overview.md).
 
-Основные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](../azure-diagnostics.md).
+Основные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Как включить диагностику в рабочей роли
 В этом пошаговом руководстве описывается, как реализовать рабочую роль Azure, которая передает данные телеметрии с помощью класса EventSource .NET. Система диагностики Azure используется для сбора данных телеметрии и хранения их в учетной записи хранения Azure. При создании рабочей роли Visual Studio автоматически включает систему диагностики 1.0 как часть решения в пакетах SDK Azure для .NET версии 2.4 или более поздней. В следующих указаниях описывается процесс создания рабочей роли, отключение системы диагностики 1.0 в решении и развертывание системы диагностики 1.2 или 1.3 в рабочей роли.

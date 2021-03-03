@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591559"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714720"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Базовые показатели безопасности Azure для службы хранилища Azure
 
 Базовый план безопасности Azure для службы хранилища Azure содержит рекомендации, которые помогут повысить уровень безопасности развертывания.
 
-Базовый план безопасности для этой службы взят из [Эталона безопасности Azure версии 1.0](../../security/benchmarks/overview.md), содержащего рекомендации по обеспечению безопасности облачных решений в Azure с помощью наших практических рекомендаций.
+Базовая конфигурация безопасности для этой службы взята из [теста производительности системы Azure версии 1.0](../../security/benchmarks/overview.md), содержащего рекомендации по обеспечению безопасности облачных решений в Azure с помощью наших практических рекомендаций.
 
 Дополнительные сведения см. в статье [Обзор базовой конфигурации безопасности Azure](../../security/benchmarks/security-baselines-overview.md).
 
@@ -190,7 +190,7 @@ ms.locfileid: "100591559"
 
 **Руководство**. аналитика службы хранилища Azure предоставляет журналы для больших двоичных объектов, очередей и таблиц. Вы можете использовать портал Azure, чтобы настроить, какие журналы записываются для вашей учетной записи. 
 
-- [Настройка мониторинга для учетной записи хранения Azure](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Настройка мониторинга для учетной записи хранения Azure](./manage-storage-analytics-logs.md)
 
 **Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
 
@@ -208,7 +208,7 @@ ms.locfileid: "100591559"
 
 **Рекомендации**. при хранении журналов событий безопасности в учетной записи хранения Azure или log Analytics рабочей области вы можете настроить политику хранения в соответствии с требованиями вашей организации. 
 
-- [Настройка политики хранения для журналов учетных записей хранения Azure](./storage-monitor-storage-account.md#configure-logging)
+- [Настройка политики хранения для журналов учетных записей хранения Azure](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Изменение срока хранения данных в Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -414,7 +414,7 @@ ms.locfileid: "100591559"
 
 - [Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам](../blobs/anonymous-read-access-configure.md)
 
-- [Мониторинг учетной записи хранения на портале Azure](./storage-monitor-storage-account.md)
+- [Мониторинг учетной записи хранения на портале Azure](./manage-storage-analytics-logs.md)
 
 - [Управление ключами доступа к учетной записи хранения](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ ms.locfileid: "100591559"
 
 - [Как интегрировать журналы действий Azure в Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Настройка оповещений метрик для учетных записей хранения Azure](./storage-monitor-storage-account.md)
+- [Настройка оповещений метрик для учетных записей хранения Azure](./manage-storage-analytics-logs.md)
 
 **Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
 
@@ -576,7 +576,7 @@ ms.locfileid: "100591559"
 
 - [Ведение журнала аналитики службы хранилища Azure](./storage-analytics-logging.md)
 
-- [Настройка оповещений метрик для учетных записей хранения Azure](./storage-monitor-storage-account.md)
+- [Настройка оповещений метрик для учетных записей хранения Azure](./manage-storage-analytics-logs.md)
 
 **Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
 
@@ -788,7 +788,7 @@ ms.locfileid: "100591559"
 Аудит неограниченного сетевого доступа к учетным записям хранения  
 Развертывание Расширенной защиты от угроз для учетных записей хранения  
 Необходимо перенести учетные записи хранения в новые ресурсы Azure Resource Manager.  
-Необходимо включить безопасную передачу данных в учетные записи хранения.  
+Должно выполняться безопасное перемещение в учетные записи хранения.  
 
 Используйте рекомендации из центра безопасности Azure в качестве защищенного шаблона базовой конфигурации для учетных записей хранения. 
 

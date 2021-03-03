@@ -4,12 +4,12 @@ description: Узнайте, как масштабировать веб-прил
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6ac3ebb4cf007141967786f51243c741a6045c83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623850"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726059"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Начало работы с автомасштабированием в Azure
 В этой статье описывается, как настроить автомасштабирование для ресурса на портале Microsoft Azure.
@@ -128,12 +128,12 @@ Azure Monitor дает возможность обнаружить все рес
 ### <a name="move"></a>Переместить
 Используйте [REST API](/rest/api/monitor/autoscalesettings/createorupdate) , чтобы создать параметр автомасштабирования в новой среде. Параметр автомасштабирования, созданный в целевом регионе, будет копией параметра автомасштабирования в исходном регионе.
 
-Не удается переместить [параметры диагностики](../platform/diagnostic-settings.md) , созданные в связи с параметром автомасштабирования в исходном регионе. После завершения создания параметров автопродажи необходимо будет повторно создать параметры диагностики в целевом регионе. 
+Не удается переместить [параметры диагностики](../essentials/diagnostic-settings.md) , созданные в связи с параметром автомасштабирования в исходном регионе. После завершения создания параметров автопродажи необходимо будет повторно создать параметры диагностики в целевом регионе. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Дополнительные сведения о перемещении ресурсов в регионах Azure
 Дополнительные сведения о перемещении ресурсов между регионами и аварийным восстановлением в Azure см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](../../azure-resource-manager/management/move-resource-group-and-subscription.md) .
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 - [Создайте оповещение журнала действий, чтобы отслеживать все операции системы автомасштабирования в подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
 - [Создайте оповещение журнала действий, чтобы отслеживать все сбои автомасштабирования в подписке](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

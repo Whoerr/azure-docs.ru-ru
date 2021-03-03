@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669625"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693532"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Автоматическая маркировка данных в Azure зрения
 
@@ -102,7 +102,10 @@ ms.locfileid: "101669625"
 
 **Чтобы расширить метки конфиденциальности до зрения, сделайте следующее:**
 
-В Microsoft 365 перейдите на страницу **Information Protection** . В области **расширение меток для ресурсов в Azure зрения** нажмите кнопку **включить** , а затем в появившемся диалоговом окне подтверждения выберите **Да** .
+Следующие шаги позволяют использовать метки чувствительности для использования в Azure зрения, где вы можете применять метки чувствительности к активам, таким как столбцы SQL, файлы в хранилище BLOB-объектов Azure и многое другое.
+
+1. В Microsoft 365 перейдите на страницу **Information Protection** . 
+1. В области **расширение меток для ресурсов в Azure зрения** нажмите кнопку **включить** , а затем в появившемся диалоговом окне подтверждения выберите **Да** .
 
 Пример.
 

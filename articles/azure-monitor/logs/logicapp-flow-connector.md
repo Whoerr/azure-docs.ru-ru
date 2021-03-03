@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: fdd3886dda794ff9a91e2c2be6a3d810086d0ed2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9d93e3ec08ff16a1fcca0c914b9e817d4ca89d60
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622734"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707954"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Соединитель Azure Monitor журналов для Logic Apps и автоматизации энергосбережения
 [Azure Logic Apps](../../logic-apps/index.yml) и [Power автоматизировать](https://flow.microsoft.com) позволяют создавать автоматизированные рабочие процессы с помощью сотен действий для различных служб. Соединитель Azure Monitor Logs позволяет создавать рабочие процессы, которые извлекают данные из Log Analytics рабочей области или приложения Application Insights в Azure Monitor. В этой статье описываются действия, входящие в соединитель, и приводится пошаговое руководство по созданию рабочего процесса с использованием этих данных.
@@ -29,7 +29,7 @@ ms.locfileid: "100622734"
 
 В зависимости от размера данных и используемого запроса соединитель может попасть в пределы и завершиться с ошибкой. Эти случаи можно обойти, если вы настраиваете повторение триггера для более частого выполнения и запросы меньше данных. Можно использовать запросы, которые объединяют данные, чтобы вернуть меньше записей и столбцов.
 
-## <a name="actions"></a>Действия
+## <a name="actions"></a>Actions
 В следующей таблице описаны действия, входящие в соединитель журналов Azure Monitor. Оба варианта позволяют выполнять запрос к журналу в Log Analytics рабочей области или Application Insights приложении. Разница заключается в способе возврата данных.
 
 > [!NOTE]
@@ -123,8 +123,8 @@ Event
 
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения о запросах журнала в Azure Monitor см. в [этой статье](../log-query/log-query-overview.md).
+- Дополнительные сведения о запросах журнала в Azure Monitor см. в [этой статье](./log-query-overview.md).
 - Дополнительные сведения о [Logic Apps](../../logic-apps/index.yml)
 - Дополнительные сведения о [Power автоматизируются](https://flow.microsoft.com).

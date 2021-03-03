@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: a2348e0578b60c59fd7205037bd42d7bb1e84fae
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6f677c8753f09e146d300186e19217568952b417
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705404"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Терминология и изменения сущностей между службами мультимедиа версии 2 и v3
 
@@ -73,7 +73,7 @@ ms.locfileid: "98953705"
 | **Кодирование** <!--new row --> |||
 | Скорость кодирования битов <!--new row --> | скорость в кбит/с, например: 128 (кбит/с)| бит в секунду, например: 128000 (бит/сек)|
 | Кодирование FairPlay DRM <!--new row --> | В службах мультимедиа версии 2 можно указать вектор инициализации (IV). | В службах мультимедиа v3 не может быть указан FairPlay IV.|
-| Кодировщик Premium <!--new row --> | Кодировщик Premium и устаревший индексатор| [Кодировщик Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset) и устаревшие [обработчики мультимедиа-аналитики](https://docs.microsoft.com/azure/media-services/previous/legacy-components) (индексатор служб мультимедиа Azure 2 Preview, лицо redactor и т. д.) недоступны через v3. Мы добавили поддержку сопоставления звуковых каналов со стандартным кодировщиком.  См. статью о [звуках в документации по параметрам кодирования служб мультимедиа Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | См. разделы по кодированию в [кодировке на основе сценариев](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Кодировщик Premium <!--new row --> | Кодировщик Premium и устаревший индексатор| [Кодировщик Premium](../previous/media-services-encode-asset.md) и устаревшие [обработчики мультимедиа-аналитики](../previous/legacy-components.md) (индексатор служб мультимедиа Azure 2 Preview, лицо redactor и т. д.) недоступны через v3. Мы добавили поддержку сопоставления звуковых каналов со стандартным кодировщиком.  См. статью о [звуках в документации по параметрам кодирования служб мультимедиа Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | См. разделы по кодированию в [кодировке на основе сценариев](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Преобразования и задания** <!--new row -->|||
 | Обработка HTTPS на основе заданий <!--new row --> |<!-- empty -->| Для обработки заданий на основе файлов в качестве входных данных можно использовать URL-адрес HTTPS. Вам не нужно, чтобы содержимое уже хранилось в Azure, а также не нужно создавать ресурсы. |
 | Шаблоны ARM для заданий <!--new row --> | Шаблоны ARM не существовали в версии 2. | Преобразование можно использовать для построения повторно используемых конфигураций, создания шаблонов Azure Resource Manager и изоляции параметров обработки между несколькими клиентами или клиентами. |

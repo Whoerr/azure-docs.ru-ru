@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 05/29/2019
+ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe9cc44542e97880b076d871dde82f5a02a58957
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec466fc420e435159e2882d7b39ef6d03eeea7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928978"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733488"
 ---
 # <a name="use-the-headpose-attribute"></a>Использование атрибута HeadPose
 
@@ -29,7 +29,7 @@ ms.locfileid: "88928978"
 
 ### <a name="explore-the-sample-code"></a>Изучение примера кода
 
-Вы можете программно вращать прямоугольную рамку вокруг лица с помощью атрибута HeadPose. Указав этот атрибут при обнаружении лиц (как описано [здесь](HowtoDetectFacesinImage.md)), вы сможете позднее получить его значение. Следующий метод из примера приложения [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) принимает список объектов **DetectedFace** и возвращает список объектов **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . Здесь **Face** является пользовательским классом, который хранит данные о лицах, в том числе обновленные координаты прямоугольника. Вычисляются новые значения параметров **top** (верхний край), **left** (левый край), **width** (ширина) и **height** (высота), а новое поле **FaceAngle** обозначает вращение.
+Вы можете программно вращать прямоугольную рамку вокруг лица с помощью атрибута HeadPose. Указав этот атрибут при обнаружении лиц (как описано [здесь](HowtoDetectFacesinImage.md)), вы сможете позднее получить его значение. Следующий метод из примера приложения [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) принимает список объектов **DetectedFace** и возвращает список объектов **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)**. Здесь **Face** является пользовательским классом, который хранит данные о лицах, в том числе обновленные координаты прямоугольника. Вычисляются новые значения параметров **top** (верхний край), **left** (левый край), **width** (ширина) и **height** (высота), а новое поле **FaceAngle** обозначает вращение.
 
 ```csharp
 /// <summary>

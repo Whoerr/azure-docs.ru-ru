@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5850644aac9c3324d9ffb17817195cbaaa6020ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a8626174e157e79d0250824e0a3cfa97141d50dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695045"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Подключение к Azure Synapse Link для Azure Cosmos DB
 
@@ -67,5 +67,5 @@ ms.locfileid: "101667547"
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Узнайте, какие общие возможности поддерживают Azure Synapse и Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md).
-* [Настройка частных конечных точек для аналитического хранилища Azure Cosmos DB](../cosmos-db/analytical-store-private-endpoints.md)
+* [Настройка частных конечных точек для аналитического хранилища Azure Cosmos DB](../../cosmos-db/analytical-store-private-endpoints.md)
 * [Узнайте, как отправлять запросы в аналитическое хранилище с помощью Spark](./how-to-query-analytical-store-spark.md).

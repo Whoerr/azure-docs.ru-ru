@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e29ef68bb6f02e329d0406cd80dceb25beab8932
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645914"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686416"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Настройка языка в Azure Active Directory B2C
 
@@ -226,7 +226,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 Элементы локализованного содержимого следует определить для каждого определения содержимого и языка, поддержка которого требуется. Чтобы настроить единую страницу регистрации или входа на английском и испанском языках, добавьте следующие элементы `LocalizedResources` после элемента `</SupportedLanguages>`.
 
 > [!NOTE]
-> В следующем примере мы добавили символ решетки `#` в начало каждой строки, чтобы вы могли легко найти локализованные метки на экране.
+> В следующем примере мы добавили символ фунта в `#` начале каждой строки, чтобы можно было легко найти локализованные метки на экране.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->

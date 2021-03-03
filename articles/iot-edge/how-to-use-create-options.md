@@ -9,12 +9,12 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 055b89858fde901ab014e409fbe30c3438efce12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80550348"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732995"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Настройка параметров создания контейнера для модулей IoT Edge
 
@@ -52,15 +52,15 @@ IoT Edge модули реализуются на устройстве IoT Edge 
 
 В этом примере edgeHub используется параметр **хостконфиг. портбиндингс** , позволяющий сопоставлять предоставленные порты в контейнере с портом на устройстве узла.
 
-Если вы используете расширения средств Azure IoT для Visual Studio или Visual Studio Code, вы можете записать параметры Create в формате JSON в **deployment.template.js** файла. Затем при использовании расширения для создания IoT Edge решения или создания манифеста развертывания он будет stringify JSON в формате, который ожидает среда выполнения IoT Edge. Пример:
+Если вы используете расширения средств Azure IoT для Visual Studio или Visual Studio Code, вы можете записать параметры Create в формате JSON в **deployment.template.js** файла. Затем при использовании расширения для создания IoT Edge решения или создания манифеста развертывания он будет stringify JSON в формате, который ожидает среда выполнения IoT Edge. Пример.
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
 ```
 
-Одним из советов по написанию параметров создания является использование `docker inspect` команды. В рамках процесса разработки запустите модуль локально с помощью `docker run <container name>` . После того, как модуль будет работать, выполните команду `docker inspect <container name>` . Эта команда выводит сведения о модуле в формате JSON. Найдите настроенные параметры и скопируйте JSON. Пример:
+Одним из советов по написанию параметров создания является использование `docker inspect` команды. В рамках процесса разработки запустите модуль локально с помощью `docker run <container name>` . После того, как модуль будет работать, выполните команду `docker inspect <container name>` . Эта команда выводит сведения о модуле в формате JSON. Найдите настроенные параметры и скопируйте JSON. Пример.
 
-[![Результаты проверки edgeHub ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png) для DOCKER](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Результаты проверки edgeHub для DOCKER](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## <a name="common-scenarios"></a>Распространенные сценарии
 
@@ -131,5 +131,5 @@ IoT Edge модули реализуются на устройстве IoT Edge 
 
 Дополнительные примеры создания параметров в действии см. в следующих IoT Edge примерах.
 
-* [Пользовательское визуальное распознавание и Azure IoT Edge на Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi)
+* [Пользовательское визуальное распознавание и Azure IoT Edge на Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi)
 * [Пример хранилища BLOB-объектов Azure IoT Edge](https://github.com/Azure-Samples/azure-iotedge-blobstorage-sample)

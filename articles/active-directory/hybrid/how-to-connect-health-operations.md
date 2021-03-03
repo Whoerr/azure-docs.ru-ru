@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016972"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686467"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Операции Azure Active Directory Connect Health
 В этой статье описаны различные операции, которые можно выполнить с помощью Azure Active Directory (Azure AD) Connect Health.
@@ -46,8 +46,6 @@ ms.locfileid: "98016972"
 > При возникновении проблем с обработкой запросов на синхронизацию в нашей серверной службе эта служба отправляет по электронной почте уведомление с подробными сведениями об ошибке в адрес электронной почты администратора вашего клиента. Мы слышали Отзывы клиентов о том, что в некоторых случаях объем этих сообщений слишком велик, поэтому мы изменим способ отправки этих сообщений. 
 >
 > Вместо отправки сообщения для каждой ошибки синхронизации каждый раз, когда она происходит, мы отправим ежедневный дайджест всех ошибок, возвращенных серверной службой. Это позволяет клиентам более эффективно обрабатывать эти ошибки и сократить количество повторяющихся сообщений об ошибках.
->
-> Мы планируем, чтобы это изменение было реализовано 15 января 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Удаление экземпляра службы или сервера
 
@@ -133,12 +131,12 @@ Azure AD Connect Health поддерживает управление досту
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Шаг 2. Добавление пользователей и групп, а также назначение ролей
 1. В разделе **Настройка** щелкните **Пользователи**.<br>
    ![Снимок экрана боковой панели ресурсов Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
-2. Выберите **Добавить**.
+2. Нажмите **Добавить**.
 3. В области **Выбор роли** выберите роль (например, **Владелец**).<br>
    ![Снимок экрана Azure AD Connect Health и меню настройки Azure RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Введите имя или идентификатор целевого пользователя или целевой группы. Одновременно можно выбрать сразу несколько пользователей или групп. Нажмите кнопку **Выбрать**.
    ![Снимок экрана Azure AD Connect Health и списка ролей Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
-5. Нажмите кнопку **ОК**.<br>
+5. Щелкните **ОК**.<br>
 6. После назначения ролей пользователи и группы отобразятся в списке.<br>
    ![Снимок экрана с выделенными Azure AD Connect Health и Azure RBAC и новыми пользователями](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
@@ -173,4 +171,4 @@ Azure AD Connect Health поддерживает управление досту
 * [Использование Azure AD Connect Health для синхронизации](how-to-connect-health-sync.md)
 * [Использование Azure AD Connect Health с AD DS](how-to-connect-health-adds.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](reference-connect-health-faq.md)
-* [Журнал версий Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Журнал версий Azure AD Connect Health](reference-connect-health-version-history.md)

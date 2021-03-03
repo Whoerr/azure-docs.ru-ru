@@ -1,273 +1,356 @@
 ---
 title: Использовать полный синтаксис запроса Lucene
 titleSuffix: Azure Cognitive Search
-description: Синтаксис запроса Lucene для поиска нечетких результатов, поиска с учетом расположения, повышения терминов, поиска регулярных выражений и поиска с подстановочными знаками в службе Когнитивный поиск Azure.
+description: Примеры запросов, демонстрирующие синтаксис запросов Lucene для поиска нечетких результатов, поиска с учетом расположения, повышения терминов, поиска регулярных выражений и поиска с использованием подстановочных знаков в индексе Azure Когнитивный поиск.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: df26cfc3b220f40a7e73ff1c750d2b2ae37e7625
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 6213efb6ba14052c6f957a6d999f48f55f65186c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693566"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Использование полного синтаксиса поиска Lucene (расширенные запросы в Azure Когнитивный поиск)
 
-При создании запросов для Когнитивный поиск Azure вы можете заменить средство [синтаксического анализа простых запросов](query-simple-syntax.md) по умолчанию более мощным [средством синтаксического анализа запросов Lucene в Azure когнитивный Поиск](query-lucene-syntax.md) , чтобы сформулировать специализированные и расширенные определения запросов. 
+При создании запросов для Когнитивный поиск Azure можно заменить [простой анализатор запросов](query-simple-syntax.md) по умолчанию на более мощный [анализатор запросов Lucene](query-lucene-syntax.md) , чтобы сформулировать специализированные и расширенные выражения запросов.
 
-Средство синтаксического анализа Lucene поддерживает сложные конструкции запросов, такие как запросы с областью видимости полей, Поиск нечетких запросов, инфиксные и подстановочный знак суффикса, поиск по сходству, повышение термина и поиск регулярных выражений. Дополнительные возможности поставляются с дополнительными требованиями к обработке, поэтому следует предусмотреть немного больше времени для выполнения. В этой статье вы можете пошагово пройти примеры, демонстрирующие операции запросов на основе полного синтаксиса.
+Средство синтаксического анализа Lucene поддерживает сложные форматы запросов, такие как запросы с областью видимости полей, Поиск нечетких запросов, инфиксные и подстановочный знак суффикса, поиск по сходству, повышение термина и поиск регулярных выражений. Дополнительные возможности поставляются с дополнительными требованиями к обработке, поэтому следует предусмотреть немного больше времени для выполнения. В этой статье вы можете пошагово пройти примеры, демонстрирующие операции запросов на основе полного синтаксиса.
 
 > [!Note]
 > Многие специализированные конструкции запросов, обеспечиваемые благодаря полному синтаксису запросов Lucene, не поддерживают [анализ текста](search-lucene-query-architecture.md#stage-2-lexical-analysis), что может оказаться неожиданным, если вы хотите использовать выделение корней слов или лемматизацию. Лексический анализ выполняется только для полными терминами (запрос термина или запрос фразы). Типы запросов с неполными терминами (запрос с префиксом, запрос с подстановочными знаками, запрос с регулярными выражениями, нечеткий запрос) добавляются непосредственно к дереву запроса в обход этапа анализа. Единственным преобразованием, выполняемым в условиях частичного запроса, является нижний регистр. 
 >
 
-## <a name="nyc-jobs-examples"></a>Примеры заданий Нью
+## <a name="hotels-sample-index"></a>Индекс примера гостиниц
 
-В следующих примерах используется [индекс поиска заданий Нью](https://azjobsdemo.azurewebsites.net/)  , состоящий из заданий, доступных на основе набора данных, предоставленного в городе Нью- [Йорк опендата](https://nycopendata.socrata.com/). Эти данные не являются текущими или завершенными. Индекс находится в службе "песочницы", предоставляемой корпорацией Майкрософт. Это означает, что для работы с этими запросами не требуется подписка Azure или Azure Когнитивный поиск.
+Следующие запросы основываются на гостиницах, которые можно создать, следуя инструкциям в этом [кратком руководстве](search-get-started-portal.md).
 
-Для отправки HTTP-запроса по запросу GET или POST требуется соответствующее средство. Если вы не знакомы с этими инструментами, см. статью [Краткое руководство. изучение Azure Когнитивный поиск REST API](search-get-started-rest.md).
+Примеры запросов обрабатываются с помощью запросов REST API и POST. Их можно вставить и запустить в [POST](search-get-started-rest.md) или в [Visual Studio Code с расширением когнитивный Поиск](search-get-started-vs-code.md).
 
-## <a name="set-up-the-request"></a>Настройка запроса
+Заголовки запроса должны иметь следующие значения:
 
-1. Заголовки запроса должны иметь следующие значения:
+| Клавиши | Значение |
+|-----|-------|
+| Content-Type | приложение/json|
+| api-key  | `<your-search-service-api-key>`, либо запрос, либо ключ администратора |
 
-   | Ключ | Значение |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | api-key  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (это фактический ключ API запроса для службы поиска "песочницы", в которой размещается индекс заданий Нью). |
-
-1. Задайте для команды значение **`GET`** .
-
-1. Задайте для URL-адреса значение **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**
-
-   + Коллекция Documents в индексе содержит все содержимое, доступное для поиска. Ключ API запроса, указанный в заголовке запроса, работает только для операций чтения, предназначенных для коллекции Documents.
-
-   + **`$count=true`** Возвращает количество документов, соответствующих условиям поиска. В пустой строке поиска счетчик будет содержать все документы в индексе (около 2558 в случае заданий Нью).
-
-   + **`search=*`** является неопределенным запросом, эквивалентным null или пустым поиском. Это не особенно полезно, но это самый простой поиск, который можно сделать, и Показать все доступные для получения поля в индексе со всеми значениями.
-
-   + **`queryType=full`** вызывает полный анализатор Lucene.
-
-1. В качестве шага проверки вставьте приведенный ниже запрос в раздел GET и щелкните **Отправить**. Будут возвращены результаты в виде подробных документов JSON.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-full-lucene-parsing"></a>Способы вызова полного синтаксического анализа Lucene
-
-Добавьте **`queryType=full`** , чтобы вызвать полный синтаксис запроса, переопределив синтаксис простого запроса по умолчанию. Во всех примерах в этой статье указывается **`queryType=full`** параметр поиска, указывающий, что полный синтаксис обрабатывается средством синтаксического анализа запросов Lucene. 
+Параметры URI должны включать конечную точку службы поиска с именем индекса, коллекциями документов, командой поиска и версией API, как показано в следующем примере:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "full"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Пример 1. запрос с областью действия списка полей
+Текст запроса должен быть сформирован как допустимый JSON:
 
-Первый пример не связан с синтаксическим анализатором, но мы начали с него, чтобы представить первое фундаментальное понятие запроса: автономность. Этот пример ограничивает как выполнение запроса, так и ответ на несколько конкретных полей. Знать, как структурировать читаемый ответ JSON, важно, если используется инструмент Postman или обозреватель поиска. 
-
-Этот запрос предназначен только для *business_title* в **`searchFields`** , указывая с помощью **`select`** параметра то же поле в ответе.
-
-```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "full",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "full",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-Результат запроса должен выглядеть, как на снимке экрана ниже.
++ для параметра "Search" задан `*` неопределенный запрос, эквивалентный null или пустому поиску. Это не особенно полезно, но это самый простой поиск, который можно сделать, и Показать все доступные для получения поля в индексе со всеми значениями.
 
-  ![Публикация образца ответа с результатами](media/search-query-lucene-examples/postman-sample-results.png)
++ для параметра "queryType" задано значение Full, вызывается полное средство синтаксического анализа запросов Lucene, которое требуется для этого синтаксиса.
 
-Вы могли заметить оценку поиска в ответе. Однородные баллы, равные **1** , происходят, когда нет ранга, так как поиск не является полнотекстовым поиском или не был предоставлен ни один критерий. Для пустого поиска строки возвращаются в произвольном порядке. Когда вы добавите условие поиска, вы увидите, как оценки поиска превратятся в понятные значения.
++ для композиции результатов поиска используется значение "Select", равное разделенному запятыми списку полей, включая только те поля, которые полезны в контексте результатов поиска.
 
-## <a name="example-2-fielded-search"></a>Пример 2. Поиск по полям
++ "Count" возвращает количество документов, соответствующих условиям поиска. В пустой строке поиска счетчик будет содержать все документы в индексе (50 в случае использования гостиниц-Sample-index).
 
-Полный синтаксис Lucene поддерживает определение области отдельных выражений поиска для определенного поля. В этом примере выполняется поиск названий предприятий с термином старший в них, но не младшим. Можно указать несколько полей с помощью и.
+## <a name="example-1-fielded-search"></a>Пример 1. Поиск по полям
+
+Область поиска по полям отдельные внедренные выражения поиска для определенного поля. В этом примере выполняется поиск названий отеля с термином «Гостиницы», но не «Motel». Можно указать несколько полей с помощью и. 
+
+При использовании этого синтаксиса запроса параметр "searchFields" можно опустить, если поля, к которым необходимо выполнить запрос, находятся в самом выражении поиска. Если включить «searchFields» с поиском по полям, то `fieldName:searchExpression` всегда имеет приоритет над «searchFields».
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:(hotel NOT motel) AND Category:'Resort and Spa'",
     "queryType": "full",
-    "search": "business_title:(senior NOT junior) AND posting_type:external",
-    "searchFields": "business_title, posting_type",
-    "select": "business_title, posting_type"
+    "select": "HotelName, Category",
+    "count": true
 }
 ```
 
-Ответ для этого запроса должен выглядеть, как на следующем снимке экрана (posting_type не отображается).
+Ответ для этого запроса должен выглядеть, как в следующем примере, с фильтрацией по "курорту и SPA", возвращая Гостиницы, которые включают в себя "Гостиницы" или "Motel".
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Пример выражения поиска ответа после примера" border="false":::
+```json
+"@odata.count": 4,
+"value": [
+    {
+        "@search.score": 4.481559,
+        "HotelName": "Nova Hotel & Spa",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.4524608,
+        "HotelName": "King's Palace Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.3970203,
+        "HotelName": "Triple Landscape Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.2953436,
+        "HotelName": "Peaceful Market Hotel & Spa",
+        "Category": "Resort and Spa"
+    }
+]
+```
 
-Выражение поиска может представлять собой одно слово или фразу или более сложное выражение в круглых скобках, при необходимости с логическими операторами. Вот несколько примеров.
+Выражение поиска может представлять собой один термин или фразу или более сложное выражение в круглых скобках, при необходимости с логическими операторами. Вот несколько примеров.
 
-+ `business_title:(senior NOT junior)`
-+ `state:("New York" OR "New Jersey")`
-+ `business_title:(senior NOT junior) AND posting_type:external`
++ `HotelName:(hotel NOT motel)`
++ `Address/StateProvince:("WA" OR "CA")`
++ `Tags:("free wifi" NOT "free parking") AND "coffee in lobby"`
 
-Если требуется, чтобы обе строки вычислить как единую сущность, необходимо поместить несколько строк в кавычки, как в этом случае искать два различных расположения в `state` поле. В зависимости от средства может потребоваться экранирование ( `\` ) кавычек. 
+Обязательно заключите фразу в кавычки, если хотите, чтобы обе строки вычислить как единую сущность, как в этом случае поиск двух различных расположений в поле Address/StateProvince. В зависимости от клиента может потребоваться экранирование ( `\` ) кавычек.
 
-Поле, указанное в **fieldname: сеарчекспрессион** , должно быть полем с возможностью поиска. Дополнительные сведения об использовании атрибутов индекса в определениях полей см. в статье [Создание индекса (REST API когнитивный Поиск Azure)](/rest/api/searchservice/create-index) .
+Поле, указанное в `fieldName:searchExpression` , должно быть полем с возможностью поиска. Дополнительные сведения об атрибутах определений полей см. в разделе [CREATE INDEX (REST API)](/rest/api/searchservice/create-index) .
 
-> [!NOTE]
-> В приведенном выше примере **`searchFields`** параметр опускается, так как в каждой части запроса указано явное имя поля. Однако можно по-прежнему использовать, **`searchFields`** Если запрос содержит несколько частей (с помощью инструкций и). Например, запрос `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` будет сопоставляться `senior NOT junior` только с `business_title` полем, тогда как он будет сопоставляться с `posting_type` полем external. Имя поля, указанное в параметре `fieldName:searchExpression` , всегда имеет приоритет над **`searchFields`** , поэтому в этом примере можно опустить `business_title` **`searchFields`** .
+## <a name="example-2-fuzzy-search"></a>Пример 2. нечеткий поиск
 
-## <a name="example-3-fuzzy-search"></a>Пример 3. Поиск нечетких соответствий
-
-Полный синтаксис Lucene также поддерживает поиск нечетких соответствий, то есть сопоставление терминов с подобной конструкцией. Чтобы выполнить поиск нечетких соответствий, необходимо добавить символ тильды `~` в конце слова. Дополнительно можно поставить цифру от 0 до 2, указывающую расстояние редактирования. Например, `blue~` или `blue~1` вернет результаты с blue, blues и glue.
+Поиск нечетких совпадений по похожим терминам, включая слова с ошибками. Чтобы выполнить поиск нечетких соответствий, необходимо добавить символ тильды `~` в конце слова. Дополнительно можно поставить цифру от 0 до 2, указывающую расстояние редактирования. Например, `blue~` или `blue~1` вернет результаты с blue, blues и glue.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Tags:conserge~",
     "queryType": "full",
-    "search": "business_title:asosiate~",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Category, Tags",
+    "searchFields": "HotelName, Category, Tags",
+    "count": true
 }
 ```
 
-Фразы не поддерживаются напрямую, но можно указать нечеткое соответствие для каждого термина многокомпонентной фразы, например `search=business_title:asosiate~ AND comm~` .  На следующем снимке экрана ответ включает совпадение со *связанным сообществом*.
+Ответ для этого запроса разрешается в "Concierge" в соответствующих документах, обрезанных для краткости:
 
-  :::image type="content" source="media/search-query-lucene-examples/fuzzysearch.png" alt-text="Ответ на поиск нечетких соответствий" border="false":::
+```json
+"@odata.count": 12,
+"value": [
+    {
+        "@search.score": 1.1832147,
+        "HotelName": "Secret Point Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "air conditioning",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1819803,
+        "HotelName": "Twin Dome Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "free wifi",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1773309,
+        "HotelName": "Smile Hotel",
+        "Category": "Suite",
+        "Tags": [
+            "view",
+            "concierge",
+            "laundry service"
+        ]
+    },
+```
+
+Фразы не поддерживаются напрямую, но можно указать нечеткое соответствие для каждого термина многокомпонентной фразы, например `search=Tags:landy~ AND sevic~` .  Это выражение запроса находит 15 совпадений в "белье Service".
 
 > [!Note]
-> Запросы с нечетким соответствием не [анализируются](search-lucene-query-architecture.md#stage-2-lexical-analysis). Типы запросов с неполными терминами (запрос с префиксом, запрос с подстановочными знаками, запрос с регулярными выражениями, нечеткий запрос) добавляются непосредственно к дереву запроса в обход этапа анализа. Единственным преобразованием, выполняемым в условиях частичного запроса, является нижний регистр.
+> Запросы с нечетким соответствием не [анализируются](search-lucene-query-architecture.md#stage-2-lexical-analysis). Типы запросов с неполными терминами (запрос с префиксом, запрос с подстановочными знаками, запрос с регулярными выражениями, нечеткий запрос) добавляются непосредственно к дереву запроса в обход этапа анализа. Единственное преобразование, выполняемое в условиях частичного запроса, имеет более низкий регистр.
 >
 
-## <a name="example-4-proximity-search"></a>Пример 4. Поиск с учетом расположения
+## <a name="example-3-proximity-search"></a>Пример 3. Поиск по сходству
 
-Операция поиска с учетом расположения позволяет найти слова, расположенные рядом в документе. Вставьте символ тильды "~" в конце фразы, а затем — цифру, обозначающую количество слов, определяющее границу близости. Например, если ввести "hotel airport"~5, будут найдены слова "hotel" и "airport", расположенные в пределах 5 слов друг от друга в документе.
+Поиск по сходству находит термины, близкие друг к другу в документе. Вставьте символ тильды "~" в конце фразы, а затем — цифру, обозначающую количество слов, определяющее границу близости.
 
-Этот запрос выполняет поиск терминов «старший» и «аналитик», где каждый термин отделяется не более чем одним словом, а кавычки () заменяются escape-символами ( `\"` ) для сохранения фразы.
+Этот запрос выполняет поиск терминов "Гостиница" и "Аэропорт" в нескольких пяти словах в документе. Кавычки экранированы ( `\"` ) для сохранения фразы:
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Description: \"hotel airport\"~5",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~1",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description",
+    "searchFields": "HotelName, Description",
+    "count": true
 }
 ```
 
-Ответ для этого запроса должен выглядеть как на следующем снимке экрана 
+Ответ для этого запроса должен выглядеть следующим образом:
 
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Запрос с учетом расположения" border="false":::
+```json
+"@odata.count": 2,
+"value": [
+    {
+        "@search.score": 0.6331726,
+        "HotelName": "Trails End Motel",
+        "Description": "Only 8 miles from Downtown.  On-site bar/restaurant, Free hot breakfast buffet, Free wireless internet, All non-smoking hotel. Only 15 miles from airport."
+    },
+    {
+        "@search.score": 0.43032226,
+        "HotelName": "Catfish Creek Fishing Cabins",
+        "Description": "Brand new mattresses and pillows.  Free airport shuttle. Great hotel for your business needs. Comp WIFI, atrium lounge & restaurant, 1 mile from light rail."
+    }
+]
+```
 
-Попробуйте еще раз, удалив расстояние ( `~0` ) между терминами «старший аналитик». Обратите внимание на то, что для этого запроса возвращены 8 документов, в отличие от 10 документов для предыдущего запроса.
+## <a name="example-4-term-boosting"></a>Пример 4. повышение термина
+
+При повышении приоритета слов документы сортируются по приоритету, т. е. документы, в которых содержится условие поиска, имеют высший приоритет по отношению к документам, в которых его нет. Чтобы увеличить термин, используйте знак крышки, `^` символ с коэффициентом увеличения (число) в конце искомого термина. Коэффициент увеличения по умолчанию равен 1, и хотя он должен быть положительным, он может быть меньше 1 (например, 0,2). Повышение приоритета терминов отличается от профилей повышения, так как они повышают приоритет определенных полей, а не определенных терминов.
+
+В этом запросе выполните поиск по запросу «пляже Access» и обратите внимание, что существует семь документов, соответствующих одному или обоим терминам.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "beach access",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~0",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description, Tags",
+    "searchFields": "HotelName, Description, Tags",
+    "count": true
 }
 ```
 
-## <a name="example-5-term-boosting"></a>Пример 5. Повышение приоритета терминов
+На самом деле, существует только один документ, совпадающий с "доступом", и поскольку он является единственным, его размещение велико (вторая позиция), даже если в документе отсутствует термин "пляже".
 
-При повышении приоритета слов документы сортируются по приоритету, т. е. документы, в которых содержится условие поиска, имеют высший приоритет по отношению к документам, в которых его нет. Чтобы увеличить термин, используйте знак крышки, `^` символ с коэффициентом увеличения (число) в конце искомого термина.
-
-Этот запрос before выполняет поиск вакансий, содержащих термин *computer analyst*. Обратите внимание на то, что вакансии, содержащие оба слова *computer* и *analyst*, не найдены, а вакансии со словом *computer* выведены в верхней части результатов.
-
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.2723424,
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown."
+    },
+    {
+        "@search.score": 1.5507699,
+        "HotelName": "Old Carrabelle Hotel",
+        "Description": "Spacious rooms, glamorous suites and residences, rooftop pool, walking access to shopping, dining, entertainment and the city center."
+    },
+    {
+        "@search.score": 1.5358944,
+        "HotelName": "Whitefish Lodge & Suites",
+        "Description": "Located on in the heart of the forest. Enjoy Warm Weather, Beach Club Services, Natural Hot Springs, Airport Shuttle."
+    },
+    {
+        "@search.score": 1.3433652,
+        "HotelName": "Ocean Air Motel",
+        "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+    },
 ```
 
-В запросе after выполните этот поиск снова, при этом повышая приоритет результатов, содержащих термин *analyst*, относительно результатов, содержащих слово *computer*, если оба слова не встречаются одновременно. Понятная для человека версия запроса — `search=business_title:computer analyst^2` . Для работоспособного запроса в Post `^2` он кодируется как `%5E2` .
+В запросе "после" повторите поиск, на этот раз Повысьте результаты с термином "пляже" в термине "доступ". Понятная для человека версия запроса — `search=Description:beach^2 access` . В зависимости от клиента может потребоваться выразить его `^2` как `%5E2` .
 
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst%5e2",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
-```
+После увеличения термина "пляже" совпадение со старым Каррабелле отеля перемещается в шестое место.
 
-Результат запроса должен выглядеть, как на снимке экрана ниже.
+<!-- Consider a scoring profile that boosts matches in a certain field, such as "genre" in a music app. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the "genre" field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2). -->
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Повышение приоритета термина after" border="false":::
-
-Повышение приоритета терминов отличается от профилей повышения, так как они повышают приоритет определенных полей, а не определенных терминов. В следующем примере показаны эти различия.
-
-Рассмотрим профиль повышения, который повышает приоритет совпадений в определенном поле, таком как **genre** в примере musicstoreindex. Повышение значимости слов может использоваться для дальнейшего повышения приоритета определенных условий поиска относительно других. Например, при вводе запроса "rock^2 electronic" документы, содержащие это условие поиска в поле **genre** , становятся приоритетнее документов, содержащих это условие поиска в других полях, поддерживающих поиск, в индексе. Кроме того, документы, содержащие слово "rock", будут иметь более высокий приоритет, чем документы, содержащие слово "electronic", так как введен коэффициент повышения приоритета (2).
-
-Чем выше коэффициент повышения приоритета при настройке коэффициента, тем приоритетнее условие поиска относительно других. Коэффициент повышения приоритета по умолчанию — 1. Несмотря на то, что коэффициент повышения приоритета должен быть положительным числом, он может быть меньше 1 (например, 0,2).
-
-## <a name="example-6-regex"></a>Пример 6. Регулярное выражение
+## <a name="example-5-regex"></a>Пример 5. регулярное выражение
 
 Операция поиска по регулярным выражениям позволяет найти совпадение в зависимости от содержимого между косыми чертами "/", как указано в документации [класса RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:/(Mo|Ho)tel/",
     "queryType": "full",
-    "search": "business_title:/(Sen|Jun)ior/",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-Результат запроса должен выглядеть, как на снимке экрана ниже.
+Ответ для этого запроса должен выглядеть следующим образом:
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Запрос регулярных выражений" border="false":::
+```json
+    "@odata.count": 22,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Days Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Triple Landscape Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Smile Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Pelham Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Sublime Cliff Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Twin Dome Motel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Nova Hotel & Spa"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+```
 
 > [!Note]
-> Запросы с регулярными выражениями не [анализируются](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Единственным преобразованием, выполняемым в условиях частичного запроса, является нижний регистр.
+> Запросы с регулярными выражениями не [анализируются](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Единственное преобразование, выполняемое в условиях частичного запроса, имеет более низкий регистр.
 >
 
-## <a name="example-7-wildcard-search"></a>Пример 7. Поиск с использованием подстановочных знаков
+## <a name="example-6-wildcard-search"></a>Пример 6. Поиск с подстановочными знаками
 
-Вы можете использовать распознаваемый синтаксис для поиска с использованием одного (?) или нескольких (\*) подстановочных знаков. Обратите внимание, что средство синтаксического анализа запросов Lucene поддерживает использование этих символов для поиска одного слова, а не фразы.
+В целом можно использовать распознаваемый синтаксис для `*` поиска с подстановочными знаками в нескольких () или одиночных ( `?` ) символах. Обратите внимание, что средство синтаксического анализа запросов Lucene поддерживает использование этих символов для поиска одного слова, а не фразы.
 
-Этот запрос выполняет поиск вакансий, содержащих в начале"prog". В результате будут найдены вакансии со словами "programming" и "programmer". Нельзя использовать `*` символ или в `?` качестве первого символа поиска.
+В этом запросе найдите имена Гостиницы, содержащие префикс "SC". Нельзя использовать `*` символ или в `?` качестве первого символа поиска.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:sc*",
     "queryType": "full",
-    "search": "business_title:prog*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-Результат запроса должен выглядеть, как на снимке экрана ниже.
+Ответ для этого запроса должен выглядеть следующим образом:
 
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Запрос с подстановочным знаком" border="false":::
+```json
+    "@odata.count": 2,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scottish Inn"
+        }
+    ]
+```
 
 > [!Note]
-> Запросы с подстановочными знаками не [анализируются](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Единственным преобразованием, выполняемым в условиях частичного запроса, является нижний регистр.
+> Запросы с подстановочными знаками не [анализируются](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Единственное преобразование, выполняемое в условиях частичного запроса, имеет более низкий регистр.
 >
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -282,6 +365,6 @@ POST /indexes/nycjobs/docs?api-version=2020-06-30
 
 + [Примеры синтаксиса запросов Lucene для создания расширенных запросов](search-query-lucene-examples.md)
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md) (Как выполняется полнотекстовый поиск в Когнитивном поиске Azure)
-+ [Простой синтаксис запросов](query-simple-syntax.md)
-+ [Полный синтаксис запроса Lucene](query-lucene-syntax.md)
++ [Синтаксис простых запросов](query-simple-syntax.md)
++ [Lucene query syntax in Azure Search](query-lucene-syntax.md) (Синтаксис запросов Lucene в службе поиска Azure)
 + [Синтаксис фильтра](search-query-odata-filter.md)

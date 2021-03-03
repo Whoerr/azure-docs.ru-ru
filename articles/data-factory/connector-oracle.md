@@ -4,14 +4,14 @@ description: Узнайте, как копировать данные из по�
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
-ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ebafac024593767e884be908acbf0efb9ead50e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381347"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703309"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Копирование данных из Oracle и обратно с помощью фабрики данных Azure
 
@@ -363,7 +363,8 @@ ms.locfileid: "100381347"
 | LONG RAW |Byte[] |
 | NCHAR |Строка |
 | NCLOB |Строка |
-| NUMBER |десятичное число, строка (если точность больше 28) |
+| NUMBER (p,s) |Decimal, строка (если p > 28) |
+| ЧИСЛО без точности и масштаба |Double |
 | NVARCHAR2 |Строка |
 | RAW |Byte[] |
 | ROWID |Строка |

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012322"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723849"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Удаление Запуск и остановка виртуальных машин в нерабочее время из учетной записи службы автоматизации
 
@@ -94,7 +94,7 @@ ms.locfileid: "100012322"
 
 ## <a name="delete-the-feature"></a>Удаление компонента
 
-Чтобы удалить Запуск и остановка виртуальных машин в нерабочее время из учетной записи службы автоматизации, выполните следующие действия. В ходе этого процесса рабочая область Log Analytics и учетная запись службы автоматизации не удаляются. Если вы не хотите, чтобы Рабочая область Log Analyticsа, ее необходимо удалить вручную. Дополнительные сведения об удалении рабочей области см. в статье [Удаление и восстановление log Analytics рабочей области Azure](../azure-monitor/platform/delete-workspace.md).
+Чтобы удалить Запуск и остановка виртуальных машин в нерабочее время из учетной записи службы автоматизации, выполните следующие действия. В ходе этого процесса рабочая область Log Analytics и учетная запись службы автоматизации не удаляются. Если вы не хотите, чтобы Рабочая область Log Analyticsа, ее необходимо удалить вручную. Дополнительные сведения об удалении рабочей области см. в статье [Удаление и восстановление log Analytics рабочей области Azure](../azure-monitor/logs/delete-workspace.md).
 
 1. Перейдите к учетной записи службы автоматизации и выберите в разделе **связанные ресурсы** пункт **связанная Рабочая область** .
 

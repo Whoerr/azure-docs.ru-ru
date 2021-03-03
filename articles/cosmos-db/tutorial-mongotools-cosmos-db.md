@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 2b52a9227e8bd487a8929df11047eef4672f7f4a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2e9f3c877a5c4650d3e31fa414cac76837f4c9e8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416420"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655757"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-mongodb-native-tools"></a>Руководство по переносу MongoDB в API Azure Cosmos DB для MongoDB в автономном режиме с использованием нативных средств MongoDB
 
@@ -31,7 +31,7 @@ ms.locfileid: "100416420"
 
 Нативные средства MongoDB могут перемещать данные не быстрее, чем это позволяет оборудование. Они могут быть самым простым решением для небольших наборов данных, для которых общее время миграции не имеет значения. [Соединитель Spark для MongoDB](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db.md) или [Фабрика данных Azure (ADF)](../data-factory/connector-azure-cosmos-db-mongodb-api.md) могут быть более полезны, если вам требуется масштабируемый конвейер миграции.
 
-Если у вас еще не настроен источник MongoDB, обратитесь к статье [Установка и настройка базы данных MongoDB на виртуальной машине Windows в Azure](../virtual-machines/windows/install-mongodb.md).
+Если у вас еще не настроен источник MongoDB, обратитесь к статье [Установка и настройка базы данных MongoDB на виртуальной машине Windows в Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 ## <a name="prerequisites"></a>Предварительные требования
 

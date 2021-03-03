@@ -4,14 +4,14 @@ description: Узнайте, как устранять проблемы безо
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375176"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706193"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Устранение неполадок, связанных с управлением безопасностью и доступом в фабрике данных Azure
 
@@ -142,7 +142,6 @@ ms.locfileid: "100375176"
 
 1. Добавьте ключ проверки подлинности IR еще раз в среду выполнения интеграции.
 
-
 **Решение 2**
 
 Чтобы устранить эту проблему, перейдите в раздел " [Частная связь Azure" для фабрики данных Azure](./data-factory-private-link.md).
@@ -151,7 +150,46 @@ ms.locfileid: "100375176"
 
 ![Снимок экрана элемента управления "включено" для "разрешить доступ к общедоступной сети" в области "Сетевые подключения".](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
 
-## <a name="next-steps"></a>Следующие шаги
+### <a name="adf-private-dns-zone-overrides-azure-resource-manager-dns-resolution-causing-not-found-error"></a>Переопределение зоны частных DNS-адресов Azure Resource Manager разрешение DNS приводит к ошибке "не найдено"
+
+#### <a name="cause"></a>Причина
+Как Azure Resource Manager, так и ADF используют одну и ту же частную зону, создавая потенциальный конфликт в частной службе DNS клиента с тем сценарием, где записи Azure Resource Manager не будут найдены.
+
+#### <a name="solution"></a>Решение
+1. Поиск Частная зона DNS зон **privatelink.Azure.com** в портал Azure.
+![Снимок экрана: Поиск зон Частная зона DNS.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Проверьте наличие **ADF**-файла записи.
+![Снимок экрана записи.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.  Перейдите к разделу **связи виртуальной сети** и удалите все записи.
+![Снимок экрана: ссылка на виртуальную сеть.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.  Перейдите к фабрике данных в портал Azure и повторно создайте частную конечную точку для портала фабрики данных Azure.
+![Снимок экрана: повторное создание частной конечной точки.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.  Вернитесь в Частная зона DNS зоны и проверьте, есть ли новая частная зона DNS **privatelink.ADF.Azure.com**.
+![Снимок экрана: Новая запись DNS.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### <a name="connection-error-in-public-endpoint"></a>Ошибка подключения в общедоступной конечной точке
+
+#### <a name="symptoms"></a>Симптомы
+
+При копировании данных с общедоступным доступом к учетной записи хранилища BLOB-объектов Azure конвейер запускается случайным образом со следующей ошибкой.
+
+Например, приемник хранилища BLOB-объектов Azure использовал Azure IR (общедоступная, не управляемая виртуальная сеть), а источник базы данных SQL Azure использует управляемую виртуальную сеть виртуальной сети. Источник или приемник используют управляемую виртуальную сеть IR только с открытым доступом к хранилищу.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### <a name="cause"></a>Причина
+
+ADF может по-прежнему использовать управляемую виртуальную сеть VPN, но может возникнуть такая ошибка, поскольку общедоступная конечная точка для хранилища BLOB-объектов Azure в управляемой виртуальной сети не является надежной на основе результата тестирования, а хранилище BLOB-объектов Azure и Azure Data Lake Gen2 не поддерживают подключение через общедоступную конечную точку из управляемой виртуальной сети ADF [& управляемых частных конечных точек](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+
+#### <a name="solution"></a>Решение
+
+- Если частная конечная точка включена на источнике, а также на стороне приемника при использовании управляемой виртуальной сети виртуальных сетей.
+- Если вы по-прежнему хотите использовать общедоступную конечную точку, можно переключиться только на общедоступный IR, а не использовать управляемую виртуальную сеть виртуальной сети для источника и приемника. Даже если вы переключились обратно на общедоступный IR, ADF может по-прежнему использовать управляемую виртуальную сеть, если в ней все еще есть управляемая виртуальная сеть IR.
+
+## <a name="next-steps"></a>Дальнейшие действия
 
 Для получения дополнительных сведений об устранении неполадок воспользуйтесь следующими ресурсами:
 

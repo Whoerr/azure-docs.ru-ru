@@ -3,12 +3,12 @@ title: Выделенное размещение функций Azure
 description: Узнайте о преимуществах выполнения функций Azure в выделенном плане размещения службы приложений.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591067"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704571"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Планы выделенного размещения для функций Azure
 
@@ -41,11 +41,11 @@ ms.locfileid: "100591067"
 
 ## <a name="app-service-environments"></a>Среда службы приложений
 
-Выполнение в [Среда службы приложений](../app-service/environment/intro.md) (ASE) позволяет полностью изолировать функции и использовать преимущества большего числа экземпляров, чем план службы приложений. Сведения о начале работы см. в разделе .
+Выполнение в Среда службы приложений (ASE) позволяет полностью изолировать функции и использовать преимущества большего числа экземпляров, чем план службы приложений. Чтобы приступить к работе, см. статью [Общие сведения о средах службы приложений](../app-service/environment/intro.md).
 
 Если вы просто хотите запустить приложение-функцию в виртуальной сети, это можно сделать с помощью [плана Premium](functions-premium-plan.md). Дополнительные сведения см. в статье [Установка функций Azure для доступа к частным сайтам](functions-create-private-site-access.md). 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 + [Варианты размещения функций Azure](functions-scale.md)
 + [Обзор планов службы приложений Azure](../app-service/overview-hosting-plans.md)

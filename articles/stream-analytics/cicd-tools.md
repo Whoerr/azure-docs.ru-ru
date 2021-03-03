@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 3ed3ff44b927fa230dedf16387c1daca889d7c66
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d1a0a6ad5b45af2157b960f8990574e47d10eeb2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388708"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718426"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Автоматизация сборок, тестов и развертываний задания Azure Stream Analytics с помощью средств CI/CD
 
@@ -22,7 +22,7 @@ ms.locfileid: "100388708"
 
 Вы можете [скачать пакет](https://www.npmjs.com/package/azure-streamanalytics-cicd) напрямую или установить его [глобально](https://docs.npmjs.com/downloading-and-installing-packages-globally) с помощью `npm install -g azure-streamanalytics-cicd` команды. Рекомендуется использовать команду, которая также может использоваться в задаче "Скрипт" PowerShell или Azure CLI конвейера сборки в **Azure pipelines**.
 
-## <a name="build-the-project"></a>Построение проекта
+## <a name="build-the-project"></a>Сборка проекта
 
 Пакет **ASA-streamanalytics-cicd** NPM предоставляет средства для создания шаблонов Azure Resource Manager Stream Analytics [Visual Studio Code проектов](./quick-create-visual-studio-code.md) или [проектов Visual Studio](stream-analytics-quick-create-vs.md). Пакет NPM можно также использовать в Windows, macOS и Linux без установки Visual Studio Code или Visual Studio.
 
@@ -167,6 +167,9 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 }
 ```
 
+> [!NOTE]
+> Сейчас единственным допустимым значением для `ScriptType` элемента является `InputMock` , которое также является значением по умолчанию. Если задано любое другое значение, оно игнорируется и используется значение по умолчанию ( `InputMock` ). 
+
 ### <a name="run-a-unit-test"></a>Выполнение модульного теста
 
 Чтобы запустить несколько тестовых случаев для проекта, можно использовать следующую команду. Сводка результатов теста создается в выходной папке. Процесс завершается с кодом **0** для всех пройденных тестов. **-1** для исключения; **-2** для тестов с ошибками.
@@ -240,7 +243,7 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 
 Вы можете использовать шаблон Azure Resource Manager и файлы параметров, созданные в процессе сборки, для [развертывания задания в Azure](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md?tabs=azure-powershell#deploy-template).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Непрерывная интеграция и непрерывное развертывание для Azure Stream Analytics](cicd-overview.md)
 * [Настройка конвейера CI/CD для задания Stream Analytics с помощью Azure Pipelines](set-up-cicd-pipeline.md)

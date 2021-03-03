@@ -4,12 +4,12 @@ description: Из этого учебника вы узнаете, как вып
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710606"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Руководство по Резервное копирование баз данных SAP HANA на виртуальных машинах Azure с помощью Azure CLI
 
@@ -176,9 +176,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 В ответе вы получите имя задания. Это имя можно использовать для отслеживания состояния задания с помощью командлета [az backup job show](/cli/azure/backup/job#az-backup-job-show).
 
 >[!NOTE]
->Вы можете не только запланировать создание полной или разностной резервной копии, но и активировать его вручную. Резервные копии журналов активируются и управляются SAP HANA самостоятельно и автоматически.
->
-> Azure Backup в настоящее время не поддерживает добавочные резервные копии.
+>Резервные копии журналов активируются и управляются SAP HANA самостоятельно и автоматически.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 01e46ad8d139f2cab2fbb6499dc66c7af5ceb554
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: dbfe4a44f359f8db59ae80e04aae57164d0ccaf7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368769"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736854"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Параметры поддержки и справки Azure Cognitive Services
 
@@ -63,7 +63,7 @@ ms.locfileid: "94368769"
 
 * [Детектор аномалий](/answers/topics/azure-anomaly-detector.html) 
 * [Content Moderator](/answers/topics/azure-content-moderator.html)
-* [Помощник по метрикам (предварительная версия)]()
+* [Помощник по метрикам (Предварительная версия)]()
 * [Персонализатор](/answers/topics/azure-personalizer.html)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Публикация вопроса на сайте Stack Overflow
@@ -102,7 +102,7 @@ ms.locfileid: "94368769"
 
 * [Детектор аномалий](https://stackoverflow.com/search?q=azure+anomaly+detector) 
 * [Content Moderator](https://stackoverflow.com/search?q=azure+content+moderator)
-* [Помощник по метрикам (предварительная версия)](https://stackoverflow.com/search?q=azure+metrics+advisor)
+* [Помощник по метрикам (Предварительная версия)](https://stackoverflow.com/search?q=azure+metrics+advisor)
 * [Персонализатор](https://stackoverflow.com/search?q=azure+personalizer)
 
 ## <a name="submit-feedback-on-user-voice"></a>Отправить отзыв о голосовом пользователе
@@ -113,23 +113,34 @@ ms.locfileid: "94368769"
 
 Чтобы запросить новые функции, опубликуйте их на платформе UserVoice. Поделитесь своими идеями, чтобы сделать Cognitive Services и его интерфейсы API более эффективными для разрабатываемых приложений. 
 
-| Служба                       | URL-адрес Cognitive Services UserVoice |
-|-------------------------------|---------------|
-| Детектор аномалий              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
-| API Компьютерного зрения               | https://cognitive.uservoice.com/forums/430309-computer-vision |
-| Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
-| Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
-| Распознавание лиц                          | https://cognitive.uservoice.com/forums/430315-face |
-| Распознаватель документов               | https://cognitive.uservoice.com/forums/921556-form-recognizer |
-| Распознаватель рукописного текста                | https://cognitive.uservoice.com/forums/921559-ink-recognizer |
-| Распознавание речи (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
-| Персонализатор                  | https://cognitive.uservoice.com/forums/921562-personalizer |
-| QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
-| Службы "Речь"               | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Пользовательское распознавание речи                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
-| Анализ текста                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| API перевода               | https://cognitive.uservoice.com/forums/558796-translator |
-| Индексатор видео                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+* [Cognitive Services](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737)
+
+**Компьютерное зрение**
+
+* [Компьютерное зрение](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Пользовательское визуальное распознавание](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Распознавание лиц](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Распознаватель документов](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Индексатор видео](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+
+**Язык**
+
+* [Иммерсивное средство чтения](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Распознавание речи (LUIS)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [QnA Maker](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Анализ текста](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Переводчик](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+
+**Речь**
+
+* [Служба распознавания речи](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395740)
+
+**Решение**
+
+* [Детектор аномалий](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746) 
+* [Content Moderator](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
+* [Помощник по метрикам (Предварительная версия)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
+* [Персонализатор](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
 
 ## <a name="stay-informed"></a>Следите за новостями
 
@@ -140,7 +151,7 @@ ms.locfileid: "94368769"
 * Новости о Cognitive Services доступны в [блоге Azure](https://azure.microsoft.com/blog/topics/cognitive-services/).
 * [Присоединяйтесь к беседе по Reddit](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) о Cognitive Services.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
 > [Общие сведения об Azure Cognitive Services](./what-are-cognitive-services.md)

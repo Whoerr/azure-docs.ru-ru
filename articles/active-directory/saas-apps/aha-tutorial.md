@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: a8a33290c7fa904fc16b728a6e2411bd5b42683f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a39371e7a22334b11be1d1a0a9d28557efe177c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259672"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654448"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Руководство по Интеграция Aha! с Azure Active Directory
 
@@ -170,8 +170,8 @@ ms.locfileid: "99259672"
 
 * Перейдите по URL-адресу для входа в Aha! и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Aha! на портале "Мои приложения", вы перейдете по ULR-адресу для входа в Aha! URL-адрес входа. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Aha! на портале "Мои приложения", вы перейдете по ULR-адресу для входа в Aha! URL-адрес входа. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Aha! вы можете применить управление сеансами, которое защищает от хищения конфиденциальных данных вашей организации и несанкционированного доступа к ним в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Aha! вы можете применить управление сеансами, которое защищает от хищения конфиденциальных данных вашей организации и несанкционированного доступа к ним в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

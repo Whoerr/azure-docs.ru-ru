@@ -10,19 +10,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517830"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690538"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Перенос трафика базы данных SQL Azure на более новые шлюзы
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 По мере улучшения инфраструктуры Azure Корпорация Майкрософт периодически обновляет оборудование, чтобы обеспечить максимально возможный уровень взаимодействия с клиентами. В ближайшие месяцы мы планируем добавить шлюзы, основанные на более новых аппаратных поколениях, перенести трафик на них и в конечном итоге списать шлюзы, созданные на старом оборудовании в некоторых регионах.  
 
-Клиенты будут получать уведомления через уведомления о работоспособности службы перед любым изменением шлюзов, доступных в каждом регионе. Клиенты могут [использовать портал Azure для настройки оповещений журнала действий](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+Клиенты будут получать уведомления через уведомления о работоспособности службы перед любым изменением шлюзов, доступных в каждом регионе. Клиенты могут [использовать портал Azure для настройки оповещений журнала действий](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Самые актуальные сведения будут храниться в таблице [IP-адресов шлюза базы данных SQL Azure](connectivity-architecture.md#gateway-ip-addresses) .
 
@@ -166,6 +166,6 @@ ms.locfileid: "100517830"
 
 Если описанное выше решение не работает, отправьте запрос в службу поддержки для базы данных SQL или Управляемый экземпляр SQL, используя следующий URL-адрес: https://aka.ms/getazuresupport
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте больше о [архитектуре подключения SQL Azure](connectivity-architecture.md)

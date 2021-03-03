@@ -3,14 +3,15 @@ title: Узнайте больше про аудит содержимого ви
 description: Узнайте, как политика Azure использует клиент гостевой конфигурации для аудита параметров в виртуальных машинах.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104813"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702884"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Общие сведения о гостевой конфигурации службы "Политика Azure"
+
 
 Политика Azure может выполнять аудит параметров на компьютере как для компьютеров, работающих в Azure, так и для компьютеров, [подключенных к Arc](../../../azure-arc/servers/overview.md). Проверка выполняется с помощью расширения гостевой конфигурации и клиента. Расширение с помощью клиента проверяет такие параметры, как:
 
@@ -20,13 +21,15 @@ ms.locfileid: "100104813"
 
 В настоящее время большинство определений политики гостевой конфигурации в политике Azure заменяют только параметры аудита на компьютере. Конфигурации не применяются. Исключением является только встроенная политика, [описанная ниже](#applying-configurations-using-guest-configuration).
 
+Пошаговое [руководство по этому документу доступно](https://youtu.be/Y6ryD3gTHOs).
+
 ## <a name="enable-guest-configuration"></a>Включить конфигурацию гостя
 
 Чтобы выполнить аудит состояния компьютеров в среде, включая компьютеры в Azure и подключенных к ней Arc компьютерах, ознакомьтесь со следующими сведениями.
 
 ## <a name="resource-provider"></a>Поставщик ресурсов
 
-Перед использованием гостевой конфигурации необходимо зарегистрировать поставщик ресурсов. Поставщик ресурсов регистрируется автоматически, если назначение политики гостевой конфигурации на виртуальной машине выполняется через портал. Вы можете вручную зарегистрироваться через [портал](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) или [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Перед использованием гостевой конфигурации необходимо зарегистрировать поставщик ресурсов. Если назначение политики конфигурации на виртуальной машине выполняется на портале или подписка зарегистрирована в центре безопасности Azure, поставщик ресурсов регистрируется автоматически. Вы можете вручную зарегистрироваться через [портал](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) или [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Требования к развертыванию виртуальных машин Azure
 
@@ -62,13 +65,13 @@ ms.locfileid: "100104813"
 
 |Издатель|Имя|Версии|
 |-|-|-|
-|Canonical|Сервер Ubuntu|14,04-18,04|
-|Credativ|Debian|8 и более поздних версий|
-|Microsoft|Windows Server|2012 и более поздних версии|
+|Canonical|Сервер Ubuntu|14,04-20,04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012-2019|
 |Microsoft|Клиент Windows|Windows 10|
-|OpenLogic|CentOS|Версия 7.3 и позднее|
-|Red Hat|Red Hat Enterprise Linux|7,4-7,8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7,3-8|
+|Red Hat|Red Hat Enterprise Linux|7,4-8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 Пользовательские образы виртуальных машин поддерживаются определениями политик гостевой конфигурации, если они являются одной из операционных систем в приведенной выше таблице.
 
@@ -114,9 +117,26 @@ ms.locfileid: "100104813"
 Определения политик **помощью параметров auditifnotexists** не будут возвращать результаты проверки соответствия, пока на компьютере не будут выполнены все требования. Требования описаны в разделе [требования к развертыванию для виртуальных машин Azure](#deploy-requirements-for-azure-virtual-machines) .
 
 > [!IMPORTANT]
-> В предыдущем выпуске гостевой конфигурации для объединения определений **деплойифнотиксистс** и **помощью параметров auditifnotexists** требуется инициатива. Определения **DeployIfNotExists** больше не требуются. Определения и интиаитивес помечены, `[Deprecated]` но существующие назначения будут продолжать работать. Дополнительные сведения см. в записи блога: [важное изменение, выпущенное для политик аудита настройки гостя](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316) .
+> В предыдущем выпуске гостевой конфигурации для объединения определений **деплойифнотиксистс** и **помощью параметров auditifnotexists** требуется инициатива. Определения **DeployIfNotExists** больше не требуются. Определения и инициативы помечены, `[Deprecated]` но существующие назначения будут продолжать работать. Дополнительные сведения см. в записи блога: [важное изменение, выпущенное для политик аудита настройки гостя](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316) .
 
-Политика Azure использует свойство **комплианцестатус** поставщика ресурсов гостевой конфигурации, чтобы сообщить о соответствии требованиям в узле **соответствие** . Дополнительные сведения см. в руководстве по [получению данных соответствия](../how-to/get-compliance-data.md).
+### <a name="what-is-a-guest-assignment"></a>Что такое назначение гостя?
+
+Если политика Azure назначена, в категории "Гостевая конфигурация" содержатся метаданные, описывающие назначение гостей.
+Назначение гостя можно считать ссылкой между компьютером и сценарием политики Azure.
+Например, приведенный ниже фрагмент кода связывает базовую конфигурацию Windows Azure с минимальной версией `1.0.0` для всех компьютеров в области политики. По умолчанию при назначении гостя выполняется только аудит компьютера.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+Назначения гостевых систем создаются автоматически на каждом компьютере в гостевой службе настройки. В качестве типа ресурса используйте `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Политика Azure использует свойство **комплианцестатус** ресурса назначения гостя для сообщения о состоянии соответствия. Дополнительные сведения см. в руководстве по [получению данных соответствия](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Настройки аудита параметров операционной системы следуют стандартам индустрии.
 
@@ -201,6 +221,12 @@ Linux: `/var/lib/guestconfig/configurations`
 - [Встроенные определения политик — гостевая конфигурация](../samples/built-in-policies.md#guest-configuration)
 - [Встроенные инициативы — гостевая конфигурация](../samples/built-in-initiatives.md#guest-configuration)
 - [Репозиторий Политики Azure на сайте GitHub](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>Видеообзор
+
+Ниже приведен обзор гостевой конфигурации политики Azure от 2021 Итопс.
+
+[Управление базовыми планами в средах гибридного сервера с помощью гостевой конфигурации политики Azure](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

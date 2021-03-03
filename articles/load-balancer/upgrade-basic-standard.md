@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 3bf910d3309285c8b700c39af68fb90715f8863a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 0f8476a8759dd445500c2eb6c029cd618a7ff8ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987724"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718987"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Обновление общедоступных Load Balancer Azure
 [Azure Load Balancer (цен. Категория "Стандартный")](load-balancer-overview.md) предлагает широкий набор функций и высокий уровень доступности через избыточность зоны. Дополнительные сведения о Load Balancer SKU см. в разделе [Таблица сравнения](./skus.md#skus).
@@ -23,7 +23,7 @@ ms.locfileid: "99987724"
 2. Запустите сценарий PowerShell, чтобы завершить обновление и перенос трафика.
 
 > [!IMPORTANT]
-> Сценарий в настоящее время находится в состоянии обслуживания. Инструкции по обновлению общедоступных IP-адресов см. [на странице с](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) номерами SKU "базовый" и "Стандартный".
+> Сценарий в настоящее время находится в состоянии обслуживания. Инструкции по обновлению общедоступных IP-адресов см. [на странице с](../virtual-network/virtual-network-public-ip-address-upgrade.md?tabs=option-upgrade-cli%2coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) номерами SKU "базовый" и "Стандартный".
 
 ## <a name="upgrade-overview"></a>Общие сведения об обновлении
 
@@ -124,6 +124,6 @@ ms.locfileid: "99987724"
 
 Да. Сценарий Azure PowerShell не только обновляет общедоступный IP-адрес, копирует конфигурацию с базового на Load Balancer (цен. категория "Стандартный"), а также переносит виртуальную машину на вновь созданную стандартную общедоступную Load Balancer. 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Дополнительные сведения о Load Balancer (цен. категория "Стандартный")](load-balancer-overview.md)

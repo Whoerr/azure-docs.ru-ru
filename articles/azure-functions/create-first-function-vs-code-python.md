@@ -4,12 +4,16 @@ description: Узнайте, как создать функцию Python, а з�
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: e022843f95e5d5b52a15eaab2d28b6b9eb923006
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-python-uiex
+ms.openlocfilehash: 3dfafd4412110d8d12a656fbae587087745677f2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493572"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723730"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Краткое руководство. Создание функции Python в Azure с помощью Visual Studio Code
 

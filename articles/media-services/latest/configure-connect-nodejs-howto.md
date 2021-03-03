@@ -14,42 +14,70 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 9628e46281e267bd1c1fd8277a3a975bc338c6dc
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ab0113823bb5751828a71a9afd8c474091272e16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096050"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724631"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Подключение к API служб мультимедиа v3 — Node.js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-В этой статье показано, как подключиться к пакету SDK для служб мультимедиа Azure версии 3 node.js с помощью метода входа субъекта-службы.
+В этой статье показано, как подключиться к пакету SDK для служб мультимедиа Azure версии 3 node.js с помощью метода входа субъекта-службы. Вы будете работать с файлами в репозитории примеров *Media-Services-v3-node-* Tutorials. Пример *HelloWorld-листассетс* содержит код для подключения, а затем список ресурсов в учетной записи.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
+- Установленное решение Visual Studio Code
 - Установите [Node.js](https://nodejs.org/en/download/).
 - Установите [typescript](https://www.typescriptlang.org/download).
 - [Создание учетной записи Служб мультимедиа](./create-account-howto.md). Обязательно запомните имя группы ресурсов и имя учетной записи Служб мультимедиа.
+- Создайте субъект-службу для своего приложения. См. раздел [API доступа](./access-api-howto.md).<br/>**Совет по Pro!** Не закрывайте это окно или скопируйте все объекты на вкладке JSON в Блокнот. 
+- Обязательно получите последнюю версию [пакета SDK для AzureMediaServices для JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
 
 > [!IMPORTANT]
-> Ознакомьтесь с [соглашениями об именовании](media-services-apis-overview.md#naming-conventions) служб мультимедиа Azure, чтобы ознакомиться с важными ограничениями именования сущностей. 
+> Ознакомьтесь с [соглашениями об именовании](media-services-apis-overview.md#naming-conventions) служб мультимедиа Azure, чтобы ознакомиться с важными ограничениями именования сущностей.
 
-## <a name="reference-documentation-for-azurearm-mediaservices"></a>Справочная документация по @Azure/arm-mediaservices
-- [Справочная документация по модулям служб мультимедиа Azure для Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
+## <a name="clone-the-nodejs-samples-repo"></a>Клонирование репозитория выборок Node.JS
 
-## <a name="more-developer-documentation-for-nodejs-on-azure"></a>Дополнительная документация для разработчиков Node.js в Azure
-- [Azure для Node.js разработчиков & JavaScript](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
-- [Исходный код служб мультимедиа в @azure/azure-sdk-for-js репозитории центра Git](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Документация по пакету Azure для разработчиков Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+Вы будете работать с некоторыми файлами в примерах Azure. Клонировать репозиторий с примерами Node.JS.
+
+```git
+git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
+```
 
 ## <a name="install-the-packages"></a>Установка пакетов
 
-1. Создайте package.jsв файле с помощью любимого редактора.
-1. Откройте файл и вставьте следующий код:
+### <a name="install-azurearm-mediaservices"></a>установить @azure/arm-mediaservices;
 
-   Обязательно получите последнюю версию [пакета SDK для AzureMediaServices для JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
+```bash
+npm install @azure/arm-mediaservices
+```
+
+### <a name="install-azurems-rest-nodeauth"></a>установить @azure/ms-rest-nodeauth;
+
+Установите минимальную версию " @azure/ms-rest-nodeauth ": "^ 3.0.0".
+
+```bash
+npm install @azure/ms-rest-nodeauth@"^3.0.0"
+```
+
+В этом примере в файле будут использоваться следующие пакеты `package.json` .
+
+|Пакет|Описание|
+|---|---|
+|`@azure/arm-mediaservices`|Пакет SDK служб мультимедиа Azure. <br/>Чтобы убедиться, что используется последний пакет служб мультимедиа Azure, установите флажок [NPM Install @azure/arm-mediaservices ](https://www.npmjs.com/package/@azure/arm-mediaservices).|
+|`@azure/ms-rest-nodeauth` | Требуется для проверки подлинности AAD с помощью субъекта-службы или управляемого удостоверения|
+|`@azure/storage-blob`|Пакет SDK для службы хранилища. Используется при отправке файлов в активы.|
+|`@azure/ms-rest-js`| Используется для входа в систему.|
+|`@azure/storage-blob` | Используется для отправки и скачивания файлов в ресурсы в службах мультимедиа Azure для кодирования.|
+|`@azure/abort-controller`| Используется вместе с клиентом хранилища для длительного времени ожидания выполнения операций скачивания|
+
+### <a name="create-the-packagejson-file"></a>Создание package.jsдля файла
+
+1. Создайте файл в любом удобном для `package.json` вас редакторе.
+1. Откройте файл и вставьте следующий код:
 
 ```json
 {
@@ -66,43 +94,18 @@ ms.locfileid: "101096050"
 }
 ```
 
-Должны быть указаны следующие пакеты:
-
-|Пакет|Описание|
-|---|---|
-|`@azure/arm-mediaservices`|Пакет SDK служб мультимедиа Azure. <br/>Чтобы убедиться, что используется последний пакет служб мультимедиа Azure, установите флажок [NPM Install @azure/arm-mediaservices ](https://www.npmjs.com/package/@azure/arm-mediaservices).|
-|`@azure/ms-rest-nodeauth` | Требуется для проверки подлинности AAD с помощью субъекта-службы или управляемого удостоверения|
-|`@azure/storage-blob`|Пакет SDK для службы хранилища. Используется при отправке файлов в активы.|
-|`@azure/ms-rest-js`| Используется для входа в систему.|
-|`@azure/storage-blob` | Используется для отправки и скачивания файлов в ресурсы в службах мультимедиа Azure для кодирования.|
-|`@azure/abort-controller`| Используется вместе с клиентом хранилища для длительного времени ожидания выполнения операций скачивания|
-
-
-Вы можете выполнить следующую команду, чтобы убедиться, что используется последний пакет:
-
-### <a name="install-azurearm-mediaservices"></a>установить @azure/arm-mediaservices;
-```
-npm install @azure/arm-mediaservices
-```
-
-### <a name="install-azurems-rest-nodeauth"></a>установить @azure/ms-rest-nodeauth;
-
-Установите минимальную версию " @azure/ms-rest-nodeauth ": "^ 3.0.0".
-
-```
-npm install @azure/ms-rest-nodeauth@"^3.0.0"
-```
-
 ## <a name="connect-to-nodejs-client-using-typescript"></a>Подключение к Node.js клиенту с помощью TypeScript
 
-1. Создайте файл TypeScript. TS с помощью любимого редактора.
-1. Откройте файл и вставьте в него следующий код.
-1. Создайте файл. env и заполните сведения из портал Azure. См. раздел [API доступа](./access-api-howto.md).
 
-### <a name="sample-env-file"></a>Пример файла Sample. env
-```
-# copy the content of this file to a file named ".env". It should be stored at the root of the repo.
-# The values can be obtained from the API Access page for your Media Services account in the portal.
+
+### <a name="sample-env-file"></a>Пример файла Sample *. env*
+
+Скопируйте содержимое этого файла в файл с именем *. env*. Он должен храниться в корне вашего рабочего репозитория. Это значения, полученные на странице доступа к API для учетной записи служб мультимедиа на портале.
+
+После создания файла *. env* можно приступить к работе с примерами.
+
+```nodejs
+# Values from the API Access page in the portal
 AZURE_CLIENT_ID=""
 AZURE_CLIENT_SECRET= ""
 AZURE_TENANT_ID= ""
@@ -126,8 +129,42 @@ AZURE_ARM_ENDPOINT="https://management.azure.com"
 DRM_SYMMETRIC_KEY="add random base 64 encoded string here"
 ```
 
-## <a name="typescript---hello-world---list-assets"></a>Typescript-Hello World — список ресурсов
-В этом примере показано, как подключиться к клиенту служб мультимедиа с помощью субъекта-службы и вывести список ресурсов в учетной записи. Если вы используете новую учетную запись, список будет пустым. Чтобы просмотреть результаты, можно отправить на портал несколько ресурсов.
+## <a name="run-the-sample-application-helloworld-listassets"></a>Запуск примера приложения *HelloWorld-листассетс*
+
+1. Измените каталог на папку *AMSv3Samples*
+
+```bash
+cd AMSv3Samples
+```
+
+2. Установите пакеты, используемые в *packages.js* файле.
+
+```
+npm install 
+```
+
+3. Перейдите в папку *HelloWorld-листассетс* .
+
+```bash
+cd HelloWorld-ListAssets
+```
+
+4. Запустите Visual Studio Code из папки AMSv3Samples Это необходимо для запуска из папки, в которой находятся папка ". vscode" и tsconfig.jsдля файлов
+
+```dotnetcli
+cd ..
+code .
+```
+
+Откройте папку для *HelloWorld-листассетс* и откройте файл *index. ts* в редакторе Visual Studio Code.
+
+В файле *index. TS* нажмите клавишу F5, чтобы запустить отладчик. Если у вас есть активы, которые уже находятся в учетной записи, должен отобразиться список ресурсов. Если учетная запись пуста, вы увидите пустой список.  
+
+Чтобы быстро просмотреть список ресурсов, используйте портал для отправки нескольких видеофайлов. Ресурсы будут автоматически созданы и повторно запустить этот сценарий, после чего будут возвращены их имена.
+
+### <a name="a-closer-look-at-the-helloworld-listassets-sample"></a>Подробное рассмотрение примера *HelloWorld-листассетс*
+
+В примере *HelloWorld-листассетс* показано, как подключиться к клиенту служб мультимедиа с помощью субъекта-службы и вывести список ресурсов в учетной записи. Подробные сведения о том, что он делает, см. в комментариях в коде.
 
 ```ts
 import * as msRestNodeAuth from "@azure/ms-rest-nodeauth";
@@ -174,38 +211,6 @@ main().catch((err) => {
 });
 ```
 
-## <a name="run-the-sample-application-helloworld-listassets"></a>Запуск примера приложения HelloWorld-ListAssets
-
-Клонирование репозитория для Node.js примеров
-
-```git
-git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
-```
-
-Измените каталог на папку AMSv3Samples
-```bash
-cd AMSv3Samples
-```
-
-Установите пакеты, используемые в packages.js, на
-```
-npm install 
-```
-
-Перейдите в папку HelloWorld-ListAssets
-```bash
-cd HelloWorld-ListAssets
-```
-
-Запустите Visual Studio Code из папки AMSv3Samples Это необходимо для запуска из папки, в которой находятся папка ". vscode" и tsconfig.jsдля файлов
-```dotnetcli
-cd ..
-code .
-```
-
-Откройте папку для HelloWorld-Листассетс и откройте файл index. TS в редакторе Visual Studio Code.
-В файле index. TS нажмите клавишу F5, чтобы запустить отладчик. Если у вас есть активы, которые уже находятся в учетной записи, должен отобразиться список ресурсов. Если учетная запись пуста, вы увидите пустой список.  Загрузите несколько ресурсов на портале, чтобы просмотреть результаты.
-
 ## <a name="more-samples"></a>Другие примеры
 
 В [репозитории](https://github.com/Azure-Samples/media-services-v3-node-tutorials) доступны следующие примеры.
@@ -219,11 +224,15 @@ code .
 
 ## <a name="see-also"></a>См. также раздел
 
+- [Справочная документация по модулям служб мультимедиа Azure для Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
+- [Azure для Node.js разработчиков & JavaScript](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Исходный код служб мультимедиа в @azure/azure-sdk-for-js репозитории центра Git](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [Документация по пакету Azure для разработчиков Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
 - [Основные понятия служб мультимедиа Azure](concepts-overview.md)
 - [Установка NPM @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
 - [Azure для Node.js разработчиков & JavaScript](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
 - [Исходный код служб мультимедиа в @azure/azure-sdk-for-js репозитории](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Изучите справочную документацию [Node.js](/javascript/api/overview/azure/mediaservices/management) Служб мультимедиа и ознакомьтесь с [примерами](https://github.com/Azure-Samples/media-services-v3-node-tutorials), показывающими как использовать API Служб мультимедиа с Node.js.

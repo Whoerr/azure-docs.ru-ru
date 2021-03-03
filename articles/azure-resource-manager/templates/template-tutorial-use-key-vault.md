@@ -2,16 +2,16 @@
 title: Использование Azure Key Vault в шаблонах
 description: Сведения о том, как использовать Azure Key Vault для передачи значений безопасного параметра во время развертывания шаблона Resource Manager.
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 44a5131a7ad90feeeeff56e95b64e65f3f18855c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674163"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703891"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Руководство по Интеграция с Azure Key Vault при развертывании шаблона ARM
 
@@ -93,7 +93,14 @@ Write-Host "Press [ENTER] to continue ..."
 Чтобы проверить развертывание, выполните следующую команду PowerShell в той же панели оболочки, чтобы получить секрет в виде простого текста. Сценарий работает только в том же сеансе оболочки, так как используется переменная `$keyVaultName`, которая определена в приведенном выше сценарии PowerShell.
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+$secret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword"
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 Хранилище ключей и секрет подготовлены. В следующих разделах описано, как настроить существующий шаблон, чтобы получить секрет во время развертывания.
@@ -141,7 +148,7 @@ Write-Host "Press [ENTER] to continue ..."
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }

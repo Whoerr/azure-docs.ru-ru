@@ -6,12 +6,12 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: d41646ef1ef964db38245009717554eaeb783824
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699697"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Экономия затрат ресурсов с зарезервированной емкостью — потоки данных фабрики данных Azure
 
@@ -21,12 +21,12 @@ ms.locfileid: "100526312"
 
 Вам не нужно назначать резервирование определенной фабрике или среде выполнения интеграции. Существующие фабрики или вновь развернутые фабрики автоматически получают преимущество. Приобретя резервирование, вы фиксируете затраты на вычисление потока данных в течение одного или трех лет. После приобретения резервирования стоимость вычислений, которая соответствует атрибутам резервирования, больше не взимается по тарифам с оплатой по мере использования. 
 
-Вы можете приобрести [зарезервированную емкость](https://portal.azure.com) , выбрав предварительные резервирования в [начале или с ежемесячными платежами](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md). Требования для приобретения резервной мощности.
+Вы можете приобрести [зарезервированную емкость](https://portal.azure.com) , выбрав предварительные резервирования в [начале или с ежемесячными платежами](../cost-management-billing/reservations/prepare-buy-reservation.md). Требования для приобретения резервной мощности.
 
 - Необходимо быть в роли владельца по крайней мере для одной корпоративной или отдельной подписки с тарифами с оплатой по мере использования.
 - Для подписок с соглашением Enterprise параметр **Добавить зарезервированные экземпляры** следует включить на [портале EA](https://ea.azure.com). Или, если этот параметр отключен, необходимо быть администратором подписки EA. Зарезервированная емкость.
 
-Дополнительные сведения о том, как корпоративные клиенты и клиенты с оплатой по мере использования оплачиваются по покупкам, см. в статье [Использование резервирования Azure для регистрации на предприятии](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) и [сведения об использовании резервирования Azure для подписки с оплатой по мере использования](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage).
+Дополнительные сведения о том, как корпоративные клиенты и клиенты с оплатой по мере использования оплачиваются по покупкам, см. в статье [Использование резервирования Azure для регистрации на предприятии](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) и [сведения об использовании резервирования Azure для подписки с оплатой по мере использования](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 > [!NOTE]
 > Зарезервированная емкость приобретения не позволяет предварительно распределить или зарезервировать определенные ресурсы инфраструктуры (виртуальные машины или кластеры).
@@ -49,7 +49,7 @@ ms.locfileid: "100526312"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Отмена, обмен резервирования, возмещение средств за резервирование
 
-Вы можете отменить и обменять резервирования, а также вернуть вложенные в резервирование средства, но при этом применяются определенные ограничения. Дополнительные сведения см. в статье [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) (Самостоятельное выполнение обмена и возмещения средств для резервирований Azure).
+Вы можете отменить и обменять резервирования, а также вернуть вложенные в резервирование средства, но при этом применяются определенные ограничения. Дополнительные сведения см. в статье [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Самостоятельное выполнение обмена и возмещения средств для резервирований Azure).
 
 ## <a name="need-help-contact-us"></a>Требуется помощь? Свяжитесь с нами
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881424"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713411"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Часто задаваемые вопросы о Azure NetApp Files
 
@@ -110,7 +110,7 @@ Azure NetApp Files предоставляет метрики производи�
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Каковы последствия производительности Kerberos на Нфсв 4.1?
 
-Сведения о параметрах безопасности для Нфсв 4.1, тестировании векторов производительности и ожидаемом влиянии на производительность см. в статье [влияние Kerberos на нфсв 4.1](configure-kerberos-encryption.md#kerberos_performance) . 
+Сведения о параметрах безопасности для Нфсв 4.1, тестировании векторов производительности и ожидаемом влиянии на производительность см. в статье [влияние Kerberos на тома нфсв 4.1](performance-impact-kerberos.md) . 
 
 ## <a name="nfs-faqs"></a>Вопросы и ответы по NFS
 
@@ -145,7 +145,7 @@ Azure NetApp Files поддерживает NFSv3 и Нфсв 4.1. Вы може
 1. Чтобы включить Касесенситивелукуп, используйте следующую команду PowerShell:   
     `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
 2. Подключите том к серверу Windows Server.   
-    Пример.   
+    Пример   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>Часто задаваемые вопросы о SMB

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703099"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Включение управляемого удостоверения для маршрутизации событий цифровых двойников Azure (Предварительная версия): портал Azure
 
@@ -82,15 +82,14 @@ ms.locfileid: "100545923"
 | Назначение | Роль Azure |
 | --- | --- |
 | Центры событий Azure | Отправитель данных Центров событий Azure |
-| Azure Service Bus | Отправитель данных Служебной шины Azure |
+| Служебная шина Azure | Отправитель данных Служебной шины Azure |
 | Контейнер хранилища Azure | Участник данных BLOB-объектов хранилища |
 
 Дополнительные сведения о конечных точках, маршрутах и типах назначений, поддерживаемых для маршрутизации в Azure Digital двойников, см. в разделе [*Основные понятия: маршруты событий*](concepts-route-events.md).
 
 ### <a name="assign-the-role"></a>Назначение роли
 
->[!NOTE]
-> Этот раздел должен быть выполнен пользователем Azure с разрешениями на управление доступом пользователей к ресурсам Azure (включая предоставление и делегирование разрешений). Общие роли, отвечающие этому требованию, являются *владельцами*, администратором *учетной записи* или сочетанием администратора и *участника* *доступа пользователей* . Дополнительные сведения о требованиях к разрешениям для ролей Azure Digital двойников см. [*в разделе как настроить экземпляр и проверку подлинности*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Чтобы назначить роль удостоверению, начните с открытия [портал Azure](https://portal.azure.com).
 
@@ -116,7 +115,7 @@ ms.locfileid: "100545923"
 
 Завершив ввод сведений, нажмите кнопку **сохранить**.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Создание конечной точки с авторизацией на основе удостоверений
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Создание конечной точки с проверкой подлинности на основе удостоверений
 
 После настройки управляемого системой удостоверения для своего экземпляра Azure Digital двойников и назначения ему соответствующих ролей можно создать [конечные точки](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) цифровых двойников Azure, которые могут использовать удостоверение для проверки подлинности. Этот параметр доступен только для конечных точек концентратора событий и служебной шины (он не поддерживается для службы "Сетка событий").
 
@@ -143,7 +142,7 @@ ms.locfileid: "100545923"
 
 Чтобы продолжить использовать конечную точку, настроенную с управляемым удостоверением, который теперь отключен, необходимо удалить конечную точку и [создать ее повторно](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) с другим типом проверки подлинности. Возобновление доставки в конечную точку после этого изменения может занять до часа.
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об управляемых удостоверениях в Azure AD: 
 * [*Управляемые удостоверения для ресурсов Azure*](../active-directory/managed-identities-azure-resources/overview.md)

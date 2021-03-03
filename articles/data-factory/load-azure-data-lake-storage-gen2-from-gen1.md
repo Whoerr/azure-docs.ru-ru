@@ -6,17 +6,17 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2019
-ms.openlocfilehash: 1b90ff8969edf3ce2886630dc88c50bc9185b85e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 4a4bc0b55928fcaa40cd1cb03ca0522e611df476
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370858"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727725"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Копирование данных из Azure Data Lake Storage 1-го поколения в Azure Data Lake Storage 2-го поколения с помощью Фабрики данных Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage 2-го поколения — это набор возможностей, предназначенных для аналитики больших данных, встроенных в [хранилище BLOB-объектов Azure](../storage/blobs/storage-blobs-introduction.md). С его помощью можно работать с данными с использованием парадигмы файловой системы или хранилища объектов.
 
@@ -50,7 +50,7 @@ Azure Data Lake Storage 2-го поколения — это набор возм
     * **Версия.** Выберите **V2**.
     * **Расположение.** Укажите расположение фабрики данных. В раскрывающемся списке отображаются только поддерживаемые расположения. Хранилища данных, используемые в фабрике данных, могут находиться в других расположениях и регионах. 
 
-3. Щелкните **Создать**.
+3. Нажмите кнопку **создания**.
 4. После завершения создания перейдите к фабрике данных. Вы увидите домашнюю страницу **фабрики данных**, как показано на следующем изображении: 
    
    ![Домашняя страница фабрики данных](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
@@ -172,7 +172,7 @@ Azure Data Lake Storage 2-го поколения — это набор возм
 
 Правильная частота выполнения добавочной загрузки зависит от общего числа файлов в Azure Data Lake Storage 1-го поколения и объема новых или обновленных файлов, которые будут загружаться каждый раз. 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
 > [Обзор](copy-activity-overview.md) 

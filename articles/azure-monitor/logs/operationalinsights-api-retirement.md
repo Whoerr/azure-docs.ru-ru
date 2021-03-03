@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: 6564e7263639f0a78df6f2674ce7a4b610fb0fc1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 03e534564b4a32f112c2aaff44a187b10eb2a537
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723118"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Прекращение использования версии API OperationalInsights
 Корпорация Майкрософт предоставляет уведомление не менее чем за 12 месяцев до прекращения использования API для сглаживания перехода до более новой или поддерживаемой версии. Мы выпустили новую версию (2020-08-01) для API поставщика ресурсов **OperationalInsights** и выпустим более ранние версии API-29 февраля 2024.
 
-Мы рекомендуем начать использовать версию 2020-08-01, чтобы получить преимущества новых функций, таких как [выделенный кластер](../log-query/logs-dedicated-clusters.md), [управляемые клиентом ключи](../logs/customer-managed-keys.md), [Частная связь](./private-link-security.md) и [Экспорт данных](./logs-data-export.md). Кроме того, новые функции и функции и оптимизации добавляются только к текущему API.
+Мы рекомендуем начать использовать версию 2020-08-01, чтобы получить преимущества новых функций, таких как [выделенный кластер](./logs-dedicated-clusters.md), [управляемые клиентом ключи](../logs/customer-managed-keys.md), [Частная связь](./private-link-security.md) и [Экспорт данных](./logs-data-export.md). Кроме того, новые функции и функции и оптимизации добавляются только к текущему API.
 
 После 29 февраля 2024 Azure Monitor больше не будет поддерживать более ранние версии API, чем 2020-08-01. Если вы предпочитаете не выполнять обновление, запросы, отправленные из более ранних версий, продолжат обслуживаться службой Azure Monitor до 29 февраля 2024.
 
@@ -76,6 +76,6 @@ ms.locfileid: "100623745"
 5.  В разделе *тип проблемы* выберите **log Analytics Управление рабочей областью**.  
 6.  В разделе *проблемный подтип* выберите **шаблоны ARM, PowerShell и CLI**. 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - См. [Справочник по API рабочей области OperationalInsights](/rest/api/loganalytics/workspaces).

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 12/21/2020
+ms.date: 02/25/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 7124fdd6e7d137e21234ff40426e13dc65b4f9e0
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f849968c16d2c3d8940a71da0e0cda536882d9c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223114"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692068"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Что такое машинное обучение? (предварительная версия)
 
@@ -42,7 +42,7 @@ ms.locfileid: "98223114"
 
 Сложные для объяснения или непрозрачные системы могут быть проблематичными, поскольку это затрудняет для таких заинтересованных лиц, как разработчиков систем, стабилизаторов, пользователей и руководителей, ответственных за принятие бизнес-решений. Некоторые системы искусственного интеллекта более понятны, чем другие, а иногда приходится выбирать между системой с более высокой точностью или большей понятностью.
 
-Чтобы создавать хорошо объяснимые системы искусственного интеллекта, применяйте пакет с открытым кодом [InterpretML](https://github.com/interpretml/interpret), созданный корпорацией Майкрософт. [InterpretML можно использовать на платформе "Машинное обучение Azure"](how-to-machine-learning-interpretability.md) для [интерпретации и объяснения моделей машинного обучения](how-to-machine-learning-interpretability-aml.md), в том числе [моделей автоматизированного машинного обучения](how-to-machine-learning-interpretability-automl.md).
+Чтобы создавать хорошо объяснимые системы искусственного интеллекта, применяйте пакет с открытым кодом [InterpretML](https://github.com/interpretml/interpret), созданный корпорацией Майкрософт. Пакет Интерпретмл поддерживает разнообразные методики интерпретации, такие как Шаплэй Аддитивные объяснения (ШАП), более наглядное объяснение и важность функции перестановки (ПФИ).  [InterpretML можно использовать на платформе "Машинное обучение Azure"](how-to-machine-learning-interpretability.md) для [интерпретации и объяснения моделей машинного обучения](how-to-machine-learning-interpretability-aml.md), в том числе [моделей автоматизированного машинного обучения](how-to-machine-learning-interpretability-automl.md).
 
 ## <a name="mitigate-fairness-in-machine-learning-models"></a>Снижение равноправия в моделях машинного обучения
 

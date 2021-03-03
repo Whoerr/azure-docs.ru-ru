@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461767"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730377"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager тестовый накопитель
 
@@ -75,7 +75,7 @@ ms.locfileid: "96461767"
 
 | Тип метаданных   | Тип параметра  | Описание     | Образец значения    |
 |---|---|---|---|
-| **baseUri**     | строка          | Базовый универсальный код ресурса (URI) пакета развертывания| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseUri**     | строка          | Базовый универсальный код ресурса (URI) пакета развертывания| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | строка          | Новое случайное имя пользователя.| admin68876      |
 | **password**    | защищенная строка    | Новый случайный пароль | Lp!ACS\^2kh     |
 | **Идентификатор сеанса**   | строка          | Уникальный идентификатор сеанса тестового диска (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -248,7 +248,7 @@ ms.locfileid: "96461767"
 
 Для выходных данных шаблона отсутствуют ограничения. Тестовый диск преобразует все выходные значения в строки, поэтому при отправке объекта в выходные данные пользователь увидит строку JSON.
 
-Пример.
+Пример
 
 ```JSON
 "outputs": {

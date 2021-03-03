@@ -5,18 +5,18 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: b09c7f1ff429a3daf675b0f44cc8b64f27e79a07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435f7b9b585b4effe6b06d78587845bf53a7d051
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621978"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714210"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Как обновить правила генерации оповещений или правила действий при перемещении их целевого ресурса в другой регион Azure
 
-В этой статье описывается, почему при перемещении других ресурсов Azure между регионами могут быть затронуты существующие [Правила оповещений](../platform/alerts-overview.md) и [правила действий](./alerts-action-rules.md) , а также способы определения и устранения этих проблем. Дополнительные сведения о перемещении ресурсов между регионами и контрольном списке разработки процесса перемещения см. в [документации по перемещению основного ресурса](../../azure-resource-manager/management/move-region.md) .
+В этой статье описывается, почему при перемещении других ресурсов Azure между регионами могут быть затронуты существующие [Правила оповещений](./alerts-overview.md) и [правила действий](./alerts-action-rules.md) , а также способы определения и устранения этих проблем. Дополнительные сведения о перемещении ресурсов между регионами и контрольном списке разработки процесса перемещения см. в [документации по перемещению основного ресурса](../../azure-resource-manager/management/move-region.md) .
 
 ## <a name="why-the-problem-exists"></a>Почему существует проблема
 
@@ -48,7 +48,6 @@ ms.locfileid: "100621978"
 
 - Правила генерации оповещений журнала действий
 - Правила действий
-- Классические оповещения
 - Оповещения метрики. Дополнительные сведения см. в следующих разделах: [Правила оповещений, основанные на метриках](#alert-rules-based-on-metrics).
 
 > [!NOTE]
@@ -110,6 +109,6 @@ ms.locfileid: "100621978"
 2.  Непосредственное обновление области действия правила ([оповещения метрик](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [оповещения журнала действий](/cli/azure/monitor/activity-log/alert/scope))
 3.  При необходимости разделите их на два правила (относящиеся к некоторым случаям оповещений метрик, как указано выше).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-Узнайте, как устранять другие проблемы с [уведомлениями об оповещениях](alerts-troubleshoot.md), [оповещениями метрик](alerts-troubleshoot-metric.md)и [оповещениями журналов](alerts-troubleshoot-log.md). 
+Узнайте, как устранять другие проблемы с [уведомлениями об оповещениях](alerts-troubleshoot.md), [оповещениями метрик](alerts-troubleshoot-metric.md)и [оповещениями журналов](alerts-troubleshoot-log.md).

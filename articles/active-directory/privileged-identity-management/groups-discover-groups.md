@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367845"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688354"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Перенесите привилегированные группы доступа (Предварительная версия) в управление привилегированными пользователями
 
@@ -44,8 +44,14 @@ ms.locfileid: "92367845"
 
 > [!NOTE]
 > После того как группа привилегированного доступа будет управляема, ее нельзя будет использовать для управления. Это предотвращает удаление параметров управление привилегированными пользователями другим администратором ресурсов.
+>
 
-## <a name="next-steps"></a>Дальнейшие шаги
+> [!IMPORTANT]
+> Если группа привилегированного доступа удаляется из Azure Active Directory, то для удаления группы из колонки привилегированные группы доступа (Предварительная версия) может потребоваться до 24 часов. 
+>
+
+
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Настройка назначений групп привилегированных прав доступа в управление привилегированными пользователями](pim-resource-roles-configure-role-settings.md)
 - [Назначение привилегированных групп доступа в управление привилегированными пользователями](pim-resource-roles-assign-roles.md)

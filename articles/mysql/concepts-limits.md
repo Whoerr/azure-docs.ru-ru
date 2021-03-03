@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386720"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721026"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Ограничения в службе "База данных Azure для MySQL"
 В следующих разделах приводятся ограничения, касающиеся емкости, поддерживаемых подсистем хранилища, поддерживаемых разрешений, поддерживаемых инструкций языка обработки данных и функциональных возможностей в службе базы данных. Кроме того, ознакомьтесь с [общими ограничениями](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html), применимыми к ядру СУБД базы данных MySQL.
@@ -29,7 +29,7 @@ ms.locfileid: "97386720"
 
 ## <a name="storage-engines"></a>Модули хранилища
 
-MySQL поддерживает множество ядер хранилища. В базе данных Azure для гибкого сервера MySQL поддерживаются и не поддерживаются следующие модули хранилища:
+MySQL поддерживает множество ядер хранилища. В базе данных Azure для MySQL поддерживаются и не поддерживаются следующие модули хранилища:
 
 ### <a name="supported"></a>Поддерживается
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html);

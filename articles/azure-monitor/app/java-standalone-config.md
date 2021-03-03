@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3806578f5d1af61329e2e32fa3e8eceb9afa4d42
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631327"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713972"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Параметры конфигурации — Application Insights Azure Monitor для Java
 
@@ -48,7 +48,7 @@ ms.locfileid: "98631327"
 
 Если указан относительный путь, он будет разрешаться относительно каталога, в котором находится `applicationinsights-agent-3.0.2.jar` .
 
-## <a name="connection-string"></a>Строка подключения
+## <a name="connection-string"></a>строку подключения.
 
 Требуется строка подключения. Строку подключения можно найти в ресурсе Application Insights:
 
@@ -217,6 +217,9 @@ Log4j, Logback и Java. util. Logging устанавливаются в авто
 | FINER             | DEBUG  | DEBUG   | FINER   |
 | TRACE (или FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
+
+> [!NOTE]
+> Если в средство ведения журнала передается исключение, то сообщение журнала (и исключение) будет отображаться в портал Azure в `exceptions` таблице, а не в `traces` таблице.
 
 ## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Автособираемые метрики Микрометер (включая метрики загрузчика пружины)
 

@@ -3,16 +3,16 @@ title: Регистрация поставщика ресурсов для Ре�
 description: Инструкции по регистрации поставщика ресурсов для Решения Azure VMware.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 80010a232f80865b20c2e3d953dc1d9d22ece1c6
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: cd4a6f3003945973f0fe5367eb198823595a412e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653184"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750270"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
-Чтобы использовать Решение Azure VMware, необходимо сначала зарегистрировать поставщик ресурсов в подписке. Дополнительные сведения о поставщиках ресурсов см. в статье [Поставщики и типы ресурсов Azure](/azure/azure-resource-manager/management/resource-providers-and-types).
+Чтобы использовать Решение Azure VMware, необходимо сначала зарегистрировать поставщик ресурсов в подписке. Дополнительные сведения о поставщиках ресурсов см. в статье [Поставщики и типы ресурсов Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### <a name="azure-cli"></a>Azure CLI 
 

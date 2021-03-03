@@ -4,19 +4,18 @@ description: Узнайте, как создать первую функцию A
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 63e9c87d1d94d6b803c27862bc9f2755e02f3111
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980956"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732197"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Создание первой функции на портале Azure
 
 Функции Azure позволяют выполнять код в бессерверной среде без необходимости сначала создавать виртуальную машину или публиковать веб-приложение. Из этой статьи вы узнаете, как использовать функции Azure для создания функции триггера HTTP "Hello World" в портал Azure.
 
->[!NOTE]
->Редактирование на портале поддерживается только для функций скриптов JavaScript, PowerShell, TypeScript и C#.<br><br>Для библиотек классов C#, Java и функций Python можно создать приложение функции на портале, но необходимо также создать функции локально, а затем опубликовать их в Azure. 
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 Вместо этого рекомендуется [разрабатывать функции локально](functions-develop-local.md) и публиковать их в приложении-функции в Azure.  
 Используйте одну из следующих ссылок, чтобы приступить к работе с выбранной локальной средой разработки и языком:

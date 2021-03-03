@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358152"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690929"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Экземпляры отказоустойчивого кластера с SQL Server на Виртуальных машинах Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,7 +47,7 @@ SQL Server на Виртуальных машинах Azure использует
 
 SQL Server на Виртуальных машинах Azure предлагает различные варианты в качестве решения общего хранилища для развертывания экземпляров отказоустойчивого кластера SQL Server: 
 
-||[Общие диски Azure](../../../virtual-machines/disks-shared.md)|[Общие папки ценовой категории "Премиум"](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Локальные дисковые пространства (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Общие диски Azure](../../../virtual-machines/disks-shared.md)|[Общие папки ценовой категории "Премиум"](../../../storage/files/storage-how-to-create-file-share.md) |[Локальные дисковые пространства (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Минимальная версия ОС**| All |Windows Server 2012|Windows Server 2016|
 |**Минимальная версия SQL Server**|All|SQL Server 2012|SQL Server 2016|
@@ -107,7 +107,7 @@ SQL Server на Виртуальных машинах Azure предлагает
 
 ### <a name="premium-file-share"></a>Общая папка ценовой категории "Премиум"
 
-[Общие папки ценовой категории "Премиум"](../../../storage/files/storage-how-to-create-premium-fileshare.md) — это компоненты службы [Файлы Azure](../../../storage/files/index.yml). Общие папки ценовой категории "Премиум" работают на базе SSD и обеспечивают малую задержку. Они полностью поддерживаются для использования с экземплярами отказоустойчивого кластера для SQL Server 2012 или более поздней версии в Windows Server 2012 или более поздней версии. Общие папки ценовой категории "Премиум" отличаются повышенной гибкостью, так как вы можете менять их размеры и масштабировать их без простоя.
+[Общие папки ценовой категории "Премиум"](../../../storage/files/storage-how-to-create-file-share.md) — это компоненты службы [Файлы Azure](../../../storage/files/index.yml). Общие папки ценовой категории "Премиум" работают на базе SSD и обеспечивают малую задержку. Они полностью поддерживаются для использования с экземплярами отказоустойчивого кластера для SQL Server 2012 или более поздней версии в Windows Server 2012 или более поздней версии. Общие папки ценовой категории "Премиум" отличаются повышенной гибкостью, так как вы можете менять их размеры и масштабировать их без простоя.
 
 **Поддерживаемая ОС:** Windows Server 2012 и более поздних версий   
 **Поддерживаемая версия SQL:** SQL Server 2012 и более поздней версии   

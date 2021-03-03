@@ -1,11 +1,13 @@
 - name: Документация по Azure Defender для Интернета вещей
   href: index.yml
 - name: Обзор
+  displayName: 'IoT, OT, getting started'
   href: overview.md
   items:
     - name: Новые возможности
       href: release-notes.md
     - name: Безагентная архитектура решения
+      displayName: 'deployment, where to deploy'
       href: architecture.md
     - name: Архитектура решения на основе агента
       href: architecture-agent-based.md
@@ -15,8 +17,10 @@
     - name: Безагентное решение для организаций
       items:
         - name: Предварительные требования к системе
+          displayName: 'firewall, proxy, open ports'
           href: quickstart-system-prerequisites.md
         - name: Начало работы с Azure Defender для Интернета вещей
+          displayName: 'getting started, registration, onboarding'
           href: getting-started.md
     - name: Решение на основе агента для разработчиков устройств
       items:
@@ -110,7 +114,7 @@
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
               href: how-to-identify-required-appliances.md
             - name: Установка ПО
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy'
               href: how-to-install-software.md
             - name: Настройка сети
               displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
@@ -118,15 +122,15 @@
         - name: Подготовка датчиков
           items:
             - name: Подключение датчиков
-              displayName: 'onboard, cloud, register, activate'
+              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Активация и настройка датчика
-              displayName: 'onboard, register, activation, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              displayName: 'onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
         - name: Подготовка локальной консоли управления
           items:
             - name: Активация и настройка локальной консоли управления
-              displayName: 'activate, certificate, sign in, login, setup, initial, committed'
+              displayName: 'activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: Настройка высокого уровня доступности
               displayName: 'primary, secondary, failover, failback fail, recovery'
@@ -147,11 +151,11 @@
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Управление отдельными датчиками
           href: how-to-manage-individual-sensors.md
-          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
+          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, timezone time zone, backup, sync, restore, software update, failure'
         - name: Управление датчиками в облаке
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Управление локальной консолью управления
-          displayName: 'activation, certificate, software update, backup, restore, proxy, password recovery'
+          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure'
           href: how-to-manage-the-on-premises-management-console.md
         - name: Работа с пакетами аналитики угроз
           href: how-to-work-with-threat-intelligence-packages.md
@@ -162,10 +166,10 @@
               displayName: classification
             - name: Изучение обнаруженных датчиков в данных инвентаризации устройств
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-              displayName: 'classification, Windows registry'
+              displayName: 'classification, Windows registry, asset, device, firmware, import'
         - name: Работа с картой устройств датчиков
           href: how-to-work-with-the-sensor-device-map.md
-          displayName: 'connections, Purdue, zoom'
+          displayName: 'connections, Purdue, zoom, delete device'
         - name: 'Работа с оповещениями, обнаруженными датчиком'
           items:
             - name: Работа с оповещениями на датчике
@@ -183,7 +187,7 @@
               displayName: 'custom, alerts, comments, groups'
             - name: Переадресация сведений об оповещении
               href: how-to-forward-alert-information-to-partners.md
-              displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
+              displayName: 'integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response'
         - name: 'Анализ глобальных, региональных и локальных угроз'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
           displayName: 'site, business unit, region, map'
@@ -193,10 +197,12 @@
           items:
             - name: Создание отчетов по оценке рисков
               href: how-to-create-risk-assessment-reports.md
-              displayName: 'vulnerability, security score, score'
+              displayName: 'vulnerability, security score, score, CVE'
             - name: Создание отчетов о векторах атак
               href: how-to-create-attack-vector-reports.md
+              displayName: 'Attack surface, prediction,simulation'
             - name: Создание отчетов интеллектуального анализа данных
+              displayName: 'CVE, activity'
               href: how-to-create-data-mining-queries.md
             - name: Создание отчетов о тенденциях и статистических отчетов
               href: how-to-create-trends-and-statistics-reports.md
@@ -204,7 +210,7 @@
         - name: Обогащение сведений об устройстве
           items:
             - name: Работа с уведомлениями об устройствах
-              displayName: 'notifications, operating systems, enrich, device information, classification'
+              displayName: 'notifications, operating systems, enrich, device information, classification, delete devices'
               href: how-to-work-with-device-notifications.md
             - name: "Улучшение разрешения имен портов и виртуальных\_ЛС"
               displayName: 'port, VLAN'

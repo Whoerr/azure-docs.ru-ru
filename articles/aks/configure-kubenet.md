@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 564ebfd0a0a8aa8500b38edbc37c9a42b02b06ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034060"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735171"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Использование сети kubenet с пользовательскими диапазонами IP-адресов в Службе Azure Kubernetes (AKS)
 
@@ -245,10 +245,9 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-При развертывании кластера AKS в подсети существующей виртуальной сети его можно использовать в обычном режиме. Приступите к [созданию приложений с помощью Azure dev Spaces][dev-spaces], [развертыванию существующих приложений с помощью Helm][use-helm]или [созданию новых приложений с помощью Helm][develop-helm].
+При развертывании кластера AKS в подсети существующей виртуальной сети его можно использовать в обычном режиме. Приступая к работе с [созданием новых приложений с помощью Helm][develop-helm] или [развертыванием существующих приложений с помощью Helm][use-helm].
 
 <!-- LINKS - External -->
-[dev-spaces]: ../dev-spaces/index.yml
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy

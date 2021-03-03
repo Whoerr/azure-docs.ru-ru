@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1780aebc113fa68a9a89cfce9fd67c9b5911fc58
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700003"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>Руководство по пакетному извлечению данных форм с помощью службы "Фабрика данных Azure"
 
@@ -65,7 +65,7 @@ ms.locfileid: "98606707"
 
 Список невыполненной работы с формами может находиться в локальной среде или на сервере (s)FTP. При работе с этим руководством используются формы в учетной записи хранения Azure Data Lake 2-го поколения. Вы можете передавать файлы с помощью Фабрики данных Azure, Обозревателя службы хранилища Azure или AzCopy. Наборы данных для обучения и оценки могут находиться в разных контейнерах, но наборы данных для обучения для форм всех типов должны размещаться в одном контейнере (хотя они могут быть в разных папках).
 
-Для создания озера данных выполните инструкции, приведенные в статье [Создание учетной записи хранения для использования с Azure Data Lake Storage 2-го поколения](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+Для создания озера данных выполните инструкции, приведенные в статье [Создание учетной записи хранения для использования с Azure Data Lake Storage 2-го поколения](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## <a name="create-a-parameterization-table"></a>Создание таблицы параметризации
 
@@ -89,7 +89,7 @@ ms.locfileid: "98606707"
 
 ### <a name="create-the-table"></a>Создание таблицы
 
-[Создайте базу данных SQL Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), а затем выполните приведенный ниже скрипт SQL в [редакторе запросов](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal), чтобы создать необходимую таблицу.
+[Создайте базу данных SQL Azure](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), а затем выполните приведенный ниже скрипт SQL в [редакторе запросов](../../azure-sql/database/connect-query-portal.md), чтобы создать необходимую таблицу.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -142,7 +142,7 @@ END
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Создание области секретов на основе Azure Key Vault
 
-Чтобы ссылаться на секреты в созданном ранее ресурсе Azure Key Vault, необходимо создать область секретов в Databricks. Выполните инструкции, приведенные в разделе [Создание области секретов с поддержкой Azure Key Vault](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+Чтобы ссылаться на секреты в созданном ранее ресурсе Azure Key Vault, необходимо создать область секретов в Databricks. Выполните инструкции, приведенные в разделе [Создание области секретов с поддержкой Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### <a name="create-a-databricks-cluster"></a>Создание кластера Databricks
 
@@ -461,7 +461,7 @@ END
 
 ## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Автоматизация обучения и оценки с помощью Фабрики данных Azure
 
-Заключительный этап — настройка службы "Фабрика данных Azure" (ADF) для автоматизации обучения и оценки. Сначала выполните действия, описанные в разделе [Создание фабрики данных](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). После создания ресурса ADF необходимо создать три конвейера: один для обучения и два для оценки (см. описание ниже).
+Заключительный этап — настройка службы "Фабрика данных Azure" (ADF) для автоматизации обучения и оценки. Сначала выполните действия, описанные в разделе [Создание фабрики данных](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). После создания ресурса ADF необходимо создать три конвейера: один для обучения и два для оценки (см. описание ниже).
 
 ### <a name="training-pipeline"></a>Конвейер обучения
 

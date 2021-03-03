@@ -5,15 +5,15 @@ keywords: служба приложений azure, веб-приложение, 
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 7178b8079bbb2411e0b38c3ef59a9981fb2d55be
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8e9dd76b60d05b9fa5e3a4aaf7ccc6663f4a969b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005245"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709042"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Открытие сеанса SSH для контейнера Linux в службе приложений Azure
 
@@ -49,6 +49,13 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 > [!TIP]
 > Знак `&` в конце команды предназначен исключительно для удобства при использовании Cloud Shell. Он позволяет запустить процесс в фоновом режиме и выполнять следующую команду в той же оболочке.
+
+> [!NOTE]
+> Если эта команда завершается неудачно, убедитесь, что [Удаленная отладка](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) *отключена* с помощью следующей команды:
+>
+> ```azurecli-interactive
+> az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
+> ```
 
 В выходных данных команды содержатся сведения, необходимые для того, чтобы открыть сеанс SSH.
 
@@ -111,7 +118,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 45738     1 root     Z        0   0%   0   0% [init]
 </pre>
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Если у вас возникли вопросы, опубликуйте их на [форуме Azure](/answers/topics/azure-webapps.html).
 

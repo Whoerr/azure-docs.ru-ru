@@ -5,18 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6001fff54b86b7c18684092aad6c7fdf64f81990
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729952"
 ---
 # <a name="about-azure-remote-rendering"></a>Сведения об Удаленной отрисовке Azure
-
-> [!IMPORTANT]
-> **Удаленная отрисовка Azure** в настоящее время находится в общедоступной предварительной версии.
-> Эта предварительная версия предоставляется без соглашения об уровне обслуживания и не рекомендована для использования рабочей среде. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 *Удаленная отрисовка Azure* (ARR) — это служба, которая позволяет визуализировать высококачественное интерактивное трехмерное содержимое в облаке и передавать его в режиме реального времени на устройства, такие как HoloLens 2.
 

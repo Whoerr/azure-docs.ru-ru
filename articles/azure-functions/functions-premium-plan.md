@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610273"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708719"
 ---
 # <a name="azure-functions-premium-plan"></a>План функций Azure Premium
 
@@ -142,7 +142,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 При создании или масштабировании плана можно выбрать один из трех размеров экземпляра. Вам будет выставлен счет за общее количество ядер и подготовленной памяти в секунду, когда каждый экземпляр выделяется вам. Приложение может автоматически масштабироваться на несколько экземпляров по мере необходимости.
 
-|номер SKU|Ядра|Память|Память|
+|SKU|Ядра|Память|Память|
 |--|--|--|--|
 |EP1|1|3,5 ГБ|Гбайт|
 |EP2|2|7 ГБ|Гбайт|
@@ -154,7 +154,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 Например, приложение-функция JavaScript ограничено ограничением памяти по умолчанию в Node.js. Чтобы увеличить этот фиксированный предел памяти, добавьте параметр приложения `languageWorkers:node:arguments` со значением `--max-old-space-size=<max memory in MB>` .
 
-А для планов с объемом памяти более 4 ГБ убедитесь, что для параметра платформа разрядности задано значение `64 Bit` в разделе [Общие параметры](/azure/app-service/configure-common#configure-general-settings).
+А для планов с объемом памяти более 4 ГБ убедитесь, что для параметра платформа разрядности задано значение `64 Bit` в разделе [Общие параметры](../app-service/configure-common.md#configure-general-settings).
 
 ## <a name="region-max-scale-out"></a>Максимальный Scale Out региона
 
@@ -187,7 +187,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 |Восточная Норвегия;| 100 | 20 |
 |Центрально-южная часть США| 100 | 20 |
 |Южная Индия | 100 | Недоступно |
-|Southeast Asia| 100 | 20 |
+|Юго-Восточная Азия| 100 | 20 |
 |Северная Швейцария| 100 | Недоступно |
 |Западная Швейцария| 100 | Недоступно |
 |южная часть Соединенного Королевства| 100 | 20 |
@@ -199,8 +199,8 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 |Западная Европа| 100 | 20 |
 |Западная Индия| 100 | 20 |
 |центрально-западная часть США| 100 | 20 |
-|западная часть США| 100 | 20 |
-|Западная часть США 2| 100 | 20 |
+|Западная часть США| 100 | 20 |
+|Западная часть США 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

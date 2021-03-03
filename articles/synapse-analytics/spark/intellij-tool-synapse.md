@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 04faaa05cf51f740958238ece0a9a211c43fca41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a4512a8f75d59f617058a50846d7578a90b9d062
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935454"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675816"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Руководство по созданию приложения Apache Spark с помощью IntelliJ и рабочей области Synapse
 
@@ -34,7 +34,7 @@ ms.locfileid: "98935454"
 ## <a name="prerequisites"></a>Предварительные требования
 
 - [Версия IntelliJ IDEA для сообщества](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC);
-- подключаемый модуль Azure Toolkit 3.27.0-2019.2 — [установите из репозитория подключаемого модуля IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json);
+- подключаемый модуль Azure Toolkit 3.27.0-2019.2 — [установите из репозитория подключаемого модуля IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation);
 - [JDK (версия 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html);
 - подключаемый модуль Scala — [установите из репозитория подключаемого модуля IntelliJ](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - Приведенное ниже предварительное требование предназначено только для пользователей Windows.
@@ -145,7 +145,7 @@ ms.locfileid: "98935454"
     |Имя главного класса|значение по умолчанию — имя главного класса из выбранного файла. Класс можно изменить, нажав значок-многоточие ( **...** ) и выбрав другой класс.|
     |Job configurations (Конфигурация заданий)|Вы можете изменить ключи или значения по умолчанию. Дополнительные сведения см. в статье [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Аргументы командной строки|При необходимости можно ввести аргументы для основного класса, разделив их пробелом.|
-    |Referenced Jars (Ссылки на JAR-файлы) и Referenced Files (Ссылки на файлы)|можно ввести пути к используемым JAR и файлам, если они есть. Вы можете также просматривать файлы в виртуальной файловой системе Azure, которая сейчас поддерживает только кластер ADLS 2 поколения. Дополнительные сведения см. здесь: [Конфигурация Apache Spark]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) и [Краткое руководство. Создание большого двоичного объекта с помощью Обозревателя службы хранилища Azure](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Referenced Jars (Ссылки на JAR-файлы) и Referenced Files (Ссылки на файлы)|можно ввести пути к используемым JAR и файлам, если они есть. Вы можете также просматривать файлы в виртуальной файловой системе Azure, которая сейчас поддерживает только кластер ADLS 2 поколения. Дополнительные сведения см. здесь: [Конфигурация Apache Spark]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) и [Краткое руководство. Создание большого двоичного объекта с помощью Обозревателя службы хранилища Azure](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
     |Job Upload Storage (Хранилище обновлений заданий)|Разверните раздел, чтобы отобразить дополнительные параметры.|
     |Тип хранения|В раскрывающемся списке выберите **Use Azure Blob to upload** (Для отправки использовать BLOB-объект Azure) или **Use cluster default storage account to upload** (Для отправки использовать учетную запись хранения по умолчанию для кластера).|
     |Учетная запись хранения|Введите имя своей учетной записи хранения.|

@@ -4,423 +4,307 @@ description: Базовый план безопасности Data Lake Analytic
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48df40d6f1e3030435a7ac1236d3dcda298920ba
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 33196af2f3544733715ece501cceec0366d2a47c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716268"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Базовый план безопасности Azure для Data Lake Analytics
 
-Базовый план безопасности Azure для Data Lake Analytics содержит рекомендации, которые помогут повысить уровень безопасности развертывания.
+Этот базовый план безопасности применяет рекомендации из [теста безопасности Azure версии 1,0](../security/benchmarks/overview-v1.md) к Data Lake Analytics. Azure Security Benchmark содержит рекомендации по обеспечению безопасности облачных решений в Azure.
+Содержимое группируются по **элементам управления безопасностью** , определенным в производительности системы безопасности Azure, и связанным рекомендациям, применимым к Data Lake Analytics. **Элементы управления** , неприменимые к Data Lake Analytics, были исключены.
 
-Базовый план безопасности для этой службы взят из [Эталона безопасности Azure версии 1.0](../security/benchmarks/overview.md), содержащего рекомендации по обеспечению безопасности облачных решений в Azure с помощью наших практических рекомендаций.
-
-Дополнительные сведения см. в статье [Обзор базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+ 
+Сведения о том, как Data Lake Analytics полностью сопоставлены с тестовым показателем безопасности Azure, см. в разделе [полное Data Lake Analytics файла сопоставления базовых показателей безопасности](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Безопасность сети
 
-*Дополнительные сведения см. в статье [Управление безопасностью: безопасность сети](../security/benchmarks/security-control-network-security.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: безопасность сети](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: защита ресурсов Azure в виртуальных сетях
 
 **Руководство**. Используйте параметры брандмауэра для Data Lake Analytics ограничения внешних диапазонов IP-адресов, чтобы разрешить доступ с локальных клиентов и сторонних служб. Настройка параметров брандмауэра доступна через портал, API-интерфейсы или PowerShell.
 
-* [Правила брандмауэра](/rest/api/datalakeanalytics/firewallrules)
+- [Общие сведения о правилах брандмауэра](/rest/api/datalakeanalytics/firewallrules) 
 
-* [Управление аналитикой озера данных Azure с помощью Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 
 **Ответственность**: Customer
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2. Мониторинг и запись конфигурации и трафика виртуальных сетей, подсетей и сетевых интерфейсов
-
-**Руководство**: неприменимо; Azure Data Lake Analytics не выполняется в виртуальной сети и при использовании федеративных запросов исходящие вызовы не могут быть настроены для маршрутизации через виртуальную сеть клиента.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="13-protect-critical-web-applications"></a>1.3. Защита критических веб-приложений
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для веб-приложений, выполняющихся в службе приложений Azure или экземплярах IaaS.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: запретите обмен данными с известными вредоносными IP-адресами
 
-**Руководство**. Используйте параметры брандмауэра для Data Lake Analytics ограничения внешних диапазонов IP-адресов, чтобы разрешить доступ с локальных клиентов и сторонних служб. Настройка параметров брандмауэра доступна через портал, API-интерфейсы или PowerShell.
+**Руководство**. Используйте параметры брандмауэра для Data Lake Analytics ограничения внешних диапазонов IP-адресов, чтобы разрешить доступ с локальных клиентов и сторонних служб.  Настройка параметров брандмауэра доступна через портал, API-интерфейсы или PowerShell.
 
-* [Правила брандмауэра](/rest/api/datalakeanalytics/firewallrules)
+- [Общие сведения о правилах брандмауэра](/rest/api/datalakeanalytics/firewallrules) 
 
-* [Управление аналитикой озера данных Azure с помощью Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 
 **Ответственность**: Customer
 
-### <a name="15-record-network-packets"></a>1,5: запись сетевых пакетов
-
-**Руководство**: неприменимо; Data Lake Analytics не выполняется в виртуальных сетях клиентов и не может использовать группы безопасности сети (группы безопасности сети) для записи журналов сетевых потоков.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: развертывание системы обнаружения вторжений на основе сети и предотвращения вторжения (ИДЕНТИФИКАТОРы и IP-адреса)
-
-**Руководство**: неприменимо; Data Lake Analytics — это предложение PaaS, которое не развертывается в сетях клиентов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="17-manage-traffic-to-web-applications"></a>1.7. Управление трафиком к веб-приложениям
-
-**Руководство**: неприменимо; Эта рекомендация предназначена для веб-приложений, работающих в службе приложений Azure или в ресурсах вычислений.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8. Уменьшение сложности и дополнительных затрат на администрирование в правилах безопасности сети
-
-**Руководство**: неприменимо; Data Lake Analytics не выполняется в виртуальных сетях клиентов и не может использовать группы безопасности сети (группы безопасности сети).
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9. Поддержание стандартных конфигураций безопасности для сетевых устройств
-
-**Руководство**: неприменимо; Data Lake Analytics не выполняется в виртуальных сетях клиентов и не может использовать группы безопасности сети (группы безопасности сети).
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="110-document-traffic-configuration-rules"></a>1.10. Документация по правилам конфигурации трафика
-
-**Руководство**: неприменимо; Data Lake Analytics не выполняется в виртуальных сетях клиентов и не может использовать группы безопасности сети (группы безопасности сети).
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11. Использование автоматизированных средств для мониторинга конфигураций сетевых ресурсов и обнаружения изменений
-
-**Руководство**: неприменимо; Data Lake Analytics не выполняется в виртуальных сетях клиентов и не может использовать группы безопасности сети (группы безопасности сети).
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="logging-and-monitoring"></a>Ведение журналов и мониторинг
 
-*Дополнительные сведения см. в статье [Управление безопасностью: ведение журналов и мониторинг](../security/benchmarks/security-control-logging-monitoring.md).*
-
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1. Использование утвержденных источников синхронизации времени
-
-**Руководство**: неприменимо; Корпорация Майкрософт поддерживает источник времени для Data Lake Analytics.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Microsoft
+*Дополнительные сведения см. в статье [производительность системы безопасности Azure: ведение журнала и мониторинг](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2. Настройка централизованного управления журналами безопасности
 
-**Руководство**. прием журналов с помощью Azure Monitor для агрегирования данных безопасности, таких как Data Lake Analytics "Audit" и "Диагностика запросов". В Azure Monitor используйте рабочую область Log Analytics для запроса и выполнения анализа и используйте учетные записи хранения Azure для долгосрочного и архивного хранения, при необходимости используя такие функции безопасности, как неизменяемое хранилище и принудительное хранение.
+**Руководство**. прием журналов с помощью Azure Monitor для агрегирования данных безопасности, таких как Data Lake Analytics "Audit" и "Диагностика запросов". В Azure Monitor используйте рабочую область Log Analytics для запроса и выполнения анализа и используйте учетные записи хранения Azure для долгосрочного и архивного хранения, при необходимости используя такие функции безопасности, как неизменяемое хранилище и принудительное хранение. 
 
-Кроме того, вы можете включить и подключить данные к Azure Sentinel или сторонним SIEM.
+Кроме того, вы можете включить и подключить данные в метку Azure, а также в решение для управления событиями и системами сторонних производителей.
 
-* [Доступ к журналам диагностики для Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
+- [Доступ к журналам диагностики для Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
-* [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-* [Как получить журналы и метрики платформы с помощью Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
+- [Как получить журналы и метрики платформы с помощью Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
 
-* [Как получить журналы внутреннего узла виртуальной машины Azure с помощью Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
+- [Как получить журналы внутреннего узла виртуальной машины Azure с помощью Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm) 
 
-* [Начало работы с Azure Monitor и интеграция SIEM стороннего производителя](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Начало работы с Azure Monitor и интеграция SIEM стороннего производителя](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3. Включение журналов аудита для ресурсов Azure
 
-**Руководство**. Включение параметров диагностики для Data Lake Analytics доступа к журналам аудита и запросов. К ним относятся такие данные, как источник событий, Дата, пользователь, отметка времени и другие полезные элементы.
+**Руководство**. Включение параметров диагностики для Data Lake Analytics доступа к журналам аудита и запросов. К ним относятся такие данные, как источник событий, Дата, пользователь, отметка времени и другие полезные элементы. 
 
-* [Как получить журналы и метрики платформы с помощью Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
+- [Как получить журналы и метрики платформы с помощью Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
 
-* [Общие сведения о ведении журналов и различных типах журналов в Azure](../azure-monitor/essentials/platform-logs-overview.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения о ведении журналов и различных типах журналов в Azure](/azure/azure-monitor/platform/platform-logs-overview)
 
 **Ответственность**: Customer
 
-### <a name="24-collect-security-logs-from-operating-systems"></a>2.4. Сбор журналов безопасности из операционных систем
+**Мониторинг в центре безопасности Azure. производительность** [системы безопасности Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) — это инициатива политики по умолчанию для центра безопасности, которая является основой для [рекомендаций центра безопасности](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Определения политик Azure, связанные с этим элементом управления, автоматически включаются центром безопасности. Для оповещений, связанных с этим элементом управления, может потребоваться план [защитника Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) для связанных служб.
 
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
+**Встроенные определения политики Azure — Microsoft. Data Lake Analytics**:
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+[!INCLUDE [Resource Policy for Microsoft.DataLakeAnalytics 2.3](../../includes/policy/standards/asb/rp-controls/microsoft.datalakeanalytics-2-3.md)]
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5. Настройка хранения журнала безопасности
 
 **Рекомендации**. в Azure Monitor задайте срок хранения log Analytics рабочей области в соответствии с нормативными требованиями Организации. Используйте учетные записи хранения Azure для долгосрочного и архивного хранения.
 
-* [Изменение срока хранения данных в Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+- [Изменение срока хранения данных в Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 
 
-* [Настройка политики хранения для журналов учетных записей хранения Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Настройка политики хранения для журналов учетных записей хранения Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: мониторинг и просмотр журналов
 
-**Руководство**. анализ и мониторинг журналов для аномального поведения и регулярная проверка результатов для Data Lake Analyticsных ресурсов. Используйте рабочую область Log Analytics Azure Monitor, чтобы просматривать журналы и выполнять запросы к данным журнала. Кроме того, вы можете включить и подключить данные к Azure Sentinel или сторонним SIEM.
+**Руководство**. анализ и мониторинг журналов для аномального поведения и регулярная проверка результатов для Data Lake Analyticsных ресурсов. Используйте рабочую область Log Analytics Azure Monitor, чтобы просматривать журналы и выполнять запросы к данным журнала. Кроме того, вы можете включить и подключить данные в метку Azure, а также в решение для управления событиями и системами сторонних производителей.
 
-* [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Дополнительные сведения о рабочей области Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
+- [Дополнительные сведения о рабочей области Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
 
-* [Выполнение пользовательских запросов в Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Выполнение пользовательских запросов в Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Включение оповещений для аномальных действий
 
-**Руководство**. Включение параметров диагностики для Data Lake Analytics и отправка журналов в рабочую область log Analytics. Подключите рабочую область Log Analytics к Azure Sentinel, так как она предоставляет решение для оркестрации событий безопасности и автоматического реагирования (SOAR). Это позволяет создавать и использовать сборники схем (автоматизированные решения) для устранения проблем безопасности.
+**Руководство**. Включение параметров диагностики для Data Lake Analytics и отправка журналов в рабочую область log Analytics. Подключите рабочую область Log Analytics к Azure Sentinel, так как она предоставляет решение для оркестрации событий безопасности и автоматического реагирования (SOAR). Это позволяет создавать и использовать сборники схем (автоматизированные решения) для устранения проблем безопасности. 
 
-* [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Как оповещать данные журнала Log Analytics](../azure-monitor/alerts/tutorial-response.md)
+- [Как оповещать данные журнала Log Analytics](/azure/azure-monitor/learn/tutorial-response)  
 
-* [Доступ к журналам диагностики для Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Доступ к журналам диагностики для Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
 **Ответственность**: Customer
 
-### <a name="28-centralize-anti-malware-logging"></a>2.8. Централизованное ведение журнала защиты от вредоносных программ
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**: неприменимо; Data Lake Analytics не обрабатывает и не создает журналы, связанные с защитой от вредоносных программ.
+## <a name="identity-and-access-control"></a>Идентификатор и управление доступом
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="29-enable-dns-query-logging"></a>2.9. Включение ведения журнала запросов DNS
-
-**Руководство**. Внедрение решения стороннего производителя из Azure Marketplace для решения регистрации DNS в соответствии с вашими организациями.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="210-enable-command-line-audit-logging"></a>2.10. Включение ведения журнала аудита для командной строки
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для расчетных ресурсов, в которых у клиента есть доступ к базовой операционной системе.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-## <a name="identity-and-access-control"></a>Идентификаторы и управление доступом
-
-*Дополнительные сведения см. в статье [Управление безопасностью: идентификаторы и управление доступом](../security/benchmarks/security-control-identity-access-control.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: идентификация и управление доступом](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1. Инвентаризация учетных записей администраторов
 
-**Руководство**. в Azure AD есть встроенные роли, которые должны быть явно назначены и доступны для запросов. Используйте модуль Azure AD PowerShell для выполнения нерегламентированных запросов для обнаружения учетных записей, входящих в группы администраторов.
+**Руководство**. Azure Active Directory (Azure AD) содержит встроенные роли, которые должны быть явно назначены и доступны для запросов. Используйте модуль Azure AD PowerShell для выполнения нерегламентированных запросов для обнаружения учетных записей, входящих в группы администраторов.
 
-* [Как получить роль каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
+- [Как получить роль каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Как получить членов роли каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как получить членов роли каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2. Изменение паролей по умолчанию, где применимо
 
-**Руководство**. Data Lake Analytics не имеет концепции паролей по умолчанию, так как проверка подлинности обеспечивается Azure Active Directory и защищена с помощью управления доступом на основе ролей Azure (Azure RBAC).
+**Руководство**. Data Lake Analytics не имеет концепции паролей по умолчанию, так как проверка подлинности предоставляется в Azure Active Directory (Azure AD) и защищена с помощью управления доступом на основе ролей Azure (Azure RBAC).
 
-* [Обзор Azure Data Lake Analytics](./data-lake-analytics-overview.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Обзор Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3. Применение выделенных административных учетных записей
 
 **Руководство**. Создайте стандартные операционные процедуры для использования выделенных административных учетных записей.
 
-Вы также можете включить JIT-доступ с помощью Azure AD Privileged Identity Management и Azure Resource Manager.
+Вы также можете включить JIT-доступ с помощью Azure Active Directory (Azure AD) управление привилегированными пользователями и Azure Resource Manager.
 
-* [Дополнительные сведения о управление привилегированными пользователями](../active-directory/privileged-identity-management/index.yml)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Дополнительные сведения о управление привилегированными пользователями](/azure/active-directory/privileged-identity-management/)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4. Использование единого входа Azure Active Directory (SSO)
 
-**Рекомендации**. везде, где это возможно, используйте Azure Active Directory SSO вместо настройки отдельных автономных учетных данных для каждой службы. Использование удостоверений центра безопасности Azure и рекомендаций по доступу.
+**Рекомендации**. везде, где это возможно, используйте Azure Active Directory (Azure AD) SSO вместо настройки отдельных автономных учетных данных для каждой службы. Использование удостоверений центра безопасности Azure и рекомендаций по доступу.
 
-* [Общие сведения об использовании единого входа в Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения об использовании единого входа в Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: используйте многофакторную проверку подлинности для всех Azure Active Directory доступа
 
-**Рекомендации**. Включите Azure Active Directory многофакторную идентификацию (MFA) и следуйте рекомендациям по управлению удостоверениями и доступом в центре безопасности Azure, чтобы помочь защитить ресурсы Data Lake Analytics.
+**Руководство**. Включение многофакторной проверки подлинности Azure Active Directory (Azure AD) и следование рекомендациям по управлению удостоверениями и доступом в центре безопасности Azure для защиты ресурсов Data Lake Analytics.
 
-* [Включение MFA в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Как включить многофакторную проверку подлинности в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Мониторинг идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Мониторинг идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md)
 
 **Ответственность**: Customer
 
-### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: используйте защищенные рабочие станции, управляемые Azure, для административных задач
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6. Использование выделенных компьютеров (рабочих станций с привилегированным доступом) для всех административных задач
 
 **Руководство**. используйте защищенную, управляемую Azure рабочую станцию (также называемую рабочей станцией привилегированного доступа или привилегированным доступом) для административных задач, требующих повышенных привилегий.
 
-* [Общие сведения о защищенных рабочих станциях под управлением Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Общие сведения о защищенных рабочих станциях под управлением Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Как включить Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как включить многофакторную проверку подлинности Azure Active Directory (Azure AD)](/security/compass/privileged-access-devices)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: журналы и оповещения о подозрительных действиях учетных записей администраторов
 
-**Рекомендации**. Используйте Azure Active Directory отчеты о безопасности для создания журналов и оповещений при возникновении подозрительных или ненадежных действий в среде. Используйте Центр безопасности Azure для мониторинга действий идентификации и доступа.
+**Руководство**. Использование отчетов по безопасности Azure Active Directory (Azure AD) для создания журналов и оповещений при возникновении подозрительных или ненадежных действий в среде. Используйте Центр безопасности Azure для мониторинга действий идентификации и доступа.
 
-* [Как определить пользователей Azure AD, помеченных для события риска](../active-directory/identity-protection/overview-identity-protection.md)
+- [Как определить пользователей Azure AD, помеченных для события риска](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Мониторинг пользовательских действий идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md)
-
-**Мониторинг Центра безопасности Azure**. Да
+- [Мониторинг пользовательских действий идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8. Управление ресурсами Azure только из утвержденных расположений
 
-**Руководство**. Использование именованных расположений Azure AD для разрешения доступа только из конкретных логических групп диапазонов IP-адресов или стран и регионов.
+**Руководство**. Использование Azure Active Directory (Azure AD) с именованными расположениями для разрешения доступа только из конкретных логических групп диапазонов IP-адресов или стран и регионов.
 
-* [Настройка именованных расположений Azure AD](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка именованных расположений Azure AD](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="39-use-azure-active-directory"></a>3.9. Использование Azure Active Directory
 
 **Руководство**. Использование Azure Active Directory (Azure AD) в качестве централизованной системы проверки подлинности и авторизации. Управление доступом на основе ролей в Azure (Azure RBAC) обеспечивает точный контроль доступа клиента к ресурсам Data Lake Analytics.
 
-* [Создание и настройка экземпляра Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+ 
 
-**Мониторинг Центра безопасности Azure**: Да
+- [Создание и настройка экземпляра Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10. Регулярная проверка и согласование доступа пользователей
 
-**Руководство**. Azure AD предоставляет журналы для облегчения поиска устаревших учетных записей. Кроме того, используйте проверки подлинности и доступа Azure AD для эффективного управления членством в группах, доступом к корпоративным приложениям и назначениями ролей. Доступ пользователей можно проверить регулярно, чтобы убедиться, что доступ к ним имеют только нужные пользователи.
+**Руководство**. Azure Active Directory (Azure AD) предоставляет журналы для облегчения поиска устаревших учетных записей. Кроме того, используйте проверки подлинности и доступа Azure AD для эффективного управления членством в группах, доступом к корпоративным приложениям и назначениями ролей. Доступ пользователей можно проверить регулярно, чтобы убедиться, что доступ к ним имеют только нужные пользователи.
 
-* [Общие сведения об отчетах Azure AD](../active-directory/reports-monitoring/index.yml)
+- [Общие сведения об отчетах Azure AD](/azure/active-directory/reports-monitoring/)
 
-* [Использование проверок доступа для идентификации Azure AD](../active-directory/governance/access-reviews-overview.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Использование проверок доступа для идентификации Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: монитор пытается получить доступ к отключенным учетным данным
 
-**Руководство**. Включение параметров диагностики для Data Lake Analytics и Azure Active Directory, отправка всех журналов в log Analytics рабочую область. Настройте нужные оповещения (например, попытки доступа к отключенным секретам) в Log Analytics.
+**Руководство**. Включение параметров диагностики для Data Lake Analytics и Azure Active Directory (Azure AD) с последующим отправкой всех журналов в log Analytics рабочую область. Настройте нужные оповещения (например, попытки доступа к отключенным секретам) в Log Analytics.
 
-* [Интеграция журналов Azure AD с Azure Monitor журналами](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Интеграция журналов Azure AD с Azure Monitor журналами](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: предупреждение об отклонении при входе в учетную запись
 
-**Руководство**. Использование функций защиты Azure Active Directory и безопасности удостоверений для настройки автоматических ответов на обнаруженные подозрительные действия, связанные с ресурсами Data Lake Analytics. Вы должны включить автоматические ответы через метку Azure, чтобы реализовать ответы на безопасность вашей организации.
+**Руководство**. использование возможностей Azure Active Directory (Azure AD) и защиты идентификации для настройки автоматических ответов на обнаруженные подозрительные действия, связанные с ресурсами Data Lake Analytics. Вы должны включить автоматические ответы через метку Azure, чтобы реализовать ответы на безопасность вашей организации.
 
-* [Просмотр рискованных входов в Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
+- [Просмотр рискованных входов в Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Как настроить и включить политики рисков с помощью защиты идентификации](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [Как настроить и включить политики рисков с помощью защиты идентификации](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Ответственность**: Customer
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13. Предоставление корпорации Майкрософт доступа к соответствующим данным клиентов в рамках сценариев поддержки
-
-**Руководство**: неприменимо; Защищенное хранилище не поддерживается для Azure Data Lake Analytics.
-
-* [Поддерживаемые службы и сценарии в общем доступе](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-protection"></a>Защита данных
 
-*Дополнительные сведения см. в статье [Управление безопасностью: защита данных](../security/benchmarks/security-control-data-protection.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: защита данных](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1. Инвентаризация конфиденциальных данных
 
-**Руководство**. Использование тегов для отслеживания Data Lake Analytics ресурсов, в которых хранятся или обрабатываются конфиденциальные данные.
+**Руководство**. Использование тегов для отслеживания Data Lake Analytics ресурсов, в которых хранятся или обрабатываются конфиденциальные данные. 
 
-* [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2. Изолирование систем, хранящих или обрабатывающих конфиденциальные данные
 
-**Руководство**. Реализация изоляции с помощью отдельных подписок, групп управления для отдельных доменов безопасности, таких как среда, чувствительность данных. Вы можете ограничить Data Lake Analytics, чтобы управлять уровнем доступа к ресурсам Data Lake Analytics, которые требуются приложениям и корпоративным средам. Когда правила брандмауэра настроены, доступ к ресурсам Data Lake Analytics могут получить только приложения, запрашивающие данные через указанный набор сетей. Вы можете управлять доступом к Azure Data Lake Analytics через Azure RBAC.
+**Руководство**. Реализация изоляции с помощью отдельных подписок, групп управления для отдельных доменов безопасности, таких как среда, чувствительность данных. Вы можете ограничить Data Lake Analytics, чтобы управлять уровнем доступа к ресурсам Data Lake Analytics, которые требуются приложениям и корпоративным средам. Когда правила брандмауэра настроены, доступ к ресурсам Data Lake Analytics могут получить только приложения, запрашивающие данные через указанный набор сетей. Вы можете управлять доступом к Azure Data Lake Analytics через Управление доступом на основе ролей Azure (Azure RBAC).
 
-* [Создание дополнительных подписок Azure](../cost-management-billing/manage/create-subscription.md)
+- [Создание дополнительных подписок Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Создание групп управления](../governance/management-groups/create-management-group-portal.md)
+- [Создание групп управления](../governance/management-groups/create-management-group-portal.md)
 
-* [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
+- [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
 
-* [Управление управлением доступом на основе ролей в Azure](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
+- [Управление управлением доступом на основе ролей в Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
-* [Правила брандмауэра](/rest/api/datalakeanalytics/firewallrules)
+- [Правила брандмауэра](/rest/api/datalakeanalytics/firewallrules)
 
-* [Управление аналитикой озера данных Azure с помощью Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. Мониторинг и блокирование несанкционированной передачи конфиденциальной информации
 
@@ -428,75 +312,67 @@ ms.locfileid: "100596902"
 
 Для базовой платформы, управляемой корпорацией Майкрософт, корпорация Майкрософт считает все содержимое клиента конфиденциальным и защищенным от потери и доступности данных клиентов. Чтобы обеспечить безопасность данных клиентов в Azure, корпорация Майкрософт реализовала и поддерживает набор надежных элементов управления и возможностей защиты данных.
 
-* [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
+- [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
-* [Как защитить учетные записи хранения Azure](../storage/blobs/security-recommendations.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Как защитить службу хранилища Azure](../storage/blobs/security-recommendations.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4. Шифрование любой конфиденциальной информации при передаче
 
 **Руководство**. Microsoft Azure ресурсы будут согласовывать TLS 1,2 по умолчанию. Убедитесь, что все клиенты, подключающиеся к Data Lake Analytics, могут согласовываться с помощью TLS 1,2 или более поздней версии.
 
-* [Пример списка операций](/rest/api/datalakeanalytics/operations/list)
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Пример списка операций](/rest/api/datalakeanalytics/operations/list)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5. Использование средства активного обнаружения для распознавания конфиденциальных данных
 
-**Руководство**. функции идентификации данных еще недоступны для Azure Data Lake Analyticsных ресурсов. Установите сторонние решения, если это необходимо для обеспечения соответствия требованиям.
+**Руководство**. функции идентификации данных еще недоступны для Azure Data Lake Analyticsных ресурсов. Установите сторонние решения, если это необходимо для обеспечения соответствия требованиям. 
 
-* [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
 **Ответственность**: Customer
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6. Контроль доступа к ресурсам с помощью RBAC
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6. Контроль доступа к ресурсам с помощью RBAC 
 
 **Руководство**. Использование управления доступом на основе ролей Azure (Azure RBAC) для управления взаимодействием пользователей со службой.
 
-* [Управление Azure RBAC](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Управление Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
 **Ответственность**: Customer
 
-### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7. Использование защиты от потери данных на основе узла для обеспечения контроля доступа
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для вычислительных ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**. Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8. Шифрование конфиденциальной информации при хранении
 
-**Руководство**. данные хранятся в учетной записи Data Lake Storage 1-го поколения по умолчанию. Data Lake Storage 1-го поколения поддерживает прозрачное шифрование неактивных данных, включенное по умолчанию.
+**Руководство**. данные хранятся в учетной записи Data Lake Storage 1-го поколения по умолчанию.  Data Lake Storage 1-го поколения поддерживает прозрачное шифрование неактивных данных, включенное по умолчанию.
 
-* [Шифрование данных в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-encryption.md)
-
-**Мониторинг центра безопасности Azure**: Сейчас это недоступно
+- [Шифрование данных в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-encryption.md)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9. Включение в журнал и создание оповещений по изменениям критических ресурсов Azure
 
 **Руководство**. Использование Azure Monitor с журналом действий Azure для создания оповещений о том, когда изменения выполняются в рабочих экземплярах Azure Data Lake Analyticsных ресурсов.
 
-* [Создание оповещений для событий журнала действий Azure](../azure-monitor/alerts/alerts-activity-log.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Создание оповещений для событий журнала действий Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Ответственность**: Customer
 
-## <a name="vulnerability-management"></a>управление уязвимостями;
+**Мониторинг центра безопасности Azure**: нет
 
-*Дополнительные сведения см. в статье [Управление безопасностью: управление уязвимостями](../security/benchmarks/security-control-vulnerability-management.md).*
+## <a name="vulnerability-management"></a>Управление уязвимостями
+
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Управление уязвимостью](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1. Выполнение автоматизированных средства анализа уязвимостей
 
@@ -504,49 +380,25 @@ ms.locfileid: "100596902"
 
 Корпорация Майкрософт выполняет Управление уязвимостью в базовых системах, поддерживающих Azure Data Lake Analytics.
 
-* [Общие сведения о рекомендациях центра безопасности Azure](../security-center/recommendations-reference.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Общие сведения о рекомендациях центра безопасности Azure](../security-center/recommendations-reference.md)
 
 **Ответственность**: Customer
 
-### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2. Развертывание автоматизированного решения для управления исправлениями операционной системы
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Развертывание автоматизированного решения по управлению исправлениями для программ сторонних разработчиков
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Сравнение проверок смежных уязвимостей
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Использование процесса оценки рисков для определения приоритета в устранении обнаруженных уязвимостей
+### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5. Использование процесса оценки рисков для определения приоритета в устранении обнаруженных уязвимостей
 
 **Руководство**. Используйте общую программу оценки рисков (например, общую систему оценки уязвимостей) или оценки рисков по умолчанию, предоставляемые сторонним средством сканирования.
 
-* [Публикация NIST — общая система оценки уязвимости](https://www.nist.gov/publications/common-vulnerability-scoring-system)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Публикация NIST — общая система оценки уязвимости](https://www.nist.gov/publications/common-vulnerability-scoring-system)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="inventory-and-asset-management"></a>Инвентаризация и управление ресурсами
 
-*Дополнительные сведения см. в статье [Управление безопасностью: инвентаризация и управление ресурсами](../security/benchmarks/security-control-inventory-asset-management.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Инвентаризация и управление активами](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1. Использование автоматизированного решения для обнаружения ресурсов
 
@@ -554,276 +406,160 @@ ms.locfileid: "100596902"
 
 Хотя классические ресурсы Azure могут быть обнаружены с помощью обозревателя графа ресурсов Azure, настоятельно рекомендуется создавать и использовать Azure Resource Manager ресурсов.
 
-* [Как создавать запросы с помощью обозревателя Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
+- [Как создавать запросы с помощью обозревателя Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Просмотр подписок Azure](/powershell/module/az.accounts/get-azsubscription)
+- [Просмотр подписок Azure](/powershell/module/az.accounts/get-azsubscription)
 
-* [Общие сведения об Azure RBAC](../role-based-access-control/overview.md)
-
-**Мониторинг Центра безопасности Azure**: в настоящее время недоступен.
+- [Общие сведения об Azure RBAC](../role-based-access-control/overview.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="62-maintain-asset-metadata"></a>6.2. Ведение метаданных активов
 
 **Руководство**. Применяйте к ресурсам Azure теги, чтобы логически классифицировать их на основе метаданных.
 
-* [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3. Удаление неавторизованных ресурсов Azure
 
 **Руководство**. Использование тегов, групп управления и отдельных подписок (при необходимости) для Организации и мониторинга Azure Data Lake Analyticsных ресурсов. Регулярно сверяйте ресурсы, чтобы своевременно удалять неавторизованные ресурсы из подписки.
 
 Кроме того, используйте политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в клиентских подписках, используя следующие встроенные определения политик:
+
 - Недопустимые типы ресурсов
+
 - Допустимые типы ресурсов
 
-* [Создание дополнительных подписок Azure](../cost-management-billing/manage/create-subscription.md)
+Дополнительные сведения можно найти по ссылкам, на которые имеются ссылки.
 
-* [Создание групп управления](../governance/management-groups/create-management-group-portal.md)
+- [Создание дополнительных подписок Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
+- [Создание групп управления](../governance/management-groups/create-management-group-portal.md)
 
-**Мониторинг Центра безопасности Azure**: Да
+- [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
 
 **Ответственность**: Customer
 
-### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: определение и обслуживание инвентаризации утвержденных ресурсов Azure
-
-**Руководство**. Создание инвентаризации утвержденных ресурсов Azure и утвержденного программного обеспечения для ресурсов вычислений в соответствии с потребностями Организации.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5. Отслеживание неутвержденных ресурсов Azure
 
-**Руководство**. Используйте политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в подписках клиентов, используя следующие встроенные определения политик.
+**Руководство**. Использование политики Azure для ограничения типа ресурсов, которые могут быть созданы в клиентских подписках, с помощью следующих встроенных определений политик:
+
 - Недопустимые типы ресурсов
+
 - Допустимые типы ресурсов
 
 Кроме того, используйте граф ресурсов Azure для запроса или обнаружения ресурсов в подписках.
 
-* [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-* [Как создавать запросы с помощью Azure Graph](../governance/resource-graph/first-query-portal.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как создавать запросы с помощью Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Ответственность**: Customer
 
-### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6. Отслеживание неутвержденных программных приложений в рамках ресурсов вычислений
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Удаление неутвержденных ресурсов Azure и программных приложений
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="68-use-only-approved-applications"></a>6.8: Использование только утвержденных приложений
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="69-use-only-approved-azure-services"></a>6.9: Использование только утвержденных служб Azure
+### <a name="69-use-only-approved-azure-services"></a>6.9. Использование только утвержденных служб Azure
 
 **Руководство**. Используйте Политику Azure, чтобы ограничить тип ресурсов, которые могут быть созданы в подписках клиентов, используя следующие встроенные определения политик.
+
 - Недопустимые типы ресурсов
 - Допустимые типы ресурсов
 
-* [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
+Дополнительные сведения доступны по ссылкам, на которые имеются ссылки
 
-* [Как отказаться от определенного типа ресурса с помощью Политики Azure](../governance/policy/samples/index.md)
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-**Мониторинг Центра безопасности Azure**: Да
+- [Как отказаться от определенного типа ресурса с помощью Политики Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Ответственность**: Customer
 
-### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: ведение инвентаризации утвержденных наименований программного обеспечения
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: ограничьте возможность пользователей работать с Azure Resource Manager
 
 **Руководство**. Настройте условный доступ Azure, чтобы ограничить возможность пользователей взаимодействовать с Azure Resource Manager путем настройки "Блокировать доступ" для приложения "Управление Microsoft Azure".
 
-* [Настройка условного доступа для блокировки доступа к ARM](../role-based-access-control/conditional-access-azure-management.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как настроить условный доступ для блокировки доступа к Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Ответственность**: Customer
 
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12. Ограничение возможности пользователей выполнять сценарии в ресурсах вычислений
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
+## <a name="secure-configuration"></a>Настройка безопасности
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13. Физическое или логическое разделение приложений с высоким риском
-
-**Руководство**. Неприменимо; эта рекомендация предназначена для веб-приложений, работающих в службе приложений Azure или в ресурсах вычислений.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**. Неприменимо
-
-## <a name="secure-configuration"></a>Безопасная конфигурация
-
-*Дополнительные сведения см. в статье [Управление безопасностью: безопасная конфигурация](../security/benchmarks/security-control-secure-configuration.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: безопасная конфигурация](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1. Установка безопасных конфигураций для всех ресурсов Azure
 
-**Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. Data Lake Analytics для создания настраиваемых политик для аудита или принудительного применения конфигурации Azure Data Lake Analytics. Вы также можете использовать встроенные определения политик, связанные с Azure Data Lake Analytics, например:
+**Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. Data Lake Analytics для создания настраиваемых политик для аудита или принудительного применения конфигурации службы Azure Data Lake Analytics. Вы также можете использовать встроенные определения политик, связанные с Azure Data Lake Analytics, например:
+
 - В Data Lake Analytics должны быть включены журналы диагностики.
 
-* [Просмотр доступных псевдонимов политик Azure](/powershell/module/az.resources/get-azpolicyalias)
+Дополнительные сведения доступны по ссылкам, на которые имеются ссылки
 
-* [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
+- [Просмотр доступных псевдонимов политик Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-**Мониторинг Центра безопасности Azure**: Да
-
-**Ответственность**: Customer
-
-### <a name="72-establish-secure-operating-system-configurations"></a>7.2. Сохранение безопасных конфигураций для операционных систем
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Сохранение безопасных конфигураций для ресурсов Azure
-
-**Руководство**. Использование политики Azure [Deny] и [развертывание если не существует] для обеспечения безопасности параметров в ресурсах Azure.
-
-* [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
-
-* [Сведения о действии Политик Azure](../governance/policy/concepts/effects.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
 
-### <a name="74-maintain-secure-operating-system-configurations"></a>7.4. Сохранение безопасных конфигураций для операционных систем
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
+### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3. Сохранение безопасных конфигураций для ресурсов Azure
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+**Рекомендации**. Используйте эффекты политики Azure [Deny] и [развертывание, если не существует] для обеспечения безопасности параметров в ресурсах Azure.
 
-**Ответственность**: Неприменимо
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Безопасное хранение конфигурации ресурсов Azure
-
-**Руководство**. Использование Azure Repos для безопасного хранения и управления кодом, например пользовательскими политиками Azure, Azure Resource Manager шаблонами, сценариями настройки требуемого состояния и т. д. Чтобы получить доступ к ресурсам, которыми вы управляете в Azure DevOps, вы можете предоставить или отклонить разрешения для определенных пользователей, встроенных групп безопасности или групп, определенных в Azure Active Directory (Azure AD), если они интегрированы с Azure DevOps, или Active Directory, если они интегрированы с TFS.
-
-* [Как хранить код в Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
-
-* [О разрешениях и группах в Azure DevOps](/azure/devops/organizations/security/about-permissions)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Сведения о действии Политик Azure](../governance/policy/concepts/effects.md)
 
 **Ответственность**: Customer
 
-### <a name="76-securely-store-custom-operating-system-images"></a>7.6. Безопасное хранение пользовательских образов операционной системы
+**Мониторинг центра безопасности Azure**: нет
 
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5. Безопасное хранение конфигурации ресурсов Azure
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+**Руководство**. Использование Azure Repos для безопасного хранения и управления кодом, например пользовательскими политиками Azure, Azure Resource Manager шаблонами, сценариями настройки требуемого состояния и т. д. Чтобы получить доступ к ресурсам, которыми вы управляете в Azure DevOps, вы можете предоставить или отклонить разрешения для определенных пользователей, встроенных групп безопасности или групп, определенных в Azure Active Directory (Azure AD), если они интегрированы с Azure DevOps или Azure AD, если они интегрированы с TFS.
 
-**Ответственность**: Неприменимо
+- [Как хранить код в Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: развертывание средств управления конфигурацией для ресурсов Azure
+- [О разрешениях и группах в Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
+**Ответственность**: Customer
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: развертывание средств управления конфигурацией для операционных систем
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9. Реализация автоматического мониторинга конфигурации для ресурсов Azure
 
-**Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. Data Lake Analytics для создания настраиваемых политик для оповещения, аудита и принудительного применения конфигураций системы. Используйте политику Azure [аудит], [запретить] и [развернуть, если не существует], чтобы автоматически применять конфигурации для ресурсов Azure Data Lake Analytics.
+**Руководство**. Использование псевдонимов политик Azure в пространстве имен Microsoft. Data Lake Analytics для создания настраиваемых политик для оповещения, аудита и принудительного применения конфигураций системы. Используйте политики Azure [аудит], [запретить] и [развернуть, если не существует] для автоматического применения конфигураций для ресурсов Azure Data Lake Analytics.
 
-* [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 **Ответственность**: Customer
 
-### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10. Реализация автоматизированного мониторинга конфигурации для операционных систем
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="711-manage-azure-secrets-securely"></a>7.11: Безопасное управление секретами Azure
-
-**Руководство**: неприменимо; Data Lake Analytics не предоставляет никаких секретов, которыми должен управлять клиент.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
-
-### <a name="712-manage-identities-securely-and-automatically"></a>7.12. Безопасное и автоматическое управление удостоверениями
-
-**Руководство**: неприменимо; Data Lake Analytics не поддерживает управляемые удостоверения Azure.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13. Устранение непреднамеренного раскрытия учетных данных
 
 **Руководство**. Реализуйте сканер учетных данных для обнаружения учетных данных в коде. Сканер учетных данных также рекомендует перемещать обнаруженные учетные данные в более безопасные расположения, такие как Azure Key Vault.
 
-* [Как настроить сканер учетных данных](https://secdevtools.azurewebsites.net/helpcredscan.html)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как настроить сканер учетных данных](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="malware-defense"></a>Защита от вредоносных программ
 
-*Дополнительные сведения см. в статье [Управление безопасностью: защита от вредоносных программ](../security/benchmarks/security-control-malware-defense.md).*
-
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1. Использование централизованно управляемого программного обеспечения для защиты от вредоносных программ
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: защита от вредоносных программ](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2. Предварительная проверка файлов для отправки в ресурсы Azure, не являющиеся вычислительными
 
@@ -831,159 +567,151 @@ ms.locfileid: "100596902"
 
 Предварительное сканирование любого содержимого, отправляемого в ресурсы Azure, таких как служба приложений, Data Lake Analytics, хранилище BLOB-объектов и т. д. Корпорация Майкрософт не может получить доступ к данным в этих экземплярах.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
 
-### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3. Своевременное обновление программного обеспечения для защиты от вредоносных программ и подписей
-
-**Руководство**: неприменимо; Этот элемент управления предназначен для вычислений-ресурсов.
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-recovery"></a>Восстановление данных
 
-*Дополнительные сведения см. в статье [Управление безопасностью: восстановление данных](../security/benchmarks/security-control-data-recovery.md).*
+*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: восстановление данных](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Обеспечьте регулярное автоматическое резервное копирование
 
-**Руководство**. Data Lake Analytics журналы заданий и выходные данные хранятся в базовой службе Data Lake Storage 1-го поколения. Вы можете использовать различные методы для копирования данных, включая ADLCopy, Azure PowerShell или фабрику данных Azure. Службу автоматизации Azure также можно использовать для автоматической архивации данных на регулярной основе.
+**Руководство**. Data Lake Analytics журналы заданий и выходные данные хранятся в базовой службе Data Lake Storage 1-го поколения.  Вы можете использовать различные методы для копирования данных, включая ADLCopy, Azure PowerShell или фабрику данных Azure.  Службу автоматизации Azure также можно использовать для автоматической архивации данных на регулярной основе.
 
-* [Управление ресурсами Azure Data Lake Storage 1-го поколения с помощью обозревателя службы хранилища](../data-lake-store/data-lake-store-in-storage-explorer.md)
+- [Управление ресурсами Azure Data Lake Storage 1-го поколения с помощью обозревателя службы хранилища](../data-lake-store/data-lake-store-in-storage-explorer.md)
 
-* [Копирование данных из больших двоичных объектов службы хранилища Azure в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
+- [Копирование данных из больших двоичных объектов службы хранилища Azure в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
 
-* [Обзор службы автоматизации Azure](../automation/automation-intro.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Обзор службы автоматизации Azure](../automation/automation-intro.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: выполните полное резервное копирование системы и резервное копирование ключей, управляемых клиентом
 
-**Руководство**. Data Lake Analytics журналы заданий и выходные данные хранятся в базовой службе Data Lake Storage 1-го поколения. Вы можете использовать различные методы для копирования данных, включая ADLCopy, Azure PowerShell или фабрику данных Azure.
+**Руководство**. Data Lake Analytics журналы заданий и выходные данные хранятся в базовой службе Data Lake Storage 1-го поколения.  Вы можете использовать различные методы для копирования данных, включая ADLCopy, Azure PowerShell или фабрику данных Azure.  
 
-* [Управление ресурсами Azure Data Lake Storage 1-го поколения с помощью обозревателя службы хранилища](../data-lake-store/data-lake-store-in-storage-explorer.md)
+- [Управление ресурсами Azure Data Lake Storage 1-го поколения с помощью обозревателя службы хранилища](../data-lake-store/data-lake-store-in-storage-explorer.md)
 
-* [Копирование данных из больших двоичных объектов службы хранилища Azure в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Копирование данных из больших двоичных объектов службы хранилища Azure в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Проверьте все резервные копии, включая управляемые клиентом ключи.
 
 **Руководство**. периодически выполняется восстановление данных резервной копии для проверки целостности данных.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: Обеспечьте защиту резервных копий и ключей, управляемых клиентом
 
-**Руководство**. Data Lake Analytics резервные копии, хранящиеся в Data Lake Storage 1-го поколения или хранилище Azure, поддерживают шифрование по умолчанию и не могут быть отключены. Резервные копии следует рассматривать как конфиденциальные данные и применять соответствующие элементы управления доступом и защиты данных в рамках этого базового плана.
+**Руководство**. Data Lake Analytics резервные копии, хранящиеся в Data Lake Storage 1-го поколения или в службе хранилища Azure, по умолчанию поддерживают шифрование и не могут быть отключены. Резервные копии следует рассматривать как конфиденциальные данные и применять соответствующие элементы управления доступом и защиты данных в рамках этого базового плана.  
 
-* [Обеспечение безопасности в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-secure-data.md)
+- [Обеспечение безопасности в Azure Data Lake Storage 1-го поколения](../data-lake-store/data-lake-store-secure-data.md)
 
-* [Авторизация доступа к данным в службе хранилища Azure](../storage/common/storage-auth.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Авторизация доступа к данным в службе хранилища Azure](../storage/common/storage-auth.md)
 
 **Ответственность**: Customer
 
-## <a name="incident-response"></a>Реагирование на инциденты
+**Мониторинг центра безопасности Azure**: нет
 
-*Дополнительные сведения см. в статье [Управление безопасностью: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
+## <a name="incident-response"></a>реагирование на инциденты.
+
+*Дополнительные сведения см. в статье [Azure Security Benchmark: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1. Создание руководства по реагированию на инциденты
 
 **Руководство**. Создайте руководство по реагированию на инциденты для вашей организации. Убедитесь в том, что имеются письменные планы реагирования на инциденты, которые определяют все действия персонала, а также этапы обработки инцидентов и управления ими для проверки после инцидента.
 
-* [Руководство по созданию собственного процесса реагирования на инциденты безопасности](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Руководство по созданию собственного процесса реагирования на инциденты безопасности](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-* [Анатомия инцидента Центра Майкрософт по реагированию на угрозы](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+- [Анатомия инцидента Центра Майкрософт по реагированию на угрозы](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-* [Клиент также может воспользоваться руководством по обработке инцидентов безопасности компьютера NIST, чтобы помочь в создании собственного плана реагирования на инциденты.](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Руководством по обработке инцидентов компьютерной безопасности NIST](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2. Создание процедуры оценки инцидента и определения приоритетов
 
-**Руководство**. Центр безопасности назначает каждому оповещению серьезность, которая поможет определить, какие предупреждения следует расследовать первыми. Серьезность основывается на том, насколько уверен Центр безопасности в исследовании или аналитике, используемой для оповещения, а также на уровне достоверности злонамеренности события, приведшего к оповещению.
+**Руководство**. Центр безопасности назначает каждому оповещению серьезность, которая поможет определить, какие предупреждения следует расследовать первыми. Серьезность основывается на том, насколько надежным является центр безопасности в поиске или аналитике, используемой для выдаче оповещения, а также об уровне достоверности, который был вредоносным намерением для действия, вызвавшего оповещение. 
 
-Кроме того, четко помечайте подписки тегами (например, рабочие, нерабочие) и создайте систему именования, чтобы четко определить и классифицировать ресурсы Azure, особенно обрабатывающие конфиденциальные данные. Вы несете ответственность за назначение приоритета оповещениям, требующим действий по исправлению, в зависимости от важности ресурсов Azure и среды, в которой произошел инцидент.
+Кроме того, четко помечайте подписки тегами (например, рабочие, нерабочие) и создайте систему именования, чтобы четко определить и классифицировать ресурсы Azure, особенно обрабатывающие конфиденциальные данные.  Вы несете ответственность за назначение приоритета оповещениям, требующим действий по исправлению, в зависимости от важности ресурсов Azure и среды, в которой произошел инцидент.
 
-* [Оповещения безопасности в Центре безопасности Azure](../security-center/security-center-alerts-overview.md)
+- [Оповещения безопасности в Центре безопасности Azure](../security-center/security-center-alerts-overview.md)
 
-* [использование тегов для упорядочения ресурсов в Azure](../azure-resource-manager/management/tag-resources.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [использование тегов для упорядочения ресурсов в Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="103-test-security-response-procedures"></a>10.3. Проверка процедур реагирования на угрозы
 
-**Руководство**. проведение упражнений по тестированию возможностей реагирования на инциденты систем с регулярным интервалом для защиты ресурсов Azure. Выявление слабых точек и пропусков, а затем при необходимости пересмотрите свой план ответа.
+**Руководство**. проведение упражнений по тестированию возможностей реагирования на инциденты систем с регулярным интервалом для защиты ресурсов Azure. Выявление слабых точек и пропусков, а затем при необходимости пересмотрите свой план ответа. 
 
-* [Публикация NIST — руководства по тестированию, обучению и выполнению упражнений для ИТ-планов и возможностей](https://csrc.nist.gov/publications/detail/sp/800-84/final)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Публикация NIST — руководства по тестированию, обучению и выполнению упражнений для ИТ-планов и возможностей](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4. Предоставление контактных сведений и настройка уведомлений по инцидентам безопасности
 
 **Руководство**. Корпорация Майкрософт будет использовать информацию об инциденте безопасности для связи с вами, если центр Microsoft Security Response Center (MSRC) обнаружит, что к вашим данным был получен незаконный или несанкционированный доступ. Проверьте инциденты после факта обращения, чтобы убедиться в том, что проблемы устранены.
 
-* [Как задать контакт безопасности Центра безопасности Azure](../security-center/security-center-provide-security-contact-details.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как задать контакт безопасности Центра безопасности Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5. Включение оповещений системы безопасности в систему реагирования на инциденты
 
 **Руководство**. Экспортируйте оповещения и рекомендации Центра безопасности Azure с помощью функции непрерывного экспорта с целью выявления рисков для ресурсов Azure. Непрерывный экспорт позволяет экспортировать предупреждения и рекомендации как вручную, так и в постоянном, непрерывном режиме. Вы можете использовать соединитель данных Центра безопасности Azure для потоковой передачи оповещений в Azure Sentinel.
 
-* [Настройка непрерывного экспорта данных](../security-center/continuous-export.md)
+- [Настройка непрерывного экспорта данных](../security-center/continuous-export.md)
 
-* [Как выполнить потоковую передачу оповещений в Azure Sentinel](../sentinel/connect-azure-security-center.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как выполнить потоковую передачу оповещений в Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6. Автоматизация реагирования на оповещения системы безопасности
 
 **Руководство**. Использование функции автоматизации рабочих процессов в центре безопасности Azure для автоматического запуска ответов с помощью "Logic Apps" в оповещениях системы безопасности и рекомендациях по защите ресурсов Azure.
 
-* [Как настроить автоматизацию рабочего процесса и Logic Apps](../security-center/workflow-automation.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как настроить автоматизацию рабочего процесса и Logic Apps](../security-center/workflow-automation.md)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ## <a name="penetration-tests-and-red-team-exercises"></a>Тесты на проникновение и попытки нарушения безопасности "красной командой"
 
-*Дополнительные сведения см. в статье [Управление безопасностью: тесты на проникновение и попытки нарушения безопасности "красной командой"](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Дополнительные сведения см. в статье [тесты производительности системы безопасности Azure: испытания на проникновение и команды красных команд](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1. Проведите регулярное тестирование на проникновение ресурсов Azure и обеспечьте исправление всех критических результатов безопасности.
 
-**Рекомендации**. Следуйте правилам тестирования уязвимости Microsoft Cloud, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт. Используйте стратегию Майкрософт и рекомендации "красных команд", а затем выполните тест на проникновение в режиме реального времени для управляемых корпорацией Майкрософт облачной инфраструктуры, служб и приложений.
+**Рекомендации**. Следуйте правилам тестирования уязвимости Microsoft Cloud, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт. Используйте стратегию Майкрософт и рекомендации "красных команд", а затем выполните тест на проникновение в режиме реального времени для управляемых корпорацией Майкрософт облачной инфраструктуры, служб и приложений. 
 
-* [Правила взаимодействия при выполнении тестирования на проникновение](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Правила взаимодействия при выполнении тестирования на проникновение](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-* [Привлечение "красных команд для тестирования "Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Привлечение "красных команд для тестирования "Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Ответственность**: Совмещаемая блокировка
 
-## <a name="next-steps"></a>Дальнейшие действия
+**Мониторинг центра безопасности Azure**: нет
 
-- Ознакомьтесь со статьей [Тесты производительности системы безопасности Azure](../security/benchmarks/overview.md).
-- Дополнительные сведения о [базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+## <a name="next-steps"></a>Следующие шаги
+
+- См. [Обзор Azure Security Benchmark версии 2](/azure/security/benchmarks/overview)
+- Дополнительные сведения о [базовой конфигурации безопасности Azure](/azure/security/benchmarks/security-baselines-overview).

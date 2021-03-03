@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/15/2021
+ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: ba38955666b296a0f8f0e9ab0aac9183277fb4ac
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 1ee422d4c040e8546135981e0640484acc997b0a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718732"
 ---
 # <a name="azure-resource-provider-operations"></a>Операции с поставщиками ресурсов Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "100535150"
 
 ## <a name="all"></a>Все
 
-| Общие сведения |
+| Общее |
 | --- |
 | [Microsoft.Addons](#microsoftaddons) |
 | [Microsoft.Marketplace](#microsoftmarketplace) |
@@ -40,9 +40,10 @@ ms.locfileid: "100535150"
 | [Microsoft.Cdn](#microsoftcdn) |
 | [Microsoft.ClassicNetwork](#microsoftclassicnetwork) |
 | [Microsoft.Network](#microsoftnetwork) |
-| **Хранилище** |
+| **Память** |
 | [Microsoft.ClassicStorage](#microsoftclassicstorage) |
 | [Microsoft.DataBox](#microsoftdatabox) |
+| [Microsoft.DataShare](#microsoftdatashare) |
 | [Microsoft.ImportExport](#microsoftimportexport) |
 | [Microsoft.NetApp](#microsoftnetapp) |
 | [Microsoft.Storage](#microsoftstorage) |
@@ -114,7 +115,7 @@ ms.locfileid: "100535150"
 | [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice) |
 | [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory) |
 | [Microsoft.ManagedIdentity](#microsoftmanagedidentity) |
-| **Security** |
+| **Безопасность** |
 | [Microsoft.KeyVault](#microsoftkeyvault) |
 | [Microsoft.Security](#microsoftsecurity) |
 | [Microsoft.SecurityGraph](#microsoftsecuritygraph) |
@@ -164,7 +165,7 @@ ms.locfileid: "100535150"
 | [Microsoft. Сервицешуб](#microsoftserviceshub) |
 
 
-## <a name="general"></a>Общие сведения
+## <a name="general"></a>Общее
 
 ### <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -442,12 +443,14 @@ ms.locfileid: "100535150"
 > | Microsoft. COMPUTE/Дискакцессес/чтение | Получение свойств ресурса Дискакцесс |
 > | Microsoft. COMPUTE/Дискакцессес/запись | Создайте новый ресурс Дискакцесс или обновите существующий. |
 > | Microsoft. COMPUTE/Дискакцессес/удаление | Удаление ресурса Дискакцесс |
-> | Microsoft. COMPUTE/Дискакцессес/Приватиндпоинтконнектионсаппровал/действие | Утверждение подключения к частной конечной точке |
+> | Microsoft. COMPUTE/Дискакцессес/Приватиндпоинтконнектионсаппровал/действие | Автоматическое утверждение подключения к частной конечной точке |
 > | Microsoft. COMPUTE/Дискакцессес/Приватиндпоинтконнектионпроксиес/чтение | Получение свойств прокси-сервера подключения частной конечной точки |
 > | Microsoft. COMPUTE/Дискакцессес/Приватиндпоинтконнектионпроксиес/запись | Создать новый прокси-сервер подключения к частной конечной точке |
 > | Microsoft. COMPUTE, Дискакцессес/Приватиндпоинтконнектионпроксиес/Delete | Удаление прокси-сервера подключения частной конечной точки |
 > | Microsoft. COMPUTE/Дискакцессес/Приватиндпоинтконнектионпроксиес/проверка/действие | Проверка прокси-объекта подключения частной конечной точки |
 > | Microsoft. COMPUTE, Дискакцессес/Приватиндпоинтконнектионс/Delete | Удаление подключения к частной конечной точке |
+> | Microsoft. COMPUTE/Дискакцессес/Приватиндпоинтконнектионс/чтение | Получение подключения к частной конечной точке |
+> | Microsoft. COMPUTE/Дискакцессес/Приватиндпоинтконнектионс/запись | Утверждение или отклонение подключения к частной конечной точке |
 > | Microsoft. COMPUTE/Дискенкриптионсетс/чтение | Получение свойств набора шифрования дисков |
 > | Microsoft. COMPUTE/Дискенкриптионсетс/запись | Создать новый или обновить существующий набор шифрования дисков |
 > | Microsoft. COMPUTE/Дискенкриптионсетс/удаление | Удаление набора шифрования дисков |
@@ -1550,6 +1553,60 @@ ms.locfileid: "100535150"
 > | Microsoft. Датабокс/Subscriptions/resourceGroups/Мовересаурцес/Action | Этот метод выполняет перемещение ресурса. |
 > | Microsoft. Датабокс/Subscriptions/resourceGroups/Валидатемовересаурцес/Action | Этот метод проверяет, разрешено ли перемещение ресурсов. |
 
+### <a name="microsoftdatashare"></a>Microsoft.DataShare
+
+Служба Azure: [Общая папка данных Azure](../data-share/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Действие | Описание |
+> | --- | --- |
+> | Microsoft. файл, регистрация или действие | Зарегистрируйте подписку для поставщика общих ресурсов данных. |
+> | Microsoft. файловый ресурс, отмена регистрации или действие | Отмените регистрацию подписки для поставщика общих ресурсов данных. |
+> | Microsoft. файл/учетные записи/чтение | Считывает учетную запись общей папки данных. |
+> | Microsoft. файл/учетные записи/запись | Записывает учетную запись общей папки данных. |
+> | Microsoft. файл/учетные записи/удаление | Удаляет учетную запись общей папки данных. |
+> | Microsoft. файл, учетные записи, общие ресурсы и чтение | Считывает общую сетевую папку с данными. |
+> | Microsoft. файл, учетные записи, общие ресурсы и запись | Записывает общую папку данных. |
+> | Microsoft. файл, учетные записи, общие ресурсы и удаление | Удаляет общую папку с общими данными. |
+> | Microsoft. Делите/Accounts/shares/Листсинчронизатионс/Action | Действие для Data Share Листсинчронизатион. |
+> | Microsoft. Делите/Accounts/shares/Листсинчронизатиондетаилс/Action | Действие для данных общего ресурса Листсинчронизатион. |
+> | Microsoft. файл, учетные записи, общие ресурсы/наборы данных/чтение | Считывает набор данных. |
+> | Microsoft. файл, учетные записи, общие ресурсы/наборы данных/запись | Создайте набор данных общего доступа к данным. |
+> | Microsoft. Делите/Accounts/shares/DataSets/Delete | Удаляет набор данных общего доступа. |
+> | Microsoft. файл, учетные записи, общие ресурсы, приглашения и чтение | Считывает приглашение к общему ресурсу данных. |
+> | Microsoft. файл, учетные записи, общие ресурсы, приглашения и запись | Записывает приглашение для общего доступа к данным. |
+> | Microsoft. файл, учетные записи, общие ресурсы, приглашения и удаление | Удаляет приглашение общего доступа к данным. |
+> | Microsoft. оператионресултс/Accounts/shares//Read | Считывает общую сетевую папку с данными. |
+> | Microsoft. провидершаресубскриптионс/Accounts/shares//Read | Считывает поставщик общих ресурсов данных Шаресубскриптион. |
+> | Microsoft. провидершаресубскриптионс/Accounts/shares//REVOKE/Action | Отменяет подписку на общий доступ к данным. |
+> | Microsoft. провидершаресубскриптионс/Accounts/shares//возобновить/действие | Возобновление подписки на общую папку данных. |
+> | Microsoft. синчронизатионсеттингс/Accounts/shares//Read | Считывает параметр синхронизации общего ресурса данных. |
+> | Microsoft. Делите/Accounts/shares/Синчронизатионсеттингс/Write | Записывает параметр синхронизации общего ресурса данных. |
+> | Microsoft. Делите/Accounts/shares/Синчронизатионсеттингс/Delete | Удаление параметра синхронизации общего ресурса данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Канцелсинчронизатион/Action | Отменяет синхронизацию общего ресурса данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Delete | Удаляет подписку на общую папку данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Листсаурцешаресинчронизатионсеттингс/Action | Перечисление источника данных общая папка Синчронизатионсеттингс. |
+> | Microsoft. шаресубскриптионс/Accounts//Листсинчронизатиондетаилс/Action | Вывод сведений о синхронизации общих ресурсов данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Листсинчронизатионс/Action | Вывод списка синхронизаций общих ресурсов данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Read | Считывает Шаресубскриптион общего ресурса данных. |
+> | Microsoft. файл/учетные записи/Шаресубскриптионс/синхронизация/действие | Инициализация операции общей синхронизации данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Write | Записывает данные общего ресурса Шаресубскриптион. |
+> | Microsoft. шаресубскриптионс/Accounts//Консумерсаурцедатасетс/Read | Считывает исходный набор данных объекта-получателя общего доступа к данным. |
+> | Microsoft. шаресубскриптионс/Accounts//Датасетмаппингс/Delete | Удаляет Датасетмаппинг общего ресурса данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Датасетмаппингс/Write | Запись Датасетмаппинг общего ресурса данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Датасетмаппингс/Read | Чтение Датасетмаппинг общего ресурса данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Оператионресултс/Read | Считывает состояние длительной операции Шаресубскриптион общей папки данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Шаресубскриптионсинчронизатионс/Read | Считывает общую папку с общими данными для синхронизации подписки. |
+> | Microsoft. шаресубскриптионс/Accounts//Синчронизатионоператионресултс/Read | Считывает результат операции синхронизации общего ресурса данных. |
+> | Microsoft. шаресубскриптионс/Accounts//Triggers/Read | Считывает триггер общего доступа к данным. |
+> | Microsoft. шаресубскриптионс/Accounts//Triggers/Write | Запись триггера общего доступа к данным. |
+> | Microsoft. шаресубскриптионс/Accounts//Triggers/Delete | Удаление триггера общего доступа к данным. |
+> | Microsoft. Листинвитатионс/считывание/чтение | Считывает приглашения на уровне клиента. |
+> | Microsoft. режектинвитатион/Locations//Action | Отклоняет приглашение для общего доступа к данным. |
+> | Microsoft. консумеринвитатионс/Locations//Read | Получает приглашение для обмена данными с потребителем. |
+> | Microsoft. оператионресултс/Locations//Read | Считывает общие сведения о расположениях, поддерживаемые в. |
+> | Microsoft. файл/операции/чтение | Считывает все доступные операции в поставщике ресурсов общего ресурса данных. |
+
 ### <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 Служба Azure: [Импорт и экспорт Azure](../import-export/storage-import-export-service.md)
@@ -1634,6 +1691,7 @@ ms.locfileid: "100535150"
 > | Microsoft. Storage/Locations/чеккнамеаваилабилити/Read | Проверяет, является ли имя учетной записи допустимым и неиспользуемым. |
 > | Microsoft.Storage/locations/usages/read | Возвращает предельное и текущее число используемых ресурсов для указанной подписки. |
 > | Microsoft.Storage/operations/read | Опрашивает состояние асинхронной операции. |
+> | Microsoft. Storage/РесилиенЦиеспрогрессионс/чтение |  |
 > | Microsoft.Storage/skus/read | Выводит список номеров SKU, поддерживаемых Microsoft.Storage. |
 > | Microsoft. Storage/storageAccounts/Упдатеинтерналпропертиес/действие |  |
 > | Microsoft. Storage/storageAccounts/хнсонмигратион/действие | Клиент может прервать текущую миграцию службы HNS в учетной записи хранения. |
@@ -2913,6 +2971,7 @@ ms.locfileid: "100535150"
 > | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Сброс профиля субъекта-службы управляемого кластера. |
 > | Microsoft.ContainerService/managedClusters/resetAADProfile/action | Сброс профиля AAD управляемого кластера. |
 > | Microsoft. ContainerService/Манажедклустерс/Ротатеклустерцертификатес/Action | Смена сертификатов для управляемого кластера |
+> | Microsoft. ContainerService/Манажедклустерс/Рункомманд/Action | Выполните команду, выданную пользователем, на управляемом сервере kubernetes. |
 > | Microsoft. ContainerService/Манажедклустерс/Приватиндпоинтконнектионсаппровал/Action | Определяет, разрешено ли пользователю утверждать подключение частной конечной точки |
 > | Microsoft.ContainerService/managedClusters/accessProfiles/read | Получение профиля доступа управляемого кластера по имени роли. |
 > | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Получение профиля доступа управляемого кластера по имени роли с помощью вывода учетных данных. |
@@ -2922,8 +2981,12 @@ ms.locfileid: "100535150"
 > | Microsoft. ContainerService/Манажедклустерс/Ажентпулс/Упграденодеимажеверсион/Write | Обновление версии образа узла пула агентов |
 > | Microsoft. ContainerService/Манажедклустерс/Ажентпулс/Упградепрофилес/Read | Возвращает профиль обновления пула агентов. |
 > | Microsoft. ContainerService/Манажедклустерс/Аваилаблеажентпулверсионс/Read | Возвращает доступные версии пула агентов кластера. |
+> | Microsoft. ContainerService/Манажедклустерс/Коммандресултс/Read | Получить результат из предыдущей выданной команды. |
 > | Microsoft. ContainerService/Манажедклустерс/детекторы/чтение | Получить средство обнаружения управляемого кластера |
 > | Microsoft. ContainerService/Манажедклустерс/Диагностиксстате/Read | Возвращает состояние диагностики кластера. |
+> | Microsoft. ContainerService/Манажедклустерс/Маинтенанцеконфигуратионс/Read | Возвращает конфигурацию обслуживания. |
+> | Microsoft. ContainerService/Манажедклустерс/Маинтенанцеконфигуратионс/запись | Создает новый Маинтенанцеконфигуратион или обновляет существующий. |
+> | Microsoft. ContainerService/Манажедклустерс/Маинтенанцеконфигуратионс/Delete | Удаляет конфигурацию обслуживания. |
 > | Microsoft. ContainerService/Манажедклустерс/Приватиндпоинтконнектионс/Read | Получение подключения к частной конечной точке |
 > | Microsoft. ContainerService/Манажедклустерс/Приватиндпоинтконнектионс/запись | Утверждение или отклонение подключения к частной конечной точке |
 > | Microsoft. ContainerService/Манажедклустерс/Приватиндпоинтконнектионс/Delete | Удаление подключения к частной конечной точке |
@@ -3261,9 +3324,9 @@ ms.locfileid: "100535150"
 > | Microsoft.Cache/checknameavailability/action | Проверяет, доступно ли имя для нового кэша Redis. |
 > | Microsoft.Cache/register/action | Регистрирует поставщик ресурсов Microsoft.Cache для подписки. |
 > | Microsoft.Cache/unregister/action | Отменяет регистрацию поставщика ресурсов Microsoft.Cache для подписки. |
-> | Microsoft. Cache/Locations/Асинкоператионс/Read | Вывод списка операций, которые поддерживает поставщик Microsoft.Cache. |
-> | Microsoft.Cache/locations/operationresults/read | Получение результата длительных операций, для которых заголовок Location был ранее возвращен клиенту. |
-> | Microsoft. Cache/Locations/Оператионсстатус/Read | Возвращает результат длительной операции, для которой заголовок "Азуреасинк" был ранее возвращен клиенту |
+> | Microsoft. Cache/Locations/Асинкоператионс/Read | Чтение состояния асинхронной операции |
+> | Microsoft. Cache/Locations/Оператионресултс/Read | Получение результата длительных операций, для которых заголовок Location был ранее возвращен клиенту. |
+> | Microsoft. Cache/Locations/Оператионсстатус/Read | Просмотр состояния длительной операции, для которой заголовок "Азуреасинк" был ранее возвращен клиенту |
 > | Microsoft.Cache/operations/read | Вывод списка операций, которые поддерживает поставщик Microsoft.Cache. |
 > | Microsoft.Cache/redis/write | Изменяет параметры и конфигурацию кэша Redis на портале управления. |
 > | Microsoft.Cache/redis/read | Отображает параметры и конфигурацию кэша Redis на портале управления. |
@@ -3273,17 +3336,17 @@ ms.locfileid: "100535150"
 > | Microsoft.Cache/redis/import/action | Импортирует в Redis данные в указанном формате из нескольких больших двоичных объектов. |
 > | Microsoft.Cache/redis/export/action | Экспортирует данные Redis в большие двоичные объекты с префиксом в службе хранилища в указанном формате. |
 > | Microsoft.Cache/redis/forceReboot/action | Принудительно перезапускает экземпляр кэша. При этом возможна потеря данных. |
-> | Microsoft.Cache/redis/stop/action | Останавливает экземпляр кэша. |
-> | Microsoft.Cache/redis/start/action | Запускает экземпляр кэша. |
+> | Microsoft.Cache/redis/stop/action | Останавливает кэш Azure для Redis, что может привести к потере данных. |
+> | Microsoft.Cache/redis/start/action | Запуск кэша Azure для Redis |
 > | Microsoft. Cache/Redis/Евентгридфилтерс/чтение | Получение фильтра сетки событий кэша Redis |
 > | Microsoft. Cache/Redis/Евентгридфилтерс/запись | Обновление фильтров сетки событий кэша Redis |
 > | Microsoft. Cache/Redis, Евентгридфилтерс/Delete | Удалить фильтры сетки событий для кэша Redis |
 > | Microsoft.Cache/redis/firewallRules/read | Возвращает правила брандмауэра для IP-адресов для кэша Redis. |
 > | Microsoft.Cache/redis/firewallRules/write | Изменяет правила брандмауэра для IP-адресов для кэша Redis. |
 > | Microsoft.Cache/redis/firewallRules/delete | Удаляет правила брандмауэра для IP-адресов для кэша Redis. |
-> | Microsoft.Cache/redis/linkedservers/read | Возвращает связанные серверы для кэша Redis. |
-> | Microsoft.Cache/redis/linkedservers/write | Добавляет связанный сервер для кэша Redis. |
-> | Microsoft.Cache/redis/linkedservers/delete | Удаляет связанный сервер из кэша Redis. |
+> | Microsoft. Cache/Redis/linkedServers/чтение | Возвращает связанные серверы для кэша Redis. |
+> | Microsoft. Cache/Redis/linkedServers/запись | Добавляет связанный сервер для кэша Redis. |
+> | Microsoft. Cache/Redis, linkedServers/Delete | Удаляет связанный сервер из кэша Redis. |
 > | Microsoft.Cache/redis/metricDefinitions/read | Возвращает доступные метрики для кэша Redis. |
 > | Microsoft.Cache/redis/patchSchedules/read | Возвращает расписание исправления для кэша Redis. |
 > | Microsoft.Cache/redis/patchSchedules/write | Изменяет расписание исправления для кэша Redis. |
@@ -3296,11 +3359,22 @@ ms.locfileid: "100535150"
 > | Microsoft. Cache/Redis/Приватиндпоинтконнектионс/запись | Запись частного подключения к конечной точке |
 > | Microsoft. Cache/Redis, Приватиндпоинтконнектионс/Delete | Удаление подключения к частной конечной точке |
 > | Microsoft. Cache/Redis/Привателинкресаурцес/чтение | Чтение "groupId" Redis подресурса, к которому может быть подключена частная ссылка |
+> | Microsoft. Cache/Редисентерприсе/удаление | Удаление всего кэша Redis предприятия |
+> | Microsoft. Cache/Редисентерприсе/чтение | Просмотр параметров и конфигурации кэша Redis Enterprise на портале управления |
+> | Microsoft. Cache/Редисентерприсе/запись | Изменение параметров и конфигурации кэша Redis Enterprise на портале управления |
+> | Microsoft. Cache/Редисентерприсе/databases/Delete | Удаляет базу данных Redis Enterprise и ее содержимое |
+> | Microsoft. Cache/Редисентерприсе/databases/Read | Просмотр параметров и конфигурации базы данных кэша предприятия Redis на портале управления |
+> | Microsoft. Cache/Редисентерприсе/databases/Write | Изменение параметров и конфигурации базы данных кэша предприятия Redis на портале управления |
+> | Microsoft. Cache/Редисентерприсе/databases/Форцеунлинк/Action | Принудительная отмена связи базы данных Redis Enterprise с георепликой от ее коллег |
 > | Microsoft. Cache/Редисентерприсе/Приватиндпоинтконнектионпроксиес/проверка/действие | Проверка прокси-сервера подключения к частной конечной точке |
 > | Microsoft. Cache/Редисентерприсе/Приватиндпоинтконнектионпроксиес/чтение | Получение прокси-сервера подключения частной конечной точки |
 > | Microsoft. Cache/Редисентерприсе/Приватиндпоинтконнектионпроксиес/запись | Создание прокси-сервера подключения к частной конечной точке |
 > | Microsoft. Cache/Редисентерприсе, Приватиндпоинтконнектионпроксиес/Delete | Удаление прокси-сервера подключения частной конечной точки |
-> | Microsoft. Cache/Редисентерприсе/Приватиндпоинтконнектионпроксиес/оператионресултс/чтение | Удаление прокси-сервера подключения частной конечной точки |
+> | Microsoft. Cache/Редисентерприсе/Приватиндпоинтконнектионпроксиес/Оператионресултс/чтение | Просмотр результатов операций подключения к частной конечной точке на портале управления |
+> | Microsoft. Cache/Редисентерприсе/Приватиндпоинтконнектионс/чтение | Чтение подключения к частной конечной точке |
+> | Microsoft. Cache/Редисентерприсе/Приватиндпоинтконнектионс/запись | Запись частного подключения к конечной точке |
+> | Microsoft. Cache/Редисентерприсе, Приватиндпоинтконнектионс/Delete | Удаление подключения к частной конечной точке |
+> | Microsoft. Cache/Редисентерприсе/Привателинкресаурцес/чтение | Чтение "groupId" Redis подресурса, к которому может быть подключена частная ссылка |
 > | Microsoft. Cache/Редисентерприсе/providers/Microsoft. Insights/metricDefinitions/Read | Получение доступных метрик для кэша Redis предприятия. |
 
 ### <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -3778,6 +3852,12 @@ ms.locfileid: "100535150"
 > | Действие | Описание |
 > | --- | --- |
 > | Microsoft.DocumentDB/register/action |  Регистрация поставщика ресурсов Microsoft DocumentDB для подписки. |
+> | Microsoft.DocУментдб/Кассандраклустерс/Read | Чтение управляемого кластера Cassandra или перечисление всех управляемых кластеров Cassandra |
+> | Microsoft.DocУментдб/Кассандраклустерс/Write | Создание или обновление управляемого кластера Cassandra |
+> | Microsoft.DocУментдб/Кассандраклустерс/Delete | Удаление управляемого кластера Cassandra |
+> | Microsoft.DocУментдб/Кассандраклустерс/центры обработки данных/чтение | Чтение центра обработки данных в управляемом кластере Cassandra или перечисление всех центров обработки данных в управляемом кластере Cassandra |
+> | Microsoft.DocУментдб/Кассандраклустерс/центры обработки данных/запись | Создание или обновление центра обработки данных в управляемом кластере Cassandra |
+> | Microsoft.DocУментдб/Кассандраклустерс/центры обработки данных/удаление | Удаление центра обработки данных в управляемом кластере Cassandra |
 > | Microsoft.DocumentDB/databaseAccountNames/read | Проверяет доступность имени. |
 > | Microsoft.DocumentDB/databaseAccounts/read | Считывает учетную запись базы данных. |
 > | Microsoft.DocumentDB/databaseAccounts/write | Обновляет учетные записи базы данных. |
@@ -3981,6 +4061,12 @@ ms.locfileid: "100535150"
 > | Microsoft.DocУментдб/databaseAccounts/Склдатабасес/Сраугхпутсеттингс/Мигратетоаутоскале/Оператионресултс/Read | Чтение состояния асинхронной операции. |
 > | Microsoft.DocУментдб/databaseAccounts/Склдатабасес/Сраугхпутсеттингс/Мигратетомануалсраугхпут/Оператионресултс/Read | Чтение состояния асинхронной операции. |
 > | Microsoft.DocУментдб/databaseAccounts/Склдатабасес/Сраугхпутсеттингс/Оператионресултс/Read | Чтение состояния асинхронной операции. |
+> | Microsoft.DocУментдб/databaseAccounts/Склролеассигнментс/Read | Чтение назначения ролей SQL |
+> | Microsoft.DocУментдб/databaseAccounts/Склролеассигнментс/Write | Создание или обновление назначения роли SQL |
+> | Microsoft.DocУментдб/databaseAccounts/Склролеассигнментс/Delete | Удаление назначения роли SQL |
+> | Microsoft.DocУментдб/databaseAccounts/Склроледефинитионс/Read | Чтение определения роли SQL |
+> | Microsoft.DocУментдб/databaseAccounts/Склроледефинитионс/Write | Создание или обновление определения роли SQL |
+> | Microsoft.DocУментдб/databaseAccounts/Склроледефинитионс/Delete | Удаление определения роли SQL |
 > | Microsoft.DocУментдб/databaseAccounts/Tables/Write | Создание или обновление таблицы. |
 > | Microsoft.DocУментдб/databaseAccounts/Tables/Read | Считывает таблицу или список всех таблиц. |
 > | Microsoft.DocУментдб/databaseAccounts/Tables/Delete | Удаление таблицы. |
@@ -4745,6 +4831,8 @@ ms.locfileid: "100535150"
 > | Microsoft. Kusto/Clusters/Аттачеддатабасеконфигуратионс/Read | Считывает ресурс конфигурации присоединенной базы данных. |
 > | Microsoft. Kusto/Clusters/Аттачеддатабасеконфигуратионс/Write | Записывает ресурс конфигурации присоединенной базы данных. |
 > | Microsoft. Kusto/Clusters/Аттачеддатабасеконфигуратионс/Delete | Удаляет ресурс конфигурации присоединенной базы данных. |
+> | Microsoft. Kusto/Clusters/Аттачеддатабасеконфигуратионс/Write | Напишите ресурс скрипта. |
+> | Microsoft. Kusto/Clusters/Аттачеддатабасеконфигуратионс/Delete | Удаление ресурса скрипта. |
 > | Microsoft.Kusto/Clusters/Databases/read | Читает ресурс базы данных. |
 > | Microsoft.Kusto/Clusters/Databases/write | Записывает ресурс базы данных. |
 > | Microsoft.Kusto/Clusters/Databases/delete | Удаляет ресурс базы данных. |
@@ -4763,6 +4851,7 @@ ms.locfileid: "100535150"
 > | Microsoft. Kusto/Clusters/databases/ПринЦипалассигнментс/Read | Считывает ресурс назначений участников базы данных. |
 > | Microsoft. Kusto/Clusters/databases/ПринЦипалассигнментс/Write | Записывает ресурс назначений участников базы данных. |
 > | Microsoft. Kusto/Clusters/databases/ПринЦипалассигнментс/Delete | Удаляет ресурс назначений участников базы данных. |
+> | Microsoft. Kusto/Clusters/databases/Scripts/Read | Считывает ресурс конфигурации присоединенной базы данных. |
 > | Microsoft. Kusto/Clusters/подключения/чтение | Считывает ресурс подключений к данным кластера. |
 > | Microsoft. Kusto/Clusters/соединений/запись | Записывает ресурс подключений к данным кластера. |
 > | Microsoft. Kusto/Clusters/соединений/удаления | Удаляет ресурс подключений к данным кластера. |
@@ -4906,7 +4995,6 @@ ms.locfileid: "100535150"
 > | Microsoft. синапсе/рабочие области/Администраторы/удаление | Удалить рабочую область Active Directory администратора |
 > | Microsoft. синапсе/рабочие области/Аудитингсеттингс/запись | Создание или обновление параметров аудита SQL Server. |
 > | Microsoft. синапсе/рабочие области/Аудитингсеттингс/чтение | Чтение параметров аудита SQL Server по умолчанию. |
-> | Microsoft. синапсе/рабочие области/Аудитингсеттингс/Оператионресултс/чтение | Параметры аудита SQL Server |
 > | Microsoft. синапсе/рабочие области/Бигдатапулс/запись | Создание или обновление пулов Spark. |
 > | Microsoft. синапсе/рабочие области/Бигдатапулс/чтение | Чтение пулов Spark. |
 > | Microsoft. синапсе/рабочие области/Бигдатапулс/удаление | Удалите пулы Spark. |
@@ -5428,7 +5516,6 @@ ms.locfileid: "100535150"
 > | Microsoft. CognitiveServices/Accounts/Имажесеарч/Поиск/действие | Получение соответствующих изображений для данного запроса. |
 > | Microsoft. CognitiveServices/Accounts/Имажесеарч/тенденция/действие | Получите образами тенденции. |
 > | Microsoft. CognitiveServices/Accounts/Иммерсивереадер/жетконтентмоделфорреадер/Action | Создает иммерсивное сеанс чтения |
-> | Microsoft. CognitiveServices/Accounts/Инкрекогнизер/Recognize/действие | Учитывая набор данных Stroke, анализирует содержимое и создает список распознаваемых сущностей, включая распознанный текст. |
 > | Microsoft. CognitiveServices/Accounts/LUIS/Predict/Action | Возвращает прогноз опубликованной конечной точки для данного запроса. |
 > | Microsoft. CognitiveServices/Accounts/LUIS/Apps/запись | Создает новое приложение LUIS. Обновляет имя или описание приложения. |
 > | Microsoft. CognitiveServices/Accounts/LUIS/Apps/азуреаккаунтс/действие | Назначает учетную запись Azure приложению. |
@@ -5810,6 +5897,7 @@ ms.locfileid: "100535150"
 > | Microsoft. Мачинелеарнингсервицес/рабочие области/Онлининдпоинтс/чтение | Получает конечные точки вывода в сети в Службы машинного обучения рабочих областях |
 > | Microsoft. Мачинелеарнингсервицес/рабочие области/Онлининдпоинтс/запись | Создает или обновляет конечную точку вывода в сети в Службы машинного обучения рабочих областях |
 > | Microsoft. Мачинелеарнингсервицес/рабочие области/Онлининдпоинтс/удаление | Удаляет конечную точку вывода в сети в Службы машинного обучения рабочих областях |
+> | Microsoft. Мачинелеарнингсервицес/workspaces/Онлининдпоинтс/Оценка/действие | Оценка конечных точек вывода в сети в Службы машинного обучения рабочих областях |
 > | Microsoft. Мачинелеарнингсервицес/рабочие области/Онлининдпоинтс/Чеккнамеаваилабилити/чтение | Проверяет имя конечной точки вывода в сети в Службы машинного обучения рабочих областях |
 > | Microsoft. Мачинелеарнингсервицес/workspaces/Онлининдпоинтс/развертывания/чтение | Возвращает развертывания в конечной точке вывода в режиме "в сети" в Службы машинного обучения рабочих областях |
 > | Microsoft. Мачинелеарнингсервицес/workspaces/Онлининдпоинтс/развертывания/запись | Создает или обновляет развертывание в конечной точке вывода в сети в Службы машинного обучения рабочих областях |
@@ -6553,6 +6641,7 @@ ms.locfileid: "100535150"
 > | Microsoft.EventGrid/domains/delete | Удаление домена |
 > | Microsoft.EventGrid/domains/listKeys/action | Получение списка ключей для домена |
 > | Microsoft.EventGrid/domains/regenerateKey/action | Повторное создание ключа для домена |
+> | Microsoft. EventGrid/Domains/Приватиндпоинтконнектионсаппровал/Action | Утвердить Приватиндпоинтконнектионс для доменов |
 > | Microsoft. EventGrid/Domains/Приватиндпоинтконнектионпроксиес/проверка/действие | Проверка Приватиндпоинтконнектионпроксиес для доменов |
 > | Microsoft. EventGrid/Domains/Приватиндпоинтконнектионпроксиес/Read | Чтение Приватиндпоинтконнектионпроксиес для доменов |
 > | Microsoft. EventGrid/Domains/Приватиндпоинтконнектионпроксиес/Write | Запись Приватиндпоинтконнектионпроксиес для доменов |
@@ -6584,15 +6673,34 @@ ms.locfileid: "100535150"
 > | Microsoft.EventGrid/operationResults/read | Чтение результата операции |
 > | Microsoft.EventGrid/operations/read | Вывод списка операций EventGrid. |
 > | Microsoft.EventGrid/operationsStatus/read | Чтение состояния операции |
+> | Microsoft. EventGrid/Партнернамеспацес/запись | Создание или обновление пространства имен партнера |
+> | Microsoft. EventGrid/Партнернамеспацес/Read | Чтение пространства имен партнера |
+> | Microsoft. EventGrid/Партнернамеспацес/Delete | Удаление пространства имен партнера |
+> | Microsoft. EventGrid/Партнернамеспацес/listKeys/Action | Вывод списка ключей для пространства имен партнера |
+> | Microsoft. EventGrid/Партнернамеспацес/Реженератекэй/Action | Повторное создание ключа для пространства имен партнера |
+> | Microsoft. EventGrid/Партнернамеспацес/eventChannels/Read | Чтение канала событий |
+> | Microsoft. EventGrid/Партнернамеспацес/eventChannels/запись | Создание или обновление канала событий |
+> | Microsoft. EventGrid/Партнернамеспацес/eventChannels/Delete | Удаление канала событий |
 > | Microsoft. EventGrid/Партнернамеспацес/providers/Microsoft. Insights/diagnosticSettings/Read | Получает параметр диагностики для пространств имен партнеров. |
 > | Microsoft. EventGrid/Партнернамеспацес/providers/Microsoft. Insights/diagnosticSettings/запись | Создает или обновляет параметр диагностики для пространств имен партнеров. |
 > | Microsoft. EventGrid/Партнернамеспацес/providers/Microsoft. Insights/Логдефинитионс/Read | Разрешает доступ к журналам диагностики |
 > | Microsoft. EventGrid/Партнернамеспацес/providers/Microsoft. Insights/metricDefinitions/Read | Получение доступных метрик для пространств имен партнеров. |
+> | Microsoft. EventGrid/Партнеррегистратионс/запись | Создание или обновление регистрации партнера |
+> | Microsoft. EventGrid/Партнеррегистратионс/Read | Чтение регистрации партнера |
+> | Microsoft. EventGrid/Партнеррегистратионс/Delete | Удаление регистрации партнера |
+> | Microsoft. EventGrid/Партнертопикс/Read | Чтение раздела партнера |
+> | Microsoft. EventGrid/Партнертопикс/запись | Создание или обновление раздела партнера |
+> | Microsoft. EventGrid/Партнертопикс/Delete | Удалить раздел партнера |
+> | Microsoft. EventGrid/Партнертопикс/активация/действие | Тема активации партнера |
+> | Microsoft. EventGrid/Партнертопикс/деактивация/действие | Раздел деактивации партнера |
 > | Microsoft. EventGrid/Партнертопикс/providers/Microsoft. Insights/diagnosticSettings/Read | Получает параметр диагностики для разделов партнеров. |
 > | Microsoft. EventGrid/Партнертопикс/providers/Microsoft. Insights/diagnosticSettings/запись | Создает или обновляет параметр диагностики для разделов партнеров. |
 > | Microsoft. EventGrid/Партнертопикс/providers/Microsoft. Insights/Логдефинитионс/Read | Разрешает доступ к журналам диагностики |
 > | Microsoft. EventGrid/Партнертопикс/providers/Microsoft. Insights/metricDefinitions/Read | Получение доступных метрик для разделов партнеров. |
 > | Microsoft. EventGrid/SKU/чтение | Чтение доступных определений SKU для ресурсов сетки событий |
+> | Microsoft. EventGrid/Системтопикс/Read | Ознакомьтесь с системным разделом |
+> | Microsoft. EventGrid/Системтопикс/запись | Создание или обновление системного раздела |
+> | Microsoft. EventGrid/Системтопикс/Delete | Удаление системного раздела |
 > | Microsoft. EventGrid/Системтопикс/providers/Microsoft. Insights/diagnosticSettings/Read | Получает параметр диагностики для системных разделов |
 > | Microsoft. EventGrid/Системтопикс/providers/Microsoft. Insights/diagnosticSettings/запись | Создает или обновляет параметр диагностики для системных разделов |
 > | Microsoft. EventGrid/Системтопикс/providers/Microsoft. Insights/Логдефинитионс/Read | Разрешает доступ к журналам диагностики |
@@ -6602,6 +6710,7 @@ ms.locfileid: "100535150"
 > | Microsoft.EventGrid/topics/delete | Удаление раздела |
 > | Microsoft.EventGrid/topics/listKeys/action | Получение списка ключей для раздела |
 > | Microsoft.EventGrid/topics/regenerateKey/action | Повторное создание ключа для раздела |
+> | Microsoft. EventGrid/Topics/Приватиндпоинтконнектионсаппровал/Action | Утвердить Приватиндпоинтконнектионс для разделов |
 > | Microsoft. EventGrid/Topics/Приватиндпоинтконнектионпроксиес/проверка/действие | Проверка Приватиндпоинтконнектионпроксиес для разделов |
 > | Microsoft. EventGrid/темы/Приватиндпоинтконнектионпроксиес/чтение | Дополнительные сведения см. в Приватиндпоинтконнектионпроксиес |
 > | Microsoft. EventGrid/темы/Приватиндпоинтконнектионпроксиес/запись | Создание Приватиндпоинтконнектионпроксиес для разделов |
@@ -8623,6 +8732,9 @@ ms.locfileid: "100535150"
 > | Microsoft. OperationalInsights/рабочие области/запрос/Аддоназуребаккупстораже/чтение | Чтение данных из таблицы Аддоназуребаккупстораже |
 > | Microsoft. OperationalInsights/рабочие области/запрос/Адфактивитирун/чтение | Чтение данных из таблицы Адфактивитирун |
 > | Microsoft. OperationalInsights/рабочие области/запрос/Адфпипелинерун/чтение | Чтение данных из таблицы Адфпипелинерун |
+> | Microsoft. OperationalInsights/рабочие области/запрос/Адфсандбоксактивитирун/чтение | Чтение данных из таблицы Адфсандбоксактивитирун |
+> | Microsoft. OperationalInsights/рабочие области/запрос/Адфсандбокспипелинерун/чтение | Чтение данных из таблицы Адфсандбокспипелинерун |
+> | Microsoft. OperationalInsights/рабочие области/запрос/Адфссигнинлогс/чтение | Чтение данных из таблицы Адфссигнинлогс |
 > | Microsoft. OperationalInsights/рабочие области/запрос/Адфссисинтегратионрунтимелогс/чтение | Чтение данных из таблицы Адфссисинтегратионрунтимелогс |
 > | Microsoft. OperationalInsights/рабочие области/запрос/Адфссиспаккажеевентмессажеконтекст/чтение | Чтение данных из таблицы Адфссиспаккажеевентмессажеконтекст |
 > | Microsoft. OperationalInsights/рабочие области/запрос/Адфссиспаккажеевентмессажес/чтение | Чтение данных из таблицы Адфссиспаккажеевентмессажес |
@@ -9203,7 +9315,10 @@ ms.locfileid: "100535150"
 > | Microsoft. Automation/automationAccounts/Приватиндпоинтконнектионпроксиес/удаление | Удаление прокси-сервера подключения частной конечной точки службы автоматизации Azure |
 > | Microsoft. Automation/automationAccounts/Приватиндпоинтконнектионпроксиес/Оператионресултс/чтение | Получение результатов операции прокси-сервера частной конечной точки службы автоматизации Azure. |
 > | Microsoft. Automation/automationAccounts/Приватиндпоинтконнектионс/чтение | Получение состояния подключения к частной конечной точке службы автоматизации Azure |
+> | Microsoft. Automation/automationAccounts/Приватиндпоинтконнектионс/чтение | Получение состояния подключения к частной конечной точке службы автоматизации Azure |
 > | Microsoft. Automation/automationAccounts/Приватиндпоинтконнектионс/запись | Утверждение или отклонение подключения к частной конечной точке службы автоматизации Azure |
+> | Microsoft. Automation/automationAccounts/Приватиндпоинтконнектионс/удаление | Удаление подключения к частной конечной точке службы автоматизации Azure |
+> | Microsoft. Automation/automationAccounts/Привателинкресаурцес/чтение | Чтение сведений о группе для частных конечных точек |
 > | Microsoft. Automation/automationAccounts/Привателинкресаурцес/чтение | Чтение сведений о группе для частных конечных точек |
 > | Microsoft.Automation/automationAccounts/python2Packages/read | Получает пакет Python 2 службы автоматизации Azure |
 > | Microsoft.Automation/automationAccounts/python2Packages/write | Создает или обновляет пакет Python 2 службы автоматизации Azure |
@@ -9317,43 +9432,18 @@ ms.locfileid: "100535150"
 > [!div class="mx-tableFixed"]
 > | Действие | Описание |
 > | --- | --- |
-> | Microsoft. Billing/Валидатеаддресс/действие |  |
-> | Microsoft.Billing/register/action |  |
 > | Microsoft.Billing/billingAccounts/read |  |
 > | Microsoft. Billing/Биллингаккаунтс/Листинвоицесектионсвискреатесубскриптионпермиссион/Action |  |
 > | Microsoft. Billing/Биллингаккаунтс/Write |  |
-> | Microsoft. Billing/Биллингаккаунтс/соглашения/чтение |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингпермиссионс/Read |  |
+> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Write |  |
 > | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Read |  |
 > | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Write |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Биллингпермиссионс/Read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Customers/Read |  |
+> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Инвоицесектионс/Write |  |
 > | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Инвоицесектионс/Read |  |
 > | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Инвоицесектионс/Write |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Инвоицесектионс/Биллингпермиссионс/Read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/прайс-лист/действие |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингролеассигнментс/Write |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингсубскриптионс/Read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингсубскриптионс/перемещение/действие |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингсубскриптионс/Валидатемовилигибилити/Action |  |
-> | Microsoft. Billing/Биллингаккаунтс/Биллингсубскриптионс/Довнлоаддокументс/Action | Скачать накладную с помощью ссылки для скачивания из списка |
-> | Microsoft. Billing/Биллингаккаунтс/Customers/Read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Customers/Биллингпермиссионс/Read |  |
-> | Microsoft.Billing/billingAccounts/departments/read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Departments/Биллингпермиссионс/чтение |  |
-> | Microsoft. Billing/Биллингаккаунтс/Departments/Биллингролеассигнментс/запись |  |
-> | Microsoft.Billing/billingAccounts/enrollmentAccounts/read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Енроллментаккаунтс/Биллингпермиссионс/Read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Енроллментаккаунтс/Биллингролеассигнментс/Write |  |
-> | Microsoft. Billing/Биллингаккаунтс/счета/прайс-лист/скачивание/действие |  |
-> | Microsoft. Billing/Биллингаккаунтс/Products/Read |  |
-> | Microsoft. Billing/Биллингаккаунтс/Products/Move/Action |  |
-> | Microsoft. Billing/Биллингаккаунтс/Products/Валидатемовилигибилити/Action |  |
-> | Microsoft. Billing/Биллингпроперти/Read |  |
+> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Инвоицесектионс/Валидатеделетеинвоицесектионелигибилити/Write |  |
+> | Microsoft. Billing/Биллингаккаунтс/Биллингпрофилес/Валидатеделетебиллингпрофилилигибилити/Write |  |
 > | Microsoft. Billing/Биллингпроперти/Write |  |
-> | Microsoft.Billing/departments/read |  |
-> | Microsoft. выставление счетов/счета/Загрузка/действие | Скачать накладную с помощью ссылки для скачивания из списка |
-> | Microsoft.Billing/invoices/read |  |
 > | Microsoft. выставление счетов/операции/чтение |  |
 
 ### <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -9999,78 +10089,83 @@ ms.locfileid: "100535150"
 > | Действие | Описание |
 > | --- | --- |
 > | Microsoft.RecoveryServices/register/action | Регистрация подписки для заданного поставщика ресурсов. |
-> | Microsoft. RecoveryServices/Locations/Баккупкроссрегионресторе/Action | Активация восстановления между регионами. |
-> | Microsoft. RecoveryServices/Locations/Баккупкрржоб/Action | Получите сведения о задании восстановления из нескольких регионов в дополнительном регионе для хранилища служб восстановления. |
-> | Microsoft. RecoveryServices/Locations/Баккупкрржобс/Action | Перечисление заданий восстановления с перекрестной областью в дополнительном регионе для хранилища служб восстановления. |
-> | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/Locations/backupStatus/action | Проверка состояния архивации хранилищ служб восстановления. |
-> | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Проверка компонентов. |
+> | Microsoft. recoveryservices/Locations/Баккупкроссрегионресторе/Action | Активация восстановления между регионами. |
+> | Microsoft. recoveryservices/Locations/Баккупкрржоб/Action | Получите сведения о задании восстановления из нескольких регионов в дополнительном регионе для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/Locations/Баккупкрржобс/Action | Перечисление заданий восстановления с перекрестной областью в дополнительном регионе для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/Locations/Баккуппревалидатепротектион/Action |  |
+> | Microsoft. recoveryservices/Locations/Баккупстатус/Action | Проверка состояния архивации хранилищ служб восстановления. |
+> | Microsoft. recoveryservices/Locations/Баккупвалидатефеатурес/Action | Проверка компонентов. |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocatedStamp является внутренней операцией, используемой службой. |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Проверка доступности имени ресурса использует API, позволяющий проверить, доступно ли имя ресурса. |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp является внутренней операцией, используемой службой. |
-> | Microsoft. RecoveryServices/Locations/Баккупаадпропертиес/Read | Получите свойства AAD для проверки подлинности в третьем регионе для восстановления между регионами. |
-> | Microsoft. RecoveryServices/Locations/Баккупкрроператионресултс/Read | Возвращает результат операции КРР для хранилища служб восстановления. |
-> | Microsoft. RecoveryServices/Locations/Баккупкрроператионсстатус/Read | Возвращает состояние операции КРР для хранилища служб восстановления. |
-> | Microsoft. RecoveryServices/Locations/Баккуппротектедитем/Write | Создает элемент, защищенный службой архивации. |
-> | Microsoft. RecoveryServices/Locations/Баккуппротектедитемс/Read | Возвращает список всех защищенных элементов. |
+> | Microsoft. recoveryservices/Locations/Баккупаадпропертиес/Read | Получите свойства AAD для проверки подлинности в третьем регионе для восстановления между регионами. |
+> | Microsoft. recoveryservices/Locations/Баккупкрроператионресултс/Read | Возвращает результат операции КРР для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/Locations/Баккупкрроператионсстатус/Read | Возвращает состояние операции КРР для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/Locations/Баккуппротектедитем/Write | Создает элемент, защищенный службой архивации. |
+> | Microsoft. recoveryservices/Locations/Баккуппротектедитемс/Read | Возвращает список всех защищенных элементов. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Возвращает состояние операции для данной операции |
 > | Microsoft.RecoveryServices/operations/read | Получение списка операций для поставщика ресурсов. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Экспортирует задания. |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Возвращает данные ПИН-кода безопасности для хранилища служб восстановления. |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Проверка операций для защищенного элемента |
+> | Microsoft. recoveryservices/Vault/Баккупжобсекспорт/действие | Экспортирует задания. |
+> | Microsoft. recoveryservices/Vault/Баккупсекуритипин/действие | Возвращает данные ПИН-кода безопасности для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/Vault/Баккупвалидатеоператион/действие | Проверка операций для защищенного элемента |
 > | Microsoft.RecoveryServices/Vaults/write | Создает операцию создания хранилища, которая создает ресурс Azure типа "хранилище". |
 > | Microsoft.RecoveryServices/Vaults/read | Операция получения хранилища возвращает объект, представляющий ресурс Azure типа "хранилище". |
 > | Microsoft.RecoveryServices/Vaults/delete | Операция удаления хранилища удаляет указанный ресурс Azure типа "хранилище". |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Возвращает конфигурацию хранилища служб восстановления. |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/write | Обновляет конфигурацию хранилища служб восстановления. |
-> | Microsoft. RecoveryServices/хранилища/Баккупенкриптионконфигс/чтение | Возвращает конфигурацию шифрования ресурсов резервной копии. |
-> | Microsoft. RecoveryServices/Vault/Баккупенкриптионконфигс/запись | Обновляет конфигурацию шифрования ресурсов резервных копий |
-> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Возвращение всех серверов управления архивацией, зарегистрированных в хранилище. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Обновляет список контейнеров. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Удаление цели защиты для резервного копирования. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Получение цели защиты для резервного копирования. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Создание цели защиты для резервной копии. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Возвращает состояние операции. |
-> | Microsoft. RecoveryServices/хранилища/Баккупфабрикс/Оператионсстатус/чтение | Возвращает состояние операции. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Получение всех защищаемых контейнеров. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Удаление зарегистрированного контейнера. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Запрос рабочих нагрузок в контейнере. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Возвращает все зарегистрированные контейнеры. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Создание зарегистрированного контейнера. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Получение всех элементов в контейнере. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Возвращает результат операции, выполненной с контейнером защиты. |
-> | Microsoft. RecoveryServices/Vault/Баккупфабрикс/Протектионконтаинерс/Оператионсстатус/чтение | Возвращает состояние операции, выполненной с контейнером защиты. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Архивирует защищенный элемент. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Удаляет защищенный элемент. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Возвращает сведения об объекте для защищенного элемента. |
-> | Microsoft. RecoveryServices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтсрекоммендедформове/действие | Получение точек восстановления, рекомендуемых для перемещения на другой уровень |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Создает элемент, защищенный службой архивации. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Возвращает результат операции, выполненной с защищенными элементами. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Возвращает состояние операции, выполненной с защищенными элементами. |
-> | Microsoft. RecoveryServices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/accessToken/действие | Получение AccessToken для восстановления между регионами. |
-> | Microsoft. RecoveryServices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/перемещение/действие | Перемещение точки восстановления на другой уровень |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Подготавливает мгновенное восстановление для защищенного элемента. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Возвращает точки восстановления для защищенных элементов. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Восстанавливает точки восстановления для защищенных элементов. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Отменяет мгновенное восстановление для защищенного элемента. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Отменяет задание. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Возвращает все объекты заданий. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Возвращает результат операции задания. |
-> | Microsoft. RecoveryServices/хранилища/Баккупжобс/Оператионсстатус/чтение | Возвращает состояние операции задания. |
-> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Возвращает результат операции архивации для хранилища служб восстановления. |
-> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Возвращает состояние операции архивации для хранилища служб восстановления. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Удаляет политику защиты. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Возвращает все политики защиты. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Создает политику защиты. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Возвращает результаты операции политики. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Возвращает состояние операции политики. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Возвращает список всех защищаемых элементов. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Возвращает список всех защищенных элементов. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Возвращает все контейнеры, принадлежащие подписке. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Вывод списка всех целей защиты для резервного копирования. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Возвращает конфигурацию службы хранилища для хранилища служб восстановления. |
-> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Обновляет конфигурацию службы хранилища для хранилища служб восстановления. |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Возвращает сводки по защищенным элементам и защищенным серверам для служб восстановления. |
+> | Microsoft. recoveryservices/хранилища/баккупконфиг/чтение | Возвращает конфигурацию хранилища служб восстановления. |
+> | Microsoft. recoveryservices/Vault/баккупконфиг/запись | Обновляет конфигурацию хранилища служб восстановления. |
+> | Microsoft. recoveryservices/хранилища/Баккупенкриптионконфигс/чтение | Возвращает конфигурацию шифрования ресурсов резервной копии. |
+> | Microsoft. recoveryservices/Vault/Баккупенкриптионконфигс/запись | Обновляет конфигурацию шифрования ресурсов резервных копий |
+> | Microsoft. recoveryservices/хранилища/Баккупенгинес/чтение | Возвращение всех серверов управления архивацией, зарегистрированных в хранилище. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Рефрешконтаинерс/действие | Обновляет список контейнеров. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Баккуппротектионинтент/удалить | Удаление цели защиты для резервного копирования. |
+> | Microsoft. recoveryservices/хранилища/Баккупфабрикс/Баккуппротектионинтент/чтение | Получение цели защиты для резервного копирования. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Баккуппротектионинтент/запись | Создание цели защиты для резервной копии. |
+> | Microsoft. recoveryservices/хранилища/Баккупфабрикс/Оператионресултс/чтение | Возвращает состояние операции. |
+> | Microsoft. recoveryservices/хранилища/Баккупфабрикс/Оператионсстатус/чтение | Возвращает состояние операции. |
+> | Microsoft. recoveryservices/хранилища/Баккупфабрикс/Протектаблеконтаинерс/чтение | Получение всех защищаемых контейнеров. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/удалить | Удаление зарегистрированного контейнера. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/запрос/действие | Запрос рабочих нагрузок в контейнере. |
+> | Microsoft. recoveryservices/хранилища/Баккупфабрикс/Протектионконтаинерс/чтение | Возвращает все зарегистрированные контейнеры. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/запись | Создание зарегистрированного контейнера. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/элементы/чтение | Получение всех элементов в контейнере. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Оператионресултс/чтение | Возвращает результат операции, выполненной с контейнером защиты. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Оператионсстатус/чтение | Возвращает состояние операции, выполненной с контейнером защиты. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/резервное копирование/действие | Архивирует защищенный элемент. |
+> | Microsoft. recoveryservices/хранилища/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Delete | Удаляет защищенный элемент. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/чтение | Возвращает сведения об объекте для защищенного элемента. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтсрекоммендедформове/действие | Получение точек восстановления, рекомендуемых для перемещения на другой уровень |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/запись | Создает элемент, защищенный службой архивации. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Оператионресултс/чтение | Возвращает результат операции, выполненной с защищенными элементами. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Оператионсстатус/чтение | Возвращает состояние операции, выполненной с защищенными элементами. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/accessToken/действие | Получение AccessToken для восстановления между регионами. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/перемещение/действие | Перемещение точки восстановления на другой уровень |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/Провисионинстантитемрековери/действие | Подготавливает мгновенное восстановление для защищенного элемента. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/чтение | Возвращает точки восстановления для защищенных элементов. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/Restore/Action | Восстанавливает точки восстановления для защищенных элементов. |
+> | Microsoft. recoveryservices/Vault/Баккупфабрикс/Протектионконтаинерс/Протектедитемс/Рековерипоинтс/Ревокеинстантитемрековери/действие | Отменяет мгновенное восстановление для защищенного элемента. |
+> | Microsoft. recoveryservices/Vault/Баккупжобс/отмена/действие | Отменяет задание. |
+> | Microsoft. recoveryservices/хранилища/Баккупжобс/чтение | Возвращает все объекты заданий. |
+> | Microsoft. recoveryservices/хранилища/Баккупжобс/Оператионресултс/чтение | Возвращает результат операции задания. |
+> | Microsoft. recoveryservices/хранилища/Баккупжобс/Оператионсстатус/чтение | Возвращает состояние операции задания. |
+> | Microsoft. recoveryservices/хранилища/Баккупоператионресултс/чтение | Возвращает результат операции архивации для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/хранилища/Баккупоператионс/чтение | Возвращает состояние операции архивации для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/хранилища/Баккупоператионваултгуардпроксиес/удаление | Операция удаления Ваултгуард прокси удаляет указанный ресурс Azure типа "Ваултгуард proxy". |
+> | Microsoft. recoveryservices/хранилища/Баккупоператионваултгуардпроксиес/чтение | Операция получения Ваултгуард прокси получает объект, представляющий ресурс Azure типа "Ваултгуард proxy". |
+> | Microsoft. recoveryservices/хранилища/Баккупоператионваултгуардпроксиес/чтение | Получение списка прокси-серверов Ваултгуард для ресурса |
+> | Microsoft. recoveryservices/Vault/Баккупоператионваултгуардпроксиес/Унлоккделете/действие | Операция "разблокировать удаление Ваултгуард прокси" разблокирует следующую критическую операцию удаления |
+> | Microsoft. recoveryservices/Vault/Баккупоператионваултгуардпроксиес/запись | Операция CREATE Ваултгуард proxy создает ресурс Azure типа "Ваултгуард proxy" |
+> | Microsoft. recoveryservices/хранилища/БаккупполиЦиес/удаление | Удаляет политику защиты. |
+> | Microsoft. recoveryservices/хранилища/БаккупполиЦиес/чтение | Возвращает все политики защиты. |
+> | Microsoft. recoveryservices/Vault/БаккупполиЦиес/запись | Создает политику защиты. |
+> | Microsoft. recoveryservices/хранилища/БаккупполиЦиес/Оператионресултс/чтение | Возвращает результаты операции политики. |
+> | Microsoft. recoveryservices/Vault/БаккупполиЦиес/операции/чтение | Возвращает состояние операции политики. |
+> | Microsoft. recoveryservices/хранилища/Баккуппротектаблеитемс/чтение | Возвращает список всех защищаемых элементов. |
+> | Microsoft. recoveryservices/хранилища/Баккуппротектедитемс/чтение | Возвращает список всех защищенных элементов. |
+> | Microsoft. recoveryservices/хранилища/Баккуппротектионконтаинерс/чтение | Возвращает все контейнеры, принадлежащие подписке. |
+> | Microsoft. recoveryservices/хранилища/Баккуппротектионинтентс/чтение | Вывод списка всех целей защиты для резервного копирования. |
+> | Microsoft. recoveryservices/хранилища/баккупсторажеконфиг/чтение | Возвращает конфигурацию службы хранилища для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/Vault/баккупсторажеконфиг/запись | Обновляет конфигурацию службы хранилища для хранилища служб восстановления. |
+> | Microsoft. recoveryservices/хранилища/Баккупусажесуммариес/чтение | Возвращает сводки по защищенным элементам и защищенным серверам для служб восстановления. |
 > | Microsoft.RecoveryServices/Vaults/certificates/write | Операция обновления сертификата ресурса обновляет сертификат учетных данных для ресурса или хранилища. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Операция получения расширенных сведений о хранилище возвращает расширенные сведения об объекте, представляющие ресурс Azure типа "хранилище". |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | Операция получения расширенных сведений о хранилище возвращает расширенные сведения об объекте, представляющие ресурс Azure типа "хранилище". |
@@ -10079,14 +10174,14 @@ ms.locfileid: "100535150"
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Разрешение оповещения. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Возвращает конфигурацию уведомлений хранилища служб восстановления. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Настройка уведомлений по электронной почте в хранилище служб восстановления. |
-> | Microsoft. RecoveryServices/хранилища/Приватиндпоинтконнектионпроксиес/удаление | Подождите несколько минут и повторите попытку. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт. |
-> | Microsoft. RecoveryServices/хранилища/Приватиндпоинтконнектионпроксиес/чтение | Получение всех защищаемых контейнеров. |
-> | Microsoft. RecoveryServices/Vault/Приватиндпоинтконнектионпроксиес/проверка/действие | Получение всех защищаемых контейнеров. |
-> | Microsoft. RecoveryServices/Vault/Приватиндпоинтконнектионпроксиес/запись | Получение всех защищаемых контейнеров. |
-> | Microsoft. RecoveryServices/хранилища/Приватиндпоинтконнектионпроксиес/Оператионсстатус/чтение | Получение всех защищаемых контейнеров. |
-> | Microsoft. RecoveryServices/хранилища/Приватиндпоинтконнектионс/удаление | Удаление запросов к закрытой конечной точке. Этот вызов осуществляется администратором резервного копирования. |
-> | Microsoft. RecoveryServices/Vault/Приватиндпоинтконнектионс/запись | Утверждение или отклонение запросов частной конечной точки. Этот вызов осуществляется администратором резервного копирования. |
-> | Microsoft. RecoveryServices/хранилища/Приватиндпоинтконнектионс/Оператионсстатус/чтение | Возвращает состояние операции для подключения к частной конечной точке. |
+> | Microsoft. recoveryservices/хранилища/Приватиндпоинтконнектионпроксиес/удаление | Подождите несколько минут и повторите попытку. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт. |
+> | Microsoft. recoveryservices/хранилища/Приватиндпоинтконнектионпроксиес/чтение | Получение всех защищаемых контейнеров. |
+> | Microsoft. recoveryservices/Vault/Приватиндпоинтконнектионпроксиес/проверка/действие | Получение всех защищаемых контейнеров. |
+> | Microsoft. recoveryservices/Vault/Приватиндпоинтконнектионпроксиес/запись | Получение всех защищаемых контейнеров. |
+> | Microsoft. recoveryservices/хранилища/Приватиндпоинтконнектионпроксиес/Оператионсстатус/чтение | Получение всех защищаемых контейнеров. |
+> | Microsoft. recoveryservices/хранилища/Приватиндпоинтконнектионс/удаление | Удаление запросов к закрытой конечной точке. Этот вызов осуществляется администратором резервного копирования. |
+> | Microsoft. recoveryservices/Vault/Приватиндпоинтконнектионс/запись | Утверждение или отклонение запросов частной конечной точки. Этот вызов осуществляется администратором резервного копирования. |
+> | Microsoft. recoveryservices/хранилища/Приватиндпоинтконнектионс/Оператионсстатус/чтение | Возвращает состояние операции для подключения к частной конечной точке. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Операцию регистрации контейнера в службе можно использовать для регистрации контейнера в службе восстановления. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Операцию получения контейнеров можно использовать для получения контейнеров, зарегистрированных для ресурса. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | Операцию отмены регистрации контейнера можно использовать для отмены регистрации контейнера. |
@@ -10207,7 +10302,7 @@ ms.locfileid: "100535150"
 > | Microsoft. RecoveryServices/хранилища/Репликатионваултсеттингс/чтение | Чтение любого элемента.  |
 > | Microsoft. RecoveryServices/Vault/Репликатионваултсеттингс/запись | Создание или обновление любого  |
 > | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Чтение vCenter |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Возвращает данные об использовании хранилища служб восстановления. |
+> | Microsoft. recoveryservices/хранилища/использование/чтение | Возвращает данные об использовании хранилища служб восстановления. |
 > | Microsoft.RecoveryServices/vaults/usages/read | Считывание данных об использовании хранилищ |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | Операцию получения маркера хранилища можно использовать, чтобы получить маркер хранилища для операций серверной части уровня хранилища. |
 
@@ -10348,7 +10443,7 @@ ms.locfileid: "100535150"
 > | Microsoft.Intune/diagnosticsettings/delete | Удаление параметра диагностики. |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Чтение категорий параметра диагностики. |
 
-## <a name="other"></a>Другие
+## <a name="other"></a>Другое
 
 ### <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 

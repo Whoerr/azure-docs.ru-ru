@@ -7,18 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 894b0fcddaead6ce60e1becc7221c4f5e608de48
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 5a83211654ad1abafff59d5968c191ec1fa63616
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492303"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692408"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Перемещение данных в этапы конвейера машинного обучения и между ними (Python)
-
 
 В этой статье представлен код для импорта, преобразования и перемещения данных между шагами в конвейере Машинное обучение Azure. Общие сведения о работе с данными в Машинное обучение Azure см. [в статье доступ к данным в службах хранилища Azure](how-to-access-data.md). Преимущества и структура конвейеров Машинное обучение Azure см. в разделе [что такое конвейеры машинное обучение Azure?](concept-ml-pipelines.md).
 
@@ -29,7 +28,7 @@ ms.locfileid: "99492303"
 - Разделение `Dataset` данных на подмножества, такие как подмножества обучения и проверки
 - Создание `OutputFileDatasetConfig` объектов для передачи данных на следующий этап конвейера
 - Использование `OutputFileDatasetConfig` объектов в качестве входных данных для шагов конвейера
-- Создание новых `Dataset` объектов из `OutputFileDatasetConfig` сохраняемых
+- Создание новых `Dataset` объектов из `OutputFileDatasetConfig` висƒх для сохранения
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -64,10 +63,12 @@ ms.locfileid: "99492303"
 datastore = Datastore.get(workspace, 'training_data')
 iris_dataset = Dataset.Tabular.from_delimited_files(DataPath(datastore, 'iris.csv'))
 
-cats_dogs_dataset = Dataset.File.from_files(
-    paths='https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip',
-    archive_options=ArchiveOptions(archive_type=ArchiveType.ZIP, entry_glob='**/*.jpg')
-)
+datastore_path = [
+    DataPath(datastore, 'animals/dog/1.jpg'),
+    DataPath(datastore, 'animals/dog/2.jpg'),
+    DataPath(datastore, 'animals/cat/*.jpg')
+]
+cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
 Дополнительные параметры для создания наборов данных с разными параметрами и из разных источников, их регистрации и просмотра в пользовательском интерфейсе Машинное обучение Azure, понимание того, как размер данных взаимодействует с производительностью вычислений и их управление версиями, см. в разделе [Create машинное обучение Azure DataSets](how-to-create-register-datasets.md). 
@@ -200,7 +201,7 @@ with open(args.output_path, 'w') as f:
 
 После того, как начальный этап конвейера записывает некоторые данные в `OutputFileDatasetConfig` путь и получает выходные данные этого начального шага, его можно использовать в качестве входных данных для последующего шага. 
 
-В следующем коде 
+В приведенном ниже коде выполняется следующее: 
 
 * `step1_output_data` Указывает, что выходные данные Писонскриптстеп `step1` записываются в хранилище данных ADLS поколения 2 `my_adlsgen2` в режиме доступа для передачи. Дополнительные сведения о [настройке разрешений роли](how-to-access-data.md#azure-data-lake-storage-generation-2) для записи данных в ADLS поколения 2. 
 
@@ -223,7 +224,7 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
+    arguments = ["--pd", step1_output_data.as_input()]
 
 )
 
@@ -239,6 +240,15 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
                                                          description = 'files from step1`)
 ```
 
+## <a name="delete-outputfiledatasetconfig-contents-when-no-longer-needed"></a>Удалить `OutputFileDatasetConfig` содержимое, если оно больше не требуется
+
+Azure не удаляет промежуточные данные, записанные с помощью `OutputFileDatasetConfig` . Чтобы избежать расходов на хранение больших объемов ненужных данных, необходимо выполнить одно из следующих действий.
+
+* Программно удалять промежуточные данные в конце выполнения конвейера, когда они больше не нужны
+* Используйте хранилище BLOB-объектов с краткосрочной политикой хранения для промежуточных данных (см. статью [Оптимизация затрат с помощью автоматизации уровней доступа к хранилищу BLOB-объектов Azure](../storage/blobs/storage/blobs/storage-lifecycle-management-concepts.md)). 
+* Регулярно просматривайте и удаляйте данные, не требующие больше времени.
+
+Дополнительные сведения см. в статье [планирование и управление затратами для машинное обучение Azure](concept-plan-manage-cost.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

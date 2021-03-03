@@ -1,17 +1,17 @@
 ---
-title: Приступая к преобразованию документов
+title: Начало работы с функцией перевода документов
 description: Создание службы преобразования документов с помощью языков программирования C#, Go, Java, Node.js или Python
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 5508ffc758b08642b05b1f77b66c9f29be1c85a2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650785"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738163"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Начало работы с переводом документа (Предварительная версия)
 
@@ -26,6 +26,8 @@ ms.locfileid: "100650785"
 * Ресурс службы [**переводчика**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**не** ресурс Cognitive Services). 
 
 * [**Учетная запись хранилища BLOB-объектов Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Доступ к хранилищу Azure осуществляется с помощью учетной записи хранения.
+
+* Заполненная [**Форма перевода документа (Предварительная версия)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) , позволяющая подписке Azure использовать новую функцию перевода документов.
 
 > [!NOTE]
 > В настоящее время преобразование документов поддерживается только в ресурсе Translator (Одиночная служба), а **не** в ресурсе Cognitive Services (Multi-Service).
@@ -64,7 +66,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 ## <a name="create-your-azure-blob-storage-containers"></a>Создание контейнеров хранилища BLOB-объектов Azure
 
-Вам потребуется  [**создать контейнеры**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) в [**учетной записи хранилища BLOB-объектов Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) для исходных, целевых и необязательных файлов глоссария.
+Вам потребуется  [**создать контейнеры**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) в [**учетной записи хранилища BLOB-объектов Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) для исходных, целевых и необязательных файлов глоссария.
 
 * **Исходный контейнер**. В этом контейнере вы отправляете файлы для перевода (обязательно).
 * **Целевой контейнер**. В этом контейнере будут храниться переведенные файлы (обязательно).  
@@ -201,26 +203,7 @@ gradle run
 >[!NOTE]
 > Если файл с таким именем уже существует в назначении, он будет перезаписан.
 
-### <a name="post-a-translation-request"></a>Публикация запроса на перевод
-
-> [!IMPORTANT]
->
-> * В примерах кода ниже может потребоваться обновить следующие поля в зависимости от операции:
-
->> [!div class="checklist"]
->>
->> * `endpoint`
->> * `subscriptionKey`
->> * `sourceURL`
->> * `targetURL`
->> * `glossaryURL`
->> * `id`  (ИД задания)
->>
-> * Задание можно найти `id`  в `Operation-Location`  значении URL-адреса заголовка ответа метода POST. Последним параметром URL-адреса является задание операции **`id`** .  
-> * Можно также использовать запрос на получение заданий, чтобы получить задание `id`  для операции преобразования документа.
-> * В примерах ниже вы жестко задаете ключ и конечную точку, где указано; не забудьте удалить ключ из кода по завершении и никогда не публиковать его в общедоступном виде.  
->
-> Способы безопасного хранения и доступа к учетным данным см. в статье [Безопасность Azure Cognitive Services](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) .
+## <a name="post-a-translation-request"></a>Публикация запроса на перевод
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="post-request-body-without-optional-glossaryurl"></a>Тело запроса POST без необязательных Глоссарюрл
@@ -286,7 +269,26 @@ gradle run
 }
 ```
 
-## <a name="_post-document-translation_-request-code-samples"></a>Примеры кода запроса _POST для перевода документа_
+> [!IMPORTANT]
+>
+> В примерах кода ниже может потребоваться обновить следующие поля в зависимости от операции:
+>>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (ИД задания)
+>>
+> Где найти `id` значение:
+> * Задание можно найти `id`  в `Operation-Location`  значении URL-адреса заголовка ответа метода POST. Последним параметром URL-адреса является задание операции **`id`** .  
+> * Можно также использовать запрос на получение заданий, чтобы получить задание `id`  для операции преобразования документа.
+>
+> В приведенных ниже примерах кода вы жестко задаете ключ и конечную точку, где указано; не забудьте удалить ключ из кода по завершении и никогда не публиковать его в общедоступном виде.  
+>
+> Способы безопасного хранения и доступа к учетным данным см. в статье [Безопасность Azure Cognitive Services](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) .
+
+## <a name="_post-document-translation_-request"></a>_Отправить запрос на перевод документа_
 
 Отправьте запрос на перевод пакетного документа в службу перевода.
 
@@ -519,7 +521,7 @@ if err != nil {
 
 ---
 
-## <a name="_get-file-formats_-code-samples"></a>Получение примеров кода для _форматов файлов_
+## <a name="_get-file-formats_"></a>_ПОЛУЧЕНИЕ форматов файлов_ 
 
 Получение списка поддерживаемых форматов файлов. В случае успеха этот метод возвращает `200 OK` код ответа.
 
@@ -696,7 +698,7 @@ func main() {
 
 ---
 
-## <a name="_get-job-status_-code-samples"></a>_Получение примеров кода состояния задания_
+## <a name="_get-job-status_"></a>_ПОЛУЧЕНИЕ состояния задания_ 
 
 Получение текущего состояния для одного задания и сводка по всем заданиям в запросе на перевод документа. В случае успеха этот метод возвращает `200 OK` код ответа.
 <!-- markdownlint-disable MD024 -->
@@ -875,7 +877,7 @@ func main() {
 
 ---
 
-## <a name="_get-document-status_-code-samples"></a>_Получение примеров кода состояния документа_
+## <a name="_get-document-status_"></a>_ПОЛУЧЕНИЕ состояния документа_
 
 ### <a name="brief-overview"></a>Краткий обзор
 
@@ -1055,7 +1057,7 @@ func main() {
 
 ---
 
-## <a name="_delete-job_-code-samples"></a>Примеры кода для _удаления заданий_
+## <a name="_delete-job_"></a>_УДАЛИТЬ задание_ 
 
 ### <a name="brief-overview"></a>Краткий обзор
 
@@ -1254,7 +1256,7 @@ func main() {
 
 * [Справочник по API Переводчика версии 3](../reference/v3-0-reference.md)
 * [Поддержка языков](../language-support.md)
-* [Подписки в службе управления API Azure](/azure/api-management/api-management-subscriptions).
+* [Подписки в службе управления API Azure](../../../api-management/api-management-subscriptions.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

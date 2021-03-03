@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: a2b39f25aa2a8847697df8a5097f5ffdc9cbd212
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9028d85346611341afec0d0598f27a77e4f37fdf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945882"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715502"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Создание кластеров HDInsight с помощью интерфейса командной строки Azure
 
@@ -42,7 +42,7 @@ ms.locfileid: "98945882"
     |`--workernode-count`| Число рабочих узлов в кластере. В этой статье используется переменная в `clusterSizeInNodes` качестве значения, переданного в `--workernode-count` . |
     |`--version`| Версия кластера HDInsight. В этой статье используется переменная в `clusterVersion` качестве значения, переданного в `--version` . См. также: [Поддерживаемые версии HDInsight](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Тип кластера HDInsight, например Hadoop, интерактивехиве, HBase, Kafka, множество, Spark, Rserver, млсервицес.  В этой статье используется переменная в `clusterType` качестве значения, переданного в `--type` . См. также: [типы кластеров и конфигурация](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|Версии различных компонентов Hadoop в формате "Component = версия", разделенных пробелами. В этой статье используется переменная в `componentVersion` качестве значения, переданного в `--component-version` . См. также: [компоненты Hadoop](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
+    |`--component-version`|Версии различных компонентов Hadoop в формате "Component = версия", разделенных пробелами. В этой статье используется переменная в `componentVersion` качестве значения, переданного в `--component-version` . См. также: [компоненты Hadoop](./hdinsight-component-versioning.md).|
 
     Замените `RESOURCEGROUPNAME` , `LOCATION` , `CLUSTERNAME` , `STORAGEACCOUNTNAME` и на `PASSWORD` нужные значения. При необходимости измените значения для других переменных. Затем введите команды интерфейса командной строки.
 

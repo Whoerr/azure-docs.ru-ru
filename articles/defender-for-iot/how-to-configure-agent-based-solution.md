@@ -1,5 +1,5 @@
 ---
-title: Настройка службы "защитник Azure" для решения на основе агента IoT
+title: Настройка решения Azure Defender для Интернета вещей на основе агента
 description: Узнайте, как настроить сбор данных в Azure Defender для решения на основе агента IoT
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 53fc01839ef522afaffe52cd8a3126e40ba94a05
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: e32b9c690db70baeda7dec2f9f1270f82c6881bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809951"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733301"
 ---
-# <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Настройка службы "защитник Azure" для решения на основе агента IoT  
+# <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Настройка решения Azure Defender для Интернета вещей на основе агента  
 
 В этой статье описывается, как настроить сбор данных в Azure Defender для решения на основе агента IoT.
 
@@ -87,7 +87,7 @@ ms.locfileid: "99809951"
 
 1. Выберите **исследовать рекомендации в log Analytics рабочей области**. 
  
-Дополнительные сведения о запросах данных из Log Analytics см. в разделе Начало [работы с запросами в log Analytics](../azure-monitor/log-query/get-started-queries.md). 
+Дополнительные сведения о запросах данных из Log Analytics см. в разделе Начало [работы с запросами в log Analytics](../azure-monitor/logs/get-started-queries.md). 
 
 ## <a name="turn-off-defender-for-iot"></a>Отключение защитника для Интернета вещей 
 
@@ -99,4 +99,4 @@ ms.locfileid: "99809951"
 
 ## <a name="next-steps"></a>Дальнейшие действия 
 
-Перейдите к следующей статье, чтобы [настроить решение](quickstart-configure-your-solution.md). 
+Перейдите к следующей статье, чтобы [настроить решение](quickstart-configure-your-solution.md).

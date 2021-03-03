@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 5d8c5eb385baff4aac450c470fb6103e2fb315f3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 21f07ed76ef0b900a723677acc2bf576649fe861
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590408"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702017"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Общие сведения об Azure Defender для SQL
 
@@ -43,7 +43,7 @@ Azure Defender для SQL содержит два плана Azure Defender, к�
 - **Azure Defender для серверов SQL на компьютерах** расширяет возможности защиты для собственных серверов SQL Azure, предоставляя полную поддержку гибридных сред, то есть обеспечивает защиту серверов SQL (все поддерживаемые версии) не только в Azure, но и в других облачных средах и даже на локальных компьютерах.
     - [SQL Server на виртуальных машинах](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - Локальные серверы SQL.
-        - [SQL Server с поддержкой Azure Arc (предварительная версия)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [SQL Server с поддержкой Azure Arc (предварительная версия)](/sql/sql-server/azure-arc/overview)
         - [SQL Server, работающий на компьютерах Windows, без поддержки Azure Arc](../azure-monitor/agents/agent-windows.md)
 
 

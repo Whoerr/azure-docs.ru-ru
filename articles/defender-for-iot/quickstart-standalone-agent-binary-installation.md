@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/18/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 0841bbd8baa524d3eea3afcbffc0aa5ead41409e
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 8d7e6dffcc40ba1e34a4a84ecccccc1f8b181393
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810085"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703054"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Установка микроагента Defender для Интернета вещей (предварительная версия)
 
@@ -25,7 +25,7 @@ ms.locfileid: "99810085"
 
 ## <a name="install-the-package"></a>Установка пакета
 
-Установите и настройте репозиторий пакетов Майкрософт, выполнив [эти инструкции](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software). 
+Установите и настройте репозиторий пакетов Майкрософт, выполнив [эти инструкции](/windows-server/administration/linux-package-repository-for-microsoft-software). 
 
 Инструкции для Debian 9 не включают добавление репозитория, поэтому используйте следующие команды: 
 

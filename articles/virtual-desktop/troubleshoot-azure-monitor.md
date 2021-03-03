@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709178"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Устранение неполадок Azure Monitor для виртуальных рабочих столов Windows (Предварительная версия)
 
@@ -42,7 +42,7 @@ ms.locfileid: "100571355"
     - Доступ для чтения к группам ресурсов подписки, которые содержат узлы сеансов виртуальных рабочих столов Windows 
     - Доступ для чтения к рабочей области Log Analytics
 
-- Возможно, потребуется открыть исходящие порты в брандмауэре сервера, чтобы разрешить Azure Monitor отправить данные на портал, см. раздел [исходящие порты](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+- Возможно, потребуется открыть исходящие порты в брандмауэре сервера, чтобы разрешить Azure Monitor отправить данные на портал, см. раздел [исходящие порты](../azure-monitor/app/ip-addresses.md). 
 
 - Не отображаются данные из последних действий? Возможно, потребуется подождать 15 минут и обновить веб-канал. Azure Monitor имеет период задержки в 15 минут для заполнения данных журнала. Дополнительные сведения см. [в разделе время приема данных журнала в Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
@@ -62,8 +62,8 @@ Azure Monitor для виртуальных рабочих столов Windows 
 
 Если вы хотите отслеживать больше счетчиков производительности или событий, вы можете включить их для отправки в рабочую область Log Analytics и отслеживать их в окне Диагностика узлов: обозреватель узлов. 
 
-- Сведения о добавлении счетчиков производительности см. в разделе [Настройка счетчиков производительности](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters) .
-- Сведения о добавлении событий Windows см. в разделе [Настройка журналов событий Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs) .
+- Сведения о добавлении счетчиков производительности см. в разделе [Настройка счетчиков производительности](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters) .
+- Сведения о добавлении событий Windows см. в разделе [Настройка журналов событий Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs) .
 
 Не удается найти точку данных для помощи в диагностике проблемы? Отправьте нам отзыв!
 
@@ -91,6 +91,6 @@ Azure Monitor для виртуальных рабочих столов Windows 
 - Время подключения включает время, необходимое пользователям для ввода учетных данных. Это соответствует интерфейсу, но в некоторых случаях может показывать ложные пиковые значения. 
     
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Если вы не знаете, как интерпретировать данные или хотите узнать больше об общих терминах, ознакомьтесь с [Azure Monitor для глоссария виртуальных рабочих столов Windows](azure-monitor-glossary.md). Если вы хотите узнать, как настроить и использовать Azure Monitor для виртуальных рабочих столов Windows, см. статью [использование Azure Monitor для виртуальных рабочих столов Windows для мониторинга развертывания](azure-monitor.md).

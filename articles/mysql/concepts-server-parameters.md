@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539490"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720959"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Параметры сервера в базе данных Azure для MySQL
 
@@ -21,7 +21,7 @@ ms.locfileid: "99539490"
 
 Модуль MySQL предоставляет множество различных переменных и параметров сервера, которые можно использовать для настройки и настройки поведения обработчика. Некоторые параметры могут быть заданы динамически во время выполнения, а другие — статическими, для применения которых требуется перезагрузка сервера.
 
-База данных Azure для MySQL предоставляет возможность изменять значения различных параметров сервера MySQL с помощью [портал Azure](./howto-server-parameters.md), [Azure CLI](./howto-configure-server-parameters-using-cli.md)и [PowerShell](./howto-configure-server-parameters-using-powershell.md) в соответствии с потребностями вашей рабочей нагрузки.
+База данных Azure для MySQL предоставляет возможность изменять значение различных параметров сервера MySQL с помощью [портала Azure](./howto-server-parameters.md), [Azure CLI](./howto-configure-server-parameters-using-cli.md) и [PowerShell](./howto-configure-server-parameters-using-powershell.md) в соответствии с потребностями рабочей нагрузки.
 
 ## <a name="configurable-server-parameters"></a>Настраиваемые параметры сервера
 
@@ -272,7 +272,7 @@ Lower_case_table_name по умолчанию имеет значение 1, и 
 Чтобы сохранить состояние буферного пула при завершении работы сервера, установите для параметра сервера значение `innodb_buffer_pool_dump_at_shutdown` `ON` . Аналогичным образом задайте для параметра сервера значение, `innodb_buffer_pool_load_at_startup` `ON` чтобы восстановить состояние буферного пула при запуске сервера. Вы можете управлять влиянием запуска или перезапуска с помощью понижения и точной настройки значения параметра сервера `innodb_buffer_pool_dump_pct` . по умолчанию этот параметр имеет значение `25` .
 
 > [!Note]
-> Параметры прогрева буферного пула InnoDB поддерживаются только на серверах хранилища общего назначения с хранилищем объемом до 16 ТБ. Дополнительные сведения о [параметрах хранилища базы данных Azure для MySQL](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)см. здесь.
+> Параметры прогрева буферного пула InnoDB поддерживаются только на серверах хранилища общего назначения с хранилищем объемом до 16 ТБ. Дополнительные сведения о [параметрах хранилища базы данных Azure для MySQL](./concepts-pricing-tiers.md#storage)см. здесь.
 
 ### <a name="time_zone"></a>time_zone
 
@@ -292,7 +292,7 @@ Lower_case_table_name по умолчанию имеет значение 1, и 
 
 Другие переменные, не указанные здесь, устанавливаются в значения по умолчанию для стандартных значений MySQL. Значения по умолчанию см. в документации по MySQL для версий [8,0](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html), [5,7](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)и [5,6](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html) . 
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте, как [настроить параметры сервера с помощью портал Azure](./howto-server-parameters.md)
 - Узнайте, как [настроить параметры сервера с помощью Azure CLI](./howto-configure-server-parameters-using-cli.md)

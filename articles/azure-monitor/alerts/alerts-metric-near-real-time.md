@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.subservice: alerts
-ms.openlocfilehash: 7b4cdd37cefb628c03129a990d52ed348acd3ac1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b3aa68be050b1ea5c1c32253f1ae6e6353ee8dc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622038"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717916"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Поддерживаемые ресурсы для оповещений метрик в Azure Monitor
 
-Azure Monitor теперь поддерживает [новый тип оповещений о метриках](../platform/alerts-overview.md), который имеет ряд преимуществ перед [классическими оповещениями](./alerts-classic.overview.md). Метрики доступны для [большого числа служб Azure](../platform/metrics-supported.md). Список типов ресурсов, поддерживаемых новыми оповещениями, постоянно расширяется. В этой статье рассматриваются новые возможности.
+Azure Monitor теперь поддерживает [новый тип оповещений о метриках](./alerts-overview.md), который имеет ряд преимуществ перед [классическими оповещениями](./alerts-classic.overview.md). Метрики доступны для [большого числа служб Azure](../essentials/metrics-supported.md). Список типов ресурсов, поддерживаемых новыми оповещениями, постоянно расширяется. В этой статье рассматриваются новые возможности.
 
 Вы также можете использовать новые оповещения метрики для популярных данных журналов, хранящихся в Log Analytics рабочей области, извлеченной в качестве метрик. Дополнительные сведения см. в статье [Создание оповещений о метриках для журналов в Azure Monitor](./alerts-metric-logs.md).
 
@@ -31,94 +31,94 @@ Azure Monitor теперь поддерживает [новый тип опов�
 |Тип ресурса  |Поддерживаемые измерения |Оповещения о нескольких ресурсах| Доступные метрики|
 |---------|---------|-----|----------|
 |Microsoft. Аадиам/Азуреадметрикс | Да | Нет | |
-|Microsoft.ApiManagement/service | Да | Нет | [Управление API](../platform/metrics-supported.md#microsoftapimanagementservice) |
-|Microsoft.AppConfiguration/configurationStores |Да | Нет | [Конфигурация приложений](../platform/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
-|Microsoft.AppPlatform/Spring | Да | Нет | [Azure Spring Cloud](../platform/metrics-supported.md#microsoftappplatformspring) |
-|Microsoft.Automation/automationAccounts | Да| Нет | [Учетные записи автоматизации](../platform/metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft. AVS/Приватеклаудс | Нет | Нет | [Решение Azure VMware](../platform/metrics-supported.md#microsoftavsprivateclouds) |
-|Microsoft.Batch/batchAccounts | Да | Нет | [Ученые записи пакетной службы](../platform/metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis; | Да | Да | [Кэш Azure для Redis](../platform/metrics-supported.md#microsoftcacheredis) |
-|Microsoft.ClassicCompute/domainNames/slots/roles | Нет | Нет | [Классические облачные службы](../platform/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
-|Microsoft.classicСompute/virtualMachines | Нет | Нет | [Классические виртуальные машины](../platform/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
-|Microsoft.ClassicStorage/storageAccounts | Да | Нет | [Учетные записи хранения (классические)](../platform/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft.ClassicStorage/storageAccounts/blobServices | Да | Нет | [Учетные записи хранения (классические) — BLOB-объекты](../platform/metrics-supported.md#microsoftclassicstoragestorageaccountsblobservices) |
-|Microsoft.ClassicStorage/storageAccounts/fileServices | Да | Нет | [Учетные записи хранения (классические) — файлы](../platform/metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
-|Microsoft.ClassicStorage/storageAccounts/queueServices | Да | Нет | [Учетные записи хранения (классические) — очереди](../platform/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
-|Microsoft.ClassicStorage/storageAccounts/tableServices | Да | Нет | [Учетные записи хранения (классические) — таблицы](../platform/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
-|Microsoft.CognitiveServices/accounts | Да | Нет | [Cognitive Services](../platform/metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/virtualMachines | Да | Да<sup>1</sup> | [Виртуальные машины](../platform/metrics-supported.md#microsoftcomputevirtualmachines) |
-|Microsoft.Compute/virtualMachineScaleSets; | Да | Нет |[Масштабируемые наборы виртуальных машин](../platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
-|Microsoft.ContainerInstance/containerGroups | Да| Нет | [Группы контейнеров](../platform/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
-|Microsoft.ContainerRegistry/registries | Нет | Нет | [Реестры контейнеров](../platform/metrics-supported.md#microsoftcontainerregistryregistries) |
-|Microsoft.ContainerService/managedClusters | Да | Нет | [Управляемые кластеры](../platform/metrics-supported.md#microsoftcontainerservicemanagedclusters) |
-|Microsoft.DataBoxEdge/dataBoxEdgeDevices | Да | Да | [Data Box](../platform/metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
-|Microsoft.DataFactory/datafactories| Да| Нет | [Фабрики данных V1](../platform/metrics-supported.md#microsoftdatafactorydatafactories) |
-|Microsoft.DataFactory/factories; |Да | Нет | [Фабрики данных V2](../platform/metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/accounts | Да | Нет | [Общие ресурсы данных](../platform/metrics-supported.md#microsoftdatashareaccounts) |
-|Microsoft.DBforMariaDB/servers | Нет | Нет | [База данных для MariaDB](../platform/metrics-supported.md#microsoftdbformariadbservers) |
-|Microsoft.DBforMySQL/servers | Нет | Нет |[База данных для MySQL](../platform/metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/servers | Нет | Нет | [База данных для PostgreSQL](../platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
-|Microsoft.DBforPostgreSQL/serversv2 | Нет | Нет | [База данных для PostgreSQL v2](../platform/metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Да | Нет | [База данных для PostgreSQL (гибкие серверы)](../platform/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
-|Microsoft.Devices/IotHubs | Да | Нет |[Центр Интернета вещей](../platform/metrics-supported.md#microsoftdevicesiothubs) |
-|Microsoft.Devices/provisioningServices| Да | Нет | [Службы подготовки устройств](../platform/metrics-supported.md#microsoftdevicesprovisioningservices) |
-|Microsoft. Дигиталтвинс/Дигиталтвинсинстанцес | Да | Нет | [Digital Twins](../platform/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
-|Microsoft.DocumentDB/databaseAccounts | Да | Нет | [База данных Cosmos](../platform/metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
-|Microsoft.EventGrid/domains | Да | Нет | [Домены Сетки событий](../platform/metrics-supported.md#microsofteventgriddomains) |
-|Microsoft. EventGrid/Системтопикс | Да | Нет | [Статьи по системе сетки событий](../platform/metrics-supported.md#microsofteventgridsystemtopics) |
-|Microsoft.EventGrid/topics |Да | Нет | [Разделы Сетки событий](../platform/metrics-supported.md#microsofteventgridtopics) |
-|Microsoft.EventHub/clusters |Да| Нет | [Кластеры концентраторов событий](../platform/metrics-supported.md#microsofteventhubclusters) |
-|Microsoft.EventHub/namespaces |Да| Нет | [Центры событий](../platform/metrics-supported.md#microsofteventhubnamespaces) |
-|Microsoft.HDInsight/clusters | Да | Нет | [Кластеры HDInsight](../platform/metrics-supported.md#microsofthdinsightclusters) |
-|Microsoft.Insights/Components | Да | Нет | [Application Insights](../platform/metrics-supported.md#microsoftinsightscomponents) |
-|Microsoft.KeyVault/vaults | Да |Да |[Хранилища](../platform/metrics-supported.md#microsoftkeyvaultvaults)|
-|Microsoft.Kusto/Clusters | Да |Нет |[Кластеры обозреватель данных](../platform/metrics-supported.md#microsoftkustoclusters)|
-|Microsoft.Logic/integrationServiceEnvironments | Да | Нет |[Среды службы интеграции](../platform/metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
-|Microsoft.Logic/workflows | Нет | Нет |[Logic Apps](../platform/metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft.MachineLearningServices/workspaces | Да | Нет | [Машинное обучение](../platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
-|Microsoft.Maps/accounts | Да | Нет | [Сопоставление учетных записей](../platform/metrics-supported.md#microsoftmapsaccounts) |
-|Microsoft.Media/mediaservices | Нет | Нет | [Службы мультимедиа](../platform/metrics-supported.md#microsoftmediamediaservices) |
-|Microsoft.Media/mediaservices/streamingEndpoints | Да | Нет | [Конечные точки потоковой передачи служб мультимедиа](../platform/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
-|Microsoft.NetApp/netAppAccounts/capacityPools | Да | Да | [Пулы ресурсов Azure NetApp](../platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
-|Microsoft.NetApp/netAppAccounts/capacityPools/volumes | Да | Да | [Тома NetApp для Azure](../platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
-|Microsoft.Network/applicationGateways | Да | Нет | [Шлюзы приложений](../platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/azurefirewalls | Да | Нет | [брандмауэры;](../platform/metrics-supported.md#microsoftnetworkazurefirewalls) |
-|Microsoft.Network/dnsZones | Нет | Нет | [Зоны DNS](../platform/metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | Да | Нет |[Каналы ExpressRoute](../platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
-|Microsoft.Network/expressRoutePorts | Да | Нет |[ExpressRoute Direct](../platform/metrics-supported.md#microsoftnetworkexpressrouteports) |
-|Microsoft.Network/loadBalancers (только для SKU "Стандартный")| Да| Нет | [Подсистемы балансировки нагрузки](../platform/metrics-supported.md#microsoftnetworkloadbalancers) |
-|Microsoft. Network/Натгатевайс| Нет | Нет | [Шлюзы NAT](../platform/metrics-supported.md#microsoftnetworknatgateways) |
-|Microsoft. Network/Приватиндпоинтс| Нет | Нет | [Частные конечные точки](../platform/metrics-supported.md#microsoftnetworkprivateendpoints) |
-|Microsoft.Network/privateLinkServices| Нет | Нет | [Службы частной связи](../platform/metrics-supported.md#microsoftnetworkprivatelinkservices) |
-|Microsoft.Network/publicipaddresses; | Нет | Нет | [общедоступные IP-адреса](../platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.Network/trafficManagerProfiles | Да | Нет | [Профили диспетчера трафика](../platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
-|Microsoft.OperationalInsights/workspaces| Да | Нет | [Рабочие области Log Analytics](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
-|Microsoft. пиринг/пиринг | Да | Нет | [Пиринги](../platform/metrics-supported.md#microsoftpeeringpeerings) |
-|Microsoft. пиринг/Пирингсервицес | Да | Нет | [Службы пиринга](../platform/metrics-supported.md#microsoftpeeringpeeringservices) |
-|Microsoft.PowerBIDedicated/capacities | Нет | Нет | [Производительность](../platform/metrics-supported.md#microsoftpowerbidedicatedcapacities) |
-|Microsoft.Relay/namespaces | Да | Нет | [Ретрансляторы](../platform/metrics-supported.md#microsoftrelaynamespaces) |
-|Microsoft.Search/searchServices | Нет | Нет | [Службы поиска](../platform/metrics-supported.md#microsoftsearchsearchservices) |
-|Microsoft.ServiceBus/namespaces | Да | Нет | [Служебная шина](../platform/metrics-supported.md#microsoftservicebusnamespaces) |
-|Microsoft.Sql/managedInstances | Нет | Да | [Управляемые экземпляры SQL](../platform/metrics-supported.md#microsoftsqlmanagedinstances) |
-|Microsoft.Sql/servers/databases | Нет | Да | [Базы данных SQL](../platform/metrics-supported.md#microsoftsqlserversdatabases) |
-|Microsoft.Sql/servers/elasticPools | Нет | Да | [Эластичные пулы SQL](../platform/metrics-supported.md#microsoftsqlserverselasticpools) |
-|Microsoft.Storage/storageAccounts |Да | Нет | [Учетные записи хранения](../platform/metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/blobServices | Да| Нет | [Учетные записи хранения — BLOB-объекты](../platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
-|Microsoft.Storage/storageAccounts/fileServices | Да| Нет | [Учетные записи хранения — файлы](../platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
-|Microsoft.Storage/storageAccounts/queueServices | Да| Нет | [Учетные записи хранения — очереди](../platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
-|Microsoft.Storage/storageAccounts/tableServices | Да| Нет | [Учетные записи хранения — таблицы](../platform/metrics-supported.md#microsoftstoragestorageaccountstableservices) |
-|Microsoft.StorageCache/caches | Да | Нет | [Кэши HPC](../platform/metrics-supported.md#microsoftstoragecachecaches) |
-|Microsoft. StorageSync/Сторажесинксервицес | Да | Нет | [Службы синхронизации хранилища](../platform/metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
-|Microsoft.StreamAnalytics/streamingjobs | Да | Нет | [Stream Analytics](../platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
-|Microsoft.Synapse/workspaces | Да | Нет | [Synapse Analytics](../platform/metrics-supported.md#microsoftsynapseworkspaces) |
-|Microsoft. синапсе/workspaces/Бигдатапулс | Да | Нет | [Пулы Apache Spark аналитики синапсе](../platform/metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
-|Microsoft. синапсе/workspaces/Склпулс | Да | Нет | [Пулы SQL Analytics синапсе](../platform/metrics-supported.md#microsoftsynapseworkspacessqlpools) |
-|Microsoft. Вмвареклаудсимпле/virtualMachines | Да | Нет | [Виртуальные машины CloudSimple](../platform/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
-|Microsoft.Web/hostingEnvironments/multiRolePools | Да | Нет | [Среда службы приложений пулов с несколькими ролями](../platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
-|Microsoft.Web/hostingEnvironments/workerPools | Да | Нет | [Пулы рабочих ролей Среда службы приложений](../platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
-|Microsoft.Web/serverfarms | Да | Нет | [Планы службы приложений](../platform/metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Да | Нет | [Службы приложений и Функции](../platform/metrics-supported.md#microsoftwebsites)|
-|Microsoft.Web/sites/slots | Да | Нет | [Слоты Службы приложений](../platform/metrics-supported.md#microsoftwebsitesslots)|
+|Microsoft.ApiManagement/service | Да | Нет | [Управление API](../essentials/metrics-supported.md#microsoftapimanagementservice) |
+|Microsoft.AppConfiguration/configurationStores |Да | Нет | [Конфигурация приложений](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
+|Microsoft.AppPlatform/Spring | Да | Нет | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
+|Microsoft.Automation/automationAccounts | Да| Нет | [Учетные записи автоматизации](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
+|Microsoft. AVS/Приватеклаудс | Нет | Нет | [Решение Azure VMware](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
+|Microsoft.Batch/batchAccounts | Да | Нет | [Ученые записи пакетной службы](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft.Cache/Redis; | Да | Да | [Кэш Azure для Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Нет | Нет | [Классические облачные службы](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft.classicСompute/virtualMachines | Нет | Нет | [Классические виртуальные машины](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
+|Microsoft.ClassicStorage/storageAccounts | Да | Нет | [Учетные записи хранения (классические)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccounts) |
+|Microsoft.ClassicStorage/storageAccounts/blobServices | Да | Нет | [Учетные записи хранения (классические) — BLOB-объекты](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsblobservices) |
+|Microsoft.ClassicStorage/storageAccounts/fileServices | Да | Нет | [Учетные записи хранения (классические) — файлы](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
+|Microsoft.ClassicStorage/storageAccounts/queueServices | Да | Нет | [Учетные записи хранения (классические) — очереди](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
+|Microsoft.ClassicStorage/storageAccounts/tableServices | Да | Нет | [Учетные записи хранения (классические) — таблицы](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
+|Microsoft.CognitiveServices/accounts | Да | Нет | [Cognitive Services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
+|Microsoft.Compute/virtualMachines | Да | Да<sup>1</sup> | [Виртуальные машины](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
+|Microsoft.Compute/virtualMachineScaleSets; | Да | Нет |[Масштабируемые наборы виртуальных машин](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.ContainerInstance/containerGroups | Да| Нет | [Группы контейнеров](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
+|Microsoft.ContainerRegistry/registries | Нет | Нет | [Реестры контейнеров](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
+|Microsoft.ContainerService/managedClusters | Да | Нет | [Управляемые кластеры](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |
+|Microsoft.DataBoxEdge/dataBoxEdgeDevices | Да | Да | [Data Box](../essentials/metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
+|Microsoft.DataFactory/datafactories| Да| Нет | [Фабрики данных V1](../essentials/metrics-supported.md#microsoftdatafactorydatafactories) |
+|Microsoft.DataFactory/factories; |Да | Нет | [Фабрики данных V2](../essentials/metrics-supported.md#microsoftdatafactoryfactories) |
+|Microsoft.DataShare/accounts | Да | Нет | [Общие ресурсы данных](../essentials/metrics-supported.md#microsoftdatashareaccounts) |
+|Microsoft.DBforMariaDB/servers | Нет | Нет | [База данных для MariaDB](../essentials/metrics-supported.md#microsoftdbformariadbservers) |
+|Microsoft.DBforMySQL/servers | Нет | Нет |[База данных для MySQL](../essentials/metrics-supported.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers | Нет | Нет | [База данных для PostgreSQL](../essentials/metrics-supported.md#microsoftdbforpostgresqlservers)|
+|Microsoft.DBforPostgreSQL/serversv2 | Нет | Нет | [База данных для PostgreSQL v2](../essentials/metrics-supported.md#microsoftdbforpostgresqlserversv2)|
+|Microsoft.DBforPostgreSQL/flexibleServers | Да | Нет | [База данных для PostgreSQL (гибкие серверы)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
+|Microsoft.Devices/IotHubs | Да | Нет |[Центр Интернета вещей](../essentials/metrics-supported.md#microsoftdevicesiothubs) |
+|Microsoft.Devices/provisioningServices| Да | Нет | [Службы подготовки устройств](../essentials/metrics-supported.md#microsoftdevicesprovisioningservices) |
+|Microsoft. Дигиталтвинс/Дигиталтвинсинстанцес | Да | Нет | [Digital Twins](../essentials/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
+|Microsoft.DocumentDB/databaseAccounts | Да | Нет | [База данных Cosmos](../essentials/metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
+|Microsoft.EventGrid/domains | Да | Нет | [Домены Сетки событий](../essentials/metrics-supported.md#microsofteventgriddomains) |
+|Microsoft. EventGrid/Системтопикс | Да | Нет | [Статьи по системе сетки событий](../essentials/metrics-supported.md#microsofteventgridsystemtopics) |
+|Microsoft.EventGrid/topics |Да | Нет | [Разделы Сетки событий](../essentials/metrics-supported.md#microsofteventgridtopics) |
+|Microsoft.EventHub/clusters |Да| Нет | [Кластеры концентраторов событий](../essentials/metrics-supported.md#microsofteventhubclusters) |
+|Microsoft.EventHub/namespaces |Да| Нет | [Центры событий](../essentials/metrics-supported.md#microsofteventhubnamespaces) |
+|Microsoft.HDInsight/clusters | Да | Нет | [Кластеры HDInsight](../essentials/metrics-supported.md#microsofthdinsightclusters) |
+|Microsoft.Insights/Components | Да | Нет | [Application Insights](../essentials/metrics-supported.md#microsoftinsightscomponents) |
+|Microsoft.KeyVault/vaults | Да |Да |[Хранилища](../essentials/metrics-supported.md#microsoftkeyvaultvaults)|
+|Microsoft.Kusto/Clusters | Да |Нет |[Кластеры обозреватель данных](../essentials/metrics-supported.md#microsoftkustoclusters)|
+|Microsoft.Logic/integrationServiceEnvironments | Да | Нет |[Среды службы интеграции](../essentials/metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
+|Microsoft.Logic/workflows | Нет | Нет |[Logic Apps](../essentials/metrics-supported.md#microsoftlogicworkflows) |
+|Microsoft.MachineLearningServices/workspaces | Да | Нет | [Машинное обучение](../essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.Maps/accounts | Да | Нет | [Сопоставление учетных записей](../essentials/metrics-supported.md#microsoftmapsaccounts) |
+|Microsoft.Media/mediaservices | Нет | Нет | [Службы мультимедиа](../essentials/metrics-supported.md#microsoftmediamediaservices) |
+|Microsoft.Media/mediaservices/streamingEndpoints | Да | Нет | [Конечные точки потоковой передачи служб мультимедиа](../essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
+|Microsoft.NetApp/netAppAccounts/capacityPools | Да | Да | [Пулы ресурсов Azure NetApp](../essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
+|Microsoft.NetApp/netAppAccounts/capacityPools/volumes | Да | Да | [Тома NetApp для Azure](../essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
+|Microsoft.Network/applicationGateways | Да | Нет | [Шлюзы приложений](../essentials/metrics-supported.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/azurefirewalls | Да | Нет | [брандмауэры;](../essentials/metrics-supported.md#microsoftnetworkazurefirewalls) |
+|Microsoft.Network/dnsZones | Нет | Нет | [Зоны DNS](../essentials/metrics-supported.md#microsoftnetworkdnszones) |
+|Microsoft.Network/expressRouteCircuits | Да | Нет |[Каналы ExpressRoute](../essentials/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | Да | Нет |[ExpressRoute Direct](../essentials/metrics-supported.md#microsoftnetworkexpressrouteports) |
+|Microsoft.Network/loadBalancers (только для SKU "Стандартный")| Да| Нет | [Подсистемы балансировки нагрузки](../essentials/metrics-supported.md#microsoftnetworkloadbalancers) |
+|Microsoft. Network/Натгатевайс| Нет | Нет | [Шлюзы NAT](../essentials/metrics-supported.md#microsoftnetworknatgateways) |
+|Microsoft. Network/Приватиндпоинтс| Нет | Нет | [Частные конечные точки](../essentials/metrics-supported.md#microsoftnetworkprivateendpoints) |
+|Microsoft.Network/privateLinkServices| Нет | Нет | [Службы частной связи](../essentials/metrics-supported.md#microsoftnetworkprivatelinkservices) |
+|Microsoft.Network/publicipaddresses; | Нет | Нет | [общедоступные IP-адреса](../essentials/metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/trafficManagerProfiles | Да | Нет | [Профили диспетчера трафика](../essentials/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.OperationalInsights/workspaces| Да | Нет | [Рабочие области Log Analytics](../essentials/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft. пиринг/пиринг | Да | Нет | [Пиринги](../essentials/metrics-supported.md#microsoftpeeringpeerings) |
+|Microsoft. пиринг/Пирингсервицес | Да | Нет | [Службы пиринга](../essentials/metrics-supported.md#microsoftpeeringpeeringservices) |
+|Microsoft.PowerBIDedicated/capacities | Нет | Нет | [Производительность](../essentials/metrics-supported.md#microsoftpowerbidedicatedcapacities) |
+|Microsoft.Relay/namespaces | Да | Нет | [Ретрансляторы](../essentials/metrics-supported.md#microsoftrelaynamespaces) |
+|Microsoft.Search/searchServices | Нет | Нет | [Службы поиска](../essentials/metrics-supported.md#microsoftsearchsearchservices) |
+|Microsoft.ServiceBus/namespaces | Да | Нет | [Служебная шина](../essentials/metrics-supported.md#microsoftservicebusnamespaces) |
+|Microsoft.Sql/managedInstances | Нет | Да | [Управляемые экземпляры SQL](../essentials/metrics-supported.md#microsoftsqlmanagedinstances) |
+|Microsoft.Sql/servers/databases | Нет | Да | [Базы данных SQL](../essentials/metrics-supported.md#microsoftsqlserversdatabases) |
+|Microsoft.Sql/servers/elasticPools | Нет | Да | [Эластичные пулы SQL](../essentials/metrics-supported.md#microsoftsqlserverselasticpools) |
+|Microsoft.Storage/storageAccounts |Да | Нет | [Учетные записи хранения](../essentials/metrics-supported.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/blobServices | Да| Нет | [Учетные записи хранения — BLOB-объекты](../essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
+|Microsoft.Storage/storageAccounts/fileServices | Да| Нет | [Учетные записи хранения — файлы](../essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
+|Microsoft.Storage/storageAccounts/queueServices | Да| Нет | [Учетные записи хранения — очереди](../essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
+|Microsoft.Storage/storageAccounts/tableServices | Да| Нет | [Учетные записи хранения — таблицы](../essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices) |
+|Microsoft.StorageCache/caches | Да | Нет | [Кэши HPC](../essentials/metrics-supported.md#microsoftstoragecachecaches) |
+|Microsoft. StorageSync/Сторажесинксервицес | Да | Нет | [Службы синхронизации хранилища](../essentials/metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
+|Microsoft.StreamAnalytics/streamingjobs | Да | Нет | [Stream Analytics](../essentials/metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | Да | Нет | [Synapse Analytics](../essentials/metrics-supported.md#microsoftsynapseworkspaces) |
+|Microsoft. синапсе/workspaces/Бигдатапулс | Да | Нет | [Пулы Apache Spark аналитики синапсе](../essentials/metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Microsoft. синапсе/workspaces/Склпулс | Да | Нет | [Пулы SQL Analytics синапсе](../essentials/metrics-supported.md#microsoftsynapseworkspacessqlpools) |
+|Microsoft. Вмвареклаудсимпле/virtualMachines | Да | Нет | [Виртуальные машины CloudSimple](../essentials/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
+|Microsoft.Web/hostingEnvironments/multiRolePools | Да | Нет | [Среда службы приложений пулов с несколькими ролями](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
+|Microsoft.Web/hostingEnvironments/workerPools | Да | Нет | [Пулы рабочих ролей Среда службы приложений](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
+|Microsoft.Web/serverfarms | Да | Нет | [Планы службы приложений](../essentials/metrics-supported.md#microsoftwebserverfarms)|
+|Microsoft.Web/sites | Да | Нет | [Службы приложений и Функции](../essentials/metrics-supported.md#microsoftwebsites)|
+|Microsoft.Web/sites/slots | Да | Нет | [Слоты Службы приложений](../essentials/metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> не поддерживается для метрик сети виртуальной машины (общая сеть, общий объем сети, входящие потоки, исходящие потоки, максимальная частота создания входящих потоков, максимальная скорость создания исходящих потоков) и пользовательские метрики.
 
@@ -181,8 +181,8 @@ Azure Monitor теперь поддерживает [новый тип опов�
 }
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-* Получите дополнительные сведения об [интерфейсе оповещений](../platform/alerts-overview.md).
+* Получите дополнительные сведения об [интерфейсе оповещений](./alerts-overview.md).
 * Ознакомьтесь со сведениями об [оповещениях журналов в Azure](./alerts-unified-log.md).
-* Сведения об [оповещениях в Azure](../platform/alerts-overview.md).
+* Сведения об [оповещениях в Azure](./alerts-overview.md).

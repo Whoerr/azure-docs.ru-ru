@@ -42,7 +42,7 @@ Title: учетные записи хранения Azure: Описание сл
 
 ## <a name="storage-account-double-encryption"></a>Двойное шифрование учетной записи хранения
 
-Учетные записи хранения поддерживают двойное шифрование, но второй уровень должен быть явно включен. См. раздел [Шифрование службы хранилища Azure для неактивных данных](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+Учетные записи хранения поддерживают двойное шифрование, но второй уровень должен быть явно включен. См. раздел [Шифрование службы хранилища Azure для неактивных данных](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Ошибки учетной записи хранения
 

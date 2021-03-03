@@ -3,23 +3,23 @@ title: Использование Конструктора образов Azure 
 description: Создавайте версии образов из Общей коллекции образов Azure с помощью Конструктора образов Azure и Azure PowerShell.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: fd30c2bf4e2c0bc04850704e412aad1db2b10143
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8caf9f742217161c60ce90351989999f18adabb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677238"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694093"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Предварительный просмотр: Создание образа Windows и его распространение в Общей коллекции образов 
 
 В этой статье описано, как можно использовать Конструктор образов Azure и Azure PowerShell для создания версии образа в [Общей коллекции образов](../shared-image-galleries.md) и распространения этого образа. Это также можно сделать с помощью [Azure CLI](../linux/image-builder-gallery.md).
 
-Для настройки образа мы будем использовать шаблон JSON. JSON-файл, который мы используем: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Мы скачаем и изменим локальную версию шаблона, поэтому в этой статье используется локальный сеанс PowerShell.
+Для настройки образа мы будем использовать шаблон JSON. JSON-файл, который мы используем: [armTemplateWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Мы скачаем и изменим локальную версию шаблона, поэтому в этой статье используется локальный сеанс PowerShell.
 
 С целью распространения образа в Общей коллекции образов для раздела шаблона `distribute` используется значение [sharedImage](../linux/image-builder-json.md#distribute-sharedimage).
 
@@ -53,6 +53,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Forma
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage | Format-table -Property ResourceTypes,RegistrationState 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
+Get-AzResourceProvider -ProviderNamespace Microsoft.Network | Format-table -Property ResourceTypes,RegistrationState
 ```
 
 Если они не возвращают значение `Registered`, используйте следующую команду для регистрации поставщиков:
@@ -62,6 +63,12 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Установите модули PowerShell:
+```powerShell
+'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 ```
 
 ## <a name="create-variables"></a>Создание переменных
@@ -123,7 +130,7 @@ $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageR
 Эта команда загрузит шаблон определения роли Azure и обновит шаблон, указав параметры, указанные ранее.
 
 ```powershell
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download config
@@ -190,7 +197,7 @@ New-AzGalleryImageDefinition `
 $templateFilePath = "armTemplateWinSIG.json"
 
 Invoke-WebRequest `
-   -Uri "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
+   -Uri "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
    -OutFile $templateFilePath `
    -UseBasicParsing
 
@@ -220,7 +227,7 @@ Invoke-WebRequest `
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -apiversion "2019-05-01-preview" `
+   -apiversion "2020-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -232,14 +239,17 @@ Invoke-AzResourceAction `
    -ResourceName $imageTemplateName `
    -ResourceGroupName $imageResourceGroup `
    -ResourceType Microsoft.VirtualMachineImages/imageTemplates `
-   -ApiVersion "2019-05-01-preview" `
+   -ApiVersion "2020-02-14" `
    -Action Run
 ```
 
 Создание образа и его репликация в оба региона могут занять некоторое время. Дождитесь завершения этих процессов, прежде чем переходить к созданию виртуальной машины.
 
-Сведения о том, как можно автоматизировать получение состояния сборки образа, см. в [файле сведений](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) для этого шаблона на сайте GitHub.
-
+Сведения о параметрах автоматизации получения состояния сборки образа см. в [файле сведений]
+```powershell
+Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
+  Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState
+```
 
 ## <a name="create-the-vm"></a>Создание виртуальной машины
 
@@ -310,7 +320,7 @@ dir c:\
 Получите ResourceID шаблона образа. 
 
 ```powerShell
-$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
+$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14"
 ```
 
 Удалите шаблон образа.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34168a02b5a2d2dfe74e2a5839e0bfddcf684222
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577039"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712187"
 ---
 # <a name="what-is-azure-private-link"></a>Что собой представляет Приватный канал Azure? 
 Приватный канал Azure обеспечивает доступ к службам Azure PaaS (например, к службе хранилища Azure и Базе данных SQL), а также размещенным в Azure службам, которые принадлежат клиенту или партнеру, через [частную конечную точку](private-endpoint-overview.md) виртуальной сети.
@@ -54,7 +54,7 @@ ms.locfileid: "100577039"
 |  База данных Azure для PostgreSQL — отдельный сервер         | Все общедоступные регионы <br/> Регионы для государственных организаций<br/>Все регионы Китая     | Поддерживается для ценовых уровней общего назначения и c оптимизацией для операций в памяти. | GA <br/> [Создание частной конечной точки для Базы данных Azure для PostgreSQL](../postgresql/concepts-data-access-and-security-private-link.md).      |
 |  База данных Azure для MySQL         | Все общедоступные регионы<br/> Регионы для государственных организаций<br/>Все регионы Китая      |  | GA <br/> [Создание частной конечной точки для Базы данных Azure для MySQL](../mysql/concepts-data-access-security-private-link.md).     |
 |  База данных Azure для MariaDB         | Все общедоступные регионы<br/> Регионы для государственных организаций<br/>Все регионы Китая     |  | GA <br/> [Создание частной конечной точки для Базы данных Azure для MariaDB](../mariadb/concepts-data-access-security-private-link.md).      |
-|  Azure Digital Twins         | Все общедоступные регионы, поддерживаемые Azure Digital Twins     |  | Предварительный просмотр <br/> [Создание частной конечной точки для Azure Digital Twins](../digital-twins/how-to-enable-private-link.md)      |
+|  Azure Digital Twins         | Все общедоступные регионы, поддерживаемые Azure Digital Twins     |  | Предварительный просмотр <br/> [Создание частной конечной точки для Azure Digital Twins](../digital-twins/how-to-enable-private-link-portal.md)      |
 |  Azure Key Vault         | Все общедоступные регионы<br/> Регионы для государственных организаций      |  | GA   <br/> [Создание частной конечной точки для Azure Key Vault](../key-vault/general/private-link-service.md).   |
 |Служба Azure Kubernetes — API Kubernetes | Все общедоступные регионы      |  | GA   <br/> [Создание частной конечной точки для Службы Azure Kubernetes](../aks/private-clusters.md).   |
 |Поиск Azure | Все общедоступные регионы <br/> Регионы для государственных организаций | Поддерживается службой в частном режиме. | GA   <br/> [Создание частной конечной точки для Поиска Azure](../search/service-create-private-endpoint.md).    |

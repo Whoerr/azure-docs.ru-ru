@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726196"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Управление использованием и затратами для Application Insights
 
@@ -294,7 +294,7 @@ requests | where timestamp > ago(1d)
 
 ### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Основные сведения об использовании устаревшей версии корпоративного уровня (на узел) 
 
-Как описано ниже, уровень унаследованного предприятия (на уровне узла) сочетает в себе использование всех Application Insightsных ресурсов в подписке для вычисления количества узлов и превышения объема данных. Из-за этого комбинированного процесса **использование всех Application Insightsных ресурсов в подписке сообщается только одному из ресурсов**.  Это позволяет выверять [оплачиваемое использование за счет](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) использования каждого Application Insights ресурсов очень сложно. 
+Как описано ниже, уровень унаследованного предприятия (на уровне узла) сочетает в себе использование всех Application Insightsных ресурсов в подписке для вычисления количества узлов и превышения объема данных. Из-за этого комбинированного процесса **использование всех Application Insightsных ресурсов в подписке сообщается только одному из ресурсов**.  Это позволяет выверять [оплачиваемое использование за счет](#viewing-application-insights-usage-on-your-azure-bill) использования каждого Application Insights ресурсов очень сложно. 
 
 > [!WARNING]
 > Из-за сложности отслеживания и понимания использования Application Insightsных ресурсов на уровне устаревших корпоративных (на уровне узла) мы настоятельно рекомендуем использовать текущую ценовую категорию с оплатой по мере использования. 

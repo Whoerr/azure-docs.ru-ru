@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fbed48dda3d6b022d30bb9fb0507c3f9f203771d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4274f976a04a9694c0429a2a4794d645304a9e97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613250"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728813"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Сбор пользовательских метрик для виртуальной машины Linux с помощью агента Telegraf InfluxData
 
@@ -25,7 +25,7 @@ Azure Monitor позволяет собирать пользовательски
  ![Обзор агента Telegraph](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Пользовательские метрики не поддерживаются во всех регионах. Поддерживаемые регионы перечислены [здесь](../platform/metrics-custom-overview.md#supported-regions)
+> Пользовательские метрики не поддерживаются во всех регионах. Поддерживаемые регионы перечислены [здесь](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Отправка пользовательских метрик 
 
@@ -136,4 +136,4 @@ sudo systemctl start telegraf
 Если группа ресурсов, виртуальная машина и все связанные с ними ресурсы вам больше не требуются, их можно удалить. Для этого выберите группу ресурсов для виртуальной машины и нажмите кнопку **Удалить**. Затем подтвердите имя удаляемой группы ресурсов. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Дополнительные сведения о настраиваемых метриках см. в [этой статье](../platform/metrics-custom-overview.md).
+- Дополнительные сведения о настраиваемых метриках см. в [этой статье](./metrics-custom-overview.md).

@@ -4,27 +4,27 @@ description: В базовом плане безопасности службы 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8e86679e7531bb70d6d4f1a27718c2fc8f0e8a9c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: de32de5fc78919154bade3895cab6da82b175a93
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740637"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Базовый план безопасности Azure для службы Kubernetes Azure
 
-Базовый план безопасности Azure для службы Azure Kubernetes содержит рекомендации, которые помогут повысить уровень безопасности развертывания.
+Этот базовый план безопасности применяет рекомендации из [контрольного показателя безопасности Azure версии 1,0](../security/benchmarks/overview-v1.md) к Azure Kubernetes. Azure Security Benchmark содержит рекомендации по обеспечению безопасности облачных решений в Azure.
+Содержимое группируются по **элементам управления безопасностью** , определенным в тестовом производительности системы безопасности Azure, и связанным рекомендациям, применимым к Azure Kubernetes. **Элементы управления** , неприменимые к Azure Kubernetes, были исключены.
 
-Базовый план безопасности для этой службы взят из [Эталона безопасности Azure версии 1.0](../security/benchmarks/overview.md), содержащего рекомендации по обеспечению безопасности облачных решений в Azure с помощью наших практических рекомендаций.
-
-Дополнительные сведения см. в статье [Обзор базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+ 
+Сведения о том, как Azure Kubernetes полностью сопоставляется с тестовым уровнем безопасности Azure, см. в [полном файле сопоставления базовых показателей безопасности Azure Kubernetes](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Безопасность сети
 
-*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: безопасность сети](../security/benchmarks/security-control-network-security.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: безопасность сети](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: защита ресурсов Azure в виртуальных сетях
 
@@ -40,9 +40,13 @@ ms.locfileid: "100578538"
 
 - [Создание частного кластера Службы Azure Kubernetes](private-clusters.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг в центре безопасности Azure. производительность** [системы безопасности Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) — это инициатива политики по умолчанию для центра безопасности, которая является основой для [рекомендаций центра безопасности](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Определения политик Azure, связанные с этим элементом управления, автоматически включаются центром безопасности. Для оповещений, связанных с этим элементом управления, может потребоваться план [защитника Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) для связанных служб.
+
+**Встроенные определения политики Azure — Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-1-1.md)]
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2. Мониторинг и запись конфигурации и трафика виртуальных сетей, подсетей и сетевых карт
 
@@ -56,9 +60,9 @@ ms.locfileid: "100578538"
 
 - [Как включать и использовать Аналитику трафика](../network-watcher/traffic-analytics.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="13-protect-critical-web-applications"></a>1.3. Защита критических веб-приложений
 
@@ -72,13 +76,14 @@ ms.locfileid: "100578538"
 
 - [Использование службы управления API Azure с микрослужбами, развернутыми в службе Kubernetes Azure](../api-management/api-management-kubernetes.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4. Запрет взаимодействия с известными опасными IP-адресами
 
 **Руководство**. Включение службы распределенного отказа в обслуживании Майкрософт (от атак DDoS) в виртуальных сетях, где компоненты службы Azure KUBERNETES (AKS) развертываются для защиты от атак от атак DDoS.
+
 Установите модуль политики сети и создайте Kubernetes сетевые политики для управления потоком трафика между модулями Pod в AKS, как, по умолчанию, весь трафик разрешается между этими модулями. Политику сети следует использовать только для узлов под управлением Linux и групп pod в AKS. Определите правила, ограничивающие связь с Pod для повышения безопасности. 
 
 Выберите разрешение или запрет трафика на основе таких параметров, как назначенные метки, пространство имен или порт трафика. Необходимые политики сети можно автоматически применять в качестве модулей Pod, динамически создаваемых в кластере AKS. 
@@ -87,21 +92,21 @@ ms.locfileid: "100578538"
 
 - [Настройка защиты от атак DDoS](../ddos-protection/manage-ddos-protection.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="15-record-network-packets"></a>1,5: запись сетевых пакетов
 
 **Руководство**. Используйте запись пакетов наблюдателя за сетями, как это необходимо для изучения аномальных действий. 
 
-Наблюдатель за сетями включается автоматически в регионе виртуальной сети при создании или обновлении виртуальной сети в подписке. Можно также создать новые экземпляры наблюдателя за сетями с помощью PowerShell, Azure CLI, REST API или метода ARMClient.
+Наблюдатель за сетями включается автоматически в регионе виртуальной сети при создании или обновлении виртуальной сети в подписке. Можно также создать новые экземпляры наблюдателя за сетями с помощью PowerShell, Azure CLI, REST API или метода Azure Resource Manager клиента.
 
 - [Как включить Наблюдатель за сетями](../network-watcher/network-watcher-create.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: развертывание системы обнаружения вторжений на основе сети и предотвращения вторжения (ИДЕНТИФИКАТОРы и IP-адреса)
 
@@ -109,29 +114,13 @@ ms.locfileid: "100578538"
 
 Если обнаружение и/или предотвращение вторжения на основе анализа полезной нагрузки или аналитики поведения не является обязательным, шлюз приложений Azure с WAF можно использовать и настроить в "режиме обнаружения" для ведения журнала предупреждений и угроз, или "режим предотвращения" для активной блокировки обнаруженных вторжений и атак.
 
-- [Ознакомьтесь с рекомендациями по защите кластера AKS с помощью WAF](operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
+- [Ознакомьтесь с рекомендациями по защите кластера AKS с помощью WAF](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
 
 - [Развертывание шлюза приложений Azure (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
 
 **Ответственность**: Customer
 
-### <a name="17-manage-traffic-to-web-applications"></a>1.7. Управление трафиком к веб-приложениям
-
-**Руководство**. Используйте брандмауэр веб-приложения Azure с поддержкой шлюза приложений (WAF) перед КЛАСТЕРом AKS, чтобы отфильтровать входящий трафик. Открытый проект безопасности веб-приложений (OWASP) предоставляет набор правил, которые используются в WAF Azure для отслеживания атак, таких как межсайтовые сценарии или подозрительные файлы cookie.
-
-Применение тегов полного доменного имени (FQDN) к приложениям для простоты использования при настройке правил приложений в группе безопасности сети. После настройки сетевых правил. Добавьте правило приложения с помощью тега FQDN, например Азурекубернетессервице, который включает все необходимые полные доменные имена, доступные через TCP-порт 443 и порт 80. 
-
-- [Рекомендации по сетевому подключению и безопасности в AKS](operator-best-practices-network.md)
-
-- [Защита трафика между группами pod с использованием политик сети в Службе Azure Kubernetes (AKS)](use-network-policies.md)
-
-- [Развертывание шлюза приложений Azure (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8. Уменьшение сложности и дополнительных затрат на администрирование в правилах безопасности сети
 
@@ -147,33 +136,38 @@ ms.locfileid: "100578538"
 
 - [Управление исходящим трафиком для узлов кластера в службе Azure Kubernetes (AKS)](limit-egress-traffic.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9. Поддержание стандартных конфигураций безопасности для сетевых устройств
 
-**Руководство**. Определение и реализация стандартных конфигураций безопасности с помощью политики Azure для сетевых ресурсов, связанных с кластерами Azure Kubernetes Service (AKS). Используйте псевдонимы политик Azure в пространствах имен Microsoft. ContainerService и Microsoft. Network, чтобы создать настраиваемые политики для аудита или принудительного применения конфигурации сети кластеров AKS. 
+**Руководство**. Определение и реализация стандартных конфигураций безопасности с помощью политики Azure для сетевых ресурсов, связанных с кластерами Azure Kubernetes Service (AKS). 
+
+Используйте псевдонимы политик Azure в пространствах имен Microsoft. ContainerService и Microsoft. Network, чтобы создать настраиваемые политики для аудита или принудительного применения конфигурации сети кластеров AKS. 
 
 Кроме того, используйте встроенные определения политик, связанные с AKS, например:
 
-• Допустимые диапазоны IP-адресов должны быть определены в Kubernetes Services
+- В службах Kubernetes нужно определить разрешенные диапазоны IP-адресов.
 
-• Принудительное применение HTTPS в кластере Kubernetes
+- Обеспечить прием входящего HTTPS-трафика в кластере Kubernetes
 
-• Убедитесь, что службы прослушивают только разрешенные порты в кластере Kubernetes
+- Обеспечить ожидание передачи данных службами только на разрешенных портах в кластере Kubernetes
+
+Дополнительные сведения можно найти по ссылкам, на которые имеются ссылки.
 
 - [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-- [Примеры политик Azure для работы в сети](../governance/policy/samples/built-in-policies.md#network)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Примеры политик Azure для работы в сети](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10. Документация по правилам конфигурации трафика
 
 **Руководство**. Использование тегов для групп безопасности сети и других ресурсов для передачи трафика в кластеры Azure Kubernetes Service (AKS) и из них. Используйте поле "Описание" для отдельных правил группы безопасности сети, чтобы указать потребности и/или длительность и т. д. для всех правил, которые разрешают трафик из сети в сеть.
+
 Используйте любые встроенные определения, связанные с разметкой политики Azure, например "требовать тег и его значение", чтобы обеспечить создание всех ресурсов с помощью тегов и получать уведомления для существующих непомеченных ресурсов.
 
 Выберите разрешение или запрет на определенные сетевые пути в кластере на основе пространств имен и селекторов меток с сетевыми политиками. Используйте эти пространства имен и метки в качестве дескрипторов для правил конфигурации трафика. Используйте Azure PowerShell или интерфейс командной строки Azure (CLI) для поиска или выполнения действий с ресурсами на основе их тегов.
@@ -184,9 +178,9 @@ ms.locfileid: "100578538"
 
 - [Создание группы безопасности сети с конфигурацией безопасности](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11. Использование автоматизированных средств для мониторинга конфигураций сетевых ресурсов и обнаружения изменений
 
@@ -196,15 +190,15 @@ ms.locfileid: "100578538"
 
 Используйте журналы Azure Monitor, чтобы включить и запросить журналы из AKS основных компонентов, KUBE-аписервер и KUBE-Controller-Manager. Создание и администрирование узлов, на которых выполняется kubelet с помощью среды выполнения контейнеров, и развертывание приложений с помощью управляемого сервера API Kubernetes. 
 
-- [Как просматривать и извлекать события журнала действий Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Как просматривать и извлекать события журнала действий Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [Как создать оповещения в службе Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [Как создать оповещения в службе Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](view-master-logs.md) (Включение и просмотр журналов главного узла Kubernetes в Службе Azure Kubernetes (AKS))
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs) (Включение и просмотр журналов главного узла Kubernetes в Службе Azure Kubernetes (AKS))
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="logging-and-monitoring"></a>Ведение журналов и мониторинг
 
@@ -218,19 +212,19 @@ ms.locfileid: "100578538"
 
 - [Общие сведения о требованиях к домену и портам NTP для узлов кластера AKS](limit-egress-traffic.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="22-configure-central-security-log-management"></a>2.2. Настройка централизованного управления журналами безопасности
 
 **Руководство**. Включение журналов аудита из главных компонентов Azure Kubernetes Services (AKS), KUBE-аписервер и KUBE-Controller-Manager, которые предоставляются как управляемая служба. 
 
-• KUBE-Аудитакссервице: отображаемое имя в журнале аудита для операции плоскости управления (из Хкпсервице) 
+- KUBE-Аудитакссервице: отображаемое имя в журнале аудита для операции плоскости управления (из Хкпсервице) 
 
-• мастерклиент: отображаемое имя в журнале аудита для Мастерклиентцертификате, сертификат, полученный из команды AZ AKS Get-credentials. 
+- мастерклиент: отображаемое имя в журнале аудита для Мастерклиентцертификате, сертификат, полученный из команды AZ AKS Get-credentials. 
 
-• нодеклиент: отображаемое имя для ClientCertificate, используемое узлами агента.
+- нодеклиент: отображаемое имя для ClientCertificate, которое используется узлами агента.
 
 Включите также другие журналы аудита, например KUBE-Audit. 
 
@@ -238,45 +232,44 @@ ms.locfileid: "100578538"
 
 Разрешите и включите эти данные в Azure Sentinel или сторонние SIEM в соответствии с бизнес-требованиями Организации.
 
-- [Ознакомьтесь со схемой журнала, включая роли журнала.](view-master-logs.md)
+- [Ознакомьтесь со схемой журнала, включая роли журнала.](/azure/aks/view-master-logs)
 
-- [Общие сведения о Azure Monitor контейнерах](../azure-monitor/containers/container-insights-overview.md)
+- [Общие сведения о Azure Monitor контейнерах](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Включение Azure Monitor для контейнеров](../azure-monitor/containers/container-insights-onboard.md)
+- [Включение Azure Monitor для контейнеров](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](view-master-logs.md) (Включение и просмотр журналов главного узла Kubernetes в Службе Azure Kubernetes (AKS))
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs) (Включение и просмотр журналов главного узла Kubernetes в Службе Azure Kubernetes (AKS))
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3. Включение журналов аудита для ресурсов Azure
 
-**Руководство**. Использование журналов действий для мониторинга действий в ресурсах Azure Kubernetes Service (AKS) для просмотра всех действий и их состояний. Определение операций, выполненных с ресурсами в подписке с помощью журналов действий: кто начал операцию
+**Руководство**. Использование журналов действий для мониторинга действий в ресурсах Azure Kubernetes Service (AKS) для просмотра всех действий и их состояний. Определите, какие операции были выполнены с ресурсами в подписке с помощью журналов действий: 
 
-когда была выполнена операция;
-
-состояние операции;
-
-значения других свойств, которые могут помочь в изучении операции.
+- кто запустил операцию;
+- когда была выполнена операция;
+- состояние операции;
+- значения других свойств, которые могут помочь в изучении операции.
 
 Получите сведения из журнала действий с помощью Azure PowerShell, интерфейса командной строки Azure (CLI), REST API Azure или портал Azure. 
 
 Включите журналы аудита в основных компонентах AKS, например: 
 
-• KUBE-Аудитакссервице: отображаемое имя в журнале аудита для операции плоскости управления (из Хкпсервице) 
+- KUBE-Аудитакссервице: отображаемое имя в журнале аудита для операции плоскости управления (из Хкпсервице) 
 
-• мастерклиент: отображаемое имя в журнале аудита для Мастерклиентцертификате, сертификат, полученный из команды AZ AKS Get-credentials. 
+- мастерклиент: отображаемое имя в журнале аудита для Мастерклиентцертификате, сертификат, полученный из команды AZ AKS Get-credentials. 
 
-• нодеклиент: отображаемое имя для ClientCertificate, используемое узлами агента.
+- нодеклиент: отображаемое имя для ClientCertificate, которое используется узлами агента.
 
 Включите также другие журналы аудита, например KUBE-Audit. 
 
-- [Как включить и проверить журналы главного узла Kubernetes в AKS](view-master-logs.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как включить и проверить журналы главного узла Kubernetes в AKS](/azure/aks/view-master-logs)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4. Сбор журналов безопасности из операционных систем
 
@@ -286,19 +279,19 @@ ms.locfileid: "100578538"
 
 - [Включение автоматической подготовки агента Log Analytics](../security-center/security-center-enable-data-collection.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5. Настройка хранения журнала безопасности
 
 **Руководство**. Подключение экземпляров службы Azure Kubernetes Service (AKS) к Azure Monitor и настройка соответствующего срока хранения для рабочей области Azure log Analytics в соответствии с требованиями вашей организации к соответствию. 
 
-- [Как задать параметры хранения журнала для рабочих областей Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
-
-**Мониторинг Центра безопасности Azure**. Неприменимо
+- [Задание параметров хранения журналов для рабочих областей Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="26-monitor-and-review-logs"></a>2.6. Мониторинг и просмотр журналов
 
@@ -308,27 +301,29 @@ ms.locfileid: "100578538"
 
 Просмотрите журналы, созданные AKS Master Components (KUBE-аписервер и KUBE-контроллерманажер) для устранения неполадок в приложении и службах. Включение и встроенные данные в Azure Sentinel или сторонние SIEM для централизованного управления журналами и мониторинга.
 
-- [Как включить и проверить журналы главного узла Kubernetes в AKS](view-master-logs.md)
+- [Как включить и проверить журналы главного узла Kubernetes в AKS](/azure/aks/view-master-logs)
 
 - [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Выполнение пользовательских запросов в Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Выполнение пользовательских запросов в Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Включение оповещений для аномальных действий
 
-**Руководство**. Используйте службу Azure Kubernetes Service (AKS) вместе с центром безопасности, чтобы получить более подробную информацию об узлах AKS. Просмотрите оповещения центра безопасности об угрозах и вредоносных действиях, обнаруженных на узле и на уровне кластера. Центр безопасности реализует непрерывный анализ необработанных событий безопасности, происходящих в кластере AKS, таких как данные сети, создание процессов и журнал аудита Kubernetes. Определите, является ли действие ожидаемым или поведение приложения некорректным. Используйте метрики и журналы в Azure Monitor, чтобы субстантиате свои результаты. 
+**Руководство**. Используйте службу Azure Kubernetes Service (AKS) вместе с центром безопасности, чтобы получить более подробную информацию об узлах AKS. 
+
+Просмотрите оповещения центра безопасности об угрозах и вредоносных действиях, обнаруженных на узле и на уровне кластера. Центр безопасности реализует непрерывный анализ необработанных событий безопасности, происходящих в кластере AKS, таких как данные сети, создание процессов и журнал аудита Kubernetes. Определите, является ли действие ожидаемым или поведение приложения некорректным. Используйте метрики и журналы в Azure Monitor, чтобы субстантиате свои результаты. 
 
 - [Общие сведения об интеграции Azure Kubernetes Services с центром безопасности](../security-center/defender-for-kubernetes-introduction.md)
 
 - [Включение уровня "Стандартный" центра безопасности Azure](../security-center/security-center-get-started.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8. Централизованное ведение журнала защиты от вредоносных программ
 
@@ -338,11 +333,11 @@ ms.locfileid: "100578538"
 
 - [Справочное руководство по оповещениям системы безопасности](../security-center/alerts-reference.md)
 
-- [Оповещения для контейнеров — кластеры службы Kubernetes Azure](../security-center/alerts-reference.md#alerts-akscluster)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Оповещения для контейнеров — кластеры службы Kubernetes Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="29-enable-dns-query-logging"></a>2.9. Включение ведения журнала запросов DNS
 
@@ -352,9 +347,9 @@ ms.locfileid: "100578538"
 
 - [Настройка CoreDNS с использованием Службы Azure Kubernetes](coredns-custom.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10. Включение ведения журнала аудита для командной строки
 
@@ -364,31 +359,31 @@ ms.locfileid: "100578538"
 
 - [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](kubelet-logs.md) (Получение журналов kubelet из узлов кластера Службы Azure Kubernetes (AKS))
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
 
-## <a name="identity-and-access-control"></a>Идентификаторы и управление доступом
+**Мониторинг центра безопасности Azure**: нет
+
+## <a name="identity-and-access-control"></a>Идентификатор и управление доступом
 
 *Дополнительные сведения см. в статье о [производительности системы безопасности Azure: идентификация и управление доступом](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1. Инвентаризация учетных записей администраторов
 
-**Руководство**. сама служба Azure Kubernetes Service (AKS) не предоставляет решение для управления удостоверениями, в котором хранятся обычные учетные записи пользователей и пароли. С помощью интеграции Azure Active Directory (Azure AD) можно предоставить пользователям или группам доступ к ресурсам Kubernetes в пространстве имен или в пределах кластера. 
+**Руководство**. сама служба Azure Kubernetes Service (AKS) не предоставляет решение для управления удостоверениями, в котором хранятся обычные учетные записи пользователей и пароли. С помощью интеграции Azure Active Directory (Azure AD) можно предоставить пользователям или группам доступ к ресурсам Kubernetes в пространстве имен или в пределах кластера.
 
 Выполнение нерегламентированных запросов для обнаружения учетных записей, являющихся членами административных групп AKS, с помощью модуля Azure AD PowerShell
 
 Используйте Azure CLI для таких операций, как "получить учетные данные доступа для управляемого кластера Kubernetes", чтобы упростить согласование доступа на регулярной основе. Реализуйте этот процесс, чтобы поддерживать обновленную инвентаризацию учетных записей служб, которые являются еще одним основным типом пользователей в AKS. Применяйте рекомендации по управлению удостоверениями и доступом в центре безопасности.
 
-- [Как интегрировать AKS с Azure AD](./azure-ad-integration-cli.md)
+- [Как интегрировать AKS с Azure AD](azure-ad-integration-cli.md)
 
 - [Как получить членов роли каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Мониторинг удостоверений и доступа с помощью центра безопасности Azure](../security-center/security-center-identity-access.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2. Изменение паролей по умолчанию, где применимо
 
@@ -398,9 +393,9 @@ ms.locfileid: "100578538"
 
 - [Общие сведения о параметрах доступа и удостоверений для AKS](concepts-identity.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3. Применение выделенных административных учетных записей
 
@@ -414,44 +409,45 @@ ms.locfileid: "100578538"
 
 - [Использование элементов управления доступом на основе ролей в Azure](control-kubeconfig-access.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4. Использование единого входа с Azure Active Directory
 
 **Руководство**. Использование единого входа для службы Azure Kubernetes Service (AKS) с интегрированной проверкой подлинности Azure Active Directory (Azure AD) для кластера AKS.
 
-- [Просмотр журналов Kubernetes, событий и метрик Pod в режиме реального времени](../azure-monitor/containers/container-insights-livedata-overview.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Просмотр журналов Kubernetes, событий и метрик Pod в режиме реального времени](/azure/azure-monitor/insights/container-insights-livedata-overview)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5. Использование многофакторной проверки подлинности для любого доступа на основе Azure Active Directory
 
 **Руководство**. Интеграция проверки подлинности для службы Azure KUBERNETES (AKS) с Azure Active Directory (Azure AD). 
 
-Включите многофакторную идентификацию Azure AD (MFA) и следуйте рекомендациям по управлению удостоверениями и доступом в центре безопасности.
+Включите многофакторную проверку подлинности Azure AD и следуйте рекомендациям по управлению удостоверениями и доступом в центре безопасности.
 
-- [Включение MFA в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Как включить многофакторную проверку подлинности в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Мониторинг идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md) 
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Мониторинг идентификации и доступа в Центре безопасности Azure](../security-center/security-center-identity-access.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6. Использование выделенных компьютеров (рабочих станций с привилегированным доступом) для всех административных задач
 
 **Руководство**. Использование рабочей станции привилегированного доступа (привилегированным доступом) с многофакторной проверкой подлинности (MFA), настроенной для входа в указанные кластеры Azure Kubernetes Service (AKS) и связанные ресурсы.
+
 - [Использование рабочих станций с привилегированным доступом](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Включение MFA в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Включение многофакторной идентификации (MFA) в Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: журналы и оповещения о подозрительных действиях учетных записей администраторов
 
@@ -461,9 +457,9 @@ ms.locfileid: "100578538"
 
 - [Как отслеживать активность удостоверений и доступа пользователей в центре безопасности Azure](../security-center/security-center-identity-access.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3,8: управление ресурсами Azure только из утвержденных расположений
 
@@ -475,9 +471,9 @@ ms.locfileid: "100578538"
 
 - [Настройка именованных расположений в Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="39-use-azure-active-directory"></a>3.9. Использование Azure Active Directory
 
@@ -487,13 +483,13 @@ ms.locfileid: "100578538"
 
 - [Что такое служба "Политика Azure"](../governance/policy/overview.md)
 
-- [Как интегрировать Azure AD с AKS](./azure-ad-integration-cli.md) 
+- [Как интегрировать Azure AD с AKS](azure-ad-integration-cli.md)
 
 - [Интеграция Azure AD с управляемым AKS](managed-aad.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10. Регулярная проверка и согласование доступа пользователей
 
@@ -509,20 +505,20 @@ ms.locfileid: "100578538"
 
 - [Как отслеживать действия пользователя и доступа в центре безопасности Azure](../security-center/security-center-identity-access.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: монитор пытается получить доступ к отключенным учетным данным
 
 **Руководство**. Интеграция проверки подлинности пользователей для службы Azure KUBERNETES (AKS) с Azure Active Directory (Azure AD). Создайте параметры диагностики для Azure AD, отправив журналы аудита и входа в рабочую область Azure Log Analytics. Настройте нужные оповещения (например, когда деактивированная учетная запись пытается войти в систему) в рабочей области Azure Log Analytics.
 - [Как интегрировать журналы действий Azure в Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Создание, просмотр и Управление оповещениями журнала с помощью Azure Monitor](../azure-monitor/alerts/alerts-log.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Создание, просмотр и Управление оповещениями журнала с помощью Azure Monitor](/azure/azure-monitor/platform/alerts-log)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12. Предупреждение при подозрительном входе в учетную запись
 
@@ -534,22 +530,13 @@ ms.locfileid: "100578538"
 
 - [Подключение к Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13. Предоставление корпорации Майкрософт доступа к соответствующим данным клиентов в рамках сценариев поддержки
-
-**Руководство**: неприменимо к службе Azure KUBERNETES (AKS), так как она не поддерживается защищенное хранилище.
-- [Список поддерживаемых защищенное хранилище служб](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
-**Ответственность**: Неприменимо
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-protection"></a>Защита данных
 
-*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: защита данных](../security/benchmarks/security-control-data-protection.md).*
+*Дополнительные сведения см. в статье [Azure Security Benchmark: защита данных](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1. Инвентаризация конфиденциальных данных
 
@@ -559,9 +546,9 @@ ms.locfileid: "100578538"
 
 - [Обновление тегов для управляемых кластеров](/rest/api/aks/managedclusters/updatetags)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2. Изолирование систем, хранящих или обрабатывающих конфиденциальные данные
 
@@ -577,9 +564,9 @@ ms.locfileid: "100578538"
 
 - [Рекомендации по сетевому подключению и безопасности в AKS](operator-best-practices-network.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. Мониторинг и блокирование несанкционированной передачи конфиденциальной информации
 
@@ -593,11 +580,11 @@ ms.locfileid: "100578538"
 
 - [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Совмещаемая блокировка
 
-### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Шифрование любой конфиденциальной информации при передаче
+**Мониторинг центра безопасности Azure**: нет
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4. Шифрование любой конфиденциальной информации при передаче
 
 **Руководство**. Создание контроллера ВХОДЯЩЕГО трафика HTTPS и использование собственных сертификатов TLS (или, при необходимости, шифрование) для развертываний службы Azure Kubernetes Service (AKS). 
 
@@ -609,9 +596,9 @@ ms.locfileid: "100578538"
 
 - [Список возможных портов исходящей работы и протоколов, используемых AKS](limit-egress-traffic.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5. Использование средства активного обнаружения для распознавания конфиденциальных данных
 
@@ -622,9 +609,9 @@ ms.locfileid: "100578538"
 
 - [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6. Использование Azure RBAC для управления доступом к ресурсам
 
@@ -636,9 +623,13 @@ ms.locfileid: "100578538"
 
 - [Как управлять доступом к ресурсам кластера с помощью Azure RBAC и удостоверений Azure AD в AKS](azure-ad-rbac.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг в центре безопасности Azure. производительность** [системы безопасности Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) — это инициатива политики по умолчанию для центра безопасности, которая является основой для [рекомендаций центра безопасности](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Определения политик Azure, связанные с этим элементом управления, автоматически включаются центром безопасности. Для оповещений, связанных с этим элементом управления, может потребоваться план [защитника Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) для связанных служб.
+
+**Встроенные определения политики Azure — Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 4.6](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-4-6.md)]
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7. Использование защиты от потери данных на основе узла для обеспечения контроля доступа
 
@@ -647,9 +638,9 @@ ms.locfileid: "100578538"
 
 - [Общие сведения о защите данных клиентов в Azure](../security/fundamentals/protection-customer-data.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8. Шифрование конфиденциальной информации при хранении
 
@@ -661,9 +652,9 @@ ms.locfileid: "100578538"
 
 - [Перенесите собственные ключи (BYOK) с помощью дисков Azure в службе Kubernetes Azure (AKS)](azure-disk-customer-managed-keys.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
+**Ответственность**: Совмещаемая блокировка
 
-**Ответственность**. Совмещаемая блокировка
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9. Включение в журнал и создание оповещений по изменениям критических ресурсов Azure
 
@@ -673,17 +664,17 @@ ms.locfileid: "100578538"
 
 Используйте журнал действий Azure для мониторинга кластеров AKS и связанных ресурсов на высоком уровне. Интегрируйтесь с Prometheus для просмотра метрик приложений и рабочих нагрузок, собираемых из узлов, и Kubernetes с помощью запросов для создания настраиваемых оповещений, панелей мониторинга и подробного анализа.
 
-- [Общие сведения о Azure Monitor контейнерах](../azure-monitor/containers/container-insights-overview.md)
+- [Общие сведения о Azure Monitor контейнерах](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Включение Azure Monitor для контейнеров](../azure-monitor/containers/container-insights-onboard.md)
+- [Включение Azure Monitor для контейнеров](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Как просматривать и извлекать события журнала действий Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
-
-**Мониторинг Центра безопасности Azure**: Да
+- [Как просматривать и извлекать события журнала действий Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
 **Ответственность**: Customer
 
-## <a name="vulnerability-management"></a>управление уязвимостями;
+**Мониторинг центра безопасности Azure**: нет
+
+## <a name="vulnerability-management"></a>Управление уязвимостями
 
 *Дополнительные сведения см. в статье о [производительности системы безопасности Azure: Управление уязвимостью](../security/benchmarks/security-control-vulnerability-management.md).*
 
@@ -701,9 +692,9 @@ ms.locfileid: "100578538"
 
 - [Общие сведения об интеграции реестра контейнеров с центром безопасности Azure](../security-center/defender-for-container-registries-introduction.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2. Развертывание автоматизированного решения для управления исправлениями операционной системы
 
@@ -713,33 +704,37 @@ ms.locfileid: "100578538"
 
 - [Узнайте, как обновления применяются к узлам кластера AKS под управлением Linux.](node-updates-kured.md)
 
-- [Обновление пула узлов AKS для кластеров AKS, использующих узлы Windows Server](use-multiple-node-pools.md#upgrade-a-node-pool)
+- [Обновление пула узлов AKS для кластеров AKS, использующих узлы Windows Server](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
 
 - [Обновление образа узла службы Azure Kubernetes Service (AKS)](node-image-upgrade.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Развертывание автоматизированного решения по управлению исправлениями для программ сторонних разработчиков
 
 **Рекомендации**. реализуйте ручной процесс, чтобы убедиться, что сторонние приложения узла кластера Azure Kubernetes Service (AKS) остаются исправленными в течение времени существования кластера. Для этого может потребоваться включить автоматическое обновление, отслеживать узлы или выполнять периодические перезагрузки.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг в центре безопасности Azure. производительность** [системы безопасности Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) — это инициатива политики по умолчанию для центра безопасности, которая является основой для [рекомендаций центра безопасности](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Определения политик Azure, связанные с этим элементом управления, автоматически включаются центром безопасности. Для оповещений, связанных с этим элементом управления, может потребоваться план [защитника Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) для связанных служб.
+
+**Встроенные определения политики Azure — Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 5.3](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-5-3.md)]
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4. Сравнение проверок смежных уязвимостей
 
-**Руководство**. Экспорт результатов проверки центра безопасности с одинаковыми интервалами и сравнение результатов для проверки того, что уязвимости исправлены. 
+**Руководство**. Экспорт результатов проверки центра безопасности с одинаковыми интервалами и сравнение результатов для проверки того, что уязвимости исправлены.
 
 Используйте командлет PowerShell "Get-Азсекурититаск", чтобы автоматизировать получение сведений о задачах безопасности, которые центр безопасности рекомендует выполнить, чтобы усилить результаты проверки уязвимостей в области безопасности и исправления.
 
 - [Использование PowerShell для просмотра уязвимостей, обнаруженных центром безопасности Azure](/powershell/module/az.security/get-azsecuritytask)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5. Использование процесса оценки рисков для определения приоритета в устранении обнаруженных уязвимостей
 
@@ -747,9 +742,9 @@ ms.locfileid: "100578538"
 
 Используйте общую систему оценки уязвимостей (CVSS) (или другие системы оценки, предоставляемые средством сканирования), если используется встроенное средство оценки уязвимостей (например, Qualys или Rapid7, предлагаемое Azure).
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="inventory-and-asset-management"></a>Инвентаризация и управление ресурсами
 
@@ -767,9 +762,9 @@ ms.locfileid: "100578538"
 
 - [Общие сведения об Azure RBAC](../role-based-access-control/overview.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="62-maintain-asset-metadata"></a>6.2. Ведение метаданных активов
 
@@ -777,9 +772,9 @@ ms.locfileid: "100578538"
 
 - [Создание и использование тегов](../azure-resource-manager/management/tag-resources.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3. Удаление неавторизованных ресурсов Azure
 
@@ -797,19 +792,19 @@ ms.locfileid: "100578538"
 
 - [Управляемые кластеры — обновление тегов](/rest/api/aks/managedclusters/updatetags)
 
-- [Укажите таинт, метку или тег для пула узлов](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Укажите таинт, метку или тег для пула узлов](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: определение и обслуживание инвентаризации утвержденных ресурсов Azure
 
 **Руководство**. Определение списка утвержденных ресурсов Azure и утвержденного программного обеспечения для вычислений ресурсов на основе бизнес-потребностей Организации.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5. Отслеживание неутвержденных ресурсов Azure
 
@@ -824,9 +819,9 @@ ms.locfileid: "100578538"
 
 - [Как создавать запросы с помощью Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6. Отслеживание неутвержденных программных приложений в рамках ресурсов вычислений
 
@@ -838,9 +833,9 @@ ms.locfileid: "100578538"
 
 - [Включение инвентаризации виртуальных машин Azure](../automation/automation-tutorial-installed-software.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7. Удаление неутвержденных ресурсов Azure и программных приложений
 
@@ -856,9 +851,9 @@ ms.locfileid: "100578538"
 
 - [Общие сведения об Azure Отслеживание изменений](../automation/change-tracking/overview.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="68-use-only-approved-applications"></a>6.8. Использование только утвержденных приложений
 
@@ -872,13 +867,11 @@ ms.locfileid: "100578538"
 
 - [Включение инвентаризации виртуальных машин Azure](../automation/automation-tutorial-installed-software.md)
 
- 
-Как использовать адаптивное приложение центра безопасности Azure
-- [Элементы управления](../security-center/security-center-adaptive-application.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как использовать адаптивные элементы управления приложениями в центре безопасности Azure](../security-center/security-center-adaptive-application.md)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9. Использование только утвержденных служб Azure
 
@@ -894,11 +887,11 @@ ms.locfileid: "100578538"
 
 - [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-- [Как отказаться от определенного типа ресурса с помощью Политики Azure](../governance/policy/samples/index.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как отказаться от определенного типа ресурса с помощью Политики Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: ведение инвентаризации утвержденных наименований программного обеспечения
 
@@ -906,24 +899,24 @@ ms.locfileid: "100578538"
 
 - [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: ограничьте возможность пользователей работать с Azure Resource Manager
 
 **Руководство**. Используйте условный доступ Azure, чтобы ограничить возможность пользователей взаимодействовать с Azure Resource Manager путем настройки "Блокировать доступ" для приложения "Управление Microsoft Azure".
 - [Как настроить условный доступ для блокировки доступа к Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Мониторинг Центра безопасности Azure**. Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6,12: ограничьте возможность пользователей выполнять сценарии в ресурсах вычислений
 
-**Руководство**. сама служба Azure Kubernetes Service (AKS) не предоставляет решение для управления удостоверениями, в котором хранятся обычные учетные записи пользователей и пароли. Вместо этого используйте Azure Active Directory (Azure AD) в качестве интегрированного решения для идентификации кластеров AKS. 
+**Руководство**. сама служба Azure Kubernetes Service (AKS) не предоставляет решение для управления удостоверениями, в котором хранятся обычные учетные записи пользователей и пароли. Вместо этого используйте Azure Active Directory (Azure AD) в качестве интегрированного решения для идентификации кластеров AKS.
 
-Предоставьте пользователям или группам доступ к ресурсам Kubernetes в пространстве имен или в кластере с помощью интеграции Azure AD. 
+Предоставьте пользователям или группам доступ к ресурсам Kubernetes в пространстве имен или в кластере с помощью интеграции Azure AD.
 
 Используйте модуль Azure AD PowerShell для выполнения нерегламентированных запросов, чтобы обнаружить учетные записи, являющиеся членами административных групп AKS, и использовать их для регулярной согласования доступа. Используйте Azure CLI для таких операций, как "получить учетные данные доступа к управляемому кластеру Kubernetes. Реализуйте рекомендации по управлению удостоверениями и доступом в центре безопасности.
 
@@ -931,7 +924,7 @@ ms.locfileid: "100578538"
 
 - [Общие сведения об интеграции AKS и Azure AD](concepts-identity.md)
 
-- [Как интегрировать AKS с Azure AD](./azure-ad-integration-cli.md)
+- [Как интегрировать AKS с Azure AD](azure-ad-integration-cli.md)
 
 - [Как получить роль каталога в Azure AD с помощью PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
@@ -939,9 +932,9 @@ ms.locfileid: "100578538"
 
 - [Мониторинг удостоверений и доступа с помощью центра безопасности Azure](../security-center/security-center-identity-access.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13. Физическое или логическое разделение приложений с высоким риском
 
@@ -959,11 +952,11 @@ ms.locfileid: "100578538"
 
 - [Рекомендации по сетевому подключению и безопасности в AKS](operator-best-practices-network.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
 
-## <a name="secure-configuration"></a>Безопасная конфигурация
+**Мониторинг центра безопасности Azure**: нет
+
+## <a name="secure-configuration"></a>Настройка безопасности
 
 *Дополнительные сведения см. в статье о [производительности системы безопасности Azure: безопасная конфигурация](../security/benchmarks/security-control-secure-configuration.md).*
 
@@ -973,13 +966,13 @@ ms.locfileid: "100578538"
 
 Примерами встроенных определений политик для AKS являются:
 
-• Принудительное применение HTTPS в кластере Kubernetes
+- Обеспечить прием входящего HTTPS-трафика в кластере Kubernetes
 
-• Допустимые диапазоны IP-адресов должны быть определены в Kubernetes Services
+- В службах Kubernetes нужно определить разрешенные диапазоны IP-адресов.
 
-• Управление доступом на основе ролей (RBAC) следует использовать в службах Kubernetes Services
+- Управление доступом на основе ролей (RBAC) должно использоваться в службах Kubernetes Services
 
-• Убедитесь, что в кластере Kubernetes разрешены только образы контейнеров
+- Обеспечить использование только допустимых образов контейнера в кластере Kubernetes
 
 Экспортируйте шаблон конфигурации AKS в нотация объектов JavaScript (JSON) с Azure Resource Manager. Периодически просматривайте его, чтобы убедиться, что эти конфигурации соответствуют требованиям безопасности вашей организации. Используйте рекомендации из центра безопасности Azure в качестве защищенного шаблона базовой конфигурации для ресурсов Azure. 
 
@@ -987,9 +980,9 @@ ms.locfileid: "100578538"
 
 - [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2. Сохранение безопасных конфигураций для операционных систем
 
@@ -1001,9 +994,9 @@ Azure применяет ежедневные исправления (включ
 
 - [Общие сведения о усилении безопасности в узлах виртуальных машин AKS](security-hardened-vm-host-image.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3. Сохранение безопасных конфигураций для ресурсов Azure
 
@@ -1015,17 +1008,19 @@ Azure применяет ежедневные исправления (включ
 
 Создайте пользовательские определения политик Azure с помощью псевдонимов из следующих пространств имен: 
 
-• Microsoft. ContainerService
+- Microsoft.ContainerService
 
-• Microsoft. Network
+- Microsoft.Network.
+
+Дополнительные сведения можно найти по ссылкам, на которые имеются ссылки.
 
 - [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
 - [Сведения о действии Политик Azure](../governance/policy/concepts/effects.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4. Сохранение безопасных конфигураций для операционных систем
 
@@ -1035,39 +1030,37 @@ Azure применяет ежедневные исправления (включ
 
 - [Усиление безопасности для операционной системы узла агента AKS](security-hardened-vm-host-image.md)
 
-- [Изучение конфигурации состояния кластеров AKS](concepts-clusters-workloads.md#control-plane)
+- [Изучение конфигурации состояния кластеров AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 - [Общие сведения о усилении безопасности в узлах виртуальных машин AKS](security-hardened-vm-host-image.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5. Безопасное хранение конфигурации ресурсов Azure
 
-**Руководство**. Использование Azure Repos для безопасного хранения конфигураций и управления ими, если используются пользовательские определения политик Azure. Экспортируйте шаблон конфигурации службы Azure Kubernetes Service (AKS) в нотация объектов JavaScript (JSON) с Azure Resource Manager. Периодически просматривайте его, чтобы убедиться, что конфигурации соответствуют требованиям безопасности вашей организации. 
+**Руководство**. Использование Azure Repos для безопасного хранения конфигураций и управления ими, если используются пользовательские определения политик Azure. Экспортируйте шаблон конфигурации службы Azure Kubernetes Service (AKS) в нотация объектов JavaScript (JSON) с Azure Resource Manager. Периодически просматривайте его, чтобы убедиться, что конфигурации соответствуют требованиям безопасности вашей организации.
 
 Реализуйте сторонние решения, такие как terraform, чтобы создать файл конфигурации, объявляющий ресурсы для кластера Kubernetes. Вы можете защитить развертывание AKS, выполнив рекомендации по обеспечению безопасности и сохранить конфигурацию как код в безопасном месте.
 
 - [Определение кластера Kubernetes](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks#define-a-kubernetes-cluster)
 
-Усиление безопасности для операционной системы узла агента AKS
-
-security-hardened-vm-host-image.md
+- [Усиление безопасности для операционной системы узла агента AKS](security-hardened-vm-host-image.md)
 
 - [Как хранить код в Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6. Безопасное хранение пользовательских образов операционной системы
 
 **Руководство**: неприменимо к службе Azure KUBERNETES (AKS). AKS предоставляет по умолчанию операционную систему сервера, оптимизированную для системы безопасности. Нет текущего варианта выбора альтернативной или настраиваемой операционной системы.
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: развертывание средств управления конфигурацией для ресурсов Azure
 
@@ -1077,11 +1070,11 @@ security-hardened-vm-host-image.md
 
 - [Настройка Политики Azure и управление ею](../governance/policy/tutorials/create-and-manage.md)
 
-- [Использование псевдонимов](../governance/policy/concepts/definition-structure.md#aliases)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Использование псевдонимов](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: развертывание средств управления конфигурацией для операционных систем
 
@@ -1093,11 +1086,11 @@ security-hardened-vm-host-image.md
 
 - [Общие сведения о усилении безопасности в узлах виртуальных машин AKS](security-hardened-vm-host-image.md)
 
-- [Изучение конфигурации состояния кластеров AKS](concepts-clusters-workloads.md#control-plane)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Изучение конфигурации состояния кластеров AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9. Реализация автоматического мониторинга конфигурации для ресурсов Azure
 
@@ -1105,19 +1098,21 @@ security-hardened-vm-host-image.md
 
 - [Как исправить рекомендации в центре безопасности Azure](../security-center/security-center-remediate-recommendations.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10. Реализация автоматизированного мониторинга конфигурации для операционных систем
 
-**Руководство**. использование рекомендаций по контейнерам центра безопасности в &amp; разделе "приложения для вычислений" для выполнения проверок базовых показателей для кластеров службы Azure KUBERNETES Service (AKS). Получайте уведомления на панели мониторинга центра безопасности при обнаружении проблем конфигурации или уязвимостей. Это требует включения дополнительного набора реестров контейнеров, который позволяет центру безопасности сканировать образ.  
+**Руководство**. использование рекомендаций по контейнерам центра безопасности в &amp; разделе "приложения для вычислений" для выполнения проверок базовых показателей для кластеров службы Azure KUBERNETES Service (AKS). 
+
+Получайте уведомления на панели мониторинга центра безопасности при обнаружении проблем конфигурации или уязвимостей. Это требует включения дополнительного набора реестров контейнеров, который позволяет центру безопасности сканировать образ.  
 
 - [Общие сведения о рекомендациях центра безопасности Azure в отношении контейнеров](../security-center/container-security.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11. Безопасное управление секретами Azure
 
@@ -1129,27 +1124,27 @@ security-hardened-vm-host-image.md
 
 - [Основные понятия безопасности для приложений и кластеров в Службе Azure Kubernetes (AKS)](concepts-security.md)
 
-- [Использование Key Vault с кластером AKS](developer-best-practices-pod-security.md#limit-credential-exposure)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Использование Key Vault с кластером AKS](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 **Ответственность**: Customer
 
+**Мониторинг центра безопасности Azure**: нет
+
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12. Безопасное и автоматическое управление удостоверениями
 
-**Рекомендации**. не определяйте учетные данные в коде приложения в качестве рекомендации по обеспечению безопасности. Используйте управляемые удостоверения для ресурсов Azure, чтобы позволить Pod пройти проверку подлинности для любой службы в Azure, которая поддерживает ее, включая Azure Key Vault. Модулю назначается удостоверение Azure для проверки подлинности в Azure Active Directory (Azure AD) и получения цифрового маркера, который можно представить другим службам Azure, которые проверяют, имеет ли модуль Pod права на доступ к службе и выполняют необходимые действия. 
+**Рекомендации**. не определяйте учетные данные в коде приложения в качестве рекомендации по обеспечению безопасности. Используйте управляемые удостоверения для ресурсов Azure, чтобы позволить Pod пройти проверку подлинности для любой службы в Azure, которая поддерживает ее, включая Azure Key Vault. Модулю назначается удостоверение Azure для проверки подлинности в Azure Active Directory (Azure AD) и получения цифрового маркера, который можно представить другим службам Azure, которые проверяют, имеет ли модуль Pod права на доступ к службе и выполняют необходимые действия.
 
 Обратите внимание, что управляемые удостоверения Pod предназначены для использования только с ОС Linux и образами для образов контейнеров. Подготавливайте Azure Key Vault для хранения и получения цифровых ключей и учетных данных. Такие ключи, как те, которые используются для шифрования дисков ОС, AKS данные кластера могут храниться в Azure Key Vault.
 
 Субъекты-службы также можно использовать в кластерах AKS. Однако в конечном итоге кластеры, использующие субъекты-службы, могут достичь состояния, в котором необходимо обновить субъект-службу, чтобы обеспечить работу кластера. Управление субъектами-службами повышает сложность, поэтому вместо этого проще использовать управляемые удостоверения. Те же требования к разрешениям применяются и к субъектам-службам, и к управляемым удостоверениям.
 
-- [Общие сведения об управляемых удостоверениях и Key Vault с помощью службы Kubernetes Azure (AKS)](developer-best-practices-pod-security.md#limit-credential-exposure)
+- [Общие сведения об управляемых удостоверениях и Key Vault с помощью службы Kubernetes Azure (AKS)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
-- [Удостоверение группы pod Azure Active Directory](https://github.com/Azure/aad-pod-identity)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Удостоверение Pod Azure AD](https://github.com/Azure/aad-pod-identity)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13. Устранение непреднамеренного раскрытия учетных данных
 
@@ -1161,9 +1156,9 @@ security-hardened-vm-host-image.md
 
 - [Рекомендации для разработчиков по безопасности Pod](developer-best-practices-pod-security.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="malware-defense"></a>Защита от вредоносных программ
 
@@ -1175,13 +1170,13 @@ security-hardened-vm-host-image.md
 
 - [Справочное руководство по оповещениям системы безопасности](../security-center/alerts-reference.md)
 
-- [Оповещения для контейнеров — кластеры службы Kubernetes Azure](../security-center/alerts-reference.md#alerts-akscluster)
+- [Оповещения для контейнеров — кластеры службы Kubernetes Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS общей ответственности и наборов управляющих программ](support-policies.md#shared-responsibility)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [AKS общей ответственности и наборов управляющих программ](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2. Предварительная проверка файлов для отправки в ресурсы Azure, не являющиеся вычислительными
 
@@ -1189,9 +1184,9 @@ security-hardened-vm-host-image.md
 
 - [Сведения об обнаружении угроз для служб данных в центре безопасности Azure](../security-center/azure-defender.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8,3: Убедитесь, что антивредоносное по и подписи обновлены
 
@@ -1199,13 +1194,13 @@ security-hardened-vm-host-image.md
 
 - [Справочное руководство по оповещениям системы безопасности](../security-center/alerts-reference.md)
 
-- [Оповещения для контейнеров — кластеры службы Kubernetes Azure](../security-center/alerts-reference.md#alerts-akscluster)
+- [Оповещения для контейнеров — кластеры службы Kubernetes Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS общей ответственности и наборов управляющих программ](support-policies.md#shared-responsibility)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [AKS общей ответственности и наборов управляющих программ](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Ответственность**: Совмещаемая блокировка
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="data-recovery"></a>Восстановление данных
 
@@ -1225,19 +1220,15 @@ security-hardened-vm-host-image.md
 
 - [Как настроить Велеро в Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: выполните полное резервное копирование системы и резервное копирование ключей, управляемых клиентом
 
 **Руководство**. Резервное копирование данных с помощью соответствующего средства для хранилища, такого как велеро, которое позволяет создавать резервные копии постоянных томов вместе с дополнительными ресурсами кластера и конфигурациями. 
 
 Выполняйте регулярное автоматическое резервное копирование Key Vault сертификатов, ключей, управляемых учетных записей хранения и секретов с помощью команд PowerShell. 
-
-Пример.
-
-Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
 - [Резервное копирование Key Vault сертификатов](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
@@ -1247,35 +1238,31 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 - [Резервное копирование Key Vault секретов](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Включение Azure Backup](../backup/index.yml)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Включение Azure Backup](/azure/backup/)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Проверьте все резервные копии, включая управляемые клиентом ключи.
 
 **Руководство**. периодическое восстановление данных в велеро Backup. При необходимости протестируйте восстановление в изолированной виртуальной сети.
 
-Периодически выполняйте восстановление данных Key Vault сертификатов, ключей, управляемых учетных записей хранения и секретов с помощью команд PowerShell. 
+Периодически выполняйте восстановление данных Key Vault сертификатов, ключей, управляемых учетных записей хранения и секретов с помощью команд PowerShell.
 
-Пример.
+- [Восстановление сертификатов Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
 
-Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
-
-- [Восстановление сертификатов Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
-
-- [Восстановление ключей Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Восстановление ключей Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 
 - [Восстановление Key Vault управляемых учетных записей хранения](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Восстановление секретов Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Восстановление секретов Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
 
-- [Как восстановить файлы из резервной копии виртуальной машины Azure](../backup/backup-azure-restore-files-from-vm.md)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как восстановить файлы из резервной копии виртуальной машины Azure](/azure/backup/backup-azure-restore-files-from-vm)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: Обеспечьте защиту резервных копий и ключей, управляемых клиентом
 
@@ -1285,15 +1272,15 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 - [Общие сведения об Azure Шифрование службы хранилища](../storage/common/storage-service-encryption.md)
 
-- [Как включить обратимое удаление в Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Как включить обратимое удаление в Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
 
 **Ответственность**: Customer
 
-## <a name="incident-response"></a>Реагирование на инциденты
+**Мониторинг центра безопасности Azure**: нет
 
-*Дополнительные сведения см. в статье о [производительности системы безопасности Azure: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
+## <a name="incident-response"></a>реагирование на инциденты.
+
+*Дополнительные сведения см. в статье [Azure Security Benchmark: реагирование на инциденты](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1. Создание руководства по реагированию на инциденты
 
@@ -1305,62 +1292,66 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 - [Анатомия инцидента Центра Майкрософт по реагированию на угрозы](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-- [Клиент также может воспользоваться руководством по обработке инцидентов безопасности компьютера NIST, чтобы помочь в создании собственного плана реагирования на инциденты.](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
-
-**Мониторинг Центра безопасности Azure**: Неприменимо
+- [Руководством по обработке инцидентов компьютерной безопасности NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2. Создание процедуры оценки инцидента и определения приоритетов
 
-**Руководство**. определение приоритетов предупреждений, которые должны быть исследованы первыми с помощью центра безопасности, которому назначено серьезность. Серьезность основывается на том, насколько уверен Центр безопасности в исследовании или аналитике, используемой для оповещения, а также на уровне достоверности злонамеренности события, приведшего к оповещению.
+**Руководство**. определение приоритетов предупреждений, которые должны быть исследованы первыми с помощью центра безопасности, которому назначено серьезность. Серьезность основывается на том, насколько надежным является центр безопасности в поиске или аналитике, используемой для выдаче оповещения, а также об уровне достоверности, который был вредоносным намерением для действия, вызвавшего оповещение.
 Четко Пометьте подписки (например, Рабочий, нерабочий) и создайте систему именования, чтобы четко определить и классифицировать ресурсы Azure.
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="103-test-security-response-procedures"></a>10.3. Проверка процедур реагирования на угрозы
 
-**Рекомендации**. Выполните упражнения, чтобы периодически протестировать возможности ваших систем реагировать на угрозы. Ознакомьтесь с публикацией NIST для выявления слабых точек и пробелов и изменения плана по мере необходимости.
+**Руководство**. проведение упражнений по регулярному тестированию возможностей реагирования на инциденты систем. Выявление слабых точек и пропусков и пересмотр планов реагирования на инциденты по мере необходимости.
 
 - [Руководства по тестированию, обучению и выполнению упражнений для ИТ-планов и возможностей](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4. Предоставление контактных сведений и настройка уведомлений по инцидентам безопасности
 
-**Рекомендации**. Корпорация Майкрософт будет использовать информацию об инциденте безопасности для связи с вами, если центр Microsoft Security Response Center (MSRC) обнаружит, что к вашим пользовательским данным был получен незаконный или несанкционированный доступ. Проверьте инциденты после факта обращения, чтобы убедиться, что проблемы устранены.
+**Рекомендации**. Корпорация Майкрософт будет использовать информацию об инциденте безопасности для связи с вами, если центр Microsoft Security Response Center (MSRC) обнаружит, что к вашим пользовательским данным был получен незаконный или несанкционированный доступ. 
+
+Проверьте инциденты, чтобы убедиться, что проблемы устранены.
 
 - [Как задать контакт безопасности Центра безопасности Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Мониторинг Центра безопасности Azure**: Да
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5. Включение оповещений системы безопасности в систему реагирования на инциденты
 
-**Руководство**. Экспорт оповещений и рекомендаций центра безопасности с помощью функции непрерывного экспорта. Непрерывный экспорт позволяет экспортировать предупреждения и рекомендации как вручную, так и в постоянном, непрерывном режиме. Вы также можете выбрать соединитель данных центра безопасности для потоковой передачи оповещений в Azure Sentinel в соответствии с бизнес-требованиями Организации.
+**Руководство**. Экспорт оповещений и рекомендаций центра безопасности с помощью функции непрерывного экспорта. Непрерывный экспорт позволяет экспортировать предупреждения и рекомендации как вручную, так и в постоянном, непрерывном режиме. 
+
+Выберите соединитель данных центра безопасности для потоковой передачи оповещений в Azure Sentinel в соответствии с потребностями и бизнес-требованиями Организации.
 
 - [Настройка непрерывного экспорта данных](../security-center/continuous-export.md)
 
 - [Как выполнить потоковую передачу оповещений в Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6. Автоматизация реагирования на оповещения системы безопасности
 
-**Руководство**. Используйте функцию автоматизации рабочих процессов в Центре безопасности Azure для автоматического запуска реагирования с помощью Logic Apps в оповещениях и рекомендациях системы безопасности.
+**Руководство**. Использование функции автоматизации рабочих процессов в центре безопасности для автоматического запуска ответов с помощью "Logic Apps" в оповещениях и рекомендациях системы безопасности.
 
 - [Как настроить автоматизацию рабочего процесса и Logic Apps](../security-center/workflow-automation.md)
 
-**Мониторинг Центра безопасности Azure**: Неприменимо
-
 **Ответственность**: Customer
+
+**Мониторинг центра безопасности Azure**: нет
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Тесты на проникновение и попытки нарушения безопасности "красной командой"
 
@@ -1368,15 +1359,17 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1. Проведите регулярное тестирование на проникновение ресурсов Azure и обеспечьте исправление всех критических результатов безопасности.
 
-**Рекомендации**. Следуйте правилам взаимодействия Майкрософт, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Руководство**. соблюдение правил корпорации Майкрософт, чтобы убедиться, что тесты на проникновение не нарушают политики Майкрософт. Дополнительные сведения о стратегии корпорации Майкрософт и ее выполнении, а также о тестировании на основе атак с помощью облачной инфраструктуры, служб и приложений корпорации Майкрософт см. на указанных ссылках.
 
-- [Дополнительные сведения о стратегии корпорации Майкрософт и реализации "красной команды", а также о тестировании на основе уязвимости для облачной инфраструктуры, служб и приложений Майкрософт см. здесь](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Правила взаимодействия при выполнении тестирования на проникновение](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-**Мониторинг Центра безопасности Azure**. Неприменимо
+- [Привлечение "красных команд для тестирования "Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Ответственность**: Совмещаемая блокировка
 
-## <a name="next-steps"></a>Дальнейшие действия
+**Мониторинг центра безопасности Azure**: нет
 
-- Ознакомьтесь со статьей [Тесты производительности системы безопасности Azure](../security/benchmarks/overview.md).
-- Дополнительные сведения о [базовой конфигурации безопасности Azure](../security/benchmarks/security-baselines-overview.md).
+## <a name="next-steps"></a>Следующие шаги
+
+- См. [Обзор Azure Security Benchmark версии 2](/azure/security/benchmarks/overview)
+- Дополнительные сведения о [базовой конфигурации безопасности Azure](/azure/security/benchmarks/security-baselines-overview).

@@ -1,17 +1,16 @@
 ---
 title: Мониторинг служб хранилища Azure с помощью Azure Monitor для службы хранилища | Документация Майкрософт
 description: В этой статье описывается функция Azure Monitor для службы хранилища, которая позволяет администраторам хранилища быстро анализировать проблемы с производительностью и использованием учетных записей службы хранилища Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587362"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708073"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Мониторинг службы хранилища с помощью Azure Monitor для службы хранилища
 
@@ -85,7 +84,7 @@ Azure Monitor для хранилища обеспечивает комплек
 
 ## <a name="view-from-a-storage-account"></a>Просмотр из учетной записи хранения
 
-Чтобы получить доступ к Azure Monitor для виртуальных машин непосредственно из учетной записи хранения, выполните следующие действия:
+Чтобы получить доступ к VM Insights непосредственно из учетной записи хранения, сделайте следующее:
 
 1. На портале Azure выберите "Учетные записи хранения".
 

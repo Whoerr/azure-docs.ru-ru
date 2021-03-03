@@ -4,12 +4,12 @@ description: Отслеживайте доступность, производи
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 93f72b7e2f709f32942564dc7322a4c5d1064cfc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: be4cbe5f95fa6901ae4299662750c232d4700a8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711507"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights для ASP.NET Core приложений
 
@@ -30,9 +30,6 @@ ms.locfileid: "100589902"
 
 > [!NOTE]
 > Для ASP.NET Core 3,1 требуется [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) или более поздней версии.
-
-> [!IMPORTANT]
-> Поддерживаются следующие версии ASP.NET Core: ASP.NET Core 2,1 и 3,1. Версии 2,0, 2,2 и 3,0 были прекращены и больше не поддерживаются.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -216,20 +213,20 @@ public void ConfigureServices(IServiceCollection services)
 
 Полный список параметров в `ApplicationInsightsServiceOptions`
 
-|Параметр | Описание | Значение по умолчанию
+|Параметр | Описание | По умолчанию
 |---------------|-------|-------
-|енаблеперформанцекаунтерколлектионмодуле  | Включить или отключить `PerformanceCounterCollectionModule` | Да
-|енаблерекуесттраккингтелеметримодуле   | Включить или отключить `RequestTrackingTelemetryModule` | Да
-|енабливенткаунтерколлектионмодуле   | Включить или отключить `EventCounterCollectionModule` | Да
-|енабледепенденцитраккингтелеметримодуле   | Включить или отключить `DependencyTrackingTelemetryModule` | Да
-|енаблеаппсервицешеартбеаттелеметримодуле  |  Включить или отключить `AppServicesHeartbeatTelemetryModule` | Да
-|енаблеазуреинстанцеметадатателеметримодуле   |  Включить или отключить `AzureInstanceMetadataTelemetryModule` | Да
-|енаблекуиккпулсеметрикстреам | Включить или отключить функцию Ливеметрикс | Да
-|енаблеадаптивесамплинг | Включение или отключение адаптивной выборки | Да
-|енаблехеартбеат | Функция "включить/отключить пульс", которая периодически (по умолчанию составляет 15 минут) отправляет пользовательскую метрику "Хеартбеатстате" со сведениями о среде выполнения, такими как версия .NET, сведения о среде Azure, если применимо, и т. д. | Да
-|аддаутоколлектедметрицекстрактор | Включите или отключите средство извлечения Аутоколлектедметрикс, которое представляет собой Телеметрипроцессор, который отправляет предварительно агрегированные метрики о запросах и зависимостях перед выполнением выборки. | Да
+|енаблеперформанцекаунтерколлектионмодуле  | Включить или отключить `PerformanceCounterCollectionModule` | true
+|енаблерекуесттраккингтелеметримодуле   | Включить или отключить `RequestTrackingTelemetryModule` | true
+|енабливенткаунтерколлектионмодуле   | Включить или отключить `EventCounterCollectionModule` | true
+|енабледепенденцитраккингтелеметримодуле   | Включить или отключить `DependencyTrackingTelemetryModule` | true
+|енаблеаппсервицешеартбеаттелеметримодуле  |  Включить или отключить `AppServicesHeartbeatTelemetryModule` | true
+|енаблеазуреинстанцеметадатателеметримодуле   |  Включить или отключить `AzureInstanceMetadataTelemetryModule` | true
+|енаблекуиккпулсеметрикстреам | Включить или отключить функцию Ливеметрикс | true
+|енаблеадаптивесамплинг | Включение или отключение адаптивной выборки | true
+|енаблехеартбеат | Функция "включить/отключить пульс", которая периодически (по умолчанию составляет 15 минут) отправляет пользовательскую метрику "Хеартбеатстате" со сведениями о среде выполнения, такими как версия .NET, сведения о среде Azure, если применимо, и т. д. | true
+|аддаутоколлектедметрицекстрактор | Включите или отключите средство извлечения Аутоколлектедметрикс, которое представляет собой Телеметрипроцессор, который отправляет предварительно агрегированные метрики о запросах и зависимостях перед выполнением выборки. | true
 |Рекуестколлектионоптионс. Траккексцептионс | Включение и отключение отчетов о необработанном отслеживании исключений модулем сбора запросов. | false в NETSTANDARD 2.0 (поскольку исключения отправляются с помощью Аппликатионинсигхтслогжерпровидер), в противном случае — значение true.
-|енабледиагностикстелеметримодуле | Включить или отключить `DiagnosticsTelemetryModule` . Отключение этого параметра приведет к игнорированию следующих параметров. `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | Да
+|енабледиагностикстелеметримодуле | Включить или отключить `DiagnosticsTelemetryModule` . Отключение этого параметра приведет к игнорированию следующих параметров. `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | true
 
 См. список [настраиваемых параметров `ApplicationInsightsServiceOptions` в](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) для наиболее актуального списка.
 
@@ -525,7 +522,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 Последние обновления и исправления ошибок см. [в заметках о выпуске](./release-notes.md).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Изучите потоки пользователей](./usage-flows.md) , чтобы понять, как пользователи переходят через приложение.
 * [Настройте сбор моментальных снимков](./snapshot-debugger.md) для просмотра состояния исходного кода и переменных в момент возникновения исключения.

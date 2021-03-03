@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 07685cccf5a8dce99ae13e6df5186a5da44b1338
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 368bae515697599dba35a913ebdb9f2b4065c152
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559415"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711915"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>Шаг 2. Настройка решения безопасности для отправки сообщений CEF
 
@@ -30,7 +30,9 @@ ms.locfileid: "99559415"
 Если в решении для обеспечения безопасности уже есть существующий соединитель, используйте инструкции, относящиеся к этому соединителю, как показано ниже.
 
 - [Vectra AI Detect](connect-ai-vectra-detect.md)
-- [События безопасности Akamai](connect-akamai-security-events.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
+- [Aruba Клеарпасс](connect-aruba-clearpass.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -40,7 +42,7 @@ ms.locfileid: "99559415"
 - [Продукты Forcepoint](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
-- [Шлюз WAF Imperva](connect-imperva-waf-gateway.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
@@ -75,7 +77,7 @@ ms.locfileid: "99559415"
 >    wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
 >    ```
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 В этом документе вы узнали, как подключить устройства CEF к Azure Sentinel. Ознакомьтесь с дополнительными сведениями об Azure Sentinel в соответствующих статьях.
 - Узнайте, как [отслеживать свои данные и потенциальные угрозы](quickstart-get-visibility.md).

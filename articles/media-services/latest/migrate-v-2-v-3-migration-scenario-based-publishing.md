@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 90dfc2fd6f6258ec5bfdea38423489c72ee06e03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f28a95ce6ef5e87eed6e5efcd013cc40b102fcba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721095"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Руководство по миграции на основе сценариев упаковки и доставки
 
@@ -55,7 +55,7 @@ ms.locfileid: "98928187"
 - [Создание указателя потоковой передачи и формирование URL-адресов](create-streaming-locator-build-url.md)
 - [Скачать результаты задания](download-results-howto.md)
 - [Сигнальные звуковые дорожки сигнала](signal-descriptive-audio-howto.md)
-- [Полная настройка Проигрыватель мультимедиа Azure](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Полная настройка Проигрыватель мультимедиа Azure](../azure-media-player/azure-media-player-full-setup.md)
 - [Использование проигрывателя Video.js с помощью служб мультимедиа Azure](how-to-video-js-player.md)
 - [Как использовать проигрыватель Шака со службами мультимедиа Azure](how-to-shaka-player.md)
 

@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 02/23/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: c1408c25ea7e5d805d17e084899b0ffeb6cfec28
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bae12b5ad7ce6c079161f42e1d6fe3e6c08e3f4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464434"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727538"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-r-device"></a>Руководство по активации устройства Azure Stack Edge Pro R
 
 В этом учебнике описывается, как активировать устройство Azure Stack Edge Pro R, используя локальный пользовательский веб-интерфейс.
 
-Процесс активации может занять около 5 минут.
+Процесс активации может занять около 5 минут.  
 
 Из этого учебника вы узнали, как выполнять такие задачи:
 

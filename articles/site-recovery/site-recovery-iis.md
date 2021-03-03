@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083775"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735511"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Настройка аварийного восстановления для многоуровневого веб-приложения на основе IIS
 
@@ -122,10 +122,10 @@ Azure|Н/Д|Да
 
 ![Снимок экрана, на котором показана настройка привязки TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
-Если с сайтом связан IP-адрес, обновите все привязки сайта новым IP-адресом. Чтобы изменить привязки сайта, добавьте [скрипт обновления веб-уровня IIS](https://aka.ms/asr-web-tier-update-runbook-classic) в группу 3 в плане восстановления.
+Если с сайтом связан IP-адрес, обновите все привязки сайта новым IP-адресом. Чтобы изменить привязки сайта, добавьте [скрипт обновления веб-уровня IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) в группу 3 в плане восстановления.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Обновление IP-адреса подсистемы балансировки нагрузки
-Если у вас есть виртуальная машина с маршрутизацией запросов приложений, чтобы обновить IP-адрес, добавьте [скрипт для отработки отказа при использовании маршрутизации запросов приложений IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) в группу 4.
+Если у вас есть виртуальная машина с маршрутизацией запросов приложений, чтобы обновить IP-адрес, добавьте [скрипт для отработки отказа при использовании маршрутизации запросов приложений IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) в группу 4.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Привязка сертификата TLS/SSL для HTTPS-подключения
 У веб-сайта может быть связанный протокол TLS/SSL, который обеспечивает безопасный обмен данными между веб-сервером и браузером пользователя. Если у веб-сайта есть подключение по протоколу HTTPS и связанная с ним привязка HTTPS соответствует IP-адресу сервера IIS с привязкой к сертификату TLS/SSL, необходимо добавить новую привязку сайта для сертификата с IP-адресом виртуальной машины IIS после отработки отказа.

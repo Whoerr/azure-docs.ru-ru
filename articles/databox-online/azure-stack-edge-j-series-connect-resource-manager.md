@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546811"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722098"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Подключение к Azure Resource Manager на устройстве Azure Stack ребра Pro
 
@@ -34,7 +34,7 @@ Azure Resource Manager предоставляет последовательны
 
 В следующей таблице перечислены различные конечные точки, предоставляемые на устройстве, Поддерживаемые протоколы и порты для доступа к этим конечным точкам. На протяжении всей статьи вы найдете ссылки на эти конечные точки.
 
-| # | Конечная точка | Поддерживаемые протоколы | Используемый порт | Назначение |
+| # | Конечная точка | Поддерживаемые протоколы | Используемый порт | Используется для |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | https | 443 | Подключение к Azure Resource Manager для автоматизации |
 | 2. | Служба маркеров безопасности | https | 443 | Проверка подлинности с помощью маркеров доступа и обновления |
@@ -130,7 +130,7 @@ Azure Resource Manager предоставляет последовательны
 
 Клиент Windows должен соответствовать следующим предварительным требованиям:
 
-1. Запустите PowerShell версии 5,0. Необходимо использовать PowerShell версии 5,0 или более поздней. Чтобы проверить версию PowerShell в системе, выполните следующий командлет:
+1. Запустите PowerShell версии 5,0. Необходимо наличие PowerShell версии 5,0. PowerShell Core не поддерживается. Чтобы проверить версию PowerShell в системе, выполните следующий командлет:
 
     ```powershell
     $PSVersionTable.PSVersion

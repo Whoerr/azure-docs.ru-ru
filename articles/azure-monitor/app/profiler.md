@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947044"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717763"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Профилирование динамических приложений службы приложений Azure с помощью Application Insights
 
@@ -24,6 +24,10 @@ ms.locfileid: "98947044"
 * [Виртуальные машины](./profiler-vm.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 Application Insights Profiler устанавливается в составе среды выполнения служб приложений. Ниже показано, как включить его для своей Службы приложений. Выполните эти действия, даже если вы включили пакет SDK для App Insights в свое приложение во время сборки.
+
+> [!NOTE]
+> Установка Application Insights Profiler, не поддерживающая код, соответствует политике поддержки .NET Core.
+> Дополнительные сведения о поддерживаемых средах выполнения см. в разделе [Политика поддержки .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 1. Перейдите на панель управления Azure для службы приложений.
 1. Установите параметр "Всегда включена" для службы приложений. Этот параметр можно найти в разделе **Параметры**, страница **конфигурации** (см. снимок экрана на следующем шаге) и перейдите на вкладку **Общие параметры** .
@@ -63,7 +67,7 @@ Application Insights Profiler можно включить, создав пара
 
 ## <a name="disable-profiler"></a>Отключение профилировщика
 
-Чтобы останавливать или перезапускать Profiler для отдельного экземпляра приложения, откройте раздел **Веб-задания** и остановите задание с именем ApplicationInsightsProfiler3. Даже если Profiler отключен с помощью параметра на странице Application Insights, как описано выше, процесс Profiler будет по-прежнему выполняться. Profiler проверит, включен ли он. Если он отключен, Profiler перейдет в спящий режим в течение определенного периода времени, прежде чем снова выполнить проверку. Profiler не выполняет профилирование, если отключен. Если отключить это веб-задание, процесс Profiler не будет выполняться вообще, даже чтобы проверить, включен ли он.
+Чтобы прерывать или перезапускать профилировщик для экземпляра отдельного приложения, на левой боковой панели выберите веб- **задания** и прервите задание с именем `ApplicationInsightsProfiler3` .
 
   ![Отключение профилировщика для веб-задания][disable-profiler-webjob]
 

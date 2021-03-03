@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593424"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690589"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Высокий уровень доступности для базы данных SQL Azure и Управляемый экземпляр SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ ms.locfileid: "99593424"
 
 Конфигурация избыточности в рамках зоны для уровня общего назначения имеет два уровня:  
 
-- Уровень данных с отслеживанием состояния с файлами базы данных (MDF/LDF), которые хранятся в ZRS PFS ( [файловый ресурс хранилища уровня Premium](../../storage/files/storage-how-to-create-premium-fileshare.md), избыточный в виде зоны). При использовании [хранилища, избыточного](../../storage/common/storage-redundancy.md) в пределах зоны, файлы данных и журнала синхронно копируются в три зоны доступности Azure с физической изоляцией.
+- Уровень данных с отслеживанием состояния с файлами базы данных (MDF/LDF), которые хранятся в ZRS PFS ( [файловый ресурс хранилища уровня Premium](../../storage/files/storage-how-to-create-file-share.md), избыточный в виде зоны). При использовании [хранилища, избыточного](../../storage/common/storage-redundancy.md) в пределах зоны, файлы данных и журнала синхронно копируются в три зоны доступности Azure с физической изоляцией.
 - Уровень вычислений без отслеживания состояния, выполняющий процесс sqlservr.exe и содержащий только временные и кэшированные данные, такие как TempDB, базы данных модели на подключенном SSD, а также кэш планов, буферный пул и пул columnstore в памяти. Этот узел работает в Azure Service Fabric, который инициализирует sqlservr.exe, управляет работоспособностью узла и при необходимости выполняет отработку отказа на другой узел. Для баз данных общего назначения, избыточных в рамках зоны, узлы с запасной емкостью доступны в других Зоны доступности для отработки отказа.
 
 Ниже приведена схема, которая является избыточной версией архитектуры высокой доступности для уровня служб общего назначения.

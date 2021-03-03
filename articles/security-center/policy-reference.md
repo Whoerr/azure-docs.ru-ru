@@ -7,18 +7,18 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ab6556bc391eb3136fa8c4ba40f5a5d71da956e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093060"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729936"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Встроенные определения в Политике Azure для Центра безопасности Azure
 
 Эта страница является индексом встроенных в [политику Azure](../governance/policy/overview.md) определений политик, связанных с центром безопасности Azure. Доступны следующие группы определений политик:
 
-- В группе " [инициативы](#azure-security-center-initiatives) " перечислены определения инициатив политики Azure в категории "Центр безопасности".
+- В группе [инициативы](#azure-security-center-initiatives) перечислены определения инициатив политики Azure в категории "Центр безопасности".
 - Группа [инициатив по умолчанию](#azure-security-center-initiatives) перечисляет все определения политик Azure, которые входят в инициативу центра безопасности по умолчанию, производительность [системы безопасности Azure](../security/benchmarks/introduction.md). Это разработанное корпорацией Майкрософт, которое в значительной степени соблюдается в отношении элементов управления от [центра безопасности Интернета (CIS)](https://www.cisecurity.org/benchmark/azure/) и [национального института стандартов и технологий (NIST)](https://www.nist.gov/) с целью сосредоточиться на обеспечении безопасности на основе облака.
 - Группа [категорий](#azure-security-center-category) содержит все определения политик Azure в категории "Центр безопасности".
 
@@ -32,7 +32,7 @@ ms.locfileid: "100093060"
 
 [!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## <a name="azure-security-center-default-initiative"></a>Инициатива центра безопасности Azure по умолчанию
+## <a name="security-centers-default-initiative-azure-security-benchmark"></a>Инициатива по умолчанию для центра безопасности (контрольный тест системы безопасности Azure)
 
 Дополнительные сведения о встроенных политиках, отслеживаемых центром безопасности, см. в следующей таблице:
 

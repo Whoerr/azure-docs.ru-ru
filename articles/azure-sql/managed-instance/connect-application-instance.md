@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3106ec1a45b307207624e5cd077a222acccc83d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692833"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connect your application to Azure SQL Managed Instance (Подключение приложения к управляемому экземпляру SQL Azure)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -105,7 +105,7 @@ ms.locfileid: "98732617"
 
    ![Число передаваемых байт для входящих и исходящих подключений](./media/connect-application-instance/ingress-egress-numbers.png)
 
-- Убедитесь, что клиентский компьютер (на котором работает VPN-клиент) имеет записи маршрутов для всех виртуальных сетей, к которым необходимо получить доступ. Маршруты хранятся в `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+- Убедитесь, что клиентский компьютер (на котором работает VPN-клиент) имеет записи маршрутов для всех виртуальных сетей, к которым необходимо получить доступ. Маршруты хранятся в `%AppData%\Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "98732617"
 |SSMS| 18,0 или [более поздней версии](/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) или более поздней версии |
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о SQL Управляемый экземпляр см. в статье [что такое sql управляемый экземпляр?](sql-managed-instance-paas-overview.md).
 - Руководство, в котором показано, как создать управляемый экземпляр, см. в разделе [Создание управляемого экземпляра](instance-create-quickstart.md).

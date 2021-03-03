@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d732f0e42bc5eef8f72a2b9ce2adee28deb9a67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85987329"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690980"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Примеры сценариев Azure PowerShell для Базы данных SQL Azure и Управляемого экземпляра SQL Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "85987329"
 |---|---|
 |**Создание и настройка управляемых экземпляров**||
 | [Создание управляемого экземпляра и управление им](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Этот скрипт PowerShell создает и администрирует управляемый экземпляр с помощью Azure PowerShell. |
-| [Создание и администрирование управляемого экземпляра с помощью шаблона Azure Resource Manager](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Этот скрипт PowerShell создает и администрирует управляемый экземпляр с помощью Azure PowerShell и шаблона Azure Resource Manager.|
+| [Создание и администрирование управляемого экземпляра с помощью шаблона Azure Resource Manager](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Этот скрипт PowerShell создает и администрирует управляемый экземпляр с помощью Azure PowerShell и шаблона Azure Resource Manager.|
 | [Восстановление базы данных в управляемый экземпляр в другом географическом регионе](../managed-instance/scripts/restore-geo-backup.md) | Этот скрипт PowerShell восстанавливает резервную копию базы данных в другом регионе. Такой сценарий называется аварийным геовосстановлением. |
 | **Настройка прозрачного шифрования данных**||
 | [Управление прозрачным шифрованием данных в управляемом экземпляре с использованием собственного ключа из Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Этот скрипт PowerShell настраивает прозрачное шифрование данных в сценарии создания собственных ключей для Управляемого экземпляра SQL Azure с помощью ключа из Azure Key Vault.|

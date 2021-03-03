@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 991d37b097587e8e4a524c4fc8bc21e9b6af20b5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623256"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737211"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Устранение неполадок в Соединитель управления ИТ-услугами
 
@@ -55,7 +55,7 @@ Azure Monitor заранее уведомляет вас об оповещени
 
 * Неверные учетные данные.
 * Недостаточно прав доступа.
-* Веб-приложение было неправильно развернуто.
+* Для Service Manager соединений: веб-приложение было неправильно развернуто.
 
 **Решение**.
 
@@ -95,3 +95,12 @@ Azure Monitor заранее уведомляет вас об оповещени
 **Причина**: недавно СОЗДАННЫЙ экземпляр ITSMC еще не завершил первоначальную синхронизацию.
 
 **Решение**. Ознакомьтесь с [общими ошибками и их разрешениями](itsmc-dashboard-errors.md).
+
+### <a name="sync-connection"></a>Подключение синхронизации 
+
+**Причина**. для этого симптома может быть несколько причин.
+
+* Шаблоны не отображаются как часть определения действия.
+* Инцедентс/события не создаются в ServiceNow.
+
+**Решение**. [синхронизируйте соединитель](itsmc-resync-servicenow.md).

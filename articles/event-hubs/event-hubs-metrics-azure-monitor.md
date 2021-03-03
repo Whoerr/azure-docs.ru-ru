@@ -2,13 +2,13 @@
 title: Метрики в Azure Monitor — Центры событий Azure | Документация Майкрософт
 description: В этой статье описывается, как использовать приложение Azure Monitor для мониторинга Центров событий Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a53f69030e8333dfe659b163b83983615212281f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 52ab66fe264b85be117eb8e2e21cb89f38d0fcae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715587"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Метрики Центров событий Azure в Azure Monitor
 
@@ -65,7 +65,7 @@ Azure Monitor предоставляет несколько способов д�
 - Если имеются входящие сообщения, но **нет исходящих сообщений**, это означает, что приложение SIEM не считывает сообщения. Обратитесь к поставщику SIEM, чтобы определить, правильно ли настроена конфигурация концентратора событий.
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Ознакомьтесь с разделом [Обзор мониторинга в Microsoft Azure](../azure-monitor/overview.md).
 * Изучите пример [получения данных метрик Azure Monitor с помощью .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) на сайте GitHub. 
@@ -76,7 +76,7 @@ Azure Monitor предоставляет несколько способов д�
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Часто задаваемые вопросы о Центрах событий](event-hubs-faq.md)
 * [Примеры приложений, использующих Центры событий](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

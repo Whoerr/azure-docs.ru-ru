@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656077"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715009"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Подключение данных из защитника Майкрософт к удостоверениям (ранее — Azure Advanced Threat protection)
 
@@ -27,7 +27,9 @@ ms.locfileid: "94656077"
 > Microsoft Defender для соединителя удостоверений данных в Azure Sentinel в настоящее время находится в общедоступной предварительной версии.
 > Эта функция предоставляется без соглашения об уровне обслуживания и не рекомендуется для рабочих нагрузок. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены. Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Вы можете выполнить потоковую передачу журналов из [защитника Майкрософт для идентификации](/azure-advanced-threat-protection/what-is-atp) в Azure Sentinel одним щелчком мыши.
+В этой статье описывается, как выполнить потоковую передачу оповещений системы безопасности от [защитника Майкрософт для идентификации](/azure-advanced-threat-protection/what-is-atp) в Azure Sentinel. 
+
+Чтобы пересылать предупреждения о работоспособности в дополнение к оповещениям системы безопасности, интегрируйте защитник Майкрософт для идентификации с сервером syslog. Дополнительные сведения см. в [документации защитника Майкрософт для идентификации](/defender-for-identity/setting-syslog). 
 
 ## <a name="prerequisites"></a>Предварительные требования
 

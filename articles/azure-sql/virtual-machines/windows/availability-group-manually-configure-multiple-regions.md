@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6f63315c3e9b150a54e122d9a1c6948087603d51
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 314404ef132c55a783ce4d2d0069eb8a930439a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537413"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691456"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Настройка группы доступности Always On SQL Server в разных регионах Azure
 
@@ -199,9 +199,9 @@ ms.locfileid: "99537413"
 - [Выполнение запланированного перехода на другой ресурс вручную для группы доступности (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
 - [Выполнение принудительного перехода на другой ресурс вручную для группы доступности (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Группы доступности AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
-* [Виртуальные машины Azure](../../../virtual-machines/windows/index.yml)
+* [Виртуальные машины Azure](../../../virtual-machines/index.yml)
 * [Подсистемы Azure Load Balancer](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
 * [Группы доступности Azure](../../../virtual-machines/manage-availability.md)

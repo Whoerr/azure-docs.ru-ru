@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d32e5c55bbaa7357c1f13200213dbaed19986825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878144"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694348"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Сценарии шифрования дисков Azure для виртуальных машин Linux
-
 
 Шифрование дисков Azure для виртуальных машин Linux (VM) использует функцию DM-Crypt в Linux для обеспечения полного шифрования диска операционной системы и дисков данных. Кроме того, он обеспечивает шифрование временного диска при использовании функции EncryptFormatAll.
 
@@ -408,7 +407,6 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 - Создание образа или моментального снимка зашифрованной виртуальной машины и его использование для развертывания дополнительных виртуальных машин.
 - Аварийный дамп памяти ядра (kdump).
 - Oracle ACFS (файловая система кластера ASM).
-- Виртуальные машины Gen2 (см.: [Поддержка виртуальных машин 2-го поколения в Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Диски NVMe виртуальных машин серии Lsv2 (см. раздел [Lsv2-Series](../lsv2-series.md)).
 - Виртуальная машина с "вложенными точками подключения"; то есть несколько точек подключения находятся по одному пути (например, "/1stmountpoint/Data/2stmountpoint").
 - Виртуальная машина с диском данных, подключенным поверх папки ОС.
@@ -416,7 +414,6 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 - Виртуальные машины серии M с Ускоритель записиными дисками.
 - Применение ADE к виртуальной машине с дисками, зашифрованными с помощью [шифрования на стороне сервера, с помощью ключей, управляемых клиентом](../disk-encryption.md) (SSE + CMK). Применение SSE + CMK к диску данных на виртуальной машине, зашифрованном с помощью ADE, также является неподдерживаемым сценарием.
 - Перенос виртуальной машины, зашифрованной с помощью ADE, или **когда-либо** зашифрованный с помощью ade, для [шифрования на стороне сервера с ключами, управляемыми клиентом](../disk-encryption.md).
-- [Размеры виртуальных машин Azure без локального временного диска](../azure-vms-no-temp-disk.md); в частности, dv4, Dsv4, Ev4 и Esv4.
 - Шифрование виртуальных машин в отказоустойчивых кластерах.
 
 ## <a name="next-steps"></a>Дальнейшие действия

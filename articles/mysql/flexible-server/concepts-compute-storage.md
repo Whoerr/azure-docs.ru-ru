@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720942"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Варианты вычислений и хранения в базе данных Azure для MySQL — гибкий сервер (Предварительная версия)
 
@@ -72,9 +72,9 @@ ms.locfileid: "99581454"
 Дополнительные сведения о доступных сериях вычислений см. в документации по виртуальной машине Azure для [пакетной службы (серии B)](../../virtual-machines/sizes-b-series-burstable.md), [общего назначения (серии Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)и [оптимизированной для памяти (Edsv4 Series)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Для [уровня нагрузки (серии B)](../../virtual-machines/sizes-b-series-burstable.md) при запуске или остановке или перезапуске виртуальной машины могут быть утрачены кредиты. Дополнительные сведения см. в статье [часто задаваемые вопросы о пакетной (серии B)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>Для [уровня нагрузки (серии B)](../../virtual-machines/sizes-b-series-burstable.md) при запуске или остановке или перезапуске виртуальной машины могут быть утрачены кредиты. Дополнительные сведения см. в статье [часто задаваемые вопросы о пакетной (серии B)](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
-## <a name="storage"></a>Хранение
+## <a name="storage"></a>Память
 
 Подготавливается хранилище — это объем хранилища, доступный для гибкого сервера. Хранилище используется для файлов базы данных, временных файлов, журналов транзакций и журналов сервера MySQL. На всех уровнях вычислений минимальный поддерживаемый объем хранилища составляет 5 гиб и максимум — 16 тиб. Масштаб хранилища увеличивается на 1 гиб, и его можно масштабировать после создания сервера.
 
@@ -141,7 +141,7 @@ ms.locfileid: "99581454"
 
 Вы можете отслеживать потребление операций ввода-вывода в портал Azure (с Azure Monitor), используя метрику [процента](./concepts-monitoring.md) . Если требуется больше операций ввода-вывода в секунду на основе вычислений, необходимо масштабировать вычисление сервера.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Резервное копирование
 
 В службе автоматически создаются резервные копии сервера. Можно выбрать срок хранения в диапазоне от 1 до 35 дней. Дополнительные сведения о резервном копировании см. в [статье основные понятия резервного копирования и восстановления](concepts-backup-restore.md).
 
@@ -167,7 +167,7 @@ ms.locfileid: "99581454"
 - Останавливает сервер, когда он не используется.
 - Уменьшите срок хранения резервной копии, если не требуется более длительное хранение резервной копии.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте, как [создать сервер MySQL на портале](quickstart-create-server-portal.md).
 - Узнайте об [ограничениях службы](concepts-limitations.md).

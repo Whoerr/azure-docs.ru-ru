@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686484"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Создание контроллера данных ARC в Azure на портал Azure
 
@@ -48,6 +48,10 @@ ms.locfileid: "98737309"
 1. Выберите профиль конфигурации развертывания.
 1. Нажмите кнопку **Открыть в Azure Studio** .
 1. На следующем экране вы увидите сводку по выбранным параметрам и созданную записную книжку.  Чтобы скачать записную книжку, нажмите кнопку **скачать подготовку к учетной записной книжке** .
+
+   > [!IMPORTANT]
+   > На платформе контейнеров Azure Red Hat OpenShift или Red Hat OpenShift необходимо применить ограничение контекста безопасности перед созданием контроллера данных. Следуйте инструкциям в разделе [применение ограничения контекста безопасности для служб данных, включенных в службу "Дуга Azure" на OpenShift](how-to-apply-security-context-constraint.md).
+
 1. Откройте записную книжку в Azure Data Studio и нажмите кнопку **запустить все** в верхней части страницы.
 1. Следуйте указаниям и инструкциям в записной книжке, чтобы завершить создание контроллера данных.
 

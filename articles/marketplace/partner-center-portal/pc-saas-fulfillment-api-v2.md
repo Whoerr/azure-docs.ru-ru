@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 0d7259972693b9ca12e0801007cbd3c0af45ca1c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2acf5178e7d1cfdf907146d733150a48e9696a5e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937337"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712357"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API-интерфейсы выполнения SaaS версии 2 в коммерческом магазине
 
@@ -964,7 +964,7 @@ Response body:
 
 Действия *плана изменения*, *изменения количества* и *отмены подписки* тестируются со стороны издателя.  С стороны Майкрософт, *Отмена подписки* может запускаться как в портал Azure, так и в центре администрирования (портале, где управляются покупки Microsoft AppSource).  *Изменение количества и плана* может быть запущено только из центра администрирования.
 
-## <a name="get-support"></a>Получение поддержки
+## <a name="get-support"></a>Техническая поддержка
 
 Варианты поддержки издателя см. [в разделе Поддержка программы коммерческого рынка в центре партнеров](../support.md) .
 
@@ -972,4 +972,4 @@ Response body:
 
 Дополнительные варианты предложений SaaS в коммерческом магазине см. в разделе [API-интерфейсы коммерческого рынка](marketplace-metering-service-apis.md) .
 
-Ознакомьтесь с [пакетом SDK SaaS](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) , созданным на основе API-интерфейсов, описанных в этом документе, и используйте его.
+Просмотр и использование [клиентов для различных языков программирования и примеров](https://github.com/microsoft/commercial-marketplace-samples).

@@ -3,16 +3,16 @@ title: Как переместить устройство в Azure IoT Central �
 description: Как переместить устройство в IoT Central Azure из центра Интернета вещей
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 12/20/2020
+ms.date: 02/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7898f842529b81b80febff444c97b199fbebba3c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f5a7693eeced1028d84598a6db3728776f845f7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146472"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741622"
 ---
 # <a name="how-to-transfer-a-device-to-azure-iot-central-from-iot-hub"></a>Как передавать устройство в IoT Central Azure из центра Интернета вещей
 
@@ -24,7 +24,7 @@ ms.locfileid: "98146472"
 
 Устройство может быть подключено к центру Интернета вещей напрямую с помощью строки подключения или с помощью DPS. [Служба подготовки устройств для центра Интернета вещей Azure (DPS)](../../iot-dps/about-iot-dps.md) — это маршрут для IOT Central.
 
-## <a name="to-move-the-device"></a>Перемещение устройства
+## <a name="to-move-the-device-to-azure-iot-central"></a>Перенос устройства в Azure IoT Central
 
 Чтобы подключить устройство к IoT Central из центра Интернета вещей, необходимо обновить устройство с помощью:
 

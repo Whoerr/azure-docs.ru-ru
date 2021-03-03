@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 02dd9aa74da42f0a5d70de4513b88756a97bea1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680397"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695810"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Устранение неполадок сервера маршрутизации Azure
 
@@ -21,11 +21,15 @@ ms.locfileid: "101680397"
 > Эта предварительная версия предоставляется без соглашения об уровне обслуживания и не рекомендована для использования рабочей среде. Некоторые функции могут не поддерживаться или их возможности могут быть ограничены.
 > Дополнительные сведения см. в статье [Дополнительные условия использования предварительных выпусков Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="bgp-connectivity-issues"></a>Проблемы с подключением BGP
+## <a name="connectivity-issues"></a>Проблемы, связанные с подключением
 
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Почему происходит пиринг BGP между моим NVA и сервером маршрутизации Azure ("неустойчивый")?
+### <a name="why-does-my-nva-lose-internet-connectivity-after-it-advertises-the-default-route-00000-to-azure-route-server"></a>Почему моя NVA теряет подключение к Интернету после объявления маршрута по умолчанию (0.0.0.0/0) серверу маршрутизации Azure?
+Когда NVA объявляет маршрут по умолчанию, сервер маршрутизации Azure программирует его для всех виртуальных машин в виртуальной сети, включая самого NVA. Этот маршрут по умолчанию задает NVA в качестве следующего прыжка для всего трафика, связанного с Интернетом. Если NVA требуется подключение к Интернету, необходимо настроить [определяемый пользователем маршрут](../virtual-network/virtual-networks-udr-overview.md) , чтобы переопределить этот маршрут по умолчанию из NVA и подключить UDR к подсети, в которой размещается NVA (см. пример ниже). В противном случае хост-компьютер NVA будет отправлять трафик, связанный с Интернетом, включая тот, который отправляет NVA обратно в NVA.
 
-Причина неустойчивый может быть вызвана параметром таймера BGP. По умолчанию таймером проверки активности на сервере маршрутизации Azure задается значение 60 секунд, а значение таймера удержания — 180 секунд.
+| Маршрут | Следующий прыжок |
+|-------|----------|
+| 0.0.0.0/0 | Интернет |
+
 
 ### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>Почему я могу проверить связь из моего NVA с IP-адресом BGP на сервере маршрутизации Azure, но после настройки пиринга BGP для них больше не удается проверить связь с тем же IP-адресом? Почему пиринг BGP становится неработоспособным?
 
@@ -37,11 +41,18 @@ ms.locfileid: "101680397"
 
 10.0.1.1 — это IP-адрес шлюза по умолчанию в подсети, где размещается NVA (или более точно один из сетевых карт).
 
-## <a name="bgp-route-issues"></a>Проблемы маршрута BGP
+### <a name="why-do-i-lose-connectivity-to-my-on-premises-network-over-expressroute-andor-azure-vpn-when-im-deploying-azure-route-server-to-a-virtual-network-that-already-has-expressroute-gateway-andor-azure-vpn-gateway"></a>Почему при развертывании сервера маршрутизации Azure в виртуальной сети с уже установленным шлюзом ExpressRoute или VPN-шлюзом Azure теряется подключение к локальной сети через ExpressRoute или Azure VPN?
+При развертывании сервера маршрутизации Azure в виртуальной сети необходимо обновить плоскость управления между шлюзами и виртуальной сетью. Во время этого обновления подключение виртуальных машин в виртуальной сети к локальной сети будет разорвано. Настоятельно рекомендуется запланировать обслуживание для развертывания сервера маршрутизации Azure в рабочей среде.  
+
+## <a name="control-plane-issues"></a>Проблемы с плоскостью управления
+
+### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Почему происходит пиринг BGP между моим NVA и сервером маршрутизации Azure ("неустойчивый")?
+
+Причина неустойчивый может быть вызвана параметром таймера BGP. По умолчанию таймером проверки активности на сервере маршрутизации Azure задается значение 60 секунд, а значение таймера удержания — 180 секунд.
 
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>Почему мои NVA не получают маршруты от сервера маршрутизации Azure, несмотря на то, что пиринг BGP работает?
 
-Значение ASN, используемое сервером маршрутизации Azure, — 65515. Убедитесь, что вы настроили другой ASN для NVA, чтобы можно было установить сеанс "eBGP" между NVA и сервером маршрутизации Azure, чтобы распространение маршрутов было выполнено автоматически.
+Значение ASN, используемое сервером маршрутизации Azure, — 65515. Убедитесь, что вы настроили другой ASN для NVA, чтобы можно было установить сеанс "eBGP" между NVA и сервером маршрутизации Azure, чтобы распространение маршрутов было выполнено автоматически. Убедитесь, что в конфигурации BGP включен параметр "несколько прыжков", так как ваш NVA и сервер маршрутизации Azure находятся в разных подсетях в виртуальной сети.
 
 ### <a name="the-bgp-peering-between-my-nva-and-azure-route-server-is-up-i-can-see-routes-exchanged-correctly-between-them-why-arent-the-nva-routes-in-the-effective-routing-table-of-my-vm"></a>Пиринг BGP между моим NVA и сервером маршрутизации Azure работает. Можно увидеть, что маршруты правильно обмениваются между ними. Почему в таблице маршрутизации моей виртуальной машины нет NVA маршрутов? 
 

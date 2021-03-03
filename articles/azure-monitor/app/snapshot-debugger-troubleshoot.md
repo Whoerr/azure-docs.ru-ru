@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732733"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731958"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Устранение неполадок, связанных с включением Application Insights Snapshot Debugger или просмотром моментальных снимков
 Если вы включили Application Insights Snapshot Debugger для приложения, но не видите моментальные снимки для исключений, эти инструкции можно использовать для устранения неполадок.
@@ -35,9 +35,10 @@ ms.locfileid: "98732733"
 
 Убедитесь, что в опубликованном приложении используется правильный ключ инструментирования. Как правило, ключ инструментирования считывается из файла ApplicationInsights.config. Убедитесь, что его значение такое же, что и у ключа инструментирования для ресурса Application Insights, который отображается на портале.
 
-## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Проверка параметров клиента SSL (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>Проверка параметров клиента TLS/SSL (ASP.NET)
 
 Если у вас есть приложение ASP.NET, размещенное в службе приложений Azure или в службах IIS на виртуальной машине, приложение может не подключиться к службе Snapshot Debugger из-за отсутствия протокола безопасности SSL.
+
 [Для конечной точки snapshot Debugger требуется TLS версии 1,2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). Набор протоколов безопасности SSL — одна из особенностей, включенных в значение httpRuntime targetFramework в разделе System. Web web.config. Если параметр httpRuntime targetFramework имеет значение 4.5.2 или ниже, то TLS 1,2 не включается по умолчанию.
 
 > [!NOTE]
@@ -64,6 +65,10 @@ ms.locfileid: "98732733"
 
 ## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Проверка страницы "состояние" расширения сайта служб диагностики
 Если Snapshot Debugger было включено с помощью [панели Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) на портале, оно было включено расширением веб-сайта служб диагностики.
+
+> [!NOTE]
+> Установка Application Insights Snapshot Debugger, не поддерживающая код, соответствует политике поддержки .NET Core.
+> Дополнительные сведения о поддерживаемых средах выполнения см. в разделе [Политика поддержки .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Страницу состояния этого расширения можно проверить, перейдя по следующему URL-адресу: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 

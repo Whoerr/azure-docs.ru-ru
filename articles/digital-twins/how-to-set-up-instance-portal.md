@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a6355a08a936c74ae6a05f163a93a991ba82ab4d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953756"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702918"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Настройка экземпляра и проверки подлинности Azure Digital двойников (портал)
 
@@ -56,8 +56,8 @@ ms.locfileid: "98953756"
 
 Ниже приведены дополнительные параметры, которые можно настроить во время установки с помощью других вкладок в процессе **создания ресурсов** .
 
-* **Сети**. на этой вкладке можно включить частные конечные точки с помощью [частной ссылки Azure](../private-link/private-link-overview.md) , чтобы исключить общедоступную сеть для вашего экземпляра. Инструкции см. [*в разделе инструкции. Включение закрытого доступа с помощью закрытой ссылки (Предварительная версия)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Дополнительно**. на этой вкладке можно включить [управляемое системой удостоверение](../active-directory/managed-identities-azure-resources/overview.md) для экземпляра, который можно использовать при пересылке событий в [конечные точки](concepts-route-events.md). Инструкции см. [*в разделе практические рекомендации. Включение управляемых удостоверений для событий маршрутизации (Предварительная версия)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Сети**. на этой вкладке можно включить частные конечные точки с помощью [частной ссылки Azure](../private-link/private-link-overview.md) , чтобы исключить общедоступную сеть для вашего экземпляра. Инструкции см. [*в разделе инструкции. Включение закрытого доступа с помощью закрытой ссылки (Предварительная версия)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Дополнительно**. на этой вкладке можно включить [управляемое системой удостоверение](../active-directory/managed-identities-azure-resources/overview.md) для экземпляра, который можно использовать при пересылке событий в [конечные точки](concepts-route-events.md). Инструкции см. [*в разделе практические рекомендации. Включение управляемых удостоверений для событий маршрутизации (Предварительная версия)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
 * **Теги**. на этой вкладке можно добавить теги к экземпляру, чтобы помочь вам организовать его в ресурсах Azure. Дополнительные сведения о тегах ресурсов Azure см. в разделе [*ресурсы тегов, группы ресурсов и подписки для логической организации*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Проверка успешности и получение важных значений

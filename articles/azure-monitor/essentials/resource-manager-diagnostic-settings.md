@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 87951c0366090c1ea4eba490d114771e47bf452c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598055"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731448"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Примеры шаблонов Resource Manager для параметров диагностики в Azure Monitor
 Эта статья содержит [примеры шаблонов Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) для создания параметров диагностики для ресурса Azure. Каждый пример включает файл шаблона и файл параметров с примерами значений для предоставления в шаблоне.
@@ -349,7 +349,7 @@ ms.locfileid: "100598055"
 ```
 
 ## <a name="diagnostic-setting-for-recovery-services-vault"></a>Параметр диагностики для хранилища Служб восстановления
-В следующем примере создается параметр диагностики для Служб восстановления Azure. Для этого в шаблон добавляется ресурс типа `microsoft.recoveryservices/vaults/providers/diagnosticSettings`. В этом примере указывается режим сбора, как описано в разделе [Журналы ресурсов Azure](../platform/resource-logs.md#send-to-log-analytics-workspace). Укажите для свойства `logAnalyticsDestinationType` значение `Dedicated` или `AzureDiagnostics`.
+В следующем примере создается параметр диагностики для Служб восстановления Azure. Для этого в шаблон добавляется ресурс типа `microsoft.recoveryservices/vaults/providers/diagnosticSettings`. В этом примере указывается режим сбора, как описано в разделе [Журналы ресурсов Azure](./resource-logs.md#send-to-log-analytics-workspace). Укажите для свойства `logAnalyticsDestinationType` значение `Dedicated` или `AzureDiagnostics`.
 
 ### <a name="template-file"></a>Файл шаблона
 
@@ -812,5 +812,5 @@ ms.locfileid: "100598055"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Другие примеры шаблонов для Azure Monitor](../samples/resource-manager-samples.md).
+* [Другие примеры шаблонов для Azure Monitor](../resource-manager-samples.md).
 * [Дополнительные сведения о параметрах диагностики](../essentials/diagnostic-settings.md).

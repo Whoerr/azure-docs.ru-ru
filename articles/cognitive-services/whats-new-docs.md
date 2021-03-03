@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 02/08/2021
-ms.openlocfilehash: 92d75289fd4459db8c469a4cb562fe28e8aab779
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1cea159e6939463352102d7d3ff3dafbdea71b5a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989001"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710335"
 ---
 # <a name="cognitive-services-docs-whats-new-for-january-1-2021---january-31-2021"></a>Cognitive Services документы: новые возможности для 1 января 2021 — 31 января 2021 г.
 
@@ -29,31 +29,31 @@ ms.locfileid: "99989001"
 
 **Новые статьи**
 
-- [Руководство по пакетному извлечению данных форм с помощью службы "Фабрика данных Azure"](/azure/cognitive-services/form-recognizer/tutorial-bulk-processing.md)
+- [Руководство по пакетному извлечению данных форм с помощью службы "Фабрика данных Azure"](./form-recognizer/tutorial-bulk-processing.md)
 
 **Обновленные статьи**
 
-- [Что такое Распознаватель документов?](/azure/cognitive-services/form-recognizer/overview.md)
+- [Что такое Распознаватель документов?](./form-recognizer/overview.md)
 
 ## <a name="immersive-reader"></a>Иммерсивное средство чтения
 
 **Обновленные статьи**
 
-- [Создание иммерсивного ресурса чтения и Настройка проверки подлинности Azure Active Directory](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Создание иммерсивного ресурса чтения и Настройка проверки подлинности Azure Active Directory](./immersive-reader/how-to-create-immersive-reader.md)
 
 ## <a name="personalizer"></a>Персонализатор
 
 **Обновленные статьи**
 
-- [Признаки — сведения о действиях и контексте](/azure/cognitive-services/personalizer/concepts-features.md)
+- [Признаки — сведения о действиях и контексте](./personalizer/concepts-features.md)
 
 ## <a name="text-analytics"></a>Анализ текста
 
 **Обновленные статьи**
 
-- [Поддержка языков API анализа текста v3](/azure/cognitive-services/text-analytics/language-support.md)
-- [Переход на версию 3. x API анализа текста](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [Новые возможности в API "Анализ текста"](/azure/cognitive-services/text-analytics/whats-new.md)
+- [Поддержка языков API анализа текста v3](./text-analytics/language-support.md)
+- [Переход на версию 3. x API анализа текста](./text-analytics/migration-guide.md)
+- [Новые возможности в API "Анализ текста"](./text-analytics/whats-new.md)
 
 ## <a name="community-contributors"></a>Участники сообщества
 

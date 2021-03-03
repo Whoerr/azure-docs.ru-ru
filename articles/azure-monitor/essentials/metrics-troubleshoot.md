@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d62c4b79fcb86080649c542e34b81d3213978604
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a3bf022d178fbd0de3ca800e0a560235c3f33b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623202"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731499"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Устранение неполадок с диаграммами метрик
 
@@ -62,7 +62,7 @@ ms.locfileid: "100623202"
 
 Эта проблема может произойти при создании панели мониторинга с использованием устаревшей метрики, которая удалена из Azure. Чтобы убедиться в том, что это так, откройте вкладку **метрики** ресурса и проверьте доступные метрики в средстве выбора метрик. Если метрика не отображается, это значит, что она удалена из Azure. Как правило, устаревшие метрики заменяются новыми оптимизированными метриками, которые предоставляют аналогичные сведения о работоспособности ресурсов.
 
-**Решение:** Обновите плитку со сбоем, выбрав альтернативную метрику для диаграммы на панели мониторинга. См. [список доступных метрик для служб Azure](../platform/metrics-supported.md).
+**Решение:** Обновите плитку со сбоем, выбрав альтернативную метрику для диаграммы на панели мониторинга. См. [список доступных метрик для служб Azure](./metrics-supported.md).
 
 ## <a name="chart-shows-dashed-line"></a>На диаграмме отображается пунктирная линия
 
@@ -100,9 +100,9 @@ ms.locfileid: "100623202"
 
 1. Используйте [Обозреватель службы хранилища Azure](https://azure.microsoft.com/features/storage-explorer/) , чтобы проверить, что метрики передаются в учетную запись хранения. Если метрики не собираются, выполните инструкции из [руководства по устранению неполадок для расширения диагностики Azure](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Дополнительные сведения о начале работы с обозревателем метрик](metrics-getting-started.md)
 * [Дополнительные сведения о дополнительных возможностях обозревателя метрик](../essentials/metrics-charts.md)
-* [Список доступных метрик для служб Azure](../platform/metrics-supported.md)
+* [Список доступных метрик для служб Azure](./metrics-supported.md)
 * [Примеры настроенных диаграмм](../essentials/metric-chart-samples.md)

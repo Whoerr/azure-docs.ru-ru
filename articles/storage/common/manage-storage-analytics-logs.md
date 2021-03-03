@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221718"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701711"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Включение и управление журналами Аналитика Службы хранилища Azure (классическая модель)
 
-[Аналитика службы хранилища Azure](storage-analytics.md) предоставляет журналы для больших двоичных объектов, очередей и таблиц. Вы можете использовать [портал Azure](https://portal.azure.com) для настройки журналов, записываются для вашей учетной записи. В этой статье показано, как включить журналы и управлять ими. Сведения о том, как включить метрики, см. в статье [Включение и управление метриками аналитика службы хранилища Azure (классическая модель)](storage-monitor-storage-account.md).  Анализ и хранение данных мониторинга в портал Azureе связаны с затратами. Дополнительные сведения см. в [этой статье](storage-analytics.md).
+[Аналитика службы хранилища Azure](storage-analytics.md) предоставляет журналы для больших двоичных объектов, очередей и таблиц. Вы можете использовать [портал Azure](https://portal.azure.com) для настройки журналов, записываются для вашей учетной записи. В этой статье показано, как включить журналы и управлять ими. Сведения о том, как включить метрики, см. в статье [Включение и управление метриками аналитика службы хранилища Azure (классическая модель)]().  Анализ и хранение данных мониторинга в портал Azureе связаны с затратами. Дополнительные сведения см. в [этой статье](storage-analytics.md).
 
 > [!NOTE]
 > Рекомендуется использовать журналы службы хранилища Azure в Azure Monitor вместо журналов Аналитика Службы хранилища. Журналы службы хранилища Azure в Azure Monitor предоставляются в общедоступной предварительной версии. Они также доступны для предварительного тестирования во всех регионах общедоступного облака. Эта предварительная версия включает журналы для больших двоичных объектов (в том числе Azure Data Lake Storage 2-го поколения), файлов, очередей и таблиц. Дополнительные сведения см. в следующих статьях:
@@ -191,7 +191,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
    * Замените значение заполнителя `<storage-account-name>` именем вашей учетной записи хранения. 
 
-6. Используйте [Get-азсторажесервицелоггингпроперти](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) для просмотра текущей политики хранения журнала. В следующем примере на консоли выводится срок хранения для служб хранилища BLOB-объектов и очередей.
+6. Используйте [Get-азсторажесервицелоггингпроперти](/powershell/module/az.storage/get-azstorageserviceloggingproperty) для просмотра текущей политики хранения журнала. В следующем примере на консоли выводится срок хранения для служб хранилища BLOB-объектов и очередей.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ queueClient.SetServiceProperties(serviceProperties);
    > [!div class="mx-imgBorder"]
    > ![Политика хранения в выходных данных PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Чтобы изменить срок хранения, используйте [Set-азсторажесервицелоггингпроперти](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) . В следующем примере срок хранения изменяется на 4 дня.  
+7. Чтобы изменить срок хранения, используйте [Set-азсторажесервицелоггингпроперти](/powershell/module/az.storage/set-azstorageserviceloggingproperty) . В следующем примере срок хранения изменяется на 4 дня.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Log
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о Аналитика Службы хранилища см. в разделе [аналитика службы хранилища](storage-analytics.md) for аналитика службы хранилища.
-* [Настройка метрик аналитика службы хранилища](storage-monitor-storage-account.md).
 * Дополнительные сведения о настройке ведения журнала службы хранилища с помощью языка .NET см. в [справочнике по клиентской библиотеке хранилища](/previous-versions/azure/dn261237(v=azure.100)). 
 * Общие сведения о настройке ведения журнала службы хранилища с использованием REST API см. в статье [Включение и настройка Аналитики Службы хранилища](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Дополнительные сведения о формате журналов Аналитика Службы хранилища. См. раздел [Формат журнала аналитика службы хранилища](/rest/api/storageservices/storage-analytics-log-format).

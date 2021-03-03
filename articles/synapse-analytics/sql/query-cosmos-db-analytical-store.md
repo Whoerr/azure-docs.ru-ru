@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d8935c10ce17ad5d3747468d55b2fe6daa21
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a574cacbabf1c0d1730430153a3c0afcad6582c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694365"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Запрос Azure Cosmos DB данных с помощью несвязанного с сервером пула SQL в Azure синапсе Link
 
@@ -22,10 +22,7 @@ ms.locfileid: "101677537"
 
 Для запросов Azure Cosmos DB Полная контактная зона [выбора](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) поддерживается с помощью функции [OPENROWSET](develop-openrowset.md) , которая включает большинство [функций и операторов SQL](overview-features.md). Кроме того, можно сохранять результаты запроса, считывающего данные из Azure Cosmos DB вместе с данными в хранилище BLOB-объектов Azure или Azure Data Lake Storage с помощью инструкции [CREATE External Table как SELECT](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). В настоящее время вы не можете хранить результаты запросов пула SQL Server, чтобы Azure Cosmos DB с помощью CETAS.
 
-В этой статье вы узнаете, как написать запрос с несвязанным серверным пулом SQL, который будет запрашивать данные из Azure Cosmos DB контейнеров, которые включены с помощью ссылки Azure синапсе. Затем вы можете узнать больше о создании бессерверных представлений пула SQL в Azure Cosmos DB контейнерах и подключении их к Power BI моделям в [этом руководстве](./tutorial-data-analyst.md).
-
-> [!IMPORTANT]
-> В этом руководстве используется контейнер с [четко определенной схемой Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation).  Не полагайтесь на схему результирующего набора `OPENROWSET` функции без `WITH` предложения, считывающего данные из контейнера с полной схемой точности, так как работа запроса может быть согласована с и изменяется на основе четко определенной схемы. Вы можете опубликовать свой отзыв на [форуме обратной связи Azure синапсе Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics). Вы также можете обратиться к [группе разработчиков Azure синапсе Link](mailto:cosmosdbsynapselink@microsoft.com) , чтобы отправить отзыв.
+В этой статье вы узнаете, как написать запрос с несвязанным серверным пулом SQL, который будет запрашивать данные из Azure Cosmos DB контейнеров, которые включены с помощью ссылки Azure синапсе. Затем вы можете узнать больше о создании бессерверных представлений пула SQL в Azure Cosmos DB контейнерах и подключении их к Power BI моделям в [этом руководстве](./tutorial-data-analyst.md). В этом руководстве используется контейнер с [четко определенной схемой Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation).
 
 ## <a name="overview"></a>Обзор
 
@@ -377,7 +374,7 @@ FROM OPENROWSET(
 
 ### <a name="query-items-with-full-fidelity-schema"></a>Запрос элементов с полной схемой точности
 
-При запросе полной схемы точности необходимо явно указать тип SQL и ожидаемый тип свойства Azure Cosmos DB в `WITH` предложении. Не используйте `OPENROWSET` `WITH` в отчетах без предложения, так как формат результирующего набора может измениться на основе отзывов.
+При запросе полной схемы точности необходимо явно указать тип SQL и ожидаемый тип свойства Azure Cosmos DB в `WITH` предложении.
 
 В следующем примере предполагается, что `string` является правильным типом `geo_id` Свойства и `int32` является правильным типом для `cases` Свойства:
 
@@ -415,7 +412,6 @@ GROUP BY geo_id
 
 ## <a name="known-issues"></a>Известные проблемы
 
-- Не полагайтесь на схему, которую `OPENROWSET` использует функция без `WITH` предложения, так как запросы могут быть согласованы с четко определенной схемой на основе отзывов пользователей. Чтобы оставить отзыв, обратитесь к [группе разработчиков Azure синапсе Link](mailto:cosmosdbsynapselink@microsoft.com).
 - Серверный пул SQL возвратит предупреждение во время компиляции, если `OPENROWSET` Параметры сортировки столбца не имеют кодировки UTF-8. Можно легко изменить параметры сортировки по умолчанию для всех `OPENROWSET` функций, выполняемых в текущей базе данных, с помощью инструкции T-SQL `alter database current collate Latin1_General_100_CI_AS_SC_UTF8` .
 
 Возможные ошибки и действия по устранению неполадок перечислены в следующей таблице.

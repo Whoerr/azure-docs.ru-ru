@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: beb82f8435aea817a074ce83fddc6a5417b86c26
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418082"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691898"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Автоматизация задач управления с помощью заданий агента SQL в Управляемый экземпляр Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,7 @@ ms.locfileid: "100418082"
 
 Шаги задания агента SQL — это последовательности действий, которые должны выполняться агентом SQL. После каждого шага предусмотрен следующий шаг, который должен выполняться, если предыдущий шаг выполнен успешно или неуспешно, а также если было предпринято определенное количество попыток повторного выполнения в случае сбоя.
 
-Агент SQL позволяет создавать различные типы шагов заданий, например шаги задания Transact-SQL, выполняющие один пакет Transact-SQL для базы данных, или шаги командной строки или PowerShell, которые могут выполнять пользовательский скрипт операционной системы, [шаги задания служб SSIS](/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent) , позволяющие загружать данные с помощью среды выполнения служб SSIS, или шаги [репликации](../managed-instance/replication-transactional-overview.md) , которые могут публиковать изменения из базы данных в других базах данных.
+Агент SQL позволяет создавать различные типы шагов заданий, например шаги задания Transact-SQL, выполняющие один пакет Transact-SQL для базы данных, или шаги командной строки или PowerShell, которые могут выполнять пользовательский скрипт операционной системы, [шаги задания служб SSIS](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) , позволяющие загружать данные с помощью среды выполнения служб SSIS, или шаги [репликации](../managed-instance/replication-transactional-overview.md) , которые могут публиковать изменения из базы данных в других базах данных.
 
 > [!Note]
 > Дополнительные сведения об использовании Integration Runtime Azure SSIS с SSISDB, размещенной в Управляемый экземпляр SQL Azure, см. [в статье использование управляемый экземпляр Azure SQL с SQL Server Integration Services (SSIS) в фабрике данных Azure](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656284"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690419"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Общие сведения о миграции: SQL Server в SQL Управляемый экземпляр
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -115,7 +115,7 @@ ms.locfileid: "101656284"
 
 |Вариант миграции  |Назначение  |Рекомендации  |
 |---------|---------|---------|
-|[Azure Database Migration Service (DMA)](../../../dms/tutorial-sql-server-to-managed-instance.md) | — Миграция отдельных баз данных или нескольких баз данных в масштабе. </br> — Может обеспечить время простоя процесса миграции. </br> </br> Поддерживаемые источники: </br> -SQL Server (2005-2019) локальная или виртуальная машина Azure </br> -AWS EC2 </br> — AWS RDS </br> -ОБЕСПЕЧИТЬ вычислений SQL Server VM |  -Миграция с масштабированием может быть автоматизирована с помощью [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> Время для завершения миграции зависит от размера базы данных и влияет на время резервного копирования и восстановления. </br> — Может потребоваться достаточно простоя. |
+|[Azure Database Migration Service (DMA)](../../../dms/tutorial-sql-server-to-managed-instance.md) | — Миграция отдельных баз данных или нескольких баз данных в масштабе. </br> — Может обеспечить время простоя процесса миграции. </br> </br> Поддерживаемые источники: </br> -SQL Server (2005-2019) локальная или виртуальная машина Azure </br> -AWS EC2 </br> — AWS RDS </br> -ОБЕСПЕЧИТЬ вычислений SQL Server VM |  -Миграция с масштабированием может быть автоматизирована с помощью [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> Время для завершения миграции зависит от размера базы данных и влияет на время резервного копирования и восстановления. </br> — Может потребоваться достаточно простоя. |
 |[Встроенное резервное копирование и восстановление](../../managed-instance/restore-sample-database-quickstart.md) | — Перенос отдельных баз данных бизнес-приложений.  </br> — Быстрая и простая миграция без отдельной службы или средства миграции.  </br> </br> Поддерживаемые источники: </br> -SQL Server (2005-2019) локальная или виртуальная машина Azure </br> -AWS EC2 </br> — AWS RDS </br> -ОБЕСПЕЧИТЬ вычислений SQL Server VM | Резервное копирование базы данных использует несколько потоков для оптимизации передачи данных в хранилище BLOB-объектов Azure, а пропускная способность ISV и размер базы данных могут повлиять на скорость передачи. </br> — Время простоя должно соответствовать времени, требуемому для выполнения полного резервного копирования и восстановления (что является размером операции с данными).| 
 |[Служба воспроизведения журналов (LRS)](../../managed-instance/log-replay-service-migrate.md) | — Перенос отдельных баз данных бизнес-приложений.  </br> — Для миграции баз данных требуется больше элементов управления.  </br> </br> Поддерживаемые источники: </br> -SQL Server (2008-2019) локальная или виртуальная машина Azure </br> -AWS EC2 </br> — AWS RDS </br> -ОБЕСПЕЧИТЬ вычислений SQL Server VM | — Миграция влечет за собой создание полных резервных копий базы данных на SQL Server и копирование файлов резервных копий в хранилище BLOB-объектов Azure. LRS используется для восстановления файлов резервных копий из хранилища BLOB-объектов Azure в SQL Управляемый экземпляр. </br> — Базы данных, восстанавливаемые в процессе миграции, будут находиться в режиме восстановления и не могут использоваться для чтения или записи до завершения процесса.| 
 | | | |
@@ -163,7 +163,7 @@ SQL Server функции высокого уровня доступности A
 
 #### <a name="sql-agent-jobs"></a>Задания агента SQL Server
 
-Используйте параметр offline Azure Database Migration Service (DMS) для переноса [заданий агента SQL Server](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). В противном случае создайте скрипты для заданий в Transact-SQL (T-SQL), используя SQL Server Management Studio а затем вручную воссоздать их на целевом Управляемый экземпляр SQL. 
+Используйте параметр offline Azure Database Migration Service (DMS) для переноса [заданий агента SQL Server](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). В противном случае создайте скрипты для заданий в Transact-SQL (T-SQL), используя SQL Server Management Studio а затем вручную воссоздать их на целевом Управляемый экземпляр SQL. 
 
 > [!IMPORTANT]
 > В настоящее время Azure DMS поддерживает задания только с шагами подсистемы T-SQL. Задания с шагами пакета служб SSIS необходимо перенести вручную. 

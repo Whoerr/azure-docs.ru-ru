@@ -4,12 +4,12 @@ ms.service: databox
 ms.author: alkohli
 ms.topic: include
 ms.date: 02/05/2021
-ms.openlocfilehash: b06b91e972fd07543cf02105360cb0400ef6b0f1
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ad981264a99bd48e27f745a789ebe857b7f17d80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831560"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750661"
 ---
 Используйте ответы времени выполнения агента IoT Edge, чтобы устранить ошибки, связанные с вычислением. Ниже перечислены возможные ответы:
 
@@ -20,7 +20,7 @@ ms.locfileid: "99831560"
 * 406 — устройство IoT Edge работает в автономном режиме или не отправляет отчеты о состоянии.
 * 500 — в среде выполнения IoT Edge произошла ошибка.
 
-Дополнительные сведения см. в разделе [агент IOT Edge](/azure/iot-edge/iot-edge-runtime?view=iotedge-2018-06&preserve-view=true#iot-edge-agent).
+Дополнительные сведения см. в разделе [агент IOT Edge](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent).
 
 Следующая ошибка связана со службой IoT Edge на Azure Stack пограничных Pro.<!--/ Data Box Gateway--> возможностями, доступными на любом устройстве.
 

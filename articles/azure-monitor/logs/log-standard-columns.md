@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
-ms.openlocfilehash: e8d89de079a50159bbed9c38487effb0c89448c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100622785"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704129"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Стандартные столбцы в журналах Azure Monitor
 Данные в журналах Azure Monitor [хранятся в виде набора записей в log Analytics рабочей области или в Application Insights приложении](../logs/data-platform-logs.md), каждый из которых имеет определенный тип данных, имеющий уникальный набор столбцов. Многие типы данных будут иметь стандартные столбцы, которые являются общими для нескольких типов. В этой статье описываются эти столбцы и приводятся примеры их использования в запросах.
@@ -20,6 +20,10 @@ ms.locfileid: "100622785"
 
 > [!NOTE]
 > Некоторые стандартные столбцы не отображаются в представлении схемы или IntelliSense в Log Analytics и не отображаются в результатах запроса, если только столбец в выходных данных не указан явным образом.
+> 
+
+## <a name="tenantid"></a>TenantId
+Столбец **TenantId** содержит идентификатор рабочей области для log Analytics рабочей области.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated и timestamp
 Столбцы **TimeGenerated** log Analytics (Рабочая область) и **метка времени** (Application Insights приложение) содержат дату и время создания записи источником данных. Дополнительные сведения см. [в разделе время приема данных журнала в Azure Monitor](../logs/data-ingestion-time.md) .
@@ -49,6 +53,10 @@ exceptions
 
 ## <a name="_timereceived"></a>\_тимерецеивед
 Столбец **\_ тимерецеивед** содержит дату и время получения записи Azure Monitor точкой приема в облаке Azure. Это может быть полезно для выявления проблем задержки между источником данных и облаком. Примером может быть проблема с сетью, вызывающая задержку данных, отправляемых агентом. Дополнительные сведения см. [в разделе время приема данных журнала в Azure Monitor](../logs/data-ingestion-time.md) .
+
+> [!NOTE]
+> Столбец **\_ тимерецеивед** вычисляется каждый раз, когда он используется. Этот процесс занимает много ресурсов. Уточните, как использовать его для фильтрации большого количества записей. Использование этой функции, выполняемой повторно, может привести к увеличению длительности выполнения запроса.
+
 
 Следующий запрос возвращает среднюю задержку на час для записей событий агента. Сюда входит время из агента в облако и общее время, в течение которого запись будет доступна для запросов журнала.
 
@@ -236,8 +244,8 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last 
 ```
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительные сведения см. в статье [Анализ данных журнала в Azure Monitor](../log-query/log-query-overview.md).
-- Изучите статью [Начало работы с запросами журналов Azure Monitor](../log-query/get-started-queries.md).
+- Дополнительные сведения см. в статье [Анализ данных журнала в Azure Monitor](./log-query-overview.md).
+- Изучите статью [Начало работы с запросами журналов Azure Monitor](./get-started-queries.md).
 - См. статью [Объединения в запросах журнала Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

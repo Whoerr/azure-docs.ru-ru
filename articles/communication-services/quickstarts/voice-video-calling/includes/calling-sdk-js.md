@@ -4,16 +4,16 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 3830025d761c94e2b0b0bc3e66389d66794b946c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4a9454abc2c4e41d711a4aef6a30438a72d27edb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661559"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749886"
 ---
 ## <a name="prerequisites"></a>Предварительные требования
 
-- Учетная запись Azure с активной подпиской. [Создайте учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) бесплатно.
+- Учетная запись Azure с активной подпиской. [Создайте учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) бесплатно. 
 - Развернутый ресурс Служб коммуникации. [Создайте ресурс Служб коммуникации.](../../create-communication-resource.md)
 - `User Access Token` для включения клиента вызова. Дополнительные сведения о том, [как получить `User Access Token`](../../access-tokens.md)
 - (Необязательно) Выполните инструкции из краткого руководства [Добавление функции голосового вызова в приложение](../getting-started-with-calling.md).
@@ -63,7 +63,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-an-outgoing-call"></a>Осуществление исходящего вызова
 
-Чтобы создать и запустить вызов, необходимо использовать один из API-интерфейсов на Каллажент и предоставить пользователя, созданного с помощью клиентской библиотеки удостоверений служб связи.
+Чтобы создать и запустить вызов, необходимо использовать один из API CallAgent и предоставить пользователя, созданного с помощью клиентской библиотеки администрирования Служб коммуникации.
 
 Создание и запуск вызова активируются синхронно. Экземпляр Call позволяет подписываться на события вызова.
 
@@ -254,10 +254,10 @@ call.on('callEnded', callEndHander);
 
 ```js
 
-//mute local device
+//mute local device 
 await call.mute();
 
-//unmute local device
+//unmute local device 
 await call.unmute();
 
 ```
@@ -401,7 +401,7 @@ await call.removeParticipant(pstnIdentifier);
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
-
+ 
 Чтобы отрисовывать `RemoteVideoStream`, нужно оформить подписку на событие `isAvailableChanged`.
 Если свойство `isAvailable` изменит значение на `true`, значит этот удаленный участник отправляет поток.
 Когда это произойдет, создайте новый экземпляр `Renderer`, а затем новый экземпляр `RendererView` с помощью асинхронного метода `createView`.  Затем вы сможете присоединить `view.target` к любому элементу пользовательского интерфейса.
@@ -581,7 +581,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-
+               
 ```
 
 ## <a name="call-transfer-management"></a>Управление перенаправлением вызовов

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5eaa2d686ecd38c006a720e9ffb97a4604f18ba8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708872"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Использование функций в запросах журнала Azure Monitor
 
@@ -35,7 +35,7 @@ ms.locfileid: "100625743"
 Используйте функцию, включив ее псевдоним в другой запрос. Она может использоваться как любая другая таблица.
 
 ## <a name="function-parameters"></a>Параметры функции 
-В функцию можно добавить параметры, чтобы при ее вызове можно было указать значения для определенных переменных. Единственным способом создания функции с параметрами является использование шаблона диспетчер ресурсов. Пример см. [в разделе примеры шаблонов диспетчер ресурсов для запросов журналов в Azure Monitor](../samples/resource-manager-log-queries.md#parameterized-function) .
+В функцию можно добавить параметры, чтобы при ее вызове можно было указать значения для определенных переменных. Единственным способом создания функции с параметрами является использование шаблона диспетчер ресурсов. Пример см. [в разделе примеры шаблонов диспетчер ресурсов для запросов журналов в Azure Monitor](./resource-manager-log-queries.md#parameterized-function) .
 
 ## <a name="example"></a>Пример
 Приведенный ниже пример запроса возвращает все отсутствующие обновления безопасности, о которых сообщалось в последний день. Сохраните этот запрос как функцию с псевдонимом _security_updates_last_day_. 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: e0be5523cb3846760644d0c81b06d5caa5a35378
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 142853f0d5ed787d0b7aaee1bb118a001f144227
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623316"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722931"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Как использовать JSONPath для преобразования данных JSON в книги
 
@@ -22,7 +22,7 @@ ms.locfileid: "100623316"
 
 JSONPath — это язык запросов для JSON, похожий на XPath for XML. Как и XPath, JSONPath позволяет извлечь и фильтрация данные из структуры JSON.
 
-С помощью преобразования JSONPath авторы книг могут преобразовать JSON в табличную структуру. Затем таблицу можно использовать для построения [визуализации книг](../platform/workbooks-overview.md#visualizations).
+С помощью преобразования JSONPath авторы книг могут преобразовать JSON в табличную структуру. Затем таблицу можно использовать для построения [визуализации книг](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Использование JSONPath
 
@@ -83,6 +83,6 @@ JSONPath — это язык запросов для JSON, похожий на X
 
 ![ Изменение элемента запроса с помощью источника данных JSON и формата результата JSON Path](./media/workbooks-jsonpath/query-jsonpath.png)
 
-## <a name="next-steps"></a>Дальнейшие шаги
-- [Общие сведения о книгах](../platform/workbooks-overview.md)
+## <a name="next-steps"></a>Дальнейшие действия
+- [Общие сведения о книгах](./workbooks-overview.md)
 - [Группы в Azure Monitor книгах](workbooks-groups.md)

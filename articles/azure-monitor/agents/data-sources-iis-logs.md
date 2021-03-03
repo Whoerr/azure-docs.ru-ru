@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
-ms.openlocfilehash: 089c0739ff091d49734cad048c2bfb10d857617c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623394"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732060"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Получение журналов IIS с помощью агента Log Analytics в Azure Monitor
-Службы IIS (IIS) хранит данные о действиях пользователей в файлах журнала, которые могут собираться агентом Log Analytics и храниться в [Azure Monitor журналах](../platform/data-platform.md).
+Службы IIS (IIS) хранит данные о действиях пользователей в файлах журнала, которые могут собираться агентом Log Analytics и храниться в [Azure Monitor журналах](../data-platform.md).
 
 > [!IMPORTANT]
-> В этой статье рассматривается сбор журналов IIS с помощью [агента log Analytics](../platform/log-analytics-agent.md) , который является одним из агентов, используемых Azure Monitor. Другие агенты собираются разные данные и настраиваются по-разному. Список доступных агентов и данных, которые они могут собираются, см. в разделе [Обзор агентов Azure Monitor](../agents/agents-overview.md) .
+> В этой статье рассматривается сбор журналов IIS с помощью [агента log Analytics](./log-analytics-agent.md) , который является одним из агентов, используемых Azure Monitor. Другие агенты собираются разные данные и настраиваются по-разному. Список доступных агентов и данных, которые они могут собираются, см. в разделе [Обзор агентов Azure Monitor](../agents/agents-overview.md) .
 
 ![Журналы IIS](media/data-sources-iis-logs/overview.png)
 
@@ -29,7 +29,7 @@ ms.locfileid: "100623394"
 Настройте журналы IIS в Azure Monitor из [меню дополнительных параметров](../agents/agent-data-sources.md#configuring-data-sources) для агента log Analytics.  Никакие настройки, кроме выбора параметра **Сбор файлов журналов IIS в формате W3C**, не требуются.
 
 
-## <a name="data-collection"></a>сбор данных
+## <a name="data-collection"></a>Сбор данных
 Служба Azure Monitor собирает записи журналов IIS от каждого агента при каждом изменении меток времени журнала. Журнал считывается каждые **5 минут**. Если по какой-либо причине IIS не обновляет метку времени до момента, когда создается новый файл, записи будут собираться после создания нового файла. Частота создания нового файла определяется параметром **расписания развертывания файла журнала** для сайта IIS, который по умолчанию имеет значение один раз в день. Если параметр имеет значение **ежечасно**, Azure Monitor собирает журнал каждый час. Если параметр имеет значение **ежедневно**, Azure Monitor собирает журнал каждые 24 часа.
 
 > [!IMPORTANT]
@@ -73,6 +73,6 @@ ms.locfileid: "100623394"
 | W3CIISLog &#124; где Кшост = = "www \. contoso.com" &#124; суммировать Count () по ксуристем |Число записей журнала IIS по URL-адресу узла www \. contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Общее количество байтов, полученных каждым компьютером IIS. |
 
-## <a name="next-steps"></a>Дальнейшие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 * Настройте в службе Azure Monitor сбор других [источников данных](../agents/agent-data-sources.md) для анализа.
-* Узнайте больше о [запросах журнала](../log-query/log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений.
+* Узнайте больше о [запросах журнала](../logs/log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений.

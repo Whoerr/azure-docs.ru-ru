@@ -4,12 +4,12 @@ description: Узнайте, какие метрики обычно исполь
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: f358efb8f99066dc1d7a564ad36d6ed1290853e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100623898"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717780"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Общие метрики автомасштабирования Azure Monitor
 
@@ -33,8 +33,8 @@ ms.locfileid: "100623898"
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Метрики уровня узла для виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager
 Следующие метрики уровня узла генерируются по умолчанию для виртуальной машины и масштабируемого набора виртуальных машин Azure в экземплярах Windows и Linux. Эти метрики описывают виртуальную машину Azure, но собираются из узла виртуальной машины Azure, а не через агент, установленный на гостевой виртуальной машине. Эти метрики можно использовать в правилах автомасштабирования.
 
-- [Метрики уровня узла для виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Метрики уровня узла для масштабируемых наборов виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Метрики уровня узла для виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Метрики уровня узла для масштабируемых наборов виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Метрики гостевой ОС для виртуальных машин Windows на основе диспетчер ресурсов
 При создании виртуальной машины в Azure система диагностики включается с помощью расширения диагностики. Расширение диагностики генерирует набор метрик, полученных из виртуальной машины. Это означает, что вы можете отключить автомасштабирование метрик, которые не генерируются по умолчанию.
@@ -186,4 +186,3 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 > Для служебной шины концепции группы ресурсов не существует, но Azure Resource Manager создает группу ресурсов по умолчанию на регион. Группа ресурсов обычно имеет формат Default-ServiceBus-[region]. Например, Default-ServiceBus-EastUS, Default-ServiceBus-WestUS, Default-ServiceBus-AustraliaEast и т. д.
 >
 >
-

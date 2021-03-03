@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582372"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686586"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Веб-API, вызывающий веб-API: конфигурация кода
 
@@ -246,6 +246,8 @@ class MsalAuthHelper {
 
 Веб-API Python должен использовать некоторое по промежуточного слоя для проверки токена носителя, полученного от клиента. Затем веб-API может получить маркер доступа для подчиненного API с помощью библиотеки MSAL Python, вызвав [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) метод. Пример использования этого API см. в [коде теста для Microsoft-Authentication-Library-для-Python на сайте GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). См. также описание [проблемы 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) в том же репозитории для подхода, который обходит потребность в приложении среднего уровня.
 
+Вы также можете увидеть пример реализации потока OBO в образце [MS-Identity-Python-On-My-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of) .
+
 ---
 
 Вы также можете увидеть пример реализации OBO Flow в [Node.js и функциях Azure](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/Function/MyHttpTrigger/index.js#L61).
@@ -254,6 +256,6 @@ class MsalAuthHelper {
 
 Дополнительные сведения о протоколе OBO см. в [статье о платформе Microsoft Identity и OAuth 2,0 от имени потока](./v2-oauth2-on-behalf-of-flow.md).
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к следующей статье в этом сценарии, чтобы [получить маркер для приложения](scenario-web-api-call-api-acquire-token.md).

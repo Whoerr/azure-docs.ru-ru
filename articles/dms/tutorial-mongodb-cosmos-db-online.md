@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
 ms.date: 02/03/2021
-ms.openlocfilehash: 359f268f69918ccfd9fe34a28c3f8d1c79988393
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 84eed7d48dfe0230ea023d171e2b640bdf50dbe3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575628"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715672"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Руководство по Перенос MongoDB в API Azure Cosmos DB для MongoDB по сети с помощью DMS
 
@@ -36,7 +36,7 @@ ms.locfileid: "99575628"
 > * проверка данных в Azure Cosmos DB; 
 > * Когда будете готовы, выполните миграцию. 
 
-В этом руководстве выполняется перенос набора данных из базы данных MongoDB, размещенной на виртуальной машине Azure, в API Azure Cosmos DB для MongoDB с минимальным простоем с помощью Azure Database Migration Service. Если у вас еще не настроен источник MongoDB, обратитесь к статье [Установка и настройка базы данных MongoDB на виртуальной машине Windows в Azure](../virtual-machines/windows/install-mongodb.md).
+В этом руководстве выполняется перенос набора данных из базы данных MongoDB, размещенной на виртуальной машине Azure, в API Azure Cosmos DB для MongoDB с минимальным простоем с помощью Azure Database Migration Service. Если у вас еще не настроен источник MongoDB, обратитесь к статье [Установка и настройка базы данных MongoDB на виртуальной машине Windows в Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 > [!NOTE]
 > Чтобы выполнить сетевую миграцию с помощью Azure Database Migration Service, требуется создать экземпляр ценовой категории "Премиум".

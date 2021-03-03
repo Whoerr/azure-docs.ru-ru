@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428560"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698864"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Перенесите собственный ключ (ключи, управляемые клиентом) с помощью служб мультимедиа
 
@@ -42,7 +42,7 @@ ms.locfileid: "99428560"
 Службы мультимедиа автоматически поддерживают двойное шифрование. Для неактивных данных первый уровень шифрования использует управляемый клиентом ключ или ключ, управляемый Майкрософт, в зависимости от `AccountEncryption` настройки учетной записи.  Второй уровень шифрования неактивных данных предоставляется автоматически с помощью отдельного управляемого ключа Майкрософт. Дополнительные сведения о двойном шифровании см. в статье [двойное шифрование Azure](../../security/fundamentals/double-encryption.md).
 
 > [!NOTE]
-> Двойное шифрование включается автоматически для учетной записи служб мультимедиа. Однако необходимо отдельно настроить ключ, управляемый клиентом, и двойное шифрование в вашей учетной записи хранения. См. раздел [стореже Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+> Двойное шифрование включается автоматически для учетной записи служб мультимедиа. Однако необходимо отдельно настроить ключ, управляемый клиентом, и двойное шифрование в вашей учетной записи хранения. См. раздел [стореже Encryption](../../storage/common/storage-service-encryption.md).
 
 ## <a name="tutorials"></a>Учебники
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 29393126f94d77dbced0ef896616b945443184fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8f6c35fd1bb6b46f512f9245d8e3d41df428692b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100625260"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733947"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Анализ текстовых данных в журналах Azure Monitor
 Некоторые данные журнала, собранные Azure Monitor, будут содержать несколько фрагментов информации в одном свойстве. Анализ этих данных в нескольких свойствах облегчает использование в запросах. Типичным примером является [особый журнал](../agents/data-sources-custom-logs.md), который собирает всю запись журнала с несколькими значениями в одно свойство. Создавая отдельные свойства для разных значений, вы можете выполнять поиск и вычисления в каждом из них.
@@ -187,5 +187,5 @@ MyCustomCSVLog
 ```
 
 
-## <a name="next-steps"></a>Дальнейшие шаги
-* Узнайте больше о [запросах журнала](../log-query/log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений.
+## <a name="next-steps"></a>Дальнейшие действия
+* Узнайте больше о [запросах журнала](./log-query-overview.md), которые можно применять для анализа данных, собираемых из источников данных и решений.

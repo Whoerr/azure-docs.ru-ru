@@ -7,12 +7,12 @@ ms.author: normesta
 ms.date: 02/17/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d6897a863a0fd399d3c963d876404680026682dd
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b67c3ccebefc178ddebc2b4a7fd49043bc0776b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654603"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735426"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Учебники, в которых используются службы Azure с Azure Data Lake Storage 2-го поколения
 
@@ -22,6 +22,7 @@ ms.locfileid: "100654603"
 
 | Служба Azure | Пошаговое руководством | 
 |---------------|-------------------|
+| Azure Synapse Analytics | [Приступая к работе с Azure синапсе Analytics](../../synapse-analytics/get-started.md) |
 | Фабрика данных Azure | [Загрузка данных в Azure Data Lake Storage 2-го поколения с помощью Фабрики данных Azure](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 | Azure Databricks | [Использование с Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) |
 | Azure Databricks | [Извлечение, преобразование и загрузка данных с помощью Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
@@ -29,7 +30,6 @@ ms.locfileid: "100654603"
 | Сетка событий Azure | [Реализация шаблона сохранения озера данных для обновления таблицы Databricks Delta](data-lake-storage-events.md) |
 | Машинное обучение Azure | [Доступ к данным в службах хранилища Azure](../../machine-learning/how-to-access-data.md) |
 | Azure Data Box | [Использование Azure Data Box для переноса данных из локального хранилища HDFS в службу хранилища Azure](data-lake-storage-migrate-on-premises-hdfs-cluster.md) |
-| Azure Synapse Analytics | [Приступая к работе с Azure синапсе Analytics](../../synapse-analytics/get-started.md) |
 | HDInsight | [Использование Azure Data Lake Storage Gen2 с кластерами Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | HDInsight | [Извлечение, преобразование и загрузка данных с помощью Apache Hive в Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md) |
 | Power BI | [Анализ данных в Data Lake Storage 2-го поколения с помощью Power BI](/power-query/connectors/datalakestorage) |

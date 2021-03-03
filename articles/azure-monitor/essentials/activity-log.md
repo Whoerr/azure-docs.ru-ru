@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 200c4c536df4a3e32b59945ae4ad97d7b770f269
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613409"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723305"
 ---
 # <a name="azure-activity-log"></a>Журнал действий Azure
-Журнал действий — это журнал [платформы в Azure](../platform/platform-logs-overview.md), который предоставляет аналитические сведения о событиях уровня подписки, например об изменении ресурса или запуске виртуальной машины. Вы можете просмотреть журнал действий на портале Azure или получить записи с помощью PowerShell и CLI. Для дополнительной функциональности следует создать параметр диагностики для отправки журнала действий в [журналы Azure Monitor](../platform/data-platform-logs.md), в концентраторы событий Azure для пересылки за пределы Azure или в службу хранилища Azure для архивации. Эта статья содержит сведения о просмотре журнала действий и его отправке в различные назначения.
+Журнал действий — это журнал [платформы в Azure](./platform-logs-overview.md), который предоставляет аналитические сведения о событиях уровня подписки, например об изменении ресурса или запуске виртуальной машины. Вы можете просмотреть журнал действий на портале Azure или получить записи с помощью PowerShell и CLI. Для дополнительной функциональности следует создать параметр диагностики для отправки журнала действий в [журналы Azure Monitor](../logs/data-platform-logs.md), в концентраторы событий Azure для пересылки за пределы Azure или в службу хранилища Azure для архивации. Эта статья содержит сведения о просмотре журнала действий и его отправке в различные назначения.
 
-Дополнительные сведения о создании параметров диагностики см. в статье [Создание параметров диагностики для отправки журналов и метрик платформы в различные назначения](../platform/diagnostic-settings.md) .
+Дополнительные сведения о создании параметров диагностики см. в статье [Создание параметров диагностики для отправки журналов и метрик платформы в различные назначения](./diagnostic-settings.md) .
 
 > [!NOTE]
 > Записи в журнале действий формируются системой и их нельзя изменить или удалить.
@@ -43,13 +43,13 @@ ms.locfileid: "100613409"
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Другие методы для получения событий журнала действий
 Вы также можете получить доступ к событиям журнала действий с помощью следующих методов.
 
-- Чтобы получить журнал действий с помощью PowerShell, используйте командлет [Get-AzLog](/powershell/module/az.monitor/get-azlog). См. раздел [примеры Azure Monitor PowerShell](../samples/powershell-samples.md#retrieve-activity-log).
-- Чтобы получить журнал действий с помощью интерфейса командной строки, используйте команду [az monitor activity-log](/cli/azure/monitor/activity-log).  См. [примеры CLI для Azure Monitor](../samples/cli-samples.md#view-activity-log).
+- Чтобы получить журнал действий с помощью PowerShell, используйте командлет [Get-AzLog](/powershell/module/az.monitor/get-azlog). См. раздел [примеры Azure Monitor PowerShell](../powershell-samples.md#retrieve-activity-log).
+- Чтобы получить журнал действий с помощью интерфейса командной строки, используйте команду [az monitor activity-log](/cli/azure/monitor/activity-log).  См. [примеры CLI для Azure Monitor](../cli-samples.md#view-activity-log).
 - Чтобы получить журнал действий из клиента REST, используйте [Azure Monitor REST API](/rest/api/monitor/). 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Отправка в рабочую область Log Analytics
- Отправьте журнал действий в Log Analytics рабочую область, чтобы включить функции [журналов Azure Monitor](../platform/data-platform-logs.md) , которые включают следующее:
+ Отправьте журнал действий в Log Analytics рабочую область, чтобы включить функции [журналов Azure Monitor](../logs/data-platform-logs.md) , которые включают следующее:
 
 - Сопоставьте данные журнала действий с другими данными мониторинга, собранными Azure Monitor.
 - Объедините записи журнала из нескольких подписок Azure и клиентов в единое место для анализа вместе.
@@ -59,9 +59,9 @@ ms.locfileid: "100613409"
 - Не взимается плата за получение данных журнала действий, хранящихся в Log Analytics рабочей области.
 - Для данных журнала действий, хранящихся в Log Analytics рабочей области, не взимается плата за хранение данных до 90 дней.
 
-[Создайте параметр диагностики](../platform/diagnostic-settings.md) для отправки журнала действий в рабочую область log Analytics. Журнал действий можно отправить из любой одной подписки в до пяти рабочих областей. Для сбора журналов из различных клиентов требуется [Azure Lighthouse](../../lighthouse/index.yml).
+[Создайте параметр диагностики](./diagnostic-settings.md) для отправки журнала действий в рабочую область log Analytics. Журнал действий можно отправить из любой одной подписки в до пяти рабочих областей. Для сбора журналов из различных клиентов требуется [Azure Lighthouse](../../lighthouse/index.yml).
 
-Данные журнала действий в рабочей области Log Analytics хранятся в таблице с именем *AzureActivity* , которую можно получить с помощью [запроса журнала](../log-query/log-query-overview.md) в [log Analytics](../log-query/log-analytics-tutorial.md). Структура этой таблицы зависит от [категории записи журнала](activity-log-schema.md). Описание свойств таблицы см. в [справочнике по Azure Monitor данных](/azure/azure-monitor/reference/tables/azureactivity).
+Данные журнала действий в рабочей области Log Analytics хранятся в таблице с именем *AzureActivity* , которую можно получить с помощью [запроса журнала](../logs/log-query-overview.md) в [log Analytics](../logs/log-analytics-tutorial.md). Структура этой таблицы зависит от [категории записи журнала](activity-log-schema.md). Описание свойств таблицы см. в [справочнике по Azure Monitor данных](/azure/azure-monitor/reference/tables/azureactivity).
 
 Например, чтобы просмотреть число записей журнала действий для каждой категории, используйте следующий запрос.
 
@@ -400,6 +400,6 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Ознакомьтесь со статьей [Общие сведения о журналах платформы Azure](../platform/platform-logs-overview.md).
+* Ознакомьтесь со статьей [Общие сведения о журналах платформы Azure](./platform-logs-overview.md).
 * [Проверка схемы событий журнала действий](activity-log-schema.md)
-* См. статью о [создании параметра диагностики для отправки журналов действий в другие целевые расположения](../platform/diagnostic-settings.md).
+* См. статью о [создании параметра диагностики для отправки журналов действий в другие целевые расположения](./diagnostic-settings.md).

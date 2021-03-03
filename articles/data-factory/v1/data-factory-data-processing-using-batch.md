@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364279"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730870"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Обработка больших наборов данных с помощью фабрики данных и пакетной службы
 > [!NOTE]
@@ -575,9 +575,7 @@ test custom activity Microsoft test custom activity Microsoft
    d. Введите URI пакета для свойства JSON **batchUri** .
 
       > [!IMPORTANT]
-      > URL-адрес в колонке **учетной записи пакетной службы** имеет следующий формат: \<accountname\> . \<region\> . batch.azure.com. В свойстве **batchUri** в скрипте JSON необходимо удалить a88"accountname."** из URL-адреса. Например, `"batchUri": "https://eastus.batch.azure.com"`.
-      >
-      >
+      > URL-адрес в колонке **учетной записи пакетной службы** имеет следующий формат: `<accountname>.<region>.batch.azure.com` . Для `batchUri` свойства в скрипте JSON необходимо удалить `<accountname>.` из URL-адреса. Например, `"batchUri": "https://eastus.batch.azure.com"`.
 
       ![Колонка учетной записи пакетной службы](./media/data-factory-data-processing-using-batch/image9.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 20ebeb23fe09ba4fd70a724828afadfaa3901abd
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02ccb3acb4546e08e7d58159ab9d85bca2d0eed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095672"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711881"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Квоты и планы обслуживания для Azure Веснного облака
 
@@ -32,8 +32,8 @@ vCPU | на экземпляр приложения | 1 | 4
 Постоянные тома | на экземпляр облачной службы Azure весны | 1 ГБ/приложение x 10 приложений | 50 ГБ/приложение x 10 приложений
 
 > [!TIP]
-> Ставки, перечисленные для каждого экземпляра службы, применяются для приложений и развертываний в остановленном состоянии. Удалите приложения и развертывания, которые не используются.
+> Ограничения, перечисленные для каждого экземпляра службы, применяются для приложений и развертываний в любом состоянии, включая остановленное состояние. Удалите приложения или развертывания, которые не используются.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Некоторые ограничения по умолчанию можно увеличить. Если для установки требуется увеличение, [Создайте запрос в службу поддержки](../azure-portal/supportability/how-to-create-azure-support-request.md).

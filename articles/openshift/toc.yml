@@ -55,7 +55,7 @@
             - name: "Настройка Azure Monitor для контейнеров в ARO\_4 (предварительная версия)"
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: "Отключение Azure Monitor для контейнеров в ARO\_4 (предварительная версия)"
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Разработка и запуск приложений
       items:
         - name: Развертывание приложения Open Liberty или WebSphere Liberty
@@ -80,10 +80,10 @@
             - name: Azure Monitor для контейнеров в Azure Red Hat OpenShift 3.11 (предварительная версия)
               items:
                 - name: Настройка Azure Monitor для контейнеров в Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Отключение Azure Monitor для контейнеров в Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Запуск привилегированных контейнеров в Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md

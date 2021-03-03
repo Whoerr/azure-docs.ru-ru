@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 8e2217c04f5c39ad93185273d537324f4b56e456
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: f6c43f943bb12e8230772f2d195589ecc4543030
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099546"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705319"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Лицензирование &reg; пакета Microsoft Smooth Streaming Client Licensing Kit
 
@@ -46,7 +46,7 @@ ms.locfileid: "100099546"
   * Программные интерфейсы для взаимодействия с аппаратным оборудованием аудио- и видеодекодеров (декодирование, отрисовка).
 * Интерфейс управления цифровыми правами (DRM). 
   * Программные интерфейсы для обработки ограничений DRM через уровень абстракции DRM (DAL).
-  * Пакет для портирования Microsoft PlayReady поставляется отдельно, но интегрируется через этот интерфейс. Дополнительные сведения о лицензировании устройств Microsoft PlayReady приводятся [здесь](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Пакет для портирования Microsoft PlayReady поставляется отдельно, но интегрируется через этот интерфейс. [См. Дополнительные сведения о лицензировании устройств Microsoft PlayReady](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Примеры реализации 
   * Пример реализации PAL для Linux
   * Пример реализации HAL для GStreamer
@@ -148,6 +148,7 @@ ms.locfileid: "100099546"
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
+* Небесно CP Ltd
 * Sky Deutschland Fernsehen GmbH & Co. KG
 * СМАРДТВ ГЛОБАЛЬНЫЙ SAS
 * SoftAtHome

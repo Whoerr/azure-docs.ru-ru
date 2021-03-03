@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 02/16/2021
-ms.openlocfilehash: f4ac384a9b1bce944397369cb93392f179643f96
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bd70bb1a031b61e77fa84ff5567d95dc6d1e8788
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558753"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706747"
 ---
 # <a name="whats-new-in-language-understanding"></a>Новые возможности службы "Распознавание речи"
 
@@ -56,7 +56,7 @@ ms.locfileid: "100558753"
 * Новые ресурсы для разработчиков:
     * [средства непрерывной интеграции](developer-reference-resource.md#continuous-integration-tools);
     * семинар с рекомендациями по [_распознаванию естественной речи_ (NLU) с использованием LUIS](developer-reference-resource.md#workshops).
-* [Управляемые пользователем ключи](luis-encryption-of-data-at-rest.md) — шифруйте все данные, используемые в LUIS, с помощью собственного ключа.
+* [Управляемые пользователем ключи](./encrypt-data-at-rest.md) — шифруйте все данные, используемые в LUIS, с помощью собственного ключа.
 * [Мероприятие, посвященное ИИ](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (видео) — узнайте о новых функциях LUIS.
 
 

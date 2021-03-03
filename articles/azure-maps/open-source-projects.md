@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8be747d2027291203272a960efe6b26368471a50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386753"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735052"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps сообщество — проекты с открытым исходным кодом
 
@@ -70,9 +70,9 @@ ms.locfileid: "100386753"
 
 | Имя проекта | Описание |
 |-|-|
-| [Подключаемый модуль Цесиум для Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Подключаемый модуль [ЦЕСИУМ JS](https://cesium.com/cesiumjs/) , упрощающий интеграцию Azure Maps служб, таких как [мозаичные слои](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) и [службы геокодирования](https://docs.microsoft.com/rest/api/maps/search). |
-| [Подключаемый модуль Леафлет для Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Подключаемый модуль JavaScript [леафлет](https://leafletjs.com/) , который упрощает наложение мозаичных слоев из [Azure Maps служб плиток](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- | [Подключаемый модуль Опенлайерс для Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Подключаемый модуль JavaScript [опенлайерс](https://www.openlayers.org/) , который упрощает наложение мозаичных слоев из [Azure Maps служб плиток](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+| [Подключаемый модуль Цесиум для Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Подключаемый модуль [ЦЕСИУМ JS](https://cesium.com/cesiumjs/) , упрощающий интеграцию Azure Maps служб, таких как [мозаичные слои](/rest/api/maps/renderv2/getmaptilepreview) и [службы геокодирования](/rest/api/maps/search). |
+| [Подключаемый модуль Леафлет для Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Подключаемый модуль JavaScript [леафлет](https://leafletjs.com/) , который упрощает наложение мозаичных слоев из [Azure Maps служб плиток](/rest/api/maps/renderv2/getmaptilepreview). |
+ | [Подключаемый модуль Опенлайерс для Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Подключаемый модуль JavaScript [опенлайерс](https://www.openlayers.org/) , который упрощает наложение мозаичных слоев из [Azure Maps служб плиток](/rest/api/maps/renderv2/getmaptilepreview). |
 
 **Средства и ресурсы**
 
@@ -94,7 +94,7 @@ ms.locfileid: "100386753"
 - Azure Maps проекты с открытым исходным кодом и примеры не являются продуктом, поэтому они не поддерживаются поддержка Premier или другими официальными каналами поддержки.
 - Azure Maps проекты с открытым исходным кодом и примеры поддерживаются аналогично другим проектам с открытым исходным кодом, осуществляемым корпорацией Майкрософт вместе со службой поддержки сообщества.
 
-## <a name="next-steps"></a>Следующие шаги
+## <a name="next-steps"></a>Дальнейшие действия
 
 Найдите другие проекты Azure Maps с открытым кодом.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033359"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705778"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Развертывание модуля безопасности на устройстве IoT Edge
 
@@ -32,9 +32,9 @@ ms.locfileid: "98033359"
 
 Выполните следующие действия, чтобы развернуть модуль безопасности "защитник для Интернета вещей" для IoT Edge.
 
-### <a name="prerequisites"></a>Предварительные условия
+### <a name="prerequisites"></a>Предварительные требования
 
-1. В центре Интернета вещей убедитесь, что устройство [зарегистрировано как устройство IOT Edge](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
+1. В центре Интернета вещей убедитесь, что устройство [зарегистрировано как устройство IOT Edge](../iot-edge/how-to-register-device.md#register-a-new-device).
 
 1. Для модуля "защитник для IoT Edge" требуется, чтобы на устройстве IoT Edge была установлена [платформа для аудита](https://linux.die.net/man/8/auditd) .
 
@@ -51,7 +51,7 @@ ms.locfileid: "98033359"
 
 1. В портал Azure откройте **Marketplace**.
 
-1. Выберите **"Интернет вещей"**, а затем найдите **Центр безопасности Azure для Интернета вещей** и выберите его.
+1. Выберите **Интернет вещей**, а затем найдите **Центр безопасности Azure для Интернета вещей** и выберите его.
 
    :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Выбор защитника для Интернета вещей":::
 
@@ -107,7 +107,7 @@ ms.locfileid: "98033359"
     
    Дополнительные сведения о настройке агента см. в разделе [Настройка агентов безопасности](./how-to-agent-configuration.md).
 
-1. Нажмите кнопку **Обновить**.
+1. Щелкните **Обновить**.
 
 #### <a name="step-2-runtime-settings"></a>Шаг 2. параметры среды выполнения
 
@@ -143,7 +143,7 @@ ms.locfileid: "98033359"
     }
     ```
 
-4. Нажмите кнопку **Сохранить**.
+4. Щелкните **Сохранить**.
 
 5. Выберите **Далее**.
 
@@ -179,7 +179,7 @@ ms.locfileid: "98033359"
 
 1. Убедитесь, что выполняются следующие контейнеры:
 
-   | Название | IMAGE |
+   | Имя | IMAGE |
    | --- | --- |
    | азуреиотсекурити | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub; | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
