@@ -8,16 +8,14 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4655a20ddd419993f5a73ec54420abec96d32a62
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d682524ae3ff5b82233a69959a309a7495e30bed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546182"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658069"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Руководство. Подготовка веб-приложения для Служб коммуникации Azure (Node.js)
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Службы коммуникации Azure позволяют добавлять в приложения средства коммуникации в реальном времени. В этом руководстве показано, как настроить веб-приложение, которое поддерживает Службы коммуникации Azure. Это вводное руководство для разработчиков, желающих ознакомиться с возможностями коммуникации в реальном времени.
 
@@ -38,12 +36,12 @@ ms.locfileid: "100546182"
 - [Visual Studio Code](https://code.visualstudio.com/). Мы будем использовать это решение для редактирования кода в локальной среде разработки.
 - [webpack](https://webpack.js.org/). Это решение будет использоваться для создания пакета кода и его размещения в локальной среде.
 - [Node.js](https://nodejs.org/en/). Это решение будет использоваться для установки зависимостей и управления ими, например для клиентских библиотек и webpack Служб коммуникации Azure.
-- [nvm и npm](https://docs.microsoft.com/windows/nodejs/setup-on-windows) для управления версиями.
-- [Расширение службы хранилища Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) для Visual Studio Code. Это расширение требуется для публикации приложения в службе хранилища Azure. [Подробнее о размещении статических веб-сайтов в службе хранилища Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)
+- [nvm и npm](/windows/nodejs/setup-on-windows) для управления версиями.
+- [Расширение службы хранилища Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) для Visual Studio Code. Это расширение требуется для публикации приложения в службе хранилища Azure. [Подробнее о размещении статических веб-сайтов в службе хранилища Azure](../../storage/blobs/storage-blob-static-website.md)
 - [Расширение Службы приложений Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Это расширение, как и предыдущее, позволяет развертывать веб-сайты, но с дополнительной возможностью настройки полностью управляемой среды непрерывной поставки и непрерывной интеграции (CI/CD).
 - [Расширение Функций Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) для создания собственных бессерверных приложений. Например, вы можете разместить в Функциях Azure приложение проверки подлинности.
 - Активный ресурс Служб коммуникации и строка подключения. [Создайте ресурс Служб коммуникации.](../quickstarts/create-communication-resource.md)
-- Маркер доступа пользователя. Инструкции по работе вы найдете в [кратком руководстве по маркерам доступа](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-javascript) и [руководстве по использованию доверенной службы](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial).
+- Маркер доступа пользователя. Инструкции по работе вы найдете в [кратком руководстве по маркерам доступа](../quickstarts/access-tokens.md?pivots=programming-language-javascript) и [руководстве по использованию доверенной службы](./trusted-service-tutorial.md).
 
 
 ## <a name="configure-your-development-environment"></a>Настройка среды разработки
@@ -57,7 +55,7 @@ ms.locfileid: "100546182"
 
 Мы будем использовать Node.js для скачивания и установки зависимостей, требуемых для работы приложения на стороне клиента. Мы применим это решение для создания статических файлов, которые затем разместим в Azure, поэтому вам можно не беспокоиться о настройке на стороне сервера.
 
-Разработчики Windows могут воспользоваться [этим руководством по NodeJS](https://docs.microsoft.com/windows/nodejs/setup-on-windows), чтобы настроить Node, nvm и npm. 
+Разработчики Windows могут воспользоваться [этим руководством по NodeJS](/windows/nodejs/setup-on-windows), чтобы настроить Node, nvm и npm.
 
 При работе с этим руководством использовалась версия LTS 12.20.0. После установки nvm выполните следующую команду PowerShell, чтобы развернуть нужную версию:
 
@@ -161,7 +159,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }     
+    }
 }
 ```
 
@@ -218,7 +216,7 @@ module.exports = merge(common, {
 }
 ```
 
-Вы добавили команду, которую можно использовать из npm. 
+Вы добавили команду, которую можно использовать из npm.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Изменение package.json":::
 
@@ -279,13 +277,13 @@ npm run build:dev
 Консоль отобразит сообщение о том, какой у работающего сервера адрес. По умолчанию это `http://localhost:8080`. Команду build:dev мы ранее добавили в `package.json`.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Запуск сервера разработки":::
- 
+
  Перейдите в браузере по адресу сервера и убедитесь, что открывается ранее настроенные страница и оповещение.
- 
+
   :::image type="content" source="./media/step-one-pic-17.png" alt-text="HTML-страница":::
-  
- 
-Пока сервер работает, вы можете внести в код любые изменения, после чего сервер и HTML-страница будут автоматически перезагружены. 
+
+
+Пока сервер работает, вы можете внести в код любые изменения, после чего сервер и HTML-страница будут автоматически перезагружены.
 
 Затем перейдите к файлу `app.js` в Visual Studio Code и удалите `alert('Hello world alert!');`. Сохраните этот файл и убедитесь, что оповещение исчезнет из браузера.
 
@@ -323,11 +321,11 @@ const { merge } = require('webpack-merge');
  ```
 
 Учтите, что эта конфигурация будет объединена с файлом webpack.common.js (где мы указали входной файл и расположение для сохранения результатов) и приведет к включению режима рабочей среды.
- 
+
 В классе `package.json` добавьте следующий код.
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js" 
+"build:prod": "webpack --config webpack.prod.js"
 ```
 
 Файл должен выглядеть следующим образом.
@@ -341,14 +339,14 @@ const { merge } = require('webpack-merge');
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js" 
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.3",
-    "@azure/communication-common": "^1.0.0-beta.3"
+    "@azure/communication-calling": "^1.0.0-beta.6",
+    "@azure/communication-common": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -368,13 +366,13 @@ const { merge } = require('webpack-merge');
 npm run build:prod
 ```
 
-Эта команда создаст папку `dist` с готовым к работе статическим файлом `app.js`. 
+Эта команда создаст папку `dist` с готовым к работе статическим файлом `app.js`.
 
  :::image type="content" source="./media/step-one-pic-21.png" alt-text="Рабочая сборка":::
- 
- 
+
+
 ### <a name="deploy-your-app-to-azure-storage"></a>Развертывание приложения в службе хранилища Azure
- 
+
 Скопируйте `index.html` и `app.css` в папку `dist`.
 
 В папке `dist` создайте файл с именем `404.html`. Скопируйте в этот файл следующий код разметки:
@@ -399,45 +397,45 @@ npm run build:prod
 Щелкните его правой кнопкой мыши и выберите вариант развертывания в статическом веб-сайте через службу хранилища Azure.
 
 :::image type="content" source="./media/step-one-pic-22.png" alt-text="Начало развертывания в Azure":::
- 
+
 В поле `Select subscription` выберите "Войти в Azure" или "Создать бесплатную учетную запись Azure", если вы еще не создали подписку.
- 
+
 :::image type="content" source="./media/step-one-pic-23.png" alt-text="Вход в Azure":::
- 
+
 Выберите `Create new Storage Account` > `Advanced`:
 
  :::image type="content" source="./media/step-one-pic-24.png" alt-text="Создание группы учетных записей хранения":::
- 
+
  Укажите имя группы для службы хранения:
- 
+
  :::image type="content" source="./media/step-one-pic-25.png" alt-text="Добавление имени учетной записи":::
- 
+
 Если нужно, создайте новую группу ресурсов:
- 
+
   :::image type="content" source="./media/step-one-pic-26.png" alt-text="Создание новой группы":::
-  
+
   Ответьте "Да" на предложение включить размещение статических веб-сайтов.
-  
+
   :::image type="content" source="./media/step-one-pic-27.png" alt-text="Включение размещения статических веб-сайтов":::
-  
+
 В поле "Введите имя документа индекса" подтвердите имя файла по умолчанию, так как мы создали файл `index.html`.
 
-Введите значение `404.html` в поле "Введите путь к документу с сообщением об ошибке 404".  
-  
-Выберите расположение приложения. Это расположение определяет, какой обработчик мультимедиа будет в будущем использоваться вызывающим приложением при групповых вызовах. 
+Введите значение `404.html` в поле "Введите путь к документу с сообщением об ошибке 404".
+
+Выберите расположение приложения. Это расположение определяет, какой обработчик мультимедиа будет в будущем использоваться вызывающим приложением при групповых вызовах.
 
 Службы коммуникации Azure выбирают обработчик мультимедиа в зависимости от расположения приложения.
 
 :::image type="content" source="./media/step-one-pic-28.png" alt-text="Выбор расположения":::
-  
-Дождитесь, пока завершится создание ресурса и веб-сайта. 
- 
+
+Дождитесь, пока завершится создание ресурса и веб-сайта.
+
 Щелкните "Перейти к веб-сайту":
 
 :::image type="content" source="./media/step-one-pic-29.png" alt-text="Развертывание завершено":::
- 
+
 С помощью средств разработки в браузере вы можете проверить исходный код и просмотреть файл, подготовленный для рабочей среды.
- 
+
 :::image type="content" source="./media/step-one-pic-30.png" alt-text="Веб-сайт":::
 
 Перейдите на [портал Azure](https://portal.azure.com/#home), выберите созданную группу ресурсов и созданное приложение, затем перейдите к `Settings` > `Static website`. Здесь вы увидите, что включены статические веб-сайты, и увидите адреса основной конечной точки, документов для главного файла и для ошибок.
@@ -448,7 +446,7 @@ npm run build:prod
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="Конфигурация контейнера":::
 
-Если вы откроете `$web`, вы увидите файлы, ранее созданные в Visual Studio и развернутые в Azure. 
+Если вы откроете `$web`, вы увидите файлы, ранее созданные в Visual Studio и развернутые в Azure.
 
 :::image type="content" source="./media/step-one-pic-33.png" alt-text="Развертывание":::
 

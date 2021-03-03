@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ed136d06f18190124abe4598d580f40e41bf8592
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704225"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644703"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Руководство по интеграции единого входа Azure Active Directory со Splan Visitor
 
@@ -93,7 +93,7 @@ Splan Visitor поддерживает единый вход, иницииров
    1. В поле **Имя** введите **B.Simon**.  
    1. В поле **Имя пользователя** введите свое имя пользователя в формате _username@companydomain.extension_ . Например, введите **B.Simon@contoso.com** .
    1. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **создания**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
@@ -120,8 +120,8 @@ Splan Visitor поддерживает единый вход, иницииров
 Проверьте конфигурацию единого входа Azure AD с помощью одного из следующих способов:
 
 * **Портал Azure**: Выберите элемент **Тестировать приложение**, чтобы автоматически войти в приложение Splan Visitor, для которого настроен единый вход.
-* **Портал Майкрософт "Мои приложения".** Выберите плитку **Splan Visitor**, чтобы автоматически войти в приложение Splan Visitor, для которого настроен единый вход. Дополнительные сведения о портале "Мои приложения" см. в статье о [входе на портал "Мои приложения" и запуске приложений на нем](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* **Портал Майкрософт "Мои приложения".** Выберите плитку **Splan Visitor**, чтобы автоматически войти в приложение Splan Visitor, для которого настроен единый вход. Дополнительные сведения о портале "Мои приложения" см. в статье о [входе на портал "Мои приложения" и запуске приложений на нем](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Splan Visitor вы можете узнать, как [применять элементы управления сеансами в Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). Этот механизм в режиме реального времени защищает конфиденциальные данные вашей организации от кражи и несанкционированного доступа. Элементы управления сеансом являются расширением функции условного доступа.
+После настройки Splan Visitor вы можете узнать, как [применять элементы управления сеансами в Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app). Этот механизм в режиме реального времени защищает конфиденциальные данные вашей организации от кражи и несанкционированного доступа. Элементы управления сеансом являются расширением функции условного доступа.

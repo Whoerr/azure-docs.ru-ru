@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475697"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682435"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ ms.locfileid: "99475697"
 С небольшой дополнительной настройкой этот пример поддерживает подключение к конечной точке с защитой **Azure Active Directory** (Azure AD), чтобы для получения маркера Служб коммуникации Azure требовался вход пользователя в систему. Соответствующие действия описаны ниже.
 
 1. Включите аутентификацию Azure Active Directory в приложении.  
-   - [Регистрация приложения в Azure Active Directory (через параметры платформ iOS и macOS)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Настройка Службы приложений или приложения "Функции Azure" для использования имени для входа в Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Регистрация приложения в Azure Active Directory (через параметры платформ iOS и macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Настройка Службы приложений или приложения "Функции Azure" для использования имени для входа в Azure AD](../../../app-service/configure-authentication-provider-aad.md)
 2. Перейдите на страницу обзора зарегистрированного приложения в разделе регистрации приложений в Azure Active Directory. Запишите значения `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`.
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Настройка Azure Active Directory на портале Azure.":::

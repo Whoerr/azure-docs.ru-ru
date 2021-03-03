@@ -6,16 +6,16 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 6cf5c6f716912689b39264ed71f6a7c55f944ad2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97410074"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649552"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Руководство. Импорт интерфейсов API и управление ими с помощью расширения службы "Управление API" для Visual Studio Code
 
-Из этого руководства вы узнаете, как выполнять распространенные операции по управлению API с помощью предварительной версии расширения службы "Управление API" для Visual Studio Code. Для импорта, обновления, тестирования API и управления ими вы будете использовать знакомую среду Visual Studio Code.
+Из этого учебника вы узнаете, как выполнять стандартные операции по управлению API с помощью расширения службы "Управление API" для Visual Studio Code. Для импорта, обновления, тестирования API и управления ими вы будете использовать знакомую среду Visual Studio Code.
 
 Вы узнаете, как выполнять следующие задачи:
 
@@ -32,7 +32,7 @@ ms.locfileid: "97410074"
 
 ## <a name="prerequisites"></a>Предварительные требования
 - Ознакомьтесь с [терминологией для службы "Управление API Azure"](api-management-terminology.md).
-- Обязательно установите [Visual Studio Code](https://code.visualstudio.com/) и последнюю версию [расширения "Управление API Azure" для Visual Studio Code (предварительная версия)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview).
+- Обязательно установите [Visual Studio Code](https://code.visualstudio.com/) и последнюю версию [расширения "Управление API Azure" для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview).
 - [Создание экземпляра API Management](vscode-create-service-instance.md)
 
 ## <a name="import-an-api"></a>Импорт API

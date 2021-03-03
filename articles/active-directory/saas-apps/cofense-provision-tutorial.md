@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247579"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646050"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Руководство по Настройка Cofense Recipient Sync для автоматической подготовки пользователей
 
@@ -64,7 +64,7 @@ ms.locfileid: "98247579"
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Шаг 4. Определение пользователей для включения в область подготовки 
 
-Служба подготовки Azure AD позволяет определить пользователей, которые будут подготовлены, на основе назначения приложению и (или) атрибутов пользователя или группы. Если вы решили указать, кто именно будет подготовлен к работе в приложении, на основе назначения, можно выполнить следующие [действия](../manage-apps/assign-user-or-group-access-portal.md), чтобы назначить пользователей и группы приложению. Если вы решили указать, кто именно будет подготовлен, на основе одних только атрибутов пользователя или группы, можете использовать фильтр задания области, как описано [здесь](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+Служба подготовки Azure AD позволяет определить пользователей, которые будут подготовлены, на основе назначения приложению и (или) атрибутов пользователя или группы. Если вы решили определить пользователей на основе назначения, выполните следующие [действия](../manage-apps/assign-user-or-group-access-portal.md), чтобы назначить пользователей и группы приложению. Если вы решили указать, кто именно будет подготовлен, на основе одних только атрибутов пользователя или группы, можете использовать фильтр задания области, как описано [здесь](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 * При назначении пользователей и групп для Cofense Recipient Sync необходимо выбрать роль, отличную от роли **Доступ по умолчанию**. Пользователи с ролью "Доступ по умолчанию" исключаются из подготовки и будут помечены в журналах подготовки как не назначенные явно. Кроме того, если эта роль является единственной, доступной в приложении, можно [изменить манифест приложения](../develop/howto-add-app-roles-in-azure-ad-apps.md), чтобы добавить дополнительные роли. 
 
@@ -117,19 +117,19 @@ ms.locfileid: "98247579"
    |name.givenName|Строка|
    |name.familyName|Строка|
    |name.honorificSuffix|Строка|
-   |phoneNumbers[type eq"work"].value|Строка|
-   |phoneNumbers[type eq"home"].value|Строка|
-   |phoneNumbers[type eq"other"].value|Строка|
-   |phoneNumbers[type eq"pager"].value|Строка|
-   |phoneNumbers[type eq"mobile"].value|Строка|
-   |phoneNumbers[type eq"fax"].value|Строка|
-   |addresses[type eq"other"].formatted|Строка|
-   |addresses[type eq"work"].formatted|Строка|
-   |addresses[type eq"work"].streetAddress|Строка|
-   |addresses[type eq"work"].locality|Строка|
-   |addresses[type eq"work"].region|Строка|
-   |addresses[type eq"work"].postalCode|Строка|
-   |addresses[type eq"work"].country|Строка|
+   |phoneNumbers[type eq "work"].value|Строка|
+   |phoneNumbers[type eq "home"].value|Строка|
+   |phoneNumbers[type eq "other"].value|Строка|
+   |phoneNumbers[type eq "pager"].value|Строка|
+   |phoneNumbers[type eq "mobile"].value|Строка|
+   |phoneNumbers[type eq "fax"].value|Строка|
+   |addresses[type eq "other"].formatted|Строка|
+   |addresses[type eq "work"].formatted|Строка|
+   |addresses[type eq "work"].streetAddress|Строка|
+   |addresses[type eq "work"].locality|Строка|
+   |addresses[type eq "work"].region|Строка|
+   |addresses[type eq "work"].postalCode|Строка|
+   |addresses[type eq "work"].country|Строка|
    |title|Строка|
    |emails[type eq "work"].value|Строка|
    |emails[type eq "home"].value|Строка|

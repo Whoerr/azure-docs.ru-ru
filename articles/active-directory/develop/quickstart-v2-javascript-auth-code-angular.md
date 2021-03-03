@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 0a4421ed548e6066338977260ed062e6ab14893f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 27064ecfce0114f7d80e464e2a51928a24919856
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103708"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653411"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Краткое руководство. Вход и получение маркера доступа в одностраничное приложение Angular с помощью потока кода авторизации
 
@@ -139,7 +139,7 @@ ms.locfileid: "100103708"
 >
 > Прокрутите тот же файл вниз и обновите `graphMeEndpoint`. 
 > - Замените строку `Enter_the_Graph_Endpoint_Herev1.0/me` строкой `https://graph.microsoft.com/v1.0/me`
-> - `Enter_the_Graph_Endpoint_Herev1.0/me` обозначает конечную точку, к которой будут направляться вызовы API. Для основной (глобальной) службы API Microsoft Graph введите значение `https://graph.microsoft.com/` (включая замыкающую косую черту). Дополнительные сведения см. в этой [документации](https://docs.microsoft.com/graph/deployments).
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` обозначает конечную точку, к которой будут направляться вызовы API. Для основной (глобальной) службы API Microsoft Graph введите значение `https://graph.microsoft.com/` (включая замыкающую косую черту). Дополнительные сведения см. в этой [документации](/graph/deployments).
 >
 >
 > ```javascript

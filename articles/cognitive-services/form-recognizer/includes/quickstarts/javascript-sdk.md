@@ -2,22 +2,27 @@
 title: Краткое руководство. Клиентская библиотека Распознавателя документов для JavaScript
 description: Использование клиентской библиотеки Распознавателя документов для JavaScript для создания приложения для обработки форм, которое извлекает из документов пары "ключ — значение" и табличные данные.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
-ms.author: pafarley
+ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5a131753829edddbb4f385766a2d8697ebd0106
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: ebbf04db36b20420ae6de9d61837bcc4e664036e
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584657"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102909"
 ---
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
+>
 > * В коде, приведенном в этой статье, для простоты используются синхронные методы и незащищенное хранилище учетных данных. См. справочную документацию ниже. 
 
 [Справочная документация](../../index.yml) | [Исходный код библиотеки](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Пакет (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Примеры](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
@@ -28,8 +33,8 @@ ms.locfileid: "99584657"
 * Текущая версия [Node.js](https://nodejs.org/)
 * Набор данных для обучения в хранилище BLOB-объектов Azure. Советы и варианты для объединения данных для обучения см. в статье о [создании обучающего набора данных для пользовательской модели](../../build-training-data-set.md). При работе с этим кратким руководством можно использовать файлы в папке **Train** из [примера набора данных](https://go.microsoft.com/fwlink/?linkid=2090451) (скачайте и разархивируйте файл *sample_data.zip*).
 * Получив подписку Azure, перейдите к <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Создание ресурса Распознавателя документов"  target="_blank">созданию ресурса Распознавателя документов <span class="docon docon-navigate-external x-hidden-focus"></span></a> на портале Azure, чтобы получить ключ и конечную точку. После развертывания щелкните **Перейти к ресурсам**.
-    * Для подключения приложения к API Распознавателя документов потребуется ключ и конечная точка из созданного ресурса. Ключ и конечная точка будут вставлены в приведенный ниже код в кратком руководстве.
-    * Используйте бесплатную ценовую категорию (`F0`), чтобы опробовать службу, а затем выполните обновление до платного уровня для рабочей среды.
+  * Для подключения приложения к API Распознавателя документов потребуется ключ и конечная точка из созданного ресурса. Ключ и конечная точка будут вставлены в приведенный ниже код в кратком руководстве.
+  * Используйте бесплатную ценовую категорию (`F0`), чтобы опробовать службу, а затем выполните обновление до платного уровня для рабочей среды.
 
 ## <a name="setting-up"></a>Настройка
 
@@ -61,7 +66,6 @@ npm install @azure/ai-form-recognizer
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
 
-
 > [!TIP]
 > Хотите просмотреть готовый файл с кодом для этого краткого руководства? Его можно найти [на сайте GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js), где размещены примеры кода для этого краткого руководства.
 
@@ -74,18 +78,20 @@ npm install @azure/ai-form-recognizer
 >
 > Не забудьте удалить ключ из кода, когда закончите, и никогда не публикуйте его в открытом доступе. Для рабочей среды рекомендуется использовать безопасный способ хранения и доступа к учетным данным. Дополнительные сведения см. в статье о [безопасности в Cognitive Services](../../../cognitive-services-security.md).
 
-## <a name="object-model"></a>Объектная модель 
+## <a name="object-model"></a>Объектная модель
 
 С помощью Распознавателя документов можно создавать клиенты двух разных типов. Первый, `FormRecognizerClient`, используется для запроса из службы распознанных полей и содержимого форм. Второй, `FormTrainingClient`, используется для создания настраиваемых моделей и управления ими. Эти модели можно использовать для улучшения распознавания. 
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
+
 `FormRecognizerClient` предоставляет операции для перечисленных ниже целей.
 
- * Распознавание полей форм и содержимого с помощью настраиваемых моделей, обученных для анализа пользовательских форм. Эти значения возвращаются в коллекцию объектов `RecognizedForm`.
- * Распознавание содержимого формы, в том числе таблиц, строк и слов, без необходимости обучения модели. Содержимое форм возвращается в коллекцию объектов `FormPage`.
- * Распознавание общих полей в квитанциях с помощью предварительно обученной модели для обработки квитанций в службе "Распознаватель документов". Эти поля и метаданные возвращаются в коллекцию `RecognizedReceipt`.
+* Распознавание полей форм и содержимого с помощью настраиваемых моделей, обученных для анализа пользовательских форм. Эти значения возвращаются в коллекцию объектов `RecognizedForm`.
+* Распознавание содержимого формы, в том числе таблиц, строк и слов, без необходимости обучения модели. Содержимое форм возвращается в коллекцию объектов `FormPage`.
+* Распознавание общих полей в квитанциях с помощью предварительно обученной модели для обработки квитанций в службе "Распознаватель документов". Эти поля и метаданные возвращаются в коллекцию `RecognizedReceipt`.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
+
 `FormTrainingClient` предоставляет операции для перечисленных ниже целей.
 
 * Обучение настраиваемых моделей для анализа всех полей и значений в пользовательских формах. Возвращаемый объект `CustomFormModel` задает типы форм, которые будет анализировать модель, и поля, которые она будет извлекать для каждого из этих типов. Более подробное описание процесса создания набора данных для обучения см. в [документации службы по обучению модели без добавления меток](#train-a-model-without-labels).
@@ -95,7 +101,6 @@ npm install @azure/ai-form-recognizer
 
 > [!NOTE]
 > Модели можно также обучить с помощью графического пользовательского интерфейса, например [средства маркировки Распознавателя документов](../../quickstarts/label-tool.md).
-
 
 ## <a name="code-examples"></a>Примеры кода
 
@@ -307,7 +312,7 @@ Field Total has value 'undefined' with a confidence score of undefined
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> Можно также проанализировать локальные изображения квитанций. Изучите информацию о методах класса [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest), например о **beginRecognizeReceipts**. Либо просмотрите пример кода на [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) для сценариев, включающих использование локальных изображений.
+> Можно также проанализировать локальные изображения квитанций. Изучите информацию о методах класса [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true ), например о **beginRecognizeReceipts**. Либо просмотрите пример кода на [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) для сценариев, включающих использование локальных изображений.
 
 ### <a name="output"></a>Выходные данные
 
@@ -326,7 +331,7 @@ First receipt:
 
 ## <a name="manage-your-custom-models"></a>Управление пользовательскими моделями
 
-В этом разделе показано, как управлять пользовательскими моделями, которые хранятся в вашей учетной записи. Приведенный ниже код выполняет все задачи по управлению моделями в одной функции (в качестве примера). 
+В этом разделе показано, как управлять пользовательскими моделями, которые хранятся в вашей учетной записи. Приведенный ниже код выполняет все задачи по управлению моделями в одной функции (в качестве примера).
 
 ### <a name="get-number-of-models"></a>Получение количества моделей
 
@@ -334,13 +339,11 @@ First receipt:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_count)]
 
-
 ### <a name="get-list-of-models-in-account"></a>Получение списка моделей в учетной записи
 
 Следующий блок кода предоставляет полный список доступных в учетной записи моделей, в том числе сведения о дате и времени их создания и их текущем состоянии.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
-
 
 ### <a name="output"></a>Выходные данные
 
@@ -381,7 +384,6 @@ model 3:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_listpages)]
 
-
 ### <a name="output"></a>Выходные данные
 
 ```console
@@ -396,13 +398,11 @@ model 3: 789b1b37-4cc3-4e36-8665-9dde68618072
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_getmodel)]
 
-
 ### <a name="delete-a-model-from-the-resource-account"></a>Удаление модели из учетной записи ресурсов
 
 Модель можно удалить из учетной записи ресурсов по ее идентификатору. Эта функция удаляет модель с заданным идентификатором. Эта функция не вызывается по умолчанию.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_delete)]
-
 
 ### <a name="output"></a>Выходные данные
 
@@ -431,7 +431,7 @@ node index.js
 
 При использовании этой библиотеки с помощью приведенной ниже переменной среды можно настроить ведение журналов отладки.
 
-```
+```console
 export DEBUG=azure*
 ```
 

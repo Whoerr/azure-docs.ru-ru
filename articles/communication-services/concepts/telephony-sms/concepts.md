@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6f03195c801f241a79a6bf68ef9d398370b0d4c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c66ca0b61e00ad8259b8d3e06366bfc58d304fe6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391819"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660922"
 ---
 # <a name="sms-concepts"></a>Основные понятия обмена SMS
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Службы коммуникации Azure позволяют отправлять и получать текстовые сообщения (SMS) с помощью клиентских библиотек Служб коммуникации для текстовых сообщений. Эти клиентские библиотеки можно использовать для реализации сценариев обслуживания клиентов, напоминаний о встречах, двухфакторной проверки подлинности и других потребностей связи в режиме реального времени. Текстовые сообщения Служб коммуникации позволяют надежно отправлять сообщения и предоставляют полезные для проведения кампаний сведения, например данные о возможности доставки и проценте ответивших.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 23d0c471404bba04c3098b464ac040c60d66b07c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 86a54e2450f9790bad590249f4dbad89fc3e2492
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900005"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649917"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-klaxoon-saml"></a>Руководство. Интеграция единого входа Azure Active Directory с Klaxoon SAML
 
@@ -131,11 +131,9 @@ ms.locfileid: "98900005"
 
 * Перейдите по URL-адресу для входа в Klaxoon SAML и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Klaxoon SAML на портале "Мои приложения", вы перейдете по URL-адресу для входа в Klaxoon SAML. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Klaxoon SAML на портале "Мои приложения", вы перейдете по URL-адресу для входа в Klaxoon SAML. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Klaxoon SAML вы можете применить управление сеансами, которое в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+После настройки Klaxoon SAML вы можете применить управление сеансами, которое в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

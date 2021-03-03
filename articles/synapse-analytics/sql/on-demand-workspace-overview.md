@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682976"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667506"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Использование бессерверного пула SQL в Azure Synapse Analytics 
 
@@ -75,7 +75,7 @@ ms.locfileid: "98682976"
 
 Поддерживаемые аспекты T-SQL.
 
-- Поддерживается полная контактная зона операции [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), включая большинство функций SQL.
+- Поддерживается полная контактная зона операции [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true), включая большинство функций SQL.
 - CETAS (CREATE EXTERNAL TABLE AS SELECT).
 - Инструкции DDL, относящиеся только к представлениям и безопасности.
 
@@ -89,7 +89,7 @@ ms.locfileid: "98682976"
 
 ### <a name="extensions"></a>Модули
 
-Чтобы обеспечить беспроблемное выполнение запросов "на месте" по данным, которые хранятся в файлах озера данных, существующая функция [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) в бессерверном пуле SQL дополнена следующими возможностями:
+Чтобы обеспечить беспроблемное выполнение запросов "на месте" по данным, которые хранятся в файлах озера данных, существующая функция [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) в бессерверном пуле SQL дополнена следующими возможностями:
 
 [Запрашивание нескольких файлов или папок](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -113,7 +113,7 @@ ms.locfileid: "98682976"
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Интеграция Azure Active Directory и Многофакторная идентификация
 
-Бессерверный пул SQL позволяет централизованно управлять удостоверениями пользователя базы данных и другими службами Майкрософт благодаря [интеграции с Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Эта возможность упрощает управление разрешениями и повышает уровень безопасности. Azure Active Directory (Azure AD) поддерживает [многофакторную идентификацию](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) для повышения безопасности данных и приложений, обеспечивая процесс единого входа.
+Бессерверный пул SQL позволяет централизованно управлять удостоверениями пользователя базы данных и другими службами Майкрософт благодаря [интеграции с Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md). Эта возможность упрощает управление разрешениями и повышает уровень безопасности. Azure Active Directory (Azure AD) поддерживает [многофакторную идентификацию](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) для повышения безопасности данных и приложений, обеспечивая процесс единого входа.
 
 #### <a name="authentication"></a>Аутентификация
 
@@ -125,7 +125,7 @@ ms.locfileid: "98682976"
 
 - **Аутентификация Azure Active Directory**.
 
-  Этот метод проверки подлинности использует удостоверения, управляемые Azure Active Directory. Для пользователей Azure AD можно включить многофакторную проверку подлинности. [По возможности](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) используйте проверку подлинности Active Directory (встроенная безопасность).
+  Этот метод проверки подлинности использует удостоверения, управляемые Azure Active Directory. Для пользователей Azure AD можно включить многофакторную проверку подлинности. [По возможности](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true) используйте проверку подлинности Active Directory (встроенная безопасность).
 
 #### <a name="authorization"></a>Авторизация
 

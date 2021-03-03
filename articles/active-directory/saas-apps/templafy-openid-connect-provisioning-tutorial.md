@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: zhchia
-ms.openlocfilehash: 7afcf6c5814917b3356d86e7288fd2920a04cad7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 6b1894d832c3a74916418aa06885c2917267f4b1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695997"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652595"
 ---
 # <a name="tutorial-configure-templafy-openid-connect-for-automatic-user-provisioning"></a>Руководство по настройке Templafy OpenID Connect для автоматической подготовки пользователей
 
@@ -37,9 +37,9 @@ ms.locfileid: "98695997"
 * учетная запись пользователя в Templafy с разрешениями администратора.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Шаг 1. Планирование развертывания для подготовки
-1. Узнайте, [как работает служба подготовки](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Определите, кто будет находиться в [области подготовки](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Определите, какие данные следует [сопоставлять между Azure AD и Templafy OpenID Connect](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Узнайте, [как работает служба подготовки](../app-provisioning/user-provisioning.md).
+2. Определите, кто будет находиться в [области подготовки](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Определите, какие данные следует [сопоставлять между Azure AD и Templafy OpenID Connect](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="assigning-users-to-templafy-openid-connect"></a>Назначение пользователей Templafy OpenID Connect
 
@@ -185,9 +185,9 @@ ms.locfileid: "98695997"
 ## <a name="step-5-monitor-your-deployment"></a>Шаг 5. Мониторинг развертывания
 После настройки подготовки используйте следующие ресурсы для мониторинга развертывания.
 
-* Используйте [журналы подготовки](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs), чтобы определить, какие пользователи были подготовлены успешно или неудачно.
-* Используйте [индикатор выполнения](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), чтобы узнать состояние цикла подготовки и приблизительное время до его завершения.
-* Если конфигурация подготовки, вероятно, находится в неработоспособном состоянии, приложение перейдет в карантин. Дополнительные сведения о режимах карантина см. [здесь](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Используйте [журналы подготовки](../reports-monitoring/concept-provisioning-logs.md), чтобы определить, какие пользователи были подготовлены успешно или неудачно.
+* Используйте [индикатор выполнения](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), чтобы узнать состояние цикла подготовки и приблизительное время до его завершения.
+* Если конфигурация подготовки, вероятно, находится в неработоспособном состоянии, приложение перейдет в карантин. Дополнительные сведения о режимах карантина см. [здесь](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

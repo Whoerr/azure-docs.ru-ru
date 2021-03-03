@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Документация для сервера маршрутизации Azure
+summary: Узнайте, как использовать сервер маршрутизации Azure, чтобы упростить динамическую маршрутизацию между виртуальными сетевыми модулями и виртуальной сетью.
+metadata:
+  title: Документация для сервера маршрутизации Azure
+  description: Узнайте подробности о сервере маршрутизации Azure
+  services: route-server
+  ms.service: route-server
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 03/02/2021
+  ms.openlocfilehash: f235d7118ce207d793c4ba03d357e2db09662c1f
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101677979"
+landingContent:
+- title: Сведения о сервере маршрутизации Azure (предварительная версия)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Что такое сервер маршрутизации Azure (предварительная версия)?
+      url: overview.md
+- title: Начало работы
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Создание и настройка сервера маршрутизации — PowerShell
+      url: quickstart-configure-route-server-powershell.md
+    - text: Создание и настройка сервера маршрутизации — CLI
+      url: quickstart-configure-route-server-cli.md
+- title: Планирование
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Поддержка ExpressRoute и VPN-шлюза
+      url: expressroute-vpn-support.md
+    - text: 'Сервер маршрутизации: вопросы и ответы'
+      url: route-server-faq.md

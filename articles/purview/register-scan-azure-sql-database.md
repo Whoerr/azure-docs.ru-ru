@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879736"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677757"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Регистрация и сканирование Базы данных SQL Azure
 
@@ -149,9 +149,7 @@ Azure Purview не поддерживает сканирование [предс
 На экране **Регистрация источников (База данных SQL Azure)** выполните следующие действия:
 
 1. Введите **Имя**, под которым этот источник данных будет включен в каталог.
-1. Выберите способ указания нужной учетной записи хранения:
-   1. Выберите **Из подписки Azure**, затем выберите подходящую подписку в раскрывающемся списке **Подписка Azure** и подходящий сервер из раскрывающегося списка **Имя сервера**.
-   1. Можно также выбрать действие **Ввести вручную** и указать **Имя сервера**.
+1. Выберите **Из подписки Azure**, затем выберите подходящую подписку в раскрывающемся списке **Подписка Azure** и подходящий сервер из раскрывающегося списка **Имя сервера**.
 1. Щелкните **Готово**, чтобы завершить регистрацию источника данных.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="Параметры регистрации источников" border="true":::

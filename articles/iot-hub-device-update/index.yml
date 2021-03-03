@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: Документация по обновлению устройств для Центра Интернета вещей
+summary: Обновление устройств для Центра Интернета вещей — это служба, которая позволяет развертывать обновления на устройствах Интернета вещей по беспроводной сети.
+metadata:
+  title: Документация по обновлению устройств для Центра Интернета вещей
+  description: Обновление устройств для Центра Интернета вещей — это служба, которая позволяет развертывать обновления на устройствах Интернета вещей по беспроводной сети.
+  services: iot-hub
+  ms.service: iot-hub
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  manager: philmea
+  ms.date: 2/17/2021
+  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: HT
+  ms.contentlocale: ru-RU
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101677963"
+landingContent:
+- title: Информация об обновлении устройств
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Что такое обновление устройств для Центра Интернета вещей?
+      url: understand-device-update.md
+  - linkListType: concept
+    links:
+    - text: Использование технологии Plug and Play при обновлении устройств
+      url: device-update-plug-and-play.md
+    - text: Общие сведения о проверке подлинности и авторизации при обновлении устройств
+      url: device-update-control-access.md
+    - text: Общие сведения об агенте обновления устройств
+      url: device-update-agent-overview.md
+    - text: Общие сведения об импорте обновления устройств
+      url: import-concepts.md
+    - text: Общие сведения о группах обновления устройств
+      url: device-update-groups.md
+- title: Изучите учебные материалы
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Обновление устройств на микрокомпьютере Raspberry Pi
+      url: device-update-raspberry-pi.md
+  - linkListType: tutorial
+    links:
+    - text: Обновление устройств в симуляторе
+      url: device-update-simulator.md
+  - linkListType: tutorial
+    links:
+    - text: Обновление устройств в рамках агента пакета Ubuntu Server 18.04 для x64
+      url: device-update-ubuntu-agent.md
+- title: Узнайте, как обновить устройства
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Создание учетной записи обновления устройств
+      url: create-device-update-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: Импорт обновлений
+      url: import-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: Создание группы обновлений
+      url: create-update-group.md
+  - linkListType: how-to-guide
+    links:
+    - text: Развертывание обновлений
+      url: deploy-update.md
+- title: Руководство разработчика
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Создание, запуск и настройка агента обновления устройств
+      url: device-update-agent-provisioning.md

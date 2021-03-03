@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Документация по Azure Cosmos DB
-summary: Azure Cosmos DB — быстрая высокодоступная база данных NoSQL с поддержкой соглашения об уровне обслуживания и возможностью автоматического и быстрого масштабирования, а также с API с открытым кодом для MongoDB и Cassandra.
+summary: Azure Cosmos DB — быстрая доступная база данных NoSQL с поддержкой соглашения об уровне обслуживания и возможностью автоматического и быстрого масштабирования, а также с API с открытым кодом для MongoDB и Cassandra.
 metadata:
   title: Azure Cosmos DB
-  description: Azure Cosmos DB — быстрая высокодоступная база данных NoSQL с поддержкой соглашения об уровне обслуживания и возможностью автоматического и быстрого масштабирования, а также с API с открытым кодом для MongoDB и Cassandra.
+  description: Azure Cosmos DB — быстрая доступная база данных NoSQL с поддержкой соглашения об уровне обслуживания и возможностью автоматического и быстрого масштабирования, а также с API с открытым кодом для MongoDB и Cassandra.
   services: service
   ms.service: cosmos-db
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 7ee6db07facb1464428c6d1d8562fdd54216b883
-  ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+  ms.openlocfilehash: 0dda9cb110592c9fd9325f607b455d16c32da7f3
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: ru-RU
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92485772"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101658018"
 landingContent:
 - title: О базе данных Azure Cosmos
   linkLists:
@@ -91,7 +91,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Обеспечение совместимости с сетевыми протоколами с помощью MongoDB
-      url: mongodb-feature-support-36.md
+      url: mongodb-feature-support-40.md
     - text: Команды расширения MongoDB
       url: mongodb-custom-commands.md
     - text: Потоки изменений

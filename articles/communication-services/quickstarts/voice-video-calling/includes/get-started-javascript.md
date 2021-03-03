@@ -6,14 +6,18 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f3d6023ffd3043bc57727fc39f077dd0ce7eccb8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d27a79e180a0219773a3094fb85f842773d75183
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024172"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656622"
 ---
 Из этого краткого руководства вы узнаете, как начать вызов с помощью клиентской библиотеки Служб коммуникации Azure для реализации вызовов на JavaScript.
+В этом документе используются типы, определенные в библиотеке вызовов версии 1.0.0-beta.5.
+
+> [!NOTE]
+> В этом документе используется клиентская библиотека вызовов версии 1.0.0-beta.6.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -60,7 +64,7 @@ ms.locfileid: "98024172"
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -77,17 +81,17 @@ const hangUpButton = document.getElementById("hang-up-button");
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | CallClient — это основная точка входа в клиентскую библиотеку для вызовов.                                                                       |
 | CallAgent                        | CallAgent используется для инициирования вызовов и управления ими.                                                                                            |
-| AzureCommunicationUserCredential | Класс AzureCommunicationUserCredential реализует интерфейс CommunicationUserCredential, который используется для создания экземпляра CallAgent. |
+| AzureCommunicationTokenCredential | Класс AzureCommunicationTokenCredential реализует интерфейс CommunicationTokenCredential, который используется для создания экземпляра CallAgent. |
 
 
 ## <a name="authenticate-the-client"></a>Аутентификация клиента
 
-Вам необходимо заменить `<USER_ACCESS_TOKEN>` допустимым маркером доступа пользователя для вашего ресурса. Если у вас еще нет доступного маркера, см. документацию по [маркеру доступа пользователя](../../access-tokens.md). С помощью `CallClient` инициализируйте экземпляр `CallAgent` с `CommunicationUserCredential`, который позволит нам выполнять и принимать вызовы. Добавьте следующий код в файл **client.js**:
+Вам необходимо заменить `<USER_ACCESS_TOKEN>` допустимым маркером доступа пользователя для вашего ресурса. Если у вас еще нет доступного маркера, см. документацию по [маркеру доступа пользователя](../../access-tokens.md). С помощью `CallClient` инициализируйте экземпляр `CallAgent` с `CommunicationTokenCredential`, который позволит нам выполнять и принимать вызовы. Добавьте следующий код в файл **client.js**:
 
 ```javascript
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential);
     callButton.disabled = false;
 }
@@ -102,7 +106,7 @@ init();
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
+    call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
         {}
     );

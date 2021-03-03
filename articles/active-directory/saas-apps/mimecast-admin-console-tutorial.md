@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 7198d341de9de42f28aeafe0fb94273b916482f1
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 606665cead215c049e55f22a5f8ff0f668181fb4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621284"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647208"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Руководство по интеграции единого входа Azure Active Directory с консолью администрирования Mimecast
 
@@ -222,8 +222,8 @@ ms.locfileid: "98621284"
 
 * На портале Azure выберите элемент **Тестировать приложение**, и вы автоматически войдете в приложение Mimecast Admin Console, для которого настроен единый вход. 
 
-Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку Mimecast Admin Console на портале "Мои приложения", вы автоматически перейдете на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика службы) или в приложение Mimecast Admin Console, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку Mimecast Admin Console на портале "Мои приложения", вы автоматически перейдете на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика службы) или в приложение Mimecast Admin Console, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Mimecast Admin Console вы сможете применять элемент управления сеансами, который защищает от хищения и несанкционированного доступа к конфиденциальным данным вашей организации в режиме реального времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Mimecast Admin Console вы сможете применять элемент управления сеансами, который защищает от хищения и несанкционированного доступа к конфиденциальным данным вашей организации в режиме реального времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f82a1279a69bf91f37400d5614e8f7b121e72f47
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6b039d934993d2acee630205c5b5e5d8e0f6145e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258903"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667602"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Подключение к Synapse SQL с помощью Azure Data Studio
 
@@ -26,7 +26,7 @@ ms.locfileid: "99258903"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Вы можете использовать [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) в Azure Synapse Analytics для подключения и отправки запросов к Synapse SQL. 
+Вы можете использовать [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) в Azure Synapse Analytics для подключения и отправки запросов к Synapse SQL. 
 
 ## <a name="connect"></a>Подключение
 
@@ -73,7 +73,7 @@ ms.locfileid: "99258903"
 
 ## <a name="query"></a>Запрос
 
-После подключения Synapse SQL можно запросить с помощью поддерживаемых для экземпляра инструкций [Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Чтобы начать работу, выберите в представлении панели мониторинга **Новый запрос**.
+После подключения Synapse SQL можно запросить с помощью поддерживаемых для экземпляра инструкций [Transact-SQL (T-SQL)](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true). Чтобы начать работу, выберите в представлении панели мониторинга **Новый запрос**.
 
 ![Новый запрос](./media/get-started-azure-data-studio/5-new-query.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 599c442b17f660bf2f63f320cd57996cfe5c18d1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 80e4de168bea5a60b0c3a30d06239af5971c0aa3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416381"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654308"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zuddl"></a>Руководство по интеграции единого входа Azure Active Directory с Zuddl
 
@@ -132,11 +132,9 @@ ms.locfileid: "100416381"
 
 * Перейдите по URL-адресу для входа в Zuddl и инициируйте оттуда поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Zuddl на портале "Мои приложения", вы перейдете по URL-адресу для входа в Zuddl. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Zuddl на портале "Мои приложения", вы перейдете по URL-адресу для входа в Zuddl. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Zuddl вы можете применить функцию управления сеансом, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+После настройки Zuddl вы можете применить функцию управления сеансом, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

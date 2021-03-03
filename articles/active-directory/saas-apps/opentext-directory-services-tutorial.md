@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: c9d7d5b0c895b3f64e4be9285ddde66bfb583322
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 71c69ffa91e5841ec03ed836ab2562af2ec01959
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559416"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645111"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opentext-directory-services"></a>Руководство по интеграции единого входа Azure Active Directory с OpenText Directory Services
 
@@ -137,8 +137,8 @@ ms.locfileid: "100559416"
 
 * На портале Azure выберите **Тестировать приложение**, и вы автоматически войдете в приложение OpenText Directory Services, для которого настроен единый вход. 
 
-Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку OpenText Directory Services на портале "Мои приложения", вы перейдете на страницу входа в приложение для инициации потока входа (при настройке в режиме поставщика службы) или автоматически войдете в приложение OpenText Directory Services, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку OpenText Directory Services на портале "Мои приложения", вы перейдете на страницу входа в приложение для инициации потока входа (при настройке в режиме поставщика службы) или автоматически войдете в приложение OpenText Directory Services, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки OpenText Directory Services вы можете применить функцию управления сеансом, которая защищает от хищения конфиденциальных данных вашей организации и несанкционированного доступа к ним в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки OpenText Directory Services вы можете применить функцию управления сеансом, которая защищает от хищения конфиденциальных данных вашей организации и несанкционированного доступа к ним в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

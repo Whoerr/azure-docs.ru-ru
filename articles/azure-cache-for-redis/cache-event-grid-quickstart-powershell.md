@@ -6,12 +6,12 @@ author: curib
 ms.author: cauribeg
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 615f3b023ded6583dfedca99f561d09689b86b51
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0ab959d531ff1080e5e6a640410b4955e4cfeff7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056498"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652204"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-powershell"></a>Краткое руководство. Маршрутизация событий Кэша Azure для Redis в конечную веб-точку с помощью PowerShell
 
@@ -73,7 +73,7 @@ New-AzRedisCache
    [-Confirm]
    [<CommonParameters>]
 ```
-Дополнительные сведения о создании экземпляра кэша с помощью PowerShell см. в [справочнике по Azure PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0). 
+Дополнительные сведения о создании экземпляра кэша с помощью PowerShell см. в [справочнике по Azure PowerShell](/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0). 
 
 ## <a name="create-a-message-endpoint"></a>Создание конечной точки сообщения
 
@@ -132,7 +132,7 @@ Import-AzRedisCache
       [-Confirm]
       [<CommonParameters>]
 ```
-Дополнительные сведения об импорте с помощью PowerShell см. в [справочнике по Azure PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0). 
+Дополнительные сведения об импорте с помощью PowerShell см. в [справочнике по Azure PowerShell](/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0). 
 
 Вы активировали событие, а служба "Сетка событий" отправила сообщение в конечную точку, настроенную вами при оформлении подписки. Откройте веб-приложение и просмотрите в нем отправленные события.
 

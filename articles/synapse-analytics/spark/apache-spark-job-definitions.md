@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307174"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677613"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Руководство по Создание определения задания Apache Spark в Synapse Studio
 
@@ -32,7 +32,7 @@ ms.locfileid: "93307174"
 
 Прежде чем приступить к изучению этого руководства, убедитесь, что выполнены следующие требования.
 
-* Рабочая область Azure Synapse Analytics. См. руководство по [созданию рабочей области Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
+* Рабочая область Azure Synapse Analytics. См. руководство по [созданию рабочей области Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Бессерверный пул Apache Spark.
 * Учетная запись хранения ADLS 2-го поколения. Вам потребуется **роль владельца данных BLOB-объектов службы хранилища** для файловой системы ADLS 2-го поколения, с которой вы хотите работать. Если у вас нет этой роли, добавьте разрешение вручную.
 * Если вы не хотите использовать хранилище рабочей области по умолчанию, свяжите необходимую учетную запись хранения ADLS 2-го поколения с Synapse Studio. 

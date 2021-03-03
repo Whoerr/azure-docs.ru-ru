@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: eb583db5137eb4b138c52958d34e6da9a2a6e651
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cc12afb9d4a889d53689421a98b522a8e3264da6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624208"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644618"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-personal-portal"></a>Руководство по интеграции единого входа Azure Active Directory с Mimecast Personal Portal
 
@@ -222,8 +222,8 @@ ms.locfileid: "98624208"
 
 * На портале Azure выберите элемент **Тестировать приложение**, и вы автоматически войдете в приложение Mimecast Personal Portal, для которого настроили единый вход 
 
-Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку Mimecast Personal Portal на портале "Мои приложения", вы автоматически перейдете на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика службы) или в приложение Mimecast Personal Portal, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Вы можете также использовать портал "Мои приложения" корпорации Майкрософт для тестирования приложения в любом режиме. Щелкнув плитку Mimecast Personal Portal на портале "Мои приложения", вы автоматически перейдете на страницу входа приложения для инициации потока входа (при настройке в режиме поставщика службы) или в приложение Mimecast Personal Portal, для которого настроен единый вход (при настройке в режиме поставщика удостоверений). Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Mimecast Personal Portal вы можете применить функцию управления сеансом, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+После настройки Mimecast Personal Portal вы можете применить функцию управления сеансом, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

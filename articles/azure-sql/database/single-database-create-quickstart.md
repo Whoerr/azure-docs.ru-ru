@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 09/03/2020
-ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.date: 01/27/2021
+ms.openlocfilehash: c0e86cad252da1b5484944c12351d4ee1e39edbe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740952"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656319"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Краткое руководство. Создание отдельной базы данных в Базе данных SQL Azure
 
@@ -70,6 +70,8 @@ ms.locfileid: "97740952"
   
 
 1. На вкладке **Дополнительные параметры** в разделе **Источник данных** для параметра **Использовать существующие данные** выберите значение **Пример**. При этом создается образец базы данных AdventureWorksLT, где можно выполнять запросы к некоторым таблицам и данным и экспериментировать с ними в отличие от пустой базы данных.
+1. При необходимости включите [Azure Defender для SQL](../database/azure-defender-for-sql.md).
+1. Вы также можете задать [период обслуживания](../database/maintenance-window.md), чтобы плановое обслуживание базы данных выполнялось в оптимальное время.
 1. В нижней части страницы нажмите кнопку **Просмотреть и создать**:
 
    ![Вкладка "Дополнительные параметры"](./media/single-database-create-quickstart/additional-settings.png)

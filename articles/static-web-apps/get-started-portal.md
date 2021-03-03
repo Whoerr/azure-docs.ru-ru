@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030371"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650576"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Краткое руководство. Создание первого статического сайта на портале Azure
 
@@ -55,7 +55,7 @@ ms.locfileid: "97030371"
 
 1. Выберите предпочитаемую _организацию_.
 1. Выберите **my-first-web-static-app** из раскрывающегося списка _Репозиторий_.
-1. Выберите **master** в раскрывающемся списке _Ветвь_.
+1. Выберите **main** в раскрывающемся списке _Ветвь_.
 
 > [!NOTE]
 > Если вы не видите какие-либо репозитории, вам может потребоваться авторизовать Статические веб-приложения Azure на сайте GitHub. Перейдите к своему репозиторию GitHub и выберите **Параметры > Приложения > Авторизованные приложения OAuth**. Выберите **Azure Static Web Apps** (Статические веб-приложения Azure), а затем — **Предоставление права**. Чтобы предоставить разрешения для репозиториев организации, необходимо быть владельцем организации.

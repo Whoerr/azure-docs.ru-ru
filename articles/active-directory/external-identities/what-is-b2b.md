@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e02cb23188b552b1779d184a2384835f4195762
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365384"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649297"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Что представляет собой гостевой доступ в службе совместной работы Azure Active Directory B2B?
 
@@ -85,7 +85,7 @@ Azure AD поддерживает внешние поставщики удост
 ![Снимок экрана: страница поставщиков удостоверений](media/what-is-b2b/identity-providers.png)
 
 
-## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Создание потока пользователя для самостоятельной регистрации (предварительная версия)
+## <a name="create-a-self-service-sign-up-user-flow"></a>Создание потока для самостоятельной регистрации пользователей
 
 Используя самостоятельную регистрацию, вы можете определить процедуру регистрации для внешних пользователей, которым требуется доступ к вашим приложениям. В рамках процесса регистрации вы можете указывать параметры для разных поставщиков удостоверений социальных сетей или организаций и собирать сведения о пользователе. См. сведения о [самостоятельной регистрации и способах ее настройки](self-service-sign-up-overview.md).
 

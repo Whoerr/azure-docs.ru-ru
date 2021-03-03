@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4246bc4c62fd8e5e73ff18e383b8bf115d25ede8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168514"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643849"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>Что такое подготовка между каталогами?
 
@@ -33,7 +33,7 @@ ms.locfileid: "96168514"
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). Средство Майкрософт, разработанное для соответствия техническим требованиям и создания гибридного удостоверения, включая межкаталоговую подготовку из Active Directory в Azure AD.
 
-- [Облачная подготовка Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md). Новый агент Майкрософт, разработанный для достижения ваших целей гибридной идентификации.  Он обеспечивает облегченный процесс межкаталоговой подготовки между Active Directory и Azure AD.
+- [Облачная подготовка Azure AD Connect](../cloud-sync/what-is-cloud-sync.md). Новый агент Майкрософт, разработанный для достижения ваших целей гибридной идентификации.  Он обеспечивает облегченный процесс межкаталоговой подготовки между Active Directory и Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016). Локальное решение Майкрософт по управлению удостоверениями и доступом, которое помогает управлять пользователями, учетными данными, политиками и доступом в организации. Кроме того, Microsoft Identity Manager обеспечивает расширенную подготовку между каталогами для предоставления гибридных сред удостоверений для Active Directory, Azure AD и других каталогов.
 

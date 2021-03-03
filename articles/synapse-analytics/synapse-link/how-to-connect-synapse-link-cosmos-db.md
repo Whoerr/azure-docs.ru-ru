@@ -1,20 +1,20 @@
 ---
-title: Подключение к Azure Synapse Link (предварительная версия) для Azure Cosmos DB
+title: Подключение к Azure Synapse Link для Azure Cosmos DB
 description: Узнайте, как подключить базу данных Azure Cosmos DB к рабочей области Azure Synapse с помощью Azure Synapse Link.
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 04/21/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5316f74ee38f597592ae4582aef31837f0f05fda
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5850644aac9c3324d9ffb17817195cbaaa6020ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119838"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667547"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Подключение к Azure Synapse Link для Azure Cosmos DB
 
@@ -26,9 +26,6 @@ ms.locfileid: "98119838"
 
 * имеющаяся база данных Azure Cosmos DB (можно также создать учетную запись, следуя инструкциям из [краткого руководства по управлению учетной записью Azure Cosmos DB](../../cosmos-db/how-to-manage-database-account.md));
 * имеющаяся рабочая область Azure Synapse (можно также создать рабочую область, следуя инструкциям из [краткого руководства по созданию рабочей области Synapse](../quickstart-create-workspace.md)).
-
-> [!IMPORTANT]
-> Сейчас Azure Synapse Link для Azure Cosmos DB поддерживается для рабочих областей, в которых не включена управляемая виртуальная сеть.
 
 ## <a name="enable-synapse-link-on-an-azure-cosmos-db-database-account"></a>Включение Synapse Link для учетной записи базы данных Azure Cosmos DB
 
@@ -70,4 +67,5 @@ ms.locfileid: "98119838"
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Узнайте, какие общие возможности поддерживают Azure Synapse и Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md).
+* [Настройка частных конечных точек для аналитического хранилища Azure Cosmos DB](../cosmos-db/analytical-store-private-endpoints.md)
 * [Узнайте, как отправлять запросы в аналитическое хранилище с помощью Spark](./how-to-query-analytical-store-spark.md).

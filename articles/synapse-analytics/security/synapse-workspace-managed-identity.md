@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461297"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670687"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Управляемое удостоверение рабочей области Azure Synapse
 
@@ -23,7 +23,7 @@ ms.locfileid: "96461297"
 
 Управляемое удостоверение для ресурсов Azure — это компонент Azure Active Directory. Функция предоставляет службам Azure автоматически управляемое удостоверение в Azure AD. Управляемое удостоверение можно использовать для проверки подлинности в любой службе, поддерживающей аутентификацию Azure AD.
 
-Управляемые удостоверения для ресурсов Azure — это новое название службы "Управляемое удостоверение службы" (MSI). Дополнительные сведения см. в статье [Что такое управляемые удостоверения для ресурсов Azure?](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Управляемые удостоверения для ресурсов Azure — это новое название службы "Управляемое удостоверение службы" (MSI). Дополнительные сведения см. в статье [Что такое управляемые удостоверения для ресурсов Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Управляемое удостоверение рабочей области Azure Synapse
 

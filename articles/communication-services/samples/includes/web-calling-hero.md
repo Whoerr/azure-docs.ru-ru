@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 61b3b3abace5c7a1cd846c1e3c1e7ac166efd5c7
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475698"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682400"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 Пример **Group Calling Hero Sample** Служб коммуникации Azure демонстрирует, как использовать клиентскую библиотеку веб-вызовов Служб коммуникации для создания группового вызова.
 
 Из краткого руководства мы узнаем, как работает пример и запустим его на локальном компьютере. Затем мы развернем пример в Azure с помощью собственных ресурсов Служб коммуникации Azure.
@@ -29,7 +27,7 @@ ms.locfileid: "99475698"
 
 ## <a name="overview"></a>Обзор
 
-Пример содержит клиентское и серверное приложения. **Клиентское приложение** — это веб-приложение React/Redux, использующее платформу пользовательского интерфейса Fluent от Майкрософт. Это приложение отправляет запросы в **серверное приложение** ASP.NET Core, которое помогает клиентскому приложению подключаться к Azure. 
+Пример содержит клиентское и серверное приложения. **Клиентское приложение** — это веб-приложение React/Redux, использующее платформу пользовательского интерфейса Fluent от Майкрософт. Это приложение отправляет запросы в **серверное приложение** ASP.NET Core, которое помогает клиентскому приложению подключаться к Azure.
 
 Вот как выглядит этот пример:
 
@@ -91,7 +89,7 @@ ms.locfileid: "99475698"
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Скачайте пример с GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Дополнительные сведения см. в следующих статьях:

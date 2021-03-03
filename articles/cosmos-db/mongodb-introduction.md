@@ -4,15 +4,15 @@ description: Узнайте, как с применением Azure Cosmos DB х
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: ab335c8cc682f6b33dcb30509d682186a178c676
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 5820592bf06cc9427e12aa0cd79c54dc1f0156e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861060"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658001"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API Azure Cosmos DB для MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,9 +24,9 @@ ms.locfileid: "97861060"
 
 ## <a name="wire-protocol-compatibility"></a>Совместимость с сетевыми протоколами
 
-Azure Cosmos DB реализует протокол проводной сети для MongoDB. Эта реализация обеспечивает прозрачную совместимость с собственными клиентскими пакетами SDK, драйверами и инструментами для MongoDB. В Azure Cosmos DB не размещено ядро СУБД MongoDB. Сведения о функциях, поддерживаемых MongoDB, можно найти здесь: 
-- [API Azure Cosmos DB для ядра MongoDB (версии 3.6)](mongodb-feature-support-36.md)
-- [API Azure Cosmos DB для ядра MongoDB (версии 3.2)](mongodb-feature-support.md)
+Azure Cosmos DB реализует протокол проводной сети для MongoDB. Эта реализация обеспечивает прозрачную совместимость с собственными клиентскими пакетами SDK, драйверами и инструментами для MongoDB. В Azure Cosmos DB размещено ядро СУБД MongoDB. Сведения о функциях, поддерживаемых MongoDB, можно найти здесь: 
+- [API Azure Cosmos DB для MongoDB версии 4.0](mongodb-feature-support-40.md)
+- [API Azure Cosmos DB для MongoDB версии 3.6](mongodb-feature-support-36.md)
 
 По умолчанию новые учетные записи, созданные с помощью API Azure Cosmos DB для MongoDB, совместимы с версией 3.6 сетевого протокола MongoDB. Любой драйвер клиента MongoDB, который распознает эти версии протокола, должен иметь возможность собственного подключения к Cosmos DB.
 

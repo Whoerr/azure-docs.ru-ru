@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879802"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660990"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Руководство по прогнозированию цен на автомобили с помощью конструктора
 
@@ -176,7 +176,7 @@ ms.locfileid: "98879802"
 
     Теперь конвейер должен выглядеть примерно так:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Выбор столбца":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Выбор столбца":::
 
 ## <a name="train-a-machine-learning-model"></a>Обучение модели машинного обучения.
 
@@ -224,7 +224,7 @@ ms.locfileid: "98879802"
     > [!IMPORTANT]
     > Убедитесь, что левый выходной порт модуля **разделения данных** подключается к модулю **обучения модели**. Левый порт содержит набор для обучения. Правый порт содержит набор для проверки.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Снимок экрана: правильная конфигурация модуля Train Model (Обучение модели). Модуль Linear Regression (Линейная регрессия) присоединяется к левому порту модуля Train Model (Обучение модели), а модуль Split Data (Разделение данных) — к правому порту модуля Train Model (Обучение модели)":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Снимок экрана: правильная конфигурация модуля Train Model (Обучение модели). Модуль Linear Regression (Линейная регрессия) присоединяется к левому порту модуля Train Model (Обучение модели), а модуль Split Data (Разделение данных) — к правому порту модуля Train Model (Обучение модели)":::
 
 1. Выберите модуль **Train Model** (Обучение модели).
 
@@ -239,7 +239,7 @@ ms.locfileid: "98879802"
 
     Теперь конвейер будет выглядеть следующим образом:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Снимок экрана с правильной конфигурацией конвейера после добавления модуля Обучение модели":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Снимок экрана с правильной конфигурацией конвейера после добавления модуля Обучение модели":::
 
 ### <a name="add-the-score-model-module"></a>Добавление модуля "Score Model" (Оценка модели)
 
@@ -259,7 +259,7 @@ ms.locfileid: "98879802"
 
     Готовый вариант конвейера должен выглядеть примерно так:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Снимок экрана с правильной конфигурацией конвейера":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="Снимок экрана с правильной конфигурацией конвейера":::
 
 ## <a name="submit-the-pipeline"></a>Отправка конвейера
 
@@ -288,7 +288,7 @@ ms.locfileid: "98879802"
 
     Здесь можно просмотреть прогнозируемые цены и фактические цены из тестовых данных.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Снимок экрана: визуализация выходных данных с выделенным столбцом Scored Label (Метка с оценкой)":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Снимок экрана: визуализация выходных данных с выделенным столбцом Scored Label (Метка с оценкой)":::
 
 ### <a name="evaluate-models"></a>Анализ моделей
 

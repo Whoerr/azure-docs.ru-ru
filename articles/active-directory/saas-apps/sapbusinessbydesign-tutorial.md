@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: e8f1bff50c5f163894392a9e5d08cc8451d835fa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6db863f43deb6eb2787cda60650a267a62076aad
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896415"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Руководство по интеграции Azure Active Directory с SAP Business ByDesign
 
@@ -192,8 +192,8 @@ ms.locfileid: "98896415"
 
 2. Перейдите по URL-адресу для входа в SAP Business ByDesign и инициируйте поток входа.
 
-3. Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку SAP Business ByDesign на портале "Мои приложения", вы перейдете по URL-адресу для входа в SAP Business ByDesign. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку SAP Business ByDesign на портале "Мои приложения", вы перейдете по URL-адресу для входа в SAP Business ByDesign. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* После настройки SAP Business ByDesign вы можете применить функцию управления сеансами, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Элементы управления сеансом являются расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* После настройки SAP Business ByDesign вы можете применить функцию управления сеансами, которая защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа в реальном времени. Элементы управления сеансом являются расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

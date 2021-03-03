@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: d1fb68cb91ec6618eb33d1119e811dac677d76dd
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 1e989e5710d3554a370fe5016c151ba3fd225b00
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99821148"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651806"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-enablon"></a>Руководство. Интеграция единого входа Azure Active Directory с Enablon
 
@@ -128,11 +128,9 @@ ms.locfileid: "99821148"
 
 * Перейдите по URL-адресу для входа в Enablon и инициируйте поток входа.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Enablon на портале "Мои приложения", вы перейдете по URL-адресу для входа в Enablon. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку Enablon на портале "Мои приложения", вы перейдете по URL-адресу для входа в Enablon. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки Enablon вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+После настройки Enablon вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

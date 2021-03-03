@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 16692ac75f0ab6df0c8ee1bebef393848ca066b8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806228"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676540"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Руководство по сканированию данных с помощью Azure Purview (предварительная версия)
 
@@ -55,7 +55,7 @@ ms.locfileid: "99806228"
 
 Чтобы настроить для начального набора клиентское программное обеспечение на компьютере Windows, сделайте следующее.
 
-1. [Скачайте начальный набор](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) и извлеките его содержимое в произвольное расположение.
+1. [Скачайте начальный набор](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip) и извлеките его содержимое в произвольное расположение.
 
 
 1. На локальном компьютере в поле поиска на панели задач Windows введите **PowerShell**. В списке результатов поиска щелкните правой кнопкой мыши **Windows PowerShell** и выберите **Запуск от имени администратора**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 724bb91b4295162b32822d36d82958638d976e09
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 8c1b45d78d4fb61d239fef178cbcb9fa6efd9539
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056759"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645694"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudknox-permissions-management-platform"></a>Руководство по интеграции единого входа Azure Active Directory с CloudKnox Permissions Management Platform
 
@@ -143,11 +143,9 @@ ms.locfileid: "99056759"
 
 * На портале Azure выберите "Тестировать приложение", и вы автоматически войдете в приложение CloudKnox Permissions Management Platform, для которого настроен единый вход.
 
-* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку CloudKnox Permissions Management Platform на портале "Мои приложения", вы автоматически войдете в приложение CloudKnox Permissions Management Platform, для которого настроен единый вход. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Вы можете использовать портал "Мои приложения" корпорации Майкрософт. Щелкнув плитку CloudKnox Permissions Management Platform на портале "Мои приложения", вы автоматически войдете в приложение CloudKnox Permissions Management Platform, для которого настроен единый вход. Дополнительные сведения о портале "Мои приложения" см. в [этой статье](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-После настройки CloudKnox Permissions Management Platform вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+После настройки CloudKnox Permissions Management Platform вы можете применить функцию управления сеансами, которая в реальном времени защищает конфиденциальные данные вашей организации от хищения и несанкционированного доступа. Управление сеансом является расширением функции условного доступа. [Узнайте, как применять управление сеансами с помощью Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

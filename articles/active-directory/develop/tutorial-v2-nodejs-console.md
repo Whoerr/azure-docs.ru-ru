@@ -8,14 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: 3d4211acbf6b65ef8f04d00b3936d70bb930ed9e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 33d3712e25a06419e0ccc5914cdddfae7d85a371
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561109"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645795"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-in-a-nodejs-console-app"></a>Руководство. Вызов API Microsoft Graph в консольном приложении Node.js
 
@@ -125,9 +125,9 @@ NodeConsoleApp/
 const msal = require('@azure/msal-node');
 
 /**
- * Configuration object to be passed to MSAL instance on creation. 
+ * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL Node configuration parameters, visit:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
  */
 const msalConfig = {
     auth: {
@@ -139,8 +139,8 @@ const msalConfig = {
 
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
- * The scope is always in the format '<resource>/.default'. For more, visit: 
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow 
+ * The scope is always in the format '<resource>/.default'. For more, visit:
+ * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '.default'],
@@ -158,7 +158,7 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 /**
  * Acquires token with client credentials.
- * @param {object} tokenRequest 
+ * @param {object} tokenRequest
  */
 async function getToken(tokenRequest) {
     return await cca.acquireTokenByClientCredential(tokenRequest);
@@ -212,8 +212,8 @@ const axios = require('axios');
 
 /**
  * Calls the endpoint with authorization bearer token.
- * @param {string} endpoint 
- * @param {string} accessToken 
+ * @param {string} endpoint
+ * @param {string} accessToken
  */
 async function callApi(endpoint, accessToken) {
 
@@ -239,7 +239,7 @@ module.exports = {
 };
 ```
 
-Здесь метод `callApi` используется для выполнения HTTP-запроса `GET` к защищенному ресурсу, которому требуется маркер доступа. Затем метод возвращает содержимое вызывающему объекту. Этот метод добавляет полученный маркер в *заголовок авторизации HTTP*. Защищенный ресурс здесь — это [конечная точка пользователей](https://docs.microsoft.com/graph/api/user-list) API Microsoft Graph, в которой отображаются пользователи в арендаторе, где зарегистрировано это приложение.
+Здесь метод `callApi` используется для выполнения HTTP-запроса `GET` к защищенному ресурсу, которому требуется маркер доступа. Затем метод возвращает содержимое вызывающему объекту. Этот метод добавляет полученный маркер в *заголовок авторизации HTTP*. Защищенный ресурс здесь — это [конечная точка пользователей](/graph/api/user-list) API Microsoft Graph, в которой отображаются пользователи в арендаторе, где зарегистрировано это приложение.
 
 ## <a name="test-the-app"></a>Тестирование приложения
 
@@ -278,7 +278,7 @@ request made to web API at: Fri Jan 22 2021 09:31:52 GMT-0800 (Pacific Standard 
 
 ## <a name="how-the-application-works"></a>Принцип работы приложения
 
-Это приложение использует [предоставление учетных данных клиента OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Этот тип предоставления разрешения часто используется для взаимодействия между серверами, которое должно выполняться в фоновом режиме без непосредственного взаимодействия с пользователем. Процесс предоставления учетных данных позволяет веб-службе (конфиденциальный клиент) вместо олицетворения пользователя использовать свои собственные учетные данные для аутентификации при вызове другой веб-службы. Приложения, поддерживаемые этой моделью аутентификации, обычно представляют собой **управляющие программы** или **учетные записи служб**.
+Это приложение использует [предоставление учетных данных клиента OAuth 2.0](./v2-oauth2-client-creds-grant-flow.md). Этот тип предоставления разрешения часто используется для взаимодействия между серверами, которое должно выполняться в фоновом режиме без непосредственного взаимодействия с пользователем. Процесс предоставления учетных данных позволяет веб-службе (конфиденциальный клиент) вместо олицетворения пользователя использовать свои собственные учетные данные для аутентификации при вызове другой веб-службы. Приложения, поддерживаемые этой моделью аутентификации, обычно представляют собой **управляющие программы** или **учетные записи служб**.
 
 Область запросов для потока учетных данных клиента — это имя ресурса с добавлением `/.default`. Такая запись указывает Azure Active Directory (Azure AD) использовать разрешения уровня приложения, объявленные статически во время регистрации приложения. Кроме того, эти разрешения API должны быть предоставлены **администратором арендатора**.
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: 38b0f23a44a16125726e7810b2045d244a2e6b06
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454659"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669495"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Краткое руководство. Создание бессерверного пула Apache Spark в Azure Synapse Analytics с помощью веб-инструментов
 
@@ -148,7 +148,7 @@ Azure Synapse сохраняет данные в Azure Data Lake Storage. Вы �
 Из этого краткого руководства вы узнали, как создать бессерверный пул Apache Spark и выполнить простой SQL-запрос Spark.
 
 - [Azure Synapse Analytics](overview-what-is.md)
-- [Документация по .NET для Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Документация по .NET для Apache Spark](/dotnet/spark)
 
 
 

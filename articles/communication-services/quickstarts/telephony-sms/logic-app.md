@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ed9af178c10d033806b05f73372a0642bb28cab4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 24926640de3b50823dfeaf195500f33b49aebc18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801672"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652723"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Краткое руководство. Отправка SMS-сообщений Azure Logic Apps с помощью Служб коммуникации Azure
 
@@ -39,6 +39,8 @@ ms.locfileid: "91801672"
 
 - Номер телефона с поддержкой SMS. [Получить номер телефона](./get-phone-number.md).
 
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 ## <a name="add-an-sms-action"></a>Добавление действия с SMS
 
 Чтобы добавить с помощью соединителя SMS Служб коммуникации Azure действие **Отправить SMS** в качестве нового шага рабочего процесса, выполните следующие действия на [портале Azure](https://portal.azure.com) с помощью рабочего процесса приложения логики, открытого в конструкторе приложений логики:
@@ -47,7 +49,7 @@ ms.locfileid: "91801672"
 
 1. В поле поиска **Выберите операцию** введите `Azure Communication Services`. В списке действия выберите **Отправить SMS**.
 
-   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Снимок экрана портала Azure, на котором открыт конструктор приложений логики и показан пример приложения логики, использующего действие &quot;Отправить SMS&quot; для соединителя Службы коммуникации Azure.":::
+   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Снимок экрана, на котором показан конструктор приложений логики и соединитель Службы коммуникации Azure с выбранным действием &quot;Отправить SMS&quot;.":::
 
 1. Теперь создайте подключение к ресурсу Служб коммуникации.
 
@@ -57,7 +59,7 @@ ms.locfileid: "91801672"
 
    1. Нажмите кнопку **создания**.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Снимок экрана портала Azure, на котором открыт конструктор приложений логики и показан пример приложения логики, использующего действие &quot;Отправить SMS&quot; для соединителя Службы коммуникации Azure.":::
+   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Снимок экрана, на котором показана конфигурация действия &quot;Отправить SMS&quot; с примерами данных.":::
 
 1. В области действия **Отправить SMS** введите следующие сведения: 
 
@@ -67,7 +69,7 @@ ms.locfileid: "91801672"
 
    Ниже показано действие **Отправить SMS** с примерами сведений.
 
-   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Снимок экрана портала Azure, на котором открыт конструктор приложений логики и показан пример приложения логики, использующего действие &quot;Отправить SMS&quot; для соединителя Службы коммуникации Azure.":::
+   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Снимок экрана, на котором показано действие &quot;Отправить SMS&quot; с примерами данных.":::
 
 1. По завершении нажмите кнопку **Сохранить** на панели инструментов конструктора.
 
@@ -93,5 +95,5 @@ ms.locfileid: "91801672"
 Дополнительные сведения об использовании SMS в Службах коммуникации Azure см. в следующих статьях:
 
 - [Основные понятия обмена SMS](../../concepts/telephony-sms/concepts.md)
-- [Планирование решения для телефонии и SMS](../../concepts/telephony-sms/plan-solution.md)
+- [Типы номеров телефона](../../concepts/telephony-sms/plan-solution.md)
 - [Пакет SDK для SMS](../../concepts/telephony-sms/sdk-features.md)

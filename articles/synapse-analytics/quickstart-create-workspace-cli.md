@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4beef9383b8e51e1295639c18e745fd0fdf8588
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 8a56b325dd5e1180b1229465965167241fab76a8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796952"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676468"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Краткое руководство. Создание рабочей области Azure Synapse с помощью Azure CLI
 
@@ -27,7 +27,7 @@ Azure CLI — это интерфейс командной строки Azure д
 ## <a name="prerequisites"></a>Предварительные требования
 
 - Скачайте и установите [jg](https://stedolan.github.io/jq/download/), простой и удобный процессор командной строки JSON
-- [Учетная запись хранения Azure Data Lake Storage 2-го поколения](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Учетная запись хранения Azure Data Lake Storage 2-го поколения](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > В рабочей области Azure Synapse должна быть возможность считывать данные в выбранной учетной записи ADLS 2-го поколения и выполнять запись в нее. Кроме того, для любой учетной записи хранения, связываемой в качестве основной учетной записи хранения, при создании учетной записи хранения необходимо включить **иерархическое пространство имен**, как описано на странице [Создание учетной записи хранения](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). 

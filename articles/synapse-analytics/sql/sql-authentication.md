@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: ed9b67e9c3d21d11c6e413694190850c20d2c46c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 505c0de5a508bd97b10091451116ec3670a20493
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682942"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677543"
 ---
 # <a name="sql-authentication"></a>Проверка подлинности SQL
 
@@ -92,18 +92,18 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 Создавать базу данных могут лица, использующие учетные данные SQL Server в базе данных `master`, или пользователи автономной базы данных, на основе пользователя Azure Active Directory.
 
 1. Используя учетную запись администратора, подключитесь к базе данных `master`.
-2. Создайте имя для входа при проверке подлинности SQL Server с помощью инструкции [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Пример инструкции:
+2. Создайте имя для входа при проверке подлинности SQL Server с помощью инструкции [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true). Пример инструкции:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
 
    > [!NOTE]
-   > Создавая имя для входа или пользователя автономной базы данных, используйте надежный пароль. Дополнительные сведения см. в разделе [Strong Passwords](/sql/relational-databases/security/strong-passwords?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+   > Создавая имя для входа или пользователя автономной базы данных, используйте надежный пароль. Дополнительные сведения см. в разделе [Strong Passwords](/sql/relational-databases/security/strong-passwords?view=azure-sqldw-latest&preserve-view=true).
 
-   Для повышения производительности имена для входа (субъекты уровня сервера) временно кэшируются на уровне базы данных. Сведения об обновлении кэша проверки подлинности см. в статье [DBCC FLUSHAUTHCACHE (Transact-SQL)](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+   Для повышения производительности имена для входа (субъекты уровня сервера) временно кэшируются на уровне базы данных. Сведения об обновлении кэша проверки подлинности см. в статье [DBCC FLUSHAUTHCACHE (Transact-SQL)](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-3. Создайте пользователя баз данных с помощью инструкции [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Пользователь может быть пользователем автономной базы данных проверки подлинности Azure Active Directory (если вы настроили среду для проверки подлинности Azure AD), пользователем автономной базы данных проверки подлинности SQL Server или пользователем проверки подлинности SQL Server с именем входа проверки подлинности SQL Server (созданным на предыдущем шаге). Примеры инструкций:
+3. Создайте пользователя баз данных с помощью инструкции [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest&preserve-view=true). Пользователь может быть пользователем автономной базы данных проверки подлинности Azure Active Directory (если вы настроили среду для проверки подлинности Azure AD), пользователем автономной базы данных проверки подлинности SQL Server или пользователем проверки подлинности SQL Server с именем входа проверки подлинности SQL Server (созданным на предыдущем шаге). Примеры инструкций:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -111,7 +111,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Добавьте нового пользователя в роль базы данных **DBManager** в `master` с помощью процедуры [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true). Обратите внимание, что инструкция [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) не поддерживается в подготовленной среде SQL. Примеры инструкций:
+4. Добавьте нового пользователя в роль базы данных **DBManager** в `master` с помощью процедуры [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true). Обратите внимание, что инструкция [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?view=azure-sqldw-latest&preserve-view=true) не поддерживается в подготовленной среде SQL. Примеры инструкций:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -127,7 +127,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 ### <a name="login-managers"></a>Диспетчеры входа
 
-Другая административная роль — это роль диспетчера входов. Участники этой роли могут создавать учетные записи в базе данных master. При желании можно выполнить те же действия (создание имени для входа и пользователя и назначение ему роли **loginmanager**), чтобы разрешить пользователю создавать имена для входа в базу данных master. Обычно имена для входа не требуются, так как корпорация Майкрософт рекомендует использовать пользователей автономной базы данных, проверка подлинности которых выполняется на уровне базы данных, а не пользователей с именами для входа. Дополнительные сведения см. в разделе [Пользователи автономной базы данных — создание переносимой базы данных](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Другая административная роль — это роль диспетчера входов. Участники этой роли могут создавать учетные записи в базе данных master. При желании можно выполнить те же действия (создание имени для входа и пользователя и назначение ему роли **loginmanager**), чтобы разрешить пользователю создавать имена для входа в базу данных master. Обычно имена для входа не требуются, так как корпорация Майкрософт рекомендует использовать пользователей автономной базы данных, проверка подлинности которых выполняется на уровне базы данных, а не пользователей с именами для входа. Дополнительные сведения см. в разделе [Пользователи автономной базы данных — создание переносимой базы данных](/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=azure-sqldw-latest&preserve-view=true).
 
 ---
 
@@ -158,7 +158,7 @@ GRANT ALTER ANY USER TO Mary;
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-В выделенном пуле SQL используйте [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+В выделенном пуле SQL используйте [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -167,11 +167,11 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 > [!NOTE]
 > Предоставить пользователям доступ к нескольким базам данных — это одна из распространенных причин, по которой нужно создать пользователя базы данных на основе имени входа на сервер. Так как пользователи автономной базы данных являются отдельными сущностями, в каждой базе данных поддерживается отдельный пользователь с собственным паролем. Это может вызвать дополнительные сложности, поскольку пользователь должен запомнить отдельный пароль для каждой базы данных, а смена паролей при большом количестве баз данных станет нестерпимо тягостной. Но если использовать имена входа SQL Server и высокий уровень доступности (активной георепликации и групп отработки отказа), эти имена входа потребуется задать вручную на каждом сервере. В противном случае после отработки отказа пользователь базы данных не будет сопоставляться с именем входа на сервере и не сможет получить доступ к базе данных. 
 
-Дополнительные сведения о настройке имен входа для георепликации см. в статье [Настройка безопасности базы данных SQL Azure и управление ею для геовосстановления или отработки отказа](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Дополнительные сведения о настройке имен входа для георепликации см. в статье [Настройка безопасности базы данных SQL Azure и управление ею для геовосстановления или отработки отказа](../../azure-sql/database/active-geo-replication-security-configure.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Настройка брандмауэра на уровне базы данных
 
-Пользователям без прав администратора рекомендуется предоставлять доступ к нужным им базам данных только через брандмауэр. Вместо авторизации их IP-адресов с помощью брандмауэра уровня сервера и предоставления им доступа ко всем базам данных используйте инструкцию [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), чтобы настроить брандмауэр уровня базы данных. С помощью портала нельзя настроить брандмауэр уровня базы данных.
+Пользователям без прав администратора рекомендуется предоставлять доступ к нужным им базам данных только через брандмауэр. Вместо авторизации их IP-адресов с помощью брандмауэра уровня сервера и предоставления им доступа ко всем базам данных используйте инструкцию [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database?view=azure-sqldw-latest&preserve-view=true), чтобы настроить брандмауэр уровня базы данных. С помощью портала нельзя настроить брандмауэр уровня базы данных.
 
 ### <a name="non-administrator-access-path"></a>Путь доступа пользователя без прав администратора
 
@@ -183,9 +183,9 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 При эффективном управлении доступом используются разрешения, назначенные группам и ролям, а не отдельным пользователям.
 
-- При использовании проверки подлинности Azure Active Directory поместите пользователей Azure Active Directory в соответствующую группу. Создайте пользователя автономной базы данных для группы. Поместите одного или нескольких пользователей базы данных в [роль базы данных](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), а затем назначьте [разрешения](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) для этой роли.
+- При использовании проверки подлинности Azure Active Directory поместите пользователей Azure Active Directory в соответствующую группу. Создайте пользователя автономной базы данных для группы. Поместите одного или нескольких пользователей базы данных в [роль базы данных](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true), а затем назначьте [разрешения](/sql/relational-databases/security/permissions-database-engine?view=azure-sqldw-latest&preserve-view=true) для этой роли.
 
-- При использовании проверки подлинности SQL Server создайте пользователей автономной базы данных в базе данных. Поместите одного или нескольких пользователей базы данных в [роль базы данных](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), а затем назначьте [разрешения](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) для этой роли.
+- При использовании проверки подлинности SQL Server создайте пользователей автономной базы данных в базе данных. Поместите одного или нескольких пользователей базы данных в [роль базы данных](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true), а затем назначьте [разрешения](/sql/relational-databases/security/permissions-database-engine?view=azure-sqldw-latest&preserve-view=true) для этой роли.
 
 Роли базы данных могут быть встроенными ролями, например **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** и **db_denydatareader**. Роль **db_owner** обычно используется для предоставления полных прав ограниченному числу пользователей. Другие фиксированные роли можно использовать для быстрого получения простых баз данных при разработке, но их не рекомендуется использовать для большинства рабочих баз данных. 
 
@@ -212,7 +212,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 - Необходимо подключение к базе данных master для выполнения инструкций `CREATE/ALTER/DROP LOGIN` . В то же время использовать имена входа не рекомендуется. Вместо них используйте пользователей автономной базы данных.
 - Для подключения к пользовательской базе данных необходимо указать имя базы данных в строке подключения.
 - Только имя для входа субъекта уровня сервера и участники роли базы данных **loginmanager** в базе данных **master** имеют разрешение на выполнение инструкций `CREATE LOGIN`, `ALTER LOGIN` и `DROP LOGIN`.
-- При выполнении инструкций `CREATE/ALTER/DROP LOGIN` и `CREATE/ALTER/DROP DATABASE` в приложении ADO.NET не разрешается использовать параметризованные команды. Дополнительные сведения можно найти в статье [Команды и параметры](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- При выполнении инструкций `CREATE/ALTER/DROP LOGIN` и `CREATE/ALTER/DROP DATABASE` в приложении ADO.NET не разрешается использовать параметризованные команды. Дополнительные сведения можно найти в статье [Команды и параметры](/dotnet/framework/data/adonet/commands-and-parameters).
 - При выполнении инструкций `CREATE/ALTER/DROP DATABASE` и `CREATE/ALTER/DROP LOGIN` каждая из них должна быть единственной инструкцией в пакете Transact-SQL. В противном случае возникает ошибка. Например, следующая инструкция Transact-SQL проверяет существование базы данных. Если она существует, то вызывается инструкция `DROP DATABASE` для удаления базы данных. Так как инструкция `DROP DATABASE` не является единственной инструкцией в пакете, выполнение этой инструкции Transact-SQL приводит к ошибке.
 
   ```sql
